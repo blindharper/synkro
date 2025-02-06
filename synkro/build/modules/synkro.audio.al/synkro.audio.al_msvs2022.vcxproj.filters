@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="AudioSystem">
+      <UniqueIdentifier>{ea5514ae-f928-43f0-a259-5531aaf47369}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\OpenAL">
+      <UniqueIdentifier>{ddb7c44e-ab56-4b84-9512-7b7ae5a3ef19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\OpenAL\Device">
+      <UniqueIdentifier>{6cf9a7d0-618a-4029-9a0f-460b64320d15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\OpenAL\Buffer">
+      <UniqueIdentifier>{441cc296-a7b9-4464-a327-cf73c064301c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\OpenAL\Emitter">
+      <UniqueIdentifier>{deb0e837-b69a-4952-b2c5-8555ca3dc98e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\OpenAL\Buffer\Chunk">
+      <UniqueIdentifier>{d7a84c32-ec48-4088-b258-5829b0e329c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\OpenAL\Buffer\Sound">
+      <UniqueIdentifier>{72f99b3d-ed4b-4720-a96d-dd3eed5c9be1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\OpenAL\Buffer\Voice">
+      <UniqueIdentifier>{a93cb8ea-35ca-4b0a-b5ed-410715336a95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\OpenAL\Device\Player">
+      <UniqueIdentifier>{6a7e0016-7cd0-4324-ad2c-ca2113f82860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\OpenAL\Device\Recorder">
+      <UniqueIdentifier>{68a521c3-9c02-4511-8de4-89e1814a32df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\OpenAL\System">
+      <UniqueIdentifier>{2c9aa0c8-58a1-4500-b45a-d1a3512e99f7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\audio\Al\Al.h">
+      <Filter>AudioSystem\OpenAL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Al\Alc.h">
+      <Filter>AudioSystem\OpenAL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Al\AlAudioSystem.h">
+      <Filter>AudioSystem\OpenAL\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Al\AlAudioSystemFactory.h">
+      <Filter>AudioSystem\OpenAL\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Al\AlSoundEmitter.h">
+      <Filter>AudioSystem\OpenAL\Emitter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Al\AlSoundListener.h">
+      <Filter>AudioSystem\OpenAL\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Al\AlAudioRecorder.h">
+      <Filter>AudioSystem\OpenAL\Device\Recorder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Al\AlAudioPlayer.h">
+      <Filter>AudioSystem\OpenAL\Device\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Al\AlAudioChunk.h">
+      <Filter>AudioSystem\OpenAL\Buffer\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Al\AlSoundBuffer.h">
+      <Filter>AudioSystem\OpenAL\Buffer\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Al\AlVoiceBuffer.h">
+      <Filter>AudioSystem\OpenAL\Buffer\Voice</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.audio.al\synkro.audio.al.cpp" />
+    <ClCompile Include="..\..\..\src\audio\Al\Al.cpp">
+      <Filter>AudioSystem\OpenAL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Al\Alc.cpp">
+      <Filter>AudioSystem\OpenAL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Al\AlAudioSystem.cpp">
+      <Filter>AudioSystem\OpenAL\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Al\AlSoundEmitter.cpp">
+      <Filter>AudioSystem\OpenAL\Emitter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Al\AlSoundListener.cpp">
+      <Filter>AudioSystem\OpenAL\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Al\AlAudioRecorder.cpp">
+      <Filter>AudioSystem\OpenAL\Device\Recorder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Al\AlAudioPlayer.cpp">
+      <Filter>AudioSystem\OpenAL\Device\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Al\AlAudioChunk.cpp">
+      <Filter>AudioSystem\OpenAL\Buffer\Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Al\AlSoundBuffer.cpp">
+      <Filter>AudioSystem\OpenAL\Buffer\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Al\AlVoiceBuffer.cpp">
+      <Filter>AudioSystem\OpenAL\Buffer\Voice</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.audio.al\factories.inl" />
+    <None Include="..\..\..\src\audio\Al\AlAudioChunk.inl">
+      <Filter>AudioSystem\OpenAL\Buffer\Chunk</Filter>
+    </None>
+  </ItemGroup>
+</Project>

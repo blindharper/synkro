@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "synkro.lng", "languages\synkro.lng\synkro.lng_msvs2022.vcxproj", "{16942C20-125F-4C77-B63B-E55F08F4D03C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		english|x64 = english|x64
+		english|x86 = english|x86
+		russian|x64 = russian|x64
+		russian|x86 = russian|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16942C20-125F-4C77-B63B-E55F08F4D03C}.english|x64.ActiveCfg = english|x64
+		{16942C20-125F-4C77-B63B-E55F08F4D03C}.english|x64.Build.0 = english|x64
+		{16942C20-125F-4C77-B63B-E55F08F4D03C}.english|x86.ActiveCfg = english|Win32
+		{16942C20-125F-4C77-B63B-E55F08F4D03C}.english|x86.Build.0 = english|Win32
+		{16942C20-125F-4C77-B63B-E55F08F4D03C}.russian|x64.ActiveCfg = russian|x64
+		{16942C20-125F-4C77-B63B-E55F08F4D03C}.russian|x64.Build.0 = russian|x64
+		{16942C20-125F-4C77-B63B-E55F08F4D03C}.russian|x86.ActiveCfg = russian|x86
+		{16942C20-125F-4C77-B63B-E55F08F4D03C}.russian|x86.Build.0 = russian|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C5B073B-10D1-4E48-B6FB-4FAE10E38564}
+	EndGlobalSection
+EndGlobal

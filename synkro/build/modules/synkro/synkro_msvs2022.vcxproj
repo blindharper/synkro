@@ -1,0 +1,3001 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug_static|Win32">
+      <Configuration>debug_static</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="debug_static|x64">
+      <Configuration>debug_static</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="debug|Win32">
+      <Configuration>debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="perf_static|Win32">
+      <Configuration>perf_static</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="perf_static|x64">
+      <Configuration>perf_static</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="perf|Win32">
+      <Configuration>perf</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="perf|x64">
+      <Configuration>perf</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release_static|Win32">
+      <Configuration>release_static</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release_static|x64">
+      <Configuration>release_static</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|Win32">
+      <Configuration>release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>synkro</ProjectName>
+    <ProjectGuid>{E28EF5AA-43DF-4C6D-B372-C03CA9630D58}</ProjectGuid>
+    <RootNamespace>synkro</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='perf|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">../../../bin/win32\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">../../../lib/win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">../../../obj/win32/$(Configuration)/$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">../../../obj/win32/$(Configuration)/$(ProjectName)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='release|Win32'">../../../bin/win32\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">../../../lib/win32\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">../../../lib/win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='release|Win32'">../../../obj/win32/$(Configuration)/$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">../../../obj/win32/$(Configuration)/$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">../../../obj/win32/$(Configuration)/$(ProjectName)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='release|Win32'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">../../../bin/win32\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">../../../obj/win32/$(Configuration)/$(ProjectName)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='perf|x64'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='debug|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='debug|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='perf|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='perf|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='perf|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='perf|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='perf|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='release|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='release|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">synkro_debug</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">synkro_debug</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">$(ProjectName)_debug</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">synkro_debug</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">$(ProjectName)_perf</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">synkro_perf</TargetName>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">../../../inc;../../../src;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='debug|x64'">../../../inc;../../../src;$(IncludePath)</IncludePath>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">synkro_perf</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">synkro_perf</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
+    <IncludePath>../../../inc;../../../src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <IncludePath>../../../inc;../../../src;$(IncludePath)</IncludePath>
+    <OutDir>../../../bin/win64\</OutDir>
+    <IntDir>../../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">
+    <IncludePath>../../../inc;../../../src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'">
+    <IncludePath>../../../inc;../../../src;$(IncludePath)</IncludePath>
+    <OutDir>../../../bin/win64\</OutDir>
+    <IntDir>../../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <OutDir>../../../bin/win64\</OutDir>
+    <IntDir>../../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">
+    <IncludePath>../../../inc;../../../src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">
+    <IncludePath>../../../inc;../../../src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">
+    <OutDir>../../../lib/win64\</OutDir>
+    <IntDir>../../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+    <IncludePath>../../../inc;../../../src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">
+    <OutDir>../../../lib/win64\</OutDir>
+    <IntDir>../../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+    <IncludePath>../../../inc;../../../src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">
+    <IncludePath>../../../inc;../../../src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">
+    <OutDir>../../../lib/win64\</OutDir>
+    <IntDir>../../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+    <IncludePath>../../../inc;../../../src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../../src;../../../src/internal;../../../src/external;../../../inc;../../../modules/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;_DEBUG;_WINDOWS;_USRDLL;SYNKRO_EXPORTS;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)synkro_debug.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win32/external;../../../bin/win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalManifestDependencies>%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)synkro_debug.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../../modules/synkro/synkro_x86.dll.manifest %(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>del "$(OutDir)$(TargetName).exp"
+del "$(OutDir)$(TargetName).ilk"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../../src;../../../src/internal;../../../src/external;../../../inc;../../../modules/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;UNICODE;_DEBUG;_WINDOWS;_USRDLL;SYNKRO_EXPORTS;SYNKRO_PERF;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)synkro_debug.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win64/external;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalManifestDependencies>%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)synkro_debug.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../../modules/synkro/synkro_x64.dll.manifest %(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>del "$(OutDir)$(TargetName).exp"
+del "$(OutDir)$(TargetName).ilk"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../../src;../../../src/internal;../../../src/external;../../../inc;../../../modules/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;_DEBUG;_WINDOWS;SYNKRO_EXPORTS;SYNKRO_STATIC;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)synkro_debug.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win32;../../../bin/win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalManifestDependencies>%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)synkro_debug.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../../modules/synkro/synkro_x86.dll.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../../src;../../../src/internal;../../../src/external;../../../inc;../../../modules/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;_DEBUG;_WINDOWS;SYNKRO_EXPORTS;SYNKRO_PERF;SYNKRO_STATIC;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)synkro_debug.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win32;../../../bin/win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalManifestDependencies>%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)synkro_debug.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../../modules/synkro/synkro_x64.dll.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../src;../../../src/internal;../../../src/external;../../../inc;../../../modules/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;NDEBUG;_WINDOWS;_USRDLL;SYNKRO_EXPORTS;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win32/external;../../../bin/win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../../modules/synkro/synkro_x86.dll.manifest %(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>del "$(OutDir)$(TargetName).exp"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../src;../../../src/internal;../../../src/external;../../../inc;../../../modules/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;UNICODE;NDEBUG;_WINDOWS;_USRDLL;SYNKRO_EXPORTS;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win64/external;../../../bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../../modules/synkro/synkro_x64.dll.manifest %(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>del "$(OutDir)$(TargetName).exp"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../src;../../../src/internal;../../../src/external;../../../inc;../../../modules/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;NDEBUG;_WINDOWS;SYNKRO_EXPORTS;SYNKRO_STATIC;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win32;../../../bin/win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../../modules/synkro/synkro_x86.dll.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../src;../../../src/internal;../../../src/external;../../../inc;../../../modules/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;NDEBUG;_WINDOWS;SYNKRO_EXPORTS;SYNKRO_STATIC;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win32;../../../bin/win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../../modules/synkro/synkro_x64.dll.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../src;../../../src/internal;../../../src/external;../../../inc;../../../modules/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;NDEBUG;_WINDOWS;SYNKRO_EXPORTS;SYNKRO_STATIC;SYNKRO_PERF;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win32;../../../bin/win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../../modules/synkro/synkro_x86.dll.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../src;../../../src/internal;../../../src/external;../../../inc;../../../modules/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;NDEBUG;_WINDOWS;SYNKRO_EXPORTS;SYNKRO_STATIC;SYNKRO_PERF;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win32;../../../bin/win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../../modules/synkro/synkro_x64.dll.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../src;../../../src/internal;../../../src/external;../../../inc;../../../modules/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;NDEBUG;_WINDOWS;_USRDLL;SYNKRO_EXPORTS;SYNKRO_PERF;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)synkro_perf.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win32/external;../../../bin/win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../../modules/synkro/synkro_x86.dll.manifest %(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>del "$(OutDir)$(TargetName).exp"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../src;../../../src/internal;../../../src/external;../../../inc;../../../modules/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;NDEBUG;_WINDOWS;_USRDLL;SYNKRO_EXPORTS;SYNKRO_PERF;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)synkro_perf.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win64/external;../../../bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../../modules/synkro/synkro_x64.dll.manifest %(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>del "$(OutDir)$(TargetName).exp"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\inc\anim\AnimationCodec.h" />
+    <ClInclude Include="..\..\..\inc\anim\AnimationDataType.h" />
+    <ClInclude Include="..\..\..\inc\anim\AnimationDirection.h" />
+    <ClInclude Include="..\..\..\inc\anim\AnimationListener.h" />
+    <ClInclude Include="..\..\..\inc\anim\ExpressionException.h" />
+    <ClInclude Include="..\..\..\inc\anim\ExpressionParam.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationBoolTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationCodec.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationCodecFactory.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationColorGradientTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationColorTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationFloatRectTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationFloatTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationIntTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationMatrix4x4Track.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationPointTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationQuaternionTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationRangeTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationRectTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationSet.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationSizeTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationVector3Track.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionBoolTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionColorGradientTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionColorTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionFloatRectTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionFloatTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionIntTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionMatrix4x4Track.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionPointTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionQuaternionTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionRangeTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionRectTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionScript.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionSizeTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IExpressionVector3Track.h" />
+    <ClInclude Include="..\..\..\inc\anim\IKeyframedBoolTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IKeyframedColorGradientTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IKeyframedColorTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IKeyframedFloatRectTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IKeyframedFloatTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IKeyframedIntTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IKeyframedMatrix4x4Track.h" />
+    <ClInclude Include="..\..\..\inc\anim\IKeyframedPointTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IKeyframedQuaternionTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IKeyframedRangeTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IKeyframedRectTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IKeyframedSizeTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IKeyframedVector3Track.h" />
+    <ClInclude Include="..\..\..\inc\anim\INoiseFloatTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\Interpolation.h" />
+    <ClInclude Include="..\..\..\inc\anim\IPlaybackAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\anim\IProceduralBoolTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IProceduralColorGradientTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IProceduralColorTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IProceduralFloatRectTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IProceduralFloatTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IProceduralIntTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IProceduralMatrix4x4Track.h" />
+    <ClInclude Include="..\..\..\inc\anim\IProceduralPointTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IProceduralQuaternionTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IProceduralRangeTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IProceduralRectTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IProceduralSizeTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IProceduralVector3Track.h" />
+    <ClInclude Include="..\..\..\inc\anim\IRecordAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\anim\IWaveFloatTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\ProcedureType.h" />
+    <ClInclude Include="..\..\..\inc\anim\WaveType.h" />
+    <ClInclude Include="..\..\..\inc\audio\IAudioBuffer.h" />
+    <ClInclude Include="..\..\..\inc\audio\IAudioChunk.h" />
+    <ClInclude Include="..\..\..\inc\audio\IAudioEnvironment.h" />
+    <ClInclude Include="..\..\..\inc\audio\IAudioPlayer.h" />
+    <ClInclude Include="..\..\..\inc\audio\IAudioRecorder.h" />
+    <ClInclude Include="..\..\..\inc\audio\ISoundBuffer.h" />
+    <ClInclude Include="..\..\..\inc\audio\ISoundEmitter.h" />
+    <ClInclude Include="..\..\..\inc\audio\ISoundListener.h" />
+    <ClInclude Include="..\..\..\inc\audio\IVoiceBuffer.h" />
+    <ClInclude Include="..\..\..\inc\audio\PlayerDesc.h" />
+    <ClInclude Include="..\..\..\inc\audio\RecorderDesc.h" />
+    <ClInclude Include="..\..\..\inc\cfg\ConfigWindows.h" />
+    <ClInclude Include="..\..\..\inc\cfg\Interfaces.h" />
+    <ClInclude Include="..\..\..\inc\cons\cons.h" />
+    <ClInclude Include="..\..\..\inc\cons\IConsole.h" />
+    <ClInclude Include="..\..\..\inc\cons\IConsoleCommand.h" />
+    <ClInclude Include="..\..\..\inc\cons\IConsoleCommandFactory.h" />
+    <ClInclude Include="..\..\..\inc\core\ConfigurationException.h" />
+    <ClInclude Include="..\..\..\inc\core\ControllerState.h" />
+    <ClInclude Include="..\..\..\inc\core\DataMode.h" />
+    <ClInclude Include="..\..\..\inc\core\IConstraint.h" />
+    <ClInclude Include="..\..\..\inc\core\IContext.h" />
+    <ClInclude Include="..\..\..\inc\core\IContextEx.h" />
+    <ClInclude Include="..\..\..\inc\core\Iface.h" />
+    <ClInclude Include="..\..\..\inc\core\ILibrary.h" />
+    <ClInclude Include="..\..\..\inc\core\INodeList.h" />
+    <ClInclude Include="..\..\..\inc\core\IStringList.h" />
+    <ClInclude Include="..\..\..\inc\core\ITriangleMeshList.h" />
+    <ClInclude Include="..\..\..\inc\core\Language.h" />
+    <ClInclude Include="..\..\..\inc\core\ProgressListener.h" />
+    <ClInclude Include="..\..\..\inc\core\SynkroListener.h" />
+    <ClInclude Include="..\..\..\inc\core\Task.h" />
+    <ClInclude Include="..\..\..\inc\core\TimerListener.h" />
+    <ClInclude Include="..\..\..\inc\core\Version.h" />
+    <ClInclude Include="..\..\..\inc\db\CombinationType.h" />
+    <ClInclude Include="..\..\..\inc\db\ComparisonType.h" />
+    <ClInclude Include="..\..\..\inc\db\DatabaseException.h" />
+    <ClInclude Include="..\..\..\inc\db\DatabaseSystem.h" />
+    <ClInclude Include="..\..\..\inc\db\db.h" />
+    <ClInclude Include="..\..\..\inc\db\IDatabase.h" />
+    <ClInclude Include="..\..\..\inc\db\IDatabaseQuery.h" />
+    <ClInclude Include="..\..\..\inc\db\IDatabaseSystem.h" />
+    <ClInclude Include="..\..\..\inc\db\IDatabaseSystemEx.h" />
+    <ClInclude Include="..\..\..\inc\db\IDatabaseSystemFactory.h" />
+    <ClInclude Include="..\..\..\inc\db\IDataCursor.h" />
+    <ClInclude Include="..\..\..\inc\db\IDataFilter.h" />
+    <ClInclude Include="..\..\..\inc\db\IDataTable.h" />
+    <ClInclude Include="..\..\..\inc\db\IDeleteQuery.h" />
+    <ClInclude Include="..\..\..\inc\db\IInsertQuery.h" />
+    <ClInclude Include="..\..\..\inc\db\ISelectQuery.h" />
+    <ClInclude Include="..\..\..\inc\db\ITableIndex.h" />
+    <ClInclude Include="..\..\..\inc\db\IUpdateQuery.h" />
+    <ClInclude Include="..\..\..\inc\db\SortOrder.h" />
+    <ClInclude Include="..\..\..\inc\db\TableColumn.h" />
+    <ClInclude Include="..\..\..\inc\diag\LogFacility.h" />
+    <ClInclude Include="..\..\..\inc\diag\LogListener.h" />
+    <ClInclude Include="..\..\..\inc\gfx\Aspect.h" />
+    <ClInclude Include="..\..\..\inc\gfx\CompareFunction.h" />
+    <ClInclude Include="..\..\..\inc\gfx\DataAccess.h" />
+    <ClInclude Include="..\..\..\inc\gfx\DataStream.h" />
+    <ClInclude Include="..\..\..\inc\gfx\DisplayModeFormat.h" />
+    <ClInclude Include="..\..\..\inc\gfx\GraphicsDeviceDesc.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IBlendStateSet.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IBuffer.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ICubeDepthTexture.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ICubeRenderMap.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IDataBuffer.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IDataBufferSet.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IDataFormatEx.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IDataStream.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IDepthStencilState.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IGraphicsDeviceEx.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ILineRenderObject.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ILineRenderQueue.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IOverlayRenderObject.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IOverlayRenderQueue.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IPlainDepthTexture.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IPlainRenderMap.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IPostProcessRenderObject.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IPostProcessRenderQueue.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IRect.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IRenderMap.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IRenderObject.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IRenderState.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IRenderView.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ISceneRenderObject.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ISceneRenderQueue.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ISkyRenderObject.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IStructuredBuffer.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ITypedBuffer.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IVirtualRenderWindow.h" />
+    <ClInclude Include="..\..\..\inc\gfx\MapMode.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ProgramStageType.h" />
+    <ClInclude Include="..\..\..\inc\gfx\RenderViewStats.h" />
+    <ClInclude Include="..\..\..\inc\img\ImageCodecContext.h" />
+    <ClInclude Include="..\..\..\inc\input\ArcballListener.h" />
+    <ClInclude Include="..\..\..\inc\input\JoystickListener.h" />
+    <ClInclude Include="..\..\..\inc\input\KeyboardListener.h" />
+    <ClInclude Include="..\..\..\inc\input\MouseListener.h" />
+    <ClInclude Include="..\..\..\inc\lang\DivisionByZeroException.h" />
+    <ClInclude Include="..\..\..\inc\lang\Formattable.h" />
+    <ClInclude Include="..\..\..\inc\lang\Formatter.h" />
+    <ClInclude Include="..\..\..\inc\mat\IMaterialMap.h" />
+    <ClInclude Include="..\..\..\inc\mat\IOpaqueMaterial.h" />
+    <ClInclude Include="..\..\..\inc\mat\ISimpleMaterialAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\mat\ITransparentMaterial.h" />
+    <ClInclude Include="..\..\..\inc\mat\ITransparentMaterialAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\mat\IVisualMaterialAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\mem\MemoryStats.h" />
+    <ClInclude Include="..\..\..\inc\net\INetworkDevice.h" />
+    <ClInclude Include="..\..\..\inc\net\INetworkDeviceEx.h" />
+    <ClInclude Include="..\..\..\inc\net\INetworkPeer.h" />
+    <ClInclude Include="..\..\..\inc\net\INetworkSystem.h" />
+    <ClInclude Include="..\..\..\inc\net\INetworkSystemEx.h" />
+    <ClInclude Include="..\..\..\inc\net\INetworkSystemFactory.h" />
+    <ClInclude Include="..\..\..\inc\net\net.h" />
+    <ClInclude Include="..\..\..\inc\net\NetworkAddress.h" />
+    <ClInclude Include="..\..\..\inc\net\NetworkDeviceDesc.h" />
+    <ClInclude Include="..\..\..\inc\net\NetworkException.h" />
+    <ClInclude Include="..\..\..\inc\net\NetworkListener.h" />
+    <ClInclude Include="..\..\..\inc\net\NetworkMessage.h" />
+    <ClInclude Include="..\..\..\inc\net\NetworkSystem.h" />
+    <ClInclude Include="..\..\..\inc\over\ITextAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\over\ITextPoolAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\ColorMode.h" />
+    <ClInclude Include="..\..\..\inc\scene\DebugMode.h" />
+    <ClInclude Include="..\..\..\inc\scene\FogType.h" />
+    <ClInclude Include="..\..\..\inc\scene\IConeLight.h" />
+    <ClInclude Include="..\..\..\inc\scene\IConeLightAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\IConeSound.h" />
+    <ClInclude Include="..\..\..\inc\scene\IDirectLight.h" />
+    <ClInclude Include="..\..\..\inc\scene\IFogAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\ILineMesh.h" />
+    <ClInclude Include="..\..\..\inc\scene\ILineMeshBatch.h" />
+    <ClInclude Include="..\..\..\inc\scene\ILineSetAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\IMeshBatchAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\IOmniLight.h" />
+    <ClInclude Include="..\..\..\inc\scene\IOmniLightAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\IOmniSound.h" />
+    <ClInclude Include="..\..\..\inc\scene\IPointSetAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\ISceneAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\ISceneEx.h" />
+    <ClInclude Include="..\..\..\inc\scene\ISceneFactory.h" />
+    <ClInclude Include="..\..\..\inc\scene\ISkeletonAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\ITriangleMesh.h" />
+    <ClInclude Include="..\..\..\inc\scene\ITriangleMeshBatch.h" />
+    <ClInclude Include="..\..\..\inc\scene\SceneType.h" />
+    <ClInclude Include="..\..\..\inc\script\IScriptMachine.h" />
+    <ClInclude Include="..\..\..\inc\script\IScriptObject.h" />
+    <ClInclude Include="..\..\..\inc\script\IScriptSystem.h" />
+    <ClInclude Include="..\..\..\inc\script\IScriptSystemEx.h" />
+    <ClInclude Include="..\..\..\inc\script\IScriptSystemFactory.h" />
+    <ClInclude Include="..\..\..\inc\script\script.h" />
+    <ClInclude Include="..\..\..\inc\script\ScriptException.h" />
+    <ClInclude Include="..\..\..\inc\script\ScriptMethod.h" />
+    <ClInclude Include="..\..\..\inc\script\ScriptParam.h" />
+    <ClInclude Include="..\..\..\inc\script\ScriptParamType.h" />
+    <ClInclude Include="..\..\..\inc\script\ScriptSystem.h" />
+    <ClInclude Include="..\..\..\inc\sound\IMusicAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\sound\ISound2D.h" />
+    <ClInclude Include="..\..\..\inc\synkro.h" />
+    <ClInclude Include="..\..\..\inc\synkrostatic.h" />
+    <ClInclude Include="..\..\..\inc\ui\Anchor.h" />
+    <ClInclude Include="..\..\..\inc\ui\IAccordion.h" />
+    <ClInclude Include="..\..\..\inc\ui\IAngle.h" />
+    <ClInclude Include="..\..\..\inc\ui\UiListener.h" />
+    <ClInclude Include="..\..\..\inc\ui\UiType.h" />
+    <ClInclude Include="..\..\..\inc\ui\HotKey.h" />
+    <ClInclude Include="..\..\..\inc\ui\IUiEx.h" />
+    <ClInclude Include="..\..\..\inc\ui\IUiFactory.h" />
+    <ClInclude Include="..\..\..\inc\ui\IOption.h" />
+    <ClInclude Include="..\..\..\inc\ui\ISwitch.h" />
+    <ClInclude Include="..\..\..\inc\ui\ITheme.h" />
+    <ClInclude Include="..\..\..\inc\ui\ThemeName.h" />
+    <ClInclude Include="..\..\..\inc\ui\WidgetState.h" />
+    <ClInclude Include="..\..\..\inc\img\ColorGradient.h" />
+    <ClInclude Include="..\..\..\inc\img\ImageStats.h" />
+    <ClInclude Include="..\..\..\inc\img\PixelChannel.h" />
+    <ClInclude Include="..\..\..\inc\input\IJoystickEx.h" />
+    <ClInclude Include="..\..\..\inc\input\IKeyboardEx.h" />
+    <ClInclude Include="..\..\..\inc\input\IMouseEx.h" />
+    <ClInclude Include="..\..\..\inc\input\JoystickDesc.h" />
+    <ClInclude Include="..\..\..\inc\input\KeyboardDesc.h" />
+    <ClInclude Include="..\..\..\inc\input\KeyboardState.h" />
+    <ClInclude Include="..\..\..\inc\input\MouseDesc.h" />
+    <ClInclude Include="..\..\..\inc\io\AccessMode.h" />
+    <ClInclude Include="..\..\..\inc\lang\DataType.h" />
+    <ClInclude Include="..\..\..\inc\lang\GradientType.h" />
+    <ClInclude Include="..\..\..\inc\lang\NullReferenceException.h" />
+    <ClInclude Include="..\..\..\inc\lang\OutOfRangeException.h" />
+    <ClInclude Include="..\..\..\inc\lang\PointF.h" />
+    <ClInclude Include="..\..\..\inc\lang\Range.h" />
+    <ClInclude Include="..\..\..\inc\lang\RectF.h" />
+    <ClInclude Include="..\..\..\inc\lang\Variant.h" />
+    <ClInclude Include="..\..\..\inc\lang\VariantEx.h" />
+    <ClInclude Include="..\..\..\inc\lang\Volume.h" />
+    <ClInclude Include="..\..\..\inc\mat\IMaterialManager.h" />
+    <ClInclude Include="..\..\..\inc\mat\IMultiMaterial.h" />
+    <ClInclude Include="..\..\..\inc\mat\ISimpleMaterial.h" />
+    <ClInclude Include="..\..\..\inc\mat\IVisualMaterial.h" />
+    <ClInclude Include="..\..\..\inc\mat\LightingModel.h" />
+    <ClInclude Include="..\..\..\inc\mat\mat.h" />
+    <ClInclude Include="..\..\..\inc\over\IOverlayManager.h" />
+    <ClInclude Include="..\..\..\inc\over\IPolyLine.h" />
+    <ClInclude Include="..\..\..\inc\over\IQuad.h" />
+    <ClInclude Include="..\..\..\inc\over\ISpriteAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\over\ISpritePool.h" />
+    <ClInclude Include="..\..\..\inc\over\ITextPool.h" />
+    <ClInclude Include="..\..\..\inc\scene\Attenuation.h" />
+    <ClInclude Include="..\..\..\inc\scene\IBone.h" />
+    <ClInclude Include="..\..\..\inc\scene\ICameraAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\ICameraRecordController.h" />
+    <ClInclude Include="..\..\..\inc\scene\ICurve.h" />
+    <ClInclude Include="..\..\..\inc\scene\IFog.h" />
+    <ClInclude Include="..\..\..\inc\scene\ILightAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\ILineSet.h" />
+    <ClInclude Include="..\..\..\inc\scene\ILookAtConstraint.h" />
+    <ClInclude Include="..\..\..\inc\scene\IMeshBuilder.h" />
+    <ClInclude Include="..\..\..\inc\scene\IMeshBuilderFactory.h" />
+    <ClInclude Include="..\..\..\inc\scene\INodeAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\INodeRecordController.h" />
+    <ClInclude Include="..\..\..\inc\scene\IParentConstraint.h" />
+    <ClInclude Include="..\..\..\inc\scene\IPointMesh.h" />
+    <ClInclude Include="..\..\..\inc\scene\IPointMeshBatch.h" />
+    <ClInclude Include="..\..\..\inc\scene\IPointSet.h" />
+    <ClInclude Include="..\..\..\inc\scene\IPrimitiveAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\ISceneManager.h" />
+    <ClInclude Include="..\..\..\inc\scene\ISkeleton.h" />
+    <ClInclude Include="..\..\..\inc\scene\ISound.h" />
+    <ClInclude Include="..\..\..\inc\scene\ISoundAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\scene\ITriangleSet.h" />
+    <ClInclude Include="..\..\..\inc\scene\MeshBuilder.h" />
+    <ClInclude Include="..\..\..\inc\sound\ISound3D.h" />
+    <ClInclude Include="..\..\..\inc\sound\SoundChannel.h" />
+    <ClInclude Include="..\..\..\inc\view\IColorFilter.h" />
+    <ClInclude Include="..\..\..\inc\view\IColorFilterAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\view\IDepthFilter.h" />
+    <ClInclude Include="..\..\..\inc\view\IDepthMap.h" />
+    <ClInclude Include="..\..\..\inc\view\IDepthOfFieldFilter.h" />
+    <ClInclude Include="..\..\..\inc\view\IEmbossFilter.h" />
+    <ClInclude Include="..\..\..\inc\view\IEmbossFilterAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\view\IFogFilter.h" />
+    <ClInclude Include="..\..\..\inc\view\IFogFilterAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\view\IKernel3x3Filter.h" />
+    <ClInclude Include="..\..\..\inc\view\IKernel3x3FilterAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\view\ILightFilter.h" />
+    <ClInclude Include="..\..\..\inc\view\IMotionBlurFilter.h" />
+    <ClInclude Include="..\..\..\inc\view\ISimpleFilter.h" />
+    <ClInclude Include="..\..\..\inc\view\ISimpleFilterAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\view\IViewport.h" />
+    <ClInclude Include="..\..\..\inc\view\IViewportAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\view\IViewportFilter.h" />
+    <ClInclude Include="..\..\..\inc\view\IViewportFilterAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\view\IViewportFilterFactory.h" />
+    <ClInclude Include="..\..\..\inc\view\IViewportManager.h" />
+    <ClInclude Include="..\..\..\inc\view\IViewportTransitionController.h" />
+    <ClInclude Include="..\..\..\inc\view\StereoMode.h" />
+    <ClInclude Include="..\..\..\inc\view\TransitionEffect.h" />
+    <ClInclude Include="..\..\..\inc\view\view.h" />
+    <ClInclude Include="..\..\..\inc\view\ViewMode.h" />
+    <ClInclude Include="..\..\..\inc\view\ViewportFilter.h" />
+    <ClInclude Include="..\..\..\inc\view\ViewportListener.h" />
+    <ClInclude Include="..\..\..\inc\win\IFrameWindowEx.h" />
+    <ClInclude Include="..\..\..\inc\win\IMonitor.h" />
+    <ClInclude Include="..\..\..\inc\win\IViewWindowEx.h" />
+    <ClInclude Include="..\..\..\inc\win\MonitorOrientation.h" />
+    <ClInclude Include="..\..\..\inc\win\WindowListener.h" />
+    <ClInclude Include="..\..\..\src\anim\AnimationCodec\AnimationCodecImpl.h" />
+    <ClInclude Include="..\..\..\src\anim\AnimationDataTypeConst.h" />
+    <ClInclude Include="..\..\..\src\anim\AnimationModeConst.h" />
+    <ClInclude Include="..\..\..\src\anim\AnimationSet.h" />
+    <ClInclude Include="..\..\..\src\anim\AnimationTrackImpl.h" />
+    <ClInclude Include="..\..\..\src\anim\AnimationTrack\ProceduralTrackImpl.h" />
+    <ClInclude Include="..\..\..\src\anim\AnimationTrack\WaveTypeConst.h" />
+    <ClInclude Include="..\..\..\src\anim\BaseAnimationController.h" />
+    <ClInclude Include="..\..\..\src\anim\BaseAnimationSystem.h" />
+    <ClInclude Include="..\..\..\src\anim\InterpolationConst.h" />
+    <ClInclude Include="..\..\..\src\anim\KeyframedTrackImpl.h" />
+    <ClInclude Include="..\..\..\src\anim\PlaybackControllerImpl.h" />
+    <ClInclude Include="..\..\..\src\anim\RecordControllerImpl.h" />
+    <ClInclude Include="..\..\..\src\anim\Task\SaveAnimationTask.h" />
+    <ClInclude Include="..\..\..\src\audio\AudioBufferImpl.h" />
+    <ClInclude Include="..\..\..\src\audio\AudioChunk.h" />
+    <ClInclude Include="..\..\..\src\audio\AudioChunkImpl.h" />
+    <ClInclude Include="..\..\..\src\audio\AudioEnvironment.h" />
+    <ClInclude Include="..\..\..\src\audio\AudioPlayer.h" />
+    <ClInclude Include="..\..\..\src\audio\AudioPlayerImpl.h" />
+    <ClInclude Include="..\..\..\src\audio\AudioRecorder.h" />
+    <ClInclude Include="..\..\..\src\audio\AudioRecorderImpl.h" />
+    <ClInclude Include="..\..\..\src\audio\BaseAudioPlayer.h" />
+    <ClInclude Include="..\..\..\src\audio\BaseAudioRecorder.h" />
+    <ClInclude Include="..\..\..\src\audio\SoundBuffer.h" />
+    <ClInclude Include="..\..\..\src\audio\SoundBufferImpl.h" />
+    <ClInclude Include="..\..\..\src\audio\SoundEmitter.h" />
+    <ClInclude Include="..\..\..\src\audio\SoundEmitterImpl.h" />
+    <ClInclude Include="..\..\..\src\audio\SoundListener.h" />
+    <ClInclude Include="..\..\..\src\audio\SoundListenerImpl.h" />
+    <ClInclude Include="..\..\..\src\audio\VoiceBuffer.h" />
+    <ClInclude Include="..\..\..\src\audio\VoiceBufferImpl.h" />
+    <ClInclude Include="..\..\..\src\cons\BaseConsole.h" />
+    <ClInclude Include="..\..\..\src\cons\Console.h" />
+    <ClInclude Include="..\..\..\src\core\BaseFactory.h" />
+    <ClInclude Include="..\..\..\src\core\BaseResource.h" />
+    <ClInclude Include="..\..\..\src\core\ConfigurationBanner.h" />
+    <ClInclude Include="..\..\..\src\core\ConfigurationEditor.h" />
+    <ClInclude Include="..\..\..\src\core\ConfigurationScene\ConfigurationScene.h" />
+    <ClInclude Include="..\..\..\src\core\ConfigurationScene\PointMeshConfigurationScene.h" />
+    <ClInclude Include="..\..\..\src\core\ConfigurationScene\ProjectorsConfigurationScene.h" />
+    <ClInclude Include="..\..\..\src\core\ConfigurationScene\RubikCubeConfigurationScene.h" />
+    <ClInclude Include="..\..\..\src\core\ConfigurationScene\TesseractConfigurationScene.h" />
+    <ClInclude Include="..\..\..\src\core\ConstraintImpl.h" />
+    <ClInclude Include="..\..\..\src\core\ControllerStateConst.h" />
+    <ClInclude Include="..\..\..\src\core\FactoryList.h" />
+    <ClInclude Include="..\..\..\src\core\FactoryTable.h" />
+    <ClInclude Include="..\..\..\src\core\List\NodeList.h" />
+    <ClInclude Include="..\..\..\src\core\List\StringList.h" />
+    <ClInclude Include="..\..\..\src\core\List\TriangleMeshList.h" />
+    <ClInclude Include="..\..\..\src\core\ParamTypeConst.h" />
+    <ClInclude Include="..\..\..\src\core\PlainLogFile.h" />
+    <ClInclude Include="..\..\..\src\core\Resource.h" />
+    <ClInclude Include="..\..\..\src\core\ResourceList.h" />
+    <ClInclude Include="..\..\..\src\core\ResourceReader.h" />
+    <ClInclude Include="..\..\..\src\core\ResourceTable.h" />
+    <ClInclude Include="..\..\..\src\core\RichLogFile.h" />
+    <ClInclude Include="..\..\..\src\core\Win32\Win32ConfigurationEditor.h" />
+    <ClInclude Include="..\..\..\src\core\Win32\Win32ExceptionHandler.h" />
+    <ClInclude Include="..\..\..\src\db\BaseDatabase.h" />
+    <ClInclude Include="..\..\..\src\db\BaseDatabaseQuery.h" />
+    <ClInclude Include="..\..\..\src\db\BaseDatabaseQueryImpl.h" />
+    <ClInclude Include="..\..\..\src\db\BaseDataTable.h" />
+    <ClInclude Include="..\..\..\src\db\Database.h" />
+    <ClInclude Include="..\..\..\src\db\DatabaseImpl.h" />
+    <ClInclude Include="..\..\..\src\db\DatabaseQueryImpl.h" />
+    <ClInclude Include="..\..\..\src\db\DatabaseSystemEx.h" />
+    <ClInclude Include="..\..\..\src\db\DataCursor.h" />
+    <ClInclude Include="..\..\..\src\db\DataCursorImpl.h" />
+    <ClInclude Include="..\..\..\src\db\DataFilter.h" />
+    <ClInclude Include="..\..\..\src\db\DataTable.h" />
+    <ClInclude Include="..\..\..\src\db\DataTableImpl.h" />
+    <ClInclude Include="..\..\..\src\db\DeleteQuery.h" />
+    <ClInclude Include="..\..\..\src\db\DeleteQueryImpl.h" />
+    <ClInclude Include="..\..\..\src\db\InsertQuery.h" />
+    <ClInclude Include="..\..\..\src\db\InsertQueryImpl.h" />
+    <ClInclude Include="..\..\..\src\db\SelectQuery.h" />
+    <ClInclude Include="..\..\..\src\db\SelectQueryImpl.h" />
+    <ClInclude Include="..\..\..\src\db\TableIndex.h" />
+    <ClInclude Include="..\..\..\src\db\TableIndexImpl.h" />
+    <ClInclude Include="..\..\..\src\db\UpdateQuery.h" />
+    <ClInclude Include="..\..\..\src\db\UpdateQueryImpl.h" />
+    <ClInclude Include="..\..\..\src\diag\BaseLog.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\AbsFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\BaseExpressionScript.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\BinaryExpression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\BinaryOperatorType.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\CeilFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ColorExpression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ColorFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ComplexExpression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\Constant.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ConstantExpression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ControlExpression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\CosFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ExpFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\Expression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ExpressionCompiler.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ExpressionList.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ExpressionParamEx.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ExpressionScript.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ExpressionStatement.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ExpressionTrackImpl.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ExpressionType.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\FloatExpression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\FloatFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\FloorFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\Function.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\FunctionExpression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\Identifier.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\IdentifierType.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\KeywordType.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\LerpFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\Matrix4x4Expression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\Matrix4x4Function.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\MaxFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\MetaExpression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\MinFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ParseMode.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\PowFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ReturnExpression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\ReturnStatement.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\SignFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\SimpleExpression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\SinFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\SqrtFunction.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\Token.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\TokenExpression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\TokenType.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\UnaryExpression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\UnaryOperatorType.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\Variable.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\VariableDeclaration.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\VariableExpression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\Vector3Expression.h" />
+    <ClInclude Include="..\..\..\src\anim\Expression\Vector3Function.h" />
+    <ClInclude Include="..\..\..\src\external\stream.h" />
+    <ClInclude Include="..\..\..\src\gfx\AspectConst.h" />
+    <ClInclude Include="..\..\..\src\gfx\BaseRenderMap.h" />
+    <ClInclude Include="..\..\..\src\gfx\BlendStateEx.h" />
+    <ClInclude Include="..\..\..\src\gfx\BlendStateSet.h" />
+    <ClInclude Include="..\..\..\src\gfx\BlendStateSetImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\BufferImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\CubeDepthTexture.h" />
+    <ClInclude Include="..\..\..\src\gfx\CubeDepthTextureImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\CubeRenderMap.h" />
+    <ClInclude Include="..\..\..\src\gfx\DataBufferImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\DataBufferSetImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\DataStreamImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\DataStreamWriter.h" />
+    <ClInclude Include="..\..\..\src\gfx\DepthStencilState.h" />
+    <ClInclude Include="..\..\..\src\gfx\DepthStencilStateImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\DisplayModeFormatConst.h" />
+    <ClInclude Include="..\..\..\src\gfx\LineRenderObject.h" />
+    <ClInclude Include="..\..\..\src\gfx\LineRenderQueue.h" />
+    <ClInclude Include="..\..\..\src\gfx\Ndc.h" />
+    <ClInclude Include="..\..\..\src\gfx\OverlayRenderMap.h" />
+    <ClInclude Include="..\..\..\src\gfx\OverlayRenderObject.h" />
+    <ClInclude Include="..\..\..\src\gfx\OverlayRenderQueue.h" />
+    <ClInclude Include="..\..\..\src\gfx\PlainDepthTexture.h" />
+    <ClInclude Include="..\..\..\src\gfx\PlainDepthTextureImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\PlainRenderMap.h" />
+    <ClInclude Include="..\..\..\src\gfx\PostProcessRenderObject.h" />
+    <ClInclude Include="..\..\..\src\gfx\PostProcessRenderQueue.h" />
+    <ClInclude Include="..\..\..\src\gfx\PrimitiveTypeConst.h" />
+    <ClInclude Include="..\..\..\src\gfx\ProgramDataTypeConst.h" />
+    <ClInclude Include="..\..\..\src\gfx\ProgramParamEx.h" />
+    <ClInclude Include="..\..\..\src\gfx\ProgramStageTypeConst.h" />
+    <ClInclude Include="..\..\..\src\gfx\RectEx.h" />
+    <ClInclude Include="..\..\..\src\gfx\RectImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\RenderChainImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\RenderMapImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\RenderObjectImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\RenderQueueImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\RenderStateImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\RenderView.h" />
+    <ClInclude Include="..\..\..\src\gfx\ResourceImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\SceneRenderObject.h" />
+    <ClInclude Include="..\..\..\src\gfx\SceneRenderQueue.h" />
+    <ClInclude Include="..\..\..\src\gfx\SkyboxRenderObject.h" />
+    <ClInclude Include="..\..\..\src\gfx\SkyRenderObjectImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\SkysphereRenderObject.h" />
+    <ClInclude Include="..\..\..\src\gfx\StructuredBuffer.h" />
+    <ClInclude Include="..\..\..\src\gfx\StructuredBufferImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\TypedBuffer.h" />
+    <ClInclude Include="..\..\..\src\gfx\TypedBufferImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\VirtualRenderWindow.h" />
+    <ClInclude Include="..\..\..\src\img\BaseImage.h" />
+    <ClInclude Include="..\..\..\src\img\ImageCodec\ImageCodecContextEx.h" />
+    <ClInclude Include="..\..\..\src\img\RenderImage\CubeRenderImage.h" />
+    <ClInclude Include="..\..\..\src\img\RenderImage\PlainRenderImage.h" />
+    <ClInclude Include="..\..\..\src\img\Task\LoadImageTask.h" />
+    <ClInclude Include="..\..\..\src\img\Task\PrepareImageTask.h" />
+    <ClInclude Include="..\..\..\src\img\Task\SaveImageTask.h" />
+    <ClInclude Include="..\..\..\src\input\BaseInputSystem.h" />
+    <ClInclude Include="..\..\..\src\internal\Reverse.h" />
+    <ClInclude Include="..\..\..\src\internal\SafeDelete.h" />
+    <ClInclude Include="..\..\..\src\io\BaseStreamSystem.h" />
+    <ClInclude Include="..\..\..\src\lang\GradientTypeConst.h" />
+    <ClInclude Include="..\..\..\src\lang\StringBuilder.h" />
+    <ClInclude Include="..\..\..\src\math\CubicBezier.h" />
+    <ClInclude Include="..\..\..\src\math\Intersection.h" />
+    <ClInclude Include="..\..\..\src\math\TcbSpline.h" />
+    <ClInclude Include="..\..\..\src\mat\BaseMaterial.h" />
+    <ClInclude Include="..\..\..\src\mat\MaterialMapImpl.h" />
+    <ClInclude Include="..\..\..\src\mat\MaterialTriangleSet.h" />
+    <ClInclude Include="..\..\..\src\mat\OpaqueMaterial.h" />
+    <ClInclude Include="..\..\..\src\mat\OpaqueMaterialInstance.h" />
+    <ClInclude Include="..\..\..\src\mat\SimpleMaterialAnimationController.h" />
+    <ClInclude Include="..\..\..\src\mat\SimpleMaterialAnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\src\mat\SimpleMaterialProperty.h" />
+    <ClInclude Include="..\..\..\src\mat\SoftOpaqueMaterial.h" />
+    <ClInclude Include="..\..\..\src\mat\TransparentMaterial.h" />
+    <ClInclude Include="..\..\..\src\mat\TransparentMaterialAnimationController.h" />
+    <ClInclude Include="..\..\..\src\mat\TransparentMaterialInstance.h" />
+    <ClInclude Include="..\..\..\src\mat\TransparentMaterialProperty.h" />
+    <ClInclude Include="..\..\..\src\net\NetworkDevice.h" />
+    <ClInclude Include="..\..\..\src\net\NetworkDeviceImpl.h" />
+    <ClInclude Include="..\..\..\src\net\NetworkPeer.h" />
+    <ClInclude Include="..\..\..\src\net\NetworkPeerImpl.h" />
+    <ClInclude Include="..\..\..\src\net\NetworkSystemEx.h" />
+    <ClInclude Include="..\..\..\src\net\NetworkSystemImpl.h" />
+    <ClInclude Include="..\..\..\src\over\BaseFont.h" />
+    <ClInclude Include="..\..\..\src\over\BaseOverlayManager.h" />
+    <ClInclude Include="..\..\..\src\over\BaseSpritePool.h" />
+    <ClInclude Include="..\..\..\src\over\BaseText.h" />
+    <ClInclude Include="..\..\..\src\over\BaseTextImpl.h" />
+    <ClInclude Include="..\..\..\src\over\BaseTextPool.h" />
+    <ClInclude Include="..\..\..\src\over\SpriteAnimationController.h" />
+    <ClInclude Include="..\..\..\src\over\SpriteProperty.h" />
+    <ClInclude Include="..\..\..\src\over\TextAnimationController.h" />
+    <ClInclude Include="..\..\..\src\over\TextPoolAnimationController.h" />
+    <ClInclude Include="..\..\..\src\over\TextPoolProperty.h" />
+    <ClInclude Include="..\..\..\src\over\TextProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\BaseFog.h" />
+    <ClInclude Include="..\..\..\src\scene\BaseLight.h" />
+    <ClInclude Include="..\..\..\src\scene\BaseMeshBatch.h" />
+    <ClInclude Include="..\..\..\src\scene\BaseSceneManager.h" />
+    <ClInclude Include="..\..\..\src\scene\BoneProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\CameraAnimationController.h" />
+    <ClInclude Include="..\..\..\src\scene\CameraProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\ConeLight.h" />
+    <ClInclude Include="..\..\..\src\scene\ConeLightAnimationController.h" />
+    <ClInclude Include="..\..\..\src\scene\ConeLightProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\ConeSound.h" />
+    <ClInclude Include="..\..\..\src\scene\Curve.h" />
+    <ClInclude Include="..\..\..\src\scene\DebugHelper.h" />
+    <ClInclude Include="..\..\..\src\scene\DirectLight.h" />
+    <ClInclude Include="..\..\..\src\scene\FogAnimationController.h" />
+    <ClInclude Include="..\..\..\src\scene\FogProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\Gizmo.h" />
+    <ClInclude Include="..\..\..\src\scene\LightAnimationController.h" />
+    <ClInclude Include="..\..\..\src\scene\LightAnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\src\scene\LightImpl.h" />
+    <ClInclude Include="..\..\..\src\scene\LightProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\LineMesh.h" />
+    <ClInclude Include="..\..\..\src\scene\LineMeshBatch.h" />
+    <ClInclude Include="..\..\..\src\scene\LineMeshInstance.h" />
+    <ClInclude Include="..\..\..\src\scene\LineSetAnimationController.h" />
+    <ClInclude Include="..\..\..\src\scene\LineSetProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\MeshBatchAnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\src\scene\MeshBatchImpl.h" />
+    <ClInclude Include="..\..\..\src\scene\MeshBatchProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\MeshCodec\MeshCodecImpl.h" />
+    <ClInclude Include="..\..\..\src\scene\NodeAnimationController.h" />
+    <ClInclude Include="..\..\..\src\scene\NodeProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\OmniLight.h" />
+    <ClInclude Include="..\..\..\src\scene\OmniLightAnimationController.h" />
+    <ClInclude Include="..\..\..\src\scene\OmniLightProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\OmniSound.h" />
+    <ClInclude Include="..\..\..\src\scene\PointMeshBatch.h" />
+    <ClInclude Include="..\..\..\src\scene\PointMeshInstance.h" />
+    <ClInclude Include="..\..\..\src\scene\PointSetAnimationController.h" />
+    <ClInclude Include="..\..\..\src\scene\PointSetProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\PrimitiveAnimationController.h" />
+    <ClInclude Include="..\..\..\src\scene\PrimitiveAnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\src\scene\PrimitiveProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\SceneAnimationController.h" />
+    <ClInclude Include="..\..\..\src\scene\SceneProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\SkeletonAnimationController.h" />
+    <ClInclude Include="..\..\..\src\scene\SoftTriangleMesh.h" />
+    <ClInclude Include="..\..\..\src\scene\SoundAnimationController.h" />
+    <ClInclude Include="..\..\..\src\scene\SoundImpl.h" />
+    <ClInclude Include="..\..\..\src\scene\SoundProperty.h" />
+    <ClInclude Include="..\..\..\src\scene\TriangleMesh.h" />
+    <ClInclude Include="..\..\..\src\scene\TriangleMeshBatch.h" />
+    <ClInclude Include="..\..\..\src\scene\TriangleSetImpl.h" />
+    <ClInclude Include="..\..\..\src\script\ScriptMachine.h" />
+    <ClInclude Include="..\..\..\src\script\ScriptMachineImpl.h" />
+    <ClInclude Include="..\..\..\src\script\ScriptObject.h" />
+    <ClInclude Include="..\..\..\src\script\ScriptObjectImpl.h" />
+    <ClInclude Include="..\..\..\src\script\ScriptSystemEx.h" />
+    <ClInclude Include="..\..\..\src\script\ScriptSystemImpl.h" />
+    <ClInclude Include="..\..\..\src\sound\BaseMusic.h" />
+    <ClInclude Include="..\..\..\src\sound\BaseSoundManager.h" />
+    <ClInclude Include="..\..\..\src\sound\BaseVoice.h" />
+    <ClInclude Include="..\..\..\src\sound\MusicAnimationController.h" />
+    <ClInclude Include="..\..\..\src\sound\MusicProperty.h" />
+    <ClInclude Include="..\..\..\src\sound\Sound2D.h" />
+    <ClInclude Include="..\..\..\src\ui\Accordion.h" />
+    <ClInclude Include="..\..\..\src\ui\AlignmentConst.h" />
+    <ClInclude Include="..\..\..\src\ui\Angle.h" />
+    <ClInclude Include="..\..\..\src\ui\BaseAnchoredObject.h" />
+    <ClInclude Include="..\..\..\src\ui\BaseAnchoredObjectImpl.h" />
+    <ClInclude Include="..\..\..\src\ui\BaseFrame.h" />
+    <ClInclude Include="..\..\..\src\ui\BaseUi.h" />
+    <ClInclude Include="..\..\..\src\ui\BaseUiEx.h" />
+    <ClInclude Include="..\..\..\src\ui\BaseOption.h" />
+    <ClInclude Include="..\..\..\src\ui\BaseThemeWidget.h" />
+    <ClInclude Include="..\..\..\src\ui\BaseThemeWidgetImpl.h" />
+    <ClInclude Include="..\..\..\src\ui\Button.h" />
+    <ClInclude Include="..\..\..\src\ui\Cursor.h" />
+    <ClInclude Include="..\..\..\src\ui\DropList.h" />
+    <ClInclude Include="..\..\..\src\ui\Edit.h" />
+    <ClInclude Include="..\..\..\src\ui\EditStyleConst.h" />
+    <ClInclude Include="..\..\..\src\ui\Frame.h" />
+    <ClInclude Include="..\..\..\src\ui\FrameImpl.h" />
+    <ClInclude Include="..\..\..\src\ui\UiEvent.h" />
+    <ClInclude Include="..\..\..\src\ui\UiEx.h" />
+    <ClInclude Include="..\..\..\src\ui\UiReader.h" />
+    <ClInclude Include="..\..\..\src\ui\Label.h" />
+    <ClInclude Include="..\..\..\src\ui\List.h" />
+    <ClInclude Include="..\..\..\src\ui\ListWrapperImpl.h" />
+    <ClInclude Include="..\..\..\src\ui\Option.h" />
+    <ClInclude Include="..\..\..\src\ui\OrientationConst.h" />
+    <ClInclude Include="..\..\..\src\ui\Picture.h" />
+    <ClInclude Include="..\..\..\src\ui\Progress.h" />
+    <ClInclude Include="..\..\..\src\ui\Slider.h" />
+    <ClInclude Include="..\..\..\src\ui\Switch.h" />
+    <ClInclude Include="..\..\..\src\ui\Theme.h" />
+    <ClInclude Include="..\..\..\src\ui\WidgetEffect.h" />
+    <ClInclude Include="..\..\..\src\ui\WidgetWrapperImpl.h" />
+    <ClInclude Include="..\..\..\src\img\BaseImageManager.h" />
+    <ClInclude Include="..\..\..\src\img\ImageImpl.h" />
+    <ClInclude Include="..\..\..\src\img\ImageTypeConst.h" />
+    <ClInclude Include="..\..\..\src\img\PixelFormatEx.h" />
+    <ClInclude Include="..\..\..\src\input\JoystickImpl.h" />
+    <ClInclude Include="..\..\..\src\input\KeyboardImpl.h" />
+    <ClInclude Include="..\..\..\src\input\KeyConst.h" />
+    <ClInclude Include="..\..\..\src\input\MouseImpl.h" />
+    <ClInclude Include="..\..\..\src\internal\Average.h" />
+    <ClInclude Include="..\..\..\src\internal\Clamp.h" />
+    <ClInclude Include="..\..\..\src\internal\Compare.h" />
+    <ClInclude Include="..\..\..\src\internal\DynamicLibrary.h" />
+    <ClInclude Include="..\..\..\src\internal\Equal.h" />
+    <ClInclude Include="..\..\..\src\internal\Hash.h" />
+    <ClInclude Include="..\..\..\src\internal\Lerp.h" />
+    <ClInclude Include="..\..\..\src\internal\Max.h" />
+    <ClInclude Include="..\..\..\src\internal\Min.h" />
+    <ClInclude Include="..\..\..\src\internal\SafeClose.h" />
+    <ClInclude Include="..\..\..\src\internal\SafeRelease.h" />
+    <ClInclude Include="..\..\..\src\internal\Sort.h" />
+    <ClInclude Include="..\..\..\src\internal\ToColor.h" />
+    <ClInclude Include="..\..\..\src\internal\ToVector.h" />
+    <ClInclude Include="..\..\..\src\io\SeekOriginConst.h" />
+    <ClInclude Include="..\..\..\src\io\StreamEx.h" />
+    <ClInclude Include="..\..\..\src\io\XmlDocument.h" />
+    <ClInclude Include="..\..\..\src\io\ZipDirectory.h" />
+    <ClInclude Include="..\..\..\src\io\ZipFolder.h" />
+    <ClInclude Include="..\..\..\src\io\ZipStream.h" />
+    <ClInclude Include="..\..\..\src\lang\Allocator.h" />
+    <ClInclude Include="..\..\..\src\lang\Btree.h" />
+    <ClInclude Include="..\..\..\src\lang\BtreeItem.h" />
+    <ClInclude Include="..\..\..\src\lang\BtreeIterator.h" />
+    <ClInclude Include="..\..\..\src\lang\BtreeNode.h" />
+    <ClInclude Include="..\..\..\src\lang\Convert.h" />
+    <ClInclude Include="..\..\..\src\lang\DataTypeConst.h" />
+    <ClInclude Include="..\..\..\src\lang\Mask.h" />
+    <ClInclude Include="..\..\..\src\lang\ASCII7Encoding.h" />
+    <ClInclude Include="..\..\..\src\lang\Encoding.h" />
+    <ClInclude Include="..\..\..\src\lang\Set.h" />
+    <ClInclude Include="..\..\..\src\lang\SetEx.h" />
+    <ClInclude Include="..\..\..\src\lang\SetItem.h" />
+    <ClInclude Include="..\..\..\src\lang\SetIterator.h" />
+    <ClInclude Include="..\..\..\src\lang\UTF16Encoding.h" />
+    <ClInclude Include="..\..\..\src\lang\UTF32Encoding.h" />
+    <ClInclude Include="..\..\..\src\lang\UTF8Encoding.h" />
+    <ClInclude Include="..\..\..\src\lang\Stack.h" />
+    <ClInclude Include="..\..\..\src\lang\StackOverflowException.h" />
+    <ClInclude Include="..\..\..\src\lang\StackUnderflowException.h" />
+    <ClInclude Include="..\..\..\src\lang\List.h" />
+    <ClInclude Include="..\..\..\src\lang\ListItem.h" />
+    <ClInclude Include="..\..\..\src\lang\ListIterator.h" />
+    <ClInclude Include="..\..\..\src\lang\Tree.h" />
+    <ClInclude Include="..\..\..\src\lang\TreeItem.h" />
+    <ClInclude Include="..\..\..\src\lang\TreeIterator.h" />
+    <ClInclude Include="..\..\..\src\lang\Vector.h" />
+    <ClInclude Include="..\..\..\src\lang\VectorEx.h" />
+    <ClInclude Include="..\..\..\src\lang\Map.h" />
+    <ClInclude Include="..\..\..\src\lang\MapEx.h" />
+    <ClInclude Include="..\..\..\src\lang\MapIterator.h" />
+    <ClInclude Include="..\..\..\src\lang\MapPair.h" />
+    <ClInclude Include="..\..\..\src\lang\Queue.h" />
+    <ClInclude Include="..\..\..\src\lang\QueueEx.h" />
+    <ClInclude Include="..\..\..\src\lang\QueueItem.h" />
+    <ClInclude Include="..\..\..\src\lang\Parseable.h" />
+    <ClInclude Include="..\..\..\src\lang\Parser.h" />
+    <ClInclude Include="..\..\..\inc\lang\BadArgumentException.h" />
+    <ClInclude Include="..\..\..\inc\lang\DateTime.h" />
+    <ClInclude Include="..\..\..\inc\lang\Enum.h" />
+    <ClInclude Include="..\..\..\inc\lang\Exception.h" />
+    <ClInclude Include="..\..\..\inc\lang\Flag.h" />
+    <ClInclude Include="..\..\..\inc\lang\InvalidOperationException.h" />
+    <ClInclude Include="..\..\..\inc\lang\lang.h" />
+    <ClInclude Include="..\..\..\inc\lang\NotSupportedException.h" />
+    <ClInclude Include="..\..\..\inc\lang\Point.h" />
+    <ClInclude Include="..\..\..\inc\lang\Ptr.h" />
+    <ClInclude Include="..\..\..\inc\lang\Random.h" />
+    <ClInclude Include="..\..\..\inc\lang\Rect.h" />
+    <ClInclude Include="..\..\..\inc\lang\Size.h" />
+    <ClInclude Include="..\..\..\inc\lang\String.h" />
+    <ClInclude Include="..\..\..\src\core\Configuration.h" />
+    <ClInclude Include="..\..\..\src\core\Library.h" />
+    <ClInclude Include="..\..\..\src\core\FactoryImpl.h" />
+    <ClInclude Include="..\..\..\src\core\CallStack.h" />
+    <ClInclude Include="..\..\..\src\core\ObjectImpl.h" />
+    <ClInclude Include="..\..\..\src\core\Synkro.h" />
+    <ClInclude Include="..\..\..\src\core\ControllerImpl.h" />
+    <ClInclude Include="..\..\..\src\core\Thread.h" />
+    <ClInclude Include="..\..\..\src\core\ThreadPool.h" />
+    <ClInclude Include="..\..\..\src\core\ExceptionHandler.h" />
+    <ClInclude Include="..\..\..\inc\core\core.h" />
+    <ClInclude Include="..\..\..\inc\core\IConfiguration.h" />
+    <ClInclude Include="..\..\..\inc\core\IController.h" />
+    <ClInclude Include="..\..\..\inc\core\IFactory.h" />
+    <ClInclude Include="..\..\..\inc\core\ISynkro.h" />
+    <ClInclude Include="..\..\..\inc\core\IObject.h" />
+    <ClInclude Include="..\..\..\inc\core\IResource.h" />
+    <ClInclude Include="..\..\..\inc\core\ISystem.h" />
+    <ClInclude Include="..\..\..\inc\core\Param.h" />
+    <ClInclude Include="..\..\..\inc\core\ParamConstraint.h" />
+    <ClInclude Include="..\..\..\inc\core\ParamType.h" />
+    <ClInclude Include="..\..\..\inc\core\Platform.h" />
+    <ClInclude Include="..\..\..\inc\core\ResourceType.h" />
+    <ClInclude Include="..\..\..\inc\core\Str.h" />
+    <ClInclude Include="..\..\..\inc\core\VersionException.h" />
+    <ClInclude Include="..\..\..\inc\mem\mem.h" />
+    <ClInclude Include="..\..\..\inc\mem\MemoryManager.h" />
+    <ClInclude Include="..\..\..\inc\mem\OperatorNew.h" />
+    <ClInclude Include="..\..\..\inc\prf\prf.h" />
+    <ClInclude Include="..\..\..\inc\prf\Profiler.h" />
+    <ClInclude Include="..\..\..\inc\math\Math.h" />
+    <ClInclude Include="..\..\..\inc\math\Matrix3x3.h" />
+    <ClInclude Include="..\..\..\inc\math\Matrix4x4.h" />
+    <ClInclude Include="..\..\..\inc\math\Quaternion.h" />
+    <ClInclude Include="..\..\..\inc\math\Vector2.h" />
+    <ClInclude Include="..\..\..\inc\math\Vector3.h" />
+    <ClInclude Include="..\..\..\inc\math\Vector4.h" />
+    <ClInclude Include="..\..\..\inc\img\Color.h" />
+    <ClInclude Include="..\..\..\inc\img\IImage.h" />
+    <ClInclude Include="..\..\..\inc\img\IImageCodec.h" />
+    <ClInclude Include="..\..\..\inc\img\IImageCodecFactory.h" />
+    <ClInclude Include="..\..\..\inc\img\IImageManager.h" />
+    <ClInclude Include="..\..\..\inc\img\ImageCodec.h" />
+    <ClInclude Include="..\..\..\inc\img\ImageType.h" />
+    <ClInclude Include="..\..\..\inc\img\img.h" />
+    <ClInclude Include="..\..\..\inc\img\PixelFormat.h" />
+    <ClInclude Include="..\..\..\src\img\Image.h" />
+    <ClInclude Include="..\..\..\src\img\ImageManager.h" />
+    <ClInclude Include="..\..\..\inc\win\IFrameWindow.h" />
+    <ClInclude Include="..\..\..\inc\win\IIconWindow.h" />
+    <ClInclude Include="..\..\..\inc\win\IViewWindow.h" />
+    <ClInclude Include="..\..\..\inc\win\IWindow.h" />
+    <ClInclude Include="..\..\..\inc\win\IWindowSystem.h" />
+    <ClInclude Include="..\..\..\inc\win\IWindowSystemEx.h" />
+    <ClInclude Include="..\..\..\inc\win\IWindowSystemFactory.h" />
+    <ClInclude Include="..\..\..\inc\win\win.h" />
+    <ClInclude Include="..\..\..\inc\win\WindowSystem.h" />
+    <ClInclude Include="..\..\..\src\mat\DiffuseMap.h" />
+    <ClInclude Include="..\..\..\src\mat\MaterialDesc.h" />
+    <ClInclude Include="..\..\..\src\mat\MaterialManager.h" />
+    <ClInclude Include="..\..\..\src\mat\MultiMaterial.h" />
+    <ClInclude Include="..\..\..\src\mat\OpacityMap.h" />
+    <ClInclude Include="..\..\..\src\mat\SimpleMaterialImpl.h" />
+    <ClInclude Include="..\..\..\src\mat\VisualMaterialImpl.h" />
+    <ClInclude Include="..\..\..\src\over\FontTemplate.h" />
+    <ClInclude Include="..\..\..\src\over\OverlayManager.h" />
+    <ClInclude Include="..\..\..\src\over\PolyLine.h" />
+    <ClInclude Include="..\..\..\src\over\PoolSprite.h" />
+    <ClInclude Include="..\..\..\src\over\PoolText.h" />
+    <ClInclude Include="..\..\..\src\over\Quad.h" />
+    <ClInclude Include="..\..\..\src\over\Sprite.h" />
+    <ClInclude Include="..\..\..\src\over\SpritePool.h" />
+    <ClInclude Include="..\..\..\src\over\TextBuffer.h" />
+    <ClInclude Include="..\..\..\src\over\TextDesc.h" />
+    <ClInclude Include="..\..\..\src\scene\BaseCamera.h" />
+    <ClInclude Include="..\..\..\src\scene\BaseNode.h" />
+    <ClInclude Include="..\..\..\src\scene\BaseScene.h" />
+    <ClInclude Include="..\..\..\src\scene\BaseSkeleton.h" />
+    <ClInclude Include="..\..\..\src\scene\Bone.h" />
+    <ClInclude Include="..\..\..\src\scene\CameraRecordController.h" />
+    <ClInclude Include="..\..\..\src\scene\Dummy.h" />
+    <ClInclude Include="..\..\..\src\scene\Fog.h" />
+    <ClInclude Include="..\..\..\src\scene\FogState.h" />
+    <ClInclude Include="..\..\..\src\scene\LineSet.h" />
+    <ClInclude Include="..\..\..\src\scene\LookAtConstraint.h" />
+    <ClInclude Include="..\..\..\src\scene\MeshImpl.h" />
+    <ClInclude Include="..\..\..\src\scene\NodeAnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\src\scene\NodeRecordControllerImpl.h" />
+    <ClInclude Include="..\..\..\src\scene\NormalBuilder.h" />
+    <ClInclude Include="..\..\..\src\scene\ParentConstraint.h" />
+    <ClInclude Include="..\..\..\src\scene\PointMesh.h" />
+    <ClInclude Include="..\..\..\src\scene\PointSet.h" />
+    <ClInclude Include="..\..\..\src\scene\SceneManager.h" />
+    <ClInclude Include="..\..\..\src\scene\Skeleton.h" />
+    <ClInclude Include="..\..\..\src\scene\SoftTriangleSet.h" />
+    <ClInclude Include="..\..\..\src\scene\TriangleSet.h" />
+    <ClInclude Include="..\..\..\src\sound\BaseSound3D.h" />
+    <ClInclude Include="..\..\..\src\sound\Sound3D.h" />
+    <ClInclude Include="..\..\..\src\view\BaseViewport.h" />
+    <ClInclude Include="..\..\..\src\view\BaseViewportManager.h" />
+    <ClInclude Include="..\..\..\src\view\BaseViewportTransitionController.h" />
+    <ClInclude Include="..\..\..\src\view\Filter\Color\ColorFilterProperty.h" />
+    <ClInclude Include="..\..\..\src\view\Filter\Depth\DepthMap.h" />
+    <ClInclude Include="..\..\..\src\view\Filter\Depth\FogFilterProperty.h" />
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\Emboss\EmbossFilterProperty.h" />
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\Kernel3x3FilterProperty.h" />
+    <ClInclude Include="..\..\..\src\view\Filter\Simple\SimpleFilterProperty.h" />
+    <ClInclude Include="..\..\..\src\view\Filter\ViewportFilterAnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\src\view\Filter\ViewportFilterImpl.h" />
+    <ClInclude Include="..\..\..\src\view\Filter\ViewportFilterProperty.h" />
+    <ClInclude Include="..\..\..\src\view\StereoModeConst.h" />
+    <ClInclude Include="..\..\..\src\view\TransitionEffectConst.h" />
+    <ClInclude Include="..\..\..\src\view\ViewModeConst.h" />
+    <ClInclude Include="..\..\..\src\view\Viewport.h" />
+    <ClInclude Include="..\..\..\src\view\ViewportAnimationController.h" />
+    <ClInclude Include="..\..\..\src\view\ViewportManager.h" />
+    <ClInclude Include="..\..\..\src\view\ViewportProperty.h" />
+    <ClInclude Include="..\..\..\src\view\ViewportTransitionController.h" />
+    <ClInclude Include="..\..\..\src\win\FrameWindow.h" />
+    <ClInclude Include="..\..\..\src\win\FrameWindowImpl.h" />
+    <ClInclude Include="..\..\..\src\win\IconWindowImpl.h" />
+    <ClInclude Include="..\..\..\src\win\Monitor.h" />
+    <ClInclude Include="..\..\..\src\win\ViewWindow.h" />
+    <ClInclude Include="..\..\..\src\win\ViewWindowImpl.h" />
+    <ClInclude Include="..\..\..\src\win\WindowImpl.h" />
+    <ClInclude Include="..\..\..\src\win\WindowSystemEx.h" />
+    <ClInclude Include="..\..\..\inc\gfx\BlendMode.h" />
+    <ClInclude Include="..\..\..\inc\gfx\BlendOperation.h" />
+    <ClInclude Include="..\..\..\inc\gfx\CubeFace.h" />
+    <ClInclude Include="..\..\..\inc\gfx\CullMode.h" />
+    <ClInclude Include="..\..\..\inc\gfx\DataUsage.h" />
+    <ClInclude Include="..\..\..\inc\gfx\DepthFormat.h" />
+    <ClInclude Include="..\..\..\inc\gfx\DisplayMode.h" />
+    <ClInclude Include="..\..\..\inc\gfx\FillMode.h" />
+    <ClInclude Include="..\..\..\inc\gfx\gfx.h" />
+    <ClInclude Include="..\..\..\inc\gfx\GraphicsDeviceType.h" />
+    <ClInclude Include="..\..\..\inc\gfx\GraphicsException.h" />
+    <ClInclude Include="..\..\..\inc\gfx\GraphicsStats.h" />
+    <ClInclude Include="..\..\..\inc\gfx\GraphicsSystem.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IBlendState.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ICubeRenderTexture.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ICubeTexture.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IDataFormat.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IDepthTexture.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IFloatStream.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IFrameRenderWindow.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IFrameRenderWindowEx.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IGraphicsDevice.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IGraphicsSystem.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IGraphicsSystemEx.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IGraphicsSystemFactory.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IIndexBuffer.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ILinearRenderTexture.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ILinearTexture.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ILongStream.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IMatrix4x4Stream.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IndexType.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IParameterSet.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IPlainRenderTexture.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IPlainTexture.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IPrimitive.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IPrimitiveEx.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IProgram.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IProgramStage.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IRasterizerState.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IRenderQueue.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IRenderTexture.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IRenderTextureSet.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IRenderWindow.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IResource.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IResourceSet.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ISamplerState.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ISamplerStateSet.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IShortStream.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ITexture.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IVector2Stream.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IVector3Stream.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IVector4Stream.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IViewRenderWindow.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IViewRenderWindowEx.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IVolumeRenderTexture.h" />
+    <ClInclude Include="..\..\..\inc\gfx\IVolumeTexture.h" />
+    <ClInclude Include="..\..\..\inc\gfx\PrimitiveType.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ProgramDataType.h" />
+    <ClInclude Include="..\..\..\inc\gfx\ProgramParam.h" />
+    <ClInclude Include="..\..\..\inc\gfx\StencilOperation.h" />
+    <ClInclude Include="..\..\..\inc\gfx\TextureAddress.h" />
+    <ClInclude Include="..\..\..\inc\gfx\TextureFilter.h" />
+    <ClInclude Include="..\..\..\src\gfx\Classes.h" />
+    <ClInclude Include="..\..\..\src\gfx\CubeTexture.h" />
+    <ClInclude Include="..\..\..\src\gfx\CubeTextureImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\LinearTexture.h" />
+    <ClInclude Include="..\..\..\src\gfx\LinearTextureImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\PlainTexture.h" />
+    <ClInclude Include="..\..\..\src\gfx\PlainTextureImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\TextureImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\VolumeTexture.h" />
+    <ClInclude Include="..\..\..\src\gfx\VolumeTextureImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\DataFormat.h" />
+    <ClInclude Include="..\..\..\src\gfx\Primitive.h" />
+    <ClInclude Include="..\..\..\src\gfx\PrimitiveImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\GraphicsDevice.h" />
+    <ClInclude Include="..\..\..\src\gfx\GraphicsDeviceImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\Program.h" />
+    <ClInclude Include="..\..\..\src\gfx\ProgramImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\ProgramReader.h" />
+    <ClInclude Include="..\..\..\src\gfx\ProgramStage.h" />
+    <ClInclude Include="..\..\..\src\gfx\ProgramStageImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\BlendState.h" />
+    <ClInclude Include="..\..\..\src\gfx\RasterizerState.h" />
+    <ClInclude Include="..\..\..\src\gfx\RasterizerStateImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\SamplerState.h" />
+    <ClInclude Include="..\..\..\src\gfx\SamplerStateImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\SamplerStateSet.h" />
+    <ClInclude Include="..\..\..\src\gfx\SamplerStateSetImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\Matrix4x4Stream.h" />
+    <ClInclude Include="..\..\..\src\gfx\NdcVector4Stream.h" />
+    <ClInclude Include="..\..\..\src\gfx\GraphicsSystemEx.h" />
+    <ClInclude Include="..\..\..\src\gfx\GraphicsSystemImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\RenderChain.h" />
+    <ClInclude Include="..\..\..\src\win\WindowSystemImpl.h" />
+    <CustomBuildStep Include="..\..\..\src\gfx\DebugQueue.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <ClInclude Include="..\..\..\src\gfx\BaseResource.h" />
+    <ClInclude Include="..\..\..\src\gfx\BaseResourceImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\ResourceSet.h" />
+    <ClInclude Include="..\..\..\src\gfx\ResourceSetImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\CubeRenderTexture.h" />
+    <ClInclude Include="..\..\..\src\gfx\CubeRenderTextureImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\DepthTextureImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\LinearRenderTexture.h" />
+    <ClInclude Include="..\..\..\src\gfx\LinearRenderTextureImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\PlainRenderTexture.h" />
+    <ClInclude Include="..\..\..\src\gfx\PlainRenderTextureImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\RenderTextureImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\RenderTextureSetImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\VolumeRenderTexture.h" />
+    <ClInclude Include="..\..\..\src\gfx\VolumeRenderTextureImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\ParameterSet.h" />
+    <ClInclude Include="..\..\..\src\gfx\ParameterSetImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\BaseRenderWindow.h" />
+    <ClInclude Include="..\..\..\src\gfx\BaseRenderWindowImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\RenderWindowImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\FrameRenderWindow.h" />
+    <ClInclude Include="..\..\..\src\gfx\FrameRenderWindowImpl.h" />
+    <ClInclude Include="..\..\..\src\gfx\ViewRenderWindow.h" />
+    <ClInclude Include="..\..\..\src\gfx\ViewRenderWindowImpl.h" />
+    <ClInclude Include="..\..\..\src\diag\Diag.h" />
+    <ClInclude Include="..\..\..\src\diag\Log.h" />
+    <ClInclude Include="..\..\..\inc\diag\diag.h" />
+    <ClInclude Include="..\..\..\inc\diag\IDiag.h" />
+    <ClInclude Include="..\..\..\inc\diag\ILog.h" />
+    <ClInclude Include="..\..\..\inc\diag\LogLevel.h" />
+    <ClInclude Include="..\..\..\inc\diag\LogMode.h" />
+    <ClInclude Include="..\..\..\inc\diag\MessagePriority.h" />
+    <ClInclude Include="..\..\..\src\io\Path.h" />
+    <ClInclude Include="..\..\..\src\io\BinaryReader.h" />
+    <ClInclude Include="..\..\..\src\io\StreamReader.h" />
+    <ClInclude Include="..\..\..\src\io\TextReader.h" />
+    <ClInclude Include="..\..\..\src\io\XmlReader.h" />
+    <ClInclude Include="..\..\..\src\io\BinaryStream.h" />
+    <ClInclude Include="..\..\..\src\io\FileStream.h" />
+    <ClInclude Include="..\..\..\src\io\StreamImpl.h" />
+    <ClInclude Include="..\..\..\src\io\StreamSet.h" />
+    <ClInclude Include="..\..\..\src\io\TextStream.h" />
+    <ClInclude Include="..\..\..\src\io\BinaryWriter.h" />
+    <ClInclude Include="..\..\..\src\io\StreamWriter.h" />
+    <ClInclude Include="..\..\..\src\io\TextWriter.h" />
+    <ClInclude Include="..\..\..\src\io\XmlWriter.h" />
+    <ClInclude Include="..\..\..\src\io\NullStreamSystem.h" />
+    <ClInclude Include="..\..\..\src\io\StreamSystemEx.h" />
+    <ClInclude Include="..\..\..\src\io\StreamSystemImpl.h" />
+    <ClInclude Include="..\..\..\src\io\BaseDirectory.h" />
+    <ClInclude Include="..\..\..\src\io\StreamDirectoryEx.h" />
+    <ClInclude Include="..\..\..\src\io\StreamDirectoryImpl.h" />
+    <ClInclude Include="..\..\..\inc\io\FileNotFoundException.h" />
+    <ClInclude Include="..\..\..\inc\io\io.h" />
+    <ClInclude Include="..\..\..\inc\io\IoException.h" />
+    <ClInclude Include="..\..\..\inc\io\IStream.h" />
+    <ClInclude Include="..\..\..\inc\io\IStreamDirectory.h" />
+    <ClInclude Include="..\..\..\inc\io\IStreamDirectoryFactory.h" />
+    <ClInclude Include="..\..\..\inc\io\IStreamSet.h" />
+    <ClInclude Include="..\..\..\inc\io\IStreamSystem.h" />
+    <ClInclude Include="..\..\..\inc\io\IStreamSystemEx.h" />
+    <ClInclude Include="..\..\..\inc\io\IStreamSystemFactory.h" />
+    <ClInclude Include="..\..\..\inc\io\OpenMode.h" />
+    <ClInclude Include="..\..\..\inc\io\SeekOrigin.h" />
+    <ClInclude Include="..\..\..\inc\io\StreamDirectory.h" />
+    <ClInclude Include="..\..\..\inc\io\StreamSystem.h" />
+    <ClInclude Include="..\..\..\inc\cfg\ConfigSynkro.h" />
+    <ClInclude Include="..\..\..\inc\cfg\SynkroVersion.h" />
+    <ClInclude Include="..\..\..\inc\input\Axis.h" />
+    <ClInclude Include="..\..\..\inc\input\IArcball.h" />
+    <ClInclude Include="..\..\..\inc\input\IInputDevice.h" />
+    <ClInclude Include="..\..\..\inc\input\IInputSystem.h" />
+    <ClInclude Include="..\..\..\inc\input\IInputSystemEx.h" />
+    <ClInclude Include="..\..\..\inc\input\IInputSystemFactory.h" />
+    <ClInclude Include="..\..\..\inc\input\IJoystick.h" />
+    <ClInclude Include="..\..\..\inc\input\IKeyboard.h" />
+    <ClInclude Include="..\..\..\inc\input\IMouse.h" />
+    <ClInclude Include="..\..\..\inc\input\input.h" />
+    <ClInclude Include="..\..\..\inc\input\InputException.h" />
+    <ClInclude Include="..\..\..\inc\input\InputSystem.h" />
+    <ClInclude Include="..\..\..\inc\input\JoystickButton.h" />
+    <ClInclude Include="..\..\..\inc\input\JoystickState.h" />
+    <ClInclude Include="..\..\..\inc\input\Key.h" />
+    <ClInclude Include="..\..\..\inc\input\MouseButton.h" />
+    <ClInclude Include="..\..\..\inc\input\MouseState.h" />
+    <ClInclude Include="..\..\..\src\input\InputSystemEx.h" />
+    <ClInclude Include="..\..\..\src\input\InputSystemImpl.h" />
+    <ClInclude Include="..\..\..\src\input\Keyboard.h" />
+    <ClInclude Include="..\..\..\src\input\Mouse.h" />
+    <ClInclude Include="..\..\..\src\input\Joystick.h" />
+    <ClInclude Include="..\..\..\src\input\Arcball.h" />
+    <CustomBuildStep Include="..\..\..\src\ui\ThemeEx.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\..\..\src\ui\ThemeReader.h" />
+    <CustomBuildStep Include="..\..\..\src\ui\BaseWidget.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\..\..\src\ui\BaseWidgetImpl.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\..\..\src\ui\WidgetEx.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\..\..\src\ui\WidgetImpl.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\..\..\src\ui\UiEvent.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\..\..\src\ui\ListImpl.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">false</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\..\..\src\ui\FrameImpl.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <ClInclude Include="..\..\..\inc\ui\Alignment.h" />
+    <ClInclude Include="..\..\..\inc\ui\CursorType.h" />
+    <ClInclude Include="..\..\..\inc\ui\EditStyle.h" />
+    <ClInclude Include="..\..\..\inc\ui\ui.h" />
+    <ClInclude Include="..\..\..\inc\ui\IButton.h" />
+    <ClInclude Include="..\..\..\inc\ui\ICursor.h" />
+    <ClInclude Include="..\..\..\inc\ui\IDropList.h" />
+    <ClInclude Include="..\..\..\inc\ui\IEdit.h" />
+    <ClInclude Include="..\..\..\inc\ui\IFrame.h" />
+    <ClInclude Include="..\..\..\inc\ui\IUi.h" />
+    <ClInclude Include="..\..\..\inc\ui\ILabel.h" />
+    <ClInclude Include="..\..\..\inc\ui\IList.h" />
+    <ClInclude Include="..\..\..\inc\ui\IPicture.h" />
+    <ClInclude Include="..\..\..\inc\ui\IProgress.h" />
+    <ClInclude Include="..\..\..\inc\ui\ISlider.h" />
+    <ClInclude Include="..\..\..\inc\ui\IWidget.h" />
+    <ClInclude Include="..\..\..\inc\ui\ListItem.h" />
+    <ClInclude Include="..\..\..\inc\ui\Orientation.h" />
+    <ClInclude Include="..\..\..\inc\ui\ProgressType.h" />
+    <ClInclude Include="..\..\..\modules\synkro\resource.h" />
+    <ClInclude Include="..\..\..\src\anim\Animation.h" />
+    <ClInclude Include="..\..\..\src\anim\AnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\src\anim\AnimationSystem.h" />
+    <ClInclude Include="..\..\..\inc\anim\anim.h" />
+    <ClInclude Include="..\..\..\inc\anim\AnimationMode.h" />
+    <ClInclude Include="..\..\..\inc\anim\AnimationTrack.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimation.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationController.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationSystem.h" />
+    <ClInclude Include="..\..\..\inc\anim\IAnimationTrackFactory.h" />
+    <ClInclude Include="..\..\..\src\scene\LightState.h" />
+    <ClInclude Include="..\..\..\src\scene\Camera.h" />
+    <ClInclude Include="..\..\..\src\scene\NodeImpl.h" />
+    <ClInclude Include="..\..\..\src\scene\Scene.h" />
+    <CustomBuildStep Include="..\..\..\src\scene\SceneEx.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <ClInclude Include="..\..\..\inc\scene\ICamera.h" />
+    <ClInclude Include="..\..\..\inc\scene\ILight.h" />
+    <ClInclude Include="..\..\..\inc\scene\IMesh.h" />
+    <ClInclude Include="..\..\..\inc\scene\IMeshCodec.h" />
+    <ClInclude Include="..\..\..\inc\scene\IMeshCodecFactory.h" />
+    <ClInclude Include="..\..\..\inc\scene\INode.h" />
+    <ClInclude Include="..\..\..\inc\scene\IPrimitive.h" />
+    <ClInclude Include="..\..\..\inc\scene\IScene.h" />
+    <ClInclude Include="..\..\..\inc\scene\MeshCodec.h" />
+    <ClInclude Include="..\..\..\inc\scene\scene.h" />
+    <ClInclude Include="..\..\..\src\audio\AudioSystemEx.h" />
+    <ClInclude Include="..\..\..\src\audio\AudioSystemImpl.h" />
+    <ClInclude Include="..\..\..\inc\audio\audio.h" />
+    <ClInclude Include="..\..\..\inc\audio\AudioException.h" />
+    <ClInclude Include="..\..\..\inc\audio\AudioSystem.h" />
+    <ClInclude Include="..\..\..\inc\audio\IAudioSystem.h" />
+    <ClInclude Include="..\..\..\inc\audio\IAudioSystemEx.h" />
+    <ClInclude Include="..\..\..\inc\audio\IAudioSystemFactory.h" />
+    <ClInclude Include="..\..\..\src\sound\SoundManager.h" />
+    <ClInclude Include="..\..\..\src\sound\Music.h" />
+    <ClInclude Include="..\..\..\src\sound\Voice.h" />
+    <ClInclude Include="..\..\..\inc\sound\IMusic.h" />
+    <ClInclude Include="..\..\..\inc\sound\ISoundCodec.h" />
+    <ClInclude Include="..\..\..\inc\sound\ISoundCodecFactory.h" />
+    <ClInclude Include="..\..\..\inc\sound\ISoundManager.h" />
+    <ClInclude Include="..\..\..\inc\sound\IVoice.h" />
+    <ClInclude Include="..\..\..\inc\sound\PlaybackMode.h" />
+    <ClInclude Include="..\..\..\inc\sound\sound.h" />
+    <ClInclude Include="..\..\..\inc\sound\SoundCodec.h" />
+    <ClInclude Include="..\..\..\inc\sound\SoundCodecContext.h" />
+    <ClInclude Include="..\..\..\inc\sound\SoundFormat.h" />
+    <ClInclude Include="..\..\..\src\over\Overlay.h" />
+    <ClInclude Include="..\..\..\src\over\FontEx.h" />
+    <ClInclude Include="..\..\..\src\over\Text.h" />
+    <ClInclude Include="..\..\..\src\over\TextPool.h" />
+    <ClInclude Include="..\..\..\inc\over\FontStyle.h" />
+    <ClInclude Include="..\..\..\inc\over\IFont.h" />
+    <ClInclude Include="..\..\..\inc\over\IOverlay.h" />
+    <ClInclude Include="..\..\..\inc\over\ISprite.h" />
+    <ClInclude Include="..\..\..\inc\over\IText.h" />
+    <ClInclude Include="..\..\..\inc\over\Order.h" />
+    <ClInclude Include="..\..\..\inc\over\over.h" />
+    <ClInclude Include="..\..\..\src\internal\BinarySemaphore.h" />
+    <ClInclude Include="..\..\..\src\internal\ComInitializer.h" />
+    <ClInclude Include="..\..\..\src\internal\Copy.h" />
+    <ClInclude Include="..\..\..\src\internal\Enum.h" />
+    <ClInclude Include="..\..\..\src\internal\Logger.h" />
+    <ClInclude Include="..\..\..\src\internal\Months.h" />
+    <ClInclude Include="..\..\..\src\internal\Mutex.h" />
+    <ClInclude Include="..\..\..\src\internal\Semaphore.h" />
+    <ClInclude Include="..\..\..\src\internal\SizeOf.h" />
+    <ClInclude Include="..\..\..\src\internal\Swap.h" />
+    <ClInclude Include="..\..\..\src\internal\Timer.h" />
+    <ClInclude Include="..\..\..\src\internal\Weekdays.h" />
+    <ClInclude Include="..\..\..\src\internal\Zero.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\inc\lang\Formattable.inl" />
+    <None Include="..\..\..\modules\synkro\strings.inl" />
+    <None Include="..\..\..\src\anim\Animation.inl" />
+    <None Include="..\..\..\src\anim\AnimationCodec\AnimationCodecImpl.inl" />
+    <None Include="..\..\..\src\anim\AnimationSet.inl" />
+    <None Include="..\..\..\src\anim\AnimationTrackImpl.inl" />
+    <None Include="..\..\..\src\anim\AnimationTrack\ProceduralTrackImpl.inl" />
+    <None Include="..\..\..\src\anim\KeyframedTrackImpl.inl" />
+    <None Include="..\..\..\src\anim\PlaybackControllerImpl.inl" />
+    <None Include="..\..\..\src\anim\RecordControllerImpl.inl" />
+    <None Include="..\..\..\src\audio\AudioBufferImpl.inl" />
+    <None Include="..\..\..\src\audio\AudioChunk.inl" />
+    <None Include="..\..\..\src\audio\AudioChunkImpl.inl" />
+    <None Include="..\..\..\src\audio\AudioEnvironment.inl" />
+    <None Include="..\..\..\src\audio\AudioPlayer.inl" />
+    <None Include="..\..\..\src\audio\AudioPlayerImpl.inl" />
+    <None Include="..\..\..\src\audio\AudioRecorder.inl" />
+    <None Include="..\..\..\src\audio\AudioRecorderImpl.inl" />
+    <None Include="..\..\..\src\audio\SoundBuffer.inl" />
+    <None Include="..\..\..\src\audio\SoundBufferImpl.inl" />
+    <None Include="..\..\..\src\audio\SoundEmitter.inl" />
+    <None Include="..\..\..\src\audio\SoundEmitterImpl.inl" />
+    <None Include="..\..\..\src\audio\SoundListener.inl" />
+    <None Include="..\..\..\src\audio\SoundListenerImpl.inl" />
+    <None Include="..\..\..\src\audio\VoiceBuffer.inl" />
+    <None Include="..\..\..\src\audio\VoiceBufferImpl.inl" />
+    <None Include="..\..\..\src\cons\Console.inl" />
+    <None Include="..\..\..\src\core\ConstraintImpl.inl" />
+    <None Include="..\..\..\src\core\List\NodeList.inl" />
+    <None Include="..\..\..\src\core\List\StringList.inl" />
+    <None Include="..\..\..\src\core\List\TriangleMeshList.inl" />
+    <None Include="..\..\..\src\core\Param.inl" />
+    <None Include="..\..\..\src\core\PlainLogFile.inl" />
+    <None Include="..\..\..\src\db\BaseDatabaseQueryImpl.inl" />
+    <None Include="..\..\..\src\db\DatabaseImpl.inl" />
+    <None Include="..\..\..\src\db\DatabaseQueryImpl.inl" />
+    <None Include="..\..\..\src\db\DataCursor.inl" />
+    <None Include="..\..\..\src\db\DataCursorImpl.inl" />
+    <None Include="..\..\..\src\db\DataFilter.inl" />
+    <None Include="..\..\..\src\db\DataTableImpl.inl" />
+    <None Include="..\..\..\src\db\DeleteQuery.inl" />
+    <None Include="..\..\..\src\db\DeleteQueryImpl.inl" />
+    <None Include="..\..\..\src\db\InsertQuery.inl" />
+    <None Include="..\..\..\src\db\InsertQueryImpl.inl" />
+    <None Include="..\..\..\src\db\SelectQuery.inl" />
+    <None Include="..\..\..\src\db\SelectQueryImpl.inl" />
+    <None Include="..\..\..\src\db\TableIndexImpl.inl" />
+    <None Include="..\..\..\src\db\UpdateQuery.inl" />
+    <None Include="..\..\..\src\db\UpdateQueryImpl.inl" />
+    <None Include="..\..\..\src\anim\Expression\ExpressionScript.inl" />
+    <None Include="..\..\..\src\anim\Expression\ExpressionTrackImpl.inl" />
+    <None Include="..\..\..\src\gfx\BlendStateEx.inl" />
+    <None Include="..\..\..\src\gfx\BlendStateSet.inl" />
+    <None Include="..\..\..\src\gfx\BlendStateSetImpl.inl" />
+    <None Include="..\..\..\src\gfx\BufferImpl.inl" />
+    <None Include="..\..\..\src\gfx\CubeDepthTexture.inl" />
+    <None Include="..\..\..\src\gfx\CubeDepthTextureImpl.inl" />
+    <None Include="..\..\..\src\gfx\CubeRenderMap.inl" />
+    <None Include="..\..\..\src\gfx\CubeTexture.inl" />
+    <None Include="..\..\..\src\gfx\DataBufferImpl.inl" />
+    <None Include="..\..\..\src\gfx\DataBufferSetImpl.inl" />
+    <None Include="..\..\..\src\gfx\DataStreamImpl.inl" />
+    <None Include="..\..\..\src\gfx\DataStreamWriter.inl" />
+    <None Include="..\..\..\src\gfx\DepthStencilState.inl" />
+    <None Include="..\..\..\src\gfx\DepthStencilStateImpl.inl" />
+    <None Include="..\..\..\src\gfx\LinearTexture.inl" />
+    <None Include="..\..\..\src\gfx\LineRenderObject.inl" />
+    <None Include="..\..\..\src\gfx\Ndc.inl" />
+    <None Include="..\..\..\src\gfx\OverlayRenderMap.inl" />
+    <None Include="..\..\..\src\gfx\OverlayRenderObject.inl" />
+    <None Include="..\..\..\src\gfx\OverlayRenderQueue.inl" />
+    <None Include="..\..\..\src\gfx\PlainDepthTexture.inl" />
+    <None Include="..\..\..\src\gfx\PlainDepthTextureImpl.inl" />
+    <None Include="..\..\..\src\gfx\PlainRenderMap.inl" />
+    <None Include="..\..\..\src\gfx\PlainTexture.inl" />
+    <None Include="..\..\..\src\gfx\PostProcessRenderObject.inl" />
+    <None Include="..\..\..\src\gfx\PostProcessRenderQueue.inl" />
+    <None Include="..\..\..\src\gfx\RectEx.inl" />
+    <None Include="..\..\..\src\gfx\RectImpl.inl" />
+    <None Include="..\..\..\src\gfx\RenderChainImpl.inl" />
+    <None Include="..\..\..\src\gfx\RenderMapImpl.inl" />
+    <None Include="..\..\..\src\gfx\RenderObjectImpl.inl" />
+    <None Include="..\..\..\src\gfx\RenderQueueImpl.inl" />
+    <None Include="..\..\..\src\gfx\RenderStateImpl.inl" />
+    <None Include="..\..\..\src\gfx\RenderView.inl" />
+    <None Include="..\..\..\src\gfx\ResourceImpl.inl" />
+    <None Include="..\..\..\src\gfx\SceneRenderObject.inl" />
+    <None Include="..\..\..\src\gfx\SceneRenderQueue.inl" />
+    <None Include="..\..\..\src\gfx\SkyRenderObjectImpl.inl" />
+    <None Include="..\..\..\src\gfx\StructuredBuffer.inl" />
+    <None Include="..\..\..\src\gfx\StructuredBufferImpl.inl" />
+    <None Include="..\..\..\src\gfx\TypedBuffer.inl" />
+    <None Include="..\..\..\src\gfx\TypedBufferImpl.inl" />
+    <None Include="..\..\..\src\gfx\VirtualRenderWindow.inl" />
+    <None Include="..\..\..\src\img\Image.inl" />
+    <None Include="..\..\..\src\math\CubicBezier.inl" />
+    <None Include="..\..\..\src\math\TcbSpline.inl" />
+    <None Include="..\..\..\src\mat\MaterialMapImpl.inl" />
+    <None Include="..\..\..\src\mat\OpaqueMaterial.inl" />
+    <None Include="..\..\..\src\mat\OpaqueMaterialInstance.inl" />
+    <None Include="..\..\..\src\mat\SimpleMaterialAnimationControllerImpl.inl" />
+    <None Include="..\..\..\src\mat\TransparentMaterial.inl" />
+    <None Include="..\..\..\src\mat\TransparentMaterialInstance.inl" />
+    <None Include="..\..\..\src\net\NetworkDevice.inl" />
+    <None Include="..\..\..\src\net\NetworkDeviceImpl.inl" />
+    <None Include="..\..\..\src\net\NetworkPeer.inl" />
+    <None Include="..\..\..\src\net\NetworkPeerImpl.inl" />
+    <None Include="..\..\..\src\net\NetworkSystemEx.inl" />
+    <None Include="..\..\..\src\net\NetworkSystemImpl.inl" />
+    <None Include="..\..\..\src\over\BaseTextImpl.inl" />
+    <None Include="..\..\..\src\scene\ConeLight.inl" />
+    <None Include="..\..\..\src\scene\ConeSound.inl" />
+    <None Include="..\..\..\src\scene\Curve.inl" />
+    <None Include="..\..\..\src\scene\DebugHelper.inl" />
+    <None Include="..\..\..\src\scene\DirectLight.inl" />
+    <None Include="..\..\..\src\scene\Gizmo.inl" />
+    <None Include="..\..\..\src\scene\LightAnimationControllerImpl.inl" />
+    <None Include="..\..\..\src\scene\LightImpl.inl" />
+    <None Include="..\..\..\src\scene\LineMesh.inl" />
+    <None Include="..\..\..\src\scene\LineMeshBatch.inl" />
+    <None Include="..\..\..\src\scene\LineMeshInstance.inl" />
+    <None Include="..\..\..\src\scene\LineSet.inl" />
+    <None Include="..\..\..\src\scene\MeshBatchAnimationControllerImpl.inl" />
+    <None Include="..\..\..\src\scene\MeshBatchImpl.inl" />
+    <None Include="..\..\..\src\scene\MeshCodec\MeshCodecImpl.inl" />
+    <None Include="..\..\..\src\scene\OmniLight.inl" />
+    <None Include="..\..\..\src\scene\OmniSound.inl" />
+    <None Include="..\..\..\src\scene\PointMeshBatch.inl" />
+    <None Include="..\..\..\src\scene\PointMeshInstance.inl" />
+    <None Include="..\..\..\src\scene\PointSet.inl" />
+    <None Include="..\..\..\src\scene\PrimitiveAnimationControllerImpl.inl" />
+    <None Include="..\..\..\src\scene\SoundImpl.inl" />
+    <None Include="..\..\..\src\scene\TriangleMesh.inl" />
+    <None Include="..\..\..\src\scene\TriangleMeshBatch.inl" />
+    <None Include="..\..\..\src\scene\TriangleSet.inl" />
+    <None Include="..\..\..\src\scene\TriangleSetImpl.inl" />
+    <None Include="..\..\..\src\script\ScriptMachine.inl" />
+    <None Include="..\..\..\src\script\ScriptMachineImpl.inl" />
+    <None Include="..\..\..\src\script\ScriptObject.inl" />
+    <None Include="..\..\..\src\script\ScriptObjectImpl.inl" />
+    <None Include="..\..\..\src\script\ScriptSystemEx.inl" />
+    <None Include="..\..\..\src\script\ScriptSystemImpl.inl" />
+    <None Include="..\..\..\src\sound\Sound2D.inl" />
+    <None Include="..\..\..\src\sound\SoundManager.inl" />
+    <None Include="..\..\..\src\ui\Accordion.inl" />
+    <None Include="..\..\..\src\ui\Angle.inl" />
+    <None Include="..\..\..\src\ui\BaseAnchoredObjectImpl.inl" />
+    <None Include="..\..\..\src\ui\BaseThemeWidgetImpl.inl" />
+    <None Include="..\..\..\src\ui\Button.inl" />
+    <None Include="..\..\..\src\ui\Cursor.inl" />
+    <None Include="..\..\..\src\ui\DropList.inl" />
+    <None Include="..\..\..\src\ui\Edit.inl" />
+    <None Include="..\..\..\src\ui\Frame.inl" />
+    <None Include="..\..\..\src\ui\FrameImpl.inl" />
+    <None Include="..\..\..\src\ui\UiEx.inl" />
+    <None Include="..\..\..\src\ui\Label.inl" />
+    <None Include="..\..\..\src\ui\List.inl" />
+    <None Include="..\..\..\src\ui\ListWrapperImpl.inl" />
+    <None Include="..\..\..\src\ui\Option.inl" />
+    <None Include="..\..\..\src\ui\Picture.inl" />
+    <None Include="..\..\..\src\ui\Progress.inl" />
+    <None Include="..\..\..\src\ui\Slider.inl" />
+    <None Include="..\..\..\src\ui\Switch.inl" />
+    <None Include="..\..\..\src\ui\Theme.inl" />
+    <None Include="..\..\..\src\ui\WidgetWrapperImpl.inl" />
+    <None Include="..\..\..\src\img\ImageImpl.inl" />
+    <None Include="..\..\..\src\input\InputSystemEx.inl" />
+    <None Include="..\..\..\src\input\JoystickImpl.inl" />
+    <None Include="..\..\..\src\input\KeyboardImpl.inl" />
+    <None Include="..\..\..\src\input\MouseImpl.inl" />
+    <None Include="..\..\..\src\internal\DynamicLibrary.inl" />
+    <None Include="..\..\..\src\io\BinaryReader.inl" />
+    <None Include="..\..\..\src\io\BinaryWriter.inl" />
+    <None Include="..\..\..\src\io\StreamEx.inl" />
+    <None Include="..\..\..\src\io\StreamSet.inl" />
+    <None Include="..\..\..\src\io\ZipStream.inl" />
+    <None Include="..\..\..\src\lang\Allocator.inl" />
+    <None Include="..\..\..\src\lang\Btree.inl" />
+    <None Include="..\..\..\src\lang\BtreeIterator.inl" />
+    <None Include="..\..\..\src\lang\Set.inl" />
+    <None Include="..\..\..\src\lang\SetEx.inl" />
+    <None Include="..\..\..\src\lang\SetIterator.inl" />
+    <None Include="..\..\..\src\lang\Stack.inl" />
+    <None Include="..\..\..\src\lang\List.inl" />
+    <None Include="..\..\..\src\lang\ListIterator.inl" />
+    <None Include="..\..\..\src\lang\Tree.inl" />
+    <None Include="..\..\..\src\lang\TreeIterator.inl" />
+    <None Include="..\..\..\src\lang\Vector.inl" />
+    <None Include="..\..\..\src\lang\VectorEx.inl" />
+    <None Include="..\..\..\src\lang\Map.inl" />
+    <None Include="..\..\..\src\lang\MapEx.inl" />
+    <None Include="..\..\..\src\lang\MapIterator.inl" />
+    <None Include="..\..\..\src\lang\Queue.inl" />
+    <None Include="..\..\..\src\lang\QueueEx.inl" />
+    <None Include="..\..\..\src\lang\Parseable.inl" />
+    <None Include="..\..\..\src\lang\Parser.inl" />
+    <None Include="..\..\..\inc\lang\Ptr.inl" />
+    <None Include="..\..\..\src\core\Library.inl" />
+    <None Include="..\..\..\src\core\FactoryImpl.inl" />
+    <None Include="..\..\..\src\core\ObjectImpl.inl" />
+    <None Include="..\..\..\src\core\Synkro.inl" />
+    <None Include="..\..\..\src\core\ControllerImpl.inl" />
+    <None Include="..\..\..\src\mat\MultiMaterial.inl" />
+    <None Include="..\..\..\src\mat\SimpleMaterialImpl.inl" />
+    <None Include="..\..\..\src\mat\VisualMaterialImpl.inl" />
+    <None Include="..\..\..\src\over\OverlayManager.inl" />
+    <None Include="..\..\..\src\over\PolyLine.inl" />
+    <None Include="..\..\..\src\over\PoolSprite.inl" />
+    <None Include="..\..\..\src\over\PoolText.inl" />
+    <None Include="..\..\..\src\over\Quad.inl" />
+    <None Include="..\..\..\src\over\Sprite.inl" />
+    <None Include="..\..\..\src\over\SpritePool.inl" />
+    <None Include="..\..\..\src\over\TextPool.inl" />
+    <None Include="..\..\..\src\scene\Bone.inl" />
+    <None Include="..\..\..\src\scene\Fog.inl" />
+    <None Include="..\..\..\src\scene\LookAtConstraint.inl" />
+    <None Include="..\..\..\src\scene\MeshImpl.inl" />
+    <None Include="..\..\..\src\scene\NodeAnimationControllerImpl.inl" />
+    <None Include="..\..\..\src\scene\NodeRecordControllerImpl.inl" />
+    <None Include="..\..\..\src\scene\NormalBuilder.inl" />
+    <None Include="..\..\..\src\scene\ParentConstraint.inl" />
+    <None Include="..\..\..\src\scene\PointMesh.inl" />
+    <None Include="..\..\..\src\scene\SceneManager.inl" />
+    <None Include="..\..\..\src\scene\Skeleton.inl" />
+    <None Include="..\..\..\src\sound\Sound3D.inl" />
+    <None Include="..\..\..\src\view\Filter\Depth\DepthMap.inl" />
+    <None Include="..\..\..\src\view\Filter\ViewportFilterAnimationControllerImpl.inl" />
+    <None Include="..\..\..\src\view\Filter\ViewportFilterImpl.inl" />
+    <None Include="..\..\..\src\view\Viewport.inl" />
+    <None Include="..\..\..\src\view\ViewportManager.inl" />
+    <None Include="..\..\..\src\view\ViewportTransitionController.inl" />
+    <None Include="..\..\..\src\win\FrameWindow.inl" />
+    <None Include="..\..\..\src\win\FrameWindowImpl.inl" />
+    <None Include="..\..\..\src\win\IconWindowImpl.inl" />
+    <None Include="..\..\..\src\win\Monitor.inl" />
+    <None Include="..\..\..\src\win\ViewWindow.inl" />
+    <None Include="..\..\..\src\win\ViewWindowImpl.inl" />
+    <None Include="..\..\..\src\win\WindowImpl.inl" />
+    <None Include="..\..\..\src\win\WindowSystemEx.inl" />
+    <None Include="..\..\..\src\gfx\CubeTextureImpl.inl" />
+    <None Include="..\..\..\src\gfx\LinearTextureImpl.inl" />
+    <None Include="..\..\..\src\gfx\PlainTextureImpl.inl" />
+    <None Include="..\..\..\src\gfx\TextureImpl.inl" />
+    <None Include="..\..\..\src\gfx\VolumeTexture.inl" />
+    <None Include="..\..\..\src\gfx\VolumeTextureImpl.inl" />
+    <None Include="..\..\..\src\gfx\DataFormat.inl" />
+    <None Include="..\..\..\src\gfx\Primitive.inl" />
+    <None Include="..\..\..\src\gfx\PrimitiveImpl.inl" />
+    <None Include="..\..\..\src\gfx\GraphicsDevice.inl" />
+    <None Include="..\..\..\src\gfx\GraphicsDeviceImpl.inl" />
+    <None Include="..\..\..\src\gfx\Program.inl" />
+    <None Include="..\..\..\src\gfx\ProgramImpl.inl" />
+    <None Include="..\..\..\src\gfx\ProgramStageImpl.inl" />
+    <None Include="..\..\..\src\gfx\BlendState.inl" />
+    <None Include="..\..\..\src\gfx\RasterizerState.inl" />
+    <None Include="..\..\..\src\gfx\RasterizerStateImpl.inl" />
+    <None Include="..\..\..\src\gfx\SamplerState.inl" />
+    <None Include="..\..\..\src\gfx\SamplerStateImpl.inl" />
+    <None Include="..\..\..\src\gfx\SamplerStateSet.inl" />
+    <None Include="..\..\..\src\gfx\SamplerStateSetImpl.inl" />
+    <None Include="..\..\..\src\gfx\GraphicsSystemEx.inl" />
+    <None Include="..\..\..\src\gfx\GraphicsSystemImpl.inl" />
+    <CustomBuildStep Include="..\..\..\src\gfx\DebugQueue.inl">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <None Include="..\..\..\src\gfx\BaseResourceImpl.inl" />
+    <None Include="..\..\..\src\gfx\ResourceSet.inl" />
+    <None Include="..\..\..\src\gfx\ResourceSetImpl.inl" />
+    <None Include="..\..\..\src\gfx\CubeRenderTexture.inl" />
+    <None Include="..\..\..\src\gfx\CubeRenderTextureImpl.inl" />
+    <None Include="..\..\..\src\gfx\DepthTextureImpl.inl" />
+    <None Include="..\..\..\src\gfx\LinearRenderTexture.inl" />
+    <None Include="..\..\..\src\gfx\LinearRenderTextureImpl.inl" />
+    <None Include="..\..\..\src\gfx\PlainRenderTexture.inl" />
+    <None Include="..\..\..\src\gfx\PlainRenderTextureImpl.inl" />
+    <None Include="..\..\..\src\gfx\RenderTextureImpl.inl" />
+    <None Include="..\..\..\src\gfx\RenderTextureSetImpl.inl" />
+    <None Include="..\..\..\src\gfx\VolumeRenderTexture.inl" />
+    <None Include="..\..\..\src\gfx\VolumeRenderTextureImpl.inl" />
+    <None Include="..\..\..\src\gfx\ParameterSet.inl" />
+    <None Include="..\..\..\src\gfx\ParameterSetImpl.inl" />
+    <None Include="..\..\..\src\gfx\BaseRenderWindowImpl.inl" />
+    <None Include="..\..\..\src\gfx\RenderWindowImpl.inl" />
+    <None Include="..\..\..\src\gfx\FrameRenderWindow.inl" />
+    <None Include="..\..\..\src\gfx\FrameRenderWindowImpl.inl" />
+    <None Include="..\..\..\src\gfx\ViewRenderWindow.inl" />
+    <None Include="..\..\..\src\gfx\ViewRenderWindowImpl.inl" />
+    <None Include="..\..\..\src\diag\Diag.inl" />
+    <None Include="..\..\..\src\diag\Log.inl" />
+    <None Include="..\..\..\src\io\Path.inl" />
+    <None Include="..\..\..\src\io\StreamReader.inl" />
+    <None Include="..\..\..\src\io\StreamImpl.inl" />
+    <None Include="..\..\..\src\io\StreamWriter.inl" />
+    <None Include="..\..\..\src\io\StreamSystemImpl.inl" />
+    <None Include="..\..\..\src\io\StreamDirectoryEx.inl" />
+    <None Include="..\..\..\src\io\StreamDirectoryImpl.inl" />
+    <None Include="..\..\..\src\input\InputSystemImpl.inl" />
+    <None Include="..\..\..\src\input\Keyboard.inl" />
+    <None Include="..\..\..\src\input\Mouse.inl" />
+    <None Include="..\..\..\src\input\Joystick.inl" />
+    <None Include="..\..\..\src\input\Arcball.inl" />
+    <CustomBuildStep Include="..\..\..\src\ui\ThemeEx.inl">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\..\..\src\ui\BaseWidgetImpl.inl">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\..\..\src\ui\WidgetEx.inl">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\..\..\src\ui\WidgetImpl.inl">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\..\..\src\ui\ListImpl.inl">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">false</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\..\..\src\ui\FrameImpl.inl">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <None Include="..\..\..\src\anim\AnimationControllerImpl.inl" />
+    <None Include="..\..\..\src\anim\AnimationSystem.inl" />
+    <None Include="..\..\..\src\scene\Camera.inl" />
+    <None Include="..\..\..\src\scene\NodeImpl.inl" />
+    <CustomBuildStep Include="..\..\..\src\scene\Scene.inl">
+      <FileType>Document</FileType>
+    </CustomBuildStep>
+    <CustomBuildStep Include="..\..\..\src\scene\SceneEx.inl">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <None Include="..\..\..\src\audio\AudioSystemEx.inl" />
+    <None Include="..\..\..\src\audio\AudioSystemImpl.inl" />
+    <None Include="..\..\..\src\sound\Music.inl" />
+    <None Include="..\..\..\src\sound\Voice.inl" />
+    <None Include="..\..\..\src\over\Overlay.inl" />
+    <None Include="..\..\..\src\over\FontEx.inl" />
+    <None Include="..\..\..\src\over\Text.inl" />
+    <None Include="..\..\..\src\internal\BinarySemaphore.inl" />
+    <None Include="..\..\..\src\internal\ComInitializer.inl" />
+    <None Include="..\..\..\src\internal\Logger.inl" />
+    <None Include="..\..\..\src\internal\Mutex.inl" />
+    <None Include="..\..\..\src\internal\Semaphore.inl" />
+    <None Include="..\..\..\src\internal\Timer.inl" />
+    <None Include="..\..\..\src\win\WindowSystemImpl.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro\synkro.core.cpp" />
+    <ClCompile Include="..\..\..\src\anim\AnimationCodec\AnimationCodec.cpp" />
+    <ClCompile Include="..\..\..\src\anim\AnimationDataType.cpp" />
+    <ClCompile Include="..\..\..\src\anim\AnimationDirection.cpp" />
+    <ClCompile Include="..\..\..\src\anim\AnimationSet.cpp" />
+    <ClCompile Include="..\..\..\src\anim\AnimationTrack\AnimationTrack.cpp" />
+    <ClCompile Include="..\..\..\src\anim\AnimationTrack\ProcedureType.cpp" />
+    <ClCompile Include="..\..\..\src\anim\AnimationTrack\WaveType.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Interpolation.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Task\SaveAnimationTask.cpp" />
+    <ClCompile Include="..\..\..\src\audio\AudioChunk.cpp" />
+    <ClCompile Include="..\..\..\src\audio\AudioEnvironment.cpp" />
+    <ClCompile Include="..\..\..\src\audio\AudioPlayer.cpp" />
+    <ClCompile Include="..\..\..\src\audio\AudioRecorder.cpp" />
+    <ClCompile Include="..\..\..\src\audio\PlayerDesc.cpp" />
+    <ClCompile Include="..\..\..\src\audio\RecorderDesc.cpp" />
+    <ClCompile Include="..\..\..\src\audio\SoundBuffer.cpp" />
+    <ClCompile Include="..\..\..\src\audio\SoundEmitter.cpp" />
+    <ClCompile Include="..\..\..\src\audio\SoundListener.cpp" />
+    <ClCompile Include="..\..\..\src\audio\VoiceBuffer.cpp" />
+    <ClCompile Include="..\..\..\src\cons\Console.cpp" />
+    <ClCompile Include="..\..\..\src\core\ConfigurationBanner.cpp" />
+    <ClCompile Include="..\..\..\src\core\ConfigurationEditor.cpp" />
+    <ClCompile Include="..\..\..\src\core\ConfigurationException.cpp" />
+    <ClCompile Include="..\..\..\src\core\ConfigurationScene\ConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\src\core\ConfigurationScene\PointMeshConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\src\core\ConfigurationScene\ProjectorsConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\src\core\ConfigurationScene\RubikCubeConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\src\core\ConfigurationScene\TesseractConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\src\core\ControllerState.cpp" />
+    <ClCompile Include="..\..\..\src\core\DataMode.cpp" />
+    <ClCompile Include="..\..\..\src\core\FactoryList.cpp" />
+    <ClCompile Include="..\..\..\src\core\FactoryTable.cpp" />
+    <ClCompile Include="..\..\..\src\core\Iface.cpp" />
+    <ClCompile Include="..\..\..\src\core\Language.cpp" />
+    <ClCompile Include="..\..\..\src\core\List\NodeList.cpp" />
+    <ClCompile Include="..\..\..\src\core\List\StringList.cpp" />
+    <ClCompile Include="..\..\..\src\core\List\TriangleMeshList.cpp" />
+    <ClCompile Include="..\..\..\src\core\PlainLogFile.cpp" />
+    <ClCompile Include="..\..\..\src\core\Resource.cpp" />
+    <ClCompile Include="..\..\..\src\core\ResourceList.cpp" />
+    <ClCompile Include="..\..\..\src\core\ResourceReader.cpp" />
+    <ClCompile Include="..\..\..\src\core\ResourceTable.cpp" />
+    <ClCompile Include="..\..\..\src\core\RichLogFile.cpp" />
+    <ClCompile Include="..\..\..\src\core\Version.cpp" />
+    <ClCompile Include="..\..\..\src\core\Win32\Win32ConfigurationEditor.cpp" />
+    <ClCompile Include="..\..\..\src\core\Win32\Win32ExceptionHandler.cpp" />
+    <ClCompile Include="..\..\..\src\db\CombinationType.cpp" />
+    <ClCompile Include="..\..\..\src\db\ComparisonType.cpp" />
+    <ClCompile Include="..\..\..\src\db\Database.cpp" />
+    <ClCompile Include="..\..\..\src\db\DatabaseException.cpp" />
+    <ClCompile Include="..\..\..\src\db\DatabaseSystem.cpp" />
+    <ClCompile Include="..\..\..\src\db\DatabaseSystemEx.cpp" />
+    <ClCompile Include="..\..\..\src\db\DataCursor.cpp" />
+    <ClCompile Include="..\..\..\src\db\DataFilter.cpp" />
+    <ClCompile Include="..\..\..\src\db\DataTable.cpp" />
+    <ClCompile Include="..\..\..\src\db\DeleteQuery.cpp" />
+    <ClCompile Include="..\..\..\src\db\InsertQuery.cpp" />
+    <ClCompile Include="..\..\..\src\db\SelectQuery.cpp" />
+    <ClCompile Include="..\..\..\src\db\SortOrder.cpp" />
+    <ClCompile Include="..\..\..\src\db\TableColumn.cpp" />
+    <ClCompile Include="..\..\..\src\db\TableIndex.cpp" />
+    <ClCompile Include="..\..\..\src\db\UpdateQuery.cpp" />
+    <ClCompile Include="..\..\..\src\diag\LogFacility.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\AbsFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\BinaryExpression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\CeilFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ColorExpression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ColorFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ComplexExpression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\Constant.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ConstantExpression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ControlExpression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\CosFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ExpFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\Expression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ExpressionCompiler.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ExpressionException.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ExpressionList.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ExpressionParam.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ExpressionParamEx.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ExpressionScript.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\FloatExpression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\FloatFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\FloorFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\Function.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\FunctionExpression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\Identifier.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\LerpFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\Matrix4x4Expression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\Matrix4x4Function.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\MaxFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\MetaExpression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\MinFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\PowFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ReturnExpression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\ReturnStatement.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\SignFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\SimpleExpression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\SinFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\SqrtFunction.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\Token.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\TokenExpression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\UnaryExpression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\Variable.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\VariableDeclaration.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\VariableExpression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\Vector3Expression.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Expression\Vector3Function.cpp" />
+    <ClCompile Include="..\..\..\src\external\stream.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\Aspect.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\BlendStateEx.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\BlendStateSet.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\CompareFunction.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\CubeDepthTexture.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\CubeRenderMap.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\DataAccess.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\DataStream.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\DepthStencilState.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\DisplayModeFormat.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\GraphicsDeviceDesc.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\LineRenderObject.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\LineRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\MapMode.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\Ndc.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\OverlayRenderMap.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\OverlayRenderObject.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\OverlayRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\PlainDepthTexture.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\PlainRenderMap.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\PostProcessRenderObject.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\PostProcessRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\ProgramParamEx.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\RectEx.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\RenderView.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\RenderViewStats.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\SceneRenderObject.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\SceneRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\SkyboxRenderObject.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\SkysphereRenderObject.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\StructuredBuffer.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\TypedBuffer.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\VirtualRenderWindow.cpp" />
+    <ClCompile Include="..\..\..\src\img\ImageCodec\ImageCodec.cpp" />
+    <ClCompile Include="..\..\..\src\img\ImageCodec\ImageCodecContext.cpp" />
+    <ClCompile Include="..\..\..\src\img\ImageCodec\ImageCodecContextEx.cpp" />
+    <ClCompile Include="..\..\..\src\img\RenderImage\CubeRenderImage.cpp" />
+    <ClCompile Include="..\..\..\src\img\RenderImage\PlainRenderImage.cpp" />
+    <ClCompile Include="..\..\..\src\img\Task\LoadImageTask.cpp" />
+    <ClCompile Include="..\..\..\src\img\Task\PrepareImageTask.cpp" />
+    <ClCompile Include="..\..\..\src\img\Task\SaveImageTask.cpp" />
+    <ClCompile Include="..\..\..\src\lang\DivisionByZeroException.cpp" />
+    <ClCompile Include="..\..\..\src\lang\StringBuilder.cpp" />
+    <ClCompile Include="..\..\..\src\math\CubicBezier.cpp" />
+    <ClCompile Include="..\..\..\src\math\Intersection.cpp" />
+    <ClCompile Include="..\..\..\src\math\TcbSpline.cpp" />
+    <ClCompile Include="..\..\..\src\mat\MaterialTriangleSet.cpp" />
+    <ClCompile Include="..\..\..\src\mat\OpaqueMaterial.cpp" />
+    <ClCompile Include="..\..\..\src\mat\OpaqueMaterialInstance.cpp" />
+    <ClCompile Include="..\..\..\src\mat\SimpleMaterialAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\mat\SimpleMaterialProperty.cpp" />
+    <ClCompile Include="..\..\..\src\mat\SoftOpaqueMaterial.cpp" />
+    <ClCompile Include="..\..\..\src\mat\TransparentMaterial.cpp" />
+    <ClCompile Include="..\..\..\src\mat\TransparentMaterialAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\mat\TransparentMaterialInstance.cpp" />
+    <ClCompile Include="..\..\..\src\mat\TransparentMaterialProperty.cpp" />
+    <ClCompile Include="..\..\..\src\mem\MemoryStats.cpp" />
+    <ClCompile Include="..\..\..\src\net\NetworkAddress.cpp" />
+    <ClCompile Include="..\..\..\src\net\NetworkDevice.cpp" />
+    <ClCompile Include="..\..\..\src\net\NetworkDeviceDesc.cpp" />
+    <ClCompile Include="..\..\..\src\net\NetworkException.cpp" />
+    <ClCompile Include="..\..\..\src\net\NetworkMessage.cpp" />
+    <ClCompile Include="..\..\..\src\net\NetworkPeer.cpp" />
+    <ClCompile Include="..\..\..\src\net\NetworkSystem.cpp" />
+    <ClCompile Include="..\..\..\src\net\NetworkSystemEx.cpp" />
+    <ClCompile Include="..\..\..\src\over\SpriteAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\over\SpriteProperty.cpp" />
+    <ClCompile Include="..\..\..\src\over\TextAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\over\TextPoolAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\over\TextPoolProperty.cpp" />
+    <ClCompile Include="..\..\..\src\over\TextProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\BoneProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\CameraAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\scene\CameraProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\ColorMode.cpp" />
+    <ClCompile Include="..\..\..\src\scene\ConeLight.cpp" />
+    <ClCompile Include="..\..\..\src\scene\ConeLightAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\scene\ConeLightProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\ConeSound.cpp" />
+    <ClCompile Include="..\..\..\src\scene\Curve.cpp" />
+    <ClCompile Include="..\..\..\src\scene\DebugHelper.cpp" />
+    <ClCompile Include="..\..\..\src\scene\DebugMode.cpp" />
+    <ClCompile Include="..\..\..\src\scene\DirectLight.cpp" />
+    <ClCompile Include="..\..\..\src\scene\FogAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\scene\FogProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\Gizmo.cpp" />
+    <ClCompile Include="..\..\..\src\scene\LightAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\scene\LightProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\LineMesh.cpp" />
+    <ClCompile Include="..\..\..\src\scene\LineMeshBatch.cpp" />
+    <ClCompile Include="..\..\..\src\scene\LineMeshInstance.cpp" />
+    <ClCompile Include="..\..\..\src\scene\LineSetAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\scene\LineSetProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\MeshBatchProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\MeshBuilder\MeshBuilder.cpp" />
+    <ClCompile Include="..\..\..\src\scene\MeshCodec\MeshCodec.cpp" />
+    <ClCompile Include="..\..\..\src\scene\NodeAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\scene\NodeProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\OmniLight.cpp" />
+    <ClCompile Include="..\..\..\src\scene\OmniLightAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\scene\OmniLightProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\OmniSound.cpp" />
+    <ClCompile Include="..\..\..\src\scene\PointMeshBatch.cpp" />
+    <ClCompile Include="..\..\..\src\scene\PointMeshInstance.cpp" />
+    <ClCompile Include="..\..\..\src\scene\PointSetAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\scene\PointSetProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\PrimitiveAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\scene\PrimitiveProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\SceneAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\scene\SceneProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\SceneType.cpp" />
+    <ClCompile Include="..\..\..\src\scene\SkeletonAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\scene\SoftTriangleMesh.cpp" />
+    <ClCompile Include="..\..\..\src\scene\SoundAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\scene\SoundProperty.cpp" />
+    <ClCompile Include="..\..\..\src\scene\TriangleMesh.cpp" />
+    <ClCompile Include="..\..\..\src\scene\TriangleMeshBatch.cpp" />
+    <ClCompile Include="..\..\..\src\script\ScriptException.cpp" />
+    <ClCompile Include="..\..\..\src\script\ScriptMachine.cpp" />
+    <ClCompile Include="..\..\..\src\script\ScriptMethod.cpp" />
+    <ClCompile Include="..\..\..\src\script\ScriptObject.cpp" />
+    <ClCompile Include="..\..\..\src\script\ScriptParam.cpp" />
+    <ClCompile Include="..\..\..\src\script\ScriptParamType.cpp" />
+    <ClCompile Include="..\..\..\src\script\ScriptSystem.cpp" />
+    <ClCompile Include="..\..\..\src\script\ScriptSystemEx.cpp" />
+    <ClCompile Include="..\..\..\src\sound\MusicAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\sound\MusicProperty.cpp" />
+    <ClCompile Include="..\..\..\src\sound\Sound2D.cpp" />
+    <ClCompile Include="..\..\..\src\sound\SoundCodec\SoundCodec.cpp" />
+    <ClCompile Include="..\..\..\src\sound\SoundCodec\SoundCodecContext.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Accordion.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Anchor.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Angle.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Button.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Cursor.cpp" />
+    <ClCompile Include="..\..\..\src\ui\DropList.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Edit.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Frame.cpp" />
+    <ClCompile Include="..\..\..\src\ui\UiEx.cpp" />
+    <ClCompile Include="..\..\..\src\ui\UiReader.cpp" />
+    <ClCompile Include="..\..\..\src\ui\UiType.cpp" />
+    <ClCompile Include="..\..\..\src\ui\HotKey.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Label.cpp" />
+    <ClCompile Include="..\..\..\src\ui\List.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Option.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Picture.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Progress.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Slider.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Switch.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Theme.cpp" />
+    <ClCompile Include="..\..\..\src\ui\ThemeName.cpp" />
+    <ClCompile Include="..\..\..\src\ui\WidgetEffect.cpp" />
+    <ClCompile Include="..\..\..\src\ui\WidgetState.cpp" />
+    <ClCompile Include="..\..\..\src\img\ColorGradient.cpp" />
+    <ClCompile Include="..\..\..\src\img\ImageStats.cpp" />
+    <ClCompile Include="..\..\..\src\img\PixelChannel.cpp" />
+    <ClCompile Include="..\..\..\src\img\PixelFormatEx.cpp" />
+    <ClCompile Include="..\..\..\src\input\JoystickDesc.cpp" />
+    <ClCompile Include="..\..\..\src\input\KeyboardDesc.cpp" />
+    <ClCompile Include="..\..\..\src\input\MouseDesc.cpp" />
+    <ClCompile Include="..\..\..\src\io\AccessMode.cpp" />
+    <ClCompile Include="..\..\..\src\io\StreamEx.cpp" />
+    <ClCompile Include="..\..\..\src\io\XmlDocument.cpp" />
+    <ClCompile Include="..\..\..\src\io\ZipDirectory.cpp" />
+    <ClCompile Include="..\..\..\src\io\ZipFolder.cpp" />
+    <ClCompile Include="..\..\..\src\io\ZipStream.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Convert.cpp" />
+    <ClCompile Include="..\..\..\src\lang\DataType.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Enum.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Flag.cpp" />
+    <ClCompile Include="..\..\..\src\lang\GradientType.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Mask.cpp" />
+    <ClCompile Include="..\..\..\src\lang\NullReferenceException.cpp" />
+    <ClCompile Include="..\..\..\src\lang\OutOfRangeException.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Point.cpp" />
+    <ClCompile Include="..\..\..\src\lang\PointF.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Random.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Range.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Rect.cpp" />
+    <ClCompile Include="..\..\..\src\lang\RectF.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Size.cpp" />
+    <ClCompile Include="..\..\..\src\lang\String.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Formatter.cpp" />
+    <ClCompile Include="..\..\..\src\lang\ASCII7Encoding.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Encoding.cpp" />
+    <ClCompile Include="..\..\..\src\lang\UTF16Encoding.cpp" />
+    <ClCompile Include="..\..\..\src\lang\UTF32Encoding.cpp" />
+    <ClCompile Include="..\..\..\src\lang\UTF8Encoding.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Parser.cpp" />
+    <ClCompile Include="..\..\..\src\lang\DateTime.cpp" />
+    <ClCompile Include="..\..\..\src\lang\BadArgumentException.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Exception.cpp" />
+    <ClCompile Include="..\..\..\src\lang\InvalidOperationException.cpp" />
+    <ClCompile Include="..\..\..\src\lang\NotSupportedException.cpp" />
+    <ClCompile Include="..\..\..\src\core\Platform.cpp" />
+    <ClCompile Include="..\..\..\src\core\VersionException.cpp" />
+    <ClCompile Include="..\..\..\src\core\Configuration.cpp" />
+    <ClCompile Include="..\..\..\src\core\Param.cpp" />
+    <ClCompile Include="..\..\..\src\core\Library.cpp" />
+    <ClCompile Include="..\..\..\src\core\ResourceType.cpp" />
+    <ClCompile Include="..\..\..\src\core\Str.cpp" />
+    <ClCompile Include="..\..\..\src\core\CallStack.cpp" />
+    <ClCompile Include="..\..\..\src\core\Synkro.cpp" />
+    <ClCompile Include="..\..\..\src\core\Thread.cpp" />
+    <ClCompile Include="..\..\..\src\core\ThreadPool.cpp" />
+    <ClCompile Include="..\..\..\src\core\ExceptionHandler.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Variant.cpp" />
+    <ClCompile Include="..\..\..\src\lang\VariantEx.cpp" />
+    <ClCompile Include="..\..\..\src\lang\Volume.cpp" />
+    <ClCompile Include="..\..\..\src\mat\DiffuseMap.cpp" />
+    <ClCompile Include="..\..\..\src\mat\LightingModel.cpp" />
+    <ClCompile Include="..\..\..\src\mat\MaterialDesc.cpp" />
+    <ClCompile Include="..\..\..\src\mat\MaterialManager.cpp" />
+    <ClCompile Include="..\..\..\src\mat\MultiMaterial.cpp" />
+    <ClCompile Include="..\..\..\src\mat\OpacityMap.cpp" />
+    <ClCompile Include="..\..\..\src\mem\MemoryManager.cpp" />
+    <ClCompile Include="..\..\..\src\over\FontTemplate.cpp" />
+    <ClCompile Include="..\..\..\src\over\OverlayManager.cpp" />
+    <ClCompile Include="..\..\..\src\over\PolyLine.cpp" />
+    <ClCompile Include="..\..\..\src\over\PoolSprite.cpp" />
+    <ClCompile Include="..\..\..\src\over\PoolText.cpp" />
+    <ClCompile Include="..\..\..\src\over\Quad.cpp" />
+    <ClCompile Include="..\..\..\src\over\Sprite.cpp" />
+    <ClCompile Include="..\..\..\src\over\SpritePool.cpp" />
+    <ClCompile Include="..\..\..\src\over\TextBuffer.cpp" />
+    <ClCompile Include="..\..\..\src\over\TextDesc.cpp" />
+    <ClCompile Include="..\..\..\src\prf\Profiler.cpp" />
+    <ClCompile Include="..\..\..\src\math\Math.cpp" />
+    <ClCompile Include="..\..\..\src\math\Matrix3x3.cpp" />
+    <ClCompile Include="..\..\..\src\math\Matrix4x4.cpp" />
+    <ClCompile Include="..\..\..\src\math\Quaternion.cpp" />
+    <ClCompile Include="..\..\..\src\math\Vector2.cpp" />
+    <ClCompile Include="..\..\..\src\math\Vector3.cpp" />
+    <ClCompile Include="..\..\..\src\math\Vector4.cpp" />
+    <ClCompile Include="..\..\..\src\img\Color.cpp" />
+    <ClCompile Include="..\..\..\src\img\Image.cpp" />
+    <ClCompile Include="..\..\..\src\img\ImageManager.cpp" />
+    <ClCompile Include="..\..\..\src\img\ImageType.cpp" />
+    <ClCompile Include="..\..\..\src\img\PixelFormat.cpp" />
+    <ClCompile Include="..\..\..\src\scene\Attenuation.cpp" />
+    <ClCompile Include="..\..\..\src\scene\Bone.cpp" />
+    <ClCompile Include="..\..\..\src\scene\CameraRecordController.cpp" />
+    <ClCompile Include="..\..\..\src\scene\Dummy.cpp" />
+    <ClCompile Include="..\..\..\src\scene\Fog.cpp" />
+    <ClCompile Include="..\..\..\src\scene\LineSet.cpp" />
+    <ClCompile Include="..\..\..\src\scene\LookAtConstraint.cpp" />
+    <ClCompile Include="..\..\..\src\scene\ParentConstraint.cpp" />
+    <ClCompile Include="..\..\..\src\scene\PointMesh.cpp" />
+    <ClCompile Include="..\..\..\src\scene\PointSet.cpp" />
+    <ClCompile Include="..\..\..\src\scene\SceneManager.cpp" />
+    <ClCompile Include="..\..\..\src\scene\Skeleton.cpp" />
+    <ClCompile Include="..\..\..\src\scene\SoftTriangleSet.cpp" />
+    <ClCompile Include="..\..\..\src\scene\TriangleSet.cpp" />
+    <ClCompile Include="..\..\..\src\sound\Sound3D.cpp" />
+    <ClCompile Include="..\..\..\src\sound\SoundChannel.cpp" />
+    <ClCompile Include="..\..\..\src\view\Filter\Color\ColorFilterProperty.cpp" />
+    <ClCompile Include="..\..\..\src\view\Filter\Depth\DepthMap.cpp" />
+    <ClCompile Include="..\..\..\src\view\Filter\Depth\FogFilterProperty.cpp" />
+    <ClCompile Include="..\..\..\src\view\Filter\Kernel3x3\Emboss\EmbossFilterProperty.cpp" />
+    <ClCompile Include="..\..\..\src\view\Filter\Kernel3x3\Kernel3x3FilterProperty.cpp" />
+    <ClCompile Include="..\..\..\src\view\Filter\Simple\SimpleFilterProperty.cpp" />
+    <ClCompile Include="..\..\..\src\view\Filter\ViewportFilter.cpp" />
+    <ClCompile Include="..\..\..\src\view\Filter\ViewportFilterProperty.cpp" />
+    <ClCompile Include="..\..\..\src\view\StereoMode.cpp" />
+    <ClCompile Include="..\..\..\src\view\TransitionEffect.cpp" />
+    <ClCompile Include="..\..\..\src\view\ViewMode.cpp" />
+    <ClCompile Include="..\..\..\src\view\Viewport.cpp" />
+    <ClCompile Include="..\..\..\src\view\ViewportAnimationController.cpp" />
+    <ClCompile Include="..\..\..\src\view\ViewportManager.cpp" />
+    <ClCompile Include="..\..\..\src\view\ViewportProperty.cpp" />
+    <ClCompile Include="..\..\..\src\view\ViewportTransitionController.cpp" />
+    <ClCompile Include="..\..\..\src\win\FrameWindow.cpp" />
+    <ClCompile Include="..\..\..\src\win\Monitor.cpp" />
+    <ClCompile Include="..\..\..\src\win\MonitorOrientation.cpp" />
+    <ClCompile Include="..\..\..\src\win\ViewWindow.cpp" />
+    <ClCompile Include="..\..\..\src\win\WindowSystem.cpp" />
+    <ClCompile Include="..\..\..\src\win\WindowSystemEx.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\CubeFace.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\DataUsage.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\DepthFormat.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\GraphicsException.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\GraphicsStats.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\ProgramDataType.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\CubeTexture.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\LinearTexture.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\PlainTexture.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\TextureAddress.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\TextureFilter.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\VolumeTexture.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\DataFormat.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\IndexType.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\Primitive.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\PrimitiveType.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\DisplayMode.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\GraphicsDevice.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\GraphicsDeviceType.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\Program.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\ProgramReader.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\ProgramStage.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\ProgramStageType.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\BlendMode.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\BlendOperation.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\BlendState.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\StencilOperation.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\CullMode.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\FillMode.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\RasterizerState.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\SamplerState.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\SamplerStateSet.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\Matrix4x4Stream.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\NdcVector4Stream.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\GraphicsSystem.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\GraphicsSystemEx.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\ResourceSet.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\CubeRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\LinearRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\PlainRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\VolumeRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\ParameterSet.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\ProgramParam.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\FrameRenderWindow.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\ViewRenderWindow.cpp" />
+    <ClCompile Include="..\..\..\src\diag\Diag.cpp" />
+    <ClCompile Include="..\..\..\src\diag\Log.cpp" />
+    <ClCompile Include="..\..\..\src\diag\LogLevel.cpp" />
+    <ClCompile Include="..\..\..\src\diag\LogMode.cpp" />
+    <ClCompile Include="..\..\..\src\diag\MessagePriority.cpp" />
+    <ClCompile Include="..\..\..\src\io\FileNotFoundException.cpp" />
+    <ClCompile Include="..\..\..\src\io\IoException.cpp" />
+    <ClCompile Include="..\..\..\src\io\OpenMode.cpp" />
+    <ClCompile Include="..\..\..\src\io\SeekOrigin.cpp" />
+    <ClCompile Include="..\..\..\src\io\Path.cpp" />
+    <ClCompile Include="..\..\..\src\io\TextReader.cpp" />
+    <ClCompile Include="..\..\..\src\io\XmlReader.cpp" />
+    <ClCompile Include="..\..\..\src\io\BinaryStream.cpp" />
+    <ClCompile Include="..\..\..\src\io\FileStream.cpp" />
+    <ClCompile Include="..\..\..\src\io\StreamSet.cpp" />
+    <ClCompile Include="..\..\..\src\io\TextStream.cpp" />
+    <ClCompile Include="..\..\..\src\io\TextWriter.cpp" />
+    <ClCompile Include="..\..\..\src\io\XmlWriter.cpp" />
+    <ClCompile Include="..\..\..\src\io\NullStreamSystem.cpp" />
+    <ClCompile Include="..\..\..\src\io\StreamSystem.cpp" />
+    <ClCompile Include="..\..\..\src\io\StreamSystemEx.cpp" />
+    <ClCompile Include="..\..\..\src\io\StreamDirectory.cpp" />
+    <ClCompile Include="..\..\..\src\io\StreamDirectoryEx.cpp" />
+    <ClCompile Include="..\..\..\src\input\Axis.cpp" />
+    <ClCompile Include="..\..\..\src\input\InputException.cpp" />
+    <ClCompile Include="..\..\..\src\input\InputSystem.cpp" />
+    <ClCompile Include="..\..\..\src\input\InputSystemEx.cpp" />
+    <ClCompile Include="..\..\..\src\input\Key.cpp" />
+    <ClCompile Include="..\..\..\src\input\Keyboard.cpp" />
+    <ClCompile Include="..\..\..\src\input\KeyboardState.cpp" />
+    <ClCompile Include="..\..\..\src\input\Mouse.cpp" />
+    <ClCompile Include="..\..\..\src\input\MouseButton.cpp" />
+    <ClCompile Include="..\..\..\src\input\MouseState.cpp" />
+    <ClCompile Include="..\..\..\src\input\Joystick.cpp" />
+    <ClCompile Include="..\..\..\src\input\JoystickButton.cpp" />
+    <ClCompile Include="..\..\..\src\input\JoystickState.cpp" />
+    <ClCompile Include="..\..\..\src\input\Arcball.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Alignment.cpp" />
+    <ClCompile Include="..\..\..\src\ui\EditStyle.cpp" />
+    <ClCompile Include="..\..\..\src\ui\Orientation.cpp" />
+    <ClCompile Include="..\..\..\src\ui\ProgressType.cpp" />
+    <ClCompile Include="..\..\..\src\ui\ThemeReader.cpp" />
+    <ClCompile Include="..\..\..\src\ui\CursorType.cpp" />
+    <ClCompile Include="..\..\..\src\ui\ListItem.cpp" />
+    <ClCompile Include="..\..\..\src\anim\Animation.cpp" />
+    <ClCompile Include="..\..\..\src\anim\AnimationMode.cpp" />
+    <ClCompile Include="..\..\..\src\anim\AnimationSystem.cpp" />
+    <ClCompile Include="..\..\..\src\scene\FogType.cpp" />
+    <ClCompile Include="..\..\..\src\scene\Camera.cpp" />
+    <ClCompile Include="..\..\..\src\scene\Scene.cpp" />
+    <ClCompile Include="..\..\..\src\audio\AudioException.cpp" />
+    <ClCompile Include="..\..\..\src\audio\AudioSystem.cpp" />
+    <ClCompile Include="..\..\..\src\audio\AudioSystemEx.cpp" />
+    <ClCompile Include="..\..\..\src\sound\PlaybackMode.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\sound\SoundFormat.cpp" />
+    <ClCompile Include="..\..\..\src\sound\SoundManager.cpp" />
+    <ClCompile Include="..\..\..\src\sound\Music.cpp" />
+    <ClCompile Include="..\..\..\src\sound\Voice.cpp" />
+    <ClCompile Include="..\..\..\src\over\Order.cpp" />
+    <ClCompile Include="..\..\..\src\over\Overlay.cpp" />
+    <ClCompile Include="..\..\..\src\over\FontEx.cpp" />
+    <ClCompile Include="..\..\..\src\over\FontStyle.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\over\Text.cpp" />
+    <ClCompile Include="..\..\..\src\over\TextPool.cpp" />
+    <ClCompile Include="..\..\..\src\internal\Months.cpp" />
+    <ClCompile Include="..\..\..\src\internal\Weekdays.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\..\modules\synkro\synkro.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\modules\synkro\banner.bmp" />
+    <Image Include="..\..\..\modules\synkro\synkro.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="\develop\blindharper\synkro\trunk\modules\synkro\synkro.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

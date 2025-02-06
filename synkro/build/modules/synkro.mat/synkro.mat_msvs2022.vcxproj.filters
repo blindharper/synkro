@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="res">
+      <UniqueIdentifier>{5b6508ac-c655-47ba-86fd-9ea464d96c52}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.mat\synkro.mat.cpp" />
+    <ClCompile Include="..\..\..\modules\synkro.mat\programs.cpp">
+      <Filter>res</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.mat\resources.inl" />
+  </ItemGroup>
+</Project>

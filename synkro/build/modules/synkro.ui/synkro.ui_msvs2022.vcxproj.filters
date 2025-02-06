@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.ui\synkro.ui.cpp" />
+    <ClCompile Include="..\..\..\modules\synkro.ui\resources.cpp">
+      <Filter>res</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\WidgetEffect.cpp">
+      <Filter>UI\Default\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\Default\DefaultUi.cpp">
+      <Filter>UI\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\Default\DefaultAngle.cpp">
+      <Filter>UI\Default\Angle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\Default\DefaultButton.cpp">
+      <Filter>UI\Default\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\Default\DefaultDropList.cpp">
+      <Filter>UI\Default\DropList</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\Default\DefaultEdit.cpp">
+      <Filter>UI\Default\Edit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\Default\DefaultFrame.cpp">
+      <Filter>UI\Default\Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\Default\DefaultList.cpp">
+      <Filter>UI\Default\List</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\Default\DefaultOption.cpp">
+      <Filter>UI\Default\Option</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\Default\DefaultProgress.cpp">
+      <Filter>UI\Default\Progress</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\Default\DefaultSlider.cpp">
+      <Filter>UI\Default\Slider</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\Default\DefaultSwitch.cpp">
+      <Filter>UI\Default\Switch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\Default\DefaultAccordion.cpp">
+      <Filter>UI\Default\Accordion</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\ui\WidgetEffect.h">
+      <Filter>UI\Default\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\Default\DefaultUi.h">
+      <Filter>UI\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\Default\DefaultUiFactory.h">
+      <Filter>UI\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\Default\DefaultAngle.h">
+      <Filter>UI\Default\Angle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\Default\DefaultButton.h">
+      <Filter>UI\Default\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\Default\DefaultDropList.h">
+      <Filter>UI\Default\DropList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\Default\DefaultEdit.h">
+      <Filter>UI\Default\Edit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\Default\DefaultFrame.h">
+      <Filter>UI\Default\Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\Default\DefaultList.h">
+      <Filter>UI\Default\List</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\Default\DefaultOption.h">
+      <Filter>UI\Default\Option</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\Default\DefaultProgress.h">
+      <Filter>UI\Default\Progress</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\Default\DefaultSlider.h">
+      <Filter>UI\Default\Slider</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\Default\DefaultSwitch.h">
+      <Filter>UI\Default\Switch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\Default\DefaultAccordion.h">
+      <Filter>UI\Default\Accordion</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="res">
+      <UniqueIdentifier>{e007577c-e1e8-48a3-98ed-14b94033e73b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{96cce273-2fce-4133-8ee5-2f5055bb9f8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Default">
+      <UniqueIdentifier>{7245a196-110d-4ff3-8a75-125f64df755c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Default\Button">
+      <UniqueIdentifier>{ba7327d8-cbb9-496a-820e-2987b8dab346}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Default\Edit">
+      <UniqueIdentifier>{f92c125f-9cdd-47d6-8e86-279fb8e15f8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Default\Frame">
+      <UniqueIdentifier>{5e98ff77-d53a-4402-bb9e-0c74cee46565}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Default\Slider">
+      <UniqueIdentifier>{2027e5c4-39cd-4e91-a3f9-34b780f379d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Default\List">
+      <UniqueIdentifier>{dde5de90-b23e-4833-b179-17214b5af1af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Default\Progress">
+      <UniqueIdentifier>{4af845d1-ff9e-44e2-8dd9-e17f6b19087c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Default\Switch">
+      <UniqueIdentifier>{c90d2ab4-5da8-4be7-87cf-3101c19d99f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Default\Option">
+      <UniqueIdentifier>{9b50db97-9be8-4e2e-821a-b6000b96cc98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Default\DropList">
+      <UniqueIdentifier>{999cda88-1b21-4b3c-a821-b3c6ec1e295b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Default\Effect">
+      <UniqueIdentifier>{f9e18bec-ccd0-4d0f-a7ee-d6ecdcf72f7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Default\Angle">
+      <UniqueIdentifier>{72ccc96f-822b-4fd1-a602-4d33f843cdfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Default\Accordion">
+      <UniqueIdentifier>{2990af45-b428-40d0-b880-0d7ca00bd8a7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.ui\factories.inl" />
+    <None Include="..\..\..\modules\synkro.ui\resources.inl" />
+    <None Include="..\..\..\src\ui\Default\DefaultUi.inl">
+      <Filter>UI\Default</Filter>
+    </None>
+    <None Include="..\..\..\src\ui\Default\DefaultAngle.inl">
+      <Filter>UI\Default\Angle</Filter>
+    </None>
+    <None Include="..\..\..\src\ui\Default\DefaultButton.inl">
+      <Filter>UI\Default\Button</Filter>
+    </None>
+    <None Include="..\..\..\src\ui\Default\DefaultDropList.inl">
+      <Filter>UI\Default\DropList</Filter>
+    </None>
+    <None Include="..\..\..\src\ui\Default\DefaultEdit.inl">
+      <Filter>UI\Default\Edit</Filter>
+    </None>
+    <None Include="..\..\..\src\ui\Default\DefaultFrame.inl">
+      <Filter>UI\Default\Frame</Filter>
+    </None>
+    <None Include="..\..\..\src\ui\Default\DefaultList.inl">
+      <Filter>UI\Default\List</Filter>
+    </None>
+    <None Include="..\..\..\src\ui\Default\DefaultOption.inl">
+      <Filter>UI\Default\Option</Filter>
+    </None>
+    <None Include="..\..\..\src\ui\Default\DefaultProgress.inl">
+      <Filter>UI\Default\Progress</Filter>
+    </None>
+    <None Include="..\..\..\src\ui\Default\DefaultSlider.inl">
+      <Filter>UI\Default\Slider</Filter>
+    </None>
+    <None Include="..\..\..\src\ui\Default\DefaultSwitch.inl">
+      <Filter>UI\Default\Switch</Filter>
+    </None>
+    <None Include="..\..\..\src\ui\Default\DefaultAccordion.inl">
+      <Filter>UI\Default\Accordion</Filter>
+    </None>
+  </ItemGroup>
+</Project>

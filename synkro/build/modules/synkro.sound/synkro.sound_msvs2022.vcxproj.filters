@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="SoundCodec">
+      <UniqueIdentifier>{102dce52-0a00-468d-8f34-880fe641a5ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundCodec\Mp3">
+      <UniqueIdentifier>{b503816a-7cb8-4575-a584-125dd4f00af6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoundCodec\Wav">
+      <UniqueIdentifier>{426629c5-e440-4664-884d-09f98452e239}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\sound\SoundCodec\SoundCodecImpl.h">
+      <Filter>SoundCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\sound\SoundCodec\Mp3SoundCodec.h">
+      <Filter>SoundCodec\Mp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\sound\SoundCodec\Mp3SoundCodecFactory.h">
+      <Filter>SoundCodec\Mp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\sound\SoundCodec\WavSoundCodec.h">
+      <Filter>SoundCodec\Wav</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\sound\SoundCodec\WavSoundCodecFactory.h">
+      <Filter>SoundCodec\Wav</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.sound\synkro.sound.cpp" />
+    <ClCompile Include="..\..\..\src\sound\SoundCodec\Mp3SoundCodec.cpp">
+      <Filter>SoundCodec\Mp3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\sound\SoundCodec\WavSoundCodec.cpp">
+      <Filter>SoundCodec\Wav</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.sound\factories.inl" />
+    <None Include="..\..\..\src\sound\SoundCodec\SoundCodecImpl.inl">
+      <Filter>SoundCodec</Filter>
+    </None>
+  </ItemGroup>
+</Project>

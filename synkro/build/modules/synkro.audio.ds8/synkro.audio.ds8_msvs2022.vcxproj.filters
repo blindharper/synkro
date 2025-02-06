@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="AudioSystem">
+      <UniqueIdentifier>{ea5514ae-f928-43f0-a259-5531aaf47369}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\DirectSound8">
+      <UniqueIdentifier>{8eb7a9ad-7bac-441d-a2e4-3747386a690f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\DirectSound8\Device">
+      <UniqueIdentifier>{fbc34a76-5f92-4585-adb4-582c7c74f669}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\DirectSound8\Buffer">
+      <UniqueIdentifier>{341acf92-3a46-47d5-8323-cc176cab6d07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\DirectSound8\Emitter">
+      <UniqueIdentifier>{3ddff2cd-0833-440f-b6b6-ebcb813ca293}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\DirectSound8\Buffer\Chunk">
+      <UniqueIdentifier>{93c8955b-6150-49f3-86d1-970e0dac34a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\DirectSound8\Buffer\Sound">
+      <UniqueIdentifier>{8aac0ca5-40f7-4a70-9971-e273891c47a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\DirectSound8\Buffer\Voice">
+      <UniqueIdentifier>{58f5cc2a-f598-49f3-8be8-1af8c01304a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\DirectSound8\Device\Player">
+      <UniqueIdentifier>{5f2c95cf-c9c5-4722-88eb-3609601cd69d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\DirectSound8\Device\Recorder">
+      <UniqueIdentifier>{d69a3b63-7706-426b-91ea-39ee370d5b56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\DirectSound8\System">
+      <UniqueIdentifier>{816e78b2-542b-4f17-acba-1eedafdac5ca}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\audio\Ds8\Ds8.h">
+      <Filter>AudioSystem\DirectSound8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Ds8\Ds8AudioSystem.h">
+      <Filter>AudioSystem\DirectSound8\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Ds8\Ds8AudioSystemFactory.h">
+      <Filter>AudioSystem\DirectSound8\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Ds8\Ds8SoundEmitter.h">
+      <Filter>AudioSystem\DirectSound8\Emitter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Ds8\Ds8SoundListener.h">
+      <Filter>AudioSystem\DirectSound8\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Ds8\Ds8AudioRecorder.h">
+      <Filter>AudioSystem\DirectSound8\Device\Recorder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Ds8\Ds8AudioPlayer.h">
+      <Filter>AudioSystem\DirectSound8\Device\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Ds8\Ds8BaseBuffer.h">
+      <Filter>AudioSystem\DirectSound8\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Ds8\Ds8AudioChunk.h">
+      <Filter>AudioSystem\DirectSound8\Buffer\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Ds8\Ds8SoundBuffer.h">
+      <Filter>AudioSystem\DirectSound8\Buffer\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Ds8\Ds8VoiceBuffer.h">
+      <Filter>AudioSystem\DirectSound8\Buffer\Voice</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.audio.ds8\synkro.audio.ds8.cpp" />
+    <ClCompile Include="..\..\..\src\audio\Ds8\Ds8.cpp">
+      <Filter>AudioSystem\DirectSound8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Ds8\Ds8AudioSystem.cpp">
+      <Filter>AudioSystem\DirectSound8\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Ds8\Ds8SoundEmitter.cpp">
+      <Filter>AudioSystem\DirectSound8\Emitter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Ds8\Ds8SoundListener.cpp">
+      <Filter>AudioSystem\DirectSound8\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Ds8\Ds8AudioRecorder.cpp">
+      <Filter>AudioSystem\DirectSound8\Device\Recorder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Ds8\Ds8AudioPlayer.cpp">
+      <Filter>AudioSystem\DirectSound8\Device\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Ds8\Ds8AudioChunk.cpp">
+      <Filter>AudioSystem\DirectSound8\Buffer\Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Ds8\Ds8SoundBuffer.cpp">
+      <Filter>AudioSystem\DirectSound8\Buffer\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Ds8\Ds8VoiceBuffer.cpp">
+      <Filter>AudioSystem\DirectSound8\Buffer\Voice</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.audio.ds8\factories.inl" />
+    <None Include="..\..\..\src\audio\Ds8\Ds8AudioChunk.inl">
+      <Filter>AudioSystem\DirectSound8\Buffer\Chunk</Filter>
+    </None>
+    <None Include="..\..\..\src\audio\Ds8\Ds8SoundBuffer.inl">
+      <Filter>AudioSystem\DirectSound8\Buffer\Sound</Filter>
+    </None>
+  </ItemGroup>
+</Project>

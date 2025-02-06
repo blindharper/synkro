@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ViewportFilter">
+      <UniqueIdentifier>{6bcaf31d-f0bc-4c3f-afeb-b8731ffa990f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Color">
+      <UniqueIdentifier>{a36684c1-6181-484a-82f2-93b8241a5707}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Depth">
+      <UniqueIdentifier>{519f8551-c5e1-43b6-a34f-6a0472074508}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Kernel3x3">
+      <UniqueIdentifier>{0e3b8d54-f5ac-4709-bd79-cb5af442c801}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Pass">
+      <UniqueIdentifier>{60e7c6ba-ff8f-4a07-acb8-740b4623b6a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Simple">
+      <UniqueIdentifier>{e3b6c834-c3b5-4235-9c79-43f9175cc294}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Pass\Alpha">
+      <UniqueIdentifier>{e1517bc9-843e-4d91-a228-a4247beeb511}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Pass\Blue">
+      <UniqueIdentifier>{4c99f5a2-1fcb-4e6c-b342-2c124108acf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Kernel3x3\Blur">
+      <UniqueIdentifier>{7aeeaad7-8117-4a7d-b5dc-197ffdd65fe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Simple\Brightness">
+      <UniqueIdentifier>{176cb4cc-d218-431c-a887-05df9e8284b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Simple\Contrast">
+      <UniqueIdentifier>{6a6cfdca-2126-4adb-a598-e81fa551f26b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Kernel3x3\Dilation">
+      <UniqueIdentifier>{cf47e2b8-31a6-46a2-b7a8-abd32867d501}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Kernel3x3\Erosion">
+      <UniqueIdentifier>{e7fbb380-2d13-4de5-af32-9d0d73ccac40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Pass\Grayscale">
+      <UniqueIdentifier>{2032be77-b6ca-42d0-aba0-4f2e70ebd154}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Pass\Green">
+      <UniqueIdentifier>{bd5e2df1-cec0-4479-84af-0e06d72ea20f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Kernel3x3\Laplacian">
+      <UniqueIdentifier>{283601c9-09f8-4f56-b68e-0ec95ffefc6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Depth\MotionBlur">
+      <UniqueIdentifier>{9c6b8dff-086c-4ce2-81ce-3e6ee6abeb1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Pass\Negative">
+      <UniqueIdentifier>{4ffda153-7914-41d2-8900-0c753e48e453}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Kernel3x3\Prewitt">
+      <UniqueIdentifier>{7617c6af-260d-4fbb-b5fb-ab5d3fbf75f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Kernel3x3\Sobel">
+      <UniqueIdentifier>{e5445188-0362-43df-96d7-106657aaf1d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Kernel3x3\Sharpen">
+      <UniqueIdentifier>{f6b590c2-41ae-4903-aca1-25f793a4e001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Pass\Sepia">
+      <UniqueIdentifier>{90ee6454-d6c6-4712-860e-96bb27882584}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Pass\Red">
+      <UniqueIdentifier>{508bc239-d5a2-48d0-bf8d-4d93fa89bd8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Kernel3x3\Emboss">
+      <UniqueIdentifier>{2d761638-f1b6-4abb-8073-23f834eb0ce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Simple\Hue">
+      <UniqueIdentifier>{9c7e6455-032b-4e16-88cf-8e5a0ac744cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{bbb4b86c-97bc-42e6-9ce4-ce3a2b113e3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Color\Controller">
+      <UniqueIdentifier>{7f7f19b7-7d1f-4620-abeb-afa626dde455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Kernel3x3\Controller">
+      <UniqueIdentifier>{52c12adf-1d03-4a17-b5f6-0721c934597b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Simple\Controller">
+      <UniqueIdentifier>{61b5edc4-ae82-43f4-8394-c943c812cc37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Kernel3x3\Emboss\Controller">
+      <UniqueIdentifier>{c3d9b6c1-055c-4545-a093-1c57116867d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Depth\Fog">
+      <UniqueIdentifier>{2f4f2d01-231f-4649-8fe4-294b3facdc34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Depth\Fog\Controller">
+      <UniqueIdentifier>{4b25a973-134f-4918-bae9-b66f53c711b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewportFilter\Depth\DepthOfField">
+      <UniqueIdentifier>{fd8ac5a5-41dc-4560-bab7-fac46695bde9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\Kernel3x3FilterImpl.h">
+      <Filter>ViewportFilter\Kernel3x3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\Kernel3x3Filter.h">
+      <Filter>ViewportFilter\Kernel3x3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\Emboss\EmbossFilter.h">
+      <Filter>ViewportFilter\Kernel3x3\Emboss</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\Emboss\EmbossFilterFactory.h">
+      <Filter>ViewportFilter\Kernel3x3\Emboss</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\BlurFilterFactory.h">
+      <Filter>ViewportFilter\Kernel3x3\Blur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\DilationFilterFactory.h">
+      <Filter>ViewportFilter\Kernel3x3\Dilation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\ErosionFilterFactory.h">
+      <Filter>ViewportFilter\Kernel3x3\Erosion</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\LaplacianFilterFactory.h">
+      <Filter>ViewportFilter\Kernel3x3\Laplacian</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\PrewittFilterFactory.h">
+      <Filter>ViewportFilter\Kernel3x3\Prewitt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\SharpenFilterFactory.h">
+      <Filter>ViewportFilter\Kernel3x3\Sharpen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\SobelFilterFactory.h">
+      <Filter>ViewportFilter\Kernel3x3\Sobel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Pass\PassFilter.h">
+      <Filter>ViewportFilter\Pass</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Pass\AlphaFilterFactory.h">
+      <Filter>ViewportFilter\Pass\Alpha</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Pass\BlueFilterFactory.h">
+      <Filter>ViewportFilter\Pass\Blue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Pass\GrayscaleFilterFactory.h">
+      <Filter>ViewportFilter\Pass\Grayscale</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Pass\GreenFilterFactory.h">
+      <Filter>ViewportFilter\Pass\Green</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Pass\NegativeFilterFactory.h">
+      <Filter>ViewportFilter\Pass\Negative</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Pass\RedFilterFactory.h">
+      <Filter>ViewportFilter\Pass\Red</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Pass\SepiaFilterFactory.h">
+      <Filter>ViewportFilter\Pass\Sepia</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Simple\SimpleFilter.h">
+      <Filter>ViewportFilter\Simple</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Simple\SimpleFilterAnimationController.h">
+      <Filter>ViewportFilter\Simple\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Simple\BrightnessFilterFactory.h">
+      <Filter>ViewportFilter\Simple\Brightness</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Simple\ContrastFilterFactory.h">
+      <Filter>ViewportFilter\Simple\Contrast</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Simple\HueFilterFactory.h">
+      <Filter>ViewportFilter\Simple\Hue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Color\ColorFilter.h">
+      <Filter>ViewportFilter\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Color\ColorFilterFactory.h">
+      <Filter>ViewportFilter\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Depth\DepthFilter.h">
+      <Filter>ViewportFilter\Depth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Depth\DepthFilterFactory.h">
+      <Filter>ViewportFilter\Depth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Depth\DepthFilterImpl.h">
+      <Filter>ViewportFilter\Depth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Depth\DepthOfFieldFilter.h">
+      <Filter>ViewportFilter\Depth\DepthOfField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Depth\DepthOfFieldFilterFactory.h">
+      <Filter>ViewportFilter\Depth\DepthOfField</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Depth\MotionBlurFilter.h">
+      <Filter>ViewportFilter\Depth\MotionBlur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Depth\MotionBlurFilterFactory.h">
+      <Filter>ViewportFilter\Depth\MotionBlur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Depth\FogFilter.h">
+      <Filter>ViewportFilter\Depth\Fog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Depth\FogFilterFactory.h">
+      <Filter>ViewportFilter\Depth\Fog</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Color\ColorFilterAnimationController.h">
+      <Filter>ViewportFilter\Color\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Depth\FogFilterAnimationController.h">
+      <Filter>ViewportFilter\Depth\Fog\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\Kernel3x3FilterAnimationController.h">
+      <Filter>ViewportFilter\Kernel3x3\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\view\Filter\Kernel3x3\Emboss\EmbossFilterAnimationController.h">
+      <Filter>ViewportFilter\Kernel3x3\Emboss\Controller</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.view\synkro.view.cpp" />
+    <ClCompile Include="..\..\..\modules\synkro.view\programs.cpp">
+      <Filter>res</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Kernel3x3\Kernel3x3Filter.cpp">
+      <Filter>ViewportFilter\Kernel3x3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Kernel3x3\Emboss\EmbossFilter.cpp">
+      <Filter>ViewportFilter\Kernel3x3\Emboss</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Pass\PassFilter.cpp">
+      <Filter>ViewportFilter\Pass</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Simple\SimpleFilter.cpp">
+      <Filter>ViewportFilter\Simple</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Simple\SimpleFilterAnimationController.cpp">
+      <Filter>ViewportFilter\Simple\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Color\ColorFilter.cpp">
+      <Filter>ViewportFilter\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Depth\DepthFilter.cpp">
+      <Filter>ViewportFilter\Depth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Depth\DepthOfFieldFilter.cpp">
+      <Filter>ViewportFilter\Depth\DepthOfField</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Depth\MotionBlurFilter.cpp">
+      <Filter>ViewportFilter\Depth\MotionBlur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Depth\FogFilter.cpp">
+      <Filter>ViewportFilter\Depth\Fog</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Color\ColorFilterAnimationController.cpp">
+      <Filter>ViewportFilter\Color\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Depth\FogFilterAnimationController.cpp">
+      <Filter>ViewportFilter\Depth\Fog\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Kernel3x3\Kernel3x3FilterAnimationController.cpp">
+      <Filter>ViewportFilter\Kernel3x3\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\view\Filter\Kernel3x3\Emboss\EmbossFilterAnimationController.cpp">
+      <Filter>ViewportFilter\Kernel3x3\Emboss\Controller</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.view\factories.inl" />
+    <None Include="..\..\..\modules\synkro.view\resources.inl" />
+    <None Include="..\..\..\src\view\Filter\Kernel3x3\Kernel3x3FilterImpl.inl">
+      <Filter>ViewportFilter\Kernel3x3</Filter>
+    </None>
+    <None Include="..\..\..\src\view\Filter\Kernel3x3\Emboss\EmbossFilter.inl">
+      <Filter>ViewportFilter\Kernel3x3\Emboss</Filter>
+    </None>
+    <None Include="..\..\..\src\view\Filter\Simple\SimpleFilter.inl">
+      <Filter>ViewportFilter\Simple</Filter>
+    </None>
+    <None Include="..\..\..\src\view\Filter\Color\ColorFilter.inl">
+      <Filter>ViewportFilter\Color</Filter>
+    </None>
+    <None Include="..\..\..\src\view\Filter\Depth\DepthFilter.inl">
+      <Filter>ViewportFilter\Depth</Filter>
+    </None>
+    <None Include="..\..\..\src\view\Filter\Depth\DepthFilterImpl.inl">
+      <Filter>ViewportFilter\Depth</Filter>
+    </None>
+    <None Include="..\..\..\src\view\Filter\Depth\DepthOfFieldFilter.inl">
+      <Filter>ViewportFilter\Depth\DepthOfField</Filter>
+    </None>
+    <None Include="..\..\..\src\view\Filter\Depth\MotionBlurFilter.inl">
+      <Filter>ViewportFilter\Depth\MotionBlur</Filter>
+    </None>
+    <None Include="..\..\..\src\view\Filter\Depth\FogFilter.inl">
+      <Filter>ViewportFilter\Depth\Fog</Filter>
+    </None>
+  </ItemGroup>
+</Project>

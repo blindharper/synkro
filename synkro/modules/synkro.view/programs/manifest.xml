@@ -1,0 +1,32 @@
+<resource>
+<formats>
+	<format name="filter">
+		<vertex name="position2d" type="vector4"/>
+		<vertex name="texcoord" type="vector2"/>
+	</format>
+</formats>
+<programs>
+	<program name="filter.red" input="filter" vertex="filter\filter.vs" fragment="filter\red.fs"/>
+	<program name="filter.green" input="filter" vertex="filter\filter.vs" fragment="filter\green.fs"/>
+	<program name="filter.blue" input="filter" vertex="filter\filter.vs" fragment="filter\blue.fs"/>
+	<program name="filter.alpha" input="filter" vertex="filter\filter.vs" fragment="filter\alpha.fs"/>
+	<program name="filter.color" input="filter" vertex="filter\filter.vs" fragment="filter\color.fs"/>
+	<program name="filter.hue" input="filter" vertex="filter\filter.vs" fragment="filter\hue.fs"/>
+	<program name="filter.grayscale" input="filter" vertex="filter\filter.vs" fragment="filter\grayscale.fs"/>
+	<program name="filter.negative" input="filter" vertex="filter\filter.vs" fragment="filter\negative.fs"/>
+	<program name="filter.sepia" input="filter" vertex="filter\filter.vs" fragment="filter\sepia.fs"/>
+	<program name="filter.brightness" input="filter" vertex="filter\filter.vs" fragment="filter\brightness.fs"/>
+	<program name="filter.contrast" input="filter" vertex="filter\filter.vs" fragment="filter\contrast.fs"/>
+	<program name="filter.blur" input="filter" vertex="filter\filter.vs" fragment="filter\blur.fs"/>
+	<program name="filter.dilation" input="filter" vertex="filter\filter.vs" fragment="filter\dilation.fs"/>
+	<program name="filter.emboss" input="filter" vertex="filter\filter.vs" fragment="filter\emboss.fs"/>
+	<program name="filter.erosion" input="filter" vertex="filter\filter.vs" fragment="filter\erosion.fs"/>
+	<program name="filter.laplacian" input="filter" vertex="filter\filter.vs" fragment="filter\laplacian.fs"/>
+	<program name="filter.prewitt" input="filter" vertex="filter\filter.vs" fragment="filter\prewitt.fs"/>
+	<program name="filter.sobel" input="filter" vertex="filter\filter.vs" fragment="filter\sobel.fs"/>
+	<program name="filter.sharpen" input="filter" vertex="filter\filter.vs" fragment="filter\sharpen.fs"/>
+	<program name="filter.motionblur" input="filter" vertex="filter\filter.vs" fragment="filter\motion_blur.fs"/>
+	<program name="filter.depth" input="filter" vertex="filter\filter.vs" fragment="filter\depth.fs"/>
+	<program name="filter.fog" input="filter" vertex="filter\filter.vs" fragment="filter\fog.fs"/>
+</programs>
+</resource>

@@ -1,0 +1,26 @@
+<themes>
+	<theme name="flat" image="flat/image.bmp" alpha="flat/alpha.bmp">
+		<cursor rect="65,17,83,40"/>
+		<edit rect="0,50,40,73" center="2,52,38,71"/>
+		<list rect="0,50,40,73" center="2,52,38,71"/>
+		<button rect="0,0,40,40" center="2,2,38,38"/>
+		<angle rect="70,70,127,127" thumb="0,113,14,127"/>
+		<option offrect="1,74,20,93" offcenter="3,76,18,91" onrect="21,74,40,93" oncenter="23,76,38,91"/>
+		<switch offrect="1,94,20,113" offcenter="3,96,18,111" onrect="21,94,40,113" oncenter="23,96,38,111"/>
+		<progress emptyrect="0,50,40,73" emptycenter="2,52,38,71" filledrect="41,50,64,73" filledcenter="43,52,62,71"/>
+		<slider orientation="horizontal" rect="0,41,40,49" center="2,43,38,47" thumb="50,17,63,40"/>
+		<slider orientation="vertical" rect="41,0,49,40" center="43,2,47,38" thumb="50,0,73,13"/>
+	</theme>
+	<theme name="glass" image="glass/image.bmp" alpha="glass/alpha.bmp">
+		<cursor rect="65,17,83,40"/>
+		<edit rect="0,50,40,73" center="2,52,38,71"/>
+		<list rect="0,50,40,73" center="2,52,38,71"/>
+		<button rect="0,0,40,40" center="2,2,38,38"/>
+		<angle rect="70,70,127,127" thumb="0,113,14,127"/>
+		<option offrect="1,74,20,93" offcenter="3,76,18,91" onrect="21,74,40,93" oncenter="23,76,38,91"/>
+		<switch offrect="1,94,20,113" offcenter="3,96,18,111" onrect="21,94,40,113" oncenter="23,96,38,111"/>
+		<progress emptyrect="0,50,40,73" emptycenter="2,52,38,71" filledrect="41,50,64,73" filledcenter="43,52,62,71"/>
+		<slider orientation="horizontal" rect="0,41,40,49" center="2,43,38,47" thumb="50,17,63,40"/>
+		<slider orientation="vertical" rect="41,0,49,40" center="43,2,47,38" thumb="50,0,73,13"/>
+	</theme>
+</themes>

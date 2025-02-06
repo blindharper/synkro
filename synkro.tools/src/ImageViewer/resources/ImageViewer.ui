@@ -1,0 +1,7 @@
+<ui>
+	<button id="1" location="WIDTH-125,5" size="120,30" text="Toggle [F]ullscreen" anchor="TopRight" hotkey="CTRL+F"/>
+	<label id="2" location="5,5" size="180,30" text="IMAGES (0)"/>
+	<list id="3" location="5,35" size="180,HEIGHT-80" anchor="Top|Bottom|Left"/>
+	<button id="4" location="5,HEIGHT-35" size="180,30" text="[L]oad image" anchor="BottomLeft" hotkey="CTRL+L"/>
+	<progress id="5" location="WIDTH-125,40" size="120,20" type="Bar" color="Orange" anchor="TopRight"/>
+</ui>

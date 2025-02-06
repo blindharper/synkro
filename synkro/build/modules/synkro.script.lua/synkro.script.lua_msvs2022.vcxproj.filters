@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ScriptSystem">
+      <UniqueIdentifier>{a5f419e1-12ff-412f-b0a2-0f0816346be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ScriptSystem\Lua">
+      <UniqueIdentifier>{fc72afe9-915d-437c-944a-ba8699a0ff99}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\external\stream.h" />
+    <ClInclude Include="..\..\..\src\script\Lua\Lua.h">
+      <Filter>ScriptSystem\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\script\Lua\LuaRestoreStack.h">
+      <Filter>ScriptSystem\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\script\Lua\LuaScriptMachine.h">
+      <Filter>ScriptSystem\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\script\Lua\LuaScriptObject.h">
+      <Filter>ScriptSystem\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\script\Lua\LuaScriptSystem.h">
+      <Filter>ScriptSystem\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\script\Lua\LuaScriptSystemFactory.h">
+      <Filter>ScriptSystem\Lua</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.script.lua\synkro.script.lua.cpp" />
+    <ClCompile Include="..\..\..\src\external\stream.cpp" />
+    <ClCompile Include="..\..\..\src\script\Lua\Lua.cpp">
+      <Filter>ScriptSystem\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\script\Lua\LuaScriptMachine.cpp">
+      <Filter>ScriptSystem\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\script\Lua\LuaScriptObject.cpp">
+      <Filter>ScriptSystem\Lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\script\Lua\LuaScriptSystem.cpp">
+      <Filter>ScriptSystem\Lua</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.script.lua\factories.inl" />
+    <None Include="..\..\..\src\script\Lua\LuaRestoreStack.inl">
+      <Filter>ScriptSystem\Lua</Filter>
+    </None>
+  </ItemGroup>
+</Project>

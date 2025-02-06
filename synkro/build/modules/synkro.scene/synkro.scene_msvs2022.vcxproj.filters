@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="MeshCodec">
+      <UniqueIdentifier>{a5f419e1-12ff-412f-b0a2-0f0816346be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\Obj">
+      <UniqueIdentifier>{40d8484d-47cf-4ca7-bf40-6d59b189dc6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\X">
+      <UniqueIdentifier>{0d673822-ec92-4204-94a0-61321ebb1177}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshBuilder">
+      <UniqueIdentifier>{459ab41c-79f8-49aa-a603-108775bce549}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshBuilder\Box">
+      <UniqueIdentifier>{861faf66-0a25-49df-8d46-4c66a67021c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{ebe2b4e3-14fc-4d95-9398-bbe33d75f170}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Default">
+      <UniqueIdentifier>{d085131e-626e-4864-8f3c-053e00b2b6ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshBuilder\Cone">
+      <UniqueIdentifier>{341cbcc9-8ecf-4def-b9e2-aaee81ff0a74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshBuilder\Cylinder">
+      <UniqueIdentifier>{7d701254-72f7-4ca9-b179-c24ea99ed4ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshBuilder\Ellipsoid">
+      <UniqueIdentifier>{820682a4-7626-40c1-9683-ced19f9a8e78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshBuilder\Plane">
+      <UniqueIdentifier>{e909b187-56ab-466f-a901-24fde22f1615}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshBuilder\Pyramid">
+      <UniqueIdentifier>{ca121343-de7d-49c7-8a64-a5fb4d4df23f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshBuilder\Torus">
+      <UniqueIdentifier>{2422b33b-92d4-4792-8323-8f4e983beeb1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\scene\MeshCodec\ObjMeshCodec.h">
+      <Filter>MeshCodec\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshCodec\ObjMeshCodecFactory.h">
+      <Filter>MeshCodec\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\BoxMeshBuilder.h">
+      <Filter>MeshBuilder\Box</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\BoxMeshBuilderFactory.h">
+      <Filter>MeshBuilder\Box</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\ConeMeshBuilder.h">
+      <Filter>MeshBuilder\Cone</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\ConeMeshBuilderFactory.h">
+      <Filter>MeshBuilder\Cone</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\CylinderMeshBuilder.h">
+      <Filter>MeshBuilder\Cylinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\CylinderMeshBuilderFactory.h">
+      <Filter>MeshBuilder\Cylinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\EllipsoidMeshBuilder.h">
+      <Filter>MeshBuilder\Ellipsoid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\EllipsoidMeshBuilderFactory.h">
+      <Filter>MeshBuilder\Ellipsoid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\PlaneMeshBuilder.h">
+      <Filter>MeshBuilder\Plane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\PlaneMeshBuilderFactory.h">
+      <Filter>MeshBuilder\Plane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\PyramidMeshBuilder.h">
+      <Filter>MeshBuilder\Pyramid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\PyramidMeshBuilderFactory.h">
+      <Filter>MeshBuilder\Pyramid</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\TorusMeshBuilder.h">
+      <Filter>MeshBuilder\Torus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshBuilder\TorusMeshBuilderFactory.h">
+      <Filter>MeshBuilder\Torus</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\Default\DefaultScene.h">
+      <Filter>Scene\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\Default\DefaultSceneFactory.h">
+      <Filter>Scene\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\Default\DefaultTriangleMesh.h">
+      <Filter>Scene\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\Default\DefaultTriangleMeshBatch.h">
+      <Filter>Scene\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\Default\DefaultTriangleMeshInstance.h">
+      <Filter>Scene\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\Default\DefaultTriangleSet.h">
+      <Filter>Scene\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshCodec\XMeshCodec.h">
+      <Filter>MeshCodec\X</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\scene\MeshCodec\XMeshCodecFactory.h">
+      <Filter>MeshCodec\X</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.scene\synkro.scene.cpp" />
+    <ClCompile Include="..\..\..\src\scene\MeshCodec\ObjMeshCodec.cpp">
+      <Filter>MeshCodec\Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\scene\MeshBuilder\BoxMeshBuilder.cpp">
+      <Filter>MeshBuilder\Box</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\scene\MeshBuilder\ConeMeshBuilder.cpp">
+      <Filter>MeshBuilder\Cone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\scene\MeshBuilder\CylinderMeshBuilder.cpp">
+      <Filter>MeshBuilder\Cylinder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\scene\MeshBuilder\EllipsoidMeshBuilder.cpp">
+      <Filter>MeshBuilder\Ellipsoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\scene\MeshBuilder\PlaneMeshBuilder.cpp">
+      <Filter>MeshBuilder\Plane</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\scene\MeshBuilder\PyramidMeshBuilder.cpp">
+      <Filter>MeshBuilder\Pyramid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\scene\MeshBuilder\TorusMeshBuilder.cpp">
+      <Filter>MeshBuilder\Torus</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\scene\Default\DefaultScene.cpp">
+      <Filter>Scene\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\scene\Default\DefaultTriangleMesh.cpp">
+      <Filter>Scene\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\scene\Default\DefaultTriangleMeshBatch.cpp">
+      <Filter>Scene\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\scene\Default\DefaultTriangleMeshInstance.cpp">
+      <Filter>Scene\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\scene\Default\DefaultTriangleSet.cpp">
+      <Filter>Scene\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\scene\MeshCodec\XMeshCodec.cpp">
+      <Filter>MeshCodec\X</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.scene\factories.inl" />
+    <None Include="..\..\..\src\scene\Default\DefaultTriangleMesh.inl">
+      <Filter>Scene\Default</Filter>
+    </None>
+    <None Include="..\..\..\src\scene\Default\DefaultTriangleMeshBatch.inl">
+      <Filter>Scene\Default</Filter>
+    </None>
+    <None Include="..\..\..\src\scene\Default\DefaultTriangleMeshInstance.inl">
+      <Filter>Scene\Default</Filter>
+    </None>
+  </ItemGroup>
+</Project>

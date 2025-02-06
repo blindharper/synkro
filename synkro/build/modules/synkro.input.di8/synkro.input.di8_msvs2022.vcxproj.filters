@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="InputSystem">
+      <UniqueIdentifier>{94570571-6749-4991-8513-078b3c9cf532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputSystem\DirectInput8">
+      <UniqueIdentifier>{15785e80-7d16-4143-850f-6f5b02643c39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputSystem\DirectInput8\Device">
+      <UniqueIdentifier>{854a2f1f-ebda-4ef8-9f1e-30c0dcc21123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputSystem\DirectInput8\Device\Joystick">
+      <UniqueIdentifier>{1e0adfb7-7d7c-4fe1-99c6-3278083621c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputSystem\DirectInput8\Device\Keyboard">
+      <UniqueIdentifier>{5a7e288c-b55c-4690-a708-81d43ecd148e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputSystem\DirectInput8\Device\Mouse">
+      <UniqueIdentifier>{2ddfb9c0-67a8-4a1a-933a-cec8834a79c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputSystem\DirectInput8\System">
+      <UniqueIdentifier>{cd0250a8-09ba-43d3-8e7a-15bda473a71c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\input\Di8\Di8.h">
+      <Filter>InputSystem\DirectInput8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\input\Di8\Di8InputSystem.h">
+      <Filter>InputSystem\DirectInput8\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\input\Di8\Di8InputSystemFactory.h">
+      <Filter>InputSystem\DirectInput8\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\input\Di8\Di8BaseInputDevice.h">
+      <Filter>InputSystem\DirectInput8\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\input\Di8\Di8BaseInputDeviceImpl.h">
+      <Filter>InputSystem\DirectInput8\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\input\Di8\Di8Joystick.h">
+      <Filter>InputSystem\DirectInput8\Device\Joystick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\input\Di8\Di8Keyboard.h">
+      <Filter>InputSystem\DirectInput8\Device\Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\input\Di8\Di8Mouse.h">
+      <Filter>InputSystem\DirectInput8\Device\Mouse</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.input.di8\synkro.input.di8.cpp" />
+    <ClCompile Include="..\..\..\src\input\Di8\Di8.cpp">
+      <Filter>InputSystem\DirectInput8</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\input\Di8\Di8InputSystem.cpp">
+      <Filter>InputSystem\DirectInput8\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\input\Di8\Di8Joystick.cpp">
+      <Filter>InputSystem\DirectInput8\Device\Joystick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\input\Di8\Di8Keyboard.cpp">
+      <Filter>InputSystem\DirectInput8\Device\Keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\input\Di8\Di8Mouse.cpp">
+      <Filter>InputSystem\DirectInput8\Device\Mouse</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.input.di8\factories.inl" />
+    <None Include="..\..\..\src\input\Di8\Di8BaseInputDeviceImpl.inl">
+      <Filter>InputSystem\DirectInput8\Device</Filter>
+    </None>
+    <None Include="..\..\..\src\input\Di8\Di8Keyboard.inl">
+      <Filter>InputSystem\DirectInput8\Device\Keyboard</Filter>
+    </None>
+  </ItemGroup>
+</Project>

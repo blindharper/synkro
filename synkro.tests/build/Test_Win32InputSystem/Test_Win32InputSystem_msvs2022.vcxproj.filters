@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\src\input\Test_Win32InputSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Arcball.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\InputSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Joystick.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Keyboard.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Mouse.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\FrameWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\ViewWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\WindowSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Win32\Win32.cpp">
+      <Filter>Win32InputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\input\Win32\Win32InputSystem.cpp">
+      <Filter>Win32InputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\input\Win32\Win32Joystick.cpp">
+      <Filter>Win32InputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\input\Win32\Win32Keyboard.cpp">
+      <Filter>Win32InputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\input\Win32\Win32Mouse.cpp">
+      <Filter>Win32InputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32FrameWindow.cpp">
+      <Filter>Win32WindowSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32IconWindow.cpp">
+      <Filter>Win32WindowSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32ViewWindow.cpp">
+      <Filter>Win32WindowSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32WindowSystem.cpp">
+      <Filter>Win32WindowSystem</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Win32InputSystem">
+      <UniqueIdentifier>{315ff61a-d371-4802-9bd3-e6856e1651e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Win32WindowSystem">
+      <UniqueIdentifier>{6522814b-be4e-4955-9069-5586a3dc1bff}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

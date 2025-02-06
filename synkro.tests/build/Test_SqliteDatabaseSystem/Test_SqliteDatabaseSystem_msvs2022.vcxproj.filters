@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\src\db\Test_SqliteDatabaseSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\external\stream.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\DataFilter.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\db\Sqlite\Sqlite.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\db\Sqlite\SqliteDatabase.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\db\Sqlite\SqliteDatabaseSystem.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\db\Sqlite\SqliteDataCursor.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\db\Sqlite\SqliteDataTable.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\db\Sqlite\SqliteDeleteQuery.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\db\Sqlite\SqliteInsertQuery.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\db\Sqlite\SqliteSelectQuery.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\db\Sqlite\SqliteTableIndex.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\db\Sqlite\SqliteUpdateQuery.cpp">
+      <Filter>db</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\io\Win32\Win32Directory.cpp">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\io\Win32\Win32Stream.cpp">
+      <Filter>io</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="io">
+      <UniqueIdentifier>{fa5d9f5f-46b3-4797-ad97-5c85ec5d0b88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="db">
+      <UniqueIdentifier>{e9beeb5b-1040-485c-9147-d2f49b141efc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\db\DatabaseSystemTest.h" />
+  </ItemGroup>
+</Project>

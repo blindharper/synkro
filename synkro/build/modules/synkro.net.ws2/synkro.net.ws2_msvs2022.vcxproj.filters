@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="NetworkSystem">
+      <UniqueIdentifier>{b0951581-eb0f-4f8f-b18f-d8ba69742497}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkSystem\WinSock2">
+      <UniqueIdentifier>{d2916e3f-1b40-447b-ad79-a7dfcfe56206}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkSystem\WinSock2\Device">
+      <UniqueIdentifier>{539cf7d3-56cd-4c5b-9dea-9761a936cc4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkSystem\WinSock2\Peer">
+      <UniqueIdentifier>{6de6a447-8bdc-4ede-ae30-f5fb2cd7f6f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkSystem\WinSock2\System">
+      <UniqueIdentifier>{6dd9fe2a-1c29-456b-ba3e-0b46763bfe0a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\net\Ws2\Ws2NetworkDevice.h">
+      <Filter>NetworkSystem\WinSock2\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\net\Ws2\Ws2NetworkPeer.h">
+      <Filter>NetworkSystem\WinSock2\Peer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\net\Ws2\Ws2.h">
+      <Filter>NetworkSystem\WinSock2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\net\Ws2\Ws2NetworkSystem.h">
+      <Filter>NetworkSystem\WinSock2\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\net\Ws2\Ws2NetworkSystemFactory.h">
+      <Filter>NetworkSystem\WinSock2\System</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\net\Ws2\Ws2.cpp">
+      <Filter>NetworkSystem\WinSock2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\net\Ws2\Ws2NetworkDevice.cpp">
+      <Filter>NetworkSystem\WinSock2\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\net\Ws2\Ws2NetworkPeer.cpp">
+      <Filter>NetworkSystem\WinSock2\Peer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\synkro.net.ws2\synkro.net.ws2.cpp" />
+    <ClCompile Include="..\..\..\src\net\Ws2\Ws2NetworkSystem.cpp">
+      <Filter>NetworkSystem\WinSock2\System</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.net.ws2\factories.inl" />
+  </ItemGroup>
+</Project>

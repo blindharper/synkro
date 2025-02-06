@@ -1,0 +1,9 @@
+<ui>
+	<frame location="50,150" size="300,300" border="true">
+		<label location="4,4" size="190,50" text="Sample text"/>
+		<switch id="1" location="4,60" size="190,25" text="Transparent" on="true"/>
+		<option id="2" location="4,90" size="190,25" text="Align Left" color="Lime" />
+		<option id="3" location="4,120" size="190,25" text="Align Center" selected="true"/>
+		<option id="4" location="4,150" size="190,25" text="Align Right"/>
+	</frame>
+</ui>

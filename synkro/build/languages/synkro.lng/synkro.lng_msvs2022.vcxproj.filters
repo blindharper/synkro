@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\..\languages\synkro.lng\languages\english.inl" />
+    <None Include="..\..\..\languages\synkro.lng\languages\russian.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Languages">
+      <UniqueIdentifier>{95528f72-25fa-4d37-ae01-398d4adfee19}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\languages\synkro.lng\synkro.lng.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\languages\synkro.lng\synkro.lng.h" />
+  </ItemGroup>
+</Project>

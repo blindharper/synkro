@@ -1,0 +1,1 @@
+..\..\synkro.utils\bin\win32\lincount.exe .. >> lincount.txt

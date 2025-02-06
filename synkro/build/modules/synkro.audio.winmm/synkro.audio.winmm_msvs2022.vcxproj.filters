@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="AudioSystem">
+      <UniqueIdentifier>{ea5514ae-f928-43f0-a259-5531aaf47369}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\Winmm">
+      <UniqueIdentifier>{e594d77e-638b-4ed4-b3d8-7ab00de27fb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\Winmm\Buffer">
+      <UniqueIdentifier>{1f99bfb0-ed09-4c96-9677-75a298aac9df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\Winmm\Buffer\Chunk">
+      <UniqueIdentifier>{95edc019-60b8-4999-a61f-46134c9abfc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\Winmm\Buffer\Sound">
+      <UniqueIdentifier>{5e144f5b-09d5-47aa-8417-fee1038cdc81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\Winmm\Buffer\Voice">
+      <UniqueIdentifier>{b18bfbcd-29c2-4008-94b9-f7c564bf58f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\Winmm\Device">
+      <UniqueIdentifier>{b3bbf918-d9f6-4585-97d3-3d4d2236f842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\Winmm\Device\Player">
+      <UniqueIdentifier>{cf62777a-57d2-48af-ba76-13ec249732ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\Winmm\Device\Recorder">
+      <UniqueIdentifier>{0544fc4e-7ed9-4bf9-8ca2-80f0bda41cf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AudioSystem\Winmm\System">
+      <UniqueIdentifier>{b1a2a5e6-bfb6-4357-8653-e79bca8d9851}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\audio\Winmm\Winmm.h">
+      <Filter>AudioSystem\Winmm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Winmm\WinmmAudioSystem.h">
+      <Filter>AudioSystem\Winmm\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Winmm\WinmmAudioSystemFactory.h">
+      <Filter>AudioSystem\Winmm\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Winmm\WinmmAudioChunk.h">
+      <Filter>AudioSystem\Winmm\Buffer\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Winmm\WinmmSoundBuffer.h">
+      <Filter>AudioSystem\Winmm\Buffer\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Winmm\WinmmVoiceBuffer.h">
+      <Filter>AudioSystem\Winmm\Buffer\Voice</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Winmm\WinmmSoundListener.h">
+      <Filter>AudioSystem\Winmm\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Winmm\WinmmAudioPlayer.h">
+      <Filter>AudioSystem\Winmm\Device\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\audio\Winmm\WinmmAudioRecorder.h">
+      <Filter>AudioSystem\Winmm\Device\Recorder</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.audio.winmm\synkro.audio.winmm.cpp" />
+    <ClCompile Include="..\..\..\src\audio\Winmm\Winmm.cpp">
+      <Filter>AudioSystem\Winmm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Winmm\WinmmAudioSystem.cpp">
+      <Filter>AudioSystem\Winmm\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Winmm\WinmmAudioChunk.cpp">
+      <Filter>AudioSystem\Winmm\Buffer\Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Winmm\WinmmSoundBuffer.cpp">
+      <Filter>AudioSystem\Winmm\Buffer\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Winmm\WinmmVoiceBuffer.cpp">
+      <Filter>AudioSystem\Winmm\Buffer\Voice</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Winmm\WinmmSoundListener.cpp">
+      <Filter>AudioSystem\Winmm\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Winmm\WinmmAudioPlayer.cpp">
+      <Filter>AudioSystem\Winmm\Device\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\audio\Winmm\WinmmAudioRecorder.cpp">
+      <Filter>AudioSystem\Winmm\Device\Recorder</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.audio.winmm\factories.inl" />
+    <None Include="..\..\..\src\audio\Winmm\WinmmAudioChunk.inl">
+      <Filter>AudioSystem\Winmm\Buffer\Chunk</Filter>
+    </None>
+  </ItemGroup>
+</Project>

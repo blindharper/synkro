@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="DatabaseSystem">
+      <UniqueIdentifier>{a5f419e1-12ff-412f-b0a2-0f0816346be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DatabaseSystem\Sqlite">
+      <UniqueIdentifier>{fc72afe9-915d-437c-944a-ba8699a0ff99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DatabaseSystem\Sqlite\Query">
+      <UniqueIdentifier>{9e39af0f-27e0-4d66-b5c1-e39594149854}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DatabaseSystem\Sqlite\Cursor">
+      <UniqueIdentifier>{c9208c78-d849-44ac-9c49-2d4a5524b22f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DatabaseSystem\Sqlite\Table">
+      <UniqueIdentifier>{9c5c197f-df5c-47a5-8fb2-95add8b21151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DatabaseSystem\Sqlite\Index">
+      <UniqueIdentifier>{5efeb4ad-9d0a-4360-b0d9-77c4b0e09d1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DatabaseSystem\Sqlite\Query\Delete">
+      <UniqueIdentifier>{894b62b1-4fc7-4f57-965f-03857c658b08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DatabaseSystem\Sqlite\Query\Insert">
+      <UniqueIdentifier>{22627dd4-28ce-489e-bf7e-2aa49afc8336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DatabaseSystem\Sqlite\Query\Select">
+      <UniqueIdentifier>{ae1a6e0b-ed14-4aad-b836-7a89f051a5ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DatabaseSystem\Sqlite\Query\Update">
+      <UniqueIdentifier>{ea558ec4-71b1-481a-a179-5b5d5f41aaa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DatabaseSystem\Sqlite\Database">
+      <UniqueIdentifier>{d32f3c3f-8389-485e-8a3e-407680afcbf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DatabaseSystem\Sqlite\System">
+      <UniqueIdentifier>{e3478f49-a95c-4961-aa07-87ef25623bee}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\db\Sqlite\Sqlite.h">
+      <Filter>DatabaseSystem\Sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\db\Sqlite\SqliteDataCursor.h">
+      <Filter>DatabaseSystem\Sqlite\Cursor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\external\stream.h" />
+    <ClInclude Include="..\..\..\src\db\Sqlite\SqliteDataTable.h">
+      <Filter>DatabaseSystem\Sqlite\Table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\db\Sqlite\SqliteTableIndex.h">
+      <Filter>DatabaseSystem\Sqlite\Index</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\db\Sqlite\SqliteBaseQuery.h">
+      <Filter>DatabaseSystem\Sqlite\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\db\Sqlite\SqliteBaseQueryImpl.h">
+      <Filter>DatabaseSystem\Sqlite\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\db\Sqlite\SqliteDeleteQuery.h">
+      <Filter>DatabaseSystem\Sqlite\Query\Delete</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\db\Sqlite\SqliteInsertQuery.h">
+      <Filter>DatabaseSystem\Sqlite\Query\Insert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\db\Sqlite\SqliteSelectQuery.h">
+      <Filter>DatabaseSystem\Sqlite\Query\Select</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\db\Sqlite\SqliteUpdateQuery.h">
+      <Filter>DatabaseSystem\Sqlite\Query\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\db\Sqlite\SqliteDatabase.h">
+      <Filter>DatabaseSystem\Sqlite\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\db\Sqlite\SqliteDatabaseSystem.h">
+      <Filter>DatabaseSystem\Sqlite\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\db\Sqlite\SqliteDatabaseSystemFactory.h">
+      <Filter>DatabaseSystem\Sqlite\System</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.db.sqlite\synkro.db.sqlite.cpp" />
+    <ClCompile Include="..\..\..\src\db\Sqlite\Sqlite.cpp">
+      <Filter>DatabaseSystem\Sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\db\Sqlite\SqliteDataCursor.cpp">
+      <Filter>DatabaseSystem\Sqlite\Cursor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\external\stream.cpp" />
+    <ClCompile Include="..\..\..\src\db\Sqlite\SqliteDataTable.cpp">
+      <Filter>DatabaseSystem\Sqlite\Table</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\db\Sqlite\SqliteTableIndex.cpp">
+      <Filter>DatabaseSystem\Sqlite\Index</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\db\Sqlite\SqliteDeleteQuery.cpp">
+      <Filter>DatabaseSystem\Sqlite\Query\Delete</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\db\Sqlite\SqliteInsertQuery.cpp">
+      <Filter>DatabaseSystem\Sqlite\Query\Insert</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\db\Sqlite\SqliteSelectQuery.cpp">
+      <Filter>DatabaseSystem\Sqlite\Query\Select</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\db\Sqlite\SqliteUpdateQuery.cpp">
+      <Filter>DatabaseSystem\Sqlite\Query\Update</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\db\Sqlite\SqliteDatabase.cpp">
+      <Filter>DatabaseSystem\Sqlite\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\db\Sqlite\SqliteDatabaseSystem.cpp">
+      <Filter>DatabaseSystem\Sqlite\System</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\src\db\Sqlite\SqliteBaseQueryImpl.inl">
+      <Filter>DatabaseSystem\Sqlite\Query</Filter>
+    </None>
+    <None Include="..\..\..\modules\synkro.db.sqlite\factories.inl" />
+  </ItemGroup>
+</Project>

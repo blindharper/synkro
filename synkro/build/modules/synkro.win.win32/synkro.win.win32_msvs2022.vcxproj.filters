@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="WindowSystem">
+      <UniqueIdentifier>{a5f419e1-12ff-412f-b0a2-0f0816346be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WindowSystem\Win32">
+      <UniqueIdentifier>{0b73ea8f-361f-45bb-97ee-cac127e2e965}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WindowSystem\Win32\Window">
+      <UniqueIdentifier>{fe9090aa-c9fa-482e-b60a-6f973cfad9ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WindowSystem\Win32\Window\Frame">
+      <UniqueIdentifier>{8dcd1150-62d9-471e-a050-e7c85472345d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WindowSystem\Win32\Window\Icon">
+      <UniqueIdentifier>{c4f1fe5a-df98-481f-b8c5-cb0cbc337872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WindowSystem\Win32\Window\View">
+      <UniqueIdentifier>{7764708e-791f-4d53-865f-fe78d64ca5e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WindowSystem\Win32\System">
+      <UniqueIdentifier>{87cb7311-3ea4-48ce-b92c-0cf22cc03082}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\win\Win32\Win32FrameWindow.h">
+      <Filter>WindowSystem\Win32\Window\Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\win\Win32\Win32IconWindow.h">
+      <Filter>WindowSystem\Win32\Window\Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\win\Win32\Win32ViewWindow.h">
+      <Filter>WindowSystem\Win32\Window\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\win\Win32\Win32WindowSystem.h">
+      <Filter>WindowSystem\Win32\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\win\Win32\Win32WindowSystemFactory.h">
+      <Filter>WindowSystem\Win32\System</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.win.win32\synkro.win.win32.cpp" />
+    <ClCompile Include="..\..\..\src\win\Win32\Win32FrameWindow.cpp">
+      <Filter>WindowSystem\Win32\Window\Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\win\Win32\Win32IconWindow.cpp">
+      <Filter>WindowSystem\Win32\Window\Icon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\win\Win32\Win32ViewWindow.cpp">
+      <Filter>WindowSystem\Win32\Window\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\win\Win32\Win32WindowSystem.cpp">
+      <Filter>WindowSystem\Win32\System</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.win.win32\factories.inl" />
+  </ItemGroup>
+</Project>

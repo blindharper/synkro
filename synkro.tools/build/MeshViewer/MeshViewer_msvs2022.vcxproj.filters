@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\src\MeshViewer\MeshViewer.cpp" />
+    <ClCompile Include="..\..\src\MeshViewer\resources.cpp">
+      <Filter>res</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Tool.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="res">
+      <UniqueIdentifier>{d08c3b4d-9ea6-4435-9adb-ccc640f82fe6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tool">
+      <UniqueIdentifier>{6578b40a-4a9b-43db-88e6-9559f794de9a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\MeshViewer\resources\MeshViewer.ui">
+      <Filter>res</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\Tool.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

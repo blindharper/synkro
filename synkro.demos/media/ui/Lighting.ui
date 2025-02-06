@@ -1,0 +1,15 @@
+<ui>
+	<droplist id="0" location="WIDTH-155,100" size="150,25" anchor="TopRight"/>
+	<droplist id="1" location="WIDTH-155,130" size="150,25" anchor="TopRight"/>
+	<label id="2" location="WIDTH-155,160" size="150,25" text="Red: 0" anchor="TopRight"/>
+	<slider id="3" location="WIDTH-155,180" size="150,25" orientation="horizontal" min="0" max="1000" anchor="TopRight" color="Red"/>
+	<label id="4" location="WIDTH-155,200" size="150,25" text="Green: 0" anchor="TopRight"/>
+	<slider id="5" location="WIDTH-155,220" size="150,25" orientation="horizontal" min="0" max="1000" anchor="TopRight" color="Green"/>
+	<label id="6" location="WIDTH-155,240" size="150,25" text="Blue: 0" anchor="TopRight"/>
+	<slider id="7" location="WIDTH-155,260" size="150,25" orientation="horizontal" min="0" max="1000" anchor="TopRight" color="Blue"/>
+	<label id="8" location="WIDTH-155,280" size="150,25" text="Specular power: 0" anchor="TopRight"/>
+	<slider id="9" location="WIDTH-155,300" size="150,25" orientation="horizontal" min="1" max="250" anchor="TopRight"/>
+	<label id="10" location="WIDTH-155,320" size="150,25" text="Intensity: 0" anchor="TopRight"/>
+	<slider id="11" location="WIDTH-155,340" size="150,25" orientation="horizontal" min="0" max="1000" anchor="TopRight"/>
+	<switch id="12" location="WIDTH-155,370" size="150,25" text="Enable light" on="true" anchor="TopRight"/>
+</ui>

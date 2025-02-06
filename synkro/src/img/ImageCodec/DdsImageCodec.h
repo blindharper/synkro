@@ -1,0 +1,57 @@
+//==============================================================================
+// This file is a part of the Synkro Framework.
+// 
+// Copyright (c) Nobody. No rights reserved ;-7
+//
+// The contents herein is the property of the Mankind.
+// Use, distribution and modification of this source code
+// is allowed without any permission from the Synkro Project.
+// Website: https://synkro.pro Email: mailto:blindharper70@gmail.com
+//
+// Purpose: Implements DDS image codec.
+//==============================================================================
+#ifndef _SYNKRO_IMG_DDSIMAGECODEC_
+#define _SYNKRO_IMG_DDSIMAGECODEC_
+
+
+#include "config.h"
+#include "ImageCodecImpl.h"
+
+
+namespace synkro
+{
+
+
+namespace img
+{
+
+
+// DDS image codec.
+class DdsImageCodec :
+	public ImageCodecImpl<IImageCodec>
+{
+public:
+	// Constructor.
+	DdsImageCodec( Float quality );
+
+	// IImageCodec methods.
+	ImageCodecContext*										CreateContext();
+	void													Save( ImageCodecContext* context );
+
+private:
+	Bool													SupportsMipmaps() const;
+	void													BeginLoad( io::IStream* stream, ImageCodecContext* context );
+	void													LoadSurface( io::IStream* stream, ImageCodecContext* context );
+	void													SaveSurface( io::IStream* stream, const Byte* data, ImageCodecContext* context );
+	UInt													GetNextLevel( UInt& width, UInt& height, UInt& stride, UInt cellSize, const PixelFormat& format );
+	UInt													GetStride( UInt width, const PixelFormat& format );
+};
+
+
+} // img
+
+
+} // synkro
+
+
+#endif // _SYNKRO_IMG_DDSIMAGECODEC_

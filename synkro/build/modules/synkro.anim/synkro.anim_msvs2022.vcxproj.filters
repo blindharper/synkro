@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="AnimationCodec">
+      <UniqueIdentifier>{a5f419e1-12ff-412f-b0a2-0f0816346be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationTrack">
+      <UniqueIdentifier>{f6c144c9-bbf5-4c5e-af66-cc0e55dcec0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationTrack\NoiseFloat">
+      <UniqueIdentifier>{82e3e0d8-2965-4034-b961-9985695b7e00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationTrack\WaveFloat">
+      <UniqueIdentifier>{e7e09e76-ef09-477c-a861-f7e784d341f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationCodec\Xml">
+      <UniqueIdentifier>{fc72afe9-915d-437c-944a-ba8699a0ff99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationCodec\Sql">
+      <UniqueIdentifier>{abdd470a-fb40-4cdd-9e0a-6232bfbc5636}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationCodec\Bin">
+      <UniqueIdentifier>{36d17586-21a0-4936-92ee-30228d68d900}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\anim\AnimationCodec\XmlAnimationCodec.h">
+      <Filter>AnimationCodec\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\anim\AnimationCodec\XmlAnimationCodecFactory.h">
+      <Filter>AnimationCodec\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\anim\AnimationCodec\AnimationCodecImpl.h">
+      <Filter>AnimationCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\anim\AnimationTrack\ProceduralTrackImpl.h">
+      <Filter>AnimationTrack</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\anim\AnimationTrack\NoiseFloatTrack.h">
+      <Filter>AnimationTrack\NoiseFloat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\anim\AnimationTrack\NoiseFloatTrackFactory.h">
+      <Filter>AnimationTrack\NoiseFloat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\anim\AnimationTrack\WaveFloatTrack.h">
+      <Filter>AnimationTrack\WaveFloat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\anim\AnimationTrack\WaveFloatTrackFactory.h">
+      <Filter>AnimationTrack\WaveFloat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\anim\AnimationCodec\SqlAnimationCodec.h">
+      <Filter>AnimationCodec\Sql</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\anim\AnimationCodec\SqlAnimationCodecFactory.h">
+      <Filter>AnimationCodec\Sql</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\anim\AnimationCodec\BinAnimationCodec.h">
+      <Filter>AnimationCodec\Bin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\anim\AnimationCodec\BinAnimationCodecFactory.h">
+      <Filter>AnimationCodec\Bin</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.anim\synkro.anim.cpp" />
+    <ClCompile Include="..\..\..\src\anim\AnimationCodec\XmlAnimationCodec.cpp">
+      <Filter>AnimationCodec\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\anim\AnimationTrack\NoiseFloatTrack.cpp">
+      <Filter>AnimationTrack\NoiseFloat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\anim\AnimationTrack\WaveFloatTrack.cpp">
+      <Filter>AnimationTrack\WaveFloat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\anim\AnimationCodec\SqlAnimationCodec.cpp">
+      <Filter>AnimationCodec\Sql</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\anim\AnimationCodec\BinAnimationCodec.cpp">
+      <Filter>AnimationCodec\Bin</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.anim\factories.inl" />
+    <None Include="..\..\..\src\anim\AnimationCodec\AnimationCodecImpl.inl">
+      <Filter>AnimationCodec</Filter>
+    </None>
+    <None Include="..\..\..\src\anim\AnimationTrack\ProceduralTrackImpl.inl">
+      <Filter>AnimationTrack</Filter>
+    </None>
+    <None Include="..\..\..\src\anim\AnimationTrack\NoiseFloatTrack.inl">
+      <Filter>AnimationTrack\NoiseFloat</Filter>
+    </None>
+    <None Include="..\..\..\src\anim\AnimationTrack\WaveFloatTrack.inl">
+      <Filter>AnimationTrack\WaveFloat</Filter>
+    </None>
+  </ItemGroup>
+</Project>

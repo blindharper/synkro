@@ -1,0 +1,125 @@
+<resource>
+<formats>
+	<format name="material">
+		<vertex name="position" type="vector3"/>
+	</format>
+	<format name="material.colored">
+		<vertex name="position" type="vector3"/>
+		<vertex name="color" type="vector4"/>
+	</format>
+	<format name="material.textured">
+		<vertex name="position" type="vector3"/>
+		<vertex name="texcoord" type="vector2"/>
+	</format>
+	<format name="material.textured.colored">
+		<vertex name="position" type="vector3"/>
+		<vertex name="texcoord" type="vector2"/>
+		<vertex name="color" type="vector4"/>
+	</format>
+	<format name="material.instanced">
+		<vertex name="position" type="vector3"/>
+		<instance name="transform" type="matrix4x4transposed"/>
+		<instance name="color" type="vector4"/>
+	</format>
+	<format name="material.colored.instanced">
+		<vertex name="position" type="vector3"/>
+		<vertex name="color" type="vector4"/>
+		<instance name="transform" type="matrix4x4transposed"/>
+	</format>
+	<format name="material.textured.instanced">
+		<vertex name="position" type="vector3"/>
+		<vertex name="texcoord" type="vector2"/>
+		<instance name="transform" type="matrix4x4transposed"/>
+		<instance name="color" type="vector4"/>
+	</format>
+	<format name="material.textured.skinned">
+		<vertex name="position" type="vector3"/>
+		<vertex name="weights" type="vector4"/>
+		<vertex name="bones" type="int"/>
+		<vertex name="texcoord" type="vector2"/>
+	</format>
+	<format name="material.textured.skinned.instanced">
+		<vertex name="position" type="vector3"/>
+		<vertex name="texcoord" type="vector2"/>
+		<vertex name="weights" type="vector4"/>
+		<vertex name="bones" type="int"/>
+		<instance name="transform" type="matrix4x4transposed"/>
+		<instance name="color" type="vector4"/>
+	</format>
+	<format name="material.skinned.instanced">
+		<vertex name="position" type="vector3"/>
+		<vertex name="weights" type="vector4"/>
+		<vertex name="bones" type="int"/>
+		<instance name="transform" type="matrix4x4transposed"/>
+		<instance name="color" type="vector4"/>
+	</format>
+	<format name="material.skinned">
+		<vertex name="position" type="vector3"/>
+		<vertex name="weights" type="vector4"/>
+		<vertex name="bones" type="int"/>
+	</format>
+	<format name="material.lit">
+		<vertex name="position" type="vector3"/>
+		<vertex name="normal" type="vector3"/>
+	</format>
+	<format name="material.lit.textured">
+		<vertex name="position" type="vector3"/>
+		<vertex name="normal" type="vector3"/>
+		<vertex name="texcoord" type="vector2"/>
+	</format>
+	<format name="material.lit.instanced">
+		<vertex name="position" type="vector3"/>
+		<vertex name="normal" type="vector3"/>
+		<instance name="transform" type="matrix4x4transposed"/>
+		<instance name="color" type="vector4"/>
+	</format>
+	<format name="material.lit.textured.instanced">
+		<vertex name="position" type="vector3"/>
+		<vertex name="normal" type="vector3"/>
+		<vertex name="texcoord" type="vector2"/>
+		<instance name="transform" type="matrix4x4transposed"/>
+		<instance name="color" type="vector4"/>
+	</format>
+	<format name="material.lit.textured.skinned">
+		<vertex name="position" type="vector3"/>
+		<vertex name="normal" type="vector3"/>
+		<vertex name="weights" type="vector4"/>
+		<vertex name="bones" type="int"/>
+		<vertex name="texcoord" type="vector2"/>
+	</format>
+	<format name="material.lit.skinned">
+		<vertex name="position" type="vector3"/>
+		<vertex name="normal" type="vector3"/>
+		<vertex name="weights" type="vector4"/>
+		<vertex name="bones" type="int"/>
+	</format>
+	<format name="material.lit.monochrome.instanced">
+		<vertex name="position" type="vector3"/>
+		<vertex name="normal" type="vector3"/>
+		<instance name="transform" type="matrix4x4transposed"/>
+	</format>
+</formats>
+<programs>
+	<program name="material.opaque" parent="viewport" input="material" vertex="material\simple\default.vs" fragment="material\simple\default.fs"/>
+	<program name="material.opaque.skinned" parent="viewport" input="material.skinned" vertex="material\simple\skinned.vs" fragment="material\simple\default.fs"/>
+	<program name="material.opaque.colored" parent="viewport" input="material.colored" vertex="material\simple\colored.vs" fragment="material\simple\default.fs"/>
+	<program name="material.opaque.textured" parent="viewport" input="material.textured" vertex="material\simple\textured.vs" fragment="material\simple\textured.fs"/>
+	<program name="material.transparent.textured" parent="viewport" input="material.textured" vertex="material\simple\textured.vs" fragment="material\simple\transparent_textured.fs"/>
+	<program name="material.opaque.textured.colored" parent="viewport" input="material.textured.colored" vertex="material\simple\textured_colored.vs" fragment="material\simple\textured.fs"/>
+	<program name="material.opaque.skinned.instanced" parent="viewport" input="material.skinned.instanced" vertex="material\simple\skinned_instanced.vs" fragment="material\simple\default.fs"/>
+	<program name="material.opaque.instanced" parent="viewport" input="material.instanced" vertex="material\simple\instanced.vs" fragment="material\simple\default.fs"/>
+	<program name="material.opaque.colored.instanced" parent="viewport" input="material.colored.instanced" vertex="material\simple\colored_instanced.vs" fragment="material\simple\default.fs"/>
+	<program name="material.opaque.textured.instanced" parent="viewport" input="material.textured.instanced" vertex="material\simple\textured_instanced.vs" fragment="material\simple\textured.fs"/>
+	<program name="material.opaque.textured.skinned" parent="viewport" input="material.textured.skinned" vertex="material\simple\textured_skinned.vs" fragment="material\simple\textured.fs"/>
+	<program name="material.opaque.textured.skinned.instanced" parent="viewport" input="material.textured.skinned.instanced" vertex="material\simple\textured_skinned_instanced.vs" fragment="material\simple\textured.fs"/>
+	<program name="material.opaque.lit[flat]" parent="viewport.lit" input="material.lit" vertex="material\simple\lit[flat].vs" geometry="material\simple\lit[flat].gs" fragment="material\simple\lit.fs"/>
+	<program name="material.opaque.lit[gouraud]" parent="viewport.lit" input="material.lit" vertex="material\simple\lit[gouraud].vs" fragment="material\simple\lit.fs"/>
+	<program name="material.opaque.lit[gouraud].skinned" parent="viewport.lit" input="material.lit.skinned" vertex="material\simple\lit[gouraud]_skinned.vs" fragment="material\simple\lit.fs"/>
+	<program name="material.opaque.lit[gouraud].textured" parent="viewport.lit" input="material.lit.textured" vertex="material\simple\lit[gouraud]_textured.vs" fragment="material\simple\lit_textured.fs"/>
+	<program name="material.opaque.lit[gouraud].instanced" parent="viewport.lit" input="material.lit.instanced" vertex="material\simple\lit[gouraud]_instanced.vs" fragment="material\simple\lit.fs"/>
+	<program name="material.opaque.lit[gouraud].textured.instanced" parent="viewport.lit" input="material.lit.textured.instanced" vertex="material\simple\lit[gouraud]_textured_instanced.vs" fragment="material\simple\lit_textured.fs"/>
+	<program name="material.opaque.lit[gouraud].textured.skinned" parent="viewport.lit" input="material.lit.textured.skinned" vertex="material\simple\lit[gouraud]_textured_skinned.vs" fragment="material\simple\lit_textured.fs"/>
+	<program name="material.cartoon" parent="viewport.lit" input="material.lit" vertex="material\cartoon\default.vs" fragment="material\cartoon\default.fs"/>
+	<program name="material.cartoon.instanced" parent="viewport.lit" input="material.lit.monochrome.instanced" vertex="material\cartoon\instanced.vs" fragment="material\cartoon\default.fs"/>
+</programs>
+</resource>

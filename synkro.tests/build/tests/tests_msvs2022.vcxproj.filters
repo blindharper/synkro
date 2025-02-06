@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Tester">
+      <UniqueIdentifier>{e9ec427f-fa74-4f38-9028-40228a3765ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{9564d550-6ba1-435d-a977-7cab18ad5f62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lang">
+      <UniqueIdentifier>{881cb00f-b332-400d-b03a-9aadaec785c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\io">
+      <UniqueIdentifier>{9935d504-fb42-4968-8dc3-77867174ccea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{37ba794b-b15e-4893-9c23-6772b31d7ffe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mem">
+      <UniqueIdentifier>{527cd752-7ee0-47f8-a84f-b60e46247074}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\img">
+      <UniqueIdentifier>{08c98ab1-73a1-4e64-a378-1790ef427ea4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui">
+      <UniqueIdentifier>{46f850f6-ae5c-4a16-bbfc-4433d201cf19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\anim">
+      <UniqueIdentifier>{a7757f0f-71c2-4fbe-a987-336bbbac716a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\anim\Expression">
+      <UniqueIdentifier>{8ea67d34-1231-441d-9074-d11d60384484}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\tests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Test.cpp">
+      <Filter>Source Files\Tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Tester.cpp">
+      <Filter>Source Files\Tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\math\Test_Math.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\math\Test_Matrix4x4.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\math\Test_Quaternion.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\math\Test_Vector3.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Allocator.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_ASCII7Encoding.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Btree.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Convert.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Enum.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Exception.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Flag.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Formatter.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_List.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Map.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Mask.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Parser.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Point.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Ptr.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Queue.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Random.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Rect.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Set.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Size.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Stack.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_String.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Tree.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_UTF8Encoding.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_UTF16Encoding.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_UTF32Encoding.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Vector.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\lang\Test_Volume.cpp">
+      <Filter>Source Files\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io\Test_BinaryReader.cpp">
+      <Filter>Source Files\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io\Test_BinaryStream.cpp">
+      <Filter>Source Files\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io\Test_BinaryWriter.cpp">
+      <Filter>Source Files\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io\Test_FileStream.cpp">
+      <Filter>Source Files\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io\Test_Path.cpp">
+      <Filter>Source Files\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io\Test_TextReader.cpp">
+      <Filter>Source Files\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io\Test_TextStream.cpp">
+      <Filter>Source Files\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io\Test_TextWriter.cpp">
+      <Filter>Source Files\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io\Test_ZipDirectory.cpp">
+      <Filter>Source Files\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\Test_Configuration.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\Test_DynamicLibrary.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\mem\Test_StdMemoryManager.cpp">
+      <Filter>Source Files\mem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\img\Test_Color.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ui\Test_UiReader.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ui\Test_ThemeReader.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\img\Test_BmpCodec.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\img\Test_JpgCodec.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\Image.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageManager.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\external\stream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\img\Test_TgaCodec.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\mem\StdMemoryManager.cpp">
+      <Filter>Source Files\mem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\img\Test_PngCodec.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\io\Test_XmlWriter.cpp">
+      <Filter>Source Files\io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\external\imageread.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\BmpImageCodec.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\JpgImageCodec.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\PngImageCodec.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\TgaImageCodec.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\RenderImage\CubeRenderImage.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\RenderImage\PlainRenderImage.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\Task\LoadImageTask.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\Task\PrepareImageTask.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\Task\SaveImageTask.cpp">
+      <Filter>Source Files\img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\core\Configuration.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\anim\Test_Expression.cpp">
+      <Filter>Source Files\anim</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\AbsFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\BinaryExpression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\CeilFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ColorExpression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ColorFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ComplexExpression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Constant.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ConstantExpression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ControlExpression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\CosFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ExpFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Expression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ExpressionCompiler.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ExpressionList.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ExpressionParamEx.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ExpressionScript.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\FloatExpression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\FloatFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\FloorFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Function.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\FunctionExpression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Identifier.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\LerpFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Matrix4x4Expression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Matrix4x4Function.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\MaxFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\MetaExpression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\MinFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\PowFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ReturnExpression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ReturnStatement.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\SignFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\SimpleExpression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\SinFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\SqrtFunction.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Token.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\TokenExpression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\UnaryExpression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Variable.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\VariableDeclaration.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\VariableExpression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Vector3Expression.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Vector3Function.cpp">
+      <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\Test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Tester.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\mem\StdMemoryManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

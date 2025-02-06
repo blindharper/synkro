@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\cons\Command\HelpCommand.h">
+      <Filter>Command\Help</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\HelpCommandFactory.h">
+      <Filter>Command\Help</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\QuitCommand.h">
+      <Filter>Command\Quit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\QuitCommandFactory.h">
+      <Filter>Command\Quit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\VersionCommand.h">
+      <Filter>Command\Version</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\VersionCommandFactory.h">
+      <Filter>Command\Version</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\ClearCommand.h">
+      <Filter>Command\Clear</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\ClearCommandFactory.h">
+      <Filter>Command\Clear</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\EchoCommand.h">
+      <Filter>Command\Echo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\EchoCommandFactory.h">
+      <Filter>Command\Echo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\ColorCommand.h">
+      <Filter>Command\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\ColorCommandFactory.h">
+      <Filter>Command\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\SoundCommand.h">
+      <Filter>Command\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\SoundCommandFactory.h">
+      <Filter>Command\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\DisplayCommand.h">
+      <Filter>Command\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\DisplayCommandFactory.h">
+      <Filter>Command\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\MemoryCommand.h">
+      <Filter>Command\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\MemoryCommandFactory.h">
+      <Filter>Command\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\ConsoleCommandImpl.h">
+      <Filter>Command</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\ThemeCommand.h">
+      <Filter>Command\Theme</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\ThemeCommandFactory.h">
+      <Filter>Command\Theme</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\MachineCommand.h">
+      <Filter>Command\Machine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\cons\Command\MachineCommandFactory.h">
+      <Filter>Command\Machine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.cons\resources.cpp">
+      <Filter>res</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\cons\Command\ClearCommand.cpp">
+      <Filter>Command\Clear</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\cons\Command\ColorCommand.cpp">
+      <Filter>Command\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\cons\Command\EchoCommand.cpp">
+      <Filter>Command\Echo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\cons\Command\HelpCommand.cpp">
+      <Filter>Command\Help</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\cons\Command\QuitCommand.cpp">
+      <Filter>Command\Quit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\cons\Command\SoundCommand.cpp">
+      <Filter>Command\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\cons\Command\VersionCommand.cpp">
+      <Filter>Command\Version</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\cons\Command\DisplayCommand.cpp">
+      <Filter>Command\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\synkro.cons\synkro.cons.cpp" />
+    <ClCompile Include="..\..\..\src\cons\Command\MemoryCommand.cpp">
+      <Filter>Command\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\cons\Command\ThemeCommand.cpp">
+      <Filter>Command\Theme</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\cons\Command\MachineCommand.cpp">
+      <Filter>Command\Machine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="res">
+      <UniqueIdentifier>{4c9d5015-6ed7-4bd8-9c0c-7f14ae3fe308}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command">
+      <UniqueIdentifier>{5aa48904-e18e-4809-9569-a28992c36c8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Help">
+      <UniqueIdentifier>{0b38201f-4522-4785-bf15-59cb02e791b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Quit">
+      <UniqueIdentifier>{af3a8955-75db-4d06-b3ae-ae97a790c44b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Version">
+      <UniqueIdentifier>{b604d134-108e-4d05-b11e-1d2b67b8525d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Clear">
+      <UniqueIdentifier>{1993f305-d463-43f0-aacd-d26ef15903f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Echo">
+      <UniqueIdentifier>{c75dca05-1b2d-4de7-a180-184958498204}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Color">
+      <UniqueIdentifier>{b5c59560-46f7-492b-86ae-2e27c734f1dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Sound">
+      <UniqueIdentifier>{34e4839a-639f-4622-b63f-071177a91660}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Display">
+      <UniqueIdentifier>{b2f6688a-ed5c-4074-90a0-9b1d7242e688}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Memory">
+      <UniqueIdentifier>{f3539668-9102-422f-9555-5cb30de9854f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Theme">
+      <UniqueIdentifier>{7eed4772-f998-462c-9480-28a8fe180565}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command\Machine">
+      <UniqueIdentifier>{d5917337-426f-4d6a-9370-ede2d30594ef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.cons\factories.inl" />
+    <None Include="..\..\..\modules\synkro.cons\resources.inl" />
+    <None Include="..\..\..\src\cons\Command\ConsoleCommandImpl.inl">
+      <Filter>Command</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="InputSystem">
+      <UniqueIdentifier>{94570571-6749-4991-8513-078b3c9cf532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputSystem\Win32">
+      <UniqueIdentifier>{89eef0f2-8905-44b1-9291-41ab1c8e4d34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputSystem\Win32\Device">
+      <UniqueIdentifier>{563f8fbe-2cfb-411a-a450-d26dbd4553e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputSystem\Win32\Device\Joystick">
+      <UniqueIdentifier>{1aef4103-3a34-4561-a51b-8c63fa68b574}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputSystem\Win32\Device\Keyboard">
+      <UniqueIdentifier>{e87683de-7e52-43b0-b1c9-a5b5e17efe58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputSystem\Win32\Device\Mouse">
+      <UniqueIdentifier>{a71f9a80-f075-4a31-8fe8-de312949ba9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputSystem\Win32\System">
+      <UniqueIdentifier>{854c203e-b82a-43d6-8311-d6533935397c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\input\Win32\Win32.h">
+      <Filter>InputSystem\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\input\Win32\Win32InputSystem.h">
+      <Filter>InputSystem\Win32\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\input\Win32\Win32InputSystemFactory.h">
+      <Filter>InputSystem\Win32\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\input\Win32\Win32Joystick.h">
+      <Filter>InputSystem\Win32\Device\Joystick</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\input\Win32\Win32Keyboard.h">
+      <Filter>InputSystem\Win32\Device\Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\input\Win32\Win32Mouse.h">
+      <Filter>InputSystem\Win32\Device\Mouse</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.input.win32\synkro.input.win32.cpp" />
+    <ClCompile Include="..\..\..\src\input\Win32\Win32.cpp">
+      <Filter>InputSystem\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\input\Win32\Win32InputSystem.cpp">
+      <Filter>InputSystem\Win32\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\input\Win32\Win32Joystick.cpp">
+      <Filter>InputSystem\Win32\Device\Joystick</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\input\Win32\Win32Keyboard.cpp">
+      <Filter>InputSystem\Win32\Device\Keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\input\Win32\Win32Mouse.cpp">
+      <Filter>InputSystem\Win32\Device\Mouse</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.input.win32\factories.inl" />
+  </ItemGroup>
+</Project>

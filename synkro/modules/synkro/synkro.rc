@@ -1,0 +1,141 @@
+#include <windows.h>
+
+#define IDC_STATIC (-1)
+
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+//#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EXCEPTIONHANDLER DIALOGEX 0, 0, 476, 280
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Synkro Exception"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         103,IDC_BANNER,"Static",SS_BITMAP,8,8,460,30
+    CONTROL         "",IDC_CALLS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,8,96,460,113
+    GROUPBOX        "",IDC_STATUS,8,212,460,39
+    LTEXT           "Synkro v.0.1b234",IDC_VERSION,112,261,110,8,WS_DISABLED
+    PUSHBUTTON      "&Cancel",IDCANCEL,418,258,50,14
+    CONTROL         "<a href=""https://synkro.pro"">https://synkro.pro</a>",IDC_LINK,
+                    "SysLink",LWS_IGNORERETURN | LWS_USEVISUALSTYLE | WS_TABSTOP,8,260,100,10,WS_EX_TRANSPARENT
+    GROUPBOX        "Exception details",IDC_ERROR,8,38,460,44
+    LTEXT           "Call Stack",IDC_STATIC,9,87,33,8
+    LTEXT           "Message",IDC_MESSAGE,12,48,448,29
+END
+
+IDD_CONFIGEDITOR DIALOGEX 0, 0, 476, 280
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Synkro Configuration Editor"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_PARAMLIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | LVS_ALIGNLEFT | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,190,44,278,164
+    GROUPBOX        "",IDC_STATUS,8,212,460,39
+    LTEXT           "Parameter.Name",IDC_PARAM,12,218,450,11
+    LTEXT           "Parameter.Description",IDC_HINT,12,227,450,20
+    LTEXT           "Synkro v.0.1b234",IDC_VERSION,112,261,110,8,WS_DISABLED
+    PUSHBUTTON      "&Run",IDB_RUN,366,258,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,418,258,50,14
+    CONTROL         "<a href=""https://synkro.pro"">https://synkro.pro</a>",IDC_LINK,
+                    "SysLink",LWS_IGNORERETURN | LWS_USEVISUALSTYLE | WS_TABSTOP,8,260,100,10,WS_EX_TRANSPARENT
+END
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BANNER              BITMAP                  "banner.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_SYNKRO              ICON                    "synkro.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_CONFIGEDITOR, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 279
+    END
+
+    IDD_CONFIGPAGE, DIALOG
+    BEGIN
+        RIGHTMARGIN, 213
+        BOTTOMMARGIN, 169
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

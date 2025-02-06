@@ -1,0 +1,38 @@
+<ui>
+	<frame location="10,150" size="200,200" border="true">
+		<label id="100" location="4,4" size="190,50" text="Sample text"/>
+		<switch id="101" location="4,60" size="190,25" text="[T]ransparent" color="Lime" on="true" hotkey="CTRL+T"/>
+		<option id="102" location="4,90" size="190,25" text="Align Left" color="Pink" data="Alignment(Left)"/>
+		<option id="103" location="4,120" size="190,25" text="Align Center" selected="true" data="Alignment(Center)"/>
+		<option id="104" location="4,150" size="190,25" text="Align Right" color="Orange" data="Alignment(Right)"/>
+	</frame>
+	<frame location="10,360" size="200,320" border="true">
+		<list id="200" location="4,4" size="150,200"/>
+		<button id="201" location="4,210" size="150,30" text="Add"/>
+		<button id="202" location="4,245" size="150,30" text="Insert"/>
+		<button id="203" location="4,280" size="150,30" text="Remove"/>
+	</frame>
+	<frame location="10,690" size="200,110" border="true">
+		<progress id="300" location="4,4" size="150,20" type="Bar" color="Orange"/>
+		<button id="302" location="4,30" size="150,30" text="[R]un Task" color="Green" hotkey="CTRL+R"/>
+		<button id="303" location="4,65" size="150,30" text="[C]ancel Task"  color="Red" hotkey="CTRL+C"/>
+	</frame>
+	<frame location="220,150" size="200,200" border="true">
+		<label id="400" location="4,4" size="190,25" text=""/>
+		<edit id="401" location="4,40" size="190,25" text="Edit me!"/>
+		<button id="402" location="4,70" size="190,25" text="Save"/>
+		<button id="403" location="4,100" size="190,25" text="Restore"/>
+	</frame>
+	<frame location="220,360" size="200,200" border="true">
+		<picture id="500" location="4,4" size="150,150" image="crate.bmp"/>
+	</frame>
+	<frame location="220,570" size="200,110" border="true">
+		<button id="600" location="4,4" size="190,25" text="Flat Theme"/>
+		<button id="601" location="4,34" size="190,25" text="Glass Theme"/>
+	</frame>
+	<frame location="220,690" size="200,110" border="true">
+		<angle id="602" location="4,4"/>
+		<slider id="603" location="4,70" size="150,25" orientation="horizontal" min="0" max="1000" color="Red"/>
+		<slider id="604" location="164,4" size="25,100" orientation="vertical" min="0" max="1000" color="Green"/>
+	</frame>
+</ui>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ImageCodec">
+      <UniqueIdentifier>{a5f419e1-12ff-412f-b0a2-0f0816346be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageCodec\Dds">
+      <UniqueIdentifier>{25eb1762-b6e7-4e33-9b96-84d931a0e44b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageCodec\Tga">
+      <UniqueIdentifier>{0b73ea8f-361f-45bb-97ee-cac127e2e965}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageCodec\Bmp">
+      <UniqueIdentifier>{fc72afe9-915d-437c-944a-ba8699a0ff99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageCodec\Jpg">
+      <UniqueIdentifier>{ef44b6bd-e90b-46e3-9075-62477f1ab0c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImageCodec\Png">
+      <UniqueIdentifier>{f8622d42-23ef-43fc-89dd-41035091a6f3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\external\stream.h" />
+    <ClInclude Include="..\..\..\src\external\imageread.h" />
+    <ClInclude Include="..\..\..\src\img\ImageCodec\ImageCodecImpl.h">
+      <Filter>ImageCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\img\ImageCodec\BmpImageCodec.h">
+      <Filter>ImageCodec\Bmp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\img\ImageCodec\BmpImageCodecFactory.h">
+      <Filter>ImageCodec\Bmp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\img\ImageCodec\DdsImageCodec.h">
+      <Filter>ImageCodec\Dds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\img\ImageCodec\DdsImageCodecContext.h">
+      <Filter>ImageCodec\Dds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\img\ImageCodec\DdsImageCodecFactory.h">
+      <Filter>ImageCodec\Dds</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\img\ImageCodec\JpgImageCodec.h">
+      <Filter>ImageCodec\Jpg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\img\ImageCodec\JpgImageCodecFactory.h">
+      <Filter>ImageCodec\Jpg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\img\ImageCodec\PngImageCodec.h">
+      <Filter>ImageCodec\Png</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\img\ImageCodec\PngImageCodecFactory.h">
+      <Filter>ImageCodec\Png</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\img\ImageCodec\TgaImageCodec.h">
+      <Filter>ImageCodec\Tga</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\img\ImageCodec\TgaImageCodecFactory.h">
+      <Filter>ImageCodec\Tga</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.img\synkro.img.cpp" />
+    <ClCompile Include="..\..\..\src\external\stream.cpp" />
+    <ClCompile Include="..\..\..\src\external\imageread.cpp" />
+    <ClCompile Include="..\..\..\src\img\ImageCodec\BmpImageCodec.cpp">
+      <Filter>ImageCodec\Bmp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\img\ImageCodec\DdsImageCodec.cpp">
+      <Filter>ImageCodec\Dds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\img\ImageCodec\DdsImageCodecContext.cpp">
+      <Filter>ImageCodec\Dds</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\img\ImageCodec\JpgImageCodec.cpp">
+      <Filter>ImageCodec\Jpg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\img\ImageCodec\PngImageCodec.cpp">
+      <Filter>ImageCodec\Png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\img\ImageCodec\TgaImageCodec.cpp">
+      <Filter>ImageCodec\Tga</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.img\factories.inl" />
+    <None Include="..\..\..\src\img\ImageCodec\ImageCodecImpl.inl">
+      <Filter>ImageCodec</Filter>
+    </None>
+  </ItemGroup>
+</Project>

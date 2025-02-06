@@ -1,0 +1,4 @@
+<resource>
+	<entry name="console.back" path="console\back.bmp"/>
+	<entry name="console.key" path="console\key.wav"/>
+</resource>

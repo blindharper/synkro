@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="res">
+      <UniqueIdentifier>{cfce6f20-b09e-4043-b6a3-3fd182692c6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem">
+      <UniqueIdentifier>{28950dc7-1784-4356-b169-35b2c34f9996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem">
+      <UniqueIdentifier>{4ba87e61-d98f-433a-8e69-f1b61cad5df0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11">
+      <UniqueIdentifier>{a9e1fbb5-395c-4a06-95e5-c7204d0270af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Program">
+      <UniqueIdentifier>{f15a3ada-a37d-4722-890e-75fd89939e45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Primitive">
+      <UniqueIdentifier>{e215f3f3-81a8-4a21-9063-4c826ea38bfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Parameter">
+      <UniqueIdentifier>{a16702e2-959b-4190-bcc8-dd9883dc5a62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource">
+      <UniqueIdentifier>{8cfa4729-e759-4eac-bd0a-feeef7810e3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\ScissorRect">
+      <UniqueIdentifier>{f5c2a9e0-0028-4c8f-9dc2-4522f1b07df5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\RenderWindow">
+      <UniqueIdentifier>{8b182a40-75de-4099-9c1c-a6583efcf418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Device">
+      <UniqueIdentifier>{a5d1630a-d16b-448d-bc3c-4a9a11792fca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\DataBuffer">
+      <UniqueIdentifier>{bdbbc698-938d-4b70-9ff9-54629aa353f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\RenderState">
+      <UniqueIdentifier>{8cf9aa6d-4dd5-47c4-b7dd-04d6629e5bad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\RenderState\Blend">
+      <UniqueIdentifier>{74a3acbc-9334-44ff-b6f7-4d5fb71c9014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\RenderState\Rasterizer">
+      <UniqueIdentifier>{f8d2eec2-e46d-41f6-9cd7-171e3ab60c48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\RenderState\Sampler">
+      <UniqueIdentifier>{aa13a1cb-5710-42dd-aee7-2aa0c443554b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Set">
+      <UniqueIdentifier>{eb4dd656-7bbd-4faa-a962-fec05c23ed74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\DataBuffer\Index">
+      <UniqueIdentifier>{8a1ae48e-45d3-4b73-9042-431745f30dcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\DataBuffer\Output">
+      <UniqueIdentifier>{329484f4-5184-4d65-b5e3-05d00f9c5249}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\DataBuffer\Vertex">
+      <UniqueIdentifier>{d335bfdc-e486-4c77-bdb9-4c48653b9e2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\RenderWindow\Frame">
+      <UniqueIdentifier>{2a5c9c5f-d983-48a6-a019-ad2265c39c09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\RenderWindow\View">
+      <UniqueIdentifier>{e2eff97c-3af0-419a-8d32-e74b6265aab7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture">
+      <UniqueIdentifier>{4f4c7f72-ee2c-44a9-90a8-f59a31e0ce6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture\Depth">
+      <UniqueIdentifier>{44303a26-9eaa-43bc-933a-21b76ab34606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture\Render">
+      <UniqueIdentifier>{23002dd4-e0cc-42cc-8195-58d8e39eabc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture\Render\Cube">
+      <UniqueIdentifier>{6c6af5c4-6514-4a40-a374-d83cbcf9bc67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture\Render\Plain">
+      <UniqueIdentifier>{9f4b2e57-8bac-4ffb-862f-1a13d8de80eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture\Render\Volume">
+      <UniqueIdentifier>{2aeaa4d5-76cf-4be0-8577-bb62d01750f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture\Render\Linear">
+      <UniqueIdentifier>{3e74d8cc-839a-4a69-9bd9-e54ab94b5b4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture\Texture">
+      <UniqueIdentifier>{aa1a80cb-54d1-4159-b714-9344c196368d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture\Texture\Cube">
+      <UniqueIdentifier>{ce4ee521-d400-4366-9b1f-406046bdb986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture\Texture\Linear">
+      <UniqueIdentifier>{233ad7c3-79d5-4072-978e-15a7b62419c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture\Texture\Plain">
+      <UniqueIdentifier>{ed3042c4-490b-4136-ab07-ea1129cbe426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture\Texture\Volume">
+      <UniqueIdentifier>{41c002b2-c49b-4b10-98b3-35dc85ad2d64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture\Depth\Cube">
+      <UniqueIdentifier>{561274d3-f289-4bb7-ba2c-b213b496dca4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Texture\Depth\Plain">
+      <UniqueIdentifier>{0a757870-2bcf-45b1-9b30-d4ae8be2c289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\RenderState\DepthStencil">
+      <UniqueIdentifier>{aecb3548-2b58-4d89-980c-63ee7909af40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Context">
+      <UniqueIdentifier>{bae288b0-e9e3-4bdd-8e62-5e722435d2d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\System">
+      <UniqueIdentifier>{83ca90c6-c196-477e-a8d0-a9c2c8be0d1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Buffer">
+      <UniqueIdentifier>{b6715676-2d56-46c1-b3aa-de8d4ec8c579}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Buffer\Typed">
+      <UniqueIdentifier>{c1810ec5-b70d-4511-b4a7-243956767562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX11\Resource\Buffer\Structured">
+      <UniqueIdentifier>{d8196a01-30c5-4106-9c7f-4f8d2e9ccb23}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\modules\synkro.gfx.dx11\programs.cpp">
+      <Filter>res</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\modules\synkro.gfx.dx11\synkro.gfx.dx11.cpp" />
+    <ClCompile Include="..\..\..\src\gfx\Dx\DxGi.cpp">
+      <Filter>GraphicsSystem\DirectX11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11.cpp">
+      <Filter>GraphicsSystem\DirectX11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11GraphicsSystem.cpp">
+      <Filter>GraphicsSystem\DirectX11\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11ScissorRect.cpp">
+      <Filter>GraphicsSystem\DirectX11\ScissorRect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11Context.cpp">
+      <Filter>GraphicsSystem\DirectX11\Context</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11IndexBuffer.cpp">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Index</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11OutputBuffer.cpp">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11OutputBufferSet.cpp">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11VertexBuffer.cpp">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Vertex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11VertexBufferSet.cpp">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Vertex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11GraphicsDevice.cpp">
+      <Filter>GraphicsSystem\DirectX11\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11ProgramParam.cpp">
+      <Filter>GraphicsSystem\DirectX11\Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11ParameterSet.cpp">
+      <Filter>GraphicsSystem\DirectX11\Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11Primitive.cpp">
+      <Filter>GraphicsSystem\DirectX11\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11Include.cpp">
+      <Filter>GraphicsSystem\DirectX11\Program</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11Program.cpp">
+      <Filter>GraphicsSystem\DirectX11\Program</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11ProgramStage.cpp">
+      <Filter>GraphicsSystem\DirectX11\Program</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11BlendStateSet.cpp">
+      <Filter>GraphicsSystem\DirectX11\RenderState\Blend</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11DepthStencilState.cpp">
+      <Filter>GraphicsSystem\DirectX11\RenderState\DepthStencil</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11RasterizerState.cpp">
+      <Filter>GraphicsSystem\DirectX11\RenderState\Rasterizer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11SamplerState.cpp">
+      <Filter>GraphicsSystem\DirectX11\RenderState\Sampler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11SamplerStateSet.cpp">
+      <Filter>GraphicsSystem\DirectX11\RenderState\Sampler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11FrameRenderWindow.cpp">
+      <Filter>GraphicsSystem\DirectX11\RenderWindow\Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11ViewRenderWindow.cpp">
+      <Filter>GraphicsSystem\DirectX11\RenderWindow\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11ResourceSet.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11CubeDepthTexture.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Depth\Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11PlainDepthTexture.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Depth\Plain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11CubeTexture.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Texture\Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11LinearTexture.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Texture\Linear</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11PlainTexture.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Texture\Plain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11VolumeTexture.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Texture\Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11RenderTextureSet.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11CubeRenderTexture.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render\Cube</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11LinearRenderTexture.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render\Linear</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11PlainRenderTexture.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render\Plain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11VolumeRenderTexture.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render\Volume</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11TypedBuffer.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Buffer\Typed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gfx\Dx11\Dx11StructuredBuffer.cpp">
+      <Filter>GraphicsSystem\DirectX11\Resource\Buffer\Structured</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\gfx\Dx\DxGi.h">
+      <Filter>GraphicsSystem\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11.h">
+      <Filter>GraphicsSystem\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11Classes.h">
+      <Filter>GraphicsSystem\DirectX11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11GraphicsSystem.h">
+      <Filter>GraphicsSystem\DirectX11\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11GraphicsSystemFactory.h">
+      <Filter>GraphicsSystem\DirectX11\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11ScissorRect.h">
+      <Filter>GraphicsSystem\DirectX11\ScissorRect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11Context.h">
+      <Filter>GraphicsSystem\DirectX11\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11IndexBuffer.h">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Index</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11OutputBuffer.h">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11OutputBufferSet.h">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11VertexBuffer.h">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Vertex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11VertexBufferSet.h">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Vertex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11GraphicsDevice.h">
+      <Filter>GraphicsSystem\DirectX11\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11ProgramParam.h">
+      <Filter>GraphicsSystem\DirectX11\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11ParameterSet.h">
+      <Filter>GraphicsSystem\DirectX11\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11Primitive.h">
+      <Filter>GraphicsSystem\DirectX11\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11Include.h">
+      <Filter>GraphicsSystem\DirectX11\Program</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11Program.h">
+      <Filter>GraphicsSystem\DirectX11\Program</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11ProgramStage.h">
+      <Filter>GraphicsSystem\DirectX11\Program</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11BlendStateSet.h">
+      <Filter>GraphicsSystem\DirectX11\RenderState\Blend</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11DepthStencilState.h">
+      <Filter>GraphicsSystem\DirectX11\RenderState\DepthStencil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11RasterizerState.h">
+      <Filter>GraphicsSystem\DirectX11\RenderState\Rasterizer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11SamplerState.h">
+      <Filter>GraphicsSystem\DirectX11\RenderState\Sampler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11SamplerStateSet.h">
+      <Filter>GraphicsSystem\DirectX11\RenderState\Sampler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11FrameRenderWindow.h">
+      <Filter>GraphicsSystem\DirectX11\RenderWindow\Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11ViewRenderWindow.h">
+      <Filter>GraphicsSystem\DirectX11\RenderWindow\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11Resource.h">
+      <Filter>GraphicsSystem\DirectX11\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11ResourceImpl.h">
+      <Filter>GraphicsSystem\DirectX11\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11ResourceSet.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11BaseDepthTexture.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Depth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11BaseDepthTextureImpl.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Depth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11CubeDepthTexture.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Depth\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11PlainDepthTexture.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Depth\Plain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11CubeTexture.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Texture\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11LinearTexture.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Texture\Linear</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11PlainTexture.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Texture\Plain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11VolumeTexture.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Texture\Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11BaseRenderTexture.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11BaseRenderTextureImpl.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11RenderTextureSet.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11CubeRenderTexture.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render\Cube</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11LinearRenderTexture.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render\Linear</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11PlainRenderTexture.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render\Plain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11VolumeRenderTexture.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render\Volume</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11TypedBuffer.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Buffer\Typed</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gfx\Dx11\Dx11StructuredBuffer.h">
+      <Filter>GraphicsSystem\DirectX11\Resource\Buffer\Structured</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\modules\synkro.gfx.dx11\factories.inl" />
+    <None Include="..\..\..\modules\synkro.gfx.dx11\resources.inl" />
+    <None Include="..\..\..\src\gfx\Dx11\Dx11IndexBuffer.inl">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Index</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11OutputBuffer.inl">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Output</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11OutputBufferSet.inl">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Output</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11VertexBufferSet.inl">
+      <Filter>GraphicsSystem\DirectX11\DataBuffer\Vertex</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11ParameterSet.inl">
+      <Filter>GraphicsSystem\DirectX11\Parameter</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11Primitive.inl">
+      <Filter>GraphicsSystem\DirectX11\Primitive</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11Program.inl">
+      <Filter>GraphicsSystem\DirectX11\Program</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11FrameRenderWindow.inl">
+      <Filter>GraphicsSystem\DirectX11\RenderWindow\Frame</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11ViewRenderWindow.inl">
+      <Filter>GraphicsSystem\DirectX11\RenderWindow\View</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11ResourceImpl.inl">
+      <Filter>GraphicsSystem\DirectX11\Resource</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11BaseDepthTextureImpl.inl">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Depth</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11CubeDepthTexture.inl">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Depth\Cube</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11PlainDepthTexture.inl">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Depth\Plain</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11BaseRenderTextureImpl.inl">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11RenderTextureSet.inl">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11CubeRenderTexture.inl">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render\Cube</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11LinearRenderTexture.inl">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render\Linear</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11PlainRenderTexture.inl">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render\Plain</Filter>
+    </None>
+    <None Include="..\..\..\src\gfx\Dx11\Dx11VolumeRenderTexture.inl">
+      <Filter>GraphicsSystem\DirectX11\Resource\Texture\Render\Volume</Filter>
+    </None>
+  </ItemGroup>
+</Project>

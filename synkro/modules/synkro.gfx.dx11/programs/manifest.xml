@@ -1,0 +1,73 @@
+<resource>
+<formats>
+	<format name="skybox">
+		<vertex name="position2d" type="vector4"/>
+	</format>
+	<format name="skysphere">
+		<vertex name="position" type="vector3"/>
+		<vertex name="texcoord" type="vector2"/>
+	</format>
+	<format name="screen">
+		<vertex name="position2d" type="vector4"/>
+		<vertex name="texcoord" type="vector2"/>
+	</format>
+	<format name="overlay.monochrome">
+		<vertex name="position2d" type="vector4"/>
+	</format>
+	<format name="overlay.colored">
+		<vertex name="position2d" type="vector4"/>
+		<vertex name="color" type="vector4"/>
+	</format>
+	<format name="overlay.textured">
+		<vertex name="position2d" type="vector4"/>
+		<vertex name="texcoord" type="vector2"/>
+	</format>
+	<format name="overlay.textured.colored">
+		<vertex name="position2d" type="vector4"/>
+		<vertex name="color" type="vector4"/>
+		<vertex name="texcoord" type="vector2"/>
+	</format>
+	<format name="scene">
+		<vertex name="position" type="vector3"/>
+	</format>
+	<format name="scene4d">
+		<vertex name="position4d" type="vector4"/>
+	</format>
+	<format name="scene.colored">
+		<vertex name="position" type="vector3"/>
+		<vertex name="color" type="vector4"/>
+	</format>
+	<format name="scene4d.colored">
+		<vertex name="position4d" type="vector4"/>
+		<vertex name="color" type="vector4"/>
+	</format>
+	<format name="scene.instanced">
+		<vertex name="position" type="vector3"/>
+		<instance name="transform" type="matrix4x4transposed"/>
+		<instance name="color" type="vector4"/>
+	</format>
+	<format name="scene.lit">
+		<vertex name="position" type="vector3"/>
+		<vertex name="normal" type="vector3"/>
+	</format>
+</formats>
+<programs>
+	<program name="screen" input="screen" vertex="screen\screen.vs" fragment="screen\screen.fs"/>
+	<program name="view" input="screen" vertex="screen\screen.vs" fragment="screen\view.fs"/>
+	<program name="overlay.monochrome" input="overlay.monochrome" vertex="overlay\monochrome.vs" fragment="overlay\monochrome.fs"/>
+	<program name="overlay.colored" input="overlay.colored" vertex="overlay\colored.vs" fragment="overlay\colored.fs"/>
+	<program name="overlay.textured" input="overlay.textured" vertex="overlay\textured.vs" fragment="overlay\textured.fs"/>
+	<program name="overlay.textured.colored" input="overlay.textured.colored" vertex="overlay\textured_colored.vs" fragment="overlay\textured_colored.fs"/>
+	<program name="scene" input="scene" vertex="scene\scene.vs" fragment="scene\scene.fs"/>
+	<program name="scene.lit" input="scene.lit" vertex="scene\scene_lit.vs" fragment="scene\scene.fs"/>
+	<program name="viewport" parent="scene" input="scene" vertex="scene\viewport.vs"/>
+	<program name="viewport.lit" parent="scene.lit" input="scene.lit" vertex="scene\viewport_lit.vs"/>
+	<program name="skybox" parent="viewport" input="skybox" vertex="scene\skybox.vs" fragment="scene\skybox.fs"/>
+	<program name="skysphere" parent="viewport" input="skysphere" vertex="scene\skysphere.vs" fragment="scene\skysphere.fs"/>
+	<program name="line.monochrome" parent="viewport" input="scene" vertex="scene\line.vs" fragment="scene\line.fs"/>
+	<program name="line4d.monochrome" parent="viewport" input="scene4d" vertex="scene\line4d.vs" fragment="scene\line.fs"/>
+	<program name="line.colored" parent="viewport" input="scene.colored" vertex="scene\line_colored.vs" fragment="scene\line.fs"/>
+	<program name="line4d.colored" parent="viewport" input="scene4d.colored" vertex="scene\line4d_colored.vs" fragment="scene\line.fs"/>
+	<program name="line.instanced" parent="viewport" input="scene.instanced" vertex="scene\line_instanced.vs" fragment="scene\line.fs"/>
+</programs>
+</resource>
