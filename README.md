@@ -18,5 +18,11 @@ To link with static libraries you need to call functions
 like SynkroGfxDx11Init() declared in synkrostatic.h
 prior to calling SynkroCreate declated in synkro.h
 
+# Windows 11 notes
+By default, the demos or tools run in windowed mode.
+On very first run, the window size is wrong and the GUI can't be seen.
+To fix this, use CTRL+F keystroke to switch to fullscreen mode and back.
+
 # Donations
+This project is a work in progress. You can donate for its further development.
 BTC wallet: bc1qcc30ghv8gc8msrlf8mduessg3w8wj8jrm2cy68
