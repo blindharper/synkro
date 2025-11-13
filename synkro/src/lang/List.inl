@@ -219,7 +219,7 @@ SYNKRO_INLINE void List<T,A>::Sort()
 				begin->value = item->value;
 				item->value = tmp;
 			}
-			else if ( end->value item->value )
+			else if ( end->value < item->value )
 			{
 				T tmp = end->value;
 				end->value = item->value;
