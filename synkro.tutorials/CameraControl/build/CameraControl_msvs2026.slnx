@@ -3,7 +3,6 @@
     <BuildType Name="debug" />
     <BuildType Name="release" />
     <Platform Name="x64" />
-    <Platform Name="x86" />
   </Configurations>
   <Project Path="CameraControl_Phase01/CameraControl_Phase01_msvs2026.vcxproj" Id="8eca0172-b571-4c7f-967b-623514fb7058" />
   <Project Path="CameraControl_Phase02/CameraControl_Phase02_msvs2026.vcxproj" Id="74f5f680-b82b-4df8-a273-15ad900a7589" />

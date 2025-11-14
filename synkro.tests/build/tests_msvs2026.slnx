@@ -3,7 +3,6 @@
     <BuildType Name="debug" />
     <BuildType Name="release" />
     <Platform Name="x64" />
-    <Platform Name="x86" />
   </Configurations>
   <Project Path="tests/tests_msvs2026.vcxproj" Id="fe5fb091-2d1a-4e37-ac8e-08c2ce1c81a0" />
   <Project Path="Test_AlAudioSystem/Test_AlAudioSystem_msvs2026.vcxproj" Id="0bddbdda-7427-4e73-8e68-b4b67ed2e909">

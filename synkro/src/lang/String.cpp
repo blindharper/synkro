@@ -35,11 +35,9 @@ static Char _ws[] = { 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x20, 0x00 };
 
 
 // Null string implementation.
-#if ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X86 )
-static const String::Impl* NULL_IMPL = (const String::Impl*)0xffffffff;
-#elif ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64 )
+#if ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64 )
 static const String::Impl* NULL_IMPL = (const String::Impl*)0xffffffffffffffff;
-#endif // SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X86
+#endif // SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64
 
 // Empty string implementation.
 static const String::Impl* EMPTY_IMPL = (const String::Impl*)0;

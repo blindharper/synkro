@@ -3,7 +3,6 @@
     <BuildType Name="debug" />
     <BuildType Name="release" />
     <Platform Name="x64" />
-    <Platform Name="x86" />
   </Configurations>
   <Project Path="external/libjpeg/libjpeg_msvs2026.vcxproj" Id="4d27a163-8001-49eb-8828-43dd4c1dc492" />
   <Project Path="external/libmad/libmad_msvs2026.vcxproj" Id="61a1cb09-c8d8-4a9b-96f7-ead4a51d2e2e" />

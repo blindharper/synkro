@@ -3,7 +3,6 @@
     <BuildType Name="debug" />
     <BuildType Name="release" />
     <Platform Name="x64" />
-    <Platform Name="x86" />
   </Configurations>
   <Project Path="ConsoleAndScripting/ConsoleAndScripting_msvs2026.vcxproj" Id="80b3c9b6-3fb1-4628-822f-2af66a3dcac5" />
 </Solution>

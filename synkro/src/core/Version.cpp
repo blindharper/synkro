@@ -49,11 +49,9 @@ Version::Version() :
 
 String Version::ToString() const
 {
-#if ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X86 )
-	const Char* platform = L"x86";
-#elif ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64 )
+#if ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64 )
 	const Char* platform = L"x64";
-#endif // SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X86
+#endif // SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64
 
 #if defined( SYNKRO_DEBUG )
 	const Char* suffix = L" debug";

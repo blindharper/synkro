@@ -3,7 +3,6 @@
     <BuildType Name="debug" />
     <BuildType Name="release" />
     <Platform Name="x64" />
-    <Platform Name="x86" />
   </Configurations>
   <Project Path="AnimationClient/AnimationClient_msvs2026.vcxproj" Id="7571732f-b679-4afc-8d1e-a1d08af1f813" />
   <Project Path="AnimationServer/AnimationServer_msvs2026.vcxproj" Id="8ad4da63-f588-435c-9d21-35b693be705a" />

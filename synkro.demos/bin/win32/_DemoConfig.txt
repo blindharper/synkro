@@ -1,2 +1,0 @@
-#Graphics.Vsync=false
-#Graphics.Fullscreen=true

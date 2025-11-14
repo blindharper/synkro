@@ -2,7 +2,7 @@
   <Configurations>
     <BuildType Name="debug" />
     <BuildType Name="release" />
-    <Platform Name="Win32" />
+    <Platform Name="x64" />
   </Configurations>
   <Project Path="codegen/codegen_msvs2026.vcxproj" Id="0c03b4c5-6c52-40b5-aa4f-7e79b11e3b77" />
   <Project Path="docgen/docgen_msvs2026.vcxproj" Id="df855b77-3487-4629-947a-8878aafe0ac1" />

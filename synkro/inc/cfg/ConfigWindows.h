@@ -39,8 +39,6 @@ typedef unsigned __int64	ULong;
 
 #if ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64 )
 typedef unsigned __int64	Pointer;
-#elif ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X86 )
-typedef unsigned __int32	Pointer;
 #endif
 
 } // synkro
@@ -49,7 +47,7 @@ typedef unsigned __int32	Pointer;
 constexpr synkro::Pointer null = 0;
 
 // 'none' index.
-constexpr synkro::UInt none = (synkro::UInt)-1;
+constexpr synkro::UInt none = static_cast<synkro::UInt>(-1);
 
 // Disable some compiler warnings.
 #pragma warning ( disable : 4101 )	// 'identifier' : unreferenced local variable

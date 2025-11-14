@@ -7,7 +7,6 @@
     <BuildType Name="release" />
     <BuildType Name="release_static" />
     <Platform Name="x64" />
-    <Platform Name="x86" />
   </Configurations>
   <Folder Name="/demos/">
     <Project Path="../synkro.demos/build/AnaglyphRendering/AnaglyphRendering_msvs2026.vcxproj" Id="5257a484-4bb1-4383-b05a-6b0af26dc203">
@@ -284,56 +283,56 @@
       <BuildType Solution="perf_static|*" Project="debug" />
       <BuildType Solution="perf|*" Project="debug" />
       <BuildType Solution="release_static|*" Project="release" />
-      <Platform Project="Win32" />
+      <Platform Project="x64" />
     </Project>
     <Project Path="../synkro.utils/build/docgen/docgen_msvs2026.vcxproj" Id="df855b77-3487-4629-947a-8878aafe0ac1">
       <BuildType Solution="debug_static|*" Project="debug" />
       <BuildType Solution="perf_static|*" Project="debug" />
       <BuildType Solution="perf|*" Project="debug" />
       <BuildType Solution="release_static|*" Project="release" />
-      <Platform Project="Win32" />
+      <Platform Project="x64" />
     </Project>
     <Project Path="../synkro.utils/build/ifacegen/ifacegen_msvs2026.vcxproj" Id="cef1acf5-0c0c-4dba-aad2-a0fda4607c87">
       <BuildType Solution="debug_static|*" Project="debug" />
       <BuildType Solution="perf_static|*" Project="debug" />
       <BuildType Solution="perf|*" Project="debug" />
       <BuildType Solution="release_static|*" Project="release" />
-      <Platform Project="Win32" />
+      <Platform Project="x64" />
     </Project>
     <Project Path="../synkro.utils/build/instgen/instgen_msvs2026.vcxproj" Id="d8e5df4f-0ee2-4aab-a40e-73b611c9bc2a">
       <BuildType Solution="debug_static|*" Project="debug" />
       <BuildType Solution="perf_static|*" Project="debug" />
       <BuildType Solution="perf|*" Project="debug" />
       <BuildType Solution="release_static|*" Project="release" />
-      <Platform Project="Win32" />
+      <Platform Project="x64" />
     </Project>
     <Project Path="../synkro.utils/build/lincount/lincount_msvs2026.vcxproj" Id="0a9567ec-8444-4354-a204-a0f73b9e94b8">
       <BuildType Solution="debug_static|*" Project="debug" />
       <BuildType Solution="perf_static|*" Project="debug" />
       <BuildType Solution="perf|*" Project="debug" />
       <BuildType Solution="release_static|*" Project="release" />
-      <Platform Project="Win32" />
+      <Platform Project="x64" />
     </Project>
     <Project Path="../synkro.utils/build/resgen/resgen_msvs2026.vcxproj" Id="61b71e0a-9c60-4309-ba80-a3c6aac36659">
       <BuildType Solution="debug_static|*" Project="debug" />
       <BuildType Solution="perf_static|*" Project="debug" />
       <BuildType Solution="perf|*" Project="debug" />
       <BuildType Solution="release_static|*" Project="release" />
-      <Platform Project="Win32" />
+      <Platform Project="x64" />
     </Project>
     <Project Path="../synkro.utils/build/resmake/resmake_msvs2026.vcxproj" Id="1f05cfeb-adc9-47f8-9a14-d436c000bbe4">
       <BuildType Solution="debug_static|*" Project="debug" />
       <BuildType Solution="perf_static|*" Project="debug" />
       <BuildType Solution="perf|*" Project="debug" />
       <BuildType Solution="release_static|*" Project="release" />
-      <Platform Project="Win32" />
+      <Platform Project="x64" />
     </Project>
     <Project Path="../synkro.utils/build/respack/respack_msvs2026.vcxproj" Id="cb1b0263-91c0-47ae-a3e5-4799a5617ea8">
       <BuildType Solution="debug_static|*" Project="debug" />
       <BuildType Solution="perf_static|*" Project="debug" />
       <BuildType Solution="perf|*" Project="debug" />
       <BuildType Solution="release_static|*" Project="release" />
-      <Platform Project="Win32" />
+      <Platform Project="x64" />
     </Project>
   </Folder>
 </Solution>
