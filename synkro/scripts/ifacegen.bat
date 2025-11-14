@@ -1,1 +1,1 @@
-..\..\synkro.utils\bin\win32\ifacegen.exe ..\inc
+..\..\synkro.utils\bin\win64\ifacegen.exe ..\inc

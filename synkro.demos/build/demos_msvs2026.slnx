@@ -4,7 +4,6 @@
     <BuildType Name="perf" />
     <BuildType Name="release" />
     <Platform Name="x64" />
-    <Platform Name="x86" />
   </Configurations>
   <Project Path="AnaglyphRendering/AnaglyphRendering_msvs2026.vcxproj" Id="5257a484-4bb1-4383-b05a-6b0af26dc203" />
   <Project Path="ColorShift/ColorShift_msvs2026.vcxproj" Id="1a16009c-e5c8-4dd9-97cc-7619c0d5d268" />

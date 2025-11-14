@@ -48,8 +48,6 @@ private:
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	#if ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64 )
 		LONGLONG											_state;
-	#elif ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X86 )
-		LONG												_state;
 	#endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 #else
 #	error BinarySemaphore is not defined.

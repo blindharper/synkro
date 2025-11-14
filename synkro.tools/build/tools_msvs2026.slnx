@@ -4,7 +4,6 @@
     <BuildType Name="perf" />
     <BuildType Name="release" />
     <Platform Name="x64" />
-    <Platform Name="x86" />
   </Configurations>
   <Project Path="ImageConverter/ImageConverter_msvs2026.vcxproj" Id="d2620325-1682-454d-b740-74c3c0c5e098" />
   <Project Path="ImageViewer/ImageViewer_msvs2026.vcxproj" Id="aa63f669-fd72-4210-a06d-17c4500f7e96" />

@@ -20,8 +20,6 @@ SYNKRO_INLINE void BinarySemaphore::Wait()
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	#if ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64 )
 		while ( ::InterlockedExchange64( &_state, 1 ) == 1 ) {};
-	#elif ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X86 )
-		while ( ::InterlockedExchange( &_state, 1 ) == 1 ) {};
 	#endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS	
 #else
 #	error BinarySemaphore::Wait() is not defined.
@@ -33,8 +31,6 @@ SYNKRO_INLINE void BinarySemaphore::Signal()
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	#if ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64 )
 		::InterlockedExchange64( &_state, 0 );
-	#elif ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X86 )
-		::InterlockedExchange( &_state, 0 );
 	#endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 #else
 #	error BinarySemaphore::Signal() is not defined.

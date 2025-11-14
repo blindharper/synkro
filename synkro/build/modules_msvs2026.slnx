@@ -7,7 +7,6 @@
     <BuildType Name="release" />
     <BuildType Name="release_static" />
     <Platform Name="x64" />
-    <Platform Name="x86" />
   </Configurations>
   <Project Path="modules/synkro.anim/synkro.anim_msvs2026.vcxproj" Id="d4ad4055-e884-4078-9ed3-5f20642bb3ee" />
   <Project Path="modules/synkro.audio.al/synkro.audio.al_msvs2026.vcxproj" Id="72c96283-6cd7-4703-b6f7-84ad732c05c6" />

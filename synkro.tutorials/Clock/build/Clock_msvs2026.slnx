@@ -3,7 +3,6 @@
     <BuildType Name="debug" />
     <BuildType Name="release" />
     <Platform Name="x64" />
-    <Platform Name="x86" />
   </Configurations>
   <Project Path="Clock_Phase01/Clock_Phase01_msvs2026.vcxproj" Id="089259fa-1f3f-4b03-b7e0-08fc5e9a9aae" />
   <Project Path="Clock_Phase02/Clock_Phase02_msvs2026.vcxproj" Id="99f19bbc-85a0-4b55-8f1f-96f23abbb457" />

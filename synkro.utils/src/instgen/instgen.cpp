@@ -212,11 +212,6 @@ void GenerateScript( const string& path )
 	txt.append( "  WriteUninstaller \"$INSTDIR\\Uninstall.exe\"\n\n" );
 
 	txt.append( "  ;Binary files\n" );
-	txt.append( "  SetOutPath \"$INSTDIR\\synkro\\bin\\win32\"\n" );
-	txt.append( "  File \"..\\..\\synkro\\bin\\win32\\synkro.lib\"\n" );
-	txt.append( "  File \"..\\..\\synkro\\bin\\win32\\synkro.res\"\n" );
-	txt.append( "  File \"..\\..\\synkro\\bin\\win32\\*.dll\"\n\n" );
-
 	txt.append( "  SetOutPath \"$INSTDIR\\synkro\\bin\\win64\"\n" );
 	txt.append( "  File \"..\\..\\synkro\\bin\\win64\\synkro.lib\"\n" );
 	txt.append( "  File \"..\\..\\synkro\\bin\\win64\\synkro.res\"\n" );
@@ -277,17 +272,6 @@ void GenerateScript( const string& path )
 
 	// Demo binaries.
 	txt.append( "  ;Demo binaries\n" );
-	txt.append( "  SetOutPath \"$INSTDIR\\synkro.demos\\bin\\win32\"\n" );
-	txt.append( "  File \"..\\..\\synkro.demos\\bin\\win32\\_DemoConfig.txt\"\n" );
-
-	for ( size_t i = 0; i < demos.size(); ++i )
-	{
-		txt.append( "  File \"..\\..\\synkro.demos\\bin\\win32\\" );
-		txt.append( demos[i] );
-		txt.append( ".exe\"\n" );
-	}
-	txt.append( "\n" );
-
 	txt.append( "  SetOutPath \"$INSTDIR\\synkro.demos\\bin\\win64\"\n" );
 	txt.append( "  File \"..\\..\\synkro.demos\\bin\\win64\\_DemoConfig.txt\"\n" );
 
@@ -392,7 +376,6 @@ void GenerateScript( const string& path )
 
 	// Add search paths.
 	txt.append( "  EnVar::SetHKLM\n" );
-	txt.append( "  EnVar::AddValue \"Path\" \"$INSTDIR\\synkro\\bin\\win32\"\n" );
 	txt.append( "  EnVar::AddValue \"Path\" \"$INSTDIR\\synkro\\bin\\win64\"\n\n" );
 
 	txt.append( "SectionEnd\n\n" );
@@ -426,9 +409,6 @@ void GenerateScript( const string& path )
 	txt.append( "Section \"Uninstall\"\n\n" );
 
 	txt.append( "  ;Remove files\n" );
-	txt.append( "  Delete \"$INSTDIR\\synkro\\bin\\win32\\*.*\"\n" );
-	txt.append( "  RMDir \"$INSTDIR\\synkro\\bin\\win32\"\n\n" );
-
 	txt.append( "  Delete \"$INSTDIR\\synkro\\bin\\win64\\*.*\"\n" );
 	txt.append( "  RMDir \"$INSTDIR\\synkro\\bin\\win64\"\n\n" );
 
@@ -469,9 +449,6 @@ void GenerateScript( const string& path )
 	txt.append( "  Delete \"$INSTDIR\\synkro.demos\\src\\*.*\"\n" );
 	txt.append( "  RMDir \"$INSTDIR\\synkro.demos\\src\"\n\n" );
 
-	txt.append( "  Delete \"$INSTDIR\\synkro.demos\\bin\\win32\\*.*\"\n" );
-	txt.append( "  RMDir \"$INSTDIR\\synkro.demos\\bin\\win32\"\n\n" );
-	
 	txt.append( "  Delete \"$INSTDIR\\synkro.demos\\bin\\win64\\*.*\"\n" );
 	txt.append( "  RMDir \"$INSTDIR\\synkro.demos\\bin\\win64\"\n\n" );
 
@@ -579,7 +556,6 @@ void GenerateScript( const string& path )
 
 	// Remove search paths.
 	txt.append( "  EnVar::SetHKLM\n" );
-	txt.append( "  EnVar::DeleteValue \"Path\" \"$INSTDIR\\synkro\\bin\\win32\"\n" );
 	txt.append( "  EnVar::DeleteValue \"Path\" \"$INSTDIR\\synkro\\bin\\win64\"\n\n" );
 
 	txt.append( "SectionEnd\n\n" );

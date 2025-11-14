@@ -1,1 +1,1 @@
-..\..\synkro.utils\bin\win32\lincount.exe .. >> lincount.txt
+..\..\synkro.utils\bin\win64\lincount.exe .. >> lincount.txt

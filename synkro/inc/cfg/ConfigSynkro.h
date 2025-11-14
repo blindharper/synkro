@@ -21,8 +21,7 @@
 
 // Processor identifiers.
 #define SYNKRO_PROCESSOR_UNKNOWN	0
-#define SYNKRO_PROCESSOR_X86		1
-#define SYNKRO_PROCESSOR_X64		2
+#define SYNKRO_PROCESSOR_X64		1
 
 
 // Platform identifiers.
@@ -47,13 +46,10 @@
 #if defined( _M_X64 ) || defined( _M_IA64 ) || defined( __amd64__ )
 #	define SYNKRO_PROCESSOR SYNKRO_PROCESSOR_X64
 #	define SYNKRO_ENDIAN SYNKRO_ENDIAN_LITTLE
-#elif defined( _M_IX86 ) || defined( _X86_ )
-#	define SYNKRO_PROCESSOR SYNKRO_PROCESSOR_X86
-#	define SYNKRO_ENDIAN SYNKRO_ENDIAN_LITTLE
 #else
 #	define SYNKRO_PROCESSOR SYNKRO_PROCESSOR_UNKNOWN
 #	pragma message( "SYNKRO_PROCESSOR: SYNKRO_PROCESSOR_UNKNOWN" )
-#endif // defined( _M_IX86 )
+#endif // defined( _M_X64 )
 
 
 // Detect platform.
