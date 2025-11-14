@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="debug" />
+    <BuildType Name="release" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="CameraControl_Phase01/CameraControl_Phase01_msvs2026.vcxproj" Id="8eca0172-b571-4c7f-967b-623514fb7058" />
+  <Project Path="CameraControl_Phase02/CameraControl_Phase02_msvs2026.vcxproj" Id="74f5f680-b82b-4df8-a273-15ad900a7589" />
+  <Project Path="CameraControl_Phase03/CameraControl_Phase03_msvs2026.vcxproj" Id="f69c3e31-6e89-4487-be88-d9490665cde6" />
+  <Project Path="CameraControl_Phase04/CameraControl_Phase04_msvs2026.vcxproj" Id="e3e37616-d8d1-499c-977e-8d1fa42bf68d" />
+</Solution>

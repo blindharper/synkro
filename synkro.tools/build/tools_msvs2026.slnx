@@ -1,0 +1,13 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="debug" />
+    <BuildType Name="perf" />
+    <BuildType Name="release" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ImageConverter/ImageConverter_msvs2026.vcxproj" Id="d2620325-1682-454d-b740-74c3c0c5e098" />
+  <Project Path="ImageViewer/ImageViewer_msvs2026.vcxproj" Id="aa63f669-fd72-4210-a06d-17c4500f7e96" />
+  <Project Path="MeshConverter/MeshConverter_msvs2026.vcxproj" Id="f0cdb24a-146c-4eea-8e4b-7bee6f144f77" />
+  <Project Path="MeshViewer/MeshViewer_msvs2026.vcxproj" Id="d25df2a3-03f9-4fb6-9211-ecf00b5bc93a" />
+</Solution>

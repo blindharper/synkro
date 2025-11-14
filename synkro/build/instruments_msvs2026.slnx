@@ -1,0 +1,10 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="debug" />
+    <BuildType Name="release" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="instruments/synkro.mem/synkro.mem_msvs2026.vcxproj" Id="a50fac77-ac7b-47fc-9114-152873fe0990" />
+  <Project Path="instruments/synkro.prf/synkro.prf_msvs2026.vcxproj" Id="6fdc8bb2-b8b9-4fbc-9958-2deb15c5f345" />
+</Solution>
