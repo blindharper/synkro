@@ -1,0 +1,37 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="debug" />
+    <BuildType Name="release" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="tests/tests_msvs2026.vcxproj" Id="fe5fb091-2d1a-4e37-ac8e-08c2ce1c81a0" />
+  <Project Path="Test_AlAudioSystem/Test_AlAudioSystem_msvs2026.vcxproj" Id="0bddbdda-7427-4e73-8e68-b4b67ed2e909">
+    <Build Solution="debug|x64" Project="false" />
+  </Project>
+  <Project Path="Test_Di8InputSystem/Test_Di8InputSystem_msvs2026.vcxproj" Id="60e64da5-724a-461a-b7c4-d95e954d09f6">
+    <Build Solution="debug|x64" Project="false" />
+  </Project>
+  <Project Path="Test_Ds8AudioSystem/Test_Ds8AudioSystem_msvs2026.vcxproj" Id="e18841be-51a5-4117-b40b-0b7423d01a93">
+    <Build Solution="debug|x64" Project="false" />
+  </Project>
+  <Project Path="Test_LuaScriptSystem/Test_LuaScriptSystem_msvs2026.vcxproj" Id="c43927b6-e874-4032-9d4e-dea4db4d4f94" />
+  <Project Path="Test_SqliteDatabaseSystem/Test_SqliteDatabaseSystem_msvs2026.vcxproj" Id="2c66dbe5-dda4-4f44-9966-c06c3de6803c" />
+  <Project Path="Test_StdProfiler/Test_StdProfiler_msvs2026.vcxproj" Id="ac8fdf47-8114-4c3b-ae48-8c4afa8d1caa">
+    <Build Solution="debug|x64" Project="false" />
+  </Project>
+  <Project Path="Test_ThreadPool/Test_ThreadPool_msvs2026.vcxproj" Id="6ef1900f-325d-4566-a96b-48a518b1d8d5" />
+  <Project Path="Test_Win32InputSystem/Test_Win32InputSystem_msvs2026.vcxproj" Id="133dca2e-2f99-4b9b-a013-19a0ce8c4686">
+    <Build Solution="debug|x64" Project="false" />
+  </Project>
+  <Project Path="Test_Win32StreamSystem/Test_Win32StreamSystem_msvs2026.vcxproj" Id="ef77942f-7a6e-48ed-9987-60532da402a9">
+    <Build Solution="debug|x64" Project="false" />
+  </Project>
+  <Project Path="Test_Win32WindowSystem/Test_Win32WindowSystem_msvs2026.vcxproj" Id="b24cd7c2-d90e-4f01-a88b-f2baf3d728a1">
+    <Build Solution="debug|x64" Project="false" />
+  </Project>
+  <Project Path="Test_WinmmAudioSystem/Test_WinmmAudioSystem_msvs2026.vcxproj" Id="adea4f24-6ba5-4887-97d1-be985ac51135">
+    <Build Solution="debug|x64" Project="false" />
+  </Project>
+  <Project Path="Test_Ws2NetworkSystem/Test_Ws2NetworkSystem_msvs2026.vcxproj" Id="b8cf1117-fac2-4269-bcf1-5f58d9d27a42" />
+</Solution>

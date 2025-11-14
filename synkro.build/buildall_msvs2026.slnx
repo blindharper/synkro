@@ -1,0 +1,339 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="debug" />
+    <BuildType Name="debug_static" />
+    <BuildType Name="perf" />
+    <BuildType Name="perf_static" />
+    <BuildType Name="release" />
+    <BuildType Name="release_static" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/demos/">
+    <Project Path="../synkro.demos/build/AnaglyphRendering/AnaglyphRendering_msvs2026.vcxproj" Id="5257a484-4bb1-4383-b05a-6b0af26dc203">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/ColorShift/ColorShift_msvs2026.vcxproj" Id="1a16009c-e5c8-4dd9-97cc-7619c0d5d268">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/ColorTouch/ColorTouch_msvs2026.vcxproj" Id="ae734c9b-9fee-4022-81b7-0ae2970f8b1a">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/CustomUI/CustomUI_msvs2026.vcxproj" Id="a91ead59-1889-4c88-8ea5-f12e1e1214ab">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/Emboss/Emboss_msvs2026.vcxproj" Id="13ccd337-5f0a-492d-9df0-b8bd81dd2acf">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/EmptyApplication/EmptyApplication_msvs2026.vcxproj" Id="9065049c-ea62-48c6-bea3-090b334caff6">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/EulerAngles/EulerAngles_msvs2026.vcxproj" Id="ada3eb28-f5bb-452a-9b29-2f2e86a637be">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/ExpressYourself/ExpressYourself_msvs2026.vcxproj" Id="12089693-5318-4a2e-be46-59fde353f26d">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/FollowThePath/FollowThePath_msvs2026.vcxproj" Id="ddbfefb5-f185-434a-9966-fbdf9116e7be">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/FourthDimension/FourthDimension_msvs2026.vcxproj" Id="5f34ae4b-fe5d-45d6-8256-c598d9391a16">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/GameOver/GameOver_msvs2026.vcxproj" Id="ba9f0c8e-d7fb-4a0f-aaa5-82d0fe368db0">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/Instancing/Instancing_msvs2026.vcxproj" Id="999a9ce6-3f91-4ebb-b936-c5760ec95ce9">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/Lighting/Lighting_msvs2026.vcxproj" Id="ce040889-3ca0-45c8-b0c5-7c29152612a6">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/LookAtMe/LookAtMe_msvs2026.vcxproj" Id="0d482fd8-f796-49a7-bb86-0b64c98bb331">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/Picking/Picking_msvs2026.vcxproj" Id="ec2dd058-e4dc-45f0-99de-5907c8323a58">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/PictureInPicture/PictureInPicture_msvs2026.vcxproj" Id="c8b3edc2-6df2-4b2b-b1d6-886aa07cda77">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/PurpleHaze/PurpleHaze_msvs2026.vcxproj" Id="c90ecdd7-cf7b-49de-8317-723c4dd92523">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/Robotics/Robotics_msvs2026.vcxproj" Id="df41306b-72d3-49f1-a422-8d2557c1f5dd">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/Skinning/Skinning_msvs2026.vcxproj" Id="fab79e77-a47f-4707-9a1b-4e0e38a757b1">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/SkyIsBlue/SkyIsBlue_msvs2026.vcxproj" Id="e86554bc-92cf-4532-a03c-eba3332d64e6">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/Solarium/Solarium_msvs2026.vcxproj" Id="e83447ab-49c2-4fd7-9697-4bd0d39e53bf">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/TheRambler/TheRambler_msvs2026.vcxproj" Id="7de36139-1675-4d08-96b0-1245e8ea831b">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/ThreeIsACrowd/ThreeIsACrowd_msvs2026.vcxproj" Id="c0fe9d93-8b94-421e-a50e-cff6231b1a8b">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/Transparency/Transparency_msvs2026.vcxproj" Id="0b163b95-69b1-407e-83e0-7dfc91645401">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.demos/build/ViewTransition/ViewTransition_msvs2026.vcxproj" Id="a16491d5-aa5d-4b10-8785-e495708dedc6">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+  </Folder>
+  <Folder Name="/external/">
+    <Project Path="../synkro/build/external/libjpeg/libjpeg_msvs2026.vcxproj" Id="4d27a163-8001-49eb-8828-43dd4c1dc492">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro/build/external/libmad/libmad_msvs2026.vcxproj" Id="61a1cb09-c8d8-4a9b-96f7-ead4a51d2e2e">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro/build/external/libpng/libpng_msvs2026.vcxproj" Id="250cd82f-7362-4016-ac4e-b149bb0ab88e">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro/build/external/lua/lua_msvs2026.vcxproj" Id="bf8189bd-9b3f-4a2c-baa9-61d372fc82d4">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro/build/external/sqlite/sqlite_msvs2026.vcxproj" Id="2a4fd7aa-7e1b-447b-aa13-bb943c07f62b">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro/build/external/zlib/zlib_msvs2026.vcxproj" Id="f7407608-4012-491e-8b88-15d9b14ab849">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+  </Folder>
+  <Folder Name="/instruments/">
+    <Project Path="../synkro/build/instruments/synkro.mem/synkro.mem_msvs2026.vcxproj" Id="a50fac77-ac7b-47fc-9114-152873fe0990">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro/build/instruments/synkro.prf/synkro.prf_msvs2026.vcxproj" Id="6fdc8bb2-b8b9-4fbc-9958-2deb15c5f345">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+  </Folder>
+  <Folder Name="/synkro/">
+    <Project Path="../synkro/build/modules/synkro.anim/synkro.anim_msvs2026.vcxproj" Id="d4ad4055-e884-4078-9ed3-5f20642bb3ee" />
+    <Project Path="../synkro/build/modules/synkro.audio.al/synkro.audio.al_msvs2026.vcxproj" Id="72c96283-6cd7-4703-b6f7-84ad732c05c6" />
+    <Project Path="../synkro/build/modules/synkro.audio.ds8/synkro.audio.ds8_msvs2026.vcxproj" Id="3b2236fa-422c-43c7-b64b-28e9c05e0f7b" />
+    <Project Path="../synkro/build/modules/synkro.audio.winmm/synkro.audio.winmm_msvs2026.vcxproj" Id="dffd02bf-0bce-426a-99f1-043043441d97" />
+    <Project Path="../synkro/build/modules/synkro.cons/synkro.cons_msvs2026.vcxproj" Id="98fbdffc-1997-4713-824a-4b45ee2140e9" />
+    <Project Path="../synkro/build/modules/synkro.db.sqlite/synkro.db.sqlite_msvs2026.vcxproj" Id="c4b22084-f6f7-4bfc-b961-6765c2b2f46c" />
+    <Project Path="../synkro/build/modules/synkro.gfx.dx11/synkro.gfx.dx11_msvs2026.vcxproj" Id="8382a661-157d-4fe4-8e89-37016a48b509" />
+    <Project Path="../synkro/build/modules/synkro.img/synkro.img_msvs2026.vcxproj" Id="e09e52cd-784e-4678-b8eb-79a8049523bf" />
+    <Project Path="../synkro/build/modules/synkro.input.di8/synkro.input.di8_msvs2026.vcxproj" Id="a00fba59-511b-498f-9de2-5b94fcccb33b" />
+    <Project Path="../synkro/build/modules/synkro.input.win32/synkro.input.win32_msvs2026.vcxproj" Id="3fb2a0e5-3cbc-4fec-96e2-9848840c0d32" />
+    <Project Path="../synkro/build/modules/synkro.io/synkro.io_msvs2026.vcxproj" Id="35f7ddd0-388e-41f8-b659-875c02475e55" />
+    <Project Path="../synkro/build/modules/synkro.mat/synkro.mat_msvs2026.vcxproj" Id="877d198b-deaa-49ce-9d9c-adf33cb7f275" />
+    <Project Path="../synkro/build/modules/synkro.net.ws2/synkro.net.ws2_msvs2026.vcxproj" Id="49411e84-e33f-4fec-a0de-6b0b0579934c" />
+    <Project Path="../synkro/build/modules/synkro.scene/synkro.scene_msvs2026.vcxproj" Id="70fb0e3a-21f0-4d15-9f95-506385ce3431" />
+    <Project Path="../synkro/build/modules/synkro.script.lua/synkro.script.lua_msvs2026.vcxproj" Id="76567d1a-52c2-46b1-b0af-7d5bb44fc08f" />
+    <Project Path="../synkro/build/modules/synkro.sound/synkro.sound_msvs2026.vcxproj" Id="0f29ae09-9cab-4925-a4e6-b83dd8c07223" />
+    <Project Path="../synkro/build/modules/synkro.ui/synkro.ui_msvs2026.vcxproj" Id="c4487c65-7ae0-4a5d-a3c9-b6a04659c78a" />
+    <Project Path="../synkro/build/modules/synkro.view/synkro.view_msvs2026.vcxproj" Id="d773b653-e22f-44ff-a84f-30fb2c853112" />
+    <Project Path="../synkro/build/modules/synkro.win.win32/synkro.win.win32_msvs2026.vcxproj" Id="5155f2a2-0e74-49ef-8f50-7c7ec64d761c" />
+    <Project Path="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" Id="e28ef5aa-43df-4c6d-b372-c03ca9630d58">
+      <BuildDependency Project="../synkro.utils/build/codegen/codegen_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro.utils/build/docgen/docgen_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro.utils/build/ifacegen/ifacegen_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro.utils/build/instgen/instgen_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro.utils/build/lincount/lincount_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro.utils/build/resgen/resgen_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro.utils/build/resmake/resmake_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro.utils/build/respack/respack_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro/build/external/libjpeg/libjpeg_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro/build/external/libmad/libmad_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro/build/external/libpng/libpng_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro/build/external/lua/lua_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro/build/external/sqlite/sqlite_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro/build/external/zlib/zlib_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro/build/instruments/synkro.mem/synkro.mem_msvs2026.vcxproj" />
+      <BuildDependency Project="../synkro/build/instruments/synkro.prf/synkro.prf_msvs2026.vcxproj" />
+    </Project>
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="../synkro.tools/build/ImageConverter/ImageConverter_msvs2026.vcxproj" Id="d2620325-1682-454d-b740-74c3c0c5e098">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.tools/build/ImageViewer/ImageViewer_msvs2026.vcxproj" Id="aa63f669-fd72-4210-a06d-17c4500f7e96">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.tools/build/MeshConverter/MeshConverter_msvs2026.vcxproj" Id="f0cdb24a-146c-4eea-8e4b-7bee6f144f77">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+    <Project Path="../synkro.tools/build/MeshViewer/MeshViewer_msvs2026.vcxproj" Id="d25df2a3-03f9-4fb6-9211-ecf00b5bc93a">
+      <BuildDependency Project="../synkro/build/modules/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
+  </Folder>
+  <Folder Name="/utils/">
+    <Project Path="../synkro.utils/build/codegen/codegen_msvs2026.vcxproj" Id="0c03b4c5-6c52-40b5-aa4f-7e79b11e3b77">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+      <Platform Project="Win32" />
+    </Project>
+    <Project Path="../synkro.utils/build/docgen/docgen_msvs2026.vcxproj" Id="df855b77-3487-4629-947a-8878aafe0ac1">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+      <Platform Project="Win32" />
+    </Project>
+    <Project Path="../synkro.utils/build/ifacegen/ifacegen_msvs2026.vcxproj" Id="cef1acf5-0c0c-4dba-aad2-a0fda4607c87">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+      <Platform Project="Win32" />
+    </Project>
+    <Project Path="../synkro.utils/build/instgen/instgen_msvs2026.vcxproj" Id="d8e5df4f-0ee2-4aab-a40e-73b611c9bc2a">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+      <Platform Project="Win32" />
+    </Project>
+    <Project Path="../synkro.utils/build/lincount/lincount_msvs2026.vcxproj" Id="0a9567ec-8444-4354-a204-a0f73b9e94b8">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+      <Platform Project="Win32" />
+    </Project>
+    <Project Path="../synkro.utils/build/resgen/resgen_msvs2026.vcxproj" Id="61b71e0a-9c60-4309-ba80-a3c6aac36659">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+      <Platform Project="Win32" />
+    </Project>
+    <Project Path="../synkro.utils/build/resmake/resmake_msvs2026.vcxproj" Id="1f05cfeb-adc9-47f8-9a14-d436c000bbe4">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+      <Platform Project="Win32" />
+    </Project>
+    <Project Path="../synkro.utils/build/respack/respack_msvs2026.vcxproj" Id="cb1b0263-91c0-47ae-a3e5-4799a5617ea8">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="debug" />
+      <BuildType Solution="perf|*" Project="debug" />
+      <BuildType Solution="release_static|*" Project="release" />
+      <Platform Project="Win32" />
+    </Project>
+  </Folder>
+</Solution>

@@ -1,0 +1,15 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="debug" />
+    <BuildType Name="release" />
+    <Platform Name="Win32" />
+  </Configurations>
+  <Project Path="codegen/codegen_msvs2026.vcxproj" Id="0c03b4c5-6c52-40b5-aa4f-7e79b11e3b77" />
+  <Project Path="docgen/docgen_msvs2026.vcxproj" Id="df855b77-3487-4629-947a-8878aafe0ac1" />
+  <Project Path="ifacegen/ifacegen_msvs2026.vcxproj" Id="cef1acf5-0c0c-4dba-aad2-a0fda4607c87" />
+  <Project Path="instgen/instgen_msvs2026.vcxproj" Id="d8e5df4f-0ee2-4aab-a40e-73b611c9bc2a" />
+  <Project Path="lincount/lincount_msvs2026.vcxproj" Id="0a9567ec-8444-4354-a204-a0f73b9e94b8" />
+  <Project Path="resgen/resgen_msvs2026.vcxproj" Id="61b71e0a-9c60-4309-ba80-a3c6aac36659" />
+  <Project Path="resmake/resmake_msvs2026.vcxproj" Id="1f05cfeb-adc9-47f8-9a14-d436c000bbe4" />
+  <Project Path="respack/respack_msvs2026.vcxproj" Id="cb1b0263-91c0-47ae-a3e5-4799a5617ea8" />
+</Solution>

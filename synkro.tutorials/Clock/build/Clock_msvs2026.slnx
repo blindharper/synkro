@@ -1,0 +1,13 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="debug" />
+    <BuildType Name="release" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Clock_Phase01/Clock_Phase01_msvs2026.vcxproj" Id="089259fa-1f3f-4b03-b7e0-08fc5e9a9aae" />
+  <Project Path="Clock_Phase02/Clock_Phase02_msvs2026.vcxproj" Id="99f19bbc-85a0-4b55-8f1f-96f23abbb457" />
+  <Project Path="Clock_Phase03/Clock_Phase03_msvs2026.vcxproj" Id="213a13a3-ff38-494f-b6e2-4f7834b3249d" />
+  <Project Path="Clock_Phase04/Clock_Phase04_msvs2026.vcxproj" Id="1abebe3d-1681-49fe-a4fa-110c6f98263a" />
+  <Project Path="Clock_Phase05/Clock_Phase05_msvs2026.vcxproj" Id="398fcc42-71c9-4273-bf7d-1a9a00cf618d" />
+</Solution>
