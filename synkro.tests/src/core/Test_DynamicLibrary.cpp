@@ -19,11 +19,9 @@ public:
 		try
 		{
 			DynamicLibrary dll;
-#if ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X86 )
-			dll.Open( "../../data/core/x86/synkro.io.dll" );
-#elif ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64 )
+#if ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64 )
 			dll.Open( "../../data/core/x64/synkro.io.dll" );
-#endif // SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X86
+#endif // SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64
 			void* addr = dll.GetSymbol( "SynkroLibGetAuthor" );
 			Assert( addr != 0 );
 		}

@@ -27,12 +27,12 @@ public:
 		Assert( stream->GetMode() == (OpenMode::Read | OpenMode::Write | OpenMode::Append) );
 
 		// Info.
-		Assert( stream->GetLength() == 63 );
+		Assert( stream->GetLength() == 57 );
 
 		// Writing.
 		const char* line1 = "one more line\r\n";
 		UInt lenOld = stream->GetLength();
-		stream->Write( line1, (UInt)strlen(line1) );
+		stream->Write( line1, CastUInt( strlen(line1)) );
 		stream->Flush();
 		UInt lenNew = stream->GetLength();
 		Assert( (lenNew-lenOld) == strlen(line1) );

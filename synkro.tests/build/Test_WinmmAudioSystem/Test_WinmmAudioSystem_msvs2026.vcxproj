@@ -45,6 +45,7 @@
     <ClCompile Include="..\..\src\audio\Test_WinmmAudioSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\audio\AudioSystemTest.h" />
     <ClInclude Include="..\..\src\audio\Context.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

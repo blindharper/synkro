@@ -45,6 +45,9 @@
     <ClCompile Include="..\..\..\synkro\src\win\WindowSystemEx.cpp" />
     <ClCompile Include="..\..\src\audio\Test_Ds8AudioSystem.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\audio\AudioSystemTest.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>Test_Ds8AudioSystem</ProjectName>
     <ProjectGuid>{E18841BE-51A5-4117-B40B-0B7423D01A93}</ProjectGuid>

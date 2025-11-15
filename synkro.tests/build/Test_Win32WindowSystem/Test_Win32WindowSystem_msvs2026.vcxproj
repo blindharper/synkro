@@ -20,6 +20,9 @@
     <ClCompile Include="..\..\..\synkro\src\win\WindowSystemEx.cpp" />
     <ClCompile Include="..\..\src\win\Test_Win32WindowSystem.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\win\WindowSystemTest.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>Test_Win32WindowSystem</ProjectName>
     <ProjectGuid>{B24CD7C2-D90E-4F01-A88B-F2BAF3D728A1}</ProjectGuid>

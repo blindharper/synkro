@@ -39,6 +39,9 @@
     <Filter Include="Source Files\anim\Expression">
       <UniqueIdentifier>{8ea67d34-1231-441d-9074-d11d60384484}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\img\ImageManager">
+      <UniqueIdentifier>{739cde5d-af2c-4bd4-9a8d-5763f8df66f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\tests.cpp">
@@ -194,12 +197,6 @@
     <ClCompile Include="..\..\src\img\Test_JpgCodec.cpp">
       <Filter>Source Files\img</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\img\Image.cpp">
-      <Filter>Source Files\img</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\img\ImageManager.cpp">
-      <Filter>Source Files\img</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\external\stream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -214,36 +211,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\io\Test_XmlWriter.cpp">
       <Filter>Source Files\io</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\external\imageread.cpp">
-      <Filter>Source Files\img</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\BmpImageCodec.cpp">
-      <Filter>Source Files\img</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\JpgImageCodec.cpp">
-      <Filter>Source Files\img</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\PngImageCodec.cpp">
-      <Filter>Source Files\img</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\TgaImageCodec.cpp">
-      <Filter>Source Files\img</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\img\RenderImage\CubeRenderImage.cpp">
-      <Filter>Source Files\img</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\img\RenderImage\PlainRenderImage.cpp">
-      <Filter>Source Files\img</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\img\Task\LoadImageTask.cpp">
-      <Filter>Source Files\img</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\img\Task\PrepareImageTask.cpp">
-      <Filter>Source Files\img</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\img\Task\SaveImageTask.cpp">
-      <Filter>Source Files\img</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\core\Configuration.cpp">
       <Filter>Source Files\core</Filter>
@@ -379,6 +346,48 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\anim\Expression\Vector3Function.cpp">
       <Filter>Source Files\anim\Expression</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\ui\UiReader.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\ui\ThemeReader.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\BmpImageCodec.cpp">
+      <Filter>Source Files\img\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\RenderImage\CubeRenderImage.cpp">
+      <Filter>Source Files\img\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\Image.cpp">
+      <Filter>Source Files\img\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageManager.cpp">
+      <Filter>Source Files\img\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\external\imageread.cpp">
+      <Filter>Source Files\img\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\JpgImageCodec.cpp">
+      <Filter>Source Files\img\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\Task\LoadImageTask.cpp">
+      <Filter>Source Files\img\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\RenderImage\PlainRenderImage.cpp">
+      <Filter>Source Files\img\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\PngImageCodec.cpp">
+      <Filter>Source Files\img\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\Task\PrepareImageTask.cpp">
+      <Filter>Source Files\img\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\Task\SaveImageTask.cpp">
+      <Filter>Source Files\img\ImageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\TgaImageCodec.cpp">
+      <Filter>Source Files\img\ImageManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

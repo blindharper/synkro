@@ -19,6 +19,9 @@
     <ClCompile Include="..\..\..\synkro\src\io\Win32\Win32StreamSystem.cpp" />
     <ClCompile Include="..\..\src\io\Test_Win32StreamSystem.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\io\StreamSystemTest.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>Test_Win32StreamSystem</ProjectName>
     <ProjectGuid>{EF77942F-7A6E-48ED-9987-60532DA402A9}</ProjectGuid>

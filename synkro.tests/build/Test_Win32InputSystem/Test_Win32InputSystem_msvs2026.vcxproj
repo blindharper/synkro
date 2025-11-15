@@ -30,6 +30,9 @@
     <ClCompile Include="..\..\..\synkro\src\win\WindowSystemEx.cpp" />
     <ClCompile Include="..\..\src\input\Test_Win32InputSystem.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\input\InputSystemTest.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>Test_Win32InputSystem</ProjectName>
     <ProjectGuid>{133DCA2E-2F99-4B9B-A013-19A0CE8C4686}</ProjectGuid>
