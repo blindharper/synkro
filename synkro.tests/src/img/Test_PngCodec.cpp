@@ -2,8 +2,6 @@
 #include "Test.h"
 #include <img/ImageCodec/PngImageCodecFactory.h>
 #include <img/ImageManager.h>
-#include <gfx/IGraphicsDevice.h>
-#include <gfx/IGraphicsSystemEx.h>
 #include <io/FileStream.h>
 
 //------------------------------------------------------------------------------

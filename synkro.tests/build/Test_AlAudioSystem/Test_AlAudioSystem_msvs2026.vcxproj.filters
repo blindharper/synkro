@@ -113,4 +113,7 @@
       <Filter>audio</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\audio\AudioSystemTest.h" />
+  </ItemGroup>
 </Project>

@@ -4,7 +4,6 @@
 #include <io/FileStream.h>
 #include <io/ZipDirectory.h>
 #include <lang/Exception.h>
-#include <img/Color.h>
 
 //------------------------------------------------------------------------------
 

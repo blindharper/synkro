@@ -65,7 +65,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../../synkro/inc/;../../../synkro/src/;../../../synkro/src/external/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;UNICODE;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;UNICODE;_DEBUG;_CONSOLE;SYNKROLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -171,6 +171,8 @@
     <ClCompile Include="..\..\..\synkro\src\img\Task\PrepareImageTask.cpp" />
     <ClCompile Include="..\..\..\synkro\src\img\Task\SaveImageTask.cpp" />
     <ClCompile Include="..\..\..\synkro\src\mem\StdMemoryManager.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\ThemeReader.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\UiReader.cpp" />
     <ClCompile Include="..\..\src\anim\Test_Expression.cpp" />
     <ClCompile Include="..\..\src\core\Test_Configuration.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">false</ExcludedFromBuild>
@@ -182,22 +184,27 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\img\Test_JpgCodec.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+      </ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\img\Test_PngCodec.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+      </ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\img\Test_TgaCodec.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+      </ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\io\Test_XmlWriter.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\ui\Test_UiReader.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+      </ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\ui\Test_ThemeReader.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+      </ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\img\Test_Color.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">false</ExcludedFromBuild>

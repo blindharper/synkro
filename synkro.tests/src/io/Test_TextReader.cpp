@@ -30,7 +30,7 @@ public:
 			str = rd.Read( 4 );
 			Assert( str == "line" )
 
-			str = rd.Read( 2 );
+			str = rd.Read( 1 );
 
 			Assert( rd.ReadLine() == "second line" );
 			Assert( rd.ReadLine() == "third line" );
