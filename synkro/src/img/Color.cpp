@@ -222,9 +222,9 @@ SYNKRO_COLOR( Chestnut,						0.584314f,	0.270588f,	0.207843f )
 SYNKRO_COLOR( ChiliOil,						0.580392f,	0.278431f,	0.262745f )
 SYNKRO_COLOR( ChinaPink,					0.870588f,	0.435294f,	0.631373f )
 SYNKRO_COLOR( ChinaRose,					0.658824f,	0.317647f,	0.431373f )
-SYNKRO_COLOR( ChineseRed,					0.666667f,	0.219608f,	0.117647f )
+SYNKRO_COLOR( ChineseRed,					0.666667f,	0.219608f,	0.113725f )
 SYNKRO_COLOR( ChineseViolet,				0.521569f,	0.376471f,	0.533333f )
-SYNKRO_COLOR( Chocolate,					0.823529f,	0.411765f,	0.117647f )
+SYNKRO_COLOR( Chocolate,					0.819608f,	0.411765f,	0.113725f )
 SYNKRO_COLOR( ChocolateTraditional,			0.482353f,	0.247059f,	0.000000f )
 SYNKRO_COLOR( ChromeYellow,					1.000000f,	0.654902f,	0.000000f )
 SYNKRO_COLOR( Cinereous,					0.596079f,	0.505882f,	0.482353f )
@@ -2343,7 +2343,7 @@ Color Color::Complementary() const
 
 Color Color::GetNext( UInt& index )
 {
-	index = (index+1 < SizeOf(_colorString)-1) ? index+1 : none;
+	index = (index+1 < SizeOf(_colorString)) ? index+1 : none;
 	return (index != none) ? _colorString[index].color : Color::Transparent;
 }
 

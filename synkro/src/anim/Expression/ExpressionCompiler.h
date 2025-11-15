@@ -21,8 +21,6 @@
 #include "Function.h"
 #include "ParseMode.h"
 #include "BaseExpressionScript.h"
-#include <anim/IExpressionScript.h>
-#include <lang/Formatter.h>
 #include <lang/Vector.h>
 #include <lang/Stack.h>
 #include <lang/Map.h>
