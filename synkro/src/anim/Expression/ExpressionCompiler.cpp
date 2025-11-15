@@ -209,10 +209,9 @@ void ExpressionCompiler::Init()
 	RegisterConstant( L"QUARTER_PI",	Math::QuarterPi );
 
 	// Register color constants.
-	Color color; UInt index = 0;
-	while ( index != none )
+	UInt index = none;
+	for ( Color color = Color::GetNext(index); index != none; color = Color::GetNext(index) )
 	{
-		color = Color::GetNext( index );
 		RegisterConstant( color.ToString(), color );
 	}
 
@@ -236,12 +235,14 @@ void ExpressionCompiler::Init()
 
 void ExpressionCompiler::RegisterConstant( const String& name, Float value )
 {
-	_constants[name] = new Constant( name, new FloatExpression(value, Token()) );
+	FloatExpression* expr = new FloatExpression( value, Token() );
+	_constants[name] = new Constant( name, expr );
 }
 
 void ExpressionCompiler::RegisterConstant( const String& name, const Color& value )
 {
-	_constants[name] = new Constant( name, new ColorExpression(value, Token()) );
+	ColorExpression* expr = new ColorExpression( value, Token() );
+	_constants[name] = new Constant( name, expr );
 }
 
 void ExpressionCompiler::RegisterFunction( Function* func )
