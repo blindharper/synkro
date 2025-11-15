@@ -29,7 +29,6 @@
 #include <anim/IAnimationTrackFactory.h>
 #include <anim/AnimationListener.h>
 #include "Expression/ExpressionCompiler.h"
-#include "BaseAnimationController.h"
 #include "BaseAnimationSystem.h"
 
 
@@ -78,6 +77,7 @@ public:
 	void													SaveAnimationAsync( const IAnimationSet* animation, io::IStream* stream );
 
 	// Other methods.
+	ExpressionCompiler*										GetCompiler();
 	void													SetThreadPool( core::ThreadPool* threadPool );
 	void													RegisterCodec( IAnimationCodecFactory* factory );
 	void													RegisterTrackFactory( IAnimationTrackFactory* factory );

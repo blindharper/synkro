@@ -16,6 +16,7 @@
 #include "Animation.h"
 #include "Expression/ExpressionScript.h"
 #include "Task/SaveAnimationTask.h"
+#include "BaseAnimationController.h"
 #include <anim/AnimationCodec.h>
 #include <io/IStream.h>
 #include <io/Path.h>
@@ -48,7 +49,7 @@ AnimationSystem::AnimationSystem( IContext* context, ILog* log ) :
 	_playbackControllers( A(ControllerEntry) ),
 	_recordControllers( A(RecordControllerDesc) ),
 	_context( context ),
-	_compiler( new ExpressionCompiler(log) ),
+	_compiler( nullptr ),
 	_time( 0.0 ),
 	Logger( log, LogFacility::AnimationSystem )
 {
@@ -135,7 +136,7 @@ IAnimation* AnimationSystem::CreateAnimation()
 
 IExpressionScript* AnimationSystem::CreateScript( const String& expression )
 {
-	ExpressionScript* scr = new ExpressionScript( _compiler, expression );
+	ExpressionScript* scr = new ExpressionScript( GetCompiler(), expression );
 	scr->DeclareParam( L"time", AnimationDataType::Float );
 	return scr;
 }
@@ -264,6 +265,15 @@ void AnimationSystem::RemoveController( IRecordAnimationController* controller )
 			break;
 		}
 	}
+}
+
+ExpressionCompiler* AnimationSystem::GetCompiler()
+{
+	if ( _compiler == nullptr )
+	{
+		_compiler = new ExpressionCompiler( _log );
+	}
+	return _compiler;
 }
 
 void AnimationSystem::RegisterCodec( IAnimationCodecFactory* factory )
