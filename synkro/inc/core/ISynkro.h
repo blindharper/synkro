@@ -80,6 +80,13 @@ public:
 	virtual void											Initialize( IConfiguration* config ) = 0;
 
 	/**
+	 * Sets global time scale.
+	 * @param scale New time scale.
+	 * @param duration Duration of the new time scale, in seconds.
+	 */
+	virtual void											SetTimeScale( Double scale, Double duration ) = 0;
+
+	/**
 	 * Retrieves default configuration.
 	 */
 	virtual IConfiguration*									GetConfiguration() const = 0;

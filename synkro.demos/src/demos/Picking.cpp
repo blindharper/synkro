@@ -107,6 +107,7 @@ public:
 			{	
 				viewport->SetLabelText( String::Format(L"{0}. X: {1} Y: {2}. Distance: {3,0.000}", _pickedMesh->GetName(), loc.X, loc.Y, distance) );
 				_pickedMesh->GetMaterial()->AsSimple()->SetEmissiveColor( Color::DimGray );
+				_synkro->SetTimeScale( 2.0, 1.0 );
 			}			
 			else
 			{
