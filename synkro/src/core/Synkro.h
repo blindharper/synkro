@@ -15,7 +15,6 @@
 
 
 #include "config.h"
-#include <cfg/SynkroVersion.h>
 #include <core/IFactory.h>
 #include <core/IResource.h>
 #include <core/SynkroListener.h>
@@ -39,7 +38,6 @@
 #include <diag/Diag.h>
 #include <ui/UiEx.h>
 #include <core/ISynkro.h>
-#include <core/Param.h>
 #include <internal/Timer.h>
 #include "FactoryTable.h"
 #include "ResourceTable.h"
@@ -102,6 +100,7 @@ public:
 	IResource*												CreateResource( const Byte* data, UInt size );
 	UInt													CreateTimer( UInt interval, TimerListener* listener );
 	void													Initialize( IConfiguration* config );
+	void													SetTimeScale( Double scale, Double duration );
 	IConfiguration*											GetConfiguration() const;
 	UInt													GetLibraryCount() const;
 	ILibrary*												GetLibrary( UInt index ) const;
@@ -173,6 +172,8 @@ private:
 	Bool													_created;
 	Bool													_inited;
 	Double													_time;
+	Double													_timeScale;
+	Double													_timeScaleTimeToLive;
 	UInt													_frame;
 	Pointer													_module;
 	Language												_language;

@@ -12,6 +12,7 @@
 //==============================================================================
 #include "config.h"
 #include "Synkro.h"
+#include <cfg/SynkroVersion.h>
 #include <io/Path.h>
 #include <io/TextReader.h>
 #include <io/TextWriter.h>
@@ -21,7 +22,6 @@
 #include <io/IStreamDirectoryFactory.h>
 #include <net/INetworkSystemFactory.h>
 #include <cons/IConsoleCommandFactory.h>
-#include <lang/Convert.h>
 #include <diag/BaseLog.h>
 #include <core/IResource.h>
 #include <core/Param.h>
@@ -97,6 +97,8 @@ Synkro::Synkro( Pointer module, UInt version, SynkroListener* listener ) :
 	_created( false ),
 	_inited( false ),
 	_time( 0.0 ),
+	_timeScale( 1.0 ),
+	_timeScaleTimeToLive( 0.0 ),
 	_frame( 0 ),
 	_language( Language::English ),
 	_module( module ),
@@ -205,14 +207,29 @@ void Synkro::Run( const Bool& running )
 		// Enter main loop.
 		_time = 0.0; _frame = 0;
 		Double delta = _timer.GetElapsedSeconds();
+		Double deltaUnscaled = 0.0;
 		for ( ; running ; ++_frame )
 		{
 			SynkroProfile( "Synkro.Run.Step" );
 
-			// Update subsystems.
+			// Do update.
 			SynkroProfileBegin( "Synkro.Run.Step.Systems" );
-			delta = _timer.GetElapsedSeconds();
+			deltaUnscaled = _timer.GetElapsedSeconds();
+			delta = deltaUnscaled * _timeScale;
 			_time += delta;
+
+			// Update time scale, if needed.
+			if ( _timeScaleTimeToLive > 0.0 )
+			{
+				_timeScaleTimeToLive -= deltaUnscaled;
+				if ( _timeScaleTimeToLive <= 0.0 )
+				{
+					_timeScale = 1.0;
+					_timeScaleTimeToLive = 0.0;
+				}
+			}
+
+			// Update subsystems.
 			for ( UInt i = 0; i < _systems.Size(); ++i )
 			{
 				// Exit loop, if needed.
@@ -385,6 +402,12 @@ void Synkro::Initialize( IConfiguration* config )
 		HandleException( ex );
 		_inited = false;
 	}
+}
+
+void Synkro::SetTimeScale( Double scale, Double duration )
+{
+	_timeScale = scale;
+	_timeScaleTimeToLive = duration;
 }
 
 void Synkro::OnWindowResize( UInt window, UInt width, UInt height )
