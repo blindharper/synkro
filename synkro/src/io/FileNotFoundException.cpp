@@ -23,13 +23,13 @@ namespace io
 
 
 FileNotFoundException::FileNotFoundException( const lang::String& message, const lang::String& filename ) :
-	IoException( lang::String::Format(L"Cannot access file {0,q}. Reason: {1}", filename, message) ),
+	IoException( lang::String::Format(L"Cannot access {0,q}. Reason: {1}", filename, message) ),
 	_filename( filename )
 {
 }
 
 FileNotFoundException::FileNotFoundException( const lang::String& filename ) :
-	IoException( lang::String::Format( L"Cannot find file {0,q}.", filename) ),
+	IoException( lang::String::Format( L"Cannot find {0,q}.", filename) ),
 	_filename( filename )
 {
 }
@@ -41,7 +41,7 @@ lang::String FileNotFoundException::Filename() const
 
 lang::String FileNotFoundException::ToString() const
 {
-	return lang::String::Format( L"Cannot access file {0,q}. Reason: {1}", _filename, _message );
+	return lang::String::Format( L"Cannot access {0,q}. Reason: {1}", _filename, _message );
 }
 
 FileNotFoundException::FileNotFoundException( const FileNotFoundException& )

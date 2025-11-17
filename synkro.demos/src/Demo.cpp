@@ -455,10 +455,7 @@ IImage* Demo::GetImage( IStreamSet* streams )
 
 IStream* Demo::GetStream( const String& name )
 {
-	IStream* stream = _synkro->GetStreamSystem()->GetStream( name );
-	if ( stream == nullptr )
-		throw FileNotFoundException( name );
-	return stream;
+	return _synkro->GetStreamSystem()->GetStream( name );
 }
 
 IStreamSet* Demo::GetStreams( const String& dirName, const String& pattern )

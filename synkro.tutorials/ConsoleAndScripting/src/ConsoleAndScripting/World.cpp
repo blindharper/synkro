@@ -170,8 +170,5 @@ IImage* World::GetImage( const String& name )
 
 IStream* World::GetStream( const String& name )
 {
-	PtrStream stream = _synkro->GetStreamSystem()->GetStream( name );
-	if ( stream == nullptr )
-		throw FileNotFoundException( name );
-	return stream;
+	return _synkro->GetStreamSystem()->GetStream( name );
 }

@@ -61,7 +61,7 @@ SYNKRO_INLINE IStream* StreamSystemImpl<T>::GetStream( const lang::String& name 
 	}
 
 	// Nothing found.
-	return nullptr;
+	throw FileNotFoundException( name );
 }
 
 template <class T>
