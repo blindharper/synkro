@@ -18,6 +18,7 @@
 #include <core/ObjectImpl.h>
 #include <io/IStreamDirectory.h>
 #include <io/IStream.h>
+#include <io/FileNotFoundException.h>
 #include "Path.h"
 
 

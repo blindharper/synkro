@@ -63,8 +63,6 @@ void App::OnSynkroInitialize()
 	_light->LookAt( Vector3(10.0f, 3.0f, 0.0f) );
 
 	PtrStream streamTick = _synkro->GetStreamSystem()->GetStream( L"tick.wav" );
-	if ( streamTick == nullptr )
-		throw FileNotFoundException( L"tick.wav" );
 	PtrSound2D soundTick = _synkro->GetSoundManager()->LoadSound2D( streamTick );
 	_dial = new Dial( _synkro, _scene, soundTick, 15.0f, Dial::DialMode::DIGITAL );
 	_dial->Start();

@@ -116,8 +116,5 @@ IScriptObject* Tiny::GetObject() const
 
 IStream* Tiny::GetStream( const String& name )
 {
-	PtrStream stream = _synkro->GetStreamSystem()->GetStream( name );
-	if ( stream == nullptr )
-		throw FileNotFoundException( name );
-	return stream;
+	return _synkro->GetStreamSystem()->GetStream( name );
 }
