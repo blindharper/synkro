@@ -33,13 +33,10 @@ class OmniLightAnimationController :
 {
 public:
 	// Constructor.
-	OmniLightAnimationController( IOmniLight* omniLight, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	OmniLightAnimationController( IOmniLight* omniLight, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// ILightAnimationController methods.
 	IOmniLightAnimationController*							AsOmni() const;
@@ -47,6 +44,9 @@ public:
 	// IOmniLightAnimationController methods.
 	anim::IKeyframedFloatTrack*								CreateRangeTrack();
 	anim::IProceduralFloatTrack*							CreateRangeTrack( const anim::AnimationTrack& type );
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	IOmniLight*												_omniLight;

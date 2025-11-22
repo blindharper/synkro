@@ -39,7 +39,7 @@ public:
 	SoftOpaqueMaterial( const SoftOpaqueMaterial& other );
 
 	// IVisualMaterial methods.
-	IVisualMaterialAnimationController*						CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	IVisualMaterialAnimationController*						CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// ISimpleMaterial methods.
 	IOpaqueMaterial*										AsOpaque() const;

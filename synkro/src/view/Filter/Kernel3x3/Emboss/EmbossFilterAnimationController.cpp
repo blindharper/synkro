@@ -31,11 +31,12 @@ namespace view
 {
 
 
-EmbossFilterAnimationController::EmbossFilterAnimationController( IEmbossFilter* embossFilter, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	Kernel3x3FilterAnimationControllerImpl<IEmbossFilterAnimationController>( embossFilter, animationSystem, animation, listener ),
-	_embossFilter( embossFilter )
+EmbossFilterAnimationController::EmbossFilterAnimationController( IEmbossFilter* embossFilter, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	Kernel3x3FilterAnimationControllerImpl<IEmbossFilterAnimationController>( embossFilter, animationSystem, animations, listener ),
+	_embossFilter( embossFilter ),
+	_trackAngle( nullptr ),
+	_trackDepth( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void EmbossFilterAnimationController::Update( Double delta )
@@ -47,25 +48,16 @@ void EmbossFilterAnimationController::Update( Double delta )
 	if ( _trackAngle != nullptr )
 	{
 		Float angle;
-		_trackAngle->GetValue( _time, angle );
+		_trackAngle->GetValue( CurrentTime(), angle );
 		_embossFilter->SetAngle( angle );
 	}
 
 	if ( _trackDepth != nullptr )
 	{
 		Float depth;
-		_trackDepth->GetValue( _time, depth );
+		_trackDepth->GetValue( CurrentTime(), depth );
 		_embossFilter->SetDepth( depth );
 	}
-}
-
-void EmbossFilterAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	Kernel3x3FilterAnimationControllerImpl<IEmbossFilterAnimationController>::SetAnimation( animation );
-
-	_trackAngle = GetTrack( _trackAngle, EmbossFilterProperty::Angle );
-	_trackDepth = GetTrack( _trackDepth, EmbossFilterProperty::Depth );
 }
 
 IEmbossFilterAnimationController* EmbossFilterAnimationController::AsEmboss() const
@@ -75,17 +67,26 @@ IEmbossFilterAnimationController* EmbossFilterAnimationController::AsEmboss() co
 
 IKeyframedFloatTrack* EmbossFilterAnimationController::CreateAngleTrack()
 {
-	return (_trackAngle = (_trackAngle == nullptr) ? _animation->CreateFloatTrack(EmbossFilterProperty::Angle.ToString()) : _trackAngle)->AsKeyframed();
+	return (_trackAngle = _animations->GetActiveAnimation()->CreateFloatTrack(EmbossFilterProperty::Angle.ToString()))->AsKeyframed();
 }
 
 IKeyframedFloatTrack* EmbossFilterAnimationController::CreateDepthTrack()
 {
-	return (_trackDepth = (_trackDepth == nullptr) ? _animation->CreateFloatTrack(EmbossFilterProperty::Depth.ToString()) : _trackDepth)->AsKeyframed();
+	return (_trackDepth = _animations->GetActiveAnimation()->CreateFloatTrack( EmbossFilterProperty::Depth.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* EmbossFilterAnimationController::CreateDepthTrack( const AnimationTrack& type )
 {
-	return (_trackDepth = (_trackDepth == nullptr) ? _animation->CreateFloatTrack(EmbossFilterProperty::Depth.ToString(), type) : _trackDepth)->AsProcedural();
+	return (_trackDepth = _animations->GetActiveAnimation()->CreateFloatTrack( EmbossFilterProperty::Depth.ToString(), type) )->AsProcedural();
+}
+
+void EmbossFilterAnimationController::UpdateTracks()
+{
+	// Call base implementation.
+	Kernel3x3FilterAnimationControllerImpl<IEmbossFilterAnimationController>::UpdateTracks();
+
+	_trackAngle = GetTrack( _trackAngle, EmbossFilterProperty::Angle );
+	_trackDepth = GetTrack( _trackDepth, EmbossFilterProperty::Depth );
 }
 
 

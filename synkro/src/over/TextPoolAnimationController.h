@@ -33,16 +33,16 @@ class TextPoolAnimationController :
 {
 public:
 	// Constructor.
-	TextPoolAnimationController( ITextPool* pool, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	TextPoolAnimationController( ITextPool* pool, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
 
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
-
 	// ITextPoolAnimationController methods.
 	anim::IKeyframedPointTrack*								CreateOffsetTrack();
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	ITextPool*												_pool;

@@ -11,9 +11,10 @@
 // Purpose: Generic implementation of animation controller for viewport filter.
 //==============================================================================
 template <class T>
-SYNKRO_INLINE ViewportFilterAnimationControllerImpl<T>::ViewportFilterAnimationControllerImpl( IViewportFilter* filter, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener ) :
-	anim::PlaybackControllerImpl<T>( animationSystem, animation, listener ),
-	_filter( filter )
+SYNKRO_INLINE ViewportFilterAnimationControllerImpl<T>::ViewportFilterAnimationControllerImpl( IViewportFilter* filter, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener ) :
+	anim::PlaybackControllerImpl<T>( animationSystem, animations, listener ),
+	_filter( filter ),
+	_trackRect( nullptr )
 {
 }
 
@@ -31,24 +32,15 @@ SYNKRO_INLINE void ViewportFilterAnimationControllerImpl<T>::Update( Double delt
 	if ( _trackRect != nullptr )
 	{
 		lang::Rect rect;
-		_trackRect->GetValue( _time, rect );
+		_trackRect->GetValue( CurrentTime(), rect );
 		_filter->SetRect( rect );
 	}
 }
 
 template <class T>
-SYNKRO_INLINE void ViewportFilterAnimationControllerImpl<T>::SetAnimation( anim::IAnimation* animation )
-{
-	// Call base implementation.
-	PlaybackControllerImpl<T>::SetAnimation( animation );
-
-	_trackRect = GetTrack( _trackRect, ViewportFilterProperty::Rect );
-}
-
-template <class T>
 SYNKRO_INLINE anim::IKeyframedRectTrack* ViewportFilterAnimationControllerImpl<T>::CreateRectTrack()
 {
-	return (_trackRect = (_trackRect == nullptr) ? _animation->CreateRectTrack(ViewportFilterProperty::Rect.ToString()) : _trackRect)->AsKeyframed();
+	return (_trackRect = _animations->GetActiveAnimation()->CreateRectTrack( ViewportFilterProperty::Rect.ToString()) )->AsKeyframed();
 }
 
 template <class T>
@@ -73,4 +65,10 @@ template <class T>
 SYNKRO_INLINE ISimpleFilterAnimationController* ViewportFilterAnimationControllerImpl<T>::AsSimple() const
 {
 	return nullptr;
+}
+
+template <class T>
+SYNKRO_INLINE void ViewportFilterAnimationControllerImpl<T>::UpdateTracks()
+{
+	_trackRect = GetTrack( _trackRect, ViewportFilterProperty::Rect );
 }

@@ -32,11 +32,12 @@ namespace sound
 {
 
 
-MusicAnimationController::MusicAnimationController( IMusic* music, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	PlaybackControllerImpl<IMusicAnimationController>( animationSystem, animation, listener ),
-	_music( music )
+MusicAnimationController::MusicAnimationController( IMusic* music, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	PlaybackControllerImpl<IMusicAnimationController>( animationSystem, animations, listener ),
+	_music( music ),
+	_trackVolume( nullptr ),
+	_trackPan( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void MusicAnimationController::Update( Double delta )
@@ -48,35 +49,32 @@ void MusicAnimationController::Update( Double delta )
 	if ( _trackVolume != nullptr )
 	{
 		Int volume;
-		_trackVolume->GetValue( _time, volume );
+		_trackVolume->GetValue( CurrentTime(), volume );
 		_music->SetVolume( volume );
 	}
 
 	if ( _trackPan != nullptr )
 	{
 		Int pan;
-		_trackPan->GetValue( _time, pan );
+		_trackPan->GetValue( CurrentTime(), pan );
 		_music->SetPan( pan );
 	}
 }
 
-void MusicAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	PlaybackControllerImpl<IMusicAnimationController>::SetAnimation( animation );
-
-	_trackVolume	= GetTrack( _trackVolume, MusicProperty::Volume );
-	_trackPan		= GetTrack( _trackPan, MusicProperty::Pan );
-}
-
 IKeyframedIntTrack* MusicAnimationController::CreateVolumeTrack()
 {
-	return (_trackVolume = (_trackVolume == nullptr) ? _animation->CreateIntTrack(MusicProperty::Volume.ToString()) : _trackVolume)->AsKeyframed();
+	return (_trackVolume = _animations->GetActiveAnimation()->CreateIntTrack(MusicProperty::Volume.ToString()))->AsKeyframed();
 }
 
 IKeyframedIntTrack* MusicAnimationController::CreatePanTrack()
 {
-	return (_trackPan = (_trackPan == nullptr) ? _animation->CreateIntTrack(MusicProperty::Pan.ToString()) : _trackPan)->AsKeyframed();
+	return (_trackPan = _animations->GetActiveAnimation()->CreateIntTrack( MusicProperty::Pan.ToString()) )->AsKeyframed();
+}
+
+void MusicAnimationController::UpdateTracks()
+{
+	_trackVolume	= GetTrack( _trackVolume, MusicProperty::Volume );
+	_trackPan		= GetTrack( _trackPan, MusicProperty::Pan );
 }
 
 

@@ -62,9 +62,9 @@ Curve::Curve( const Curve& other ) :
 {
 }
 
-INodeAnimationController* Curve::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* Curve::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new NodeAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new NodeAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 void Curve::AddPoint( const Vector3& point )

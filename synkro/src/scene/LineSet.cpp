@@ -68,9 +68,9 @@ LineSet::LineSet( IContext* context, ILineRenderObject* object, UInt start, UInt
 	}
 }
 
-IPrimitiveAnimationController* LineSet::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IPrimitiveAnimationController* LineSet::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new LineSetAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new LineSetAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 void LineSet::SetInstanceTransform( UInt index, const Matrix4x4& transform )

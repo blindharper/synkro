@@ -14,6 +14,7 @@
 #include "PoolSprite.h"
 #include "SpritePool.h"
 #include "SpriteAnimationController.h"
+#include <math/Math.h>
 
 
 //------------------------------------------------------------------------------
@@ -57,9 +58,9 @@ PoolSprite::~PoolSprite()
 	_pool->RemoveSprite( this );
 }
 
-ISpriteAnimationController* PoolSprite::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+ISpriteAnimationController* PoolSprite::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SpriteAnimationController( this, _context->GetAnimationSystem(), animation, listener) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SpriteAnimationController( this, _context->GetAnimationSystem(), animations, listener) : _ctrlAnimation;
 }
 
 void PoolSprite::Show( Bool show )

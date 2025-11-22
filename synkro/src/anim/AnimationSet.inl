@@ -10,6 +10,11 @@
 //
 // Purpose: Implements animation set.
 //==============================================================================
+SYNKRO_INLINE IAnimation* AnimationSet::GetActiveAnimation() const
+{
+	return _activeAnimation;
+}
+
 SYNKRO_INLINE UInt AnimationSet::GetAnimationCount() const
 {
 	return _animations.Size();

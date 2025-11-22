@@ -654,7 +654,7 @@ void Demo::CreateCredits()
 	// Set animation.
 	Size szViewport; _viewport->GetSize( szViewport );
 	_poolCreditsCtrl = _poolCredits->CreateAnimationController( nullptr, this );
-	IKeyframedPointTrack* track = firstTime ? _poolCreditsCtrl->CreateOffsetTrack() : _poolCreditsCtrl->GetAnimation()->GetTrack( 0 )->AsPoint()->AsKeyframed();
+	IKeyframedPointTrack* track = firstTime ? _poolCreditsCtrl->CreateOffsetTrack() : _poolCreditsCtrl->GetAnimations()->GetAnimation(0)->GetTrack(0)->AsPoint()->AsKeyframed();
 	track->Clear();
 	track->SetKey( 0.0, Point((szViewport.Width-maxWidth)/2, szViewport.Height) );
 	track->SetKey( _soundCredits->GetLength(), Point((szViewport.Width-maxWidth)/2, -top) );

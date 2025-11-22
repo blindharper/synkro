@@ -32,11 +32,11 @@ namespace over
 {
 
 
-TextPoolAnimationController::TextPoolAnimationController( ITextPool* pool, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	PlaybackControllerImpl<ITextPoolAnimationController>( animationSystem, animation, listener ),
-	_pool( pool )
+TextPoolAnimationController::TextPoolAnimationController( ITextPool* pool, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	PlaybackControllerImpl<ITextPoolAnimationController>( animationSystem, animations, listener ),
+	_pool( pool ),
+	_trackOffset( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void TextPoolAnimationController::Update( Double delta )
@@ -48,22 +48,19 @@ void TextPoolAnimationController::Update( Double delta )
 	if ( _trackOffset != nullptr )
 	{
 		Point offset;
-		_trackOffset->GetValue( _time, offset );
+		_trackOffset->GetValue( CurrentTime(), offset );
 		_pool->SetOffset( offset );
 	}
 }
 
-void TextPoolAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	PlaybackControllerImpl<ITextPoolAnimationController>::SetAnimation( animation );
-
-	_trackOffset = GetTrack( _trackOffset, TextPoolProperty::Offset );
-}
-
 IKeyframedPointTrack* TextPoolAnimationController::CreateOffsetTrack()
 {
-	return (_trackOffset = (_trackOffset == nullptr) ? _animation->CreatePointTrack(TextPoolProperty::Offset.ToString()) : _trackOffset)->AsKeyframed();
+	return (_trackOffset = _animations->GetActiveAnimation()->CreatePointTrack(TextPoolProperty::Offset.ToString()))->AsKeyframed();
+}
+
+void TextPoolAnimationController::UpdateTracks()
+{
+	_trackOffset = GetTrack( _trackOffset, TextPoolProperty::Offset );
 }
 
 

@@ -29,10 +29,9 @@ namespace scene
 {
 
 
-NodeAnimationController::NodeAnimationController( INode* node, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	NodeAnimationControllerImpl<INodeAnimationController>( node, animationSystem, animation, listener )
+NodeAnimationController::NodeAnimationController( INode* node, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	NodeAnimationControllerImpl<INodeAnimationController>( node, animationSystem, animations, listener )
 {
-	SetAnimation( _animation );
 }
 
 

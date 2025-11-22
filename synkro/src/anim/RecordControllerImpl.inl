@@ -11,8 +11,8 @@
 // Purpose: Generic record animation controller implementation.
 //==============================================================================
 template <class T> 
-SYNKRO_INLINE RecordControllerImpl<T>::RecordControllerImpl( IAnimationSystem* animationSystem, IAnimation* animation ) :
-	AnimationControllerImpl<T>( animationSystem, animation ),
+SYNKRO_INLINE RecordControllerImpl<T>::RecordControllerImpl( IAnimationSystem* animationSystem, IAnimationSet* animations ) :
+	AnimationControllerImpl<T>( animationSystem, animations ),
 	_step( 1.0 )
 {
 }

@@ -56,9 +56,9 @@ TriangleMeshBatch::TriangleMeshBatch( ITriangleMeshBatch* batch, ISceneEx* scene
 	}
 }
 
-INodeAnimationController* TriangleMeshBatch::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* TriangleMeshBatch::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new TriangleMeshBatchAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new TriangleMeshBatchAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 ITriangleSet* TriangleMeshBatch::CreateTriangleList( const String& name, UInt vertexCount, UInt indexCount, Bool adjacency, const Matrix4x4& transform )

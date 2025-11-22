@@ -32,7 +32,7 @@ class NodeAnimationController :
 {
 public:
 	// Constructor.
-	NodeAnimationController( INode* node, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	NodeAnimationController( INode* node, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 };
 
 

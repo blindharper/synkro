@@ -33,13 +33,10 @@ class TextAnimationController :
 {
 public:
 	// Constructor.
-	TextAnimationController( IText* text, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	TextAnimationController( IText* text, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// ITextAnimationController methods.
 	anim::IKeyframedPointTrack*								CreateLocationTrack();
@@ -58,6 +55,9 @@ public:
 	anim::IKeyframedFloatTrack*								CreateOpacityTrack();
 	anim::IProceduralFloatTrack*							CreateOpacityTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedBoolTrack*								CreateVisibilityTrack();
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	IText*													_text;

@@ -33,11 +33,11 @@ namespace scene
 {
 
 
-LineSetAnimationController::LineSetAnimationController( ILineSet* lineSet, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	PrimitiveAnimationControllerImpl<ILineSetAnimationController>( lineSet, animationSystem, animation, listener ),
-	_lineSet( lineSet )
+LineSetAnimationController::LineSetAnimationController( ILineSet* lineSet, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	PrimitiveAnimationControllerImpl<ILineSetAnimationController>( lineSet, animationSystem, animations, listener ),
+	_lineSet( lineSet ),
+	_trackColor( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void LineSetAnimationController::Update( Double delta )
@@ -49,17 +49,9 @@ void LineSetAnimationController::Update( Double delta )
 	if ( _trackColor != nullptr )
 	{
 		Color color;
-		_trackColor->GetValue( _time, color );
+		_trackColor->GetValue( CurrentTime(), color );
 		_lineSet->SetColor( color );
 	}
-}
-
-void LineSetAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	PrimitiveAnimationControllerImpl<ILineSetAnimationController>::SetAnimation( animation );
-
-	_trackColor = GetTrack( _trackColor, LineSetProperty::Color );
 }
 
 ILineSetAnimationController* LineSetAnimationController::AsLineSet() const
@@ -69,22 +61,30 @@ ILineSetAnimationController* LineSetAnimationController::AsLineSet() const
 
 IKeyframedColorTrack* LineSetAnimationController::CreateColorTrack()
 {
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(LineSetProperty::Color.ToString()) : _trackColor)->AsKeyframed();
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( LineSetProperty::Color.ToString()) )->AsKeyframed();
 }
 
 IProceduralColorTrack* LineSetAnimationController::CreateColorTrack( const AnimationTrack& type )
 {
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(LineSetProperty::Color.ToString(), type) : _trackColor)->AsProcedural();
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( LineSetProperty::Color.ToString(), type) )->AsProcedural();
 }
 
 IExpressionColorTrack* LineSetAnimationController::CreateColorTrack( IExpressionScript* script )
 {
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(LineSetProperty::Color.ToString(), script) : _trackColor)->AsExpression();
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( LineSetProperty::Color.ToString(), script) )->AsExpression();
 }
 
 IExpressionColorTrack* LineSetAnimationController::CreateColorTrack( const String& expression )
 {
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(LineSetProperty::Color.ToString(), expression) : _trackColor)->AsExpression();
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( LineSetProperty::Color.ToString(), expression) )->AsExpression();
+}
+
+void LineSetAnimationController::UpdateTracks()
+{
+	// Call base implementation.
+	PrimitiveAnimationControllerImpl<ILineSetAnimationController>::UpdateTracks();
+
+	_trackColor = GetTrack( _trackColor, LineSetProperty::Color );
 }
 
 

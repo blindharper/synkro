@@ -33,11 +33,11 @@ namespace scene
 {
 
 
-PointSetAnimationController::PointSetAnimationController( IPointSet* pointSet, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	PrimitiveAnimationControllerImpl<IPointSetAnimationController>( pointSet, animationSystem, animation, listener ),
-	_pointSet( pointSet )
+PointSetAnimationController::PointSetAnimationController( IPointSet* pointSet, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	PrimitiveAnimationControllerImpl<IPointSetAnimationController>( pointSet, animationSystem, animations, listener ),
+	_pointSet( pointSet ),
+	_trackColor( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void PointSetAnimationController::Update( Double delta )
@@ -49,17 +49,9 @@ void PointSetAnimationController::Update( Double delta )
 	if ( _trackColor != nullptr )
 	{
 		Color color;
-		_trackColor->GetValue( _time, color );
+		_trackColor->GetValue( CurrentTime(), color );
 		_pointSet->SetColor( color );
 	}
-}
-
-void PointSetAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	PrimitiveAnimationControllerImpl<IPointSetAnimationController>::SetAnimation( animation );
-
-	_trackColor = GetTrack( _trackColor, PointSetProperty::Color );
 }
 
 IPointSetAnimationController* PointSetAnimationController::AsPointSet() const
@@ -69,22 +61,30 @@ IPointSetAnimationController* PointSetAnimationController::AsPointSet() const
 
 IKeyframedColorTrack* PointSetAnimationController::CreateColorTrack()
 {
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(PointSetProperty::Color.ToString()) : _trackColor)->AsKeyframed();
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( PointSetProperty::Color.ToString()) )->AsKeyframed();
 }
 
 IProceduralColorTrack* PointSetAnimationController::CreateColorTrack( const AnimationTrack& type )
 {
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(PointSetProperty::Color.ToString(), type) : _trackColor)->AsProcedural();
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( PointSetProperty::Color.ToString(), type) )->AsProcedural();
 }
 
 IExpressionColorTrack* PointSetAnimationController::CreateColorTrack( IExpressionScript* script )
 {
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(PointSetProperty::Color.ToString(), script) : _trackColor)->AsExpression();
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( PointSetProperty::Color.ToString(), script) )->AsExpression();
 }
 
 IExpressionColorTrack* PointSetAnimationController::CreateColorTrack( const String& expression )
 {
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(PointSetProperty::Color.ToString(), expression) : _trackColor)->AsExpression();
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( PointSetProperty::Color.ToString(), expression) )->AsExpression();
+}
+
+void PointSetAnimationController::UpdateTracks()
+{
+	// Call base implementation.
+	PrimitiveAnimationControllerImpl<IPointSetAnimationController>::UpdateTracks();
+
+	_trackColor = GetTrack( _trackColor, PointSetProperty::Color );
 }
 
 

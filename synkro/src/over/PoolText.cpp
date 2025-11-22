@@ -48,9 +48,9 @@ PoolText::PoolText( BaseTextPool* pool, IContext* context, const ColorGradient& 
 {
 }
 
-ITextAnimationController* PoolText::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+ITextAnimationController* PoolText::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new TextAnimationController( this, _context->GetAnimationSystem(), animation, listener) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new TextAnimationController( this, _context->GetAnimationSystem(), animations, listener) : _ctrlAnimation;
 }
 
 void PoolText::Show( Bool show )

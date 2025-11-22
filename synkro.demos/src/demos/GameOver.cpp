@@ -12,22 +12,59 @@ public:
 
 	void InitScene() override
 	{
-		_spriteFlame = CreateAnimatedSprite( Point(1000, 400), L"flame.jpg", 8, 1.0 );
+		IOverlay* overlay = _synkro->GetOverlayManager()->GetOverlay( _window );
+
+		// Create sprite with aninmation sequence.
+		_spriteLogo = overlay->CreateSprite( GetImage(L"simon.jpg"), Point(100, 700), Size(300, 300) );
+		ISpriteAnimationController* ctrlSpriteLogo = _spriteLogo->CreateAnimationController( nullptr, nullptr );
+
+		// Animation #1.
+		IKeyframedFloatTrack* trackLocationX1 = ctrlSpriteLogo->CreateLocationXTrack();
+		trackLocationX1->SetKey( 0.0, 100.0f );
+		trackLocationX1->SetKey( 5.0, 900.0f );
+		IKeyframedFloatTrack* trackOrientation1 = ctrlSpriteLogo->CreateOrientationTrack();
+		trackOrientation1->SetKey( 0.0, 0.0f );
+		trackOrientation1->SetKey( 5.0, Math::TwoPi );
+		IKeyframedFloatTrack* trackOpacity1 = ctrlSpriteLogo->CreateOpacityTrack();
+		trackOpacity1->SetKey( 0.0, 1.0f );
+
+		// Animation #2.
+		ctrlSpriteLogo->GetAnimations()->CreateAnimation( L"FadeOut" );
+		IKeyframedFloatTrack* trackOpacity2 = ctrlSpriteLogo->CreateOpacityTrack();
+		trackOpacity2->SetKey( 0.0, 1.0f );
+		trackOpacity2->SetKey( 5.0, 0.0f );
+
+		// Animation #3.
+		ctrlSpriteLogo->GetAnimations()->CreateAnimation( L"Escape" );
+		IKeyframedFloatTrack* trackLocationX3 = ctrlSpriteLogo->CreateLocationXTrack();
+		trackLocationX3->SetKey( 0.0, 900.0f );
+		trackLocationX3->SetKey( 5.0, 2000.0f );
+		IKeyframedFloatTrack* trackOrientation3 = ctrlSpriteLogo->CreateOrientationTrack();
+		trackOrientation3->SetKey( 0.0, 0.0f );
+		trackOrientation3->SetKey( 5.0, Math::TwoPi );
+		IKeyframedFloatTrack* trackOpacity3 = ctrlSpriteLogo->CreateOpacityTrack();
+		trackOpacity3->SetKey( 0.0, 1.0f );
+
+		ctrlSpriteLogo->SetMode( AnimationMode::Loop );
+		ctrlSpriteLogo->SetSpeed( 2.0 );
+		ctrlSpriteLogo->Start( true );
 
 		// Create animated sprites.
-		_spriteRabbit = CreateAnimatedSprite( Point(100, 500), L"jumping_rabbit.bmp", 8, 5.0 );
+		_spriteFlame = CreateAnimatedSprite(Point(1000, 400), L"flame.jpg", 8, 1.0);
+
+		_spriteRabbit = CreateAnimatedSprite( Point(1200, 300), L"jumping_rabbit.bmp", 8, 5.0 );
 		ISpriteAnimationController* ctrlSpriteRabbit = _spriteRabbit->CreateAnimationController( nullptr, nullptr );
 		PtrWaveFloatTrack trackX0 = ctrlSpriteRabbit->CreateLocationXTrack( AnimationTrack::FloatWave )->AsWave();
 		trackX0->SetType( WaveType::Sine );
 		trackX0->SetPhase( Math::HalfPi );
 		trackX0->SetAmplitude( 50.0f );
-		trackX0->SetOffset( 100.0f );
+		trackX0->SetOffset( 1200.0f );
 		trackX0->SetFrequency( 5.0f );
 		trackX0->SetLength( 5.0 );
 		PtrWaveFloatTrack trackY0 = ctrlSpriteRabbit->CreateLocationYTrack( AnimationTrack::FloatWave )->AsWave();
 		trackY0->SetType( WaveType::Sine );
 		trackY0->SetAmplitude( 50.0f );
-		trackY0->SetOffset( 500.0f );
+		trackY0->SetOffset( 300.0f );
 		trackY0->SetFrequency( 5.0f );
 		trackY0->SetLength( 5.0 );
 		ctrlSpriteRabbit->SetMode( AnimationMode::Loop );
@@ -42,10 +79,9 @@ public:
 		// Create rotating text.
 		_synkro->GetOverlayManager()->CreateFont( L"text", _synkro->GetLanguage(), L"Arial", FontStyle::Bold, 20 );
 		_synkro->GetOverlayManager()->CreateFont( L"pool", _synkro->GetLanguage(), L"Tahoma", FontStyle::Normal, 14 );
-		IOverlay* overlay = _synkro->GetOverlayManager()->GetOverlay( _window );
 		IFont* font = overlay->GetFont( L"text" );
-		_textVersion = font->CreateText( ColorGradient(GradientType::Vertical, Color::Yellow, Color::Red), Point(500, 500), Version::Current.ToString(), Order::Highest, Order::High );
-
+		_textVersion = font->CreateText(ColorGradient(GradientType::Vertical, Color::Yellow, Color::Red), Point(500, 500), Version::Current.ToString(), Order::Highest, Order::High);
+		
 		ITextAnimationController* ctrlTextVersion = _textVersion->CreateAnimationController( nullptr, nullptr );
 		PtrWaveFloatTrack trackOrientation = ctrlTextVersion->CreateOrientationTrack( AnimationTrack::FloatWave )->AsWave();
 		trackOrientation->SetType( WaveType::SawtoothUp );
@@ -107,6 +143,7 @@ public:
 
 	void OnCredits( Bool active ) override
 	{
+		_spriteLogo->Show( !active );
 		_spriteFlame->Show( !active );
 		_spriteRabbit->Show( !active );
 		_spriteMan->Show( !active );
@@ -116,9 +153,7 @@ public:
 
 	ISprite* CreateAnimatedSprite( const Point& position, const String& name, UInt frameCount, Double length )
 	{
-		PixelFormat fmt = _window->GetClientPixelFormat();
-		IImage* image = _synkro->GetImageManager()->LoadImage( GetStream(name), fmt );
-
+		IImage* image = GetImage( name );
 		IOverlay* overlay = _synkro->GetOverlayManager()->GetOverlay( _window );
 		ISprite* sprite = overlay->CreateSprite( image, position, Size(image->GetWidth()/frameCount, image->GetHeight()) );
 
@@ -140,6 +175,7 @@ public:
 	}
 
 private:
+	PtrSprite												_spriteLogo;
 	PtrSprite												_spriteFlame;
 	PtrSprite												_spriteRabbit;
 	PtrSprite												_spriteMan;

@@ -41,7 +41,7 @@ public:
 	OmniLight( ISceneEx* scene, core::IContext* context, const lang::String& name );
 
 	// INode methods.
-	INodeAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// ILight methods.
 	void													Enable( Bool enable );

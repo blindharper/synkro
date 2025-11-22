@@ -38,14 +38,11 @@ class NodeAnimationControllerImpl :
 {
 public:
 	// Constructor & destructor.
-	NodeAnimationControllerImpl( INode* node, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	NodeAnimationControllerImpl( INode* node, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	virtual ~NodeAnimationControllerImpl();
 
 	// IController methods.
 	virtual void											Update( Double delta );
-
-	// IAnimationController methods.
-	virtual void											SetAnimation( anim::IAnimation* animation );
 
 	// INodeAnimationController methods.
 	virtual anim::IKeyframedMatrix4x4Track*					CreateTransformTrack();
@@ -108,6 +105,9 @@ public:
 	virtual ILightAnimationController*						AsLight() const;
 	virtual IMeshBatchAnimationController*					AsMeshBatch() const;
 	virtual ISoundAnimationController*						AsSound() const;
+
+	// Other methods.
+	virtual void											UpdateTracks();
 
 protected:
 	INode*													_node;

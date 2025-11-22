@@ -41,7 +41,7 @@ public:
 	MultiMaterial( UInt size );
 
 	// IVisualMaterial methods.
-	IVisualMaterialAnimationController*						CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	IVisualMaterialAnimationController*						CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	scene::ITriangleSet*									CreateTriangleList( scene::ITriangleMesh* mesh, UInt index, UInt vertexCount, UInt indexCount, Bool adjacency );
 	scene::ITriangleSet*									CreateTriangleStrip( scene::ITriangleMesh* mesh, UInt index, UInt vertexCount, UInt indexCount, Bool adjacency );
 	void													SetColored( Bool colored );

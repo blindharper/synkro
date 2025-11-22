@@ -87,9 +87,9 @@ Viewport::~Viewport()
 	_viewportManager->RemoveViewport( this );
 }
 
-IViewportAnimationController* Viewport::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IViewportAnimationController* Viewport::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new ViewportAnimationController( this, _context->GetAnimationSystem(), animation, listener) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new ViewportAnimationController( this, _context->GetAnimationSystem(), animations, listener) : _ctrlAnimation;
 }
 
 IViewportFilter* Viewport::CreateFilter( const ViewportFilter& type )

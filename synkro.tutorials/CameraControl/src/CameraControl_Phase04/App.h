@@ -106,7 +106,6 @@ private:
 	PtrButton												_btnPlayAnimation;
 
 	PtrAnimationSet											_animationSet;
-	PtrAnimation											_animation;
 	PtrCameraRecordController								_ctrlRecord;
 	PtrStream												_animStream;
 

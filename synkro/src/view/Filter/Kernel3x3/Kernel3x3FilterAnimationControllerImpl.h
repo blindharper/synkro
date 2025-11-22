@@ -34,13 +34,10 @@ class Kernel3x3FilterAnimationControllerImpl :
 {
 public:
 	// Constructor.
-	Kernel3x3FilterAnimationControllerImpl( IKernel3x3Filter* kernel3x3Filter, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	Kernel3x3FilterAnimationControllerImpl( IKernel3x3Filter* kernel3x3Filter, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	virtual void											Update( Double delta );
-
-	// IAnimationController methods.
-	virtual void											SetAnimation( anim::IAnimation* animation );
 
 	// IViewportFilterAnimationController methods.
 	virtual IKernel3x3FilterAnimationController*			AsKernel3x3() const;
@@ -48,6 +45,9 @@ public:
 	// IKernel3x3FilterAnimationController methods.
 	virtual anim::IKeyframedIntTrack*						CreatePassCountTrack();
 	virtual IEmbossFilterAnimationController*				AsEmboss() const;
+
+	// Other methods.
+	virtual void											UpdateTracks();
 
 protected:
 	IKernel3x3Filter*										_kernel3x3Filter;

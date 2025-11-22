@@ -46,7 +46,7 @@ SoftTriangleSet::SoftTriangleSet( SoftTriangleSet* base, UInt vertexCount, UInt 
 	Resize( vertexCount, indexCount );
 }
 
-IPrimitiveAnimationController* SoftTriangleSet::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IPrimitiveAnimationController* SoftTriangleSet::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
 	return nullptr;
 }

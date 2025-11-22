@@ -33,13 +33,10 @@ class SceneAnimationController :
 {
 public:
 	// Constructor.
-	SceneAnimationController( ISceneEx* scene, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	SceneAnimationController( ISceneEx* scene, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// ISceneAnimationController methods.
 	anim::IKeyframedColorTrack*								CreateAmbientLightColorTrack();
@@ -50,6 +47,9 @@ public:
 	anim::IProceduralFloatTrack*							CreateAmbientLightIntensityTrack( const anim::AnimationTrack& type );
 	anim::IExpressionFloatTrack*							CreateAmbientLightIntensityTrack( anim::IExpressionScript* script );
 	anim::IExpressionFloatTrack*							CreateAmbientLightIntensityTrack( const lang::String& expression );
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	ISceneEx*												_scene;

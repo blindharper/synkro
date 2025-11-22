@@ -55,7 +55,7 @@ public:
 	virtual ~VisualMaterialImpl();
 
 	// IVisualMaterial methods.
-	virtual IVisualMaterialAnimationController*				CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	virtual IVisualMaterialAnimationController*				CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	virtual scene::ITriangleSet*							CreateTriangleList( scene::ITriangleMesh* mesh, UInt index, UInt vertexCount, UInt indexCount, Bool adjacency );
 	virtual scene::ITriangleSet*							CreateTriangleStrip( scene::ITriangleMesh* mesh, UInt index, UInt vertexCount, UInt indexCount, Bool adjacency );
 	virtual void											SetColored( Bool colored );

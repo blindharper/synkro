@@ -57,8 +57,8 @@ private:
 	PtrOpaqueMaterial										_materialMetal;
 	PtrOpaqueMaterial										_materialRed;
 
-	PtrAnimation											_animationAnalog;
-	PtrAnimation											_animationDigital;
+	PtrAnimationSet											_animationsAnalog;
+	PtrAnimationSet											_animationsDigital;
 	lang::String											_yawTrackName;
 
 	mat::IOpaqueMaterial*									CreateMaterial( const img::Color& color );

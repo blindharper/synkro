@@ -11,11 +11,11 @@
 // Purpose: Generic mesh batch animation controller implementation.
 //==============================================================================
 template <class T, class B>
-SYNKRO_INLINE MeshBatchAnimationControllerImpl<T,B>::MeshBatchAnimationControllerImpl( B* batch, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener ) :
-	NodeAnimationControllerImpl<T>( batch, animationSystem, animation, listener ),
-	_batch( batch )
+SYNKRO_INLINE MeshBatchAnimationControllerImpl<T,B>::MeshBatchAnimationControllerImpl( B* batch, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener ) :
+	NodeAnimationControllerImpl<T>( batch, animationSystem, animations, listener ),
+	_batch( batch ),
+	_trackRange( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 template <class T, class B>
@@ -33,18 +33,9 @@ SYNKRO_INLINE void MeshBatchAnimationControllerImpl<T,B>::Update( Double delta )
 	if ( _trackRange != nullptr )
 	{
 		lang::Range range;
-		_trackRange->GetValue( _time, range );
+		_trackRange->GetValue( CurrentTime(), range );
 		_batch->SetRange( range );
 	}
-}
-
-template <class T, class B>
-SYNKRO_INLINE void MeshBatchAnimationControllerImpl<T, B>::SetAnimation( anim::IAnimation* animation )
-{
-	// Call base implementation.
-	NodeAnimationControllerImpl<T>::SetAnimation( animation );
-
-	_trackRange = GetTrack( _trackRange, MeshBatchProperty::Range );
 }
 
 template <class T, class B>
@@ -56,5 +47,14 @@ SYNKRO_INLINE IMeshBatchAnimationController* MeshBatchAnimationControllerImpl<T,
 template <class T, class B>
 SYNKRO_INLINE anim::IKeyframedRangeTrack* MeshBatchAnimationControllerImpl<T,B>::CreateRangeTrack()
 {
-	return (_trackRange = (_trackRange == nullptr) ? _animation->CreateRangeTrack(MeshBatchProperty::Range.ToString()) : _trackRange)->AsKeyframed();
+	return (_trackRange = _animations->GetActiveAnimation()->CreateRangeTrack( MeshBatchProperty::Range.ToString()) )->AsKeyframed();
+}
+
+template <class T, class B>
+SYNKRO_INLINE void MeshBatchAnimationControllerImpl<T, B>::UpdateTracks()
+{
+	// Call base implementation.
+	NodeAnimationControllerImpl<T>::UpdateTracks();
+
+	_trackRange = GetTrack( _trackRange, MeshBatchProperty::Range );
 }

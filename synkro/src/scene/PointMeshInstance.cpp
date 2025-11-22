@@ -51,9 +51,9 @@ PointMeshInstance::~PointMeshInstance()
 	_batch->RemoveInstance( _index );
 }
 
-INodeAnimationController* PointMeshInstance::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* PointMeshInstance::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new NodeAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new NodeAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 IParentConstraint* PointMeshInstance::CreateParentConstraint( INode* parent, const Matrix4x4& transform )

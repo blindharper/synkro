@@ -34,7 +34,7 @@ class Kernel3x3FilterAnimationController :
 {
 public:
 	// Constructor.
-	Kernel3x3FilterAnimationController( IKernel3x3Filter* kernel3x3Filter, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	Kernel3x3FilterAnimationController( IKernel3x3Filter* kernel3x3Filter, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 };
 
 

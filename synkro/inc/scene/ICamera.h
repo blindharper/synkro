@@ -35,10 +35,10 @@ iface ICamera :
 public:
 	/**
 	 * Creates camera record controller.
-	 * @param animation Animation to record.
+	 * @param animations Animation sequence to record.
 	 * @return Created controller.
 	 */
-	virtual ICameraRecordController*						CreateRecordController( anim::IAnimation* animation ) = 0;
+	virtual ICameraRecordController*						CreateRecordController( anim::IAnimationSet* animations ) = 0;
 
 	/**
 	 * Sets camera horizontal field of view.

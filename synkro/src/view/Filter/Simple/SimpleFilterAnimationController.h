@@ -33,13 +33,10 @@ class SimpleFilterAnimationController :
 {
 public:
 	// Constructor.
-	SimpleFilterAnimationController( ISimpleFilter* simpleFilter, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	SimpleFilterAnimationController( ISimpleFilter* simpleFilter, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// IViewportFilterAnimationController methods.
 	ISimpleFilterAnimationController*						AsSimple() const;
@@ -47,6 +44,9 @@ public:
 	// ISimpleFilterAnimationController methods.
 	anim::IKeyframedFloatTrack*								CreateValueTrack();
 	anim::IProceduralFloatTrack*							CreateValueTrack( const anim::AnimationTrack& type );
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	ISimpleFilter*											_simpleFilter;

@@ -13,7 +13,6 @@
 #include "config.h"
 #include "AnimationSystem.h"
 #include "AnimationSet.h"
-#include "Animation.h"
 #include "Expression/ExpressionScript.h"
 #include "Task/SaveAnimationTask.h"
 #include "BaseAnimationController.h"
@@ -124,16 +123,6 @@ IAnimationSet* AnimationSystem::CreateAnimationSet( const String& name )
 	return new AnimationSet( this, name );
 }
 
-IAnimation* AnimationSystem::CreateAnimation( const String& name )
-{
-	return new Animation( this, name );
-}
-
-IAnimation* AnimationSystem::CreateAnimation()
-{
-	return CreateAnimation( String::Empty );
-}
-
 IExpressionScript* AnimationSystem::CreateScript( const String& expression )
 {
 	ExpressionScript* scr = new ExpressionScript( GetCompiler(), expression );
@@ -178,6 +167,20 @@ IAnimationSet* AnimationSystem::LoadAnimation( IStream* stream )
 		return LoadAnimation( stream, AnimationCodec(type) );
 	}
 	return nullptr;
+}
+
+void AnimationSystem::RemoveController( IRecordAnimationController* controller )
+{
+	assert( controller != nullptr );
+
+	for ( UInt i = 0; i < _recordControllers.Size(); ++i )
+	{
+		if ( _recordControllers[i].Controller == controller )
+		{
+			_recordControllers.Remove( i );
+			break;
+		}
+	}
 }
 
 IExpressionScript* AnimationSystem::CreateScriptInternal( const String& expression )
@@ -250,20 +253,6 @@ void AnimationSystem::SaveAnimationAsync( const IAnimationSet* animation, IStrea
 	if ( !type.IsEmpty() )
 	{
 		SaveAnimationAsync( animation, stream, AnimationCodec(type) );
-	}
-}
-
-void AnimationSystem::RemoveController( IRecordAnimationController* controller )
-{
-	assert( controller != nullptr );
-
-	for ( UInt i = 0; i < _recordControllers.Size(); ++i )
-	{
-		if ( _recordControllers[i].Controller == controller )
-		{
-			_recordControllers.Remove( i );
-			break;
-		}
 	}
 }
 

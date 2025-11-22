@@ -33,13 +33,10 @@ class ViewportAnimationController :
 {
 public:
 	// Constructor.
-	ViewportAnimationController( IViewport* viewport, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	ViewportAnimationController( IViewport* viewport, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// IViewportAnimationController methods.
 	anim::IKeyframedPointTrack*								CreateLocationTrack();
@@ -49,6 +46,9 @@ public:
 	anim::IProceduralColorTrack*							CreateColorTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedFloatTrack*								CreateOpacityTrack();
 	anim::IProceduralFloatTrack*							CreateOpacityTrack( const anim::AnimationTrack& type );
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	IViewport*												_viewport;

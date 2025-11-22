@@ -44,9 +44,9 @@ TransparentMaterialInstance::TransparentMaterialInstance( IContext* context, ITr
 {
 }
 
-IVisualMaterialAnimationController* TransparentMaterialInstance::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IVisualMaterialAnimationController* TransparentMaterialInstance::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new TransparentMaterialAnimationController( this, _context->GetAnimationSystem(), animation, listener) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new TransparentMaterialAnimationController( this, _context->GetAnimationSystem(), animations, listener) : _ctrlAnimation;
 }
 
 void TransparentMaterialInstance::SetLightingModel( const LightingModel& model )

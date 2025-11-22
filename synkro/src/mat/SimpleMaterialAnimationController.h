@@ -33,7 +33,7 @@ class SYNKRO_API SimpleMaterialAnimationController :
 {
 public:
 	// Constructor.
-	SimpleMaterialAnimationController( ISimpleMaterial* material, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	SimpleMaterialAnimationController( ISimpleMaterial* material, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 };
 
 

@@ -41,7 +41,7 @@ SYNKRO_INLINE TriangleSetImpl<T>::~TriangleSetImpl()
 }
 
 template <class T>
-SYNKRO_INLINE IPrimitiveAnimationController* TriangleSetImpl<T>::CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener )
+SYNKRO_INLINE IPrimitiveAnimationController* TriangleSetImpl<T>::CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener )
 {
 	return nullptr;
 }

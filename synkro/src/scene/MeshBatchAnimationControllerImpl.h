@@ -38,20 +38,20 @@ class MeshBatchAnimationControllerImpl :
 {
 public:
 	// Constructor & destructor.
-	MeshBatchAnimationControllerImpl( B* batch, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	MeshBatchAnimationControllerImpl( B* batch, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	virtual ~MeshBatchAnimationControllerImpl();
 
 	// IController methods.
 	virtual void											Update( Double delta );
-
-	// IAnimationController methods.
-	virtual void											SetAnimation( anim::IAnimation* animation );
 
 	// INodeAnimationController methods.
 	virtual IMeshBatchAnimationController*					AsMeshBatch() const;
 
 	// IMeshBatchAnimationController methods.
 	virtual anim::IKeyframedRangeTrack*						CreateRangeTrack();
+
+	// Other methods.
+	virtual void											UpdateTracks();
 
 protected:
 	B*														_batch;

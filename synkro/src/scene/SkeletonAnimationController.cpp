@@ -38,7 +38,7 @@ namespace scene
 
 
 SkeletonAnimationController::SkeletonAnimationController( ISkeleton* skeleton, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
-	PlaybackControllerImpl<ISkeletonAnimationController>( animationSystem, (animations != nullptr) ? animations->GetAnimation(0) : skeleton->GetAnimationSet(0)->GetAnimation(0), listener ),
+	PlaybackControllerImpl<ISkeletonAnimationController>( animationSystem, (animations != nullptr) ? animations : skeleton->GetAnimationSet(0), listener ),
 	_bones( A(BoneDesc), skeleton->GetBoneCount() ),
 	_weights( A(WeightInfo) ),
 	_skeleton( skeleton )
@@ -48,6 +48,35 @@ SkeletonAnimationController::SkeletonAnimationController( ISkeleton* skeleton, I
 	// Activate default animation set.
 	IAnimationSet* set = (animations != nullptr) ? animations : _skeleton->GetAnimationSet( 0 );
 	SetBonesTracks( set );
+}
+
+void SkeletonAnimationController::Start( Bool start )
+{
+	switch ( _state )
+	{
+		case core::CONTROLLER_STATE_INACTIVE:
+			if ( start )
+			{
+				_iteration = 0;
+				_time = _offset;
+				_length = _animations->GetAnimation(0)->GetLength();
+				_state = core::ControllerState::Active;
+				_dir = (_direction == AnimationDirection::Reverse) ? -1.0 : 1.0;
+			}
+			break;
+
+		default:
+			if ( !start )
+			{
+				_time = _animations->GetAnimation(0)->GetLength();
+				_state = core::ControllerState::Inactive;
+				if ( _listener != nullptr )
+				{
+					_animationSystem->AddStopEvent( this, _listener );
+				}
+			}
+			break;
+	}
 }
 
 void SkeletonAnimationController::Update( Double delta )
@@ -71,7 +100,7 @@ void SkeletonAnimationController::Update( Double delta )
 			const Double s = (_time - info.FromTime)/(info.ToTime - info.FromTime);
 			weight = Lerp( info.FromWeight, info.ToWeight, s );
 		}
-		_animationSet->SetWeight( info.Index, weight );
+		_animations->SetWeight( info.Index, weight );
 	}
 	if ( weightsToDelete == _weights.Size() )
 	{
@@ -119,12 +148,16 @@ void SkeletonAnimationController::Update( Double delta )
 	}
 }
 
+void SkeletonAnimationController::SetAnimations( IAnimationSet* animations )
+{
+	throw InvalidOperationException( L"Animations can be assigned either by index or by name." );
+}
+
 void SkeletonAnimationController::SetAnimationSet( UInt index )
 {
 	IAnimationSet* set = _skeleton->GetAnimationSet( index );
 	SetBonesTracks( set );
 	Reset();
-	_animation = set->GetAnimation( 0 );
 }
 
 void SkeletonAnimationController::SetAnimationSet( const String& name )
@@ -135,13 +168,12 @@ void SkeletonAnimationController::SetAnimationSet( const String& name )
 
 	SetBonesTracks( set );
 	Reset();
-	_animation = set->GetAnimation( 0 );
 }
 
 void SkeletonAnimationController::SetAnimationSetWeight( const String& name, Float weight, Double delta )
 {
 	// NB:
-	/*if ( _animationSet!=nullptr )
+	/*if ( _animations != nullptr )
 	{
 		for ( UInt i = 0; i < _skeleton->GetAnimationSetCount(); ++i )
 		{
@@ -157,7 +189,7 @@ void SkeletonAnimationController::SetAnimationSetWeight( const String& name, Flo
 						return;
 					}
 				}
-				Float fromWeight = _animationSet->GetWeight( i );
+				Float fromWeight = _animations->GetWeight( i );
 				_weights.Add( WeightInfo(i, fromWeight, weight, _time, _time+delta) );
 			}
 		}
@@ -167,19 +199,74 @@ void SkeletonAnimationController::SetAnimationSetWeight( const String& name, Flo
 Float SkeletonAnimationController::GetAnimationSetWeight( const String& name ) const
 {
 	// NB:
-	/*if ( _animationSet!=nullptr )
+	/*if ( _animations != nullptr )
 	{
 		for ( UInt i = 0; i < _skeleton->GetAnimationSetCount(); ++i )
 		{
 			if ( _skeleton->GetAnimationSet(i)->GetName() == name )
-				return _animationSet->GetWeight( i );
+				return _animations->GetWeight( i );
 		}
 	}*/
 	return 0.0f;
 }
 
+void SkeletonAnimationController::PostUpdate()
+{
+	if ( (_time > _length) || (_time < 0.0) )
+	{
+		switch ( _mode )
+		{
+			case ANIMATION_MODE_SINGLE:
+				Start( false );
+				break;
+
+			case ANIMATION_MODE_LOOP:
+				if ( (++_iteration < _loopCount) || (_loopCount == 0) )
+				{
+					if ( _length != 0.0 )
+					{
+						if ( _direction == AnimationDirection::Forward )
+						{
+							ControllerImpl<ISkeletonAnimationController>::Reset();
+						}
+						else if ( _direction == AnimationDirection::Reverse )
+						{
+							_time = _length;
+						}
+					}
+					if ( _listener != nullptr )
+					{
+						_animationSystem->AddLoopEvent( this, _listener );
+					}
+				}
+				else
+				{
+					Start( false );
+				}
+				break;
+
+			case ANIMATION_MODE_PING_PONG:
+				if ( (++_iteration < _loopCount) || (_loopCount == 0) )
+				{
+					_time = (_time > _length) ? _length : 0.0;
+					_dir = (_time == 0.0) ? 1.0 : -1.0;
+					if ( _listener != nullptr )
+					{
+						_animationSystem->AddLoopEvent( this, _listener );
+					}
+				}
+				else
+				{
+					Start( false );
+				}
+				break;
+		}
+	}
+}
+
 void SkeletonAnimationController::SetBonesTracks( IAnimationSet* set )
 {
+	_animations = set;
 	IAnimationTrack* track = nullptr;
 	_bones.Clear();
 	for ( UInt i = 0; i < _skeleton->GetBoneCount(); ++i )

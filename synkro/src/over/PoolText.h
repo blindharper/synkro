@@ -43,7 +43,7 @@ public:
 	PoolText( BaseTextPool* pool, core::IContext* context, const img::ColorGradient& gradient, const lang::Point& location, const lang::String& text );
 
 	// IText methods.
-	ITextAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	ITextAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	void													Show( Bool show );
 	void													Clear();
 	void													Wrap( Bool wrap );

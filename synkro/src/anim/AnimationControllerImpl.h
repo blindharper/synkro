@@ -17,6 +17,7 @@
 #include "config.h"
 #include <core/ControllerImpl.h>
 #include <anim/IAnimation.h>
+#include <anim/IAnimationSet.h>
 #include <anim/IAnimationSystem.h>
 #include <anim/IKeyframedBoolTrack.h>
 #include <anim/IKeyframedColorTrack.h>
@@ -75,16 +76,16 @@ class AnimationControllerImpl :
 {
 public:
 	// Constructor & destructor.
-	AnimationControllerImpl( IAnimationSystem* animationSystem, IAnimation* animation );
+	AnimationControllerImpl( IAnimationSystem* animationSystem, IAnimationSet* animations );
 	virtual ~AnimationControllerImpl();
 
 	// IAnimationController methods.
-	virtual void											SetAnimation( IAnimation* animation );
-	virtual IAnimation*										GetAnimation() const;
+	virtual void											SetAnimations( IAnimationSet* animations );
+	virtual IAnimationSet*									GetAnimations() const;
 
 protected:
 	BaseAnimationSystem*									_animationSystem;
-	P(IAnimation)											_animation;
+	P(IAnimationSet)										_animations;
 };
 
 

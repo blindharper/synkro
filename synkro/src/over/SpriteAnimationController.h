@@ -33,13 +33,10 @@ class SpriteAnimationController :
 {
 public:
 	// Constructor.
-	SpriteAnimationController( ISprite* sprite, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	SpriteAnimationController( ISprite* sprite, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// ISpriteAnimationController methods.
 	anim::IKeyframedPointTrack*								CreateLocationTrack();
@@ -54,6 +51,9 @@ public:
 	anim::IProceduralFloatTrack*							CreateOpacityTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedFloatRectTrack*							CreateFrameTrack();
 	anim::IKeyframedBoolTrack*								CreateVisibilityTrack();
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	ISprite*												_sprite;

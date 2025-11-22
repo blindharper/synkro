@@ -33,11 +33,15 @@ namespace view
 {
 
 
-ViewportAnimationController::ViewportAnimationController( IViewport* viewport, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	PlaybackControllerImpl<IViewportAnimationController>( animationSystem, animation, listener ),
-	_viewport( viewport )
+ViewportAnimationController::ViewportAnimationController( IViewport* viewport, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	PlaybackControllerImpl<IViewportAnimationController>( animationSystem, animations, listener ),
+	_viewport( viewport ),
+	_trackLocation( nullptr ),
+	_trackSize( nullptr ),
+	_trackRect( nullptr ),
+	_trackColor( nullptr ),
+	_trackOpacity( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void ViewportAnimationController::Update( Double delta )
@@ -48,84 +52,81 @@ void ViewportAnimationController::Update( Double delta )
 	if ( _trackLocation != nullptr )
 	{
 		Point location;
-		_trackLocation->GetValue( _time, location );
+		_trackLocation->GetValue( CurrentTime(), location );
 		_viewport->SetLocation( location );
 	}
 
 	if ( _trackSize != nullptr )
 	{
 		Size size;
-		_trackSize->GetValue( _time, size );
+		_trackSize->GetValue( CurrentTime(), size );
 		_viewport->SetSize( size );
 	}
 
 	if ( _trackRect != nullptr )
 	{
 		Rect rect;
-		_trackRect->GetValue( _time, rect );
+		_trackRect->GetValue( CurrentTime(), rect );
 		_viewport->SetRect( rect );
 	}
 
 	if ( _trackColor != nullptr )
 	{
 		Color color;
-		_trackColor->GetValue( _time, color );
+		_trackColor->GetValue( CurrentTime(), color );
 		_viewport->SetColor( color );
 	}
 
 	if ( _trackOpacity != nullptr )
 	{
 		Float opacity;
-		_trackOpacity->GetValue( _time, opacity );
+		_trackOpacity->GetValue( CurrentTime(), opacity );
 		_viewport->SetOpacity( opacity );
 	}
 }
 
-void ViewportAnimationController::SetAnimation( IAnimation* animation )
+IKeyframedPointTrack* ViewportAnimationController::CreateLocationTrack()
 {
-	// Call base implementation.
-	PlaybackControllerImpl<IViewportAnimationController>::SetAnimation( animation );
+	return (_trackLocation = _animations->GetActiveAnimation()->CreatePointTrack( ViewportProperty::Location.ToString()) )->AsKeyframed();
+}
 
+IKeyframedSizeTrack* ViewportAnimationController::CreateSizeTrack()
+{
+	return (_trackSize = _animations->GetActiveAnimation()->CreateSizeTrack( ViewportProperty::Size.ToString()) )->AsKeyframed();
+}
+
+IKeyframedRectTrack* ViewportAnimationController::CreateRectTrack()
+{
+	return (_trackRect = _animations->GetActiveAnimation()->CreateRectTrack( ViewportProperty::Rect.ToString()) )->AsKeyframed();
+}
+
+IKeyframedColorTrack* ViewportAnimationController::CreateColorTrack()
+{
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( ViewportProperty::Color.ToString()) )->AsKeyframed();
+}
+
+IProceduralColorTrack* ViewportAnimationController::CreateColorTrack( const AnimationTrack& type )
+{
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( ViewportProperty::Color.ToString(), type) )->AsProcedural();
+}
+
+IKeyframedFloatTrack* ViewportAnimationController::CreateOpacityTrack()
+{
+	return (_trackOpacity = _animations->GetActiveAnimation()->CreateFloatTrack( ViewportProperty::Opacity.ToString()) )->AsKeyframed();
+}
+
+IProceduralFloatTrack* ViewportAnimationController::CreateOpacityTrack( const AnimationTrack& type )
+{
+	return (_trackOpacity = _animations->GetActiveAnimation()->CreateFloatTrack( ViewportProperty::Opacity.ToString(), type) )->AsProcedural();
+}
+
+void ViewportAnimationController::UpdateTracks()
+{
 	_trackLocation	= GetTrack( _trackLocation, ViewportProperty::Location );
 	_trackSize		= GetTrack( _trackSize, ViewportProperty::Size );
 	_trackRect		= GetTrack( _trackRect, ViewportProperty::Rect );
 	_trackColor		= GetTrack( _trackColor, ViewportProperty::Color );
 	_trackOpacity	= GetTrack( _trackOpacity, ViewportProperty::Opacity );
-}
-
-IKeyframedPointTrack* ViewportAnimationController::CreateLocationTrack()
-{
-	return (_trackLocation = (_trackLocation == nullptr) ? _animation->CreatePointTrack(ViewportProperty::Location.ToString()) : _trackLocation)->AsKeyframed();
-}
-
-IKeyframedSizeTrack* ViewportAnimationController::CreateSizeTrack()
-{
-	return (_trackSize = (_trackSize == nullptr) ? _animation->CreateSizeTrack(ViewportProperty::Size.ToString()) : _trackSize)->AsKeyframed();
-}
-
-IKeyframedRectTrack* ViewportAnimationController::CreateRectTrack()
-{
-	return (_trackRect = (_trackRect == nullptr) ? _animation->CreateRectTrack(ViewportProperty::Rect.ToString()) : _trackRect)->AsKeyframed();
-}
-
-IKeyframedColorTrack* ViewportAnimationController::CreateColorTrack()
-{
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(ViewportProperty::Color.ToString()) : _trackColor)->AsKeyframed();
-}
-
-IProceduralColorTrack* ViewportAnimationController::CreateColorTrack( const AnimationTrack& type )
-{
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(ViewportProperty::Color.ToString(), type) : _trackColor)->AsProcedural();
-}
-
-IKeyframedFloatTrack* ViewportAnimationController::CreateOpacityTrack()
-{
-	return (_trackOpacity = (_trackOpacity == nullptr) ? _animation->CreateFloatTrack(ViewportProperty::Opacity.ToString()) : _trackOpacity)->AsKeyframed();
-}
-
-IProceduralFloatTrack* ViewportAnimationController::CreateOpacityTrack( const AnimationTrack& type )
-{
-	return (_trackOpacity = (_trackOpacity == nullptr) ? _animation->CreateFloatTrack(ViewportProperty::Opacity.ToString(), type) : _trackOpacity)->AsProcedural();
 }
 
 

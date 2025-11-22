@@ -74,9 +74,9 @@ Music::~Music()
 	SafeDelete( _soundContext );
 }
 
-IMusicAnimationController* Music::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IMusicAnimationController* Music::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new MusicAnimationController( this, _context->GetAnimationSystem(), animation, listener) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new MusicAnimationController( this, _context->GetAnimationSystem(), animations, listener) : _ctrlAnimation;
 }
 
 void Music::Play( Bool play )

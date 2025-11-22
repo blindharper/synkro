@@ -10,7 +10,7 @@
 //
 // Purpose: Default triangle mesh implementation.
 //==============================================================================
-SYNKRO_INLINE INodeAnimationController* DefaultTriangleMesh::CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener )
+SYNKRO_INLINE INodeAnimationController* DefaultTriangleMesh::CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener )
 {
 	return nullptr;
 }

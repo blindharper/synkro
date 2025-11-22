@@ -49,7 +49,7 @@ public:
 	Text( BaseTextPool* pool, BaseFont* font, core::IContext* context, gfx::IOverlayRenderQueue* queue, const Order& groupOrder, const Order& order, const lang::Point& location, const lang::String& text, const img::ColorGradient& gradient );
 
 	// IText methods.
-	ITextAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	ITextAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	void													Show( Bool show );
 	void													Clear();
 	void													Wrap( Bool wrap );

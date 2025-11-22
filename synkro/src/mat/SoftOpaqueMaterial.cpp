@@ -69,7 +69,7 @@ SoftOpaqueMaterial::SoftOpaqueMaterial( const SoftOpaqueMaterial& other ) :
 	SetSpecularPower( other.GetSpecularPower() );
 }
 
-IVisualMaterialAnimationController* SoftOpaqueMaterial::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IVisualMaterialAnimationController* SoftOpaqueMaterial::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
 	return nullptr;
 }

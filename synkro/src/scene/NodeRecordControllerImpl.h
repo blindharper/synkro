@@ -40,7 +40,7 @@ class NodeRecordControllerImpl :
 {
 public:
 	// Constructors & destructor.
-	NodeRecordControllerImpl( INode* node, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation );
+	NodeRecordControllerImpl( INode* node, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations );
 	virtual ~NodeRecordControllerImpl();
 
 	// IController methods.

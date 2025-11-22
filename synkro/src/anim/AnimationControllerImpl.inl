@@ -11,13 +11,17 @@
 // Purpose: Generic animation controller implementation.
 //==============================================================================
 template <class T>
-SYNKRO_INLINE AnimationControllerImpl<T>::AnimationControllerImpl( IAnimationSystem* animationSystem, IAnimation* animation )
+SYNKRO_INLINE AnimationControllerImpl<T>::AnimationControllerImpl( IAnimationSystem* animationSystem, IAnimationSet* animations )
 {
 	if ( animationSystem == nullptr )
 		throw lang::InvalidOperationException( L"Animation system is disabled." );
 
 	_animationSystem = AsBaseAnimationSystem( animationSystem );
-	_animation = (animation != nullptr) ? animation : animationSystem->CreateAnimation();
+	_animations = (animations != nullptr) ? animations : animationSystem->CreateAnimationSet( L"Default" );
+	if ( _animations->GetActiveAnimation() == nullptr )
+	{
+		_animations->CreateAnimation( L"Default" );
+	}
 	_animationSystem->AddController( this );
 }
 
@@ -28,18 +32,21 @@ SYNKRO_INLINE AnimationControllerImpl<T>::~AnimationControllerImpl()
 }
 
 template <class T>
-SYNKRO_INLINE void AnimationControllerImpl<T>::SetAnimation( IAnimation* animation )
+SYNKRO_INLINE void AnimationControllerImpl<T>::SetAnimations( IAnimationSet* animations )
 {
-	assert( animation != nullptr );
+	assert( animations != nullptr );
 
-	if ( animation == nullptr )
-		throw lang::BadArgumentException( L"Bad animation", L"animation", L"nullptr" );
+	if ( animations == nullptr )
+		throw lang::BadArgumentException( L"Bad animation sequence", L"animations", L"nullptr" );
 
-	_animation = animation;
+	if ( animations->GetAnimationCount() == 0 )
+		throw lang::BadArgumentException( L"Empty animation sequence", L"animations", L"0" );
+
+	_animations = animations;
 }
 
 template <class T>
-SYNKRO_INLINE IAnimation* AnimationControllerImpl<T>::GetAnimation() const
+SYNKRO_INLINE IAnimationSet* AnimationControllerImpl<T>::GetAnimations() const
 {
-	return _animation;
+	return _animations;
 }

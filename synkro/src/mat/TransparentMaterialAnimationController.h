@@ -34,13 +34,10 @@ class SYNKRO_API TransparentMaterialAnimationController :
 {
 public:
 	// Constructor.
-	TransparentMaterialAnimationController( ITransparentMaterial* transparentMaterial, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	TransparentMaterialAnimationController( ITransparentMaterial* transparentMaterial, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// ISimpleMaterialAnimationController methods.
 	ITransparentMaterialAnimationController*				AsTransparent() const;
@@ -50,6 +47,9 @@ public:
 	anim::IProceduralFloatTrack*							CreateOpacityTrack( const anim::AnimationTrack& type );
 	anim::IExpressionFloatTrack*							CreateOpacityTrack( anim::IExpressionScript* script );
 	anim::IExpressionFloatTrack*							CreateOpacityTrack( const lang::String& expression );
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	ITransparentMaterial*									_transparentMaterial;

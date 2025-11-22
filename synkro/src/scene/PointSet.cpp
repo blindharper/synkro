@@ -67,9 +67,9 @@ PointSet::PointSet( IContext* context, ILineRenderObject* object, UInt start, UI
 	}
 }
 
-IPrimitiveAnimationController* PointSet::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IPrimitiveAnimationController* PointSet::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new PointSetAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new PointSetAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 void PointSet::SetInstanceTransform( UInt index, const Matrix4x4& transform )

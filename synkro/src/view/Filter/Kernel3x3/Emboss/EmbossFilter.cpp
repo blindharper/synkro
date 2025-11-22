@@ -44,9 +44,9 @@ EmbossFilter::EmbossFilter( IViewport* viewport, IAnimationSystem* animationSyst
 	SetAngle( 0.0f );
 }
 
-IViewportFilterAnimationController* EmbossFilter::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IViewportFilterAnimationController* EmbossFilter::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new EmbossFilterAnimationController( this, _animationSystem, animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new EmbossFilterAnimationController( this, _animationSystem, animations, listener ) : _ctrlAnimation;
 }
 
 void EmbossFilter::SetAngle( Float angle )

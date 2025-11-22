@@ -34,11 +34,12 @@ namespace scene
 {
 
 
-SceneAnimationController::SceneAnimationController( ISceneEx* scene, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	PlaybackControllerImpl<ISceneAnimationController>( animationSystem, animation, listener ),
-	_scene( scene )
+SceneAnimationController::SceneAnimationController( ISceneEx* scene, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	PlaybackControllerImpl<ISceneAnimationController>( animationSystem, animations, listener ),
+	_scene( scene ),
+	_trackAmbientColor( nullptr ),
+	_trackAmbientIntensity( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void SceneAnimationController::Update( Double delta )
@@ -50,65 +51,62 @@ void SceneAnimationController::Update( Double delta )
 	if ( _trackAmbientColor != nullptr )
 	{
 		Color color;
-		_trackAmbientColor->GetValue( _time, color );
+		_trackAmbientColor->GetValue( CurrentTime(), color );
 		_scene->SetAmbientLightColor( color );
 	}
 
 	if ( _trackAmbientIntensity != nullptr )
 	{
 		Float intensity;
-		_trackAmbientIntensity->GetValue( _time, intensity );
+		_trackAmbientIntensity->GetValue( CurrentTime(), intensity );
 		_scene->SetAmbientLightIntensity( intensity );
 	}
 }
 
-void SceneAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	PlaybackControllerImpl<ISceneAnimationController>::SetAnimation( animation );
-
-	_trackAmbientColor		= GetTrack( _trackAmbientColor, SceneProperty::AmbientLightColor );
-	_trackAmbientIntensity	= GetTrack( _trackAmbientIntensity, SceneProperty::AmbientLightIntensity );
-}
-
 IKeyframedColorTrack* SceneAnimationController::CreateAmbientLightColorTrack()
 {
-	return (_trackAmbientColor = (_trackAmbientColor == nullptr) ? _animation->CreateColorTrack(SceneProperty::AmbientLightColor.ToString()) : _trackAmbientColor)->AsKeyframed();
+	return (_trackAmbientColor = _animations->GetActiveAnimation()->CreateColorTrack( SceneProperty::AmbientLightColor.ToString()) )->AsKeyframed();
 }
 
 IProceduralColorTrack* SceneAnimationController::CreateAmbientLightColorTrack( const AnimationTrack& type )
 {
-	return (_trackAmbientColor = (_trackAmbientColor == nullptr) ? _animation->CreateColorTrack(SceneProperty::AmbientLightColor.ToString(), type) : _trackAmbientColor)->AsProcedural();
+	return (_trackAmbientColor = _animations->GetActiveAnimation()->CreateColorTrack( SceneProperty::AmbientLightColor.ToString(), type) )->AsProcedural();
 }
 
 IExpressionColorTrack* SceneAnimationController::CreateAmbientLightColorTrack( IExpressionScript* script )
 {
-	return (_trackAmbientColor = (_trackAmbientColor == nullptr) ? _animation->CreateColorTrack(SceneProperty::AmbientLightColor.ToString(), script) : _trackAmbientColor)->AsExpression();
+	return (_trackAmbientColor = _animations->GetActiveAnimation()->CreateColorTrack( SceneProperty::AmbientLightColor.ToString(), script) )->AsExpression();
 }
 
 IExpressionColorTrack* SceneAnimationController::CreateAmbientLightColorTrack( const String& expression )
 {
-	return (_trackAmbientColor = (_trackAmbientColor == nullptr) ? _animation->CreateColorTrack(SceneProperty::AmbientLightColor.ToString(), expression) : _trackAmbientColor)->AsExpression();
+	return (_trackAmbientColor = _animations->GetActiveAnimation()->CreateColorTrack( SceneProperty::AmbientLightColor.ToString(), expression) )->AsExpression();
 }
 
 IKeyframedFloatTrack* SceneAnimationController::CreateAmbientLightIntensityTrack()
 {
-	return (_trackAmbientIntensity = (_trackAmbientIntensity == nullptr) ? _animation->CreateFloatTrack(SceneProperty::AmbientLightIntensity.ToString()) : _trackAmbientIntensity)->AsKeyframed();
+	return (_trackAmbientIntensity = _animations->GetActiveAnimation()->CreateFloatTrack( SceneProperty::AmbientLightIntensity.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* SceneAnimationController::CreateAmbientLightIntensityTrack( const AnimationTrack& type )
 {
-	return (_trackAmbientIntensity = (_trackAmbientIntensity == nullptr) ? _animation->CreateFloatTrack(SceneProperty::AmbientLightIntensity.ToString(), type) : _trackAmbientIntensity)->AsProcedural();
+	return (_trackAmbientIntensity = _animations->GetActiveAnimation()->CreateFloatTrack( SceneProperty::AmbientLightIntensity.ToString(), type) )->AsProcedural();
 }
 
 IExpressionFloatTrack* SceneAnimationController::CreateAmbientLightIntensityTrack( IExpressionScript* script )
 {
-	return (_trackAmbientIntensity = (_trackAmbientIntensity == nullptr) ? _animation->CreateFloatTrack(SceneProperty::AmbientLightIntensity.ToString(), script) : _trackAmbientIntensity)->AsExpression();
+	return (_trackAmbientIntensity = _animations->GetActiveAnimation()->CreateFloatTrack( SceneProperty::AmbientLightIntensity.ToString(), script) )->AsExpression();
 }
 
 IExpressionFloatTrack* SceneAnimationController::CreateAmbientLightIntensityTrack( const String& expression )
 {
-	return (_trackAmbientIntensity = (_trackAmbientIntensity == nullptr) ? _animation->CreateFloatTrack(SceneProperty::AmbientLightIntensity.ToString(), expression) : _trackAmbientIntensity)->AsExpression();
+	return (_trackAmbientIntensity = _animations->GetActiveAnimation()->CreateFloatTrack( SceneProperty::AmbientLightIntensity.ToString(), expression) )->AsExpression();
+}
+
+void SceneAnimationController::UpdateTracks()
+{
+	_trackAmbientColor		= GetTrack( _trackAmbientColor, SceneProperty::AmbientLightColor );
+	_trackAmbientIntensity	= GetTrack( _trackAmbientIntensity, SceneProperty::AmbientLightIntensity );
 }
 
 

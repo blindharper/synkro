@@ -32,11 +32,11 @@ namespace view
 {
 
 
-ColorFilterAnimationController::ColorFilterAnimationController( IColorFilter* colorFilter, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	ViewportFilterAnimationControllerImpl<IColorFilterAnimationController>( colorFilter, animationSystem, animation, listener ),
-	_colorFilter( colorFilter )
+ColorFilterAnimationController::ColorFilterAnimationController( IColorFilter* colorFilter, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	ViewportFilterAnimationControllerImpl<IColorFilterAnimationController>( colorFilter, animationSystem, animations, listener ),
+	_colorFilter( colorFilter ),
+	_trackColor( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void ColorFilterAnimationController::Update( Double delta )
@@ -48,17 +48,9 @@ void ColorFilterAnimationController::Update( Double delta )
 	if ( _trackColor != nullptr )
 	{
 		Color color;
-		_trackColor->GetValue( _time, color );
+		_trackColor->GetValue( CurrentTime(), color );
 		_colorFilter->SetColor( color );
 	}
-}
-
-void ColorFilterAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	ViewportFilterAnimationControllerImpl<IColorFilterAnimationController>::SetAnimation( animation );
-
-	_trackColor = GetTrack( _trackColor, ColorFilterProperty::Color );
 }
 
 IColorFilterAnimationController* ColorFilterAnimationController::AsColor() const
@@ -68,12 +60,20 @@ IColorFilterAnimationController* ColorFilterAnimationController::AsColor() const
 
 IKeyframedColorTrack* ColorFilterAnimationController::CreateColorTrack()
 {
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(ColorFilterProperty::Color.ToString()) : _trackColor)->AsKeyframed();
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack(ColorFilterProperty::Color.ToString()))->AsKeyframed();
 }
 
 IProceduralColorTrack* ColorFilterAnimationController::CreateColorTrack( const AnimationTrack& type )
 {
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(ColorFilterProperty::Color.ToString(), type) : _trackColor)->AsProcedural();
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( ColorFilterProperty::Color.ToString(), type) )->AsProcedural();
+}
+
+void ColorFilterAnimationController::UpdateTracks()
+{
+	// Call base implementation.
+	ViewportFilterAnimationControllerImpl<IColorFilterAnimationController>::UpdateTracks();
+
+	_trackColor = GetTrack( _trackColor, ColorFilterProperty::Color );
 }
 
 

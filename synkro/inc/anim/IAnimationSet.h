@@ -28,7 +28,7 @@ namespace anim
 
 
 /**
- * Collection of animations.
+ * A sequence of animations.
  */
 iface IAnimationSet :
 	public core::IObject
@@ -61,12 +61,17 @@ public:
 	virtual void											SaveAsync( io::IStream* stream ) = 0;
 
 	/**
-	 * Create animation and adds it to the collection.
+	 * Create animation and adds it to the collection. Created animation becomes active.
 	 * @param name Animation name.
 	 * @return Created animation.
 	 * @exception BadArgumentException Animation with the specified name already exists.
 	 */
 	virtual IAnimation*										CreateAnimation( const lang::String& name ) = 0;
+
+	/**
+	 * Retrieves active animation.
+	 */
+	virtual IAnimation*										GetActiveAnimation() const = 0;
 
 	/**
 	 * Retrieves the number of animations in the collection.
@@ -87,6 +92,12 @@ public:
 	 * @return Requested animation, if found, nullptr otherwise.
 	 */
 	virtual IAnimation*										GetAnimation( const lang::String& name ) const = 0;
+
+	/**
+	 * Retrieves animation sequence length, in seconds.
+	 * Sequence length is equal to the sum of all animations lengths.
+	 */
+	virtual Double											GetLength() const = 0;
 
 	/**
 	 * Retrieves animation set name.

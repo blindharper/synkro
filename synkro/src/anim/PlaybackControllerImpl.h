@@ -20,6 +20,7 @@
 #include "AnimationModeConst.h"
 #include <anim/AnimationMode.h>
 #include <anim/AnimationDirection.h>
+#include <lang/Vector.h>
 
 
 namespace synkro
@@ -38,12 +39,15 @@ class PlaybackControllerImpl :
 {
 public:
 	// Constructor & destructor.
-	PlaybackControllerImpl( IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener );
+	PlaybackControllerImpl( IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener );
 	virtual ~PlaybackControllerImpl();
 
 	// IController methods.
 	virtual void											Start( Bool start );
 	virtual void											Update( Double delta );	
+
+	// IAnimationController methods.
+	virtual void											SetAnimations( IAnimationSet* animations );
 
 	// IPlaybackController methods.
 	virtual void											SetSpeed( Double speed );
@@ -59,7 +63,13 @@ public:
 	virtual UInt											GetIteration() const;
 
 	// BaseAnimationController methods.
-	void													PostUpdate();
+	virtual void											PostUpdate();
+
+	// Other methods.
+	virtual void											UpdateTracks();
+	Double													CurrentTime() const;
+	void													GetAnimationsLengths();
+	void													GetCurrentAnimation();
 
 protected:
 	AnimationListener*										_listener;
@@ -69,8 +79,11 @@ protected:
 	Double													_speed;
 	Double													_offset;
 	Double													_length;
+	Double													_currentTime;
+	lang::Vector<Double>									_times;
 	UInt													_loopCount;
 	UInt													_iteration;
+	P(IAnimation)											_currentAnimation;
 
 	template<class I, class P>
 	I*														GetTrack( I* track, const P& prop );

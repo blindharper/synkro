@@ -95,9 +95,9 @@ TransparentMaterial::TransparentMaterial( const TransparentMaterial& other ) :
 	SetTilingVertical( other.GetTilingVertical() );
 }
 
-IVisualMaterialAnimationController* TransparentMaterial::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IVisualMaterialAnimationController* TransparentMaterial::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new TransparentMaterialAnimationController( this, _context->GetAnimationSystem(), animation, listener) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new TransparentMaterialAnimationController( this, _context->GetAnimationSystem(), animations, listener) : _ctrlAnimation;
 }
 
 void TransparentMaterial::SetDiffuseColor( const Color& color )

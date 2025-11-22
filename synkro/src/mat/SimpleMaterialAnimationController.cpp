@@ -30,10 +30,9 @@ namespace mat
 {
 
 
-SimpleMaterialAnimationController::SimpleMaterialAnimationController( ISimpleMaterial* material, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	SimpleMaterialAnimationControllerImpl<ISimpleMaterialAnimationController>( material, animationSystem, animation, listener )
+SimpleMaterialAnimationController::SimpleMaterialAnimationController( ISimpleMaterial* material, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	SimpleMaterialAnimationControllerImpl<ISimpleMaterialAnimationController>( material, animationSystem, animations, listener )
 {
-	SetAnimation( _animation );
 }
 
 

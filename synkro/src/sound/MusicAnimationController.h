@@ -33,17 +33,17 @@ class MusicAnimationController :
 {
 public:
 	// Constructor.
-	MusicAnimationController( IMusic* music, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	MusicAnimationController( IMusic* music, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
 
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
-
 	// IMusicAnimationController methods.
 	anim::IKeyframedIntTrack*								CreateVolumeTrack();
 	anim::IKeyframedIntTrack*								CreatePanTrack();
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	IMusic*													_music;

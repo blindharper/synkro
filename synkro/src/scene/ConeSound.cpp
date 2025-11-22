@@ -42,9 +42,9 @@ ConeSound::ConeSound( ISceneEx* scene, IContext* context, const String& name, IS
 {
 }
 
-INodeAnimationController* ConeSound::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* ConeSound::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SoundAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SoundAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 IParentConstraint* ConeSound::CreateParentConstraint( INode* parent, const Matrix4x4& transform )

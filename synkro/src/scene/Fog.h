@@ -40,7 +40,7 @@ public:
 	Fog( core::IContext* context );
 
 	// IFog methods.
-	IFogAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	IFogAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	void													SetColor( const img::Color& color );
 	void													SetDensity( Float density );
 	void													SetStart( Float start );

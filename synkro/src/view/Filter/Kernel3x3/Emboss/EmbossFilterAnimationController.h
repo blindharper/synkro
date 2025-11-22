@@ -33,13 +33,10 @@ class EmbossFilterAnimationController :
 {
 public:
 	// Constructor.
-	EmbossFilterAnimationController( IEmbossFilter* embossFilter, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	EmbossFilterAnimationController( IEmbossFilter* embossFilter, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// IKernel3x3FilterAnimationController methods.
 	IEmbossFilterAnimationController*						AsEmboss() const;
@@ -48,6 +45,9 @@ public:
 	anim::IKeyframedFloatTrack*								CreateAngleTrack();
 	anim::IKeyframedFloatTrack*								CreateDepthTrack();
 	anim::IProceduralFloatTrack*							CreateDepthTrack( const anim::AnimationTrack& type );
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	IEmbossFilter*											_embossFilter;

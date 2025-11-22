@@ -59,7 +59,7 @@ public:
 	~Viewport();
 
 	// IViewport methods.
-	IViewportAnimationController*							CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	IViewportAnimationController*							CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	IViewportFilter*										CreateFilter( const ViewportFilter& type );
 	IDepthMap*												CreateDepthTarget();
 	void													Activate();

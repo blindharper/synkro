@@ -10,9 +10,9 @@
 //
 // Purpose: Generic playback animation controller implementation.
 //==============================================================================
-template <class T> 
-SYNKRO_INLINE PlaybackControllerImpl<T>::PlaybackControllerImpl( IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	AnimationControllerImpl<T>( animationSystem, animation ),
+template <class T>
+SYNKRO_INLINE PlaybackControllerImpl<T>::PlaybackControllerImpl( IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	AnimationControllerImpl<T>( animationSystem, animations ),
 	_listener( listener ),
 	_mode( AnimationMode::Single ),
 	_direction( AnimationDirection::Forward ),
@@ -20,6 +20,8 @@ SYNKRO_INLINE PlaybackControllerImpl<T>::PlaybackControllerImpl( IAnimationSyste
 	_speed( 1.0 ),
 	_offset( 0.0 ),
 	_length( 0.0 ),
+	_currentTime( 0.0 ),
+	_times( A(Double) ),
 	_loopCount( 0 ),
 	_iteration( 0 )
 {
@@ -40,16 +42,18 @@ SYNKRO_INLINE void PlaybackControllerImpl<T>::Start( Bool start )
 			{
 				_iteration = 0;
 				_time = _offset;
-				_length = _animation->GetLength();
+				GetAnimationsLengths();
 				_state = core::ControllerState::Active;
 				_dir = (_direction == AnimationDirection::Reverse) ? -1.0 : 1.0;
+				GetCurrentAnimation();
+				UpdateTracks();
 			}
 			break;
 
 		default:
 			if ( !start )
 			{
-				_time = _animation->GetLength();
+				_time = _animations->GetLength();
 				_state = core::ControllerState::Inactive;
 				if ( _listener != nullptr )
 				{
@@ -64,6 +68,16 @@ template <class T>
 SYNKRO_INLINE void PlaybackControllerImpl<T>::Update( Double delta )
 {
 	_time += _dir*_speed*delta;
+}
+
+template <class T>
+SYNKRO_INLINE void PlaybackControllerImpl<T>::SetAnimations( IAnimationSet* animations )
+{
+	// Call base implementation.
+	AnimationControllerImpl<T>::SetAnimations( animations );
+
+	GetAnimationsLengths();
+	GetCurrentAnimation();
 }
 
 template <class T>
@@ -136,6 +150,18 @@ SYNKRO_INLINE UInt PlaybackControllerImpl<T>::GetIteration() const
 }
 
 template <class T>
+SYNKRO_INLINE void PlaybackControllerImpl<T>::UpdateTracks()
+{
+	// Do nothing.
+}
+
+template <class T>
+SYNKRO_INLINE Double PlaybackControllerImpl<T>::CurrentTime() const
+{
+	return _currentTime;
+}
+
+template <class T>
 SYNKRO_INLINE void PlaybackControllerImpl<T>::PostUpdate()
 {
 	if ( (_time > _length) || (_time < 0.0) )
@@ -188,11 +214,47 @@ SYNKRO_INLINE void PlaybackControllerImpl<T>::PostUpdate()
 				break;
 		}
 	}
+	GetCurrentAnimation();
+}
+
+template <class T>
+SYNKRO_INLINE void PlaybackControllerImpl<T>::GetAnimationsLengths()
+{
+	_times.Clear();
+	Double total = 0.0;
+	UInt count = _animations->GetAnimationCount();
+	for ( UInt i = 0; i < count; ++i )
+	{
+		total += _animations->GetAnimation( i )->GetLength();
+		_times.Add( total );
+	}
+	_length = _times.LastValue();
+}
+
+template <class T>
+SYNKRO_INLINE void PlaybackControllerImpl<T>::GetCurrentAnimation()
+{
+	UInt index = 0;
+	for ( UInt i = 0; i < _times.Size(); ++i )
+	{
+		if ( _time <= _times[i] )
+		{
+			index = i;
+			break;
+		}
+	}
+	IAnimation* old = _currentAnimation;
+	_currentAnimation = _animations->GetAnimation( index );
+	_currentTime = ((_times.Size() == 1) || index == 0) ? _time : _time - _times[index-1];
+	if ( _currentAnimation != old )
+	{
+		UpdateTracks();
+	}
 }
 
 template<class T>
 template<class I, class P>
 SYNKRO_INLINE I* PlaybackControllerImpl<T>::GetTrack( I* track, const P& prop )
 {
-	return (I*)_animation->GetTrack( prop.ToString() );
+	return (I*)_currentAnimation->GetTrack( prop.ToString() );
 }

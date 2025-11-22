@@ -11,9 +11,24 @@
 // Purpose: Animation controller for generic node.
 //==============================================================================
 template <class T> 
-SYNKRO_INLINE NodeAnimationControllerImpl<T>::NodeAnimationControllerImpl( INode* node, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener ) :
-	anim::PlaybackControllerImpl<T>( animationSystem, animation, listener ),
-	_node( node )
+SYNKRO_INLINE NodeAnimationControllerImpl<T>::NodeAnimationControllerImpl( INode* node, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener ) :
+	anim::PlaybackControllerImpl<T>( animationSystem, animations, listener ),
+	_node( node ),
+	_trackTransform( nullptr ),
+	_trackPosition( nullptr ),
+	_trackPositionX( nullptr ),
+	_trackPositionY( nullptr ),
+	_trackPositionZ( nullptr ),
+	_trackOrientation( nullptr ),
+	_trackOrientationYaw( nullptr ),
+	_trackOrientationPitch( nullptr ),
+	_trackOrientationRoll( nullptr ),
+	_trackScale( nullptr ),
+	_trackScaleX( nullptr ),
+	_trackScaleY( nullptr ),
+	_trackScaleZ( nullptr ),
+	_trackScaleUniform( nullptr ),
+	_trackPathPhase( nullptr )
 {
 }
 
@@ -37,7 +52,7 @@ SYNKRO_INLINE void NodeAnimationControllerImpl<T>::Update( Double delta )
 	else if ( _trackTransform != nullptr )
 	{
 		math::Matrix4x4 transform;
-		_trackTransform->GetValue( _time, transform );
+		_trackTransform->GetValue( CurrentTime(), transform );
 		_node->SetTransform( transform );
 	}
 	else
@@ -45,7 +60,7 @@ SYNKRO_INLINE void NodeAnimationControllerImpl<T>::Update( Double delta )
 		if ( _trackScale != nullptr )
 		{
 			math::Vector3 scale;
-			_trackScale->GetValue( _time, scale );
+			_trackScale->GetValue( CurrentTime(), scale );
 			_node->SetScale( scale );
 		}
 		else
@@ -53,7 +68,7 @@ SYNKRO_INLINE void NodeAnimationControllerImpl<T>::Update( Double delta )
 			if ( _trackScaleUniform != nullptr )
 			{
 				Float scale;
-				_trackScaleUniform->GetValue( _time, scale );
+				_trackScaleUniform->GetValue( CurrentTime(), scale );
 				_node->SetScale( scale );
 			}
 			else
@@ -61,21 +76,21 @@ SYNKRO_INLINE void NodeAnimationControllerImpl<T>::Update( Double delta )
 				if ( _trackScaleX != nullptr )
 				{
 					Float scale;
-					_trackScaleX->GetValue( _time, scale );
+					_trackScaleX->GetValue( CurrentTime(), scale );
 					_node->SetScaleX( scale );
 				}
 
 				if ( _trackScaleY != nullptr )
 				{
 					Float scale;
-					_trackScaleY->GetValue( _time, scale );
+					_trackScaleY->GetValue( CurrentTime(), scale );
 					_node->SetScaleY( scale );
 				}
 
 				if ( _trackScaleZ != nullptr )
 				{
 					Float scale;
-					_trackScaleZ->GetValue( _time, scale );
+					_trackScaleZ->GetValue( CurrentTime(), scale );
 					_node->SetScaleZ( scale );
 				}
 			}
@@ -85,13 +100,13 @@ SYNKRO_INLINE void NodeAnimationControllerImpl<T>::Update( Double delta )
 		if ( (path != nullptr) && (_trackPathPhase != nullptr) )
 		{
 			Float phase;
-			_trackPathPhase->GetValue( _time, phase );
+			_trackPathPhase->GetValue( CurrentTime(), phase );
 			_node->SetPathPhase( phase );
 		}
 		else if ( _trackPosition != nullptr )
 		{
 			math::Vector3 position;
-			_trackPosition->GetValue( _time, position );
+			_trackPosition->GetValue( CurrentTime(), position );
 			_node->SetPosition( position );
 		}
 		else
@@ -99,21 +114,21 @@ SYNKRO_INLINE void NodeAnimationControllerImpl<T>::Update( Double delta )
 			if ( _trackPositionX != nullptr )
 			{
 				Float pos;
-				_trackPositionX->GetValue( _time, pos );
+				_trackPositionX->GetValue( CurrentTime(), pos );
 				_node->SetPositionX( pos );
 			}
 
 			if ( _trackPositionY != nullptr )
 			{
 				Float pos;
-				_trackPositionY->GetValue( _time, pos );
+				_trackPositionY->GetValue( CurrentTime(), pos );
 				_node->SetPositionY( pos );
 			}
 
 			if ( _trackPositionZ != nullptr )
 			{
 				Float pos;
-				_trackPositionZ->GetValue( _time, pos );
+				_trackPositionZ->GetValue( CurrentTime(), pos );
 				_node->SetPositionZ( pos );
 			}
 		}
@@ -126,7 +141,7 @@ SYNKRO_INLINE void NodeAnimationControllerImpl<T>::Update( Double delta )
 		else if ( _trackOrientation != nullptr )
 		{
 			math::Quaternion orientation;
-			_trackOrientation->GetValue( _time, orientation );
+			_trackOrientation->GetValue( CurrentTime(), orientation );
 			_node->SetOrientation( orientation );
 		}
 		else
@@ -134,21 +149,21 @@ SYNKRO_INLINE void NodeAnimationControllerImpl<T>::Update( Double delta )
 			if ( _trackOrientationYaw != nullptr )
 			{
 				Float angle;
-				_trackOrientationYaw->GetValue( _time, angle );
+				_trackOrientationYaw->GetValue( CurrentTime(), angle );
 				_node->SetOrientationYaw( angle );
 			}
 
 			if ( _trackOrientationPitch != nullptr )
 			{
 				Float angle;
-				_trackOrientationPitch->GetValue( _time, angle );
+				_trackOrientationPitch->GetValue( CurrentTime(), angle );
 				_node->SetOrientationPitch( angle );
 			}
 
 			if ( _trackOrientationRoll != nullptr )
 			{
 				Float angle;
-				_trackOrientationRoll->GetValue( _time, angle );
+				_trackOrientationRoll->GetValue( CurrentTime(), angle );
 				_node->SetOrientationRoll( angle );
 			}
 		}
@@ -156,362 +171,339 @@ SYNKRO_INLINE void NodeAnimationControllerImpl<T>::Update( Double delta )
 }
 
 template <class T>
-SYNKRO_INLINE void NodeAnimationControllerImpl<T>::SetAnimation( anim::IAnimation* animation )
-{
-	// Call base implementation.
-	anim::PlaybackControllerImpl<T>::SetAnimation( animation );
-
-	_trackTransform			= GetTrack( _trackTransform, NodeProperty::Transform );
-	_trackPosition			= GetTrack( _trackPosition, NodeProperty::Position );
-	_trackPositionX			= GetTrack( _trackPositionX, NodeProperty::PositionX );
-	_trackPositionY			= GetTrack( _trackPositionY, NodeProperty::PositionY );
-	_trackPositionZ			= GetTrack( _trackPositionZ, NodeProperty::PositionZ );
-	_trackOrientation		= GetTrack( _trackOrientation, NodeProperty::Orientation );
-	_trackOrientationYaw	= GetTrack( _trackOrientationYaw, NodeProperty::OrientationYaw );
-	_trackOrientationPitch	= GetTrack( _trackOrientationPitch, NodeProperty::OrientationPitch );
-	_trackOrientationRoll	= GetTrack( _trackOrientationRoll, NodeProperty::OrientationRoll );
-	_trackScale				= GetTrack( _trackScale, NodeProperty::Scale );
-	_trackScaleX			= GetTrack( _trackScaleX, NodeProperty::ScaleX );
-	_trackScaleY			= GetTrack( _trackScaleY, NodeProperty::ScaleY );
-	_trackScaleZ			= GetTrack( _trackScaleZ, NodeProperty::ScaleZ );
-	_trackScaleUniform		= GetTrack( _trackScaleUniform, NodeProperty::ScaleUniform );
-	_trackPathPhase			= GetTrack( _trackPathPhase, NodeProperty::PathPhase );
-}
-
-template <class T>
 SYNKRO_INLINE anim::IKeyframedMatrix4x4Track* NodeAnimationControllerImpl<T>::CreateTransformTrack()
 {
-	return (_trackTransform = (_trackTransform == nullptr) ? _animation->CreateMatrix4x4Track(NodeProperty::Transform.ToString()) : _trackTransform)->AsKeyframed();
+	return (_trackTransform = _animations->GetActiveAnimation()->CreateMatrix4x4Track( NodeProperty::Transform.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionMatrix4x4Track* NodeAnimationControllerImpl<T>::CreateTransformTrack( anim::IExpressionScript* script )
 {
-	return (_trackTransform = (_trackTransform == nullptr) ? _animation->CreateMatrix4x4Track(NodeProperty::Transform.ToString(), script) : _trackTransform)->AsExpression();
+	return (_trackTransform = _animations->GetActiveAnimation()->CreateMatrix4x4Track( NodeProperty::Transform.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionMatrix4x4Track* NodeAnimationControllerImpl<T>::CreateTransformTrack( const lang::String& expression )
 {
-	return (_trackTransform = (_trackTransform == nullptr) ? _animation->CreateMatrix4x4Track(NodeProperty::Transform.ToString(), expression) : _trackTransform)->AsExpression();
+	return (_trackTransform = _animations->GetActiveAnimation()->CreateMatrix4x4Track( NodeProperty::Transform.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedVector3Track* NodeAnimationControllerImpl<T>::CreatePositionTrack()
 {
-	return (_trackPosition = (_trackPosition == nullptr) ? _animation->CreateVector3Track(NodeProperty::Position.ToString()) : _trackPosition)->AsKeyframed();
+	return (_trackPosition = _animations->GetActiveAnimation()->CreateVector3Track( NodeProperty::Position.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralVector3Track* NodeAnimationControllerImpl<T>::CreatePositionTrack( const anim::AnimationTrack& type )
 {
-	return (_trackPosition = (_trackPosition == nullptr) ? _animation->CreateVector3Track(NodeProperty::Position.ToString(), type) : _trackPosition)->AsProcedural();
+	return (_trackPosition = _animations->GetActiveAnimation()->CreateVector3Track( NodeProperty::Position.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionVector3Track* NodeAnimationControllerImpl<T>::CreatePositionTrack( anim::IExpressionScript* script )
 {
-	return (_trackPosition = (_trackPosition == nullptr) ? _animation->CreateVector3Track(NodeProperty::Position.ToString(), script) : _trackPosition)->AsExpression();
+	return (_trackPosition = _animations->GetActiveAnimation()->CreateVector3Track( NodeProperty::Position.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionVector3Track* NodeAnimationControllerImpl<T>::CreatePositionTrack( const lang::String& expression )
 {
-	return (_trackPosition = (_trackPosition == nullptr) ? _animation->CreateVector3Track(NodeProperty::Position.ToString(), expression) : _trackPosition)->AsExpression();
+	return (_trackPosition = _animations->GetActiveAnimation()->CreateVector3Track( NodeProperty::Position.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* NodeAnimationControllerImpl<T>::CreatePositionXTrack()
 {
-	return (_trackPositionX = (_trackPositionX == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PositionX.ToString()) : _trackPositionX)->AsKeyframed();
+	return (_trackPositionX = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PositionX.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* NodeAnimationControllerImpl<T>::CreatePositionXTrack( const anim::AnimationTrack& type )
 {
-	return (_trackPositionX = (_trackPositionX == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PositionX.ToString(), type) : _trackPositionX)->AsProcedural();
+	return (_trackPositionX = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PositionX.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreatePositionXTrack( anim::IExpressionScript* script )
 {
-	return (_trackPositionX = (_trackPositionX == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PositionX.ToString(), script) : _trackPositionX)->AsExpression();
+	return (_trackPositionX = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PositionX.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreatePositionXTrack( const lang::String& expression )
 {
-	return (_trackPositionX = (_trackPositionX == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PositionX.ToString(), expression) : _trackPositionX)->AsExpression();
+	return (_trackPositionX = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PositionX.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* NodeAnimationControllerImpl<T>::CreatePositionYTrack()
 {	
-	return (_trackPositionY = (_trackPositionY == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PositionY.ToString()) : _trackPositionY)->AsKeyframed();
+	return (_trackPositionY = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PositionY.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* NodeAnimationControllerImpl<T>::CreatePositionYTrack( const anim::AnimationTrack& type )
 {
-	return (_trackPositionY = (_trackPositionY == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PositionY.ToString(), type) : _trackPositionY)->AsProcedural();
+	return (_trackPositionY = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PositionY.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreatePositionYTrack( anim::IExpressionScript* script )
 {
-	return (_trackPositionY = (_trackPositionY == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PositionY.ToString(), script) : _trackPositionY)->AsExpression();
+	return (_trackPositionY = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PositionY.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreatePositionYTrack( const lang::String& expression )
 {
-	return (_trackPositionY = (_trackPositionY == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PositionY.ToString(), expression) : _trackPositionY)->AsExpression();
+	return (_trackPositionY = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PositionY.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* NodeAnimationControllerImpl<T>::CreatePositionZTrack()
 {
-	return (_trackPositionZ = (_trackPositionZ == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PositionZ.ToString()) : _trackPositionZ)->AsKeyframed();
+	return (_trackPositionZ = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PositionZ.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* NodeAnimationControllerImpl<T>::CreatePositionZTrack( const anim::AnimationTrack& type )
 {
-	return (_trackPositionZ = (_trackPositionZ == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PositionZ.ToString(), type) : _trackPositionZ)->AsProcedural();
+	return (_trackPositionZ = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PositionZ.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreatePositionZTrack( anim::IExpressionScript* script )
 {
-	return (_trackPositionZ = (_trackPositionZ == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PositionZ.ToString(), script) : _trackPositionZ)->AsExpression();
+	return (_trackPositionZ = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PositionZ.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreatePositionZTrack( const lang::String& expression )
 {
-	return (_trackPositionZ = (_trackPositionZ == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PositionZ.ToString(), expression) : _trackPositionZ)->AsExpression();
+	return (_trackPositionZ = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PositionZ.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedQuaternionTrack* NodeAnimationControllerImpl<T>::CreateOrientationTrack()
 {
-	return (_trackOrientation = (_trackOrientation == nullptr) ? _animation->CreateQuaternionTrack(NodeProperty::Orientation.ToString()) : _trackOrientation)->AsKeyframed();
+	return (_trackOrientation = _animations->GetActiveAnimation()->CreateQuaternionTrack( NodeProperty::Orientation.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionQuaternionTrack* NodeAnimationControllerImpl<T>::CreateOrientationTrack( anim::IExpressionScript* script )
 {
-	return (_trackOrientation = (_trackOrientation == nullptr) ? _animation->CreateQuaternionTrack(NodeProperty::Orientation.ToString(), script) : _trackOrientation)->AsExpression();
+	return (_trackOrientation = _animations->GetActiveAnimation()->CreateQuaternionTrack( NodeProperty::Orientation.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionQuaternionTrack* NodeAnimationControllerImpl<T>::CreateOrientationTrack( const lang::String& expression )
 {
-	return (_trackOrientation = (_trackOrientation == nullptr) ? _animation->CreateQuaternionTrack(NodeProperty::Orientation.ToString(), expression) : _trackOrientation)->AsExpression();
+	return (_trackOrientation = _animations->GetActiveAnimation()->CreateQuaternionTrack( NodeProperty::Orientation.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* NodeAnimationControllerImpl<T>::CreateOrientationYawTrack()
 {
-	return (_trackOrientationYaw = (_trackOrientationYaw == nullptr) ? _animation->CreateFloatTrack(NodeProperty::OrientationYaw.ToString()) : _trackOrientationYaw)->AsKeyframed();
+	return (_trackOrientationYaw = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::OrientationYaw.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* NodeAnimationControllerImpl<T>::CreateOrientationYawTrack( const anim::AnimationTrack& type )
 {
-	return (_trackOrientationYaw = (_trackOrientationYaw == nullptr) ? _animation->CreateFloatTrack(NodeProperty::OrientationYaw.ToString(), type) : _trackOrientationYaw)->AsProcedural();
+	return (_trackOrientationYaw = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::OrientationYaw.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateOrientationYawTrack( anim::IExpressionScript* script )
 {
-	return (_trackOrientationYaw = (_trackOrientationYaw == nullptr) ? _animation->CreateFloatTrack(NodeProperty::OrientationYaw.ToString(), script) : _trackOrientationYaw)->AsExpression();
+	return (_trackOrientationYaw = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::OrientationYaw.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateOrientationYawTrack( const lang::String& expression )
 {
-	return (_trackOrientationYaw = (_trackOrientationYaw == nullptr) ? _animation->CreateFloatTrack(NodeProperty::OrientationYaw.ToString(), expression) : _trackOrientationYaw)->AsExpression();
+	return (_trackOrientationYaw = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::OrientationYaw.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* NodeAnimationControllerImpl<T>::CreateOrientationPitchTrack()
 {
-	return (_trackOrientationPitch = (_trackOrientationPitch == nullptr) ? _animation->CreateFloatTrack(NodeProperty::OrientationPitch.ToString()) : _trackOrientationPitch)->AsKeyframed();
+	return (_trackOrientationPitch = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::OrientationPitch.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* NodeAnimationControllerImpl<T>::CreateOrientationPitchTrack( const anim::AnimationTrack& type )
 {
-	return (_trackOrientationPitch = (_trackOrientationPitch == nullptr) ? _animation->CreateFloatTrack(NodeProperty::OrientationPitch.ToString(), type) : _trackOrientationPitch)->AsProcedural();
+	return (_trackOrientationPitch = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::OrientationPitch.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateOrientationPitchTrack( anim::IExpressionScript* script )
 {
-	return (_trackOrientationPitch = (_trackOrientationPitch == nullptr) ? _animation->CreateFloatTrack(NodeProperty::OrientationPitch.ToString(), script) : _trackOrientationPitch)->AsExpression();
+	return (_trackOrientationPitch = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::OrientationPitch.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateOrientationPitchTrack( const lang::String& expression )
 {
-	return (_trackOrientationPitch = (_trackOrientationPitch == nullptr) ? _animation->CreateFloatTrack(NodeProperty::OrientationPitch.ToString(), expression) : _trackOrientationPitch)->AsExpression();
+	return (_trackOrientationPitch = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::OrientationPitch.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* NodeAnimationControllerImpl<T>::CreateOrientationRollTrack()
 {
-	return (_trackOrientationRoll = (_trackOrientationRoll == nullptr) ? _animation->CreateFloatTrack(NodeProperty::OrientationRoll.ToString()) : _trackOrientationRoll)->AsKeyframed();
+	return (_trackOrientationRoll = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::OrientationRoll.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* NodeAnimationControllerImpl<T>::CreateOrientationRollTrack( const anim::AnimationTrack& type )
 {
-	return (_trackOrientationRoll = (_trackOrientationRoll == nullptr) ? _animation->CreateFloatTrack(NodeProperty::OrientationRoll.ToString(), type) : _trackOrientationRoll)->AsProcedural();
+	return (_trackOrientationRoll = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::OrientationRoll.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateOrientationRollTrack( anim::IExpressionScript* script )
 {
-	return (_trackOrientationRoll = (_trackOrientationRoll == nullptr) ? _animation->CreateFloatTrack(NodeProperty::OrientationRoll.ToString(), script) : _trackOrientationRoll)->AsExpression();
+	return (_trackOrientationRoll = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::OrientationRoll.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateOrientationRollTrack( const lang::String& expression )
 {
-	return (_trackOrientationRoll = (_trackOrientationRoll == nullptr) ? _animation->CreateFloatTrack(NodeProperty::OrientationRoll.ToString(), expression) : _trackOrientationRoll)->AsExpression();
+	return (_trackOrientationRoll = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::OrientationRoll.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedVector3Track* NodeAnimationControllerImpl<T>::CreateScaleTrack()
 {
-	return (_trackScale = (_trackScale == nullptr) ? _animation->CreateVector3Track(NodeProperty::Scale.ToString()) : _trackScale)->AsKeyframed();
+	return (_trackScale = _animations->GetActiveAnimation()->CreateVector3Track( NodeProperty::Scale.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralVector3Track* NodeAnimationControllerImpl<T>::CreateScaleTrack( const anim::AnimationTrack& type )
 {
-	return (_trackScale = (_trackScale == nullptr) ? _animation->CreateVector3Track(NodeProperty::Scale.ToString(), type) : _trackScale)->AsProcedural();
+	return (_trackScale = _animations->GetActiveAnimation()->CreateVector3Track( NodeProperty::Scale.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionVector3Track* NodeAnimationControllerImpl<T>::CreateScaleTrack( anim::IExpressionScript* script )
 {
-	return (_trackScale = (_trackScale == nullptr) ? _animation->CreateVector3Track(NodeProperty::Scale.ToString(), script) : _trackScale)->AsExpression();
+	return (_trackScale = _animations->GetActiveAnimation()->CreateVector3Track( NodeProperty::Scale.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionVector3Track* NodeAnimationControllerImpl<T>::CreateScaleTrack( const lang::String& expression )
 {
-	return (_trackScale = (_trackScale == nullptr) ? _animation->CreateVector3Track(NodeProperty::Scale.ToString(), expression) : _trackScale)->AsExpression();
+	return (_trackScale = _animations->GetActiveAnimation()->CreateVector3Track( NodeProperty::Scale.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleXTrack()
 {
-	return (_trackScaleX = (_trackScaleX == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleX.ToString()) : _trackScaleX)->AsKeyframed();
+	return (_trackScaleX = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleX.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleXTrack( const anim::AnimationTrack& type )
 {
-	return (_trackScaleX = (_trackScaleX == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleX.ToString(), type) : _trackScaleX)->AsProcedural();
+	return (_trackScaleX = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleX.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleXTrack( anim::IExpressionScript* script )
 {
-	return (_trackScaleX = (_trackScaleX == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleX.ToString(), script) : _trackScaleX)->AsExpression();
+	return (_trackScaleX = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleX.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleXTrack( const lang::String& expression )
 {
-	return (_trackScaleX = (_trackScaleX == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleX.ToString(), expression) : _trackScaleX)->AsExpression();
+	return (_trackScaleX = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleX.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleYTrack()
 {
-	return (_trackScaleY = (_trackScaleY == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleY.ToString()) : _trackScaleY)->AsKeyframed();
+	return (_trackScaleY = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleY.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleYTrack( const anim::AnimationTrack& type )
 {
-	return (_trackScaleY = (_trackScaleY == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleY.ToString(), type) : _trackScaleY)->AsProcedural();
+	return (_trackScaleY = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleY.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleYTrack( anim::IExpressionScript* script )
 {
-	return (_trackScaleY = (_trackScaleY == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleY.ToString(), script) : _trackScaleY)->AsExpression();
+	return (_trackScaleY = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleY.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleYTrack( const lang::String& expression )
 {
-	return (_trackScaleY = (_trackScaleY == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleY.ToString(), expression) : _trackScaleY)->AsExpression();
+	return (_trackScaleY = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleY.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleZTrack()
 {
-	return (_trackScaleZ = (_trackScaleZ == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleZ.ToString()) : _trackScaleZ)->AsKeyframed();
+	return (_trackScaleZ = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleZ.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleZTrack( const anim::AnimationTrack& type )
 {
-	return (_trackScaleZ = (_trackScaleZ == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleZ.ToString(), type) : _trackScaleZ)->AsProcedural();
+	return (_trackScaleZ = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleZ.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleZTrack( anim::IExpressionScript* script )
 {
-	return (_trackScaleZ = (_trackScaleZ == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleZ.ToString(), script) : _trackScaleZ)->AsExpression();
+	return (_trackScaleZ = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleZ.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleZTrack( const lang::String& expression )
 {
-	return (_trackScaleZ = (_trackScaleZ == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleZ.ToString(), expression) : _trackScaleZ)->AsExpression();
+	return (_trackScaleZ = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleZ.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleUniformTrack()
 {
-	return (_trackScaleUniform = (_trackScaleUniform == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleUniform.ToString()) : _trackScaleUniform)->AsKeyframed();
+	return (_trackScaleUniform = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleUniform.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleUniformTrack( const anim::AnimationTrack& type )
 {
-	return (_trackScaleUniform = (_trackScaleUniform == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleUniform.ToString(), type) : _trackScaleUniform)->AsProcedural();
+	return (_trackScaleUniform = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleUniform.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleUniformTrack( anim::IExpressionScript* script )
 {
-	return (_trackScaleUniform = (_trackScaleUniform == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleUniform.ToString(), script) : _trackScaleUniform)->AsExpression();
+	return (_trackScaleUniform = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleUniform.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* NodeAnimationControllerImpl<T>::CreateScaleUniformTrack( const lang::String& expression )
 {
-	return (_trackScaleUniform = (_trackScaleUniform == nullptr) ? _animation->CreateFloatTrack(NodeProperty::ScaleUniform.ToString(), expression) : _trackScaleUniform)->AsExpression();
+	return (_trackScaleUniform = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::ScaleUniform.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* NodeAnimationControllerImpl<T>::CreatePathPhaseTrack()
 {
-	return (_trackPathPhase = (_trackPathPhase == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PathPhase.ToString()) : _trackPathPhase)->AsKeyframed();
+	return (_trackPathPhase = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PathPhase.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* NodeAnimationControllerImpl<T>::CreatePathPhaseTrack( const anim::AnimationTrack& type )
 {
-	return (_trackPathPhase = (_trackPathPhase == nullptr) ? _animation->CreateFloatTrack(NodeProperty::PathPhase.ToString(), type) : _trackPathPhase)->AsProcedural();
+	return (_trackPathPhase = _animations->GetActiveAnimation()->CreateFloatTrack( NodeProperty::PathPhase.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
@@ -536,4 +528,24 @@ template <class T>
 SYNKRO_INLINE ISoundAnimationController* NodeAnimationControllerImpl<T>::AsSound() const
 {
 	return nullptr;
+}
+
+template <class T>
+SYNKRO_INLINE void NodeAnimationControllerImpl<T>::UpdateTracks()
+{
+	_trackTransform			= GetTrack( _trackTransform, NodeProperty::Transform );
+	_trackPosition			= GetTrack( _trackPosition, NodeProperty::Position );
+	_trackPositionX			= GetTrack( _trackPositionX, NodeProperty::PositionX );
+	_trackPositionY			= GetTrack( _trackPositionY, NodeProperty::PositionY );
+	_trackPositionZ			= GetTrack( _trackPositionZ, NodeProperty::PositionZ );
+	_trackOrientation		= GetTrack( _trackOrientation, NodeProperty::Orientation );
+	_trackOrientationYaw	= GetTrack( _trackOrientationYaw, NodeProperty::OrientationYaw );
+	_trackOrientationPitch	= GetTrack( _trackOrientationPitch, NodeProperty::OrientationPitch );
+	_trackOrientationRoll	= GetTrack( _trackOrientationRoll, NodeProperty::OrientationRoll );
+	_trackScale				= GetTrack( _trackScale, NodeProperty::Scale );
+	_trackScaleX			= GetTrack( _trackScaleX, NodeProperty::ScaleX );
+	_trackScaleY			= GetTrack( _trackScaleY, NodeProperty::ScaleY );
+	_trackScaleZ			= GetTrack( _trackScaleZ, NodeProperty::ScaleZ );
+	_trackScaleUniform		= GetTrack( _trackScaleUniform, NodeProperty::ScaleUniform );
+	_trackPathPhase			= GetTrack( _trackPathPhase, NodeProperty::PathPhase );
 }

@@ -40,11 +40,11 @@ iface ISceneEx :
 public:
 	/**
 	 * Creates animation controller for the scene.
-	 * @param animation Optional scene animation.
+	 * @param animations Optional scene animation sequence.
 	 * @param listener Controller listener.
 	 * @return Created controller.
 	 */
-	virtual ISceneAnimationController*						CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener ) = 0;
+	virtual ISceneAnimationController*						CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener ) = 0;
 
 	/** 
 	 * Creates dummy node with the given name.

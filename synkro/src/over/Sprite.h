@@ -46,7 +46,7 @@ public:
 	Sprite( core::IContext* context, gfx::IOverlayRenderQueue* queue, gfx::IBlendStateSet* blendStates, img::IImage* image, const Order& groupOrder, const Order& order, const lang::Point& location, const lang::Size& size, Bool stretched );
 
 	// ISprite methods.
-	ISpriteAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	ISpriteAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	void													Show( Bool show );
 	void													Stretch( Bool stretch );
 	void													EnableRect( Bool enable );

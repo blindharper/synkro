@@ -33,13 +33,10 @@ class ColorFilterAnimationController :
 {
 public:
 	// Constructor.
-	ColorFilterAnimationController( IColorFilter* colorFilter, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	ColorFilterAnimationController( IColorFilter* colorFilter, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// IViewportFilterAnimationController methods.
 	IColorFilterAnimationController*						AsColor() const;
@@ -47,6 +44,9 @@ public:
 	// IColorFilterAnimationController methods.
 	anim::IKeyframedColorTrack*								CreateColorTrack();
 	anim::IProceduralColorTrack*							CreateColorTrack( const anim::AnimationTrack& type );
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	IColorFilter*											_colorFilter;

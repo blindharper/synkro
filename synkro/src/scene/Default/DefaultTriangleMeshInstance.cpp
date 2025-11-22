@@ -54,7 +54,7 @@ DefaultTriangleMeshInstance::~DefaultTriangleMeshInstance()
 	_batch->RemoveInstance( _index );
 }
 
-INodeAnimationController* DefaultTriangleMeshInstance::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* DefaultTriangleMeshInstance::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
 	return nullptr;
 }

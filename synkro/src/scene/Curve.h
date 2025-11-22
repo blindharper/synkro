@@ -43,7 +43,7 @@ public:
 	Curve( const Curve& other );
 
 	// INode methods.
-	INodeAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// ICurve methods.
 	void													AddPoint( const math::Vector3& point );

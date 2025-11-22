@@ -62,7 +62,7 @@ public:
 	Bool													IsLit() const;
 
 	// ISceneEx methods.
-	ISceneAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	ISceneAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	INode*													CreateDummy( INode* parent, const lang::String& name );
 	ICurve*													CreateCurve( INode* parent, const lang::String& name );
 	ICamera*												CreateCamera( INode* parent, const lang::String& name );

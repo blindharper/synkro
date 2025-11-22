@@ -38,11 +38,11 @@ iface IPrimitive :
 public:
 	/**
 	 * Creates primitive controller.
-	 * @param animation Optional node animation.
+	 * @param animations Optional node animation sequence.
 	 * @param listener Controller listener.
 	 * @return Created controller.
 	 */
-	virtual IPrimitiveAnimationController*					CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener ) = 0;
+	virtual IPrimitiveAnimationController*					CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener ) = 0;
 
 	/** 
 	 * Shows or hides primitive.

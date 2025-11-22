@@ -37,7 +37,7 @@ public:
 	EmbossFilter( IViewport* viewport, anim::IAnimationSystem* animationSystem, gfx::IProgram* program );
 
 	// IViewportFilter methods.
-	IViewportFilterAnimationController*						CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	IViewportFilterAnimationController*						CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IKernel3x3Filter methods.
 	IEmbossFilter*											AsEmboss() const;

@@ -56,8 +56,6 @@ public:
 
 	// IAnimationSystem methods.
 	IAnimationSet*											CreateAnimationSet( const lang::String& name );
-	IAnimation*												CreateAnimation( const lang::String& name );
-	IAnimation*												CreateAnimation();
 	IExpressionScript*										CreateScript( const lang::String& expression );
 	IAnimationSet*											LoadAnimation( io::IStream* stream, const AnimationCodec& type );
 	IAnimationSet*											LoadAnimation( io::IStream* stream );

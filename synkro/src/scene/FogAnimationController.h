@@ -33,13 +33,10 @@ class FogAnimationController :
 {
 public:
 	// Constructor.
-	FogAnimationController( IFog* fog, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	FogAnimationController( IFog* fog, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// IFogAnimationController methods.
 	anim::IKeyframedColorTrack*								CreateColorTrack();
@@ -50,6 +47,9 @@ public:
 	anim::IProceduralFloatTrack*							CreateStartTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedFloatTrack*								CreateEndTrack();
 	anim::IProceduralFloatTrack*							CreateEndTrack( const anim::AnimationTrack& type );
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	IFog*													_fog;

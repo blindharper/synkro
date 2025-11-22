@@ -38,7 +38,7 @@ public:
 	ConeSound( ISceneEx* scene, core::IContext* context, const lang::String& name, sound::ISound3D* sound );
 
 	// INode methods.
-	INodeAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	IParentConstraint*										CreateParentConstraint( INode* parent, const math::Matrix4x4& transform );
 	ILookAtConstraint*										CreateLookAtConstraint( INode* target );
 

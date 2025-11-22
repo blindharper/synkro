@@ -18,12 +18,6 @@
 #include <anim/PlaybackControllerImpl.h>
 #include <scene/ISkeletonAnimationController.h>
 #include <scene/ISkeleton.h>
-#include <anim/IAnimationSet.h>
-#include <anim/IAnimation.h>
-#include <anim/IKeyframedVector3Track.h>
-#include <anim/IKeyframedMatrix4x4Track.h>
-#include <anim/IKeyframedQuaternionTrack.h>
-#include <lang/Vector.h>
 
 
 namespace synkro
@@ -43,13 +37,20 @@ public:
 	SkeletonAnimationController( ISkeleton* skeleton, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
+	void													Start( Bool start );
 	void													Update( Double delta );
+
+	// IAnimationController methods.
+	void													SetAnimations( anim::IAnimationSet* animations );
 
 	// ISkeletonAnimationController methods.
 	void													SetAnimationSet( UInt index );
 	void													SetAnimationSet( const lang::String& name );
 	void													SetAnimationSetWeight( const lang::String& name, Float weight, Double delta );
 	Float													GetAnimationSetWeight( const lang::String& name ) const;
+
+	// BaseAnimationController methods.
+	void													PostUpdate();
 
 private:
 	struct WeightInfo
@@ -108,7 +109,6 @@ private:
 
 	lang::Vector<BoneDesc>									_bones;
 	lang::Vector<WeightInfo>								_weights;
-	P(anim::IAnimationSet)									_animationSet;
 	ISkeleton*												_skeleton;
 
 	void													SetBonesTracks( anim::IAnimationSet* set );

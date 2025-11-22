@@ -11,9 +11,15 @@
 // Purpose: Generic primitive animation controller implementation.
 //==============================================================================
 template <class T>
-SYNKRO_INLINE PrimitiveAnimationControllerImpl<T>::PrimitiveAnimationControllerImpl( IPrimitive* primitive, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener ) :
-	PlaybackControllerImpl<T>( animationSystem, animation, listener ),
-	_primitive( primitive )
+SYNKRO_INLINE PrimitiveAnimationControllerImpl<T>::PrimitiveAnimationControllerImpl( IPrimitive* primitive, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener ) :
+	PlaybackControllerImpl<T>( animationSystem, animations, listener ),
+	_primitive( primitive ),
+	_trackTransform( nullptr ),
+	_trackOrientation( nullptr ),
+	_trackOrientationYaw( nullptr ),
+	_trackOrientationPitch( nullptr ),
+	_trackOrientationRoll( nullptr ),
+	_trackElementRange( nullptr )
 {
 }
 
@@ -32,7 +38,7 @@ SYNKRO_INLINE void PrimitiveAnimationControllerImpl<T>::Update( Double delta )
 	math::Matrix4x4 transform;
 	if ( _trackTransform != nullptr )
 	{
-		_trackTransform->GetValue( _time, transform );
+		_trackTransform->GetValue( CurrentTime(), transform );
 		_primitive->SetTransform( transform );
 	}
 	else
@@ -40,7 +46,7 @@ SYNKRO_INLINE void PrimitiveAnimationControllerImpl<T>::Update( Double delta )
 		math::Quaternion orientation;
 		if ( _trackOrientation != nullptr )
 		{
-			_trackOrientation->GetValue( _time, orientation );
+			_trackOrientation->GetValue( CurrentTime(), orientation );
 			_primitive->GetTransform( transform );
 			transform.SetOrientation( orientation );
 			_primitive->SetTransform( transform );
@@ -50,13 +56,13 @@ SYNKRO_INLINE void PrimitiveAnimationControllerImpl<T>::Update( Double delta )
 			if ( (_trackOrientationYaw != nullptr) || (_trackOrientationPitch != nullptr) || (_trackOrientationRoll != nullptr) )
 			{
 				Float yaw = 0.0f;
-				_trackOrientationYaw->GetValue( _time, yaw );
+				_trackOrientationYaw->GetValue( CurrentTime(), yaw );
 
 				Float pitch = 0.0f;
-				_trackOrientationPitch->GetValue( _time, pitch );
+				_trackOrientationPitch->GetValue( CurrentTime(), pitch );
 				
 				Float roll = 0.0f;
-				_trackOrientationRoll->GetValue( _time, roll );
+				_trackOrientationRoll->GetValue( CurrentTime(), roll );
 
 				_primitive->GetTransform( transform );				
 
@@ -80,137 +86,123 @@ SYNKRO_INLINE void PrimitiveAnimationControllerImpl<T>::Update( Double delta )
 	if ( _trackElementRange != nullptr )
 	{
 		lang::Range range;
-		_trackElementRange->GetValue( _time, range );
+		_trackElementRange->GetValue( CurrentTime(), range );
 		_primitive->SetElementRange( range );
 	}
 }
 
 template <class T>
-SYNKRO_INLINE void PrimitiveAnimationControllerImpl<T>::SetAnimation( anim::IAnimation* animation )
-{
-	// Call base implementation.
-	anim::PlaybackControllerImpl<T>::SetAnimation( animation );
-
-	_trackTransform			= GetTrack( _trackTransform, PrimitiveProperty::Transform );
-	_trackOrientation		= GetTrack( _trackOrientation, PrimitiveProperty::Orientation );
-	_trackOrientationYaw	= GetTrack( _trackOrientationYaw, PrimitiveProperty::OrientationYaw );
-	_trackOrientationPitch	= GetTrack( _trackOrientationPitch, PrimitiveProperty::OrientationPitch );
-	_trackOrientationRoll	= GetTrack( _trackOrientationRoll, PrimitiveProperty::OrientationRoll );
-	_trackElementRange		= GetTrack( _trackElementRange, PrimitiveProperty::ElementRange );
-}
-
-template <class T>
 SYNKRO_INLINE anim::IKeyframedMatrix4x4Track* PrimitiveAnimationControllerImpl<T>::CreateTransformTrack()
 {
-	return (_trackTransform = (_trackTransform == nullptr) ? _animation->CreateMatrix4x4Track(PrimitiveProperty::Transform.ToString()) : _trackTransform)->AsKeyframed();
+	return (_trackTransform = _animations->GetActiveAnimation()->CreateMatrix4x4Track( PrimitiveProperty::Transform.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionMatrix4x4Track* PrimitiveAnimationControllerImpl<T>::CreateTransformTrack( anim::IExpressionScript* script )
 {
-	return (_trackTransform = (_trackTransform == nullptr) ? _animation->CreateMatrix4x4Track(PrimitiveProperty::Transform.ToString(), script) : _trackTransform)->AsExpression();
+	return (_trackTransform = _animations->GetActiveAnimation()->CreateMatrix4x4Track( PrimitiveProperty::Transform.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionMatrix4x4Track* PrimitiveAnimationControllerImpl<T>::CreateTransformTrack( const lang::String& expression )
 {
-	return (_trackTransform = (_trackTransform == nullptr) ? _animation->CreateMatrix4x4Track(PrimitiveProperty::Transform.ToString(), expression) : _trackTransform)->AsExpression();
+	return (_trackTransform = _animations->GetActiveAnimation()->CreateMatrix4x4Track( PrimitiveProperty::Transform.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedQuaternionTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationTrack()
 {
-	return (_trackOrientation = (_trackOrientation == nullptr) ? _animation->CreateQuaternionTrack(PrimitiveProperty::Orientation.ToString()) : _trackOrientation)->AsKeyframed();
+	return (_trackOrientation = _animations->GetActiveAnimation()->CreateQuaternionTrack( PrimitiveProperty::Orientation.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionQuaternionTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationTrack( anim::IExpressionScript* script )
 {
-	return (_trackOrientation = (_trackOrientation == nullptr) ? _animation->CreateQuaternionTrack(PrimitiveProperty::Orientation.ToString(), script) : _trackOrientation)->AsExpression();
+	return (_trackOrientation = _animations->GetActiveAnimation()->CreateQuaternionTrack( PrimitiveProperty::Orientation.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionQuaternionTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationTrack( const lang::String& expression )
 {
-	return (_trackOrientation = (_trackOrientation == nullptr) ? _animation->CreateQuaternionTrack(PrimitiveProperty::Orientation.ToString(), expression) : _trackOrientation)->AsExpression();
+	return (_trackOrientation = _animations->GetActiveAnimation()->CreateQuaternionTrack( PrimitiveProperty::Orientation.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationYawTrack()
 {
-	return (_trackOrientationYaw = (_trackOrientationYaw == nullptr) ? _animation->CreateFloatTrack(PrimitiveProperty::OrientationYaw.ToString()) : _trackOrientationYaw)->AsKeyframed();
+	return (_trackOrientationYaw = _animations->GetActiveAnimation()->CreateFloatTrack( PrimitiveProperty::OrientationYaw.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationYawTrack( const anim::AnimationTrack& type )
 {
-	return (_trackOrientationYaw = (_trackOrientationYaw == nullptr) ? _animation->CreateFloatTrack(PrimitiveProperty::OrientationYaw.ToString(), type) : _trackOrientationYaw)->AsProcedural();
+	return (_trackOrientationYaw = _animations->GetActiveAnimation()->CreateFloatTrack( PrimitiveProperty::OrientationYaw.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationYawTrack( anim::IExpressionScript* script )
 {
-	return (_trackOrientationYaw = (_trackOrientationYaw == nullptr) ? _animation->CreateFloatTrack(PrimitiveProperty::OrientationYaw.ToString(), script) : _trackOrientationYaw)->AsExpression();
+	return (_trackOrientationYaw = _animations->GetActiveAnimation()->CreateFloatTrack( PrimitiveProperty::OrientationYaw.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationYawTrack( const lang::String& expression )
 {
-	return (_trackOrientationYaw = (_trackOrientationYaw == nullptr) ? _animation->CreateFloatTrack(PrimitiveProperty::OrientationYaw.ToString(), expression) : _trackOrientationYaw)->AsExpression();
+	return (_trackOrientationYaw = _animations->GetActiveAnimation()->CreateFloatTrack( PrimitiveProperty::OrientationYaw.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationPitchTrack()
 {
-	return (_trackOrientationPitch = (_trackOrientationPitch == nullptr) ? _animation->CreateFloatTrack(PrimitiveProperty::OrientationPitch.ToString()) : _trackOrientationPitch)->AsKeyframed();
+	return (_trackOrientationPitch = _animations->GetActiveAnimation()->CreateFloatTrack( PrimitiveProperty::OrientationPitch.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationPitchTrack( const anim::AnimationTrack& type )
 {
-	return (_trackOrientationPitch = (_trackOrientationPitch == nullptr) ? _animation->CreateFloatTrack(PrimitiveProperty::OrientationPitch.ToString(), type) : _trackOrientationPitch)->AsProcedural();
+	return (_trackOrientationPitch = _animations->GetActiveAnimation()->CreateFloatTrack( PrimitiveProperty::OrientationPitch.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationPitchTrack( anim::IExpressionScript* script )
 {
-	return (_trackOrientationPitch = (_trackOrientationPitch == nullptr) ? _animation->CreateFloatTrack(PrimitiveProperty::OrientationPitch.ToString(), script) : _trackOrientationPitch)->AsExpression();
+	return (_trackOrientationPitch = _animations->GetActiveAnimation()->CreateFloatTrack( PrimitiveProperty::OrientationPitch.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationPitchTrack( const lang::String& expression )
 {
-	return (_trackOrientationPitch = (_trackOrientationPitch == nullptr) ? _animation->CreateFloatTrack(PrimitiveProperty::OrientationPitch.ToString(), expression) : _trackOrientationPitch)->AsExpression();
+	return (_trackOrientationPitch = _animations->GetActiveAnimation()->CreateFloatTrack( PrimitiveProperty::OrientationPitch.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedFloatTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationRollTrack()
 {
-	return (_trackOrientationRoll = (_trackOrientationRoll == nullptr) ? _animation->CreateFloatTrack(PrimitiveProperty::OrientationRoll.ToString()) : _trackOrientationRoll)->AsKeyframed();
+	return (_trackOrientationRoll = _animations->GetActiveAnimation()->CreateFloatTrack( PrimitiveProperty::OrientationRoll.ToString()) )->AsKeyframed();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IProceduralFloatTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationRollTrack( const anim::AnimationTrack& type )
 {
-	return (_trackOrientationRoll = (_trackOrientationRoll == nullptr) ? _animation->CreateFloatTrack(PrimitiveProperty::OrientationRoll.ToString(), type) : _trackOrientationRoll)->AsProcedural();
+	return (_trackOrientationRoll = _animations->GetActiveAnimation()->CreateFloatTrack( PrimitiveProperty::OrientationRoll.ToString(), type) )->AsProcedural();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationRollTrack( anim::IExpressionScript* script )
 {
-	return (_trackOrientationRoll = (_trackOrientationRoll == nullptr) ? _animation->CreateFloatTrack(PrimitiveProperty::OrientationRoll.ToString(), script) : _trackOrientationRoll)->AsExpression();
+	return (_trackOrientationRoll = _animations->GetActiveAnimation()->CreateFloatTrack( PrimitiveProperty::OrientationRoll.ToString(), script) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IExpressionFloatTrack* PrimitiveAnimationControllerImpl<T>::CreateOrientationRollTrack( const lang::String& expression )
 {
-	return (_trackOrientationRoll = (_trackOrientationRoll == nullptr) ? _animation->CreateFloatTrack(PrimitiveProperty::OrientationRoll.ToString(), expression) : _trackOrientationRoll)->AsExpression();
+	return (_trackOrientationRoll = _animations->GetActiveAnimation()->CreateFloatTrack( PrimitiveProperty::OrientationRoll.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedRangeTrack* PrimitiveAnimationControllerImpl<T>::CreateElementRangeTrack()
 {
-	return (_trackElementRange = (_trackElementRange == nullptr) ? _animation->CreateRangeTrack(PrimitiveProperty::ElementRange.ToString()) : _trackElementRange)->AsKeyframed();
+	return (_trackElementRange = _animations->GetActiveAnimation()->CreateRangeTrack( PrimitiveProperty::ElementRange.ToString()) )->AsKeyframed();
 }
 
 template <class T>
@@ -223,4 +215,15 @@ template <class T>
 SYNKRO_INLINE IPointSetAnimationController* PrimitiveAnimationControllerImpl<T>::AsPointSet() const
 {
 	return nullptr;
+}
+
+template <class T>
+SYNKRO_INLINE void PrimitiveAnimationControllerImpl<T>::UpdateTracks()
+{
+	_trackTransform			= GetTrack( _trackTransform, PrimitiveProperty::Transform );
+	_trackOrientation		= GetTrack( _trackOrientation, PrimitiveProperty::Orientation );
+	_trackOrientationYaw	= GetTrack( _trackOrientationYaw, PrimitiveProperty::OrientationYaw );
+	_trackOrientationPitch	= GetTrack( _trackOrientationPitch, PrimitiveProperty::OrientationPitch );
+	_trackOrientationRoll	= GetTrack( _trackOrientationRoll, PrimitiveProperty::OrientationRoll );
+	_trackElementRange		= GetTrack( _trackElementRange, PrimitiveProperty::ElementRange );
 }

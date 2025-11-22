@@ -35,14 +35,11 @@ class PrimitiveAnimationControllerImpl :
 {
 public:
 	// Constructor & destructor.
-	PrimitiveAnimationControllerImpl( IPrimitive* primitive, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	PrimitiveAnimationControllerImpl( IPrimitive* primitive, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	virtual ~PrimitiveAnimationControllerImpl();
 
 	// IController methods.
 	virtual void											Update( Double delta );
-
-	// IAnimationController methods.
-	virtual void											SetAnimation( anim::IAnimation* animation );
 
 	// IPrimitiveAnimationController methods.
 	virtual anim::IKeyframedMatrix4x4Track*					CreateTransformTrack();
@@ -66,6 +63,9 @@ public:
 	virtual anim::IKeyframedRangeTrack*						CreateElementRangeTrack();
 	virtual ILineSetAnimationController*					AsLineSet() const;
 	virtual IPointSetAnimationController*					AsPointSet() const;
+
+	// Other methods.
+	virtual void											UpdateTracks();
 
 protected:
 	IPrimitive*												_primitive;

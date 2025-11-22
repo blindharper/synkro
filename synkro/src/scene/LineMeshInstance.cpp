@@ -50,9 +50,9 @@ LineMeshInstance::~LineMeshInstance()
 	_batch->RemoveInstance( _index );
 }
 
-INodeAnimationController* LineMeshInstance::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* LineMeshInstance::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new NodeAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new NodeAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 IParentConstraint* LineMeshInstance::CreateParentConstraint( INode* parent, const Matrix4x4& transform )

@@ -46,7 +46,7 @@ public:
 	Camera( const Camera& other );
 
 	// INode methods.
-	INodeAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	IParentConstraint*										CreateParentConstraint( INode* parent, const math::Matrix4x4& transform );
 	ILookAtConstraint*										CreateLookAtConstraint( INode* target );
 	void													SetTransform( const math::Matrix4x4& transform );
@@ -62,7 +62,7 @@ public:
 	ICamera*												AsCamera() const;
 
 	// ICamera methods.
-	ICameraRecordController*								CreateRecordController( anim::IAnimation* animation );
+	ICameraRecordController*								CreateRecordController( anim::IAnimationSet* animations );
 	void													SetHorizontalFieldOfView( Float fieldOfView );
 	void													SetAspect( Float aspect );
 	void													SetFront( Float front );

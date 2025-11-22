@@ -61,9 +61,9 @@ TextPool::TextPool( IContext* context, IOverlayRenderQueue* queue, IFont* font, 
 	_pool->SetElementCount( 0 );
 }
 
-ITextPoolAnimationController* TextPool::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+ITextPoolAnimationController* TextPool::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new TextPoolAnimationController( this, _context->GetAnimationSystem(), animation, listener) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new TextPoolAnimationController( this, _context->GetAnimationSystem(), animations, listener) : _ctrlAnimation;
 }
 
 IText* TextPool::CreateText( const ColorGradient& gradient, const Point& location, const String& text )
