@@ -42,11 +42,11 @@ iface IViewport :
 public:
 	/**
 	 * Creates viewport controller.
-	 * @param animation Optional viewport animation.
+	 * @param animations Optional viewport animation sequence.
 	 * @param listener Controller listener.
 	 * @return Created controller.
 	 */
-	virtual IViewportAnimationController*					CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener ) = 0;
+	virtual IViewportAnimationController*					CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener ) = 0;
 
 	/**
 	 * Creates post-processing filter of the given type.

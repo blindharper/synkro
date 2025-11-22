@@ -50,12 +50,12 @@ public:
 		ctrlEarth->SetSpeed( 0.5 );
 		ctrlEarth->Start( true );
 
-		PtrNodeAnimationController ctrlEarth2 = _earth2->CreateAnimationController( ctrlEarth->GetAnimation(), nullptr);
+		PtrNodeAnimationController ctrlEarth2 = _earth2->CreateAnimationController( ctrlEarth->GetAnimations(), nullptr);
 		ctrlEarth2->SetMode( AnimationMode::Loop );
 		ctrlEarth2->SetSpeed( 0.5 );
 		ctrlEarth2->Start( true );
 
-		PtrNodeAnimationController ctrlEarth3 = _earth3->CreateAnimationController( ctrlEarth->GetAnimation(), nullptr);
+		PtrNodeAnimationController ctrlEarth3 = _earth3->CreateAnimationController( ctrlEarth->GetAnimations(), nullptr);
 		ctrlEarth3->SetMode( AnimationMode::Loop );
 		ctrlEarth3->SetSpeed( 0.5 );
 		ctrlEarth3->Start( true );

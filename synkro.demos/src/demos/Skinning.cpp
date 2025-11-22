@@ -48,7 +48,7 @@ public:
 		_skeletonCtrl2->SetDirection( AnimationDirection::Forward );
 		_skeletonCtrl2->SetLoopCount( 0 );
 		_skeletonCtrl2->SetSpeed( 4.0 );
-		_skeletonCtrl2->SetOffset( _skeletonCtrl2->GetAnimation()->GetLength()*0.5 );
+		_skeletonCtrl2->SetOffset( _skeletonCtrl2->GetAnimations()->GetAnimation(0)->GetLength()*0.5 );
 		_skeletonCtrl2->Start( true );
 
 		_skeletonCtrl3 = _tiny3->GetSkeleton()->CreateAnimationController( nullptr, nullptr );

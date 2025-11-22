@@ -47,13 +47,13 @@ void SaveAnimationTask::Execute()
 {
 	if ( _stream != nullptr )
 	{
-		LogInfo( MessagePriority::Lowest, Formatter::Format(L"Saving animation {0,q} to stream [{1}]. Name = {2,q}.", _animation->GetName(), _stream->ID(), _stream->GetName()) );
+		LogInfo( MessagePriority::Lowest, Formatter::Format(L"Saving animation set {0,q} to stream [{1}]. Name = {2,q}.", _animation->GetName(), _stream->ID(), _stream->GetName()) );
 
 		_stream->Open( OpenMode::Write );
 		_codec->Save( _animation, _stream );
 		_stream->Close();
 
-		LogInfo( MessagePriority::Lowest, Formatter::Format(L"Animation {0,q} saved to stream.", _animation->GetName()) );
+		LogInfo( MessagePriority::Lowest, Formatter::Format(L"Animation set {0,q} saved to stream.", _animation->GetName()) );
 	}
 }
 

@@ -54,9 +54,9 @@ PointMeshBatch::PointMeshBatch( ISceneEx* scene, IContext* context, const String
 {
 }
 
-INodeAnimationController* PointMeshBatch::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* PointMeshBatch::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new PointMeshBatchAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new PointMeshBatchAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 IPointSet* PointMeshBatch::CreatePointList( const String& name, UInt count, Float size, const ColorMode& colorMode, const Matrix4x4& transform )

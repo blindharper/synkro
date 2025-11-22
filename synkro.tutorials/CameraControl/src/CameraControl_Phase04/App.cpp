@@ -242,7 +242,6 @@ Bool App::OnUiClick( IWidget* sender )
 		PtrStreamDirectory dirAnimations = _synkro->GetStreamSystem()->BuildDirectory( L"../../media" );
 		_animStream = dirAnimations->CreateStream( L"camera.xma" );
 		_animationSet = _synkro->GetAnimationSystem()->LoadAnimation( _animStream );
-		_animation = _animationSet->GetAnimation( L"CameraMove" );
 		_btnPlayAnimation->Enable( true );
 		return true;
 	}
@@ -251,8 +250,8 @@ Bool App::OnUiClick( IWidget* sender )
 		if ( _ctrlRecord == nullptr )
 		{
 			_animationSet = _synkro->GetAnimationSystem()->CreateAnimationSet( L"CameraControl" );
-			_animation = _animationSet->CreateAnimation( L"CameraMove" );
-			_ctrlRecord = _camera->CreateRecordController( _animation );
+			_animationSet->CreateAnimation( L"CameraMove" );
+			_ctrlRecord = _camera->CreateRecordController( _animationSet );
 			_ctrlRecord->CreatePositionTrack();
 			_ctrlRecord->CreateOrientationTrack();
 			_ctrlRecord->CreateFieldOfViewTrack();
@@ -277,10 +276,10 @@ Bool App::OnUiClick( IWidget* sender )
 	}
 	else if ( sender == _btnPlayAnimation )
 	{
-		PtrNodeAnimationController ctrl = _camera->CreateAnimationController( _animation, this );
-		if ( _animation != nullptr )
+		PtrNodeAnimationController ctrl = _camera->CreateAnimationController( _animationSet, this );
+		if ( _animationSet != nullptr )
 		{
-			ctrl->SetAnimation( _animation );
+			ctrl->SetAnimations( _animationSet );
 		}
 		_btnLoadAnimation->Enable( false );
 		_btnStartRecording->Enable( false );

@@ -23,7 +23,7 @@ SYNKRO_INLINE VisualMaterialImpl<T>::~VisualMaterialImpl()
 }
 
 template <class T>
-SYNKRO_INLINE IVisualMaterialAnimationController* VisualMaterialImpl<T>::CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener )
+SYNKRO_INLINE IVisualMaterialAnimationController* VisualMaterialImpl<T>::CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener )
 {
 	return nullptr;
 }

@@ -67,9 +67,9 @@ TriangleSet::TriangleSet( ITriangleSet* set, IContext* context, const DebugMode&
 	}
 }
 
-IPrimitiveAnimationController* TriangleSet::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IPrimitiveAnimationController* TriangleSet::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new PrimitiveAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new PrimitiveAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 void TriangleSet::SetPositions( const Vector3* positions, UInt start, UInt count )

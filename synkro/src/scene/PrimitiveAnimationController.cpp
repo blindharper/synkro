@@ -29,10 +29,9 @@ namespace scene
 {
 
 
-PrimitiveAnimationController::PrimitiveAnimationController( IPrimitive* primitive, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	PrimitiveAnimationControllerImpl<IPrimitiveAnimationController>( primitive, animationSystem, animation, listener )
+PrimitiveAnimationController::PrimitiveAnimationController( IPrimitive* primitive, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	PrimitiveAnimationControllerImpl<IPrimitiveAnimationController>( primitive, animationSystem, animations, listener )
 {
-	SetAnimation( _animation );
 }
 
 

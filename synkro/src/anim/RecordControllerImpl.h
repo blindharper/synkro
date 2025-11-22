@@ -33,7 +33,7 @@ class RecordControllerImpl :
 {
 public:
 	// Constructor & destructor.
-	RecordControllerImpl( IAnimationSystem* animationSystem, IAnimation* animation );
+	RecordControllerImpl( IAnimationSystem* animationSystem, IAnimationSet* animations );
 	virtual ~RecordControllerImpl();
 
 	// IController methods.

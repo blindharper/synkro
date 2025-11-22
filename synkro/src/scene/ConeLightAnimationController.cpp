@@ -32,11 +32,14 @@ namespace scene
 {
 
 
-ConeLightAnimationController::ConeLightAnimationController( IConeLight* coneLight, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	LightAnimationControllerImpl<IConeLightAnimationController>( coneLight, animationSystem, animation, listener ),
-	_coneLight( coneLight )
+ConeLightAnimationController::ConeLightAnimationController( IConeLight* coneLight, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	LightAnimationControllerImpl<IConeLightAnimationController>( coneLight, animationSystem, animations, listener ),
+	_coneLight( coneLight ),
+	_trackRange( nullptr ),
+	_trackInnerAngle( nullptr ),
+	_trackOuterAngle( nullptr ),
+	_trackFalloff( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void ConeLightAnimationController::Update( Double delta )
@@ -51,41 +54,30 @@ void ConeLightAnimationController::Update( Double delta )
 	if ( _trackRange != nullptr )
 	{
 		Float range;
-		_trackRange->GetValue( _time, range );
+		_trackRange->GetValue( CurrentTime(), range );
 		_coneLight->SetRange( range );
 	}
 
 	if ( _trackInnerAngle != nullptr )
 	{
 		Float angle;
-		_trackInnerAngle->GetValue( _time, angle );
+		_trackInnerAngle->GetValue( CurrentTime(), angle );
 		_coneLight->SetInnerAngle( angle );
 	}
 
 	if ( _trackOuterAngle != nullptr )
 	{
 		Float angle;
-		_trackOuterAngle->GetValue( _time, angle );
+		_trackOuterAngle->GetValue( CurrentTime(), angle );
 		_coneLight->SetOuterAngle( angle );
 	}
 
 	if ( _trackFalloff != nullptr )
 	{
 		Float falloff;
-		_trackFalloff->GetValue( _time, falloff );
+		_trackFalloff->GetValue( CurrentTime(), falloff );
 		_coneLight->SetFalloff( falloff );
 	}
-}
-
-void ConeLightAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	LightAnimationControllerImpl<IConeLightAnimationController>::SetAnimation( animation );
-
-	_trackRange			= GetTrack( _trackRange, ConeLightProperty::Range );
-	_trackInnerAngle	= GetTrack( _trackInnerAngle, ConeLightProperty::InnerAngle );
-	_trackOuterAngle	= GetTrack( _trackOuterAngle, ConeLightProperty::OuterAngle );
-	_trackFalloff		= GetTrack( _trackFalloff, ConeLightProperty::Falloff );
 }
 
 IConeLightAnimationController* ConeLightAnimationController::AsCone() const
@@ -95,42 +87,53 @@ IConeLightAnimationController* ConeLightAnimationController::AsCone() const
 
 IKeyframedFloatTrack* ConeLightAnimationController::CreateRangeTrack()
 {
-	return (_trackRange = (_trackRange == nullptr) ? _animation->CreateFloatTrack(ConeLightProperty::Range.ToString()) : _trackRange)->AsKeyframed();
+	return (_trackRange = _animations->GetActiveAnimation()->CreateFloatTrack( ConeLightProperty::Range.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* ConeLightAnimationController::CreateRangeTrack( const AnimationTrack& type )
 {
-	return (_trackRange = (_trackRange == nullptr) ? _animation->CreateFloatTrack(ConeLightProperty::Range.ToString(), type) : _trackRange)->AsProcedural();
+	return (_trackRange = _animations->GetActiveAnimation()->CreateFloatTrack( ConeLightProperty::Range.ToString(), type) )->AsProcedural();
 }
 
 IKeyframedFloatTrack* ConeLightAnimationController::CreateInnerAngleTrack()
 {
-	return (_trackInnerAngle = (_trackInnerAngle == nullptr) ? _animation->CreateFloatTrack(ConeLightProperty::InnerAngle.ToString()) : _trackInnerAngle)->AsKeyframed();
+	return (_trackInnerAngle = _animations->GetActiveAnimation()->CreateFloatTrack( ConeLightProperty::InnerAngle.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* ConeLightAnimationController::CreateInnerAngleTrack( const AnimationTrack& type )
 {
-	return (_trackInnerAngle = (_trackInnerAngle == nullptr) ? _animation->CreateFloatTrack(ConeLightProperty::InnerAngle.ToString(), type) : _trackInnerAngle)->AsProcedural();
+	return (_trackInnerAngle = _animations->GetActiveAnimation()->CreateFloatTrack( ConeLightProperty::InnerAngle.ToString(), type) )->AsProcedural();
 }
 
 IKeyframedFloatTrack* ConeLightAnimationController::CreateOuterAngleTrack()
 {
-	return (_trackOuterAngle = (_trackOuterAngle == nullptr) ? _animation->CreateFloatTrack(ConeLightProperty::OuterAngle.ToString()) : _trackOuterAngle)->AsKeyframed();
+	return (_trackOuterAngle = _animations->GetActiveAnimation()->CreateFloatTrack( ConeLightProperty::OuterAngle.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* ConeLightAnimationController::CreateOuterAngleTrack( const AnimationTrack& type )
 {
-	return (_trackOuterAngle = (_trackOuterAngle == nullptr) ? _animation->CreateFloatTrack(ConeLightProperty::OuterAngle.ToString(), type) : _trackOuterAngle)->AsProcedural();
+	return (_trackOuterAngle = _animations->GetActiveAnimation()->CreateFloatTrack( ConeLightProperty::OuterAngle.ToString(), type) )->AsProcedural();
 }
 
 IKeyframedFloatTrack* ConeLightAnimationController::CreateFalloffTrack()
 {
-	return (_trackFalloff = (_trackFalloff == nullptr) ? _animation->CreateFloatTrack(ConeLightProperty::Falloff.ToString()) : _trackFalloff)->AsKeyframed();
+	return (_trackFalloff = _animations->GetActiveAnimation()->CreateFloatTrack( ConeLightProperty::Falloff.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* ConeLightAnimationController::CreateFalloffTrack( const AnimationTrack& type )
 {
-	return (_trackFalloff = (_trackFalloff == nullptr) ? _animation->CreateFloatTrack(ConeLightProperty::Falloff.ToString(), type) : _trackFalloff)->AsProcedural();
+	return (_trackFalloff = _animations->GetActiveAnimation()->CreateFloatTrack( ConeLightProperty::Falloff.ToString(), type) )->AsProcedural();
+}
+
+void ConeLightAnimationController::UpdateTracks()
+{
+	// Call base implementation.
+	LightAnimationControllerImpl<IConeLightAnimationController>::UpdateTracks();
+
+	_trackRange			= GetTrack( _trackRange, ConeLightProperty::Range );
+	_trackInnerAngle	= GetTrack( _trackInnerAngle, ConeLightProperty::InnerAngle );
+	_trackOuterAngle	= GetTrack( _trackOuterAngle, ConeLightProperty::OuterAngle );
+	_trackFalloff		= GetTrack( _trackFalloff, ConeLightProperty::Falloff );
 }
 
 

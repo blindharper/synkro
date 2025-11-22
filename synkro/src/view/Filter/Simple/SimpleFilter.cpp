@@ -39,9 +39,9 @@ SimpleFilter::SimpleFilter( IViewport* viewport, IAnimationSystem* animationSyst
 	SetValue( 0.0f );
 }
 
-IViewportFilterAnimationController* SimpleFilter::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IViewportFilterAnimationController* SimpleFilter::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SimpleFilterAnimationController( this, _animationSystem, animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SimpleFilterAnimationController( this, _animationSystem, animations, listener ) : _ctrlAnimation;
 }
 
 

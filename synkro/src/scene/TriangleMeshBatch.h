@@ -42,7 +42,7 @@ public:
 	TriangleMeshBatch( ITriangleMeshBatch* batch, ISceneEx* scene, core::IContext* context, const lang::String& name, ISkeleton* skeleton, UInt capacity );
 
 	// INode methods.
-	INodeAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IMesh methods.
 	ITriangleMesh*											AsTriangle() const;

@@ -40,9 +40,9 @@ ColorFilter::ColorFilter( IViewport* viewport, IAnimationSystem* animationSystem
 	SetColor( Color::White );
 }
 
-IViewportFilterAnimationController* ColorFilter::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IViewportFilterAnimationController* ColorFilter::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new ColorFilterAnimationController( this, _animationSystem, animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new ColorFilterAnimationController( this, _animationSystem, animations, listener ) : _ctrlAnimation;
 }
 
 

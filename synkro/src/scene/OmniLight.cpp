@@ -84,9 +84,9 @@ OmniLight::OmniLight( ISceneEx* scene, IContext* context, const String& name ) :
 	}
 }
 
-INodeAnimationController* OmniLight::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* OmniLight::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new OmniLightAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new OmniLightAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 void OmniLight::Update()

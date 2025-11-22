@@ -41,7 +41,7 @@ MultiMaterial::MultiMaterial( UInt size ) :
 	_materials.SetSize( size );
 }
 
-IVisualMaterialAnimationController* MultiMaterial::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IVisualMaterialAnimationController* MultiMaterial::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
 	return nullptr;
 }

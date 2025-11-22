@@ -43,9 +43,9 @@ Fog::Fog( IContext* context ) :
 	SetEnd( 100.0f );
 }
 
-IFogAnimationController* Fog::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IFogAnimationController* Fog::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new FogAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new FogAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 

@@ -173,9 +173,9 @@ ITriangleMesh* Scene::PickMesh( const Vector3& origin, const Vector3& direction,
 	}
 }
 
-ISceneAnimationController* Scene::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+ISceneAnimationController* Scene::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SceneAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SceneAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 INode* Scene::CreateDummy( INode* parent, const String& name )

@@ -36,9 +36,9 @@ Kernel3x3Filter::Kernel3x3Filter( IViewport* viewport, IAnimationSystem* animati
 {
 }
 
-IViewportFilterAnimationController* Kernel3x3Filter::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IViewportFilterAnimationController* Kernel3x3Filter::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new Kernel3x3FilterAnimationController( this, _animationSystem, animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new Kernel3x3FilterAnimationController( this, _animationSystem, animations, listener ) : _ctrlAnimation;
 }
 
 

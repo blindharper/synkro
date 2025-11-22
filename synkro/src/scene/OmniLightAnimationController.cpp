@@ -32,11 +32,11 @@ namespace scene
 {
 
 
-OmniLightAnimationController::OmniLightAnimationController( IOmniLight* omniLight, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	LightAnimationControllerImpl<IOmniLightAnimationController>( omniLight, animationSystem, animation, listener ),
-	_omniLight( omniLight )
+OmniLightAnimationController::OmniLightAnimationController( IOmniLight* omniLight, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	LightAnimationControllerImpl<IOmniLightAnimationController>( omniLight, animationSystem, animations, listener ),
+	_omniLight( omniLight ),
+	_trackRange( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void OmniLightAnimationController::Update( Double delta )
@@ -51,17 +51,9 @@ void OmniLightAnimationController::Update( Double delta )
 	if ( _trackRange != nullptr )
 	{
 		Float range;
-		_trackRange->GetValue( _time, range );
+		_trackRange->GetValue( CurrentTime(), range );
 		_omniLight->SetRange( range );
 	}
-}
-
-void OmniLightAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	LightAnimationControllerImpl<IOmniLightAnimationController>::SetAnimation( animation );
-
-	_trackRange = GetTrack( _trackRange, OmniLightProperty::Range );
 }
 
 IOmniLightAnimationController* OmniLightAnimationController::AsOmni() const
@@ -71,12 +63,20 @@ IOmniLightAnimationController* OmniLightAnimationController::AsOmni() const
 
 IKeyframedFloatTrack* OmniLightAnimationController::CreateRangeTrack()
 {
-	return (_trackRange = (_trackRange == nullptr) ? _animation->CreateFloatTrack(OmniLightProperty::Range.ToString()) : _trackRange)->AsKeyframed();
+	return (_trackRange = _animations->GetActiveAnimation()->CreateFloatTrack( OmniLightProperty::Range.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* OmniLightAnimationController::CreateRangeTrack( const AnimationTrack& type )
 {
-	return (_trackRange = (_trackRange == nullptr) ? _animation->CreateFloatTrack(OmniLightProperty::Range.ToString(), type) : _trackRange)->AsProcedural();
+	return (_trackRange = _animations->GetActiveAnimation()->CreateFloatTrack( OmniLightProperty::Range.ToString(), type) )->AsProcedural();
+}
+
+void OmniLightAnimationController::UpdateTracks()
+{
+	// Call base implementation.
+	LightAnimationControllerImpl<IOmniLightAnimationController>::UpdateTracks();
+
+	_trackRange = GetTrack( _trackRange, OmniLightProperty::Range );
 }
 
 

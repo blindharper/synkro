@@ -35,11 +35,11 @@ iface IVisualMaterial :
 public:
 	/**
 	 * Creates animation controller.
-	 * @param animation Optional material animation.
+	 * @param animations Optional material animation sequence.
 	 * @param listener Controller listener.
 	 * @return Created controller.
 	 */
-	virtual IVisualMaterialAnimationController*				CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener ) = 0;
+	virtual IVisualMaterialAnimationController*				CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener ) = 0;
 
 	/**
 	 * Creates triangle list primitive.

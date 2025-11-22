@@ -33,11 +33,11 @@ namespace scene
 {
 
 
-CameraAnimationController::CameraAnimationController( ICamera* camera, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	NodeAnimationControllerImpl<ICameraAnimationController>( camera, animationSystem, animation, listener ),
-	_camera( camera )
+CameraAnimationController::CameraAnimationController( ICamera* camera, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	NodeAnimationControllerImpl<ICameraAnimationController>( camera, animationSystem, animations, listener ),
+	_camera( camera ),
+	_trackFieldOfView( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void CameraAnimationController::Update( Double delta )
@@ -49,17 +49,9 @@ void CameraAnimationController::Update( Double delta )
 	if ( _trackFieldOfView != nullptr )
 	{
 		Float fov;
-		_trackFieldOfView->GetValue( _time, fov );
+		_trackFieldOfView->GetValue( CurrentTime(), fov );
 		_camera->SetHorizontalFieldOfView( fov );
 	}
-}
-
-void CameraAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	NodeAnimationControllerImpl<ICameraAnimationController>::SetAnimation( animation );
-
-	_trackFieldOfView = GetTrack( _trackFieldOfView, CameraProperty::FieldOfView );
 }
 
 ICameraAnimationController* CameraAnimationController::AsCamera() const
@@ -69,22 +61,30 @@ ICameraAnimationController* CameraAnimationController::AsCamera() const
 
 IKeyframedFloatTrack* CameraAnimationController::CreateFieldOfViewTrack()
 {
-	return (_trackFieldOfView = (_trackFieldOfView == nullptr) ? _animation->CreateFloatTrack(CameraProperty::FieldOfView.ToString()) : _trackFieldOfView)->AsKeyframed();
+	return (_trackFieldOfView = _animations->GetActiveAnimation()->CreateFloatTrack( CameraProperty::FieldOfView.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* CameraAnimationController::CreateFieldOfViewTrack( const AnimationTrack& type )
 {
-	return (_trackFieldOfView = (_trackFieldOfView == nullptr) ? _animation->CreateFloatTrack(CameraProperty::FieldOfView.ToString(), type) : _trackFieldOfView)->AsProcedural();
+	return (_trackFieldOfView = _animations->GetActiveAnimation()->CreateFloatTrack( CameraProperty::FieldOfView.ToString(), type) )->AsProcedural();
 }
 
 IExpressionFloatTrack* CameraAnimationController::CreateFieldOfViewTrack( IExpressionScript* script )
 {
-	return (_trackFieldOfView = (_trackFieldOfView == nullptr) ? _animation->CreateFloatTrack(CameraProperty::FieldOfView.ToString(), script) : _trackFieldOfView)->AsExpression();
+	return (_trackFieldOfView = _animations->GetActiveAnimation()->CreateFloatTrack( CameraProperty::FieldOfView.ToString(), script) )->AsExpression();
 }
 
 IExpressionFloatTrack* CameraAnimationController::CreateFieldOfViewTrack( const String& expression )
 {
-	return (_trackFieldOfView = (_trackFieldOfView == nullptr) ? _animation->CreateFloatTrack(CameraProperty::FieldOfView.ToString(), expression) : _trackFieldOfView)->AsExpression();
+	return (_trackFieldOfView = _animations->GetActiveAnimation()->CreateFloatTrack( CameraProperty::FieldOfView.ToString(), expression) )->AsExpression();
+}
+
+void CameraAnimationController::UpdateTracks()
+{
+	// Call base implementation.
+	NodeAnimationControllerImpl<ICameraAnimationController>::UpdateTracks();
+
+	_trackFieldOfView = GetTrack( _trackFieldOfView, CameraProperty::FieldOfView );
 }
 
 

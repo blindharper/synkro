@@ -142,7 +142,7 @@ public:
 			Double time = _skeletonCtrl->GetTime();
 			_labelAnimationTime->SetText( String::Format(L"TIME: {0,0.000}", time) );
 			time *= 100.0;
-			IAnimation* animation = _skeletonCtrl->GetAnimation();
+			IAnimation* animation = _skeletonCtrl->GetAnimations()->GetAnimation( 0 );
 			_sliderAnimationTime->SetMaxPosition( CastUInt(animation->GetLength()*100.0) );
 			_sliderAnimationTime->SetPosition( CastUInt(time) );
 		}
@@ -407,7 +407,7 @@ public:
 			_skeletonCtrl->SetLoopCount( 0 );
 			_skeletonCtrl->SetSpeed( 4.0 );
 			_skeletonCtrl->Start( true );
-			IAnimation* animation = _skeletonCtrl->GetAnimation();
+			IAnimation* animation = _skeletonCtrl->GetAnimations()->GetAnimation( 0 );
 			_sliderAnimationTime->SetMaxPosition( CastUInt(animation->GetLength()*100.0) );
 		}
 	}

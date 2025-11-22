@@ -98,7 +98,7 @@ void WidgetEffect::SetOpacity( Float opacity )
 
 IKeyframedColorTrack* WidgetEffect::CreateColorTrack()
 {
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack( L"Color" ) : _trackColor)->AsKeyframed();
+	return (_trackColor = (_trackColor == nullptr) ? _animations->GetActiveAnimation()->CreateColorTrack(L"Color") : _trackColor)->AsKeyframed();
 }
 
 IKeyframedColorTrack* WidgetEffect::CreateColor2Track()
@@ -106,12 +106,12 @@ IKeyframedColorTrack* WidgetEffect::CreateColor2Track()
 	if ( _widget2 == nullptr )
 		return nullptr;
 
-	return (_trackColor2 = (_trackColor2 == nullptr) ? _animation->CreateColorTrack( L"Color2" ) : _trackColor2)->AsKeyframed();
+	return (_trackColor2 = (_trackColor2 == nullptr) ? _animations->GetActiveAnimation()->CreateColorTrack( L"Color2" ) : _trackColor2)->AsKeyframed();
 }
 
 IKeyframedColorTrack* WidgetEffect::CreateTextColorTrack()
 {
-	return (_trackTextColor = (_trackTextColor == nullptr) ? _animation->CreateColorTrack( L"TextColor" ) : _trackTextColor)->AsKeyframed();
+	return (_trackTextColor = (_trackTextColor == nullptr) ? _animations->GetActiveAnimation()->CreateColorTrack( L"TextColor" ) : _trackTextColor)->AsKeyframed();
 }
 
 void WidgetEffect::Setup( IKeyframedColorTrack* track, const Color& from, const Color& to )

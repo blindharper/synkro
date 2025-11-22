@@ -37,11 +37,11 @@ iface IFog :
 public:
 	/**
 	 * Creates animation controller for the scene.
-	 * @param animation Optional scene animation.
+	 * @param animations Optional scene animation sequence.
 	 * @param listener Controller listener.
 	 * @return Created controller.
 	 */
-	virtual IFogAnimationController*						CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener ) = 0;
+	virtual IFogAnimationController*						CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener ) = 0;
 
 	/**
 	 * Sets fog color. Default is LightGray.

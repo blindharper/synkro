@@ -89,11 +89,6 @@ private:
 	PtrText													_txtHelp;
 	PtrText													_txtHints;
 
-	PtrAnimationSet											_animationSet;
-	PtrAnimation											_animation;
-	PtrCameraRecordController								_ctrlRecord;
-	PtrStream												_animStream;
-
 	void													Configure();
 	void													InitVirtualScene();
 	void													InitScene();

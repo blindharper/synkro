@@ -37,7 +37,7 @@ public:
 	ColorFilter( IViewport* viewport, anim::IAnimationSystem* animationSystem, gfx::IProgram* program );
 
 	// IViewportFilter methods.
-	IViewportFilterAnimationController*						CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	IViewportFilterAnimationController*						CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IColorFilter methods.
 	void													SetColor( const img::Color& color );

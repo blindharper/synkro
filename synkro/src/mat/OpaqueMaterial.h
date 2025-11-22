@@ -40,7 +40,7 @@ public:
 	OpaqueMaterial( const OpaqueMaterial& other );
 
 	// IVisualMaterial methods.
-	IVisualMaterialAnimationController*						CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	IVisualMaterialAnimationController*						CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// ISimpleMaterial methods.
 	void													SetDiffuseColor( const img::Color& color );

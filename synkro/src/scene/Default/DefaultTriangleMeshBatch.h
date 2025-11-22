@@ -42,7 +42,7 @@ public:
 	DefaultTriangleMeshBatch( DefaultScene* scene, mat::IVisualMaterial* material, ISkeleton* skeleton, UInt capacity );
 
 	// INode methods.
-	INodeAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	IParentConstraint*										CreateParentConstraint( INode* parent, const math::Matrix4x4& transform );
 	ILookAtConstraint*										CreateLookAtConstraint( INode* target );
 	void													SetTransform( const math::Matrix4x4& transform );

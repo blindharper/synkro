@@ -33,13 +33,10 @@ class CameraAnimationController :
 {
 public:
 	// Constructor.
-	CameraAnimationController( ICamera* camera, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	CameraAnimationController( ICamera* camera, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// INodeAnimationController methods.
 	ICameraAnimationController*								AsCamera() const;
@@ -49,6 +46,9 @@ public:
 	anim::IProceduralFloatTrack*							CreateFieldOfViewTrack( const anim::AnimationTrack& type );
 	anim::IExpressionFloatTrack*							CreateFieldOfViewTrack( anim::IExpressionScript* script );
 	anim::IExpressionFloatTrack*							CreateFieldOfViewTrack( const lang::String& expression );
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	ICamera*												_camera;

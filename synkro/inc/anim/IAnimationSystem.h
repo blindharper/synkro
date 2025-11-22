@@ -42,19 +42,6 @@ public:
 	virtual IAnimationSet*									CreateAnimationSet( const lang::String& name ) = 0;
 
 	/**
-	 * Creates named animation.
-	 * @param name Animation name.
-	 * @return Created animation.
-	 */
-	virtual IAnimation*										CreateAnimation( const lang::String& name ) = 0;
-
-	/**
-	 * Creates empty animation.
-	 * @return Created animation.
-	 */
-	virtual IAnimation*										CreateAnimation() = 0;
-
-	/**
 	 * Creates expression script from text.
 	 * @param expression Script text.
 	 * @return Created expression script.

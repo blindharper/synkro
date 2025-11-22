@@ -41,7 +41,7 @@ public:
 	LineSet( core::IContext* context, gfx::ILineRenderObject* object, UInt start, UInt count );
 
 	// IPrimitive methods.
-	IPrimitiveAnimationController*							CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	IPrimitiveAnimationController*							CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	void													Show( Bool show );
 	void													SetElementRange( const lang::Range& range );
 	void													SetInstanceRange( const lang::Range& range );

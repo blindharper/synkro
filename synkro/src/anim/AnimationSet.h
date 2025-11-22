@@ -45,17 +45,20 @@ public:
 	void													SaveAsync( io::IStream* stream, const AnimationCodec& type );
 	void													SaveAsync( io::IStream* stream );
 	IAnimation*												CreateAnimation( const lang::String& name );
+	IAnimation*												GetActiveAnimation() const;
 	UInt													GetAnimationCount() const;
 	IAnimation*												GetAnimation( UInt index ) const;
 	IAnimation*												GetAnimation( const lang::String& name ) const;
+	Double													GetLength() const;
 	lang::String											GetName() const;
 
 private:
 	typedef lang::MapPair<lang::String, UInt>				IndexEntry;
 
 	lang::Vector<P(IAnimation)>								_animations;
-	lang::MapCI<lang::String, UInt>						_indexes;
+	lang::MapCI<lang::String, UInt>							_indexes;
 	BaseAnimationSystem*									_animationSystem;
+	P(IAnimation)											_activeAnimation;
 	lang::String											_name;
 };
 

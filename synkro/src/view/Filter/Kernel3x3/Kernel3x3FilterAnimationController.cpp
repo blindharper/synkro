@@ -29,10 +29,9 @@ namespace view
 {
 
 
-Kernel3x3FilterAnimationController::Kernel3x3FilterAnimationController( IKernel3x3Filter* kernel3x3Filter, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	Kernel3x3FilterAnimationControllerImpl<IKernel3x3FilterAnimationController>( kernel3x3Filter, animationSystem, animation, listener )
+Kernel3x3FilterAnimationController::Kernel3x3FilterAnimationController( IKernel3x3Filter* kernel3x3Filter, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	Kernel3x3FilterAnimationControllerImpl<IKernel3x3FilterAnimationController>( kernel3x3Filter, animationSystem, animations, listener )
 {
-	SetAnimation( _animation );
 }
 
 

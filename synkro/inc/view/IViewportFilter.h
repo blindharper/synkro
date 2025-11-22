@@ -36,11 +36,11 @@ iface IViewportFilter :
 public:
 	/**
 	 * Creates viewport filter controller.
-	 * @param animation Optional filter animation.
+	 * @param animations Optional filter animation sequence.
 	 * @param listener Controller listener.
 	 * @return Created controller.
 	 */
-	virtual IViewportFilterAnimationController*				CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener ) = 0;
+	virtual IViewportFilterAnimationController*				CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener ) = 0;
 
 	/**
 	 * Updates filter's internal state.

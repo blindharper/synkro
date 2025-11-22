@@ -50,7 +50,7 @@ public:
 	~Music();
 
 	// IMusic methods.
-	IMusicAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	IMusicAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	void													Play( Bool play );
 	void													Pause( Bool pause );
 	void													SetVolume( Int volume );

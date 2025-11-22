@@ -52,9 +52,9 @@ FogFilter::FogFilter( IViewport* viewport, IAnimationSystem* animationSystem, IP
 	SetDensity( 0.01f );
 }
 
-IViewportFilterAnimationController* FogFilter::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IViewportFilterAnimationController* FogFilter::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new FogFilterAnimationController( this, _animationSystem, animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new FogFilterAnimationController( this, _animationSystem, animations, listener ) : _ctrlAnimation;
 }
 
 

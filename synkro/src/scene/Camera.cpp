@@ -72,9 +72,9 @@ Camera::Camera( const Camera& other ) :
 	UpdateListener( true, false );
 }
 
-INodeAnimationController* Camera::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* Camera::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new CameraAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new CameraAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 IParentConstraint* Camera::CreateParentConstraint( INode* parent, const Matrix4x4& transform )
@@ -87,9 +87,9 @@ ILookAtConstraint* Camera::CreateLookAtConstraint( INode* target )
 	return (_lookAtConstraint == nullptr) ? _lookAtConstraint = new LookAtConstraint( _context->GetGraphicsSystem(), this, target ) : _lookAtConstraint;
 }
 
-ICameraRecordController* Camera::CreateRecordController( IAnimation* animation )
+ICameraRecordController* Camera::CreateRecordController( IAnimationSet* animations )
 {
-	return (_ctrlRecord == nullptr) ? _ctrlRecord = new CameraRecordController( this, _context->GetAnimationSystem(), animation ) : _ctrlRecord;
+	return (_ctrlRecord == nullptr) ? _ctrlRecord = new CameraRecordController( this, _context->GetAnimationSystem(), animations ) : _ctrlRecord;
 }
 
 Float Camera::GetVerticalFieldOfView() const

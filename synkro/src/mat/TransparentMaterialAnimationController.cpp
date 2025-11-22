@@ -32,11 +32,11 @@ namespace mat
 {
 
 
-TransparentMaterialAnimationController::TransparentMaterialAnimationController( ITransparentMaterial* transparentMaterial, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	SimpleMaterialAnimationControllerImpl<ITransparentMaterialAnimationController>( transparentMaterial, animationSystem, animation, listener ),
-	_transparentMaterial( transparentMaterial )
+TransparentMaterialAnimationController::TransparentMaterialAnimationController( ITransparentMaterial* transparentMaterial, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	SimpleMaterialAnimationControllerImpl<ITransparentMaterialAnimationController>( transparentMaterial, animationSystem, animations, listener ),
+	_transparentMaterial( transparentMaterial ),
+	_trackOpacity( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void TransparentMaterialAnimationController::Update( Double delta )
@@ -48,17 +48,9 @@ void TransparentMaterialAnimationController::Update( Double delta )
 	if ( _trackOpacity != nullptr )
 	{
 		Float opacity;
-		_trackOpacity->GetValue( _time, opacity );
+		_trackOpacity->GetValue( CurrentTime(), opacity );
 		_transparentMaterial->SetOpacity( opacity );
 	}
-}
-
-void TransparentMaterialAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	SimpleMaterialAnimationControllerImpl<ITransparentMaterialAnimationController>::SetAnimation( animation );
-
-	_trackOpacity = GetTrack( _trackOpacity, TransparentMaterialProperty::Opacity );
 }
 
 ITransparentMaterialAnimationController* TransparentMaterialAnimationController::AsTransparent() const
@@ -68,22 +60,30 @@ ITransparentMaterialAnimationController* TransparentMaterialAnimationController:
 
 IKeyframedFloatTrack* TransparentMaterialAnimationController::CreateOpacityTrack()
 {
-	return (_trackOpacity = (_trackOpacity == nullptr) ? _animation->CreateFloatTrack(TransparentMaterialProperty::Opacity.ToString()) : _trackOpacity)->AsKeyframed();
+	return (_trackOpacity = _animations->GetActiveAnimation()->CreateFloatTrack( TransparentMaterialProperty::Opacity.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* TransparentMaterialAnimationController::CreateOpacityTrack( const AnimationTrack& type )
 {
-	return (_trackOpacity = (_trackOpacity == nullptr) ? _animation->CreateFloatTrack(TransparentMaterialProperty::Opacity.ToString(), type) : _trackOpacity)->AsProcedural();
+	return (_trackOpacity = _animations->GetActiveAnimation()->CreateFloatTrack( TransparentMaterialProperty::Opacity.ToString(), type) )->AsProcedural();
 }
 
 IExpressionFloatTrack* TransparentMaterialAnimationController::CreateOpacityTrack( IExpressionScript* script )
 {
-	return (_trackOpacity = (_trackOpacity == nullptr) ? _animation->CreateFloatTrack(TransparentMaterialProperty::Opacity.ToString(), script) : _trackOpacity)->AsExpression();
+	return (_trackOpacity = _animations->GetActiveAnimation()->CreateFloatTrack( TransparentMaterialProperty::Opacity.ToString(), script) )->AsExpression();
 }
 
 IExpressionFloatTrack* TransparentMaterialAnimationController::CreateOpacityTrack( const String& expression )
 {
-	return (_trackOpacity = (_trackOpacity == nullptr) ? _animation->CreateFloatTrack(TransparentMaterialProperty::Opacity.ToString(), expression) : _trackOpacity)->AsExpression();
+	return (_trackOpacity = _animations->GetActiveAnimation()->CreateFloatTrack( TransparentMaterialProperty::Opacity.ToString(), expression) )->AsExpression();
+}
+
+void TransparentMaterialAnimationController::UpdateTracks()
+{
+	// Call base implementation.
+	SimpleMaterialAnimationControllerImpl<ITransparentMaterialAnimationController>::UpdateTracks();
+
+	_trackOpacity = GetTrack( _trackOpacity, TransparentMaterialProperty::Opacity );
 }
 
 

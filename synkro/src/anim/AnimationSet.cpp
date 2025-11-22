@@ -62,10 +62,26 @@ void AnimationSet::SaveAsync( IStream* stream )
 
 IAnimation* AnimationSet::CreateAnimation( const String& name )
 {
+	if ( _indexes.ContainsKey(name) )
+		throw BadArgumentException( String::Format(L"Animation with name {0,q} already exists.", name), L"name", name );
+
 	IAnimation* animation = new Animation( _animationSystem, name );
 	_indexes[name] = _animations.Size();
 	_animations.Add( animation );
+	_activeAnimation = animation;
 	return animation;
+}
+
+Double AnimationSet::GetLength() const
+{
+	Double length = 0.0;
+
+	for ( UInt i = 0; i < _animations.Size(); ++i )
+	{
+		length += _animations[i]->GetLength();
+	}
+
+	return length;
 }
 
 

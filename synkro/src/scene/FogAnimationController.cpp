@@ -33,11 +33,14 @@ namespace scene
 {
 
 
-FogAnimationController::FogAnimationController( IFog* fog, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	PlaybackControllerImpl<IFogAnimationController>( animationSystem, animation, listener ),
-	_fog( fog )
+FogAnimationController::FogAnimationController( IFog* fog, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	PlaybackControllerImpl<IFogAnimationController>( animationSystem, animations, listener ),
+	_fog( fog ),
+	_trackColor( nullptr ),
+	_trackDensity( nullptr ),
+	_trackStart( nullptr ),
+	_trackEnd( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void FogAnimationController::Update( Double delta )
@@ -49,81 +52,78 @@ void FogAnimationController::Update( Double delta )
 	if ( _trackColor != nullptr )
 	{
 		Color color;
-		_trackColor->GetValue( _time, color );
+		_trackColor->GetValue( CurrentTime(), color );
 		_fog->SetColor( color );
 	}
 
 	if ( _trackDensity != nullptr )
 	{
 		Float density;
-		_trackDensity->GetValue( _time, density );
+		_trackDensity->GetValue( CurrentTime(), density );
 		_fog->SetDensity( density );
 	}
 
 	if ( _trackStart != nullptr )
 	{
 		Float start;
-		_trackStart->GetValue( _time, start );
+		_trackStart->GetValue( CurrentTime(), start );
 		_fog->SetStart( start );
 	}
 
 	if ( _trackEnd != nullptr )
 	{
 		Float end;
-		_trackEnd->GetValue( _time, end );
+		_trackEnd->GetValue( CurrentTime(), end );
 		_fog->SetEnd( end );
 	}
 }
 
-void FogAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	PlaybackControllerImpl<IFogAnimationController>::SetAnimation( animation );
-
-	_trackColor		= GetTrack( _trackColor, FogProperty::Color );
-	_trackDensity	= GetTrack( _trackDensity, FogProperty::Density );
-	_trackStart		= GetTrack( _trackStart, FogProperty::Start );
-	_trackEnd		= GetTrack( _trackEnd, FogProperty::End );
-}
-
 IKeyframedColorTrack* FogAnimationController::CreateColorTrack()
 {
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(FogProperty::Color.ToString()) : _trackColor)->AsKeyframed();
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( FogProperty::Color.ToString()) )->AsKeyframed();
 }
 
 IProceduralColorTrack* FogAnimationController::CreateColorTrack( const AnimationTrack& type )
 {
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(FogProperty::Color.ToString(), type) : _trackColor)->AsProcedural();
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( FogProperty::Color.ToString(), type) )->AsProcedural();
 }
 
 IKeyframedFloatTrack* FogAnimationController::CreateDensityTrack()
 {
-	return (_trackDensity = (_trackDensity == nullptr) ? _animation->CreateFloatTrack(FogProperty::Density.ToString()) : _trackDensity)->AsKeyframed();
+	return (_trackDensity = _animations->GetActiveAnimation()->CreateFloatTrack( FogProperty::Density.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* FogAnimationController::CreateDensityTrack( const AnimationTrack& type )
 {
-	return (_trackDensity = (_trackDensity == nullptr) ? _animation->CreateFloatTrack(FogProperty::Density.ToString(), type) : _trackDensity)->AsProcedural();
+	return (_trackDensity = _animations->GetActiveAnimation()->CreateFloatTrack( FogProperty::Density.ToString(), type) )->AsProcedural();
 }
 
 IKeyframedFloatTrack* FogAnimationController::CreateStartTrack()
 {
-	return (_trackStart = (_trackStart == nullptr) ? _animation->CreateFloatTrack(FogProperty::Start.ToString()) : _trackStart)->AsKeyframed();
+	return (_trackStart = _animations->GetActiveAnimation()->CreateFloatTrack( FogProperty::Start.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* FogAnimationController::CreateStartTrack( const AnimationTrack& type )
 {
-	return (_trackStart = (_trackStart == nullptr) ? _animation->CreateFloatTrack(FogProperty::Start.ToString(), type) : _trackStart)->AsProcedural();
+	return (_trackStart = _animations->GetActiveAnimation()->CreateFloatTrack( FogProperty::Start.ToString(), type) )->AsProcedural();
 }
 
 IKeyframedFloatTrack* FogAnimationController::CreateEndTrack()
 {
-	return (_trackEnd = (_trackEnd == nullptr) ? _animation->CreateFloatTrack(FogProperty::End.ToString()) : _trackEnd)->AsKeyframed();
+	return (_trackEnd = _animations->GetActiveAnimation()->CreateFloatTrack( FogProperty::End.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* FogAnimationController::CreateEndTrack( const AnimationTrack& type )
 {
-	return (_trackEnd = (_trackEnd == nullptr) ? _animation->CreateFloatTrack(FogProperty::End.ToString(), type) : _trackEnd)->AsProcedural();
+	return (_trackEnd = _animations->GetActiveAnimation()->CreateFloatTrack( FogProperty::End.ToString(), type) )->AsProcedural();
+}
+
+void FogAnimationController::UpdateTracks()
+{
+	_trackColor		= GetTrack( _trackColor, FogProperty::Color );
+	_trackDensity	= GetTrack( _trackDensity, FogProperty::Density );
+	_trackStart		= GetTrack( _trackStart, FogProperty::Start );
+	_trackEnd		= GetTrack( _trackEnd, FogProperty::End );
 }
 
 

@@ -58,9 +58,9 @@ ConeLight::ConeLight( ISceneEx* scene, IContext* context, const String& name ) :
 	}
 }
 
-INodeAnimationController* ConeLight::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* ConeLight::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new ConeLightAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new ConeLightAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 IParentConstraint* ConeLight::CreateParentConstraint( INode* parent, const Matrix4x4& transform )

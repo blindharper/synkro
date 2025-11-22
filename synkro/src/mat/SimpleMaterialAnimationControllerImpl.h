@@ -35,14 +35,11 @@ class SimpleMaterialAnimationControllerImpl :
 {
 public:
 	// Constructor & destructor.
-	SimpleMaterialAnimationControllerImpl( ISimpleMaterial* material, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	SimpleMaterialAnimationControllerImpl( ISimpleMaterial* material, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	virtual ~SimpleMaterialAnimationControllerImpl();
 
 	// IController methods.
 	virtual void											Update( Double delta );
-
-	// IAnimationController methods.
-	virtual void											SetAnimation( anim::IAnimation* animation );
 
 	// IVisualMaterialAnimationController methods.
 	virtual ISimpleMaterialAnimationController*				AsSimple() const;
@@ -69,6 +66,9 @@ public:
 	virtual anim::IExpressionFloatTrack*					CreateSpecularPowerTrack( anim::IExpressionScript* script );
 	virtual anim::IExpressionFloatTrack*					CreateSpecularPowerTrack( const lang::String& expression );
 	virtual ITransparentMaterialAnimationController*		AsTransparent() const;
+
+	// Other methods.
+	virtual void											UpdateTracks();
 
 protected:
 	ISimpleMaterial*										_material;

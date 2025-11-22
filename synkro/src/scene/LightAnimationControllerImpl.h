@@ -35,14 +35,11 @@ class LightAnimationControllerImpl :
 {
 public:
 	// Constructor & destructor.
-	LightAnimationControllerImpl( ILight* light, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	LightAnimationControllerImpl( ILight* light, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	virtual ~LightAnimationControllerImpl();
 
 	// IController methods.
 	virtual void											Update( Double delta );
-
-	// IAnimationController methods.
-	virtual void											SetAnimation( anim::IAnimation* animation );
 
 	// INodeAnimationController methods.
 	virtual ILightAnimationController*						AsLight() const;
@@ -67,6 +64,9 @@ public:
 	virtual anim::IKeyframedBoolTrack*						CreateAvailabilityTrack();
 	virtual IConeLightAnimationController*					AsCone() const;
 	virtual IOmniLightAnimationController*					AsOmni() const;
+
+	// Other methods.
+	virtual void											UpdateTracks();
 
 protected:
 	ILight*													_light;

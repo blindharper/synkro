@@ -29,10 +29,9 @@ namespace scene
 {
 
 
-LightAnimationController::LightAnimationController( ILight* light, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	LightAnimationControllerImpl<ILightAnimationController>( light, animationSystem, animation, listener )
+LightAnimationController::LightAnimationController( ILight* light, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	LightAnimationControllerImpl<ILightAnimationController>( light, animationSystem, animations, listener )
 {
-	SetAnimation( _animation );
 }
 
 

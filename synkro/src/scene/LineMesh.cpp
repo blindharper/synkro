@@ -56,9 +56,9 @@ LineMesh::LineMesh( ISceneEx* scene, IContext* context, const String& name ) :
 {
 }
 
-INodeAnimationController* LineMesh::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* LineMesh::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new NodeAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new NodeAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 IParentConstraint* LineMesh::CreateParentConstraint( INode* parent, const Matrix4x4& transform )

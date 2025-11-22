@@ -61,14 +61,16 @@ Dial::Dial( ISynkro* synkro, ISceneEx* scene, Float radius, const DialMode& mode
 	transRotation.SetOrientation( Quaternion(Vector3::X, Math::HalfPi) );
 	_secondArrow = CreateArrow( scene, L"Second", _materialRed, MeshBuilder::Cylinder, Vector4(0.1f, 11.0f, 0.0f, 0.0f), Size(2, 20), transPosition*transRotation, Math::TwoPi, 1.0f/60.0f );
 	_secondArrowCtrl = _secondArrow->CreateAnimationController( nullptr, nullptr );
-	_animationAnalog = _secondArrowCtrl->GetAnimation();
+	_animationsAnalog = _secondArrowCtrl->GetAnimations();
 
-	_secondArrowCtrl->SetAnimation( _animationDigital = _synkro->GetAnimationSystem()->CreateAnimation() );
+	_animationsDigital = _synkro->GetAnimationSystem()->CreateAnimationSet( L"Digital" );
+	_animationsDigital->CreateAnimation( L"Second" );
+	_secondArrowCtrl->SetAnimations( _animationsDigital );
 	IWaveFloatTrack* trackYaw = _secondArrowCtrl->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 	trackYaw->SetType( WaveType::Step );
 	trackYaw->SetAmplitude( 1.0f );
 	trackYaw->SetFrequency( 1.0f/60.0f );
-	_secondArrowCtrl->SetAnimation( _animationDigital );
+	_secondArrowCtrl->SetAnimations( _animationsDigital );
 	_yawTrackName = trackYaw->GetName();
 
 	SetMode( mode );
@@ -91,7 +93,7 @@ void Dial::Pause( Bool pause )
 
 void Dial::SetMode( const DialMode& mode )
 {
-	_secondArrowCtrl->SetAnimation( (mode == DialMode::DIGITAL) ? _animationDigital : _animationAnalog );
+	_secondArrowCtrl->SetAnimations( (mode == DialMode::DIGITAL) ? _animationsDigital : _animationsAnalog );
 }
 
 void Dial::SetTime( const DateTime& time )
@@ -101,13 +103,13 @@ void Dial::SetTime( const DateTime& time )
 
 	Float angle = time.TotalSeconds()*Math::TwoPi/60.0f;
 	_secondArrow->SetOrientation( Quaternion(Vector3::Y, -angle) );
-	_animationAnalog->GetTrack( 0 )->AsFloat()->AsProcedural()->AsWave()->SetOffset( -angle );
-	_animationDigital->GetTrack( 0 )->AsFloat()->AsProcedural()->AsWave()->SetOffset( -angle );
+	_animationsAnalog->GetAnimation( 0 )->GetTrack( 0 )->AsFloat()->AsProcedural()->AsWave()->SetOffset( -angle );
+	_animationsDigital->GetAnimation( 0 )->GetTrack( 0 )->AsFloat()->AsProcedural()->AsWave()->SetOffset( -angle );
 }
 
 Dial::DialMode Dial::GetMode() const
 {
-	return (_secondArrowCtrl->GetAnimation() == _animationDigital) ? DialMode::DIGITAL : DialMode::ANALOG;
+	return (_secondArrowCtrl->GetAnimations() == _animationsDigital) ? DialMode::DIGITAL : DialMode::ANALOG;
 }
 
 Bool Dial::IsRunning() const
@@ -139,5 +141,5 @@ ITriangleMesh* Dial::CreateArrow( ISceneEx* scene, const String& name, IOpaqueMa
 void Dial::SetAngle( ITriangleMesh* mesh, Float angle )
 {
 	mesh->SetOrientation( Quaternion(Vector3::Y, -angle) );
-	mesh->CreateAnimationController( nullptr, nullptr )->GetAnimation()->GetTrack( _yawTrackName )->AsFloat()->AsProcedural()->AsWave()->SetOffset( -angle );
+	mesh->CreateAnimationController( nullptr, nullptr )->GetAnimations()->GetAnimation( 0 )->GetTrack( _yawTrackName )->AsFloat()->AsProcedural()->AsWave()->SetOffset( -angle );
 }

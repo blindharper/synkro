@@ -38,11 +38,11 @@ iface IText :
 public:
 	/**
 	 * Creates text controller.
-	 * @param animation Optional text animation.
+	 * @param animations Optional text animation sequence.
 	 * @param listener Controller listener.
 	 * @return Created controller.
 	 */
-	virtual ITextAnimationController*						CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener ) = 0;
+	virtual ITextAnimationController*						CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener ) = 0;
 
 	/**
 	 * Sets text visibility.

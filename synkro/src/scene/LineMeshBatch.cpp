@@ -56,9 +56,9 @@ LineMeshBatch::LineMeshBatch( ISceneEx* scene, IContext* context, const String& 
 {
 }
 
-INodeAnimationController* LineMeshBatch::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* LineMeshBatch::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new LineMeshBatchAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new LineMeshBatchAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 ILineSet* LineMeshBatch::CreateLineList( const String& name, UInt vertexCount, UInt indexCount, Bool adjacency, const ColorMode& colorMode, const Matrix4x4& transform )

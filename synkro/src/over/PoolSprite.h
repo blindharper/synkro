@@ -19,7 +19,6 @@
 #include <core/IContext.h>
 #include <over/ISprite.h>
 #include <over/ISpriteAnimationController.h>
-#include <math/Math.h>
 #include "BaseSpritePool.h"
 
 
@@ -41,7 +40,7 @@ public:
 	~PoolSprite();
 
 	// ISprite methods.
-	ISpriteAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	ISpriteAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	void													Show( Bool show );
 	void													Stretch( Bool stretch );
 	void													EnableRect( Bool enable );

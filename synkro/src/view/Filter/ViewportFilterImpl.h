@@ -51,7 +51,7 @@ public:
 	virtual ~ViewportFilterImpl();
 
 	// IViewportFilter methods.
-	virtual IViewportFilterAnimationController*				CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	virtual IViewportFilterAnimationController*				CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	virtual void											Update();
 	virtual void											Enable( Bool enable );
 	virtual void											EnableRect( Bool enable );

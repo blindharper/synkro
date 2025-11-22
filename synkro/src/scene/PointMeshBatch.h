@@ -41,7 +41,7 @@ public:
 	PointMeshBatch( ISceneEx* scene, core::IContext* context, const lang::String& name, UInt capacity );
 
 	// INode methods.
-	INodeAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IMesh methods.
 	IPointMesh*												AsPoint() const;

@@ -36,11 +36,11 @@ iface IMusic :
 public:
 	/**
 	 * Creates animation controller for music track.
-	 * @param animation Optional music animation.
+	 * @param animations Optional music animation sequence.
 	 * @param listener Controller listener.
 	 * @return Created controller.
 	 */
-	virtual IMusicAnimationController*						CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener ) = 0;
+	virtual IMusicAnimationController*						CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener ) = 0;
 
 	/**
 	 * Starts or stops playing the music.

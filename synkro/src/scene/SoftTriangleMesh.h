@@ -39,7 +39,7 @@ public:
 	SoftTriangleMesh( BaseSceneManager* sceneManager, ISkeleton* skeleton, UInt subsetCount );
 
 	// INode methods.
-	INodeAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IMesh methods.
 	ITriangleMesh*											AsTriangle() const;

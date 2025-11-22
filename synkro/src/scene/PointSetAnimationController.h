@@ -33,13 +33,10 @@ class PointSetAnimationController :
 {
 public:
 	// Constructor.
-	PointSetAnimationController( IPointSet* pointSet, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	PointSetAnimationController( IPointSet* pointSet, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// IPrimitiveAnimationController methods.
 	IPointSetAnimationController*							AsPointSet() const;
@@ -49,6 +46,9 @@ public:
 	anim::IProceduralColorTrack*							CreateColorTrack( const anim::AnimationTrack& type );
 	anim::IExpressionColorTrack*							CreateColorTrack( anim::IExpressionScript* script );
 	anim::IExpressionColorTrack*							CreateColorTrack( const lang::String& expression );
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	IPointSet*												_pointSet;

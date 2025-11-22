@@ -28,7 +28,7 @@ SYNKRO_INLINE ViewportFilterImpl<T>::~ViewportFilterImpl()
 }
 
 template <class T>
-SYNKRO_INLINE IViewportFilterAnimationController* ViewportFilterImpl<T>::CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener )
+SYNKRO_INLINE IViewportFilterAnimationController* ViewportFilterImpl<T>::CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener )
 {
 	return nullptr;
 }

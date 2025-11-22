@@ -44,9 +44,9 @@ OpaqueMaterialInstance::OpaqueMaterialInstance( IContext* context, ITriangleMesh
 {
 }
 
-IVisualMaterialAnimationController* OpaqueMaterialInstance::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IVisualMaterialAnimationController* OpaqueMaterialInstance::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SimpleMaterialAnimationController( this, _context->GetAnimationSystem(), animation, listener) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SimpleMaterialAnimationController( this, _context->GetAnimationSystem(), animations, listener) : _ctrlAnimation;
 }
 
 void OpaqueMaterialInstance::SetLightingModel( const LightingModel& model )

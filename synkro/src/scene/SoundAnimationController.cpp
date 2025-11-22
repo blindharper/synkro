@@ -31,11 +31,10 @@ namespace scene
 {
 
 
-SoundAnimationController::SoundAnimationController( ISound* sound, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	NodeAnimationControllerImpl<ISoundAnimationController>( sound, animationSystem, animation, listener ),
+SoundAnimationController::SoundAnimationController( ISound* sound, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	NodeAnimationControllerImpl<ISoundAnimationController>( sound, animationSystem, animations, listener ),
 	_sound( sound )
 {
-	SetAnimation( _animation );
 }
 
 void SoundAnimationController::Update( Double delta )
@@ -47,7 +46,7 @@ void SoundAnimationController::Update( Double delta )
 	if ( _trackAvailability != nullptr )
 	{
 		Bool enabled;
-		_trackAvailability->GetValue( _time, enabled );
+		_trackAvailability->GetValue( CurrentTime(), enabled );
 		_sound->Enable( enabled );
 	}
 
@@ -60,27 +59,17 @@ void SoundAnimationController::Update( Double delta )
 		if ( _trackInnerVolume != nullptr )
 		{
 			Float volume;
-			_trackInnerVolume->GetValue( _time, volume );
+			_trackInnerVolume->GetValue( CurrentTime(), volume );
 			cone->SetInnerVolume( volume );
 		}
 
 		if ( _trackOuterVolume != nullptr )
 		{
 			Float volume;
-			_trackOuterVolume->GetValue( _time, volume );
+			_trackOuterVolume->GetValue( CurrentTime(), volume );
 			cone->SetOuterVolume( volume );
 		}
 	}
-}
-
-void SoundAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	NodeAnimationControllerImpl<ISoundAnimationController>::SetAnimation( animation );
-
-	_trackInnerVolume	= GetTrack( _trackInnerVolume, SoundProperty::InnerVolume );
-	_trackOuterVolume	= GetTrack( _trackOuterVolume, SoundProperty::OuterVolume );
-	_trackAvailability	= GetTrack( _trackAvailability, SoundProperty::Availability );	
 }
 
 ISoundAnimationController* SoundAnimationController::AsSound() const
@@ -90,27 +79,37 @@ ISoundAnimationController* SoundAnimationController::AsSound() const
 
 IKeyframedFloatTrack* SoundAnimationController::CreateInnerVolumeTrack()
 {
-	return (_trackInnerVolume = (_trackInnerVolume == nullptr) ? _animation->CreateFloatTrack(SoundProperty::InnerVolume.ToString()) : _trackInnerVolume)->AsKeyframed();
+	return (_trackInnerVolume = _animations->GetActiveAnimation()->CreateFloatTrack( SoundProperty::InnerVolume.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* SoundAnimationController::CreateInnerVolumeTrack( const AnimationTrack& type )
 {
-	return (_trackInnerVolume = (_trackInnerVolume == nullptr) ? _animation->CreateFloatTrack(SoundProperty::InnerVolume.ToString(), type) : _trackInnerVolume)->AsProcedural();
+	return (_trackInnerVolume = _animations->GetActiveAnimation()->CreateFloatTrack( SoundProperty::InnerVolume.ToString(), type) )->AsProcedural();
 }
 
 IKeyframedFloatTrack* SoundAnimationController::CreateOuterVolumeTrack()
 {
-	return (_trackOuterVolume = (_trackOuterVolume == nullptr) ? _animation->CreateFloatTrack(SoundProperty::OuterVolume.ToString()) : _trackOuterVolume)->AsKeyframed();
+	return (_trackOuterVolume = _animations->GetActiveAnimation()->CreateFloatTrack( SoundProperty::OuterVolume.ToString()) )->AsKeyframed();
 }
 
 IProceduralFloatTrack* SoundAnimationController::CreateOuterVolumeTrack( const AnimationTrack& type )
 {
-	return (_trackOuterVolume = (_trackOuterVolume == nullptr) ? _animation->CreateFloatTrack(SoundProperty::OuterVolume.ToString(), type) : _trackOuterVolume)->AsProcedural();
+	return (_trackOuterVolume = _animations->GetActiveAnimation()->CreateFloatTrack( SoundProperty::OuterVolume.ToString(), type) )->AsProcedural();
 }
 
 IKeyframedBoolTrack* SoundAnimationController::CreateAvailabilityTrack()
 {
-	return (_trackAvailability = (_trackAvailability == nullptr) ? _animation->CreateBoolTrack(SoundProperty::Availability.ToString()) : _trackAvailability)->AsKeyframed();
+	return (_trackAvailability = _animations->GetActiveAnimation()->CreateBoolTrack( SoundProperty::Availability.ToString()) )->AsKeyframed();
+}
+
+void SoundAnimationController::UpdateTracks()
+{
+	// Call base implementation.
+	NodeAnimationControllerImpl<ISoundAnimationController>::UpdateTracks();
+
+	_trackInnerVolume	= GetTrack( _trackInnerVolume, SoundProperty::InnerVolume );
+	_trackOuterVolume	= GetTrack( _trackOuterVolume, SoundProperty::OuterVolume );
+	_trackAvailability	= GetTrack( _trackAvailability, SoundProperty::Availability );	
 }
 
 

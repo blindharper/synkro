@@ -34,14 +34,11 @@ class ViewportFilterAnimationControllerImpl :
 {
 public:
 	// Constructor & destructor.
-	ViewportFilterAnimationControllerImpl( IViewportFilter* filter, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	ViewportFilterAnimationControllerImpl( IViewportFilter* filter, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	virtual ~ViewportFilterAnimationControllerImpl();
 
 	// IController methods.
 	virtual void											Update( Double delta );
-
-	// IAnimationController methods.
-	virtual void											SetAnimation( anim::IAnimation* animation );
 
 	// IViewportFilterAnimationController methods.
 	virtual anim::IKeyframedRectTrack*						CreateRectTrack();
@@ -49,6 +46,9 @@ public:
 	virtual IFogFilterAnimationController*					AsFog() const;
 	virtual IKernel3x3FilterAnimationController*			AsKernel3x3() const;
 	virtual ISimpleFilterAnimationController*				AsSimple() const;
+
+	// Other methods.
+	virtual void											UpdateTracks();
 
 protected:
 	IViewportFilter*										_filter;

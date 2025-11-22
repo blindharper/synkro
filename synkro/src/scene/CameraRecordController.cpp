@@ -29,8 +29,8 @@ namespace scene
 {
 
 
-CameraRecordController::CameraRecordController( ICamera* camera, IAnimationSystem* animationSystem, IAnimation* animation ) :
-	NodeRecordControllerImpl<ICameraRecordController>( camera, animationSystem, animation ),
+CameraRecordController::CameraRecordController( ICamera* camera, IAnimationSystem* animationSystem, IAnimationSet* animations ) :
+	NodeRecordControllerImpl<ICameraRecordController>( camera, animationSystem, animations ),
 	_camera( camera )
 {
 }
@@ -50,7 +50,7 @@ void CameraRecordController::Update( Double delta )
 
 IKeyframedFloatTrack* CameraRecordController::CreateFieldOfViewTrack()
 {
-	return (_trackFov == nullptr) ? _trackFov = _animation->CreateFloatTrack( CameraProperty::FieldOfView.ToString() ) : _trackFov;
+	return (_trackFov == nullptr) ? _trackFov = _animations->GetActiveAnimation()->CreateFloatTrack( CameraProperty::FieldOfView.ToString() ) : _trackFov;
 }
 
 

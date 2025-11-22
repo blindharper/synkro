@@ -35,7 +35,7 @@ class CameraRecordController :
 {
 public:
 	// Constructor.
-	CameraRecordController( ICamera* camera, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation );
+	CameraRecordController( ICamera* camera, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations );
 
 	// IController methods.
 	void													Update( Double delta );

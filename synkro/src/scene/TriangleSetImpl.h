@@ -58,7 +58,7 @@ public:
 	virtual ~TriangleSetImpl();
 
 	// IPrimitive methods.
-	virtual	IPrimitiveAnimationController*					CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	virtual	IPrimitiveAnimationController*					CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	virtual	void											Show( Bool show );
 	virtual void											SetElementRange( const lang::Range& range );
 	virtual void											SetInstanceRange( const lang::Range& range );

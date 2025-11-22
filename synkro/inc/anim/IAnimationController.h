@@ -27,23 +27,23 @@ namespace anim
 
 
 /**
- * Animation controller. Updates controlled object using the underlying animation.
+ * Animation controller. Updates controlled object using the underlying animations.
  */
 iface IAnimationController :
 	public core::IController
 {
 public:
 	/**
-	 * Sets animation assigned to the controller.
-	 * @param animation Animation object.
-	 * @exception BadArgumentException animation is nullptr.
+	 * Sets animation sequence assigned to the controller.
+	 * @param animations Animation sequence.
+	 * @exception BadArgumentException animations is nullptr.
 	 */
-	virtual void											SetAnimation( IAnimation* animation ) = 0;
+	virtual void											SetAnimations( IAnimationSet* animations ) = 0;
 
 	/**
-	 * Retrieves animation assigned to the controller.
+	 * Retrieves animation sequence assigned to the controller.
 	 */
-	virtual IAnimation*										GetAnimation() const = 0;
+	virtual IAnimationSet*									GetAnimations() const = 0;
 };
 
 

@@ -33,7 +33,7 @@ class LightAnimationController :
 {
 public:
 	// Constructor.
-	LightAnimationController( ILight* light, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	LightAnimationController( ILight* light, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 };
 
 

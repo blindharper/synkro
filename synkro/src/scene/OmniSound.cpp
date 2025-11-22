@@ -42,9 +42,9 @@ OmniSound::OmniSound( ISceneEx* scene, IContext* context, const String& name, IS
 	_sound->SetOuterAngle( Math::TwoPi );
 }
 
-INodeAnimationController* OmniSound::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* OmniSound::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SoundAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SoundAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 void OmniSound::Update()

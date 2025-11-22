@@ -33,13 +33,10 @@ class ConeLightAnimationController :
 {
 public:
 	// Constructor.
-	ConeLightAnimationController( IConeLight* coneLight, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	ConeLightAnimationController( IConeLight* coneLight, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// ILightAnimationController methods.
 	IConeLightAnimationController*							AsCone() const;
@@ -53,6 +50,9 @@ public:
 	anim::IProceduralFloatTrack*							CreateOuterAngleTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedFloatTrack*								CreateFalloffTrack();
 	anim::IProceduralFloatTrack*							CreateFalloffTrack( const anim::AnimationTrack& type );
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	IConeLight*												_coneLight;

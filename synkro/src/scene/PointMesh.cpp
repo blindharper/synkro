@@ -55,9 +55,9 @@ PointMesh::PointMesh( ISceneEx* scene, IContext* context, const String& name ) :
 {
 }
 
-INodeAnimationController* PointMesh::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* PointMesh::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new NodeAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new NodeAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 IParentConstraint* PointMesh::CreateParentConstraint( INode* parent, const Matrix4x4& transform )

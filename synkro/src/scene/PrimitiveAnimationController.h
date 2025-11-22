@@ -33,7 +33,7 @@ class PrimitiveAnimationController :
 {
 public:
 	// Constructor.
-	PrimitiveAnimationController( IPrimitive* primitive, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	PrimitiveAnimationController( IPrimitive* primitive, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 };
 
 

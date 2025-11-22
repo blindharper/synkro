@@ -33,13 +33,10 @@ class SoundAnimationController :
 {
 public:
 	// Constructor.
-	SoundAnimationController( ISound* sound, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	SoundAnimationController( ISound* sound, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// INodeAnimationController methods.
 	ISoundAnimationController*								AsSound() const;
@@ -50,6 +47,9 @@ public:
 	anim::IKeyframedFloatTrack*								CreateOuterVolumeTrack();
 	anim::IProceduralFloatTrack*							CreateOuterVolumeTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedBoolTrack*								CreateAvailabilityTrack();
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	ISound*													_sound;

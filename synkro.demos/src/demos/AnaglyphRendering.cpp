@@ -54,27 +54,27 @@ public:
 		trackPosition->SetFrequency( 3.0f );
 		ctrl->SetMode( AnimationMode::Loop );
 		ctrl->Start( true );
-		IAnimation* animation = ctrl->GetAnimation();
+		IAnimationSet* animations = ctrl->GetAnimations();
 
 		constexpr Float SPHERE_RADIUS = 20.0f;
 		_primitives->Add( CreateSphere( _origin, _materialPurple, SPHERE_RADIUS, 40, 40, Matrix4x4::Identity, GetPosition(RADIUS, GetAngle(1))) );
-		CreateController( animation );
+		CreateController( animations );
 
 		constexpr Float CONE_RADIUS = 15.0f; constexpr Float CONE_HEIGHT = 35.0f;
 		_primitives->Add( CreateCone( _origin, _materialYellow, CONE_RADIUS, CONE_HEIGHT, 40, 40, Matrix4x4::Identity, GetPosition(RADIUS, GetAngle(2))) );
-		CreateController( animation );
+		CreateController( animations );
 
 		constexpr Float CUBE_SIDE = 25.0f;
 		_primitives->Add( CreateCube( _origin, _materialGreen, CUBE_SIDE, Matrix4x4::Identity, GetPosition(RADIUS, GetAngle(3))) );
-		CreateController( animation );
+		CreateController( animations );
 
 		constexpr Float CYLINDER_RADIUS = 12.0f; constexpr Float CYLINDER_HEIGHT = 25.0f;
 		_primitives->Add( CreateCylinder( _origin, _materialRed, CYLINDER_RADIUS, CYLINDER_HEIGHT, 40, 40, Matrix4x4::Identity, GetPosition(RADIUS, GetAngle(4))) );
-		CreateController( animation );
+		CreateController( animations );
 
 		constexpr Float PYRAMID_HEIGHT = 25.0f;
 		_primitives->Add( CreatePyramid( _origin, _materialBlue, PYRAMID_HEIGHT, PYRAMID_HEIGHT, PYRAMID_HEIGHT, Matrix4x4::Identity, GetPosition(RADIUS, GetAngle(5))) );
-		CreateController( animation );
+		CreateController( animations );
 	}
 
 	void InitView() override
@@ -179,9 +179,9 @@ public:
 		return material;
 	}
 
-	void CreateController( IAnimation* animation )
+	void CreateController( IAnimationSet* animations )
 	{
-		INodeAnimationController* ctrl = _primitives->Get(_primitives->GetSize()-1)->CreateAnimationController( animation, nullptr );
+		INodeAnimationController* ctrl = _primitives->Get(_primitives->GetSize()-1)->CreateAnimationController( animations, nullptr );
 		ctrl->SetMode( AnimationMode::Loop );
 	}
 

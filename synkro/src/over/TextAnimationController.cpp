@@ -33,11 +33,20 @@ namespace over
 {
 
 
-TextAnimationController::TextAnimationController( IText* text, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	PlaybackControllerImpl<ITextAnimationController>( animationSystem, animation, listener ),
-	_text( text )
+TextAnimationController::TextAnimationController( IText* text, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	PlaybackControllerImpl<ITextAnimationController>( animationSystem, animations, listener ),
+	_text( text ),
+	_trackLocation( nullptr ),
+	_trackLocationX( nullptr ),
+	_trackLocationY( nullptr ),
+	_trackRect( nullptr ),
+	_trackOrientation( nullptr ),
+	_trackScale( nullptr ),
+	_trackColorGradient( nullptr ),
+	_trackColor( nullptr ),
+	_trackOpacity( nullptr ),
+	_trackVisibility( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void TextAnimationController::Update( Double delta )
@@ -49,7 +58,7 @@ void TextAnimationController::Update( Double delta )
 	if ( _trackLocation != nullptr )
 	{
 		Point location;
-		_trackLocation->GetValue( _time, location );
+		_trackLocation->GetValue( CurrentTime(), location );
 		_text->SetLocation( location );
 	}
 	else
@@ -57,14 +66,14 @@ void TextAnimationController::Update( Double delta )
 		if ( _trackLocationX != nullptr )
 		{
 			Float pos;
-			_trackLocationX->GetValue( _time, pos );
+			_trackLocationX->GetValue( CurrentTime(), pos );
 			_text->SetLocationX( pos );
 		}
 
 		if ( _trackLocationY != nullptr )
 		{
 			Float pos;
-			_trackLocationY->GetValue( _time, pos );
+			_trackLocationY->GetValue( CurrentTime(), pos );
 			_text->SetLocationY( pos );
 		}
 	}
@@ -72,28 +81,28 @@ void TextAnimationController::Update( Double delta )
 	if ( _trackRect != nullptr )
 	{
 		Rect rect;
-		_trackRect->GetValue( _time, rect );
+		_trackRect->GetValue( CurrentTime(), rect );
 		_text->SetRect( rect );
 	}
 
 	if ( _trackOrientation != nullptr )
 	{
 		Float orientation;
-		_trackOrientation->GetValue( _time, orientation );
+		_trackOrientation->GetValue( CurrentTime(), orientation );
 		_text->SetOrientation( orientation );
 	}
 
 	if ( _trackScale != nullptr )
 	{
 		Float scale;
-		_trackScale->GetValue( _time, scale );
+		_trackScale->GetValue( CurrentTime(), scale );
 		_text->SetScale( scale );
 	}
 
 	if ( _trackColorGradient != nullptr )
 	{
 		ColorGradient gradient;
-		_trackColorGradient->GetValue( _time, gradient );
+		_trackColorGradient->GetValue( CurrentTime(), gradient );
 		_text->SetGradient( gradient );
 	}
 	else
@@ -101,7 +110,7 @@ void TextAnimationController::Update( Double delta )
 		if ( _trackColor != nullptr )
 		{
 			Color color;
-			_trackColor->GetValue( _time, color );
+			_trackColor->GetValue( CurrentTime(), color );
 			_text->SetColor( color );
 		}
 	}
@@ -109,23 +118,100 @@ void TextAnimationController::Update( Double delta )
 	if ( _trackOpacity != nullptr )
 	{
 		Float opacity;
-		_trackOpacity->GetValue( _time, opacity );
+		_trackOpacity->GetValue( CurrentTime(), opacity );
 		_text->SetOpacity( opacity );
 	}
 
 	if ( _trackVisibility != nullptr )
 	{
 		Bool show;
-		_trackVisibility->GetValue( _time, show );
+		_trackVisibility->GetValue( CurrentTime(), show );
 		_text->Show( show );
 	}
 }
 
-void TextAnimationController::SetAnimation( IAnimation* animation )
+IKeyframedPointTrack* TextAnimationController::CreateLocationTrack()
 {
-	// Call base implementation.
-	PlaybackControllerImpl<ITextAnimationController>::SetAnimation( animation );
+	return (_trackLocation = _animations->GetActiveAnimation()->CreatePointTrack( TextProperty::Location.ToString()) )->AsKeyframed();
+}
 
+IKeyframedFloatTrack* TextAnimationController::CreateLocationXTrack()
+{
+	return (_trackLocationX = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::LocationX.ToString()) )->AsKeyframed();
+}
+
+IProceduralFloatTrack* TextAnimationController::CreateLocationXTrack( const AnimationTrack& type )
+{
+	return (_trackLocationX = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::LocationX.ToString(), type) )->AsProcedural();
+}
+
+IKeyframedFloatTrack* TextAnimationController::CreateLocationYTrack()
+{
+	return (_trackLocationY = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::LocationY.ToString()) )->AsKeyframed();
+}
+
+IProceduralFloatTrack* TextAnimationController::CreateLocationYTrack( const AnimationTrack& type )
+{
+	return (_trackLocationY = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::LocationY.ToString(), type) )->AsProcedural();
+}
+
+IKeyframedRectTrack* TextAnimationController::CreateRectTrack()
+{
+	return (_trackRect = _animations->GetActiveAnimation()->CreateRectTrack( TextProperty::Rect.ToString()) )->AsKeyframed();
+}
+
+IKeyframedFloatTrack* TextAnimationController::CreateOrientationTrack()
+{
+	return (_trackOrientation = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::Orientation.ToString()) )->AsKeyframed();
+}
+
+IProceduralFloatTrack* TextAnimationController::CreateOrientationTrack( const AnimationTrack& type )
+{
+	return (_trackOrientation = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::Orientation.ToString(), type) )->AsProcedural();
+}
+
+IKeyframedFloatTrack* TextAnimationController::CreateScaleTrack()
+{
+	return (_trackScale = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::Scale.ToString()) )->AsKeyframed();
+}
+
+IProceduralFloatTrack* TextAnimationController::CreateScaleTrack( const AnimationTrack& type )
+{
+	return (_trackScale = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::Scale.ToString(), type) )->AsProcedural();
+}
+
+IKeyframedColorGradientTrack* TextAnimationController::CreateColorGradientTrack()
+{
+	return (_trackColorGradient = _animations->GetActiveAnimation()->CreateColorGradientTrack( TextProperty::ColorGradient.ToString()) )->AsKeyframed();
+}
+
+IKeyframedColorTrack* TextAnimationController::CreateColorTrack()
+{
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( TextProperty::Color.ToString()) )->AsKeyframed();
+}
+
+IProceduralColorTrack* TextAnimationController::CreateColorTrack( const AnimationTrack& type )
+{
+	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( TextProperty::Color.ToString(), type) )->AsProcedural();
+}
+
+IKeyframedFloatTrack* TextAnimationController::CreateOpacityTrack()
+{
+	return (_trackOpacity = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::Opacity.ToString()) )->AsKeyframed();
+}
+
+IProceduralFloatTrack* TextAnimationController::CreateOpacityTrack( const AnimationTrack& type )
+{
+	return (_trackOpacity = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::Opacity.ToString(), type) )->AsProcedural();
+}
+
+IKeyframedBoolTrack* TextAnimationController::CreateVisibilityTrack()
+{
+	return (_trackVisibility = _animations->GetActiveAnimation()->CreateBoolTrack( TextProperty::Visibility.ToString()) )->AsKeyframed();
+}
+
+void TextAnimationController::UpdateTracks()
+{
 	_trackLocation		= GetTrack( _trackLocation, TextProperty::Location );
 	_trackLocationX		= GetTrack( _trackLocationX, TextProperty::LocationX );
 	_trackLocationY		= GetTrack( _trackLocationY, TextProperty::LocationY );
@@ -136,86 +222,6 @@ void TextAnimationController::SetAnimation( IAnimation* animation )
 	_trackColor			= GetTrack( _trackColor, TextProperty::Color );
 	_trackOpacity		= GetTrack( _trackOpacity, TextProperty::Opacity );
 	_trackVisibility	= GetTrack( _trackVisibility, TextProperty::Visibility );
-}
-
-IKeyframedPointTrack* TextAnimationController::CreateLocationTrack()
-{
-	return (_trackLocation = (_trackLocation == nullptr) ? _animation->CreatePointTrack(TextProperty::Location.ToString()) : _trackLocation)->AsKeyframed();
-}
-
-IKeyframedFloatTrack* TextAnimationController::CreateLocationXTrack()
-{
-	return (_trackLocationX = (_trackLocationX == nullptr) ? _animation->CreateFloatTrack(TextProperty::LocationX.ToString()) : _trackLocationX)->AsKeyframed();
-}
-
-IProceduralFloatTrack* TextAnimationController::CreateLocationXTrack( const AnimationTrack& type )
-{
-	return (_trackLocationX = (_trackLocationX == nullptr) ? _animation->CreateFloatTrack(TextProperty::LocationX.ToString(), type) : _trackLocationX)->AsProcedural();
-}
-
-IKeyframedFloatTrack* TextAnimationController::CreateLocationYTrack()
-{
-	return (_trackLocationY = (_trackLocationY == nullptr) ? _animation->CreateFloatTrack(TextProperty::LocationY.ToString()) : _trackLocationY)->AsKeyframed();
-}
-
-IProceduralFloatTrack* TextAnimationController::CreateLocationYTrack( const AnimationTrack& type )
-{
-	return (_trackLocationY = (_trackLocationY == nullptr) ? _animation->CreateFloatTrack(TextProperty::LocationY.ToString(), type) : _trackLocationY)->AsProcedural();
-}
-
-IKeyframedRectTrack* TextAnimationController::CreateRectTrack()
-{
-	return (_trackRect = (_trackRect == nullptr) ? _animation->CreateRectTrack(TextProperty::Rect.ToString()) : _trackRect)->AsKeyframed();
-}
-
-IKeyframedFloatTrack* TextAnimationController::CreateOrientationTrack()
-{
-	return (_trackOrientation = (_trackOrientation == nullptr) ? _animation->CreateFloatTrack(TextProperty::Orientation.ToString()) : _trackOrientation)->AsKeyframed();
-}
-
-IProceduralFloatTrack* TextAnimationController::CreateOrientationTrack( const AnimationTrack& type )
-{
-	return (_trackOrientation = (_trackOrientation == nullptr) ? _animation->CreateFloatTrack(TextProperty::Orientation.ToString(), type) : _trackOrientation)->AsProcedural();
-}
-
-IKeyframedFloatTrack* TextAnimationController::CreateScaleTrack()
-{
-	return (_trackScale = (_trackScale == nullptr) ? _animation->CreateFloatTrack(TextProperty::Scale.ToString()) : _trackScale)->AsKeyframed();
-}
-
-IProceduralFloatTrack* TextAnimationController::CreateScaleTrack( const AnimationTrack& type )
-{
-	return (_trackScale = (_trackScale == nullptr) ? _animation->CreateFloatTrack(TextProperty::Scale.ToString(), type) : _trackScale)->AsProcedural();
-}
-
-IKeyframedColorGradientTrack* TextAnimationController::CreateColorGradientTrack()
-{
-	return (_trackColorGradient = (_trackColorGradient == nullptr) ? _animation->CreateColorGradientTrack(TextProperty::ColorGradient.ToString()) : _trackColorGradient)->AsKeyframed();
-}
-
-IKeyframedColorTrack* TextAnimationController::CreateColorTrack()
-{
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(TextProperty::Color.ToString()) : _trackColor)->AsKeyframed();
-}
-
-IProceduralColorTrack* TextAnimationController::CreateColorTrack( const AnimationTrack& type )
-{
-	return (_trackColor = (_trackColor == nullptr) ? _animation->CreateColorTrack(TextProperty::Color.ToString(), type) : _trackColor)->AsProcedural();
-}
-
-IKeyframedFloatTrack* TextAnimationController::CreateOpacityTrack()
-{
-	return (_trackOpacity = (_trackOpacity == nullptr) ? _animation->CreateFloatTrack(TextProperty::Opacity.ToString()) : _trackOpacity)->AsKeyframed();
-}
-
-IProceduralFloatTrack* TextAnimationController::CreateOpacityTrack( const AnimationTrack& type )
-{
-	return (_trackOpacity = (_trackOpacity == nullptr) ? _animation->CreateFloatTrack(TextProperty::Opacity.ToString(), type) : _trackOpacity)->AsProcedural();
-}
-
-IKeyframedBoolTrack* TextAnimationController::CreateVisibilityTrack()
-{
-	return (_trackVisibility = (_trackVisibility == nullptr) ? _animation->CreateBoolTrack(TextProperty::Visibility.ToString()) : _trackVisibility)->AsKeyframed();
 }
 
 

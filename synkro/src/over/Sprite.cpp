@@ -82,9 +82,9 @@ Sprite::Sprite( IContext* context, IOverlayRenderQueue* queue, IBlendStateSet* b
 	SetOpacity( 1.0f );
 }
 
-ISpriteAnimationController* Sprite::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+ISpriteAnimationController* Sprite::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SpriteAnimationController( this, _context->GetAnimationSystem(), animation, listener) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SpriteAnimationController( this, _context->GetAnimationSystem(), animations, listener) : _ctrlAnimation;
 }
 
 void Sprite::SetLocation( const Point& location )

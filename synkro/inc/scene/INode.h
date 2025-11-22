@@ -41,7 +41,7 @@ public:
 	 * @param listener Controller listener.
 	 * @return Created controller.
 	 */
-	virtual INodeAnimationController*						CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener ) = 0;
+	virtual INodeAnimationController*						CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener ) = 0;
 
 	/**
 	 * Creates parent constraint.

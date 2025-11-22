@@ -37,7 +37,7 @@ public:
 	SoftTriangleSet( SoftTriangleSet* base, UInt vertexCount, UInt indexCount, const lang::Range& range );
 
 	// IPrimitive methods.
-	IPrimitiveAnimationController*							CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	IPrimitiveAnimationController*							CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	void													Show( Bool show );
 	void													SetElementRange( const lang::Range& range );
 	void													SetInstanceRange( const lang::Range& range );

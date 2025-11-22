@@ -32,11 +32,18 @@ namespace over
 {
 
 
-SpriteAnimationController::SpriteAnimationController( ISprite* sprite, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	PlaybackControllerImpl<ISpriteAnimationController>( animationSystem, animation, listener ),
-	_sprite( sprite )
+SpriteAnimationController::SpriteAnimationController( ISprite* sprite, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	PlaybackControllerImpl<ISpriteAnimationController>( animationSystem, animations, listener ),
+	_sprite( sprite ),
+	_trackLocation( nullptr ),
+	_trackLocationX( nullptr ),
+	_trackLocationY( nullptr ),
+	_trackSize( nullptr ),
+	_trackOrientation( nullptr ),
+	_trackOpacity( nullptr ),
+	_trackFrame( nullptr ),
+	_trackVisibility( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void SpriteAnimationController::Update( Double delta )
@@ -48,7 +55,7 @@ void SpriteAnimationController::Update( Double delta )
 	if ( _trackLocation != nullptr )
 	{
 		Point location;
-		_trackLocation->GetValue( _time, location );
+		_trackLocation->GetValue( CurrentTime(), location );
 		_sprite->SetLocation( location );
 	}
 	else
@@ -56,14 +63,14 @@ void SpriteAnimationController::Update( Double delta )
 		if ( _trackLocationX != nullptr )
 		{
 			Float pos;
-			_trackLocationX->GetValue( _time, pos );
+			_trackLocationX->GetValue( CurrentTime(), pos );
 			_sprite->SetLocationX( pos );
 		}
 
 		if ( _trackLocationY != nullptr )
 		{
 			Float pos;
-			_trackLocationY->GetValue( _time, pos );
+			_trackLocationY->GetValue( CurrentTime(), pos );
 			_sprite->SetLocationY( pos );
 		}
 	}
@@ -71,44 +78,101 @@ void SpriteAnimationController::Update( Double delta )
 	if ( _trackSize != nullptr )
 	{
 		Size size;
-		_trackSize->GetValue( _time, size );
+		_trackSize->GetValue( CurrentTime(), size );
 		_sprite->SetSize( size );
 	}
 
 	if ( _trackOrientation != nullptr )
 	{
 		Float orientation;
-		_trackOrientation->GetValue( _time, orientation );
+		_trackOrientation->GetValue( CurrentTime(), orientation );
 		_sprite->SetOrientation( orientation );
 	}
 
 	if ( _trackOpacity != nullptr )
 	{
 		Float opacity;
-		_trackOpacity->GetValue( _time, opacity );
+		_trackOpacity->GetValue( CurrentTime(), opacity );
 		_sprite->SetOpacity( opacity );
 	}
 
 	if ( _trackFrame != nullptr )
 	{
 		RectF frame;
-		_trackFrame->GetValue( _time, frame );
+		_trackFrame->GetValue( CurrentTime(), frame );
 		_sprite->SetFrame( frame );
 	}
 
 	if ( _trackVisibility != nullptr )
 	{
 		Bool show;
-		_trackVisibility->GetValue( _time, show );
+		_trackVisibility->GetValue( CurrentTime(), show );
 		_sprite->Show( show );
 	}
 }
 
-void SpriteAnimationController::SetAnimation( IAnimation* animation )
+IKeyframedPointTrack* SpriteAnimationController::CreateLocationTrack()
 {
-	// Call base implementation.
-	PlaybackControllerImpl<ISpriteAnimationController>::SetAnimation( animation );
+	return (_trackLocation = _animations->GetActiveAnimation()->CreatePointTrack( SpriteProperty::Location.ToString()) )->AsKeyframed();
+}
 
+IKeyframedFloatTrack* SpriteAnimationController::CreateLocationXTrack()
+{
+	return (_trackLocationX = _animations->GetActiveAnimation()->CreateFloatTrack( SpriteProperty::LocationX.ToString()) )->AsKeyframed();
+}
+
+IProceduralFloatTrack* SpriteAnimationController::CreateLocationXTrack( const AnimationTrack& type )
+{
+	return (_trackLocationX = _animations->GetActiveAnimation()->CreateFloatTrack( SpriteProperty::LocationX.ToString(), type) )->AsProcedural();
+}
+
+IKeyframedFloatTrack* SpriteAnimationController::CreateLocationYTrack()
+{
+	return (_trackLocationY = _animations->GetActiveAnimation()->CreateFloatTrack( SpriteProperty::LocationY.ToString()) )->AsKeyframed();
+}
+
+IProceduralFloatTrack* SpriteAnimationController::CreateLocationYTrack( const AnimationTrack& type )
+{
+	return (_trackLocationY = _animations->GetActiveAnimation()->CreateFloatTrack( SpriteProperty::LocationY.ToString(), type) )->AsProcedural();
+}
+
+IKeyframedSizeTrack* SpriteAnimationController::CreateSizeTrack()
+{
+	return (_trackSize = _animations->GetActiveAnimation()->CreateSizeTrack( SpriteProperty::Size.ToString()) )->AsKeyframed();
+}
+
+IKeyframedFloatTrack* SpriteAnimationController::CreateOrientationTrack()
+{
+	return (_trackOrientation = _animations->GetActiveAnimation()->CreateFloatTrack( SpriteProperty::Orientation.ToString()) )->AsKeyframed();
+}
+
+IProceduralFloatTrack* SpriteAnimationController::CreateOrientationTrack( const AnimationTrack& type )
+{
+	return (_trackOrientation = _animations->GetActiveAnimation()->CreateFloatTrack( SpriteProperty::Orientation.ToString(), type) )->AsProcedural();
+}
+
+IKeyframedFloatTrack* SpriteAnimationController::CreateOpacityTrack()
+{
+	return (_trackOpacity = _animations->GetActiveAnimation()->CreateFloatTrack( SpriteProperty::Opacity.ToString()) )->AsKeyframed();
+}
+
+IProceduralFloatTrack* SpriteAnimationController::CreateOpacityTrack( const AnimationTrack& type )
+{
+	return (_trackOpacity = _animations->GetActiveAnimation()->CreateFloatTrack( SpriteProperty::Opacity.ToString(), type) )->AsProcedural();
+}
+
+IKeyframedFloatRectTrack* SpriteAnimationController::CreateFrameTrack()
+{
+	return (_trackFrame = _animations->GetActiveAnimation()->CreateFloatRectTrack( SpriteProperty::Frame.ToString()) )->AsKeyframed();
+}
+
+IKeyframedBoolTrack* SpriteAnimationController::CreateVisibilityTrack()
+{
+	return (_trackVisibility = _animations->GetActiveAnimation()->CreateBoolTrack( SpriteProperty::Visibility.ToString()) )->AsKeyframed();
+}
+
+void SpriteAnimationController::UpdateTracks()
+{
 	_trackLocation		= GetTrack( _trackLocation, SpriteProperty::Location );
 	_trackLocationX		= GetTrack( _trackLocationX, SpriteProperty::LocationX );
 	_trackLocationY		= GetTrack( _trackLocationY, SpriteProperty::LocationY );
@@ -117,66 +181,6 @@ void SpriteAnimationController::SetAnimation( IAnimation* animation )
 	_trackOpacity		= GetTrack( _trackOpacity, SpriteProperty::Opacity );
 	_trackFrame			= GetTrack( _trackFrame, SpriteProperty::Frame );
 	_trackVisibility	= GetTrack( _trackVisibility, SpriteProperty::Visibility );
-}
-
-IKeyframedPointTrack* SpriteAnimationController::CreateLocationTrack()
-{
-	return (_trackLocation = (_trackLocation == nullptr) ? _animation->CreatePointTrack(SpriteProperty::Location.ToString()) : _trackLocation)->AsKeyframed();
-}
-
-IKeyframedFloatTrack* SpriteAnimationController::CreateLocationXTrack()
-{
-	return (_trackLocationX = (_trackLocationX == nullptr) ? _animation->CreateFloatTrack(SpriteProperty::LocationX.ToString()) : _trackLocationX)->AsKeyframed();
-}
-
-IProceduralFloatTrack* SpriteAnimationController::CreateLocationXTrack( const AnimationTrack& type )
-{
-	return (_trackLocationX = (_trackLocationX == nullptr) ? _animation->CreateFloatTrack(SpriteProperty::LocationX.ToString(), type) : _trackLocationX)->AsProcedural();
-}
-
-IKeyframedFloatTrack* SpriteAnimationController::CreateLocationYTrack()
-{
-	return (_trackLocationY = (_trackLocationY == nullptr) ? _animation->CreateFloatTrack(SpriteProperty::LocationY.ToString()) : _trackLocationY)->AsKeyframed();
-}
-
-IProceduralFloatTrack* SpriteAnimationController::CreateLocationYTrack( const AnimationTrack& type )
-{
-	return (_trackLocationY = (_trackLocationY == nullptr) ? _animation->CreateFloatTrack(SpriteProperty::LocationY.ToString(), type) : _trackLocationY)->AsProcedural();
-}
-
-IKeyframedSizeTrack* SpriteAnimationController::CreateSizeTrack()
-{
-	return (_trackSize = (_trackSize == nullptr) ? _animation->CreateSizeTrack(SpriteProperty::Size.ToString()) : _trackSize)->AsKeyframed();
-}
-
-IKeyframedFloatTrack* SpriteAnimationController::CreateOrientationTrack()
-{
-	return (_trackOrientation = (_trackOrientation == nullptr) ? _animation->CreateFloatTrack(SpriteProperty::Orientation.ToString()) : _trackOrientation)->AsKeyframed();
-}
-
-IProceduralFloatTrack* SpriteAnimationController::CreateOrientationTrack( const AnimationTrack& type )
-{
-	return (_trackOrientation = (_trackOrientation == nullptr) ? _animation->CreateFloatTrack(SpriteProperty::Orientation.ToString(), type) : _trackOrientation)->AsProcedural();
-}
-
-IKeyframedFloatTrack* SpriteAnimationController::CreateOpacityTrack()
-{
-	return (_trackOpacity = (_trackOpacity == nullptr) ? _animation->CreateFloatTrack(SpriteProperty::Opacity.ToString()) : _trackOpacity)->AsKeyframed();
-}
-
-IProceduralFloatTrack* SpriteAnimationController::CreateOpacityTrack( const AnimationTrack& type )
-{
-	return (_trackOpacity = (_trackOpacity == nullptr) ? _animation->CreateFloatTrack(SpriteProperty::Opacity.ToString(), type) : _trackOpacity)->AsProcedural();
-}
-
-IKeyframedFloatRectTrack* SpriteAnimationController::CreateFrameTrack()
-{
-	return (_trackFrame = (_trackFrame == nullptr) ? _animation->CreateFloatRectTrack(SpriteProperty::Frame.ToString()) : _trackFrame)->AsKeyframed();
-}
-
-IKeyframedBoolTrack* SpriteAnimationController::CreateVisibilityTrack()
-{
-	return (_trackVisibility = (_trackVisibility == nullptr) ? _animation->CreateBoolTrack(SpriteProperty::Visibility.ToString()) : _trackVisibility)->AsKeyframed();
 }
 
 

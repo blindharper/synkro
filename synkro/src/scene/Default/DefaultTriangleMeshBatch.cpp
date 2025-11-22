@@ -54,7 +54,7 @@ DefaultTriangleMeshBatch::DefaultTriangleMeshBatch( DefaultScene* scene, IVisual
 {
 }
 
-INodeAnimationController* DefaultTriangleMeshBatch::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* DefaultTriangleMeshBatch::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
 	throw NotSupportedException();
 }

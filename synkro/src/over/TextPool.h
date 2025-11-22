@@ -28,7 +28,6 @@
 #include <gfx/IParameterSet.h>
 #include <gfx/IRect.h>
 #include <gfx/Ndc.h>
-#include <internal/ToVector.h>
 #include "PoolText.h"
 #include "BaseFont.h"
 #include "BaseTextPool.h"
@@ -52,7 +51,7 @@ public:
 	TextPool( core::IContext* context, gfx::IOverlayRenderQueue* queue, IFont* font, const Order& groupOrder, const Order& order, UInt capacity, gfx::Ndc* ndc );
 
 	// ITextPool methods.
-	ITextPoolAnimationController*							CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	ITextPoolAnimationController*							CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	void													Enable( Bool enable );
 	void													EnableRect( Bool enable );
 	void													SetRect( const lang::Rect& rect );

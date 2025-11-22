@@ -39,11 +39,11 @@ iface ITextPool :
 public:
 	/**
 	 * Creates animation controller.
-	 * @param animation Optional text pool animation.
+	 * @param animations Optional text pool animation sequence.
 	 * @param listener Controller listener.
 	 * @return Created controller.
 	 */
-	virtual ITextPoolAnimationController*					CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener ) = 0;
+	virtual ITextPoolAnimationController*					CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener ) = 0;
 
 	/**
 	 * Enables or disables the pool. Texts in the disabled pool are not visible.

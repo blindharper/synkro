@@ -38,11 +38,11 @@ iface ISprite :
 public:
 	/**
 	 * Creates sprite animation controller.
-	 * @param animation Optional sprite animation.
+	 * @param animations Optional sprite animation sequence.
 	 * @param listener Controller listener.
 	 * @return Created controller.
 	 */
-	virtual ISpriteAnimationController*						CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener ) = 0;
+	virtual ISpriteAnimationController*						CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener ) = 0;
 
 	/**
 	 * Sets sprite's visibility.

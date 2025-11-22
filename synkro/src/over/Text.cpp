@@ -50,9 +50,9 @@ Text::Text( BaseTextPool* pool, BaseFont* font, IContext* context, IOverlayRende
 	Update();
 }
 
-ITextAnimationController* Text::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+ITextAnimationController* Text::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new TextAnimationController( this, _context->GetAnimationSystem(), animation, listener) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new TextAnimationController( this, _context->GetAnimationSystem(), animations, listener) : _ctrlAnimation;
 }
 
 void Text::Wrap( Bool wrap )

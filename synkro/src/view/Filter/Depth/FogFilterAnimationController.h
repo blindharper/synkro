@@ -33,13 +33,10 @@ class FogFilterAnimationController :
 {
 public:
 	// Constructor.
-	FogFilterAnimationController( IFogFilter* fogFilter, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation, anim::AnimationListener* listener );
+	FogFilterAnimationController( IFogFilter* fogFilter, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// IController methods.
 	void													Update( Double delta );
-
-	// IAnimationController methods.
-	void													SetAnimation( anim::IAnimation* animation );
 
 	// IViewportFilterAnimationController methods.
 	IFogFilterAnimationController*							AsFog() const;
@@ -53,6 +50,9 @@ public:
 	anim::IProceduralFloatTrack*							CreateStartTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedFloatTrack*								CreateEndTrack();
 	anim::IProceduralFloatTrack*							CreateEndTrack( const anim::AnimationTrack& type );
+
+	// Other methods.
+	void													UpdateTracks();
 
 private:
 	IFogFilter*												_fogFilter;

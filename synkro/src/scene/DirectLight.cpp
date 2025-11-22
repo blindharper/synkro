@@ -41,9 +41,9 @@ DirectLight::DirectLight( ISceneEx* scene, IContext* context, const String& name
 {
 }
 
-INodeAnimationController* DirectLight::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* DirectLight::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new LightAnimationController( this, _context->GetAnimationSystem(), animation, listener ) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new LightAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
 IParentConstraint* DirectLight::CreateParentConstraint( INode* parent, const Matrix4x4& transform )

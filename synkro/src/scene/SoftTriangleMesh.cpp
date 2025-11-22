@@ -66,7 +66,7 @@ ITriangleMesh* SoftTriangleMesh::AsTriangle() const
 	return (ITriangleMesh*)this;
 }
 
-INodeAnimationController* SoftTriangleMesh::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+INodeAnimationController* SoftTriangleMesh::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
 	return nullptr;
 }

@@ -11,8 +11,8 @@
 // Purpose: Generic node record controller implementation.
 //==============================================================================
 template <class T> 
-SYNKRO_INLINE NodeRecordControllerImpl<T>::NodeRecordControllerImpl( INode* node, anim::IAnimationSystem* animationSystem, anim::IAnimation* animation ) :
-	anim::RecordControllerImpl<T>( animationSystem, animation ),
+SYNKRO_INLINE NodeRecordControllerImpl<T>::NodeRecordControllerImpl( INode* node, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations ) :
+	anim::RecordControllerImpl<T>( animationSystem, animations ),
 	_node( node )
 {
 }
@@ -63,23 +63,23 @@ SYNKRO_INLINE void NodeRecordControllerImpl<T>::Update( Double delta )
 template <class T>
 SYNKRO_INLINE anim::IKeyframedMatrix4x4Track* NodeRecordControllerImpl<T>::CreateTransformTrack()
 {
-	return (_trackTransform == nullptr) ? _trackTransform = _animation->CreateMatrix4x4Track( NodeProperty::Transform.ToString() ) : _trackTransform;
+	return (_trackTransform == nullptr) ? _trackTransform = _animations->GetActiveAnimation()->CreateMatrix4x4Track(NodeProperty::Transform.ToString()) : _trackTransform;
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedVector3Track* NodeRecordControllerImpl<T>::CreatePositionTrack()
 {
-	return (_trackPosition == nullptr) ? _trackPosition = _animation->CreateVector3Track( NodeProperty::Position.ToString() ) : _trackPosition;
+	return (_trackPosition == nullptr) ? _trackPosition = _animations->GetActiveAnimation()->CreateVector3Track( NodeProperty::Position.ToString() ) : _trackPosition;
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedQuaternionTrack* NodeRecordControllerImpl<T>::CreateOrientationTrack()
 {
-	return (_trackOrientation == nullptr) ? _trackOrientation = _animation->CreateQuaternionTrack( NodeProperty::Orientation.ToString() ) : _trackOrientation;
+	return (_trackOrientation == nullptr) ? _trackOrientation = _animations->GetActiveAnimation()->CreateQuaternionTrack( NodeProperty::Orientation.ToString() ) : _trackOrientation;
 }
 
 template <class T>
 SYNKRO_INLINE anim::IKeyframedVector3Track* NodeRecordControllerImpl<T>::CreateScaleTrack()
 {
-	return (_trackScale == nullptr) ? _trackScale = _animation->CreateVector3Track( NodeProperty::Scale.ToString() ) : _trackScale;
+	return (_trackScale == nullptr) ? _trackScale = _animations->GetActiveAnimation()->CreateVector3Track( NodeProperty::Scale.ToString() ) : _trackScale;
 }

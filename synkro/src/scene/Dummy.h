@@ -41,7 +41,7 @@ public:
 	Dummy( const Dummy& other );
 
 	// INode methods.
-	INodeAnimationController*								CreateAnimationController( anim::IAnimation* animation, anim::AnimationListener* listener );
+	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 
 	// BaseNode methods.
 	void													Update();

@@ -31,11 +31,11 @@ namespace view
 {
 
 
-SimpleFilterAnimationController::SimpleFilterAnimationController( ISimpleFilter* simpleFilter, IAnimationSystem* animationSystem, IAnimation* animation, AnimationListener* listener ) :
-	ViewportFilterAnimationControllerImpl<ISimpleFilterAnimationController>( simpleFilter, animationSystem, animation, listener ),
-	_simpleFilter( simpleFilter )
+SimpleFilterAnimationController::SimpleFilterAnimationController( ISimpleFilter* simpleFilter, IAnimationSystem* animationSystem, IAnimationSet* animations, AnimationListener* listener ) :
+	ViewportFilterAnimationControllerImpl<ISimpleFilterAnimationController>( simpleFilter, animationSystem, animations, listener ),
+	_simpleFilter( simpleFilter ),
+	_trackValue( nullptr )
 {
-	SetAnimation( _animation );
 }
 
 void SimpleFilterAnimationController::Update( Double delta )
@@ -47,17 +47,9 @@ void SimpleFilterAnimationController::Update( Double delta )
 	if ( _trackValue != nullptr )
 	{
 		Float value;
-		_trackValue->GetValue( _time, value );
+		_trackValue->GetValue( CurrentTime(), value );
 		_simpleFilter->SetValue( value );
 	}
-}
-
-void SimpleFilterAnimationController::SetAnimation( IAnimation* animation )
-{
-	// Call base implementation.
-	ViewportFilterAnimationControllerImpl<ISimpleFilterAnimationController>::SetAnimation( animation );
-
-	_trackValue = GetTrack( _trackValue, SimpleFilterProperty::ParamValue );
 }
 
 ISimpleFilterAnimationController* SimpleFilterAnimationController::AsSimple() const
@@ -67,12 +59,20 @@ ISimpleFilterAnimationController* SimpleFilterAnimationController::AsSimple() co
 
 IKeyframedFloatTrack* SimpleFilterAnimationController::CreateValueTrack()
 {
-	return (_trackValue = (_trackValue == nullptr) ? _animation->CreateFloatTrack(SimpleFilterProperty::ParamValue.ToString()) : _trackValue)->AsKeyframed();
+	return (_trackValue = _animations->GetActiveAnimation()->CreateFloatTrack(SimpleFilterProperty::ParamValue.ToString()))->AsKeyframed();
 }
 
 IProceduralFloatTrack* SimpleFilterAnimationController::CreateValueTrack( const AnimationTrack& type )
 {
-	return (_trackValue = (_trackValue == nullptr) ? _animation->CreateFloatTrack(SimpleFilterProperty::ParamValue.ToString(), type) : _trackValue)->AsProcedural();
+	return (_trackValue = _animations->GetActiveAnimation()->CreateFloatTrack( SimpleFilterProperty::ParamValue.ToString(), type) )->AsProcedural();
+}
+
+void SimpleFilterAnimationController::UpdateTracks()
+{
+	// Call base implementation.
+	ViewportFilterAnimationControllerImpl<ISimpleFilterAnimationController>::UpdateTracks();
+
+	_trackValue = GetTrack( _trackValue, SimpleFilterProperty::ParamValue );
 }
 
 

@@ -89,9 +89,9 @@ OpaqueMaterial::OpaqueMaterial( const OpaqueMaterial& other ) :
 	SetTilingVertical( other.GetTilingVertical() );
 }
 
-IVisualMaterialAnimationController* OpaqueMaterial::CreateAnimationController( IAnimation* animation, AnimationListener* listener )
+IVisualMaterialAnimationController* OpaqueMaterial::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
-	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SimpleMaterialAnimationController( this, _context->GetAnimationSystem(), animation, listener) : _ctrlAnimation;
+	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new SimpleMaterialAnimationController( this, _context->GetAnimationSystem(), animations, listener) : _ctrlAnimation;
 }
 
 void OpaqueMaterial::SetDiffuseColor( const Color& color )
