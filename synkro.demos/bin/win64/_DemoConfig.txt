@@ -1,2 +1,3 @@
 #Graphics.Vsync=false
 #Graphics.Fullscreen=true
+#Graphics.DisplayMode=0
