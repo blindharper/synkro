@@ -14,8 +14,9 @@
 #include "ConfigurationEditor.h"
 #include "ConfigurationBanner.h"
 #include "ConfigurationScene/PointMeshConfigurationScene.h"
-#include "ConfigurationScene/RubikCubeConfigurationScene.h"
 #include "ConfigurationScene/ProjectorsConfigurationScene.h"
+#include "ConfigurationScene/RubikCubeConfigurationScene.h"
+#include "ConfigurationScene/SierpinskiConfigurationScene.h"
 #include "ConfigurationScene/TesseractConfigurationScene.h"
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	#include "Win32/Win32ConfigurationEditor.h"
@@ -60,7 +61,7 @@ void ConfigurationEditor::Initialize( Pointer module, ISynkro* synkro )
 
 	// Create preview pane.
 	win::IFrameWindow* dlg = _synkro->GetWindowSystem()->CreateWindow( handle );
-	Float scale = CastFloat(dlg->GetDpi()) / 96.0f; // Config dialog is designed on a screen with 96 DPI.
+	const Float scale = CastFloat(dlg->GetDpi()) / 96.0f; // Config dialog is designed on a screen with 96 DPI.
 	_synkro->GetWindowSystem()->CreateWindow( _synkro->GetWindowSystem()->GetFrameWindow(0), scale*12, scale*12, scale*690, scale*48 );
 	_synkro->GetWindowSystem()->CreateWindow( _synkro->GetWindowSystem()->GetFrameWindow(0), scale*12, scale*72, scale*267, scale*267 );
 }
@@ -78,16 +79,14 @@ void ConfigurationEditor::Show( IConfiguration* config )
 
 	ConfigurationBanner banner( _synkro );
 	Random rnd;
-	switch ( rnd.GetInt(4) )
+	switch ( rnd.GetInt(5) )
 	{
-		case 0: Run0(); break;
-		case 1: Run1(); break;
-		case 2: Run2(); break;
-		case 3: Run3(); break;
-		default:
-			Bool run = true;
-			_synkro->Run( run );
-			break;
+		case 0: RunScene<PointMeshConfigurationScene>(); break;
+		case 1: RunScene<ProjectorsConfigurationScene>(); break;
+		case 2: RunScene<RubikCubeConfigurationScene>(); break;
+		case 3: RunScene<SierpinskiConfigurationScene>(); break;
+		case 4: RunScene<TesseractConfigurationScene>(); break;
+		default: RunScene<ConfigurationScene>(); break;
 	}
 }
 
@@ -112,30 +111,13 @@ Bool ConfigurationEditor::GetResult()
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-void ConfigurationEditor::Run0()
+template<class T>
+void ConfigurationEditor::RunScene()
 {
-	PointMeshConfigurationScene scene( _synkro );
-	Bool run = true; _synkro->Run( run );
+	T scene( _synkro );
+	const Bool run = true;
+	_synkro->Run( run );
 }
-
-void ConfigurationEditor::Run1()
-{
-	RubikCubeConfigurationScene scene( _synkro );
-	Bool run = true; _synkro->Run( run );
-}
-
-void ConfigurationEditor::Run2()
-{
-	ProjectorsConfigurationScene scene( _synkro );
-	Bool run = true; _synkro->Run( run );
-}
-
-void ConfigurationEditor::Run3()
-{
-	TesseractConfigurationScene scene( _synkro );
-	Bool run = true; _synkro->Run( run );
-}
-
 
 } // core
 

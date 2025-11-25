@@ -29,7 +29,6 @@
 #include "BaseNode.h"
 #include "Fog.h"
 #include "SceneAnimationController.h"
-#include <mat/IMaterialManager.h>
 #include <gfx/IProgramStage.h>
 #include <gfx/IGraphicsSystemEx.h>
 #include <scene/SceneManager.h>
@@ -37,9 +36,7 @@
 #include <io/IStream.h>
 #include <io/Path.h>
 #include <img/BaseImage.h>
-#include <lang/Convert.h>
 #include <core/CallStack.h>
-#include <math/Intersection.h>
 
 
 //------------------------------------------------------------------------------
@@ -130,9 +127,7 @@ ITriangleMesh* Scene::CreateTriangleMesh( INode* parent, const String& name, IVi
 ITriangleMeshBatch* Scene::CreateTriangleMeshBatch( IVisualMaterial* material, ISkeleton* skeleton, UInt capacity )
 {
 	ITriangleMeshBatch* b = _scene->CreateTriangleMeshBatch( material, skeleton, capacity );
-	TriangleMeshBatch* batch = new TriangleMeshBatch( b, this, _context, String::Empty, skeleton, capacity );
-	_batches.Add( batch );
-	return batch;
+	return new TriangleMeshBatch( b, this, _context, String::Empty, skeleton, capacity );
 }
 
 ITriangleMesh* Scene::PickMesh( const Vector3& origin, const Vector3& direction, Float* distance ) const
@@ -282,9 +277,7 @@ IPointMesh* Scene::CreatePointMesh( INode* parent, const String& name )
 
 IPointMeshBatch* Scene::CreatePointMeshBatch( UInt capacity )
 {
-	PointMeshBatch* batch = new PointMeshBatch( this, _context, String::Empty, capacity );
-	_batches.Add( batch );
-	return batch;
+	return new PointMeshBatch( this, _context, String::Empty, capacity );
 }
 
 ILineMesh* Scene::CreateLineMesh( INode* parent, const String& name )
@@ -297,9 +290,7 @@ ILineMesh* Scene::CreateLineMesh( INode* parent, const String& name )
 
 ILineMeshBatch* Scene::CreateLineMeshBatch( UInt capacity )
 {
-	LineMeshBatch* batch = new LineMeshBatch( this, _context, String::Empty, capacity );
-	_batches.Add( batch );
-	return batch;
+	return new LineMeshBatch( this, _context, String::Empty, capacity );
 }
 
 ITriangleMesh* Scene::LoadMesh( IStream* stream, IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity, const MeshCodec& type )
@@ -464,6 +455,20 @@ void Scene::DecrementCameraCount()
 	{
 		_scene->GetRenderQueue()->Enable( false );
 	}
+}
+
+void Scene::AddMeshBatch( BaseMeshBatch* batch )
+{
+	assert( batch != nullptr );
+
+	_batches.Add( batch );
+}
+
+void Scene::RemoveMeshBatch( BaseMeshBatch* batch )
+{
+	assert( batch != nullptr );
+
+	_batches.Remove( batch );
 }
 
 Bool Scene::Call( BaseMeshBatch* batch )

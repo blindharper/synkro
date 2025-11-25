@@ -36,7 +36,7 @@ class ConfigurationScene
 {
 public:
 	// Constructor.
-	ConfigurationScene( ISynkro* synkro, Bool lit );
+	ConfigurationScene( ISynkro* synkro, Bool lit = false );
 
 protected:
 	ISynkro*												_synkro;

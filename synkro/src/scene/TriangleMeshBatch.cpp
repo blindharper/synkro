@@ -54,6 +54,12 @@ TriangleMeshBatch::TriangleMeshBatch( ITriangleMeshBatch* batch, ISceneEx* scene
 	{
 		_boneTransforms.SetSize( MAX_BONE_COUNT*_instances.Capacity() );
 	}
+	AsBaseScene( _scene )->AddMeshBatch( this );
+}
+
+TriangleMeshBatch::~TriangleMeshBatch()
+{
+	AsBaseScene( _scene )->RemoveMeshBatch( this );
 }
 
 INodeAnimationController* TriangleMeshBatch::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )

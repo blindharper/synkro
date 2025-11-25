@@ -1738,6 +1738,9 @@
     <Filter Include="ui\Implementation\Anchor">
       <UniqueIdentifier>{711dcfec-857a-41be-a9ca-af13ac8ac0e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="core\Implementation\Configuration\Editor\Scene\Sierpinski">
+      <UniqueIdentifier>{0323613a-c008-4d58-8590-cca7903680e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\lang\Encoding.h">
@@ -5181,6 +5184,9 @@
     <ClInclude Include="..\..\..\src\ui\BaseAnchoredObjectImpl.h">
       <Filter>ui\Implementation\Anchor</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\core\ConfigurationScene\SierpinskiConfigurationScene.h">
+      <Filter>core\Implementation\Configuration\Editor\Scene\Sierpinski</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\lang\Stack.inl">
@@ -7621,40 +7627,14 @@
     <ClCompile Include="..\..\..\src\ui\Accordion.cpp">
       <Filter>ui\Implementation\Container\Accordion</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\core\ConfigurationScene\SierpinskiConfigurationScene.cpp">
+      <Filter>core\Implementation\Configuration\Editor\Scene\Sierpinski</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\..\..\modules\synkro\synkro.rc">
       <Filter>res</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuildStep Include="..\..\..\src\ui\ThemeReader.h">
-      <Filter>ui\Implementation\Theme</Filter>
-    </CustomBuildStep>
-    <CustomBuildStep Include="..\..\..\src\ui\BaseWidget.h">
-      <Filter>ui\Implementation\Widget</Filter>
-    </CustomBuildStep>
-    <CustomBuildStep Include="..\..\..\src\ui\BaseWidgetImpl.h">
-      <Filter>ui\Implementation\Widget</Filter>
-    </CustomBuildStep>
-    <CustomBuildStep Include="..\..\..\src\ui\BaseWidgetImpl.inl">
-      <Filter>ui\Implementation\Widget</Filter>
-    </CustomBuildStep>
-    <CustomBuildStep Include="..\..\..\src\ui\WidgetImpl.h">
-      <Filter>ui\Implementation\Widget</Filter>
-    </CustomBuildStep>
-    <CustomBuildStep Include="..\..\..\src\ui\WidgetImpl.inl">
-      <Filter>ui\Implementation\Widget</Filter>
-    </CustomBuildStep>
-    <CustomBuildStep Include="..\..\..\src\ui\ListImpl.h">
-      <Filter>ui\Implementation\Widget\List</Filter>
-    </CustomBuildStep>
-    <CustomBuildStep Include="..\..\..\src\ui\ListImpl.inl">
-      <Filter>ui\Implementation\Widget\List</Filter>
-    </CustomBuildStep>
-    <CustomBuildStep Include="..\..\..\src\scene\Scene.inl">
-      <Filter>scene\Implementation\Scene</Filter>
-    </CustomBuildStep>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\modules\synkro\banner.bmp">

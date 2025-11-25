@@ -22,6 +22,7 @@
 #include <scene/ITriangleSet.h>
 #include <gfx/PrimitiveType.h>
 #include "BaseMeshBatch.h"
+#include "BaseScene.h"
 
 
 namespace synkro
@@ -38,8 +39,9 @@ class TriangleMeshBatch :
 	public BaseMeshBatch
 {
 public:
-	// Constructor.
+	// Constructor & destructor.
 	TriangleMeshBatch( ITriangleMeshBatch* batch, ISceneEx* scene, core::IContext* context, const lang::String& name, ISkeleton* skeleton, UInt capacity );
+	~TriangleMeshBatch();
 
 	// INode methods.
 	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );

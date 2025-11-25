@@ -27,7 +27,6 @@
 #include <gfx/DataAccess.h>
 #include <gfx/DataUsage.h>
 #include <scene/IScene.h>
-#include <internal/SafeDelete.h>
 
 
 //------------------------------------------------------------------------------
@@ -54,6 +53,12 @@ namespace scene
 LineMeshBatch::LineMeshBatch( ISceneEx* scene, IContext* context, const String& name, UInt capacity ) :
 	MeshBatchImpl<ILineMeshBatch, ILineMesh>( scene, context, AsBaseScene(scene)->GetLineMeshName(name), capacity )
 {
+	AsBaseScene( _scene )->AddMeshBatch( this );
+}
+
+LineMeshBatch::~LineMeshBatch()
+{
+	AsBaseScene( _scene )->RemoveMeshBatch( this );
 }
 
 INodeAnimationController* LineMeshBatch::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )

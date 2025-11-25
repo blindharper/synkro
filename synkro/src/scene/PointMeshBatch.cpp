@@ -52,6 +52,12 @@ namespace scene
 PointMeshBatch::PointMeshBatch( ISceneEx* scene, IContext* context, const String& name, UInt capacity ) :
 	MeshBatchImpl<IPointMeshBatch, IPointMesh>( scene, context, AsBaseScene(scene)->GetPointMeshName(name), capacity )
 {
+	AsBaseScene( _scene )->AddMeshBatch( this );
+}
+
+PointMeshBatch::~PointMeshBatch()
+{
+	AsBaseScene( _scene )->RemoveMeshBatch( this );
 }
 
 INodeAnimationController* PointMeshBatch::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
