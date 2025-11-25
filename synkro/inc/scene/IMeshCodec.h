@@ -48,27 +48,12 @@ public:
 	virtual ITriangleMesh*									Load( IScene* scene, io::IStream* stream, const img::PixelFormat& format, mat::IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity ) = 0;
 
 	/**
-	 * Loads skeleton from stream.
-	 * @param stream Stream to load skeleton from.
-	 * @return Loaded skeleton.
-	 */
-	virtual ISkeleton*										Load( io::IStream* stream ) = 0;
-
-	/**
 	 * Saves mesh to stream.
 	 * @param mesh Mesh to save.
 	 * @param stream Stream to save mesh to.
 	 * @param mode Data mode to save data in.
 	 */
 	virtual void											Save( const ITriangleMesh* mesh, io::IStream* stream, const core::DataMode& mode ) = 0;
-
-	/**
-	 * Saves skeleton to stream.
-	 * @param skeleton Skeleton to save.
-	 * @param stream Stream to save skeleton to.
-	 * @param mode Data mode to save data in.
-	 */
-	virtual void											Save( const ISkeleton* skeleton, io::IStream* stream, const core::DataMode& mode ) = 0;
 };
 
 

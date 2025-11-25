@@ -72,21 +72,6 @@ public:
 	virtual ITriangleMesh*									CreateTriangleMesh( ISkeleton* skeleton, UInt subsetCount ) = 0;
 
 	/**
-	 * Loads skeleton from stream.
-	 * @param stream Stream to load skeleton from.
-	 * @param type Mesh codec type.
-	 * @return Loaded skeleton.
-	 */
-	virtual ISkeleton*										LoadSkeleton( io::IStream* stream, const MeshCodec& type ) = 0;
-
-	/**
-	 * Loads skeleton from stream. Mesh codec type is guessed from stream name.
-	 * @param stream Stream to load skeleton from.
-	 * @return Loaded skeleton.
-	 */
-	virtual ISkeleton*										LoadSkeleton( io::IStream* stream ) = 0;
-
-	/**
 	 * Loads software mesh from a stream. Opens stream for reading and closes it after mesh is loaded.
 	 * @param stream Stream from which to load mesh.
 	 * @param skeleton Optional skeleton to assign to mesh.

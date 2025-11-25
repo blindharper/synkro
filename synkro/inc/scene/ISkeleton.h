@@ -62,21 +62,6 @@ public:
 	virtual void											AddAnimationSet( anim::IAnimationSet* set ) = 0;
 
 	/**
-	 * Saves mesh to the stream in the given format.
-	 * @param stream Stream to which to save mesh.
-	 * @param mode Data mode to save data in.
-	 * @param type Mesh codec type.
-	 */
-	virtual void											Save( io::IStream* stream, const core::DataMode& mode, const MeshCodec& type ) = 0;
-
-	/**
-	 * Saves mesh to the stream in the given format. Mesh type is guessed from stream name.
-	 * @param stream Stream to which to save mesh.
-	 * @param mode Data mode to save data in.
-	 */
-	virtual void											Save( io::IStream* stream, const core::DataMode& mode ) = 0;
-
-	/**
 	 * Retrieves the number of bones in the mesh.
 	 */
 	virtual UInt											GetBoneCount() const = 0;

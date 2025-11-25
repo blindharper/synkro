@@ -47,9 +47,7 @@ public:
 
 	// IMeshCodec methods.
 	ITriangleMesh*											Load( IScene* scene, io::IStream* stream, const img::PixelFormat& format, mat::IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity );
-	ISkeleton*												Load( io::IStream* stream );
 	void													Save( const ITriangleMesh* mesh, io::IStream* stream, const core::DataMode& mode );
-	void													Save( const ISkeleton* skeleton, io::IStream* stream, const core::DataMode& mode );
 
 private:
 	enum TemplateType

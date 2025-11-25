@@ -34,7 +34,6 @@ class BaseSceneManager
 public:
 	virtual ITriangleMesh*									LoadMesh( IScene* scene, io::IStream* stream, mat::IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity, const MeshCodec& type ) = 0;
 	virtual void											SaveMesh( const ITriangleMesh* mesh, io::IStream* stream, const core::DataMode& mode, const MeshCodec& type ) = 0;
-	virtual void											SaveSkeleton( const ISkeleton* skeleton, io::IStream* stream, const core::DataMode& mode, const MeshCodec& type ) = 0;
 };
 
 

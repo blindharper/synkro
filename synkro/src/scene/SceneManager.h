@@ -52,8 +52,6 @@ public:
 	ISceneEx*												CreateScene( const lang::String& name, const DebugMode& debugMode, Bool lit );
 	ISkeleton*												CreateSkeleton();
 	ITriangleMesh*											CreateTriangleMesh( ISkeleton* skeleton, UInt subsetCount );
-	ISkeleton*												LoadSkeleton( io::IStream* stream, const MeshCodec& type );
-	ISkeleton*												LoadSkeleton( io::IStream* stream );
 	ITriangleMesh*											LoadMesh( io::IStream* stream, ISkeleton* skeleton, const MeshCodec& type );
 	ITriangleMesh*											LoadMesh( io::IStream* stream, ISkeleton* skeleton );
 	void													BuildMesh( ILineMesh* mesh, const MeshBuilder& type, const math::Vector4& param1, const lang::Size& param2, const math::Matrix4x4& transform );
@@ -66,7 +64,6 @@ public:
 	// BaseSceneManager methods.
 	ITriangleMesh*											LoadMesh( IScene* scene, io::IStream* stream, mat::IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity, const MeshCodec& type );
 	void													SaveMesh( const ITriangleMesh* mesh, io::IStream* stream, const core::DataMode& mode, const MeshCodec& type );
-	void													SaveSkeleton( const ISkeleton* skeleton, io::IStream* stream, const core::DataMode& mode, const MeshCodec& type );
 
 	// Other methods.
 	void													RegisterSceneFactory( ISceneFactory* factory );
