@@ -35,27 +35,27 @@ public:
 	/**
 	 * Creates empty value.
 	 */
-	Formattable();
+	Formattable() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates numeric value.
 	 */
-	Formattable( Double value );
+	Formattable( Double value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates string value.
 	 */
-	Formattable( const char* value );
+	Formattable( const char* value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates string value.
 	 */
-	Formattable( const Char* value );
+	Formattable( const Char* value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates date-time value.
 	 */
-	Formattable( const DateTime& value );
+	Formattable( const DateTime& value ) SYNKRO_NOEXCEPT;
 
 private:
 	friend class Formatter;

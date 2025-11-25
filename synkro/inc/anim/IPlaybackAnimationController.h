@@ -39,6 +39,7 @@ public:
 	/**
 	 * Sets rate at which the animation is played. Default is 1.0.
 	 * @param speed Animation speed.
+	 * @exception BadArgumentException Animation speed must not be negative.
 	 */
 	virtual void											SetSpeed( Double speed ) = 0;
 

@@ -35,7 +35,7 @@ namespace math
 {
 
 
-Vector4::Vector4() :
+Vector4::Vector4() SYNKRO_NOEXCEPT :
 	x( 0.0f ),
 	y( 0.0f ),
 	z( 0.0f ),
@@ -43,7 +43,7 @@ Vector4::Vector4() :
 {
 }
 
-Vector4::Vector4( const Vector4& other ) :
+Vector4::Vector4( const Vector4& other ) SYNKRO_NOEXCEPT :
 	x( other.x ),
 	y( other.y ),
 	z( other.z ),
@@ -51,7 +51,7 @@ Vector4::Vector4( const Vector4& other ) :
 {
 }
 
-Vector4::Vector4( Float value ) :
+Vector4::Vector4( Float value ) SYNKRO_NOEXCEPT :
 	x( value ),
 	y( value ),
 	z( value ),
@@ -69,7 +69,7 @@ Vector4::Vector4( Float* array )
 	Copy( v, array, 4 );
 }
 
-Vector4::Vector4( Float _x, Float _y, Float _z, Float _w ) :
+Vector4::Vector4( Float _x, Float _y, Float _z, Float _w ) SYNKRO_NOEXCEPT :
 	x( _x ),
 	y( _y ),
 	z( _z ),
@@ -77,7 +77,7 @@ Vector4::Vector4( Float _x, Float _y, Float _z, Float _w ) :
 {
 }
 
-Vector4::Vector4( const Vector3& other, Float _w ) :
+Vector4::Vector4( const Vector3& other, Float _w ) SYNKRO_NOEXCEPT :
 	x( other.x ),
 	y( other.y ),
 	z( other.z ),
@@ -85,7 +85,7 @@ Vector4::Vector4( const Vector3& other, Float _w ) :
 {
 }
 
-Vector4::Vector4( const Vector3& other ) :
+Vector4::Vector4( const Vector3& other ) SYNKRO_NOEXCEPT :
 	x( other.x ),
 	y( other.y ),
 	z( other.z ),
@@ -93,7 +93,7 @@ Vector4::Vector4( const Vector3& other ) :
 {
 }
 
-Vector4& Vector4::operator=( const Vector4& other )
+Vector4& Vector4::operator=( const Vector4& other ) SYNKRO_NOEXCEPT
 {
 	if ( other != *this )
 	{
@@ -105,7 +105,7 @@ Vector4& Vector4::operator=( const Vector4& other )
 	return *this;
 }
 
-Vector4& Vector4::operator+=( const Vector4& other )
+Vector4& Vector4::operator+=( const Vector4& other ) SYNKRO_NOEXCEPT
 {
 	x += other.x;
 	y += other.y;
@@ -114,7 +114,7 @@ Vector4& Vector4::operator+=( const Vector4& other )
 	return *this;
 }
 
-Vector4& Vector4::operator-=( const Vector4& other )
+Vector4& Vector4::operator-=( const Vector4& other ) SYNKRO_NOEXCEPT
 {
 	x -= other.x;
 	y -= other.y;
@@ -123,7 +123,7 @@ Vector4& Vector4::operator-=( const Vector4& other )
 	return *this;
 }
 
-Vector4& Vector4::operator*=( Float value )
+Vector4& Vector4::operator*=( Float value ) SYNKRO_NOEXCEPT
 {
 	x *= value;
 	y *= value;
@@ -146,29 +146,29 @@ Vector4& Vector4::operator/=( Float value )
 	return *this;
 }
 
-Vector4& Vector4::Normalize()
+Vector4& Vector4::Normalize() SYNKRO_NOEXCEPT
 {
 	const Float len = Length();
 
 	return (len != 0.0f) ? *this/=len : *this;
 }
 
-Vector4 Vector4::operator-() const
+Vector4 Vector4::operator-() const SYNKRO_NOEXCEPT
 {
 	return Vector4( -x, -y, -z, -w );
 }
 
-Vector4 Vector4::operator+( const Vector4& other ) const
+Vector4 Vector4::operator+( const Vector4& other ) const SYNKRO_NOEXCEPT
 {
 	return Vector4( x+other.x, y+other.y, z+other.z, w+other.w );
 }
 
-Vector4 Vector4::operator-( const Vector4& other ) const
+Vector4 Vector4::operator-( const Vector4& other ) const SYNKRO_NOEXCEPT
 {
 	return Vector4( x-other.x, y-other.y, z-other.z, w-other.w );
 }
 
-Vector4 Vector4::operator*( Float value ) const
+Vector4 Vector4::operator*( Float value ) const SYNKRO_NOEXCEPT
 {
 	return Vector4( x*value, y*value, z*value, w*value );
 }
@@ -183,27 +183,27 @@ Vector4 Vector4::operator/( Float value ) const
 	return Vector4( x/value, y/value, z/value, w/value );
 }
 
-Vector4 Vector4::operator^( const Vector4& other ) const
+Vector4 Vector4::operator^( const Vector4& other ) const SYNKRO_NOEXCEPT
 {
 	return Vector4( y*other.z - z*other.y, z*other.w - w*other.z, w*other.x - x*other.w, x*other.y - y*other.x );
 }
 
-Float Vector4::operator*( const Vector4& other ) const
+Float Vector4::operator*( const Vector4& other ) const SYNKRO_NOEXCEPT
 {
 	return x*other.x + y*other.y + z*other.z + w*other.w;
 }
 
-Bool Vector4::operator==( const Vector4& other ) const
+Bool Vector4::operator==( const Vector4& other ) const SYNKRO_NOEXCEPT
 {
 	return (x == other.x) && (y == other.y) && (z == other.z) && (w == other.w);
 }
 
-Bool Vector4::operator!=( const Vector4& other ) const
+Bool Vector4::operator!=( const Vector4& other ) const SYNKRO_NOEXCEPT
 {
 	return (x != other.x) || (y != other.y) || (z != other.z) || (w != other.w);
 }
 
-Float Vector4::Length() const
+Float Vector4::Length() const SYNKRO_NOEXCEPT
 {
 	return Math::Sqrt( x*x + y*y + z*z + w*w );
 }

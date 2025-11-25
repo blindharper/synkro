@@ -18,7 +18,7 @@
 
 
 // Average value calculator.
-template <class T> SYNKRO_INLINE static T Average( synkro::UInt count, T* array, synkro::Float* weights = null )
+template <class T> SYNKRO_INLINE static T Average( synkro::UInt count, T* array, synkro::Float* weights = nullptr ) SYNKRO_NOEXCEPT
 {
 	T sum = T();
 	synkro::Float weight = (count > 1) ? 1.0f/(synkro::Float)count : 1.0f;

@@ -19,13 +19,13 @@
 
 
 // Converts color to a 4-component vector.
-SYNKRO_INLINE synkro::math::Vector4 ToVector( const synkro::img::Color& color, synkro::Float alpha )
+SYNKRO_INLINE synkro::math::Vector4 ToVector( const synkro::img::Color& color, synkro::Float alpha ) SYNKRO_NOEXCEPT
 {
 	return synkro::math::Vector4( color.R, color.G, color.B, alpha );
 }
 
 // Converts color to a 4-component vector.
-SYNKRO_INLINE synkro::math::Vector4 ToVector( const synkro::img::Color& color )
+SYNKRO_INLINE synkro::math::Vector4 ToVector( const synkro::img::Color& color ) SYNKRO_NOEXCEPT
 {
 	return synkro::math::Vector4( color.R, color.G, color.B, 1.0f );
 }

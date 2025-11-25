@@ -10,7 +10,7 @@
 //
 // Purpose: Implements generic animation.
 //==============================================================================
-SYNKRO_INLINE UInt Animation::GetTrackCount() const
+SYNKRO_INLINE UInt Animation::GetTrackCount() const SYNKRO_NOEXCEPT
 {
 	return _tracks.Size();
 }
@@ -30,7 +30,7 @@ SYNKRO_INLINE IAnimationTrack* Animation::GetTrack( const lang::String& name ) c
 	return _indexes.ContainsKey(name) ? GetTrack( _indexes[name] ) : nullptr;
 }
 
-SYNKRO_INLINE lang::String Animation::GetName() const
+SYNKRO_INLINE lang::String Animation::GetName() const SYNKRO_NOEXCEPT
 {
 	return _name;
 }

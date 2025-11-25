@@ -44,17 +44,17 @@ public:
 	/**
 	 * Constructs default vector.
 	 */
-	Vector2();
+	Vector2() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy constructor.
 	 */
-	Vector2( const Vector2& other );
+	Vector2( const Vector2& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Constructs vector from a scalar value.
 	 */
-	explicit Vector2( Float value );
+	explicit Vector2( Float value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Constructs vector from an array of 2 scalars.
@@ -65,27 +65,27 @@ public:
 	/**
 	 * Constructs vector from a pair of scalars.
 	 */
-	Vector2( Float x, Float y );
+	Vector2( Float x, Float y ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy by reference.
 	 */
-	Vector2&												operator=( const Vector2& other );
+	Vector2&												operator=( const Vector2& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Adds another vector to this one.
 	 */
-	Vector2&												operator+=( const Vector2& other );
+	Vector2&												operator+=( const Vector2& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Subtracts another vector from this one.
 	 */
-	Vector2&												operator-=( const Vector2& other );
+	Vector2&												operator-=( const Vector2& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Multiplies vector by a scalar.
 	 */
-	Vector2&												operator*=( Float value );
+	Vector2&												operator*=( Float value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Divides vector by a scalar.
@@ -96,27 +96,27 @@ public:
 	/**
 	 * Makes vector normalized.
 	 */
-	Vector2&												Normalize();
+	Vector2&												Normalize() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns inverted copy of the vector.
 	 */
-	Vector2													operator-() const;
+	Vector2													operator-() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns the sum of this vector and another one.
 	 */
-	Vector2													operator+( const Vector2& other ) const;
+	Vector2													operator+( const Vector2& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns the difference between this vector and another one.
 	 */
-	Vector2													operator-( const Vector2& other ) const;
+	Vector2													operator-( const Vector2& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns this vector multiplied by a scalar.
 	 */
-	Vector2													operator*( Float value ) const;
+	Vector2													operator*( Float value ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns this vector divided by a scalar.
@@ -127,22 +127,22 @@ public:
 	/**
 	 * Computes dot product with another vector.
 	 */
-	Float													operator*( const Vector2& other ) const;
+	Float													operator*( const Vector2& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns true for equal vectors.
 	 */
-	Bool													operator==( const Vector2& other ) const;
+	Bool													operator==( const Vector2& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns true for unequal vectors.
 	 */
-	Bool													operator!=( const Vector2& other ) const;
+	Bool													operator!=( const Vector2& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns vector length.
 	 */
-	Float													Length() const;
+	Float													Length() const SYNKRO_NOEXCEPT;
 };
 
 

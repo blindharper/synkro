@@ -36,8 +36,7 @@ class Animation :
 {
 public:
 	// Constructors.
-	Animation( BaseAnimationSystem* animationSystem, const lang::String& name );
-	Animation( BaseAnimationSystem* animationSystem );
+	Animation( BaseAnimationSystem* animationSystem, const lang::String& name ) SYNKRO_NOEXCEPT;
 
 	// IAnimation methods.
 	IKeyframedBoolTrack*									CreateBoolTrack( const lang::String& name );
@@ -82,11 +81,11 @@ public:
 	IExpressionVector3Track*								CreateVector3Track( const lang::String& name, IExpressionScript* script );
 	IExpressionVector3Track*								CreateVector3Track( const lang::String& name, const lang::String& expression );
 	IProceduralVector3Track*								CreateVector3Track( const lang::String& name, const AnimationTrack& type );
-	UInt													GetTrackCount() const;
+	UInt													GetTrackCount() const SYNKRO_NOEXCEPT;
 	IAnimationTrack*										GetTrack( UInt index ) const;
 	IAnimationTrack*										GetTrack( const lang::String& name ) const;
-	Double													GetLength() const;
-	lang::String											GetName() const;
+	Double													GetLength() const SYNKRO_NOEXCEPT;
+	lang::String											GetName() const SYNKRO_NOEXCEPT;
 
 private:
 	typedef lang::MapPair<lang::String, UInt>				IndexEntry;

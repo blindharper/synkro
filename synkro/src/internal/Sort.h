@@ -19,7 +19,7 @@
 
 
 // In-place quick sort.
-template <class T> SYNKRO_INLINE static synkro::UInt SortPartition( T* array, synkro::UInt left, synkro::UInt right, synkro::UInt pivot )
+template <class T> SYNKRO_INLINE static synkro::UInt SortPartition( T* array, synkro::UInt left, synkro::UInt right, synkro::UInt pivot ) SYNKRO_NOEXCEPT
 {
 	T pivotValue = array[pivot];
 	
@@ -44,7 +44,7 @@ template <class T> SYNKRO_INLINE static synkro::UInt SortPartition( T* array, sy
 }
 
 // In-place quick sort.
-template <class T> SYNKRO_INLINE static void QuickSort( T* array, synkro::UInt left, synkro::UInt right )
+template <class T> SYNKRO_INLINE static void QuickSort( T* array, synkro::UInt left, synkro::UInt right ) SYNKRO_NOEXCEPT
 {
 	// Choose pivot point between left and right.
 	synkro::UInt pivot = left + (right-left)/2;
@@ -66,7 +66,7 @@ template <class T> SYNKRO_INLINE static void QuickSort( T* array, synkro::UInt l
 }
 
 // Array sort routine.
-template <class T> SYNKRO_INLINE static void Sort( T* array, synkro::UInt count )
+template <class T> SYNKRO_INLINE static void Sort( T* array, synkro::UInt count ) SYNKRO_NOEXCEPT
 {
 	if ( count > 1 )
 	{

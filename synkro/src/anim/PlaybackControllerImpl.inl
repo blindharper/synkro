@@ -83,68 +83,70 @@ SYNKRO_INLINE void PlaybackControllerImpl<T>::SetAnimations( IAnimationSet* anim
 template <class T>
 SYNKRO_INLINE void PlaybackControllerImpl<T>::SetSpeed( Double speed )
 {
+	assert( speed >= 0.0 );
+
 	if ( speed < 0.0 )
-		throw lang::BadArgumentException( L"Animation speed must be positive.", L"speed", lang::String(speed) );
+		throw lang::BadArgumentException( L"Animation speed must not be negative.", L"speed", lang::String(speed) );
 
 	_speed = speed;
 }
 
 template <class T>
-SYNKRO_INLINE void PlaybackControllerImpl<T>::SetOffset( Double offset )
+SYNKRO_INLINE void PlaybackControllerImpl<T>::SetOffset( Double offset ) SYNKRO_NOEXCEPT
 {
 	_offset = offset;
 }
 
 template <class T>
-SYNKRO_INLINE void PlaybackControllerImpl<T>::SetMode( const AnimationMode& mode )
+SYNKRO_INLINE void PlaybackControllerImpl<T>::SetMode( const AnimationMode& mode ) SYNKRO_NOEXCEPT
 {
 	_mode = mode;
 }
 
 template <class T>
-SYNKRO_INLINE void PlaybackControllerImpl<T>::SetDirection( const AnimationDirection& direction )
+SYNKRO_INLINE void PlaybackControllerImpl<T>::SetDirection( const AnimationDirection& direction ) SYNKRO_NOEXCEPT
 {
 	_direction = direction;
 }
 
 template <class T>
-SYNKRO_INLINE void PlaybackControllerImpl<T>::SetLoopCount( UInt loopCount )
+SYNKRO_INLINE void PlaybackControllerImpl<T>::SetLoopCount( UInt loopCount ) SYNKRO_NOEXCEPT
 {
 	_loopCount = loopCount;
 }
 
 template <class T>
-SYNKRO_INLINE Double PlaybackControllerImpl<T>::GetSpeed() const
+SYNKRO_INLINE Double PlaybackControllerImpl<T>::GetSpeed() const SYNKRO_NOEXCEPT
 {
 	return _speed;
 }
 
 template <class T>
-SYNKRO_INLINE Double PlaybackControllerImpl<T>::GetOffset() const
+SYNKRO_INLINE Double PlaybackControllerImpl<T>::GetOffset() const SYNKRO_NOEXCEPT
 {
 	return _offset;
 }
 
 template <class T>
-SYNKRO_INLINE AnimationMode PlaybackControllerImpl<T>::GetMode() const
+SYNKRO_INLINE AnimationMode PlaybackControllerImpl<T>::GetMode() const SYNKRO_NOEXCEPT
 {
 	return _mode;
 }
 
 template <class T>
-SYNKRO_INLINE AnimationDirection PlaybackControllerImpl<T>::GetDirection() const
+SYNKRO_INLINE AnimationDirection PlaybackControllerImpl<T>::GetDirection() const SYNKRO_NOEXCEPT
 {
 	return _direction;
 }
 
 template <class T>
-SYNKRO_INLINE UInt PlaybackControllerImpl<T>::GetLoopCount() const
+SYNKRO_INLINE UInt PlaybackControllerImpl<T>::GetLoopCount() const SYNKRO_NOEXCEPT
 {
 	return _loopCount;
 }
 
 template <class T>
-SYNKRO_INLINE UInt PlaybackControllerImpl<T>::GetIteration() const
+SYNKRO_INLINE UInt PlaybackControllerImpl<T>::GetIteration() const SYNKRO_NOEXCEPT
 {
 	return _iteration;
 }
@@ -156,7 +158,7 @@ SYNKRO_INLINE void PlaybackControllerImpl<T>::UpdateTracks()
 }
 
 template <class T>
-SYNKRO_INLINE Double PlaybackControllerImpl<T>::CurrentTime() const
+SYNKRO_INLINE Double PlaybackControllerImpl<T>::CurrentTime() const SYNKRO_NOEXCEPT
 {
 	return _currentTime;
 }

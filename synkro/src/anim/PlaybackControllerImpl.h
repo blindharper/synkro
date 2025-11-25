@@ -51,23 +51,23 @@ public:
 
 	// IPlaybackController methods.
 	virtual void											SetSpeed( Double speed );
-	virtual void											SetOffset( Double offset );
-	virtual void											SetMode( const AnimationMode& mode );
-	virtual void											SetDirection( const AnimationDirection& direction );
-	virtual void											SetLoopCount( UInt loopCount );
-	virtual Double											GetSpeed() const;
-	virtual Double											GetOffset() const;
-	virtual AnimationMode									GetMode() const;
-	virtual AnimationDirection								GetDirection() const;
-	virtual UInt											GetLoopCount() const;
-	virtual UInt											GetIteration() const;
+	virtual void											SetOffset( Double offset ) SYNKRO_NOEXCEPT;
+	virtual void											SetMode( const AnimationMode& mode ) SYNKRO_NOEXCEPT;
+	virtual void											SetDirection( const AnimationDirection& direction ) SYNKRO_NOEXCEPT;
+	virtual void											SetLoopCount( UInt loopCount ) SYNKRO_NOEXCEPT;
+	virtual Double											GetSpeed() const SYNKRO_NOEXCEPT;
+	virtual Double											GetOffset() const SYNKRO_NOEXCEPT;
+	virtual AnimationMode									GetMode() const SYNKRO_NOEXCEPT;
+	virtual AnimationDirection								GetDirection() const SYNKRO_NOEXCEPT;
+	virtual UInt											GetLoopCount() const SYNKRO_NOEXCEPT;
+	virtual UInt											GetIteration() const SYNKRO_NOEXCEPT;
 
 	// BaseAnimationController methods.
 	virtual void											PostUpdate();
 
 	// Other methods.
 	virtual void											UpdateTracks();
-	Double													CurrentTime() const;
+	Double													CurrentTime() const SYNKRO_NOEXCEPT;
 	void													GetAnimationsLengths();
 	void													GetCurrentAnimation();
 

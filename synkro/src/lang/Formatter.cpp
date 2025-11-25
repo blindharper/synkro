@@ -172,7 +172,9 @@ static void FormatDateTime( Vector<Char>& buffer, const Char* format, UInt forma
 
 //------------------------------------------------------------------------------
 
-Formatter::Formatter( const Char* pattern ) :
+Formatter::Formatter( const Char* pattern ) SYNKRO_NOEXCEPT :
+	_entryCount( 0 ),
+	_argCount( 0 ),
 	_pattern( pattern ),
 	_prepared( false )
 {
@@ -233,97 +235,97 @@ String Formatter::ToString() const
 
 void Formatter::Map( const Formattable& arg0 )
 {
-	Formattable args[] = { arg0 };
+	const Formattable args[] = { arg0 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1 )
 {
-	Formattable args[] = { arg0, arg1 };
+	const Formattable args[] = { arg0, arg1 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2 )
 {
-	Formattable args[] = { arg0, arg1, arg2 };
+	const Formattable args[] = { arg0, arg1, arg2 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2, const Formattable& arg3 )
 {
-	Formattable args[] = { arg0, arg1, arg2, arg3 };
+	const Formattable args[] = { arg0, arg1, arg2, arg3 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2, const Formattable& arg3, const Formattable& arg4 )
 {
-	Formattable args[] = { arg0, arg1, arg2, arg3, arg4 };
+	const Formattable args[] = { arg0, arg1, arg2, arg3, arg4 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2, const Formattable& arg3, const Formattable& arg4, const Formattable& arg5 )
 {
-	Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5 };
+	const Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2, const Formattable& arg3, const Formattable& arg4, const Formattable& arg5, const Formattable& arg6 )
 {
-	Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6 };
+	const Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2, const Formattable& arg3, const Formattable& arg4, const Formattable& arg5, const Formattable& arg6, const Formattable& arg7 )
 {
-	Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7 };
+	const Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2, const Formattable& arg3, const Formattable& arg4, const Formattable& arg5, const Formattable& arg6, const Formattable& arg7, const Formattable& arg8 )
 {
-	Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8 };
+	const Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2, const Formattable& arg3, const Formattable& arg4, const Formattable& arg5, const Formattable& arg6, const Formattable& arg7, const Formattable& arg8, const Formattable& arg9 )
 {
-	Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9 };
+	const Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2, const Formattable& arg3, const Formattable& arg4, const Formattable& arg5, const Formattable& arg6, const Formattable& arg7, const Formattable& arg8, const Formattable& arg9, const Formattable& arg10 )
 {
-	Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10 };
+	const Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2, const Formattable& arg3, const Formattable& arg4, const Formattable& arg5, const Formattable& arg6, const Formattable& arg7, const Formattable& arg8, const Formattable& arg9, const Formattable& arg10, const Formattable& arg11 )
 {
-	Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11 };
+	const Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2, const Formattable& arg3, const Formattable& arg4, const Formattable& arg5, const Formattable& arg6, const Formattable& arg7, const Formattable& arg8, const Formattable& arg9, const Formattable& arg10, const Formattable& arg11, const Formattable& arg12 )
 {
-	Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12 };
+	const Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2, const Formattable& arg3, const Formattable& arg4, const Formattable& arg5, const Formattable& arg6, const Formattable& arg7, const Formattable& arg8, const Formattable& arg9, const Formattable& arg10, const Formattable& arg11, const Formattable& arg12, const Formattable& arg13 )
 {
-	Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13 };
+	const Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2, const Formattable& arg3, const Formattable& arg4, const Formattable& arg5, const Formattable& arg6, const Formattable& arg7, const Formattable& arg8, const Formattable& arg9, const Formattable& arg10, const Formattable& arg11, const Formattable& arg12, const Formattable& arg13, const Formattable& arg14 )
 {
-	Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14 };
+	const Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14 };
 	Map( args, SizeOf(args) );
 }
 
 void Formatter::Map( const Formattable& arg0, const Formattable& arg1, const Formattable& arg2, const Formattable& arg3, const Formattable& arg4, const Formattable& arg5, const Formattable& arg6, const Formattable& arg7, const Formattable& arg8, const Formattable& arg9, const Formattable& arg10, const Formattable& arg11, const Formattable& arg12, const Formattable& arg13, const Formattable& arg14, const Formattable& arg15 )
 {
-	Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15 };
+	const Formattable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15 };
 	Map( args, SizeOf(args) );
 }
 

@@ -22,19 +22,19 @@ class Semaphore
 {
 public:
 	// Creates the semaphore.
-	Semaphore( synkro::Int count );
+	Semaphore( synkro::Int count ) SYNKRO_NOEXCEPT;
 
 	// Destroys the semaphore.
 	~Semaphore();
 
 	// Signals the semaphore.
-	void													Signal();
+	void													Signal() SYNKRO_NOEXCEPT;
 
 	// Signals the semaphore for all waiting threads.
-	void													SignalAll();
+	void													SignalAll() SYNKRO_NOEXCEPT;
 
 	// Waits for the semaphore.
-	void													Wait();
+	void													Wait() SYNKRO_NOEXCEPT;
 
 private:
 	synkro::Int												_count;

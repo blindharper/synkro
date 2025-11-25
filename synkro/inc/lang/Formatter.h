@@ -47,7 +47,7 @@ class SYNKRO_API Formatter
 {
 public:
 	// Constructor.
-	Formatter( const Char* pattern );
+	Formatter( const Char* pattern ) SYNKRO_NOEXCEPT;
 
 	// Methods.
 	String														ToString() const;

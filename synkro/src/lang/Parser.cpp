@@ -25,6 +25,8 @@ namespace lang
 
 static Bool MatchConstant( const String& text, UInt pos, const Char* str, UInt strLength )
 {
+	assert( str != nullptr );
+
 	for ( UInt i = 0; i < strLength; ++i )
 	{
 		if ( text[pos+i] != str[i] )
@@ -35,6 +37,8 @@ static Bool MatchConstant( const String& text, UInt pos, const Char* str, UInt s
 
 static UInt ParseInt( const String& text, UInt pos, Int* arg )
 {
+	assert( arg != nullptr );
+
 	*arg = 0;
 	UInt cnt = 0;
 

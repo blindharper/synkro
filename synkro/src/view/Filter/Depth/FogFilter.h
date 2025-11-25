@@ -20,7 +20,6 @@
 #include <view/IFogFilterAnimationController.h>
 #include <internal/ToVector.h>
 #include <internal/ToColor.h>
-#include <math/Math.h>
 
 
 namespace synkro

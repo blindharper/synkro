@@ -52,17 +52,17 @@ public:
 	/**
 	 * Constructs a default matrix.
 	 */
-	Matrix3x3();
+	Matrix3x3() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy constructor.
 	 */
-	Matrix3x3( const Matrix3x3& other );
+	Matrix3x3( const Matrix3x3& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Constructs identity matrix multiplied by scalar.
 	 */
-	explicit Matrix3x3( Float value );
+	explicit Matrix3x3( Float value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Constructs matrix from an array of 9 scalars.
@@ -75,22 +75,22 @@ public:
 	 */
 	Matrix3x3( Float _00, Float _01, Float _02,
 			   Float _10, Float _11, Float _12,
-			   Float _20, Float _21, Float _22 );
+			   Float _20, Float _21, Float _22 ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Adds another matrix to this one.
 	 */
-	Matrix3x3&												operator+=( const Matrix3x3& other );
+	Matrix3x3&												operator+=( const Matrix3x3& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Subtracts another matrix from this one.
 	 */
-	Matrix3x3&												operator-=( const Matrix3x3& other );
+	Matrix3x3&												operator-=( const Matrix3x3& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Multiplies matrix by a scalar.
 	 */
-	Matrix3x3&												operator*=( Float value );
+	Matrix3x3&												operator*=( Float value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Divides matrix by a scalar.
@@ -101,22 +101,22 @@ public:
 	/**
 	 * Returns the sum of two matrices.
 	 */
-	Matrix3x3												operator+( const Matrix3x3& other ) const;
+	Matrix3x3												operator+( const Matrix3x3& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns the difference between two matrices.
 	 */
-	Matrix3x3												operator-( const Matrix3x3& other ) const;
+	Matrix3x3												operator-( const Matrix3x3& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns component-wise negation of this matrix.
 	 */
-	Matrix3x3												operator-() const;
+	Matrix3x3												operator-() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns this matrix multiplied by a scalar.
 	 */
-	Matrix3x3												operator*( Float value ) const;
+	Matrix3x3												operator*( Float value ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns this matrix divided by a scalar.
@@ -127,26 +127,26 @@ public:
 	/**
 	 * Returns matrix determinant.
 	 */
-	Float													Determinant() const;
+	Float													Determinant() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns transposed matrix.
 	 */
-	Matrix3x3												Transpose() const;
+	Matrix3x3												Transpose() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests matrices for equality.
 	 * @param other Matrix to compare to.
 	 * @return true for equal matrices.
 	 */
-	Bool													operator==( const Matrix3x3& other ) const;
+	Bool													operator==( const Matrix3x3& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests matrices for inequality.
 	 * @param other Matrix to compare to.
 	 * @return true for unequal matrices.
 	 */
-	Bool													operator!=( const Matrix3x3& other ) const;
+	Bool													operator!=( const Matrix3x3& other ) const SYNKRO_NOEXCEPT;
 };
 
 

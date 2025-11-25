@@ -35,7 +35,7 @@ SYNKRO_INLINE void RecordControllerImpl<T>::SetStep( Double step )
 }
 
 template <class T>
-SYNKRO_INLINE Double RecordControllerImpl<T>::GetStep() const
+SYNKRO_INLINE Double RecordControllerImpl<T>::GetStep() const SYNKRO_NOEXCEPT
 {
 	return _step;
 }

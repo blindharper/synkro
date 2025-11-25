@@ -12,6 +12,7 @@
 //==============================================================================
 #include "config.h"
 #include <lang/Random.h>
+#include <lang/BadArgumentException.h>
 #include <internal/Lerp.h>
 
 
@@ -23,7 +24,7 @@ namespace lang
 {
 
 
-static Int GetNext( UInt& seed )
+static Int GetNext( UInt& seed ) SYNKRO_NOEXCEPT
 {
 	// Linear congruential generator (LCG):
 	// I(k) = ( a * I(k-1) + c ) % m
@@ -41,49 +42,49 @@ static Int GetNext( UInt& seed )
 	return v;
 }
 
-Random::Random( UInt seed ) :
+Random::Random( UInt seed ) SYNKRO_NOEXCEPT :
 	_seed( seed )
 {
 	GetInt();
 }
 
-Random::Random()
+Random::Random() SYNKRO_NOEXCEPT
 {
-	_seed = CastUInt( time(NULL) );
+	_seed = CastUInt( ::time(NULL) );
 	GetInt();
 }
 
-Int Random::GetInt( Int minValue, Int maxValue )
+Int Random::GetInt( Int minValue, Int maxValue ) SYNKRO_NOEXCEPT
 {
-	Double s = CastDouble( GetFloat() );
+	const Double s = CastDouble( GetFloat() );
 	return Lerp( minValue, maxValue, s );
 }
 
-Int Random::GetInt( Int maxValue )
+Int Random::GetInt( Int maxValue ) SYNKRO_NOEXCEPT
 {
 	return GetInt( 0, maxValue );
 }
 
-Int Random::GetInt()
+Int Random::GetInt() SYNKRO_NOEXCEPT
 {
 	return GetInt( 0, INT_MAX );
 }
 
-Bool Random::GetBool()
+Bool Random::GetBool() SYNKRO_NOEXCEPT
 {
 	Int v = GetNext( _seed );
 	v &= 256;
 	return (v != 0);
 }
 
-Float Random::GetFloat()
+Float Random::GetFloat() SYNKRO_NOEXCEPT
 {
 	Int v = GetNext( _seed );
 	v &= 0x7ffffff;
 	return CastFloat(v)/CastFloat(0x8000000);
 }
 
-Double Random::GetDouble()
+Double Random::GetDouble() SYNKRO_NOEXCEPT
 {
 	Int v = GetNext( _seed );
 	v &= 0x7ffffff;
@@ -93,6 +94,9 @@ Double Random::GetDouble()
 void Random::GetBytes( UInt count, Byte* value )
 {
 	assert( value != nullptr );
+
+	if ( value == nullptr )
+		throw BadArgumentException( L"Bad output parameter.", L"value", L"nullptr" );
 
 	for ( UInt i = 0; i < count; ++i )
 	{

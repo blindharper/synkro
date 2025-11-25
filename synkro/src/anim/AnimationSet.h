@@ -37,7 +37,7 @@ class AnimationSet :
 {
 public:
 	// Constructor.
-	AnimationSet( BaseAnimationSystem* animationSystem, const lang::String& name );
+	AnimationSet( BaseAnimationSystem* animationSystem, const lang::String& name ) SYNKRO_NOEXCEPT;
 
 	// IAnimationSet methods.
 	void													Save( io::IStream* stream, const AnimationCodec& type );
@@ -45,12 +45,12 @@ public:
 	void													SaveAsync( io::IStream* stream, const AnimationCodec& type );
 	void													SaveAsync( io::IStream* stream );
 	IAnimation*												CreateAnimation( const lang::String& name );
-	IAnimation*												GetActiveAnimation() const;
-	UInt													GetAnimationCount() const;
+	IAnimation*												GetActiveAnimation() const SYNKRO_NOEXCEPT;
+	UInt													GetAnimationCount() const SYNKRO_NOEXCEPT;
 	IAnimation*												GetAnimation( UInt index ) const;
 	IAnimation*												GetAnimation( const lang::String& name ) const;
-	Double													GetLength() const;
-	lang::String											GetName() const;
+	Double													GetLength() const SYNKRO_NOEXCEPT;
+	lang::String											GetName() const SYNKRO_NOEXCEPT;
 
 private:
 	typedef lang::MapPair<lang::String, UInt>				IndexEntry;

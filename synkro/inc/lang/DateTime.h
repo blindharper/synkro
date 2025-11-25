@@ -46,7 +46,7 @@ public:
 	 * @param second Seconds component of the time.
 	 * @param millisecond Millseconds component of the time.
 	 */
-	DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute, UShort second, UShort millisecond );
+	DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute, UShort second, UShort millisecond ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates date with the specified year, month, day and time.
@@ -57,7 +57,7 @@ public:
 	 * @param minute Minutes component of the time.
 	 * @param second Seconds component of the time.
 	 */
-	DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute, UShort second );
+	DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute, UShort second ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates date with the specified year, month, day and time.
@@ -67,7 +67,7 @@ public:
 	 * @param hour Hour component of the time.
 	 * @param minute Minutes component of the time.
 	 */
-	DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute );
+	DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates date with the specified year, month, day and time.
@@ -76,7 +76,7 @@ public:
 	 * @param day Day component of the date.
 	 * @param hour Hour component of the time.
 	 */
-	DateTime( UShort year, UShort month, UShort day, UShort hour );
+	DateTime( UShort year, UShort month, UShort day, UShort hour ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates date with the specified year, month and day.
@@ -84,89 +84,89 @@ public:
 	 * @param month Month component of the date.
 	 * @param day Day component of the date.
 	 */
-	DateTime( UShort year, UShort month, UShort day );
+	DateTime( UShort year, UShort month, UShort day ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates invalid date.
 	 */
-	DateTime( UShort fake );
+	DateTime( UShort fake ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates current date & time.
 	 */
-	DateTime();
+	DateTime() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves year component of the date.
 	 */
-	UShort													Year() const;
+	UShort													Year() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves month component of the date.
 	 */
-	UShort													Month() const;
+	UShort													Month() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves day of week.
 	 */
-	UShort													DayOfWeek() const;
+	UShort													DayOfWeek() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves day component of the date.
 	 */
-	UShort													Day() const;
+	UShort													Day() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves hour component of the time.
 	 */
-	UShort													Hour() const;
+	UShort													Hour() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves minutes component of the time.
 	 */
-	UShort													Minute() const;
+	UShort													Minute() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves seconds component of the time.
 	 */
-	UShort													Second() const;
+	UShort													Second() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves milliseconds component of the time.
 	 */
-	UShort													Millisecond() const;
+	UShort													Millisecond() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves the total number of hours passed since the beginning of the day.
 	 */
-	Float													TotalHours() const;
+	Float													TotalHours() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves the total number of minutes passed since the beginning of the current hour.
 	 */
-	Float													TotalMinutes() const;
+	Float													TotalMinutes() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves the total number of seconds passed since the beginning of the current minute.
 	 */
-	Float													TotalSeconds() const;
+	Float													TotalSeconds() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns true if two DateTime values are equal.
 	 * @param other DateTime to compare to.
 	 */
-	Bool													operator==( const DateTime& other ) const;
+	Bool													operator==( const DateTime& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns true if two DateTime values are not equal.
 	 * @param other DateTime to compare to.
 	 */
-	Bool													operator!=( const DateTime& other ) const;
+	Bool													operator!=( const DateTime& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Indicates whether the date-time value represents a valid date.
 	 */
-	Bool													IsValid() const;
+	Bool													IsValid() const SYNKRO_NOEXCEPT;
 
 private:
 	UShort													_value[8];

@@ -12,7 +12,6 @@
 //==============================================================================
 #include "config.h"
 #include <lang/Convert.h>
-#include <internal/Weekdays.h>
 #include <internal/Months.h>
 #include <internal/Zero.h>
 

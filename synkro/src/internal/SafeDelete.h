@@ -18,7 +18,7 @@
 
 
 // Helper function for safe object deletion.
-template <class T> SYNKRO_INLINE static void SafeDelete( T* obj )
+template <class T> SYNKRO_INLINE static void SafeDelete( T* obj ) SYNKRO_NOEXCEPT
 {
 	if ( obj != nullptr )
 	{

@@ -41,7 +41,7 @@ public:
 
 	// IRecordController methods.
 	virtual void											SetStep( Double step );
-	virtual Double											GetStep() const;
+	virtual Double											GetStep() const SYNKRO_NOEXCEPT;
 
 protected:
 	Double													_step;

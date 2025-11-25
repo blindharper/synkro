@@ -22,7 +22,7 @@ SYNKRO_INLINE void FogFilter::SetColor( const img::Color& color )
 
 SYNKRO_INLINE void FogFilter::SetDensity( Float density )
 {
-	density = math::Math::Clamp( density, 0.0f, 1.0f );
+	density = Clamp( density, 0.0f, 1.0f );
 	_params->Set( _paramDensity, density );
 }
 

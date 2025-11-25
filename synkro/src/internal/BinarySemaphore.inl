@@ -10,12 +10,12 @@
 //
 // Purpose: Defines binary semaphore.
 //==============================================================================
-SYNKRO_INLINE BinarySemaphore::BinarySemaphore( synkro::Bool signaled ) :
+SYNKRO_INLINE BinarySemaphore::BinarySemaphore( synkro::Bool signaled ) SYNKRO_NOEXCEPT :
 	_state( signaled ? 0 : 1 )
 {
 }
 
-SYNKRO_INLINE void BinarySemaphore::Wait()
+SYNKRO_INLINE void BinarySemaphore::Wait() SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	#if ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64 )
@@ -26,7 +26,7 @@ SYNKRO_INLINE void BinarySemaphore::Wait()
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOAS
 }
 
-SYNKRO_INLINE void BinarySemaphore::Signal()
+SYNKRO_INLINE void BinarySemaphore::Signal() SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	#if ( SYNKRO_PROCESSOR == SYNKRO_PROCESSOR_X64 )

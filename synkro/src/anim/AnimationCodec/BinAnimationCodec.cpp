@@ -52,7 +52,7 @@ IAnimationSet* BinAnimationCodec::Load( IStream* stream )
 	if ( !Compare( hdr, "XMAN", 4 ) )
 		throw Exception( L"Bad animation file." );
 
-	const UInt BUF_SIZE = 260;
+	constexpr UInt BUF_SIZE = 260;
 	char buf[BUF_SIZE] = {}; UInt bytes = 0; UInt len = 0;
 	BinaryReader rd( stream );
 

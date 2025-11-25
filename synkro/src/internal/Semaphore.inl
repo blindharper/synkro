@@ -10,7 +10,7 @@
 //
 // Purpose: Defines semaphore.
 //==============================================================================
-SYNKRO_INLINE Semaphore::Semaphore( synkro::Int count ) :
+SYNKRO_INLINE Semaphore::Semaphore( synkro::Int count ) SYNKRO_NOEXCEPT :
 	_count( count )
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
@@ -33,7 +33,7 @@ SYNKRO_INLINE Semaphore::~Semaphore()
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-SYNKRO_INLINE void Semaphore::Signal()
+SYNKRO_INLINE void Semaphore::Signal() SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	::ReleaseSemaphore( _handle, 1L, nullptr );
@@ -44,7 +44,7 @@ SYNKRO_INLINE void Semaphore::Signal()
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-SYNKRO_INLINE void Semaphore::SignalAll()
+SYNKRO_INLINE void Semaphore::SignalAll() SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	::ReleaseSemaphore( _handle, _count, nullptr );
@@ -55,7 +55,7 @@ SYNKRO_INLINE void Semaphore::SignalAll()
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-SYNKRO_INLINE void Semaphore::Wait()
+SYNKRO_INLINE void Semaphore::Wait() SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	::WaitForSingleObject( _handle, INFINITE );

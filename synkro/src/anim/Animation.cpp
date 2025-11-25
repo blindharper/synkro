@@ -34,18 +34,11 @@ namespace anim
 {
 
 
-Animation::Animation( BaseAnimationSystem* animationSystem, const String& name ) :
+Animation::Animation( BaseAnimationSystem* animationSystem, const String& name ) SYNKRO_NOEXCEPT :
 	_animationSystem( animationSystem ),
 	_tracks( A(P(IAnimationTrack)) ),
 	_indexes( A(IndexEntry) ),
 	_name( name )
-{
-}
-
-Animation::Animation( BaseAnimationSystem* animationSystem ) :
-	_animationSystem( animationSystem ),
-	_tracks( A(P(IAnimationTrack)) ),
-	_indexes( A(IndexEntry) )
 {
 }
 
@@ -359,7 +352,7 @@ IProceduralVector3Track* Animation::CreateVector3Track( const String& name, cons
 	return track;
 }
 
-Double Animation::GetLength() const
+Double Animation::GetLength() const SYNKRO_NOEXCEPT
 {
 	Double length = 0.0;
 
@@ -375,13 +368,23 @@ Double Animation::GetLength() const
 
 void Animation::PrepareValidate( IExpressionScript* script, const AnimationDataType& type )
 {
+	assert( script != nullptr );
+
+	if ( script == nullptr )
+		throw BadArgumentException( L"Bad script.", L"script", L"nullptr" );
+
 	script->Prepare();
+
+	assert( script->GetType() == type );
+
 	if ( script->GetType() != type )
 		throw BadArgumentException( L"Wrong expression type.", L"script", script->GetType().ToString() );
 }
 
 void Animation::VerifyName( const String& name ) const
 {
+	assert( !_indexes.ContainsKey(name) );
+
 	if ( _indexes.ContainsKey(name) )
 		throw BadArgumentException( String::Format(L"Track with name {0,q} already exists.", name), L"name", name );
 }

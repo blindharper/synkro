@@ -69,17 +69,17 @@ public:
 	/**
 	 * Constructs default vector.
 	 */
-	Vector3();
+	Vector3() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy constructor.
 	 */
-	Vector3( const Vector3& other );
+	Vector3( const Vector3& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Constructs vector from a scalar value.
 	 */
-	explicit Vector3( Float value );
+	explicit Vector3( Float value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Constructs vector from an array of 3 scalars.
@@ -90,27 +90,27 @@ public:
 	/**
 	 * Constructs vector from a triplet of scalars.
 	 */
-	Vector3( Float x, Float y, Float z );
+	Vector3( Float x, Float y, Float z ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy by reference.
 	 */
-	Vector3&												operator=( const Vector3& other );
+	Vector3&												operator=( const Vector3& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Adds another vector to this one.
 	 */
-	Vector3&												operator+=( const Vector3& other );
+	Vector3&												operator+=( const Vector3& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Subtracts another vector from this one.
 	 */
-	Vector3&												operator-=( const Vector3& other );
+	Vector3&												operator-=( const Vector3& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Multiplies vector by a scalar.
 	 */
-	Vector3&												operator*=( Float value );
+	Vector3&												operator*=( Float value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Divides vector by a scalar.
@@ -121,27 +121,27 @@ public:
 	/**
 	 * Makes vector normalized.
 	 */
-	Vector3&												Normalize();
+	Vector3&												Normalize() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns inverted copy of the vector.
 	 */
-	Vector3													operator-() const;
+	Vector3													operator-() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns the sum of this vector and another one.
 	 */
-	Vector3													operator+( const Vector3& other ) const;
+	Vector3													operator+( const Vector3& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns the difference between this vector and another one.
 	 */
-	Vector3													operator-( const Vector3& other ) const;
+	Vector3													operator-( const Vector3& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns this vector multiplied by a scalar.
 	 */
-	Vector3													operator*( Float value ) const;
+	Vector3													operator*( Float value ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns this vector divided by a scalar.
@@ -152,32 +152,32 @@ public:
 	/**
 	 * Computes cross product with another vector.
 	 */
-	Vector3													operator^( const Vector3& other ) const;
+	Vector3													operator^( const Vector3& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Computes dot product with another vector.
 	 */
-	Float													operator*( const Vector3& other ) const;
+	Float													operator*( const Vector3& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns true for equal vectors.
 	 */
-	Bool													operator==( const Vector3& other ) const;
+	Bool													operator==( const Vector3& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns true for unequal vectors.
 	 */
-	Bool													operator!=( const Vector3& other ) const;
+	Bool													operator!=( const Vector3& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns vector length.
 	 */
-	Float													Length() const;
+	Float													Length() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns vector squared length.
 	 */
-	Float													LengthSquared() const;
+	Float													LengthSquared() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Rotates the vector around arbitrary axis.
@@ -185,7 +185,7 @@ public:
 	 * @param angle Angle, in radians, for which to rotate the vector.
 	 * @return Rotated vector.
 	 */
-	Vector3													Rotate( const Vector3& axis, Float angle ) const;
+	Vector3													Rotate( const Vector3& axis, Float angle ) const SYNKRO_NOEXCEPT;
 };
 
 

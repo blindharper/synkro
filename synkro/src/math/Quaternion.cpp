@@ -34,7 +34,7 @@ namespace math
 const Quaternion Quaternion::Identity;
 
 
-Quaternion::Quaternion() :
+Quaternion::Quaternion() SYNKRO_NOEXCEPT :
 	x( 0.0f ),
 	y( 0.0f ),
 	z( 0.0f ),
@@ -42,7 +42,7 @@ Quaternion::Quaternion() :
 {
 }
 
-Quaternion::Quaternion( const Quaternion& other ) :
+Quaternion::Quaternion( const Quaternion& other ) SYNKRO_NOEXCEPT :
 	x( other.x ),
 	y( other.y ),
 	z( other.z ),
@@ -50,7 +50,7 @@ Quaternion::Quaternion( const Quaternion& other ) :
 {
 }
 
-Quaternion::Quaternion( const Vector3& axis, Float angle )
+Quaternion::Quaternion( const Vector3& axis, Float angle ) SYNKRO_NOEXCEPT
 {
 	const Float a = -angle*0.5f;
 	const Float s = Math::Sin( a );
@@ -60,12 +60,12 @@ Quaternion::Quaternion( const Vector3& axis, Float angle )
 	w = Math::Cos( a );
 }
 
-Quaternion::Quaternion( Float yaw, Float pitch, Float roll )
+Quaternion::Quaternion( Float yaw, Float pitch, Float roll ) SYNKRO_NOEXCEPT
 {
 	SetAngles( yaw, pitch, roll );
 }
 
-Quaternion::Quaternion( Float _x, Float _y, Float _z, Float _w ) :
+Quaternion::Quaternion( Float _x, Float _y, Float _z, Float _w ) SYNKRO_NOEXCEPT :
 	x( _x ),
 	y( _y ),
 	z( _z ),
@@ -73,7 +73,7 @@ Quaternion::Quaternion( Float _x, Float _y, Float _z, Float _w ) :
 {
 }
 
-Quaternion& Quaternion::operator=( const Quaternion& other )
+Quaternion& Quaternion::operator=( const Quaternion& other ) SYNKRO_NOEXCEPT
 {
 	if ( other != *this )
 	{
@@ -85,7 +85,7 @@ Quaternion& Quaternion::operator=( const Quaternion& other )
 	return *this;
 }
 
-Quaternion& Quaternion::operator+=( const Quaternion& other )
+Quaternion& Quaternion::operator+=( const Quaternion& other ) SYNKRO_NOEXCEPT
 {
 	x += other.x;
 	y += other.y;
@@ -94,7 +94,7 @@ Quaternion& Quaternion::operator+=( const Quaternion& other )
 	return *this;
 }
 
-Quaternion& Quaternion::operator-=( const Quaternion& other )
+Quaternion& Quaternion::operator-=( const Quaternion& other ) SYNKRO_NOEXCEPT
 {
 	x -= other.x;
 	y -= other.y;
@@ -103,13 +103,13 @@ Quaternion& Quaternion::operator-=( const Quaternion& other )
 	return *this;
 }
 
-Quaternion& Quaternion::operator*=( const Quaternion& other )
+Quaternion& Quaternion::operator*=( const Quaternion& other ) SYNKRO_NOEXCEPT
 {
 	(*this) = (*this)*other;
 	return *this;
 }
 
-Quaternion& Quaternion::operator*=( Float value )
+Quaternion& Quaternion::operator*=( Float value ) SYNKRO_NOEXCEPT
 {
 	x *= value;
 	y *= value;
@@ -132,13 +132,13 @@ Quaternion& Quaternion::operator/=( Float value )
 	return *this;
 }
 
-Quaternion& Quaternion::MakeNormal()
+Quaternion& Quaternion::MakeNormal() SYNKRO_NOEXCEPT
 {
 	const Float norm = Norm();
 	return (norm != 0.0f) ? *this/=norm : *this;
 }
 
-Quaternion& Quaternion::SetAngles( Float yaw, Float pitch, Float roll )
+Quaternion& Quaternion::SetAngles( Float yaw, Float pitch, Float roll ) SYNKRO_NOEXCEPT
 {
 	const Float sz = Math::Sin( 0.5f*roll );
 	const Float cz = Math::Cos( 0.5f*roll );
@@ -160,22 +160,22 @@ Quaternion& Quaternion::SetAngles( Float yaw, Float pitch, Float roll )
 	return *this;
 }
 
-Quaternion Quaternion::operator-() const
+Quaternion Quaternion::operator-() const SYNKRO_NOEXCEPT
 {
 	return Quaternion( -x, -y, -z, w );
 }
 
-Quaternion Quaternion::operator+( const Quaternion& other ) const
+Quaternion Quaternion::operator+( const Quaternion& other ) const SYNKRO_NOEXCEPT
 {
 	return Quaternion( x+other.x, y+other.y, z+other.z, w+other.w );
 }
 
-Quaternion Quaternion::operator-( const Quaternion& other ) const
+Quaternion Quaternion::operator-( const Quaternion& other ) const SYNKRO_NOEXCEPT
 {
 	return Quaternion( x-other.x, y-other.y, z-other.z, w-other.w );
 }
 
-Quaternion Quaternion::operator*( const Quaternion& other ) const
+Quaternion Quaternion::operator*( const Quaternion& other ) const SYNKRO_NOEXCEPT
 {
 	Quaternion q;
 	q.x = w*other.x + x*other.w + y*other.z - z*other.y;
@@ -185,7 +185,7 @@ Quaternion Quaternion::operator*( const Quaternion& other ) const
 	return q;
 }
 
-Quaternion Quaternion::operator*( Float value ) const
+Quaternion Quaternion::operator*( Float value ) const SYNKRO_NOEXCEPT
 {
 	return Quaternion( x*value, y*value, z*value, w*value );
 }
@@ -200,49 +200,49 @@ Quaternion Quaternion::operator/( Float value ) const
 	return Quaternion( x/value, y/value, z/value, w/value );
 }
 
-Quaternion Quaternion::Conjugate() const
+Quaternion Quaternion::Conjugate() const SYNKRO_NOEXCEPT
 {
 	return Quaternion( -x, -y, -z, w );
 }
 
-Quaternion Quaternion::Normalize() const
+Quaternion Quaternion::Normalize() const SYNKRO_NOEXCEPT
 {
 	Quaternion q( *this );
 	q.MakeNormal();
 	return q;
 }
 
-Quaternion Quaternion::Inverse() const
+Quaternion Quaternion::Inverse() const SYNKRO_NOEXCEPT
 {
 	return -(*this);
 }
 
-Bool Quaternion::IsIdentity() const
+Bool Quaternion::IsIdentity() const SYNKRO_NOEXCEPT
 {
 	return (x == 0.0f) && (y == 0.0f) && (z == 0.0f) && (w == 1.0f);
 }
 
-Bool Quaternion::operator==( const Quaternion& other ) const
+Bool Quaternion::operator==( const Quaternion& other ) const SYNKRO_NOEXCEPT
 {
 	return (x == other.x) && (y == other.y) && (z == other.z) && (w == other.w);
 }
 
-Bool Quaternion::operator!=( const Quaternion& other ) const
+Bool Quaternion::operator!=( const Quaternion& other ) const SYNKRO_NOEXCEPT
 {
 	return (x != other.x) || (y != other.y) || (z != other.z) || (w != other.w);
 }
 
-Float Quaternion::Norm() const
+Float Quaternion::Norm() const SYNKRO_NOEXCEPT
 {
 	return Math::Sqrt( NormSquared() );
 }
 
-Float Quaternion::NormSquared() const
+Float Quaternion::NormSquared() const SYNKRO_NOEXCEPT
 {
 	return x*x + y*y + z*z + w*w;
 }
 
-void Quaternion::GetAngles( Float& yaw, Float& pitch, Float& roll ) const
+void Quaternion::GetAngles( Float& yaw, Float& pitch, Float& roll ) const SYNKRO_NOEXCEPT
 {
 	const Float q = x*y + z*w;
 	pitch = Math::Asin( 2.0f*q );

@@ -35,12 +35,12 @@ public:
 	 * Creates a new generator.
 	 * @param seed Random starting point.
 	 */
-	Random( UInt seed );
+	Random( UInt seed ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates a new generator.
 	 */
-	Random();
+	Random() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Generates a whole number in the given range.
@@ -48,43 +48,44 @@ public:
 	 * @param maxValue Upper limit of the number to generate.
 	 * @return Generated number.
 	 */
-	Int														GetInt( Int minValue, Int maxValue );
+	Int														GetInt( Int minValue, Int maxValue ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Generates a whole number in the given range.
 	 * @param maxValue Upper limit of the number to generate.
 	 * @return Generated number.
 	 */
-	Int														GetInt( Int maxValue );
+	Int														GetInt( Int maxValue ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Generates a whole number.
 	 * @return Generated number.
 	 */
-	Int														GetInt();
+	Int														GetInt() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Generates a boolean value.
 	 * @return Generated value.
 	 */
-	Bool													GetBool();
+	Bool													GetBool() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Generates a floating-point number in the range [0.0, 1.0].
 	 * @return Generated number.
 	 */
-	Float													GetFloat();
+	Float													GetFloat() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Generates a double precision floating-point number in the range [0.0, 1.0].
 	 * @return Generated number.
 	 */
-	Double													GetDouble();
+	Double													GetDouble() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Generates an array of bytes.
 	 * @param count Total number of bytes to generate.
 	 * @param [out] value Array to fill with random numbers.
+	 * @exception BadArgumentException Bad output parameter.
 	 */
 	void													GetBytes( UInt count, Byte* value );
 

@@ -3222,43 +3222,43 @@ public:
 	Float	R, G, B;
 
 	/** Creates color from component triplet. */
-	Color( Float red, Float green, Float blue );
+	Color( Float red, Float green, Float blue ) SYNKRO_NOEXCEPT;
 
 	/** Creates color from a string value. */
-	Color( const lang::String& color );
+	Color( const lang::String& color ) SYNKRO_NOEXCEPT;
 
 	/** Creates grayscale color from a single value. */
-	Color( Float gray );
+	Color( Float gray ) SYNKRO_NOEXCEPT;
 
 	/** Creates black color. */
-	Color();
+	Color() SYNKRO_NOEXCEPT;
 
 	/** Returns true for identical colors. */
-	Bool													operator==( const Color& other ) const;
+	Bool													operator==( const Color& other ) const SYNKRO_NOEXCEPT;
 
 	/** Returns true for distinct colors. */
-	Bool													operator!=( const Color& other ) const;
+	Bool													operator!=( const Color& other ) const SYNKRO_NOEXCEPT;
 
 	/** Returns this color multiplied by a scalar. */
-	Color													operator*( Float value ) const;
+	Color													operator*( Float value ) const SYNKRO_NOEXCEPT;
 
 	/** Returns this color modulated with another color. */
-	Color													operator*( const Color& other ) const;
+	Color													operator*( const Color& other ) const SYNKRO_NOEXCEPT;
 
 	/** Converts color to its string representation. */
 	lang::String											ToString() const;
 
 	/** Returns inversion of this color. */
-	Color													Inverse() const;
+	Color													Inverse() const SYNKRO_NOEXCEPT;
 
 	/** Returns complement of this color. */
-	Color													Complementary() const;
+	Color													Complementary() const SYNKRO_NOEXCEPT;
 
 	/** Retrieves the next well-known color. */
-	static Color											GetNext( UInt& index );
+	static Color											GetNext( UInt& index ) SYNKRO_NOEXCEPT;
 
 	/** Returns random well-known color. */
-	static Color											Random();
+	static Color											Random() SYNKRO_NOEXCEPT;
 };
 
 

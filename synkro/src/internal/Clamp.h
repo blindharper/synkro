@@ -15,7 +15,7 @@
 
 
 // Helper function for swapping two values.
-template <class T> SYNKRO_INLINE static T Clamp( T value, T min, T max )
+template <class T> SYNKRO_INLINE static T Clamp( T value, T min, T max ) SYNKRO_NOEXCEPT
 {
 	if ( value < min )
 		return min;

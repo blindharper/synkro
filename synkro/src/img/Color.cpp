@@ -2269,12 +2269,12 @@ static Color ToColor( const String& color )
 	return Color::Transparent;
 }
 
-Color::Color( Float red, Float green, Float blue ) :
+Color::Color( Float red, Float green, Float blue ) SYNKRO_NOEXCEPT :
 	R( red ), G( green ), B( blue )
 {
 }
 
-Color::Color( const String& color )
+Color::Color( const String& color ) SYNKRO_NOEXCEPT
 {
 	Color col = ToColor( color );
 	R = col.R;
@@ -2282,32 +2282,32 @@ Color::Color( const String& color )
 	B = col.B;
 }
 
-Color::Color( Float gray ) :
+Color::Color( Float gray ) SYNKRO_NOEXCEPT :
 	R( gray ), G( gray ), B( gray )
 {
 }
 
-Color::Color() :
+Color::Color() SYNKRO_NOEXCEPT :
 	R( 0.0f ), G( 0.0f ), B( 0.0f )
 {
 }
 
-Bool Color::operator==( const Color& other ) const
+Bool Color::operator==( const Color& other ) const SYNKRO_NOEXCEPT
 {
 	return (R == other.R) && (G == other.G) && (B == other.B);
 }
 
-Bool Color::operator!=( const Color& other ) const
+Bool Color::operator!=( const Color& other ) const SYNKRO_NOEXCEPT
 {
 	return (R != other.R) || (G != other.G) || (B != other.B);
 }
 
-Color Color::operator*( Float value ) const
+Color Color::operator*( Float value ) const SYNKRO_NOEXCEPT
 {
 	return Color( R*value, G*value, B*value );
 }
 
-Color Color::operator*( const Color& other ) const
+Color Color::operator*( const Color& other ) const SYNKRO_NOEXCEPT
 {
 	return Color( R*other.R, G*other.G, B*other.B );
 }
@@ -2330,24 +2330,24 @@ String Color::ToString() const
 	return String::Empty;
 }
 
-Color Color::Inverse() const
+Color Color::Inverse() const SYNKRO_NOEXCEPT
 {
 	return Color( 1.0f-R, 1.0f-G, 1.0f-B );
 }
 
-Color Color::Complementary() const
+Color Color::Complementary() const SYNKRO_NOEXCEPT
 {
 	const Float m = Max(R, G, B) + Min(R, G, B);
 	return Color( m-R, m-G, m-B );
 }
 
-Color Color::GetNext( UInt& index )
+Color Color::GetNext( UInt& index ) SYNKRO_NOEXCEPT
 {
 	index = (index+1 < SizeOf(_colorString)) ? index+1 : none;
 	return (index != none) ? _colorString[index].color : Color::Transparent;
 }
 
-Color Color::Random()
+Color Color::Random() SYNKRO_NOEXCEPT
 {
 	constexpr UInt count = SizeOf( _colorString );
 	_rnd.GetInt( count );

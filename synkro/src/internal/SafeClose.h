@@ -18,7 +18,7 @@
 
 
 // Helper function for safe object closing.
-template <class T> SYNKRO_INLINE static void SafeClose( T* obj )
+template <class T> SYNKRO_INLINE static void SafeClose( T* obj ) SYNKRO_NOEXCEPT
 {
 	if ( obj != nullptr )
 	{

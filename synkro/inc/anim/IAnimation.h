@@ -49,6 +49,7 @@ public:
 	 * @param script Expression script.
 	 * @return Created animation track.
 	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionBoolTrack*							CreateBoolTrack( const lang::String& name, IExpressionScript* script ) = 0;
@@ -77,6 +78,7 @@ public:
 	 * @param script Expression script.
 	 * @return Created animation track.
 	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionColorTrack*							CreateColorTrack( const lang::String& name, IExpressionScript* script ) = 0;
@@ -116,6 +118,7 @@ public:
 	 * @param script Expression script.
 	 * @return Created animation track.
 	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionColorGradientTrack*					CreateColorGradientTrack( const lang::String& name, IExpressionScript* script ) = 0;
@@ -144,6 +147,7 @@ public:
 	 * @param script Expression script.
 	 * @return Created animation track.
 	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionFloatTrack*							CreateFloatTrack( const lang::String& name, IExpressionScript* script ) = 0;
@@ -183,6 +187,7 @@ public:
 	 * @param script Expression script.
 	 * @return Created animation track.
 	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionFloatRectTrack*						CreateFloatRectTrack( const lang::String& name, IExpressionScript* script ) = 0;
@@ -211,6 +216,7 @@ public:
 	 * @param script Expression script.
 	 * @return Created animation track.
 	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionIntTrack*							CreateIntTrack( const lang::String& name, IExpressionScript* script ) = 0;
@@ -239,6 +245,7 @@ public:
 	 * @param script Expression script.
 	 * @return Created animation track.
 	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionMatrix4x4Track*						CreateMatrix4x4Track( const lang::String& name, IExpressionScript* script ) = 0;
@@ -267,6 +274,7 @@ public:
 	 * @param script Expression script.
 	 * @return Created animation track.
 	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionPointTrack*							CreatePointTrack( const lang::String& name, IExpressionScript* script ) = 0;
@@ -295,6 +303,7 @@ public:
 	 * @param script Expression script.
 	 * @return Created animation track.
 	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionQuaternionTrack*						CreateQuaternionTrack( const lang::String& name, IExpressionScript* script ) = 0;
@@ -323,6 +332,7 @@ public:
 	 * @param script Expression script.
 	 * @return Created animation track.
 	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionRangeTrack*							CreateRangeTrack( const lang::String& name, IExpressionScript* script ) = 0;
@@ -351,6 +361,7 @@ public:
 	 * @param script Expression script.
 	 * @return Created animation track.
 	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionRectTrack*							CreateRectTrack( const lang::String& name, IExpressionScript* script ) = 0;
@@ -379,6 +390,7 @@ public:
 	 * @param script Expression script.
 	 * @return Created animation track.
 	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionSizeTrack*							CreateSizeTrack( const lang::String& name, IExpressionScript* script ) = 0;
@@ -407,6 +419,7 @@ public:
 	 * @param script Expression script.
 	 * @return Created animation track.
 	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionVector3Track*						CreateVector3Track( const lang::String& name, IExpressionScript* script ) = 0;

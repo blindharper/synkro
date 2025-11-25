@@ -153,7 +153,7 @@ public:
 		if ( str == 0 )
 			return 0;
 
-		UInt len = CastUInt( wcslen(str) );
+		const UInt len = CastUInt( wcslen(str) );
 		if ( len == 0 )
 			return 0;
 
@@ -239,22 +239,17 @@ BinarySemaphore String::Impl::_semaphore( true );
 const String String::Null( NULL_IMPL );
 const String String::Empty( EMPTY_IMPL );
 
-String::String( const String::Impl* impl )
+String::String( const String::Impl* impl ) SYNKRO_NOEXCEPT
 {
 	_impl = const_cast<String::Impl*>( impl );
 }
 
-String::String()
-{
-	_impl = 0;
-}
-
-String::String( const Char* str )
+String::String( const Char* str ) SYNKRO_NOEXCEPT
 {
 	_impl = Impl::Create( str );
 }
 
-String::String( const char* str )
+String::String( const char* str ) SYNKRO_NOEXCEPT
 {
 	_impl = Impl::Create( str );
 }
@@ -264,7 +259,7 @@ String::String( const void* buffer, UInt size, const char* encoding )
 	constexpr UInt BUF_SIZE = 4096;
 	Char buf[BUF_SIZE] = {};
 	const Byte* bufferBytes = reinterpret_cast<const Byte*>( buffer );
-	UInt sz = size; UInt s = 0;
+	const UInt sz = size; UInt s = 0;
 	UInt srcLenUsed = 0; UInt dstLenUsed = 0;
 
 	Vector<Char> chars( A(Char) );
@@ -278,7 +273,7 @@ String::String( const void* buffer, UInt size, const char* encoding )
 	_impl = Impl::Create( chars.Begin() );
 }
 
-String::String( const String* entries, UInt count, const String& delim )
+String::String( const String* entries, UInt count, const String& delim ) SYNKRO_NOEXCEPT
 {
 	Vector<Char> chars( A(Char) );
 	for ( UInt i = 0; i < count; ++i )
@@ -303,7 +298,7 @@ String::String( const String* entries, UInt count, const String& delim )
 	_impl = Impl::Create( chars.Begin() );
 }
 
-String::String( Char ch, UInt length )
+String::String( Char ch, UInt length ) SYNKRO_NOEXCEPT
 {
 	// Allocate and fill temporary buffer.
 	Char* buf = Impl::_charAlloc.Allocate( length+1 );
@@ -317,30 +312,35 @@ String::String( Char ch, UInt length )
 	Impl::_charAlloc.Deallocate( buf, length+1 );
 }
 
-String::String( Char ch )
+String::String( Char ch ) SYNKRO_NOEXCEPT
 {
-	Char buf[] = { ch, 0 };
+	const Char buf[] = { ch, 0 };
 	_impl = Impl::Create( buf );
 }
 
-String::String( Double num )
+String::String( Double num ) SYNKRO_NOEXCEPT
 {
 	char buf[64] = {};
 	sprintf( buf, "%.3f", num );
 	_impl = Impl::Create( buf );
 }
 
-String::String( Int num )
+String::String( Int num ) SYNKRO_NOEXCEPT
 {
 	char buf[64] = {};
 	sprintf( buf, "%d", num );
 	_impl = Impl::Create( buf );
 }
 
-String::String( const String& other )
+String::String( const String& other ) SYNKRO_NOEXCEPT
 {
 	if ( IsValid(_impl = other._impl) )
 		_impl->refs++;
+}
+
+String::String() SYNKRO_NOEXCEPT :
+	_impl( 0 )
+{
 }
 
 String::~String()
@@ -353,7 +353,7 @@ void String::Finalize()
 	String::Impl::_strings.Clear();
 }
 
-void String::MakePermanent()
+void String::MakePermanent() SYNKRO_NOEXCEPT
 {
 	if ( IsValid(_impl) )
 	{
@@ -361,7 +361,7 @@ void String::MakePermanent()
 	}
 }
 
-String& String::operator=( const String& other )
+String& String::operator=( const String& other ) SYNKRO_NOEXCEPT
 {
 	if ( this != &other )
 	{
@@ -372,57 +372,57 @@ String& String::operator=( const String& other )
 	return *this;
 }
 
-Bool String::operator==( const String& other ) const
+Bool String::operator==( const String& other ) const SYNKRO_NOEXCEPT
 {
 	return _impl == other._impl;
 }
 
-Bool String::operator!=( const String& other ) const
+Bool String::operator!=( const String& other ) const SYNKRO_NOEXCEPT
 {
 	return _impl != other._impl;
 }
 
-Bool String::operator<( const String& other ) const
+Bool String::operator<( const String& other ) const SYNKRO_NOEXCEPT
 {
 	return CompareTo( other ) < 0;
 }
 
-Bool String::operator>( const String& other ) const
+Bool String::operator>( const String& other ) const SYNKRO_NOEXCEPT
 {
 	return CompareTo( other ) > 0;
 }
 
-Bool String::operator<=( const String& other ) const
+Bool String::operator<=( const String& other ) const SYNKRO_NOEXCEPT
 {
 	return CompareTo( other ) <= 0;
 }
 
-Bool String::operator>=( const String& other ) const
+Bool String::operator>=( const String& other ) const SYNKRO_NOEXCEPT
 {
 	return CompareTo( other ) >= 0;
 }
 
-Int String::CompareTo( const String& other, Bool ignoreCase ) const
+Int String::CompareTo( const String& other, Bool ignoreCase ) const SYNKRO_NOEXCEPT
 {
 	return Compare( *this, other, ignoreCase );
 }
 
-Int String::CompareTo( const String& other ) const
+Int String::CompareTo( const String& other ) const SYNKRO_NOEXCEPT
 {
 	return CompareTo( other, false );
 }
 
-Bool String::EqualsTo( const String& other, Bool ignoreCase ) const
+Bool String::EqualsTo( const String& other, Bool ignoreCase ) const SYNKRO_NOEXCEPT
 {
 	return (Compare( *this, other, ignoreCase ) == 0);
 }
 
-Bool String::EqualsTo( const String& other ) const
+Bool String::EqualsTo( const String& other ) const SYNKRO_NOEXCEPT
 {
 	return EqualsTo( other, false );
 }
 
-Bool String::StartsWith( Char prefix, Bool ignoreCase ) const
+Bool String::StartsWith( Char prefix, Bool ignoreCase ) const SYNKRO_NOEXCEPT
 {
 	if ( IsValid(_impl) && (_impl->size > 0) )
 	{
@@ -438,12 +438,12 @@ Bool String::StartsWith( Char prefix, Bool ignoreCase ) const
 	return false;
 }
 
-Bool String::StartsWith( Char prefix ) const
+Bool String::StartsWith( Char prefix ) const SYNKRO_NOEXCEPT
 {
 	return StartsWith( prefix, false );
 }
 
-Bool String::StartsWith( const String& prefix, Bool ignoreCase ) const
+Bool String::StartsWith( const String& prefix, Bool ignoreCase ) const SYNKRO_NOEXCEPT
 {
 	if ( IsValid(_impl) && IsValid(prefix._impl) && (prefix._impl->size <= _impl->size) )
 	{
@@ -455,12 +455,12 @@ Bool String::StartsWith( const String& prefix, Bool ignoreCase ) const
 	return false;
 }
 
-Bool String::StartsWith( const String& prefix ) const
+Bool String::StartsWith( const String& prefix ) const SYNKRO_NOEXCEPT
 {
 	return StartsWith( prefix, false );
 }
 
-Bool String::EndsWith( Char suffix, Bool ignoreCase ) const
+Bool String::EndsWith( Char suffix, Bool ignoreCase ) const SYNKRO_NOEXCEPT
 {
 	if ( IsValid(_impl) && (_impl->size > 0) )
 	{
@@ -476,12 +476,12 @@ Bool String::EndsWith( Char suffix, Bool ignoreCase ) const
 	return false;
 }
 
-Bool String::EndsWith( Char suffix ) const
+Bool String::EndsWith( Char suffix ) const SYNKRO_NOEXCEPT
 {
 	return EndsWith( suffix, false );
 }
 
-Bool String::EndsWith( const String& suffix, Bool ignoreCase ) const
+Bool String::EndsWith( const String& suffix, Bool ignoreCase ) const SYNKRO_NOEXCEPT
 {
 	if ( IsValid(_impl) && IsValid(suffix._impl) && (suffix._impl->size <= _impl->size) )
 	{
@@ -494,32 +494,32 @@ Bool String::EndsWith( const String& suffix, Bool ignoreCase ) const
 	return false;
 }
 
-Bool String::EndsWith( const String& suffix ) const
+Bool String::EndsWith( const String& suffix ) const SYNKRO_NOEXCEPT
 {
 	return EndsWith( suffix, false );
 }
 
-Bool String::Contains( Char ch, Bool ignoreCase ) const
+Bool String::Contains( Char ch, Bool ignoreCase ) const SYNKRO_NOEXCEPT
 {
 	return (IndexOf(ch, ignoreCase) != none);
 }
 
-Bool String::Contains( Char ch ) const
+Bool String::Contains( Char ch ) const SYNKRO_NOEXCEPT
 {
 	return Contains( ch, false );
 }
 
-Bool String::Contains( const String& other, Bool ignoreCase ) const
+Bool String::Contains( const String& other, Bool ignoreCase ) const SYNKRO_NOEXCEPT
 {
 	return (IndexOf(other, ignoreCase) != none);
 }
 
-Bool String::Contains( const String& other ) const
+Bool String::Contains( const String& other ) const SYNKRO_NOEXCEPT
 {
 	return Contains( other, false );
 }
 
-UInt String::IndexOf( Char ch, UInt index ) const
+UInt String::IndexOf( Char ch, UInt index ) const SYNKRO_NOEXCEPT
 {
 	if ( IsValid(_impl) && ((index < _impl->size) || index == none) )
 	{
@@ -533,12 +533,12 @@ UInt String::IndexOf( Char ch, UInt index ) const
 	return none;
 }
 
-UInt String::IndexOf( Char ch ) const
+UInt String::IndexOf( Char ch ) const SYNKRO_NOEXCEPT
 {
 	return IndexOf( ch, 0 );
 }
 
-UInt String::IndexOf( const String& str, UInt index, Bool ignoreCase ) const
+UInt String::IndexOf( const String& str, UInt index, Bool ignoreCase ) const SYNKRO_NOEXCEPT
 {
 	if ( IsValid(_impl) && IsValid(str._impl) && ((index < _impl->size) || index == none) )
 	{
@@ -564,17 +564,17 @@ UInt String::IndexOf( const String& str, UInt index, Bool ignoreCase ) const
 	return none;
 }
 
-UInt String::IndexOf( const String& str, UInt index ) const
+UInt String::IndexOf( const String& str, UInt index ) const SYNKRO_NOEXCEPT
 {
 	return IndexOf( str, index, false );
 }
 
-UInt String::IndexOf( const String& str ) const
+UInt String::IndexOf( const String& str ) const SYNKRO_NOEXCEPT
 {
 	return IndexOf( str, 0 );
 }
 
-UInt String::IndexOfAny( const String& chars, UInt index ) const
+UInt String::IndexOfAny( const String& chars, UInt index ) const SYNKRO_NOEXCEPT
 {
 	UInt res = none;
 	if ( IsValid(_impl) && IsValid(chars._impl) && ((index < _impl->size) || index == none) )
@@ -593,12 +593,12 @@ UInt String::IndexOfAny( const String& chars, UInt index ) const
 	return res;
 }
 
-UInt String::IndexOfAny( const String& chars ) const
+UInt String::IndexOfAny( const String& chars ) const SYNKRO_NOEXCEPT
 {
 	return IndexOfAny( chars, 0 );
 }
 
-UInt String::LastIndexOf( Char ch, UInt index ) const
+UInt String::LastIndexOf( Char ch, UInt index ) const SYNKRO_NOEXCEPT
 {
 	if ( IsValid(_impl) && ((index < _impl->size) || index == none) )
 	{
@@ -612,12 +612,12 @@ UInt String::LastIndexOf( Char ch, UInt index ) const
 	return none;
 }
 
-UInt String::LastIndexOf( Char ch ) const
+UInt String::LastIndexOf( Char ch ) const SYNKRO_NOEXCEPT
 {
 	return LastIndexOf( ch, none );
 }
 
-UInt String::LastIndexOf( const String& str, UInt index ) const
+UInt String::LastIndexOf( const String& str, UInt index ) const SYNKRO_NOEXCEPT
 {
 	if ( IsValid(_impl) && IsValid(str._impl) && ((index < _impl->size) || index == none) )
 	{
@@ -636,12 +636,12 @@ UInt String::LastIndexOf( const String& str, UInt index ) const
 	return none;
 }
 
-UInt String::LastIndexOf( const String& str ) const
+UInt String::LastIndexOf( const String& str ) const SYNKRO_NOEXCEPT
 {
 	return LastIndexOf( str, none );
 }
 
-UInt String::LastIndexOfAny( const String& chars, UInt index ) const
+UInt String::LastIndexOfAny( const String& chars, UInt index ) const SYNKRO_NOEXCEPT
 {
 	Int res = none;
 	if ( IsValid(_impl) && IsValid(chars._impl) && ((index < _impl->size) || index == none) )
@@ -657,12 +657,12 @@ UInt String::LastIndexOfAny( const String& chars, UInt index ) const
 	return CastUInt( res );
 }
 
-UInt String::LastIndexOfAny( const String& chars ) const
+UInt String::LastIndexOfAny( const String& chars ) const SYNKRO_NOEXCEPT
 {
 	return LastIndexOfAny( chars, none );
 }
 
-UInt String::EntryCount( Char delim ) const
+UInt String::EntryCount( Char delim ) const SYNKRO_NOEXCEPT
 {
 	UInt count = 0;
 	if ( IsValid(_impl) )
@@ -675,12 +675,12 @@ UInt String::EntryCount( Char delim ) const
 	return count;
 }
 
-UInt String::EntryCount() const
+UInt String::EntryCount() const SYNKRO_NOEXCEPT
 {
 	return EntryCount( L',' );
 }
 
-UInt String::EntryIndex( const String& entry, Char delim ) const
+UInt String::EntryIndex( const String& entry, Char delim ) const SYNKRO_NOEXCEPT
 {
 	if ( IsValid(_impl) && IsValid(entry._impl) )
 	{
@@ -698,12 +698,12 @@ UInt String::EntryIndex( const String& entry, Char delim ) const
 	return none;
 }
 
-UInt String::EntryIndex( const String& entry ) const
+UInt String::EntryIndex( const String& entry ) const SYNKRO_NOEXCEPT
 {
 	return EntryIndex( entry, L',' );
 }
 
-String String::Entry( UInt index, Char delim ) const
+String String::Entry( UInt index, Char delim ) const SYNKRO_NOEXCEPT
 {
 	if ( !IsValid(_impl) || (index > EntryCount(delim)) )
 		return String::Empty;
@@ -733,22 +733,22 @@ String String::Entry( UInt index, Char delim ) const
 	return Substring( start, end-start );
 }
 
-String String::Entry( UInt index ) const
+String String::Entry( UInt index ) const SYNKRO_NOEXCEPT
 {
 	return Entry( index, L',' );
 }
 
-String String::operator+( const String& other ) const
+String String::operator+( const String& other ) const SYNKRO_NOEXCEPT
 {
 	return Append( other );
 }
 
-String String::Append( Char ch ) const
+String String::Append( Char ch ) const SYNKRO_NOEXCEPT
 {
 	return Append( String(ch) );
 }
 
-String String::Append( const String& other ) const
+String String::Append( const String& other ) const SYNKRO_NOEXCEPT
 {
 	// Handle empty strings.
 	if ( !IsValid(_impl) && (!IsValid(other._impl)) )
@@ -775,7 +775,7 @@ String String::Append( const String& other ) const
 	return res;
 }
 
-String String::Substring( UInt start, UInt count ) const
+String String::Substring( UInt start, UInt count ) const SYNKRO_NOEXCEPT
 {
 	if ( !IsValid(_impl) || (start > _impl->size-1) || (count == 0) )
 		return String::Empty;
@@ -794,12 +794,12 @@ String String::Substring( UInt start, UInt count ) const
 	return res;
 }
 
-String String::Substring( UInt start ) const
+String String::Substring( UInt start ) const SYNKRO_NOEXCEPT
 {
 	return Substring( start, IsValid(_impl) ? _impl->size : 0 );
 }
 
-String String::Reverse() const
+String String::Reverse() const SYNKRO_NOEXCEPT
 {
 	// Handle empty strings.
 	if ( !IsValid(_impl) )
@@ -824,7 +824,7 @@ String String::Reverse() const
 	return res;
 }
 
-String String::Replace( Char chOld, Char chNew, Bool ignoreCase ) const
+String String::Replace( Char chOld, Char chNew, Bool ignoreCase ) const SYNKRO_NOEXCEPT
 {
 	// Handle empty strings.
 	if ( !IsValid(_impl) )
@@ -856,12 +856,12 @@ String String::Replace( Char chOld, Char chNew, Bool ignoreCase ) const
 	return res;
 }
 
-String String::Replace( Char chOld, Char chNew ) const
+String String::Replace( Char chOld, Char chNew ) const SYNKRO_NOEXCEPT
 {
 	return Replace( chOld, chNew, false );
 }
 
-String String::Replace( const String& strOld, const String& strNew, Bool ignoreCase ) const
+String String::Replace( const String& strOld, const String& strNew, Bool ignoreCase ) const SYNKRO_NOEXCEPT
 {
 	// Handle empty strings.
 	if ( !IsValid(_impl) )
@@ -914,12 +914,12 @@ String String::Replace( const String& strOld, const String& strNew, Bool ignoreC
 	return res;
 }
 
-String String::Replace( const String& strOld, const String& strNew ) const
+String String::Replace( const String& strOld, const String& strNew ) const SYNKRO_NOEXCEPT
 {
 	return Replace( strOld, strNew, false );
 }
 
-String String::TrimStart( const String& chars ) const
+String String::TrimStart( const String& chars ) const SYNKRO_NOEXCEPT
 {
 	if ( !IsValid(_impl) || !IsValid(chars._impl) )
 		return String( *this );
@@ -944,12 +944,12 @@ String String::TrimStart( const String& chars ) const
 	return String::Empty;
 }
 
-String String::TrimStart() const
+String String::TrimStart() const SYNKRO_NOEXCEPT
 {
 	return TrimStart( String(_ws) );
 }
 
-String String::TrimEnd( const String& chars ) const
+String String::TrimEnd( const String& chars ) const SYNKRO_NOEXCEPT
 {
 	if ( !IsValid(_impl) || !IsValid(chars._impl) )
 		return String( *this );
@@ -974,23 +974,23 @@ String String::TrimEnd( const String& chars ) const
 	return String::Empty;
 }
 
-String String::TrimEnd() const
+String String::TrimEnd() const SYNKRO_NOEXCEPT
 {
 	return TrimEnd( String(_ws) );
 }
 
-String String::Trim( const String& chars ) const
+String String::Trim( const String& chars ) const SYNKRO_NOEXCEPT
 {
 	String res(*this);
 	return res.TrimStart(chars).TrimEnd(chars);
 }
 
-String String::Trim() const	
+String String::Trim() const	SYNKRO_NOEXCEPT
 {
 	return Trim( String(_ws) );
 }
 
-String String::ToLower() const
+String String::ToLower() const SYNKRO_NOEXCEPT
 {
 	// Handle empty strings.
 	if ( !IsValid(_impl) )
@@ -1013,7 +1013,7 @@ String String::ToLower() const
 	return res;
 }
 
-String String::ToUpper() const
+String String::ToUpper() const SYNKRO_NOEXCEPT
 {
 	// Handle empty strings.
 	if ( !IsValid(_impl) )
@@ -1036,27 +1036,27 @@ String String::ToUpper() const
 	return res;
 }
 
-Bool String::IsPermanent() const
+Bool String::IsPermanent() const SYNKRO_NOEXCEPT
 {
 	return IsValid(_impl) && _impl->perm;
 }
 
-Bool String::IsNullOrEmpty() const
+Bool String::IsNullOrEmpty() const SYNKRO_NOEXCEPT
 {
 	return IsNull() || IsEmpty();
 }
 
-Bool String::IsNull() const
+Bool String::IsNull() const SYNKRO_NOEXCEPT
 {
 	return (_impl == NULL_IMPL);
 }
 
-Bool String::IsEmpty() const
+Bool String::IsEmpty() const SYNKRO_NOEXCEPT
 {
 	return (_impl != NULL_IMPL) && ((_impl == EMPTY_IMPL) || (_impl->size == 0));
 }
 
-Bool String::IsInteger() const
+Bool String::IsInteger() const SYNKRO_NOEXCEPT
 {
 	if ( !IsValid(_impl) )
 		return false;
@@ -1075,7 +1075,7 @@ Bool String::IsInteger() const
 	return true;
 }
 
-Bool String::IsDecimal() const
+Bool String::IsDecimal() const SYNKRO_NOEXCEPT
 {
 	if ( !IsValid(_impl) )
 		return false;
@@ -1100,7 +1100,7 @@ Bool String::IsDecimal() const
 	return true;
 }
 
-Bool String::IsHexadecimal() const
+Bool String::IsHexadecimal() const SYNKRO_NOEXCEPT
 {
 	if ( !IsValid(_impl) )
 		return false;
@@ -1125,27 +1125,27 @@ Bool String::IsHexadecimal() const
 	return true;
 }
 
-Int String::ToInteger() const
+Int String::ToInteger() const SYNKRO_NOEXCEPT
 {
 	return Convert::ToInt( *this );
 }
 
-Float String::ToDecimal() const
+Float String::ToDecimal() const SYNKRO_NOEXCEPT
 {
 	return Convert::ToFloat( *this );
 }
 
-UInt String::Length() const
+UInt String::Length() const SYNKRO_NOEXCEPT
 {
 	return IsValid(_impl) ? _impl->size : 0;
 }
 
-UInt String::HashCode( Bool ignoreCase ) const
+UInt String::HashCode( Bool ignoreCase ) const SYNKRO_NOEXCEPT
 {
 	return IsValid(_impl) ? (ignoreCase ? _impl->hashCI : _impl->hash) : CastUInt((Pointer)_impl);
 }
 
-UInt String::HashCode() const
+UInt String::HashCode() const SYNKRO_NOEXCEPT
 {
 	return IsValid(_impl) ? _impl->hash : CastUInt((Pointer)_impl);
 }
@@ -1159,12 +1159,12 @@ Char String::operator[]( UInt index ) const
 	return _impl->buffer[index];
 }
 
-String::operator Formattable() const
+String::operator Formattable() const SYNKRO_NOEXCEPT
 {
 	return Formattable( IsValid(_impl) ? _impl->buffer : nullptr );
 }
 
-Char* String::GetChars( UInt start, UInt count, Char* dst ) const
+Char* String::GetChars( UInt start, UInt count, Char* dst ) const SYNKRO_NOEXCEPT
 {
 	assert( start <= Length() );
 	assert( dst != nullptr );
@@ -1181,8 +1181,13 @@ Char* String::GetChars( UInt start, UInt count, Char* dst ) const
 	return dst;
 }
 
-UInt String::GetBytes( void* buffer, UInt size, const char* encoding ) const
+UInt String::GetBytes( void* buffer, UInt size, const char* encoding ) const SYNKRO_NOEXCEPT
 {
+	assert( buffer != nullptr );
+
+	if ( buffer == nullptr )
+		return 0;
+
 	if ( !IsValid(_impl) )
 	{
 		*((Byte*)buffer) = 0;
@@ -1202,12 +1207,12 @@ UInt String::GetBytes( void* buffer, UInt size, const char* encoding ) const
 	return 0;
 }
 
-UInt String::GetBytes( void* buffer, UInt size ) const
+UInt String::GetBytes( void* buffer, UInt size ) const SYNKRO_NOEXCEPT
 {
 	return GetBytes( buffer, size, "ASCII-7" );
 }
 
-Int String::Compare( const String& first, const String& second, Bool ignoreCase )
+Int String::Compare( const String& first, const String& second, Bool ignoreCase ) SYNKRO_NOEXCEPT
 {
 	if ( first._impl == second._impl )
 		return 0;
@@ -1231,7 +1236,7 @@ Int String::Compare( const String& first, const String& second, Bool ignoreCase 
 	return ret;
 }
 
-Int String::Compare( const String& first, const String& second )
+Int String::Compare( const String& first, const String& second ) SYNKRO_NOEXCEPT
 {
 	return Compare( first, second, false );
 }

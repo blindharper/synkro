@@ -18,7 +18,7 @@
 
 
 // Helper function for safe object release.
-template <class T> SYNKRO_INLINE static void SafeRelease( T* obj )
+template <class T> SYNKRO_INLINE static void SafeRelease( T* obj ) SYNKRO_NOEXCEPT
 {
 	if ( obj != nullptr )
 	{

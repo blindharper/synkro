@@ -26,7 +26,7 @@ Char* MonthsShort[] = { L"", L"Jan", L"Feb", L"Mar", L"Apr", L"May", L"Jun", L"J
 Char* MonthsLong[] = { L"", L"January", L"February", L"March", L"April", L"May", L"June", L"July", L"August", L"September", L"October", L"November", L"December" };
 
 
-UInt StringToMonthShort( const Char* str )
+UInt StringToMonthShort( const Char* str ) SYNKRO_NOEXCEPT
 {
 	constexpr UInt count = SizeOf( MonthsShort );
 	for ( UInt i = 1; i < count; ++i )
@@ -37,7 +37,7 @@ UInt StringToMonthShort( const Char* str )
 	return none;
 }
 
-UInt StringToMonthLong( const Char* str )
+UInt StringToMonthLong( const Char* str ) SYNKRO_NOEXCEPT
 {
 	constexpr UInt count = SizeOf( MonthsLong );
 	for ( UInt i = 1; i < count; ++i )

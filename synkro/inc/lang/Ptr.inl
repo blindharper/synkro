@@ -11,7 +11,7 @@
 // Purpose: Defines smart pointer to an object.
 //==============================================================================
 template <class T>
-SYNKRO_INLINE Ptr<T>::Ptr( T* other )
+SYNKRO_INLINE Ptr<T>::Ptr( T* other ) SYNKRO_NOEXCEPT
 {
 	if ( other != nullptr )
 	{
@@ -21,7 +21,7 @@ SYNKRO_INLINE Ptr<T>::Ptr( T* other )
 }
 
 template <class T>
-SYNKRO_INLINE Ptr<T>::Ptr( const Ptr<T>& other )
+SYNKRO_INLINE Ptr<T>::Ptr( const Ptr<T>& other ) SYNKRO_NOEXCEPT
 {
 	T* obj = other._object;
 	if ( obj != nullptr )
@@ -32,7 +32,7 @@ SYNKRO_INLINE Ptr<T>::Ptr( const Ptr<T>& other )
 }
 
 template <class T>
-SYNKRO_INLINE Ptr<T>::Ptr() :
+SYNKRO_INLINE Ptr<T>::Ptr() SYNKRO_NOEXCEPT :
 	_object( nullptr )
 {
 }
@@ -50,7 +50,7 @@ SYNKRO_INLINE Ptr<T>::~Ptr()
 }
 
 template <class T>
-SYNKRO_INLINE Ptr<T>& Ptr<T>::operator=( T* other )
+SYNKRO_INLINE Ptr<T>& Ptr<T>::operator=( T* other ) SYNKRO_NOEXCEPT
 {
 	if ( other != _object )
 	{
@@ -73,7 +73,7 @@ SYNKRO_INLINE Ptr<T>& Ptr<T>::operator=( T* other )
 }
 
 template <class T>
-SYNKRO_INLINE Ptr<T>& Ptr<T>::operator=( const Ptr<T>& other )
+SYNKRO_INLINE Ptr<T>& Ptr<T>::operator=( const Ptr<T>& other ) SYNKRO_NOEXCEPT
 {
 	if ( other != *this )
 	{
@@ -98,25 +98,25 @@ SYNKRO_INLINE Ptr<T>& Ptr<T>::operator=( const Ptr<T>& other )
 }
 
 template <class T>
-SYNKRO_INLINE Bool Ptr<T>::operator==( T* other ) const
+SYNKRO_INLINE Bool Ptr<T>::operator==( T* other ) const SYNKRO_NOEXCEPT
 {
 	return _object == other;
 }
 
 template <class T>
-SYNKRO_INLINE Bool Ptr<T>::operator==( const Ptr<T>& other ) const
+SYNKRO_INLINE Bool Ptr<T>::operator==( const Ptr<T>& other ) const SYNKRO_NOEXCEPT
 {
 	return _object == other._object;
 }
 
 template <class T>
-SYNKRO_INLINE Bool Ptr<T>::operator!=( T* other ) const
+SYNKRO_INLINE Bool Ptr<T>::operator!=( T* other ) const SYNKRO_NOEXCEPT
 {
 	return _object != other;
 }
 
 template <class T>
-SYNKRO_INLINE Bool Ptr<T>::operator!=( const Ptr<T>& other ) const
+SYNKRO_INLINE Bool Ptr<T>::operator!=( const Ptr<T>& other ) const SYNKRO_NOEXCEPT
 {
 	return _object != other._object;
 }
@@ -140,13 +140,13 @@ SYNKRO_INLINE T* Ptr<T>::operator->() const
 }
 
 template <class T>
-SYNKRO_INLINE Ptr<T>::operator T*() const
+SYNKRO_INLINE Ptr<T>::operator T*() const SYNKRO_NOEXCEPT
 {
 	return _object;
 }
 
 template <class T>
-SYNKRO_INLINE T* Ptr<T>::AsPtr() const
+SYNKRO_INLINE T* Ptr<T>::AsPtr() const SYNKRO_NOEXCEPT
 {
 	return _object;
 }

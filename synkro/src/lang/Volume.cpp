@@ -22,7 +22,7 @@ namespace lang
 {
 
 
-Volume::Volume( Float left, Float top, Float _near, Float right, Float bottom, Float _far ) :
+Volume::Volume( Float left, Float top, Float _near, Float right, Float bottom, Float _far ) SYNKRO_NOEXCEPT :
 	Left( left ),
 	Top( top ),
 	Near( _near ),
@@ -32,7 +32,7 @@ Volume::Volume( Float left, Float top, Float _near, Float right, Float bottom, F
 {
 }
 
-Volume::Volume( const Volume& other ) :
+Volume::Volume( const Volume& other ) SYNKRO_NOEXCEPT :
 	Left( other.Left ),
 	Top( other.Top ),
 	Near( other.Near ),
@@ -42,7 +42,7 @@ Volume::Volume( const Volume& other ) :
 {
 }
 
-Volume::Volume() :
+Volume::Volume() SYNKRO_NOEXCEPT :
 	Left( 0.0f ),
 	Top( 0.0f ),
 	Near( 0.0f ),
@@ -52,7 +52,7 @@ Volume::Volume() :
 {
 }
 
-Volume& Volume::Set( Float left, Float top, Float _near, Float right, Float bottom, Float _far )
+Volume& Volume::Set( Float left, Float top, Float _near, Float right, Float bottom, Float _far ) SYNKRO_NOEXCEPT
 {
 	Left	= left;
 	Top		= top;
@@ -63,22 +63,22 @@ Volume& Volume::Set( Float left, Float top, Float _near, Float right, Float bott
 	return *this;
 }
 
-Volume& Volume::Inflate( Float  x, Float y, Float z )
+Volume& Volume::Inflate( Float  x, Float y, Float z ) SYNKRO_NOEXCEPT
 {
 	return Set( Left-x, Top-y, Near-z, Right+x, Bottom+y, Far+z );
 }
 
-Volume& Volume::Deflate( Float  x, Float y, Float z )
+Volume& Volume::Deflate( Float  x, Float y, Float z ) SYNKRO_NOEXCEPT
 {
 	return Inflate( -x, -y, -z );
 }
 
-Volume& Volume::Empty()
+Volume& Volume::Empty() SYNKRO_NOEXCEPT
 {
 	return Set( 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f );
 }
 
-Volume& Volume::operator=( const Volume& other )
+Volume& Volume::operator=( const Volume& other ) SYNKRO_NOEXCEPT
 {
 	Left	= other.Left;
 	Top		= other.Top;
@@ -89,40 +89,40 @@ Volume& Volume::operator=( const Volume& other )
 	return *this;
 }
 
-Bool Volume::operator==( const Volume& other ) const
+Bool Volume::operator==( const Volume& other ) const SYNKRO_NOEXCEPT
 {
 	return (Left == other.Left) && (Top == other.Top) && (Near == other.Near) &&
 		   (Right == other.Right) && (Bottom == other.Bottom) && (Far == other.Far);
 }
 
-Bool Volume::operator!=( const Volume& other ) const
+Bool Volume::operator!=( const Volume& other ) const SYNKRO_NOEXCEPT
 {
 	return (Left != other.Left) || (Top != other.Top) || (Near != other.Near) ||
 		   (Right != other.Right) || (Bottom != other.Bottom) || (Far != other.Far);;
 }
 
-Bool Volume::IsNull() const
+Bool Volume::IsNull() const SYNKRO_NOEXCEPT
 {
 	return (Left == 0.0f) && (Top == 0.0f) && (Near == 0.0f) &&
 		   (Right == 0.0f) && (Bottom == 0.0f) && (Far == 0.0f);
 }
 
-Bool Volume::IsEmpty() const
+Bool Volume::IsEmpty() const SYNKRO_NOEXCEPT
 {
 	return (Width() == 0.0f) || (Height() == 0.0f) || (Depth() == 0.0f);
 }
 
-Float Volume::Width() const
+Float Volume::Width() const SYNKRO_NOEXCEPT
 {
 	return Right - Left;
 }
 
-Float Volume::Height() const
+Float Volume::Height() const SYNKRO_NOEXCEPT
 {
 	return Top - Bottom;
 }
 
-Float Volume::Depth() const
+Float Volume::Depth() const SYNKRO_NOEXCEPT
 {
 	return Far - Near;
 }

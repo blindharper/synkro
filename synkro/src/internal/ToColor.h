@@ -19,7 +19,7 @@
 
 
 // Converts 4-component vector to a color.
-SYNKRO_INLINE synkro::img::Color ToColor( const synkro::math::Vector4& vec )
+SYNKRO_INLINE synkro::img::Color ToColor( const synkro::math::Vector4& vec ) SYNKRO_NOEXCEPT
 {
 	return synkro::img::Color( vec.x, vec.y, vec.z );
 }

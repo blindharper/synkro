@@ -18,7 +18,7 @@
 
 
 // Helper function for copying memory.
-template <class T> SYNKRO_INLINE static void Copy( T* dst, const T* src, synkro::UInt count )
+template <class T> SYNKRO_INLINE static void Copy( T* dst, const T* src, synkro::UInt count ) SYNKRO_NOEXCEPT
 {
 	memcpy( dst, src, count*sizeof(T) );
 }

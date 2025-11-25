@@ -22,7 +22,7 @@ template <class T>
 class Equal
 {
 public:
-	SYNKRO_INLINE synkro::Bool operator()( const T& a, const T& b ) const
+	SYNKRO_INLINE synkro::Bool operator()( const T& a, const T& b ) const SYNKRO_NOEXCEPT
 	{
 		return a == b;
 	}
@@ -33,7 +33,7 @@ template <class T>
 class EqualCI
 {
 public:
-	SYNKRO_INLINE synkro::Bool operator()( const T& a, const T& b ) const
+	SYNKRO_INLINE synkro::Bool operator()( const T& a, const T& b ) const SYNKRO_NOEXCEPT
 	{
 		return a.EqualsTo( b, true );
 	}

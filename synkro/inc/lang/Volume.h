@@ -43,18 +43,18 @@ public:
 	 * @param bottom Bottom coordinate.
 	 * @param _far Far coordinate.
 	 */
-	Volume( Float left, Float top, Float _near, Float right, Float bottom, Float _far );
+	Volume( Float left, Float top, Float _near, Float right, Float bottom, Float _far ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy constructor.
 	 * @param other Volume to copy from.
 	 */
-	Volume( const Volume& other );
+	Volume( const Volume& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Constructs an empty volume.
 	 */
-	Volume();
+	Volume() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Sets volume coordinates.
@@ -65,7 +65,7 @@ public:
 	 * @param bottom Bottom coordinate.
 	 * @param _far Far coordinate.
 	 */
-	Volume&													Set( Float left, Float top, Float _near, Float right, Float bottom, Float _far );
+	Volume&													Set( Float left, Float top, Float _near, Float right, Float bottom, Float _far ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Increases volume dimensions.
@@ -73,7 +73,7 @@ public:
 	 * @param y Vertical offset.
 	 * @param z Depth offset.
 	 */
-	Volume&													Inflate( Float x, Float y, Float z );
+	Volume&													Inflate( Float x, Float y, Float z ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Decreases volume dimensions.
@@ -81,57 +81,57 @@ public:
 	 * @param y Vertical offset.
 	 * @param z Depth offset.
 	 */
-	Volume&													Deflate( Float x, Float y, Float z );
+	Volume&													Deflate( Float x, Float y, Float z ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Empties the volume by setting its coordinates to zero.
 	 */
-	Volume&													Empty();
+	Volume&													Empty() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy by reference.
 	 * @param other Volume to copy from.
 	 */
-	Volume&													operator=( const Volume& other );
+	Volume&													operator=( const Volume& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two volumes for equality.
 	 * @param other Volume to compate to.
 	 * @return True for equal volumes, false otherwise.
 	 */
-	Bool													operator==( const Volume& other ) const;
+	Bool													operator==( const Volume& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two volumes for inequality.
 	 * @param other Volume to compate to.
 	 * @return True for unequal volumes, false otherwise.
 	 */
-	Bool													operator!=( const Volume& other ) const;
+	Bool													operator!=( const Volume& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns true if all volume dimensions are set to zero.
 	 */
-	Bool													IsNull() const;
+	Bool													IsNull() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns true if either width or height of the volume equals to zero.
 	 */
-	Bool													IsEmpty() const;
+	Bool													IsEmpty() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves volume width.
 	 */
-	Float													Width() const;
+	Float													Width() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves volume height.
 	 */
-	Float													Height() const;
+	Float													Height() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves volume depth.
 	 */
-	Float													Depth() const;
+	Float													Depth() const SYNKRO_NOEXCEPT;
 };
 
 

@@ -21,8 +21,8 @@ synkro::Char* MonthsShort[];
 synkro::Char* MonthsLong[];
 
 
-synkro::UInt StringToMonthShort( const synkro::Char* str );
-synkro::UInt StringToMonthLong( const synkro::Char* str );
+synkro::UInt StringToMonthShort( const synkro::Char* str ) SYNKRO_NOEXCEPT;
+synkro::UInt StringToMonthLong( const synkro::Char* str ) SYNKRO_NOEXCEPT;
 
 
 #endif // _SYNKRO_INTERNAL_MONTHS_

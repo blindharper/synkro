@@ -12,97 +12,97 @@
 //==============================================================================
 SYNKRO_INLINE void Parser::Map( Parseable arg0 )
 {
-	Parseable args[] = { arg0 };
+	const Parseable args[] = { arg0 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1 )
 {
-	Parseable args[] = { arg0, arg1 };
+	const Parseable args[] = { arg0, arg1 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2 )
 {
-	Parseable args[] = { arg0, arg1, arg2 };
+	const Parseable args[] = { arg0, arg1, arg2 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2, Parseable arg3 )
 {
-	Parseable args[] = { arg0, arg1, arg2, arg3 };
+	const Parseable args[] = { arg0, arg1, arg2, arg3 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2, Parseable arg3, Parseable arg4 )
 {
-	Parseable args[] = { arg0, arg1, arg2, arg3, arg4 };
+	const Parseable args[] = { arg0, arg1, arg2, arg3, arg4 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2, Parseable arg3, Parseable arg4, Parseable arg5 )
 {
-	Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5 };
+	const Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2, Parseable arg3, Parseable arg4, Parseable arg5, Parseable arg6 )
 {
-	Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6 };
+	const Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2, Parseable arg3, Parseable arg4, Parseable arg5, Parseable arg6, Parseable arg7 )
 {
-	Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7 };
+	const Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2, Parseable arg3, Parseable arg4, Parseable arg5, Parseable arg6, Parseable arg7, Parseable arg8 )
 {
-	Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8 };
+	const Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2, Parseable arg3, Parseable arg4, Parseable arg5, Parseable arg6, Parseable arg7, Parseable arg8, Parseable arg9 )
 {
-	Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9 };
+	const Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2, Parseable arg3, Parseable arg4, Parseable arg5, Parseable arg6, Parseable arg7, Parseable arg8, Parseable arg9, Parseable arg10 )
 {
-	Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10 };
+	const Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2, Parseable arg3, Parseable arg4, Parseable arg5, Parseable arg6, Parseable arg7, Parseable arg8, Parseable arg9, Parseable arg10, Parseable arg11 )
 {
-	Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11 };
+	const Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2, Parseable arg3, Parseable arg4, Parseable arg5, Parseable arg6, Parseable arg7, Parseable arg8, Parseable arg9, Parseable arg10, Parseable arg11, Parseable arg12 )
 {
-	Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12 };
+	const Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2, Parseable arg3, Parseable arg4, Parseable arg5, Parseable arg6, Parseable arg7, Parseable arg8, Parseable arg9, Parseable arg10, Parseable arg11, Parseable arg12, Parseable arg13 )
 {
-	Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13 };
+	const Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2, Parseable arg3, Parseable arg4, Parseable arg5, Parseable arg6, Parseable arg7, Parseable arg8, Parseable arg9, Parseable arg10, Parseable arg11, Parseable arg12, Parseable arg13, Parseable arg14 )
 {
-	Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14 };
+	const Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14 };
 	Map( args, SizeOf(args) );
 }
 
 SYNKRO_INLINE void Parser::Map( Parseable arg0, Parseable arg1, Parseable arg2, Parseable arg3, Parseable arg4, Parseable arg5, Parseable arg6, Parseable arg7, Parseable arg8, Parseable arg9, Parseable arg10, Parseable arg11, Parseable arg12, Parseable arg13, Parseable arg14, Parseable arg15 )
 {
-	Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15 };
+	const Parseable args[] = { arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15 };
 	Map( args, SizeOf(args) );
 }
 

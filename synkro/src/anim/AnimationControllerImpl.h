@@ -81,7 +81,7 @@ public:
 
 	// IAnimationController methods.
 	virtual void											SetAnimations( IAnimationSet* animations );
-	virtual IAnimationSet*									GetAnimations() const;
+	virtual IAnimationSet*									GetAnimations() const SYNKRO_NOEXCEPT;
 
 protected:
 	BaseAnimationSystem*									_animationSystem;

@@ -21,7 +21,7 @@
 // Begins enumeration value declaration.
 #define SYNKRO_ENUM_BEGIN( NAME )					\
 	class SYNKRO_API NAME : public synkro::lang::Enum		\
-	{ public: NAME( UInt value = 0) : Enum( value ) {} 
+	{ public: NAME( UInt value = 0 ) : Enum( value ) {} 
 
 // Declares enumeration constant.
 #define SYNKRO_ENUM_CONST( NAME, CONST ) \

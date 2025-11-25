@@ -48,19 +48,19 @@ public:
 	 * Creates a string from the given internal representation.
 	 * @param impl Internal string representation.
 	 */
-	String( const String::Impl* impl );
+	String( const String::Impl* impl ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates a string from a null-terminated sequence of Unicode characters.
 	 * @param str Unicode character sequence.
 	 */
-	String( const Char* str );
+	String( const Char* str ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates string from a null-terminated sequence of ASCII-7 characters.
 	 * @param str ASCII-7 character sequence.
 	 */
-	String( const char* str );
+	String( const char* str ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates string from a sequence of bytes in the given encoding.
@@ -76,43 +76,43 @@ public:
 	 * @param count The number of entries in the array.
 	 * @param delim Delimiter string.
 	 */
-	explicit String( const String* entries, UInt count, const String& delim );
+	explicit String( const String* entries, UInt count, const String& delim ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates string holding given number of a particular character.
 	 * @param ch Character from which to create a string.
 	 * @param length Number of characters in the string.
 	 */
-	explicit String( Char ch, UInt length );
+	explicit String( Char ch, UInt length ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates string from a single character.
 	 * @param ch Character from which to create a string.
 	 */
-	explicit String( Char ch );
+	explicit String( Char ch ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates string from a floating-point value.
 	 * @param num Floating-point value from which to create a string.
 	 */
-	explicit String( Double num );
+	explicit String( Double num ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates string from an integer value.
 	 * @param num Whole number value from which to create a string.
 	 */
-	explicit String( Int num );
+	explicit String( Int num ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates a copy of the string.
 	 * @param other String to copy.
 	 */
-	String( const String& other );
+	String( const String& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates an empty string.
 	 */
-	String();
+	String() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Destroys the string.
@@ -127,56 +127,56 @@ public:
 	/**
 	 * Prevents string destruction even if it's not referenced anymore.
 	 */
-	void													MakePermanent();
+	void													MakePermanent() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy by reference.
 	 * @param other String to copy.
 	 * @return Copy of this string.
 	 */
-	String&													operator=( const String& other );
+	String&													operator=( const String& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests the strings for equality.
 	 * @param other String to compare to.
 	 * @return True if this string is equal to the other, false otherwise.
 	 */
-	Bool													operator==( const String& other ) const;
+	Bool													operator==( const String& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests the strings for inequality.
 	 * @param other String to compare to.
 	 * @return True if this string is not equal to the other, false otherwise.
 	 */
-	Bool													operator!=( const String& other ) const;
+	Bool													operator!=( const String& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Compares this string to another one.
 	 * @param other String to compare to.
 	 * @return True if this string is lexicographically less than the other, false otherwise.
 	 */
-	Bool													operator<( const String& other ) const;
+	Bool													operator<( const String& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Compares this string to another one.
 	 * @param other String to compare to.
 	 * @return True if this string is lexicographically greater than the other, false otherwise.
 	 */
-	Bool													operator>( const String& other ) const;
+	Bool													operator>( const String& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Compares this string to another one.
 	 * @param other String to compare to.
 	 * @return True if this string is lexicographically less or equal than the other, false otherwise.
 	 */
-	Bool													operator<=( const String& other ) const;
+	Bool													operator<=( const String& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Compares this string to another one.
 	 * @param other String to compare to.
 	 * @return True if this string is lexicographically greater or equal than the other, false otherwise.
 	 */
-	Bool													operator>=( const String& other ) const;
+	Bool													operator>=( const String& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Compares string to another string.
@@ -184,14 +184,14 @@ public:
 	 * @param ignoreCase Indicates whether to ignore text case.
 	 * @return Return value is identical to that of strcmpi().
 	 */
-	Int														CompareTo( const String& other, Bool ignoreCase ) const;
+	Int														CompareTo( const String& other, Bool ignoreCase ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Compares string to another string. The comparison is case-sensitive.
 	 * @param other String to compare to.
 	 * @return Return value is identical to that of strcmp().
 	 */
-	Int														CompareTo( const String& other ) const;
+	Int														CompareTo( const String& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Compares string to another string.
@@ -199,14 +199,14 @@ public:
 	 * @param ignoreCase Indicates whether to ignore text case.
 	 * @return True if the strings are identical, false otherwise.
 	 */
-	Bool													EqualsTo( const String& other, Bool ignoreCase ) const;
+	Bool													EqualsTo( const String& other, Bool ignoreCase ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Compares string to another string. The comparison is case-sensitive.
 	 * @param other String to compare to.
 	 * @return True if the strings are identical, false otherwise.
 	 */
-	Bool													EqualsTo( const String& other ) const;
+	Bool													EqualsTo( const String& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if this string starts with the given prefix.
@@ -214,14 +214,14 @@ public:
 	 * @param ignoreCase Indicates whether to ignore text case.
 	 * @return True if string starts with the given character, false otherwise.
 	 */
-	Bool													StartsWith( Char prefix, Bool ignoreCase ) const;
+	Bool													StartsWith( Char prefix, Bool ignoreCase ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if this string starts with the given prefix. The test is case-sensitive.
 	 * @param prefix Character to search for.
 	 * @return True if string starts with the given character, false otherwise.
 	 */
-	Bool													StartsWith( Char prefix ) const;
+	Bool													StartsWith( Char prefix ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if this string starts with the given prefix.
@@ -229,14 +229,14 @@ public:
 	 * @param ignoreCase Indicates whether to ignore text case.
 	 * @return True if string starts with the given substring, false otherwise.
 	 */
-	Bool													StartsWith( const String& prefix, Bool ignoreCase ) const;
+	Bool													StartsWith( const String& prefix, Bool ignoreCase ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if this string starts with the given prefix. The test is case-sensitive.
 	 * @param prefix String to search for.
 	 * @return True if string starts with the given substring, false otherwise.
 	 */
-	Bool													StartsWith( const String& prefix ) const;
+	Bool													StartsWith( const String& prefix ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if this string ends with the given suffix.
@@ -244,14 +244,14 @@ public:
 	 * @param ignoreCase Indicates whether to ignore text case.
 	 * @return True if string ends with the given character, false otherwise.
 	 */
-	Bool													EndsWith( Char suffix, Bool ignoreCase ) const;
+	Bool													EndsWith( Char suffix, Bool ignoreCase ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if this string ends with the given suffix. The test is case-sensitive.
 	 * @param suffix Character to search for.
 	 * @return True if string ends with the given character, false otherwise.
 	 */
-	Bool													EndsWith( Char suffix ) const;
+	Bool													EndsWith( Char suffix ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if this string ends with the given suffix.
@@ -259,14 +259,14 @@ public:
 	 * @param ignoreCase Indicates whether to ignore text case.
 	 * @return True if string ends with the given substring, false otherwise.
 	 */
-	Bool													EndsWith( const String& suffix, Bool ignoreCase ) const;
+	Bool													EndsWith( const String& suffix, Bool ignoreCase ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if this string ends with the given suffix. The test is case-sensitive.
 	 * @param suffix String to search for.
 	 * @return True if string ends with the given substring, false otherwise.
 	 */
-	Bool													EndsWith( const String& suffix ) const;
+	Bool													EndsWith( const String& suffix ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if this string contains given character.
@@ -274,14 +274,14 @@ public:
 	 * @param ignoreCase Indicates whether to ignore text case.
 	 * @return True if string contains the character, false otherwise.
 	 */
-	Bool													Contains( Char ch, Bool ignoreCase ) const;
+	Bool													Contains( Char ch, Bool ignoreCase ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if this string contains given character. The test is case-sensitive.
 	 * @param ch Character to search for.
 	 * @return True if string contains the character, false otherwise.
 	 */
-	Bool													Contains( Char ch ) const;
+	Bool													Contains( Char ch ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if this string contains another string.
@@ -289,14 +289,14 @@ public:
 	 * @param ignoreCase Indicates whether to ignore text case.
 	 * @return True if string contains another string, false otherwise.
 	 */
-	Bool													Contains( const String& other, Bool ignoreCase ) const;
+	Bool													Contains( const String& other, Bool ignoreCase ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if this string contains another string. The test is case-sensitive.
 	 * @param other String to search for.
 	 * @return True if string contains another string, false otherwise.
 	 */
-	Bool													Contains( const String& other ) const;
+	Bool													Contains( const String& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Finds first occurence of the given character within this string, starting with the given position.
@@ -304,14 +304,14 @@ public:
 	 * @param index Starting search position.
 	 * @return Index of the found occurence of the character, or none if nothing found.
 	 */	
-	UInt													IndexOf( Char ch, UInt index ) const;
+	UInt													IndexOf( Char ch, UInt index ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Finds first occurence of the given character within this string.
 	 * @param ch Character to search for.
 	 * @return Index of the found occurence of the character, or none if nothing found.
 	 */	
-	UInt													IndexOf( Char ch ) const;
+	UInt													IndexOf( Char ch ) const SYNKRO_NOEXCEPT;
 
 	/** 
 	 * Finds first occurence of the given string within the string, starting with the given position.
@@ -320,7 +320,7 @@ public:
 	 * @param ignoreCase Indicates whether to ignore text case.
 	 * @return Index of the found occurence of the string, or none if nothing found.
 	 */
-	UInt													IndexOf( const String& str, UInt index, Bool ignoreCase ) const;
+	UInt													IndexOf( const String& str, UInt index, Bool ignoreCase ) const SYNKRO_NOEXCEPT;
 
 	/** 
 	 * Finds first occurence of the given string within the string, starting with the given position. The search is case-sensitive.
@@ -328,14 +328,14 @@ public:
 	 * @param index Starting search position.
 	 * @return Index of the found occurence of the string, or none if nothing found.
 	 */
-	UInt													IndexOf( const String& str, UInt index ) const;
+	UInt													IndexOf( const String& str, UInt index ) const SYNKRO_NOEXCEPT;
 
 	/** 
 	 * Finds first occurence of the given string within the string. The search is case-sensitive.
 	 * @param str String to search for.
 	 * @return Index of the found occurence of the string, or none if nothing found.
 	 */
-	UInt													IndexOf( const String& str ) const;
+	UInt													IndexOf( const String& str ) const SYNKRO_NOEXCEPT;
 
 	/** 
 	 * Finds first occurence of any of the given characters within the string, starting with the given position.
@@ -343,14 +343,14 @@ public:
 	 * @param index Starting search position.
 	 * @return Index of the found character, or none if nothing found.
 	 */
-	UInt													IndexOfAny( const String& chars, UInt index ) const;
+	UInt													IndexOfAny( const String& chars, UInt index ) const SYNKRO_NOEXCEPT;
 
 	/** 
 	 * Finds first occurence of any of the given characters within the string.
 	 * @param chars Characters to search for.
 	 * @return Index of the found character, or none if nothing found.
 	 */
-	UInt													IndexOfAny( const String& chars ) const;
+	UInt													IndexOfAny( const String& chars ) const SYNKRO_NOEXCEPT;
 
 	/** 
 	 * Finds last occurence of the given character within the string, starting with the given position.
@@ -358,14 +358,14 @@ public:
 	 * @param index Starting search position.
 	 * @return Index of the found occurence of the character, or none if nothing found.
 	 */
-	UInt													LastIndexOf( Char ch, UInt index ) const;
+	UInt													LastIndexOf( Char ch, UInt index ) const SYNKRO_NOEXCEPT;
 
 	/** 
 	 * Finds last occurence of the given character within the string.
 	 * @param ch Character to search for.
 	 * @return Index of the found occurence of the character, or none if nothing found.
 	 */
-	UInt													LastIndexOf( Char ch ) const;
+	UInt													LastIndexOf( Char ch ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Finds last occurence of the given string within the string, starting with the given position.
@@ -373,14 +373,14 @@ public:
 	 * @param index Starting search position.
 	 * @return Index of the found occurence of the string, or none if nothing found.
 	 */
-	UInt													LastIndexOf( const String& str, UInt index ) const;
+	UInt													LastIndexOf( const String& str, UInt index ) const SYNKRO_NOEXCEPT;
 
 	/** 
 	 * Finds last occurence of the given string within the string.
 	 * @param str String to search for.
 	 * @return Index of the found occurence of the string, or none if nothing found.
 	 */
-	UInt													LastIndexOf( const String& str ) const;
+	UInt													LastIndexOf( const String& str ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Finds last occurence of the given characters within the string, starting with the given position.
@@ -388,27 +388,27 @@ public:
 	 * @param index Starting search position.
 	 * @return Index of the found character, or none if nothing found.
 	 */
-	UInt													LastIndexOfAny( const String& chars, UInt index ) const;
+	UInt													LastIndexOfAny( const String& chars, UInt index ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Finds last occurence of the given characters within the string.
 	 * @param chars Characters to search for.
 	 * @return Index of the found character, or none if nothing found.
 	 */
-	UInt													LastIndexOfAny( const String& chars ) const;
+	UInt													LastIndexOfAny( const String& chars ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns the number of entries in the string treated as 'delim'-delimited list.
 	 * @param delim Delimiter character.
 	 * @return Number of entries in the list.
 	 */
-	UInt													EntryCount( Char delim ) const;
+	UInt													EntryCount( Char delim ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Counts the number of entries in the string treated as comma-delimited list.
 	 * @return Number of entries in the list.
 	 */
-	UInt													EntryCount() const;
+	UInt													EntryCount() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Searches for the given entry in the string treated as 'delim'-delimited list.
@@ -416,14 +416,14 @@ public:
 	 * @param delim Delimiter character.
 	 * @return Index of the given entry if successful, or none if entry not found.
 	 */
-	UInt													EntryIndex( const String& entry, Char delim ) const;
+	UInt													EntryIndex( const String& entry, Char delim ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Searches for the given entry in the string treated as comma-delimited list.
 	 * @param entry String to search for.
 	 * @return Index of the given entry if successful, or none if entry not found.
 	 */
-	UInt													EntryIndex( const String& entry ) const;
+	UInt													EntryIndex( const String& entry ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves an entry by index from the string treated as 'delim'-delimited list.
@@ -431,35 +431,35 @@ public:
 	 * @param delim Delimiter character.
 	 * @return Specified entry.
 	 */
-	String													Entry( UInt index, Char delim ) const;
+	String													Entry( UInt index, Char delim ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves an entry by index from the string treated as comma-delimited list.
 	 * @param index Index of the entry to return.
 	 * @return Specified entry.
 	 */
-	String													Entry( UInt index ) const;
+	String													Entry( UInt index ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Concatenates the string with another string.
 	 * @param other String to concatenate with.
 	 * @return Concatenation of the string with another string.
 	 */
-	String													operator+( const String& other ) const;
+	String													operator+( const String& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Appends a character to this string.
 	 * @param ch Character to append.
 	 * @return Copy of this string with the given character appended to it.
 	 */
-	String													Append( Char ch ) const;
+	String													Append( Char ch ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Appends another string to this string.
 	 * @param other String to append.
 	 * @return Copy of this string with another string appended to it.
 	 */
-	String													Append( const String& other ) const;
+	String													Append( const String& other ) const SYNKRO_NOEXCEPT;
 
 	/** 
 	 * Retrieves a part of the string from the given position. The resulting string is no more than 'count' characters long.
@@ -467,20 +467,20 @@ public:
 	 * @param count Maximum number of characters to copy to the substring, beginning with the start.
 	 * @return Required substring.
 	 */
-	String													Substring( UInt start, UInt count ) const;
+	String													Substring( UInt start, UInt count ) const SYNKRO_NOEXCEPT;
 
 	/** 
 	 * Retrieves a part of the string from the given position and to the end of the string.
 	 * @param start Position in the original string where the substring begins.
 	 * @return Required substring.
 	 */
-	String													Substring( UInt start ) const;
+	String													Substring( UInt start ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Reverses the order of characters in the string.
 	 * @return A copy of the string with the reversed characters order.
 	 */
-	String													Reverse() const;
+	String													Reverse() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Replaces all occurences of the given character with another one.
@@ -489,7 +489,7 @@ public:
 	 * @param ignoreCase Indicates whether to ignore text case.
 	 * @return A copy of this string with all occurences of the given character replaced with another one.
 	 */
-	String													Replace( Char chOld, Char chNew, Bool ignoreCase ) const;
+	String													Replace( Char chOld, Char chNew, Bool ignoreCase ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Replaces all occurences of the given character with another one. The replacement is case-sensitive.
@@ -497,7 +497,7 @@ public:
 	 * @param chNew Character to replace the old one with.
 	 * @return A copy of this string with all occurences of the given character replaced with another one.
 	 */
-	String													Replace( Char chOld, Char chNew ) const;
+	String													Replace( Char chOld, Char chNew ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Replaces all occurences of the given substring replaced with another string.
@@ -506,7 +506,7 @@ public:
 	 * @param ignoreCase Indicates whether to ignore text case.
 	 * @return A copy of this string with all occurences of the given substring replaced with another string.
 	 */
-	String													Replace( const String& strOld, const String& strNew, Bool ignoreCase ) const;
+	String													Replace( const String& strOld, const String& strNew, Bool ignoreCase ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Replaces all occurences of the given substring replaced with another string. The replacement is case-sensitive.
@@ -514,129 +514,129 @@ public:
 	 * @param strNew String to replace the old one with.
 	 * @return A copy of this string with all occurences of the given substring replaced with another string.
 	 */
-	String													Replace( const String& strOld, const String& strNew ) const;
+	String													Replace( const String& strOld, const String& strNew ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Trims all leading characters found in the given string.
 	 * @param chars Characters to remove.
 	 * @return A copy of this string without the leading characters specified by the chars parameter.
 	 */
-	String													TrimStart( const String& chars ) const;
+	String													TrimStart( const String& chars ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Removes all leading whitespaces from the string.
 	 * @return A copy of this string with all leading whitespaces removed.
 	 */
-	String													TrimStart() const;
+	String													TrimStart() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Trims all trailing characters found in the given string.
 	 * @param chars Characters to remove.
 	 * @return A copy of this string without the trailing characters specified by the chars parameter.
 	 */
-	String													TrimEnd( const String& chars ) const;
+	String													TrimEnd( const String& chars ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Removes all trailing whitespaces from the string.
 	 * @return A copy of this string with all trailing whitespaces removed.
 	 */
-	String													TrimEnd() const;
+	String													TrimEnd() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Trims all leading and trailing characters found in the given string.
 	 * @param chars Characters to remove.
 	 * @return A copy of this string without the leading and trailing characters specified by the chars parameter.
 	 */
-	String													Trim( const String& chars ) const;
+	String													Trim( const String& chars ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Removes all leading and trailing whitespaces from the string.
 	 * @return A copy of this string with all leading and trailing whitespaces removed.
 	 */
-	String													Trim() const;
+	String													Trim() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Converts the string to lower case.
 	 * @return A copy of this string with all characters converted to the lower case.
 	 */
-	String													ToLower() const;
+	String													ToLower() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Converts the string to upper case.
 	 * @return A copy of this string with all characters converted to the upper case.
 	 */
-	String													ToUpper() const;
+	String													ToUpper() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if the string length is permanent.
 	 * @return True for a permanent string, false otherwise.
 	 */
-	Bool													IsPermanent() const;
+	Bool													IsPermanent() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if the string length is null or empty.
 	 * @return True for a null or empty string, false otherwise.
 	 */
-	Bool													IsNullOrEmpty() const;
+	Bool													IsNullOrEmpty() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if the string length is null.
 	 * @return True for a null string, false otherwise.
 	 */
-	Bool													IsNull() const;
+	Bool													IsNull() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if the string length is zero.
 	 * @return True for an empty string, false otherwise.
 	 */
-	Bool													IsEmpty() const;
+	Bool													IsEmpty() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if the string can be interpreted as an integer value.
 	 * @return True for a valid integer string, false otherwise.
 	 */
-	Bool													IsInteger() const;
+	Bool													IsInteger() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if the string can be interpreted as a decimal value.
 	 * @return True for a valid decimal string, false otherwise.
 	 */
-	Bool													IsDecimal() const;
+	Bool													IsDecimal() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if the string can be interpreted as a hexadecimal value.
 	 * @return True for a valid hexadecimal string, false otherwise.
 	 */
-	Bool													IsHexadecimal() const;
+	Bool													IsHexadecimal() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns integer value corresponding to this string.
 	 */
-	Int														ToInteger() const;
+	Int														ToInteger() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns decimal value corresponding to this string.
 	 */
-	Float													ToDecimal() const;
+	Float													ToDecimal() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Counts string length.
 	 * @return The number of characters in the string.
 	 */
-	UInt													Length() const;
+	UInt													Length() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Calculates string hash code.
 	 * @param ignoreCase Indicates whether to ignore text case.
 	 * @return String hash code.
 	 */
-	UInt													HashCode( Bool ignoreCase ) const;
+	UInt													HashCode( Bool ignoreCase ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Calculates string hash code.
 	 * @return String hash code.
 	 */
-	UInt													HashCode() const;
+	UInt													HashCode() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns character at the given position. Does not provide range checking.
@@ -649,7 +649,7 @@ public:
 	/**
 	 * Casts string to formattable.
 	 */
-															operator Formattable() const;
+															operator Formattable() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copies characters from the string to the given character array.
@@ -659,7 +659,7 @@ public:
 	 * @param dst Destination buffer.
 	 * @return Pointer to destination buffer.
 	 */
-	Char*													GetChars( UInt start, UInt count, Char* dst ) const;
+	Char*													GetChars( UInt start, UInt count, Char* dst ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Encodes string content to the buffer in the given encoding.
@@ -668,7 +668,7 @@ public:
 	 * @param encoding Encoding name.
 	 * @return Number of bytes copied to destination buffer.
 	 */
-	UInt													GetBytes( void* buffer, UInt size, const char* encoding ) const;
+	UInt													GetBytes( void* buffer, UInt size, const char* encoding ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Encodes string content to the buffer in the default encoding.
@@ -676,7 +676,7 @@ public:
 	 * @param size Destination buffer size.
 	 * @return Number of bytes copied to destination buffer.
 	 */
-	UInt													GetBytes( void* buffer, UInt size ) const;
+	UInt													GetBytes( void* buffer, UInt size ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Compares two strings.
@@ -685,7 +685,7 @@ public:
 	 * @param ignoreCase Indicates whether to ignore text case.
 	 * @return Return value is identical to that of strcmpi().
 	 */
-	static Int												Compare( const String& first, const String& second, Bool ignoreCase );
+	static Int												Compare( const String& first, const String& second, Bool ignoreCase ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Compares two strings. The comparison is case-sensitive.
@@ -693,7 +693,7 @@ public:
 	 * @param second Second string to compare.
 	 * @return Return value is identical to that of strcmp().
 	 */
-	static Int												Compare( const String& first, const String& second );
+	static Int												Compare( const String& first, const String& second ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Formats a text string with 1 argument.

@@ -10,12 +10,12 @@
 //
 // Purpose: Implements animation set.
 //==============================================================================
-SYNKRO_INLINE IAnimation* AnimationSet::GetActiveAnimation() const
+SYNKRO_INLINE IAnimation* AnimationSet::GetActiveAnimation() const SYNKRO_NOEXCEPT
 {
 	return _activeAnimation;
 }
 
-SYNKRO_INLINE UInt AnimationSet::GetAnimationCount() const
+SYNKRO_INLINE UInt AnimationSet::GetAnimationCount() const SYNKRO_NOEXCEPT
 {
 	return _animations.Size();
 }
@@ -35,7 +35,7 @@ SYNKRO_INLINE IAnimation* AnimationSet::GetAnimation( const lang::String& name )
 	return _indexes.ContainsKey(name) ? GetAnimation( _indexes[name] ) : nullptr;
 }
 
-SYNKRO_INLINE lang::String AnimationSet::GetName() const
+SYNKRO_INLINE lang::String AnimationSet::GetName() const SYNKRO_NOEXCEPT
 {
 	return _name;
 }

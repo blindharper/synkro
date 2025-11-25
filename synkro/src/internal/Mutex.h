@@ -26,16 +26,16 @@ class Mutex
 {
 public:
 	// Creates the mutex.
-	Mutex();
+	Mutex() SYNKRO_NOEXCEPT;
 
 	// Destroys the mutex.
 	~Mutex();
 
 	// Acquires exclusive access to the mutex.
-	void													Lock();
+	void													Lock() SYNKRO_NOEXCEPT;
 
 	// Releases exclusive access to the mutex.
-	void													Unlock();
+	void													Unlock() SYNKRO_NOEXCEPT;
 
 private:
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
@@ -52,7 +52,7 @@ private:
 class MutexLock
 {
 public:
-	SYNKRO_INLINE MutexLock( Mutex* mutex ) :
+	SYNKRO_INLINE MutexLock( Mutex* mutex ) SYNKRO_NOEXCEPT :
 		_mutex( mutex )
 	{
 		_mutex->Lock();

@@ -29,61 +29,61 @@ namespace lang
 {
 
 
-VariantEx::VariantEx( const String& name, Int value ) :
+VariantEx::VariantEx( const String& name, Int value ) SYNKRO_NOEXCEPT :
 	Name( name ),
 	Value( Variant(value) )
 {
 }
 
-VariantEx::VariantEx( const String& name, UInt value ) :
+VariantEx::VariantEx( const String& name, UInt value ) SYNKRO_NOEXCEPT :
 	Name( name ),
 	Value( Variant((Int)value) )
 {
 }
 
-VariantEx::VariantEx( const String& name, Float value ) :
+VariantEx::VariantEx( const String& name, Float value ) SYNKRO_NOEXCEPT :
 	Name( name ),
 	Value( Variant(value) )
 {
 }
 
-VariantEx::VariantEx( const String& name, const String& value ) :
+VariantEx::VariantEx( const String& name, const String& value ) SYNKRO_NOEXCEPT :
 	Name( name ),
 	Value( Variant(value) )
 {
 }
 
-VariantEx::VariantEx( const String& name, const Char* value ) :
+VariantEx::VariantEx( const String& name, const Char* value ) SYNKRO_NOEXCEPT :
 	Name( name ),
 	Value( Variant(value) )
 {
 }
 
-VariantEx::VariantEx( const String& name, const DateTime& value ) :
+VariantEx::VariantEx( const String& name, const DateTime& value ) SYNKRO_NOEXCEPT :
 	Name( name ),
 	Value( Variant(value) )
 {
 }
 
-VariantEx::VariantEx( const String& name, IStream* value ) :
+VariantEx::VariantEx( const String& name, IStream* value ) SYNKRO_NOEXCEPT :
 	Name( name ),
 	Value( Variant(value) )
 {
 }
 
-VariantEx::VariantEx( const String& name, const Byte* value, UInt size ) :
+VariantEx::VariantEx( const String& name, const Byte* value, UInt size ) SYNKRO_NOEXCEPT :
 	Name( name ),
 	Value( Variant(value, size) )
 {
 }
 
-VariantEx::VariantEx( const String& name ) :
+VariantEx::VariantEx( const String& name ) SYNKRO_NOEXCEPT :
 	Name( name ),
 	Value( Variant::Null )
 {
 }
 
-VariantEx::VariantEx() :
+VariantEx::VariantEx() SYNKRO_NOEXCEPT :
 	Value( Variant::Null )
 {
 }

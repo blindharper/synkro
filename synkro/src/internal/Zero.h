@@ -18,7 +18,7 @@
 
 
 // Helper function for memory initialization.
-template <class T> SYNKRO_INLINE static void Zero( T* v, size_t len = sizeof(T) )
+template <class T> SYNKRO_INLINE static void Zero( T* v, size_t len = sizeof(T) ) SYNKRO_NOEXCEPT
 {
 	memset( v, 0, len );
 }

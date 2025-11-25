@@ -18,7 +18,7 @@
 
 
 // Helper function for reverting array elements.
-template <class T> SYNKRO_INLINE static void Reverse( T* arr, synkro::UInt count )
+template <class T> SYNKRO_INLINE static void Reverse( T* arr, synkro::UInt count ) SYNKRO_NOEXCEPT
 {
 	T e;
 	synkro::UInt cnt = count/2;

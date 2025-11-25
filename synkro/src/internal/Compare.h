@@ -18,7 +18,7 @@
 
 
 // Helper function for comparing memory.
-template <class T> SYNKRO_INLINE static synkro::Bool Compare( T* a, const T* b, synkro::UInt count )
+template <class T> SYNKRO_INLINE static synkro::Bool Compare( T* a, const T* b, synkro::UInt count ) SYNKRO_NOEXCEPT
 {
 	return memcmp( a, b, count*sizeof(T) ) == 0;
 }
