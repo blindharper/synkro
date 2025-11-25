@@ -96,6 +96,8 @@ public:
 	void													Update();
 	void													IncrementCameraCount();
 	void													DecrementCameraCount();
+	void													AddMeshBatch( BaseMeshBatch* batch );
+	void													RemoveMeshBatch( BaseMeshBatch* batch );
 	lang::String											GetDummyName( const lang::String& name );
 	lang::String											GetCameraName( const lang::String& name );
 	lang::String											GetCurveName( const lang::String& name );

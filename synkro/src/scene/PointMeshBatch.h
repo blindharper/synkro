@@ -21,6 +21,7 @@
 #include <scene/IPrimitive.h>
 #include <gfx/ILineRenderObject.h>
 #include "BaseMeshBatch.h"
+#include "BaseScene.h"
 
 
 namespace synkro
@@ -37,8 +38,9 @@ class PointMeshBatch :
 	public BaseMeshBatch
 {
 public:
-	// Constructor.
+	// Constructor & destructor.
 	PointMeshBatch( ISceneEx* scene, core::IContext* context, const lang::String& name, UInt capacity );
+	~PointMeshBatch();
 
 	// INode methods.
 	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );

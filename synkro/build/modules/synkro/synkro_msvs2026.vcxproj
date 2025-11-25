@@ -803,6 +803,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\src\core\ConfigurationScene\PointMeshConfigurationScene.h" />
     <ClInclude Include="..\..\..\src\core\ConfigurationScene\ProjectorsConfigurationScene.h" />
     <ClInclude Include="..\..\..\src\core\ConfigurationScene\RubikCubeConfigurationScene.h" />
+    <ClInclude Include="..\..\..\src\core\ConfigurationScene\SierpinskiConfigurationScene.h" />
     <ClInclude Include="..\..\..\src\core\ConfigurationScene\TesseractConfigurationScene.h" />
     <ClInclude Include="..\..\..\src\core\ConstraintImpl.h" />
     <ClInclude Include="..\..\..\src\core\ControllerStateConst.h" />
@@ -1921,6 +1922,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClCompile Include="..\..\..\src\core\ConfigurationScene\PointMeshConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\src\core\ConfigurationScene\ProjectorsConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\src\core\ConfigurationScene\RubikCubeConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\src\core\ConfigurationScene\SierpinskiConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\src\core\ConfigurationScene\TesseractConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\src\core\ControllerState.cpp" />
     <ClCompile Include="..\..\..\src\core\DataMode.cpp" />

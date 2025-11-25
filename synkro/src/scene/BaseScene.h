@@ -19,6 +19,7 @@
 #include <lang/Vector.h>
 #include <math/Vector4.h>
 #include <math/Matrix4x4.h>
+#include "BaseMeshBatch.h"
 
 
 namespace synkro
@@ -36,6 +37,8 @@ public:
 	virtual void											Update() = 0;
 	virtual void											IncrementCameraCount() = 0;
 	virtual void											DecrementCameraCount() = 0;
+	virtual void											AddMeshBatch( BaseMeshBatch* batch ) = 0;
+	virtual void											RemoveMeshBatch( BaseMeshBatch* batch ) = 0;
 	virtual lang::String									GetDummyName( const lang::String& name ) = 0;
 	virtual lang::String									GetCameraName( const lang::String& name ) = 0;
 	virtual lang::String									GetCurveName( const lang::String& name ) = 0;

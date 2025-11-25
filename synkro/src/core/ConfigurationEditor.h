@@ -41,10 +41,8 @@ private:
 	static P(view::IViewport)								_banner;
 	static P(view::IViewport)								_preview;
 
-	static void												Run0();
-	static void												Run1();
-	static void												Run2();
-	static void												Run3();
+	template<class T>
+	static void												RunScene();
 };
 
 

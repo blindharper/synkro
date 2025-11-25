@@ -22,6 +22,7 @@
 #include <gfx/ILineRenderObject.h>
 #include <gfx/PrimitiveType.h>
 #include "BaseMeshBatch.h"
+#include "BaseScene.h"
 
 
 namespace synkro
@@ -38,8 +39,9 @@ class LineMeshBatch :
 	public BaseMeshBatch
 {
 public:
-	// Constructor.
+	// Constructor & destructor.
 	LineMeshBatch( ISceneEx* scene, core::IContext* context, const lang::String& name, UInt capacity );
+	~LineMeshBatch();
 
 	// INode methods.
 	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
