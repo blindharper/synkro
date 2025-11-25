@@ -102,34 +102,6 @@ ITriangleMesh* SceneManager::CreateTriangleMesh( ISkeleton* skeleton, UInt subse
 	return new SoftTriangleMesh( this, skeleton, subsetCount );
 }
 
-ISkeleton* SceneManager::LoadSkeleton( IStream* stream, const MeshCodec& type )
-{
-	assert( stream != nullptr );
-
-	if ( stream == nullptr )
-		throw BadArgumentException( L"Failed to load skeleton. Bad stream pointer.", L"stream" );
-
-	IMeshCodec* codec = _meshCodecs[type];
-	if ( codec == nullptr )
-		throw BadArgumentException( String::Format(L"Failed to load skeleton. Unknown mesh type '{0}'.", type.ToString()), L"type", type.ToString() );
-
-	stream->Open( OpenMode::Read );
-	ISkeleton* skeleton = codec->Load( stream );
-	stream->Close();
-
-	return skeleton;
-}
-
-ISkeleton* SceneManager::LoadSkeleton( IStream* stream )
-{
-	String type = Path(stream->GetName()).GetExtensionWoDot();
-	if ( !type.IsEmpty() )
-	{
-		return LoadSkeleton( stream, MeshCodec(type) );
-	}
-	return nullptr;
-}
-
 ITriangleMesh* SceneManager::LoadMesh( IStream* stream, ISkeleton* skeleton, const MeshCodec& type )
 {
 	assert( stream != nullptr );
@@ -211,26 +183,6 @@ void SceneManager::SaveMesh( const ITriangleMesh* mesh, IStream* stream, const D
 
 	stream->Open( OpenMode::Write );
 	codec->Save( mesh, stream, mode );
-	stream->Close();
-}
-
-void SceneManager::SaveSkeleton( const ISkeleton* skeleton, IStream* stream, const DataMode& mode, const MeshCodec& type )
-{
-	assert( skeleton != nullptr );
-	assert( stream != nullptr );
-
-	if ( skeleton == nullptr )
-		throw BadArgumentException( L"Failed to save skeleton. Bad skeleton data.", L"skeleton" );
-
-	if ( stream == nullptr )
-		throw BadArgumentException( L"Failed to save skeleton. Bad stream pointer.", L"stream" );
-
-	IMeshCodec* codec = _meshCodecs[type];
-	if ( codec == nullptr )
-		throw BadArgumentException( String::Format(L"Failed to save skeleton. Unknown skeleton type '{0}'.", type.ToString()), L"type", type.ToString() );
-
-	stream->Open( OpenMode::Write );
-	codec->Save( skeleton, stream, mode );
 	stream->Close();
 }
 

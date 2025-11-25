@@ -14,7 +14,6 @@
 #include "XMeshCodec.h"
 #include <scene/BoneProperty.h>
 #include <scene/ISkeleton.h>
-#include <io/BinaryReader.h>
 #include <io/IStreamDirectory.h>
 #include <img/IImage.h>
 #include <img/IImageManager.h>
@@ -211,30 +210,6 @@ ITriangleMesh* XMeshCodec::Load( IScene* scene, IStream* stream, const PixelForm
 	return mesh;
 }
 
-ISkeleton* XMeshCodec::Load( IStream* stream )
-{
-	SynkroProfile( "XMeshCodec.Load" );
-
-	// Call base implementation.
-	MeshCodecImpl<IMeshCodec>::Load( stream );
-
-	// Initialize data structures.
-	_materials.Clear();
-	_subMaterials.Clear();
-	_models.Clear();
-	_animationSets.Clear();
-	_frameStack.Clear();
-	_frames.Clear();
-	_frameIndices.Clear();
-	_lastMaterialName = String::Empty;
-	_indent = 0;
-	_token = 0;
-	_char = 0;
-
-	// TODO:
-	return nullptr;
-}
-
 void XMeshCodec::Save( const ITriangleMesh* mesh, IStream* stream, const DataMode& mode )
 {
 	SynkroProfile( "XMeshCodec.Save" );
@@ -261,18 +236,6 @@ void XMeshCodec::Save( const ITriangleMesh* mesh, IStream* stream, const DataMod
 	{
 		WriteMeshText( stream, desc );
 	}
-}
-
-void XMeshCodec::Save( const ISkeleton* skeleton, IStream* stream, const DataMode& mode )
-{
-	SynkroProfile( "XMeshCodec.Save" );
-
-	// Call base implementation.
-	MeshCodecImpl<IMeshCodec>::Save( skeleton, stream, mode );
-
-	Write( stream, mode );
-
-	// TODO:
 }
 
 void XMeshCodec::RegisterTemplates()

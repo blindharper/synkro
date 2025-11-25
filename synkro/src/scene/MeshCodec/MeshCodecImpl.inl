@@ -36,17 +36,6 @@ SYNKRO_INLINE ITriangleMesh* MeshCodecImpl<T>::Load( IScene* scene, io::IStream*
 }
 
 template <class T>
-SYNKRO_INLINE ISkeleton* MeshCodecImpl<T>::Load( io::IStream* stream )
-{
-	assert( stream != nullptr );
-
-	if ( stream == nullptr )
-		throw lang::BadArgumentException( L"Failed to load skeleton. Bad stream.", L"stream" );
-
-	return nullptr;
-}
-
-template <class T>
 SYNKRO_INLINE void MeshCodecImpl<T>::Save( const ITriangleMesh* mesh, io::IStream* stream, const core::DataMode& mode )
 {
 	assert( mesh != nullptr );
@@ -57,17 +46,4 @@ SYNKRO_INLINE void MeshCodecImpl<T>::Save( const ITriangleMesh* mesh, io::IStrea
 
 	if ( stream == nullptr )
 		throw lang::BadArgumentException( L"Failed to save mesh. Bad stream.", L"stream" );
-}
-
-template <class T>
-SYNKRO_INLINE void MeshCodecImpl<T>::Save( const ISkeleton* skeleton, io::IStream* stream, const core::DataMode& mode )
-{
-	assert( skeleton != nullptr );
-	assert( stream != nullptr );
-
-	if ( skeleton == nullptr )
-		throw lang::BadArgumentException( L"Failed to save skeleton. Bad skeleton.", L"skeleton" );
-
-	if ( stream == nullptr )
-		throw lang::BadArgumentException( L"Failed to save skeleton. Bad stream.", L"stream" );
 }

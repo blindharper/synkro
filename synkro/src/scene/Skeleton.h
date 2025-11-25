@@ -49,8 +49,6 @@ public:
 	ISkeletonAnimationController*							CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	IBone*													CreateBone( IBone* parent, const lang::String& name, const math::Matrix4x4& transform, const math::Matrix4x4& offset );
 	void													AddAnimationSet( anim::IAnimationSet* set );
-	void													Save( io::IStream* stream, const core::DataMode& mode, const MeshCodec& type );
-	void													Save( io::IStream* stream, const core::DataMode& mode );
 	UInt													GetBoneCount() const;
 	IBone*													GetBone( UInt index ) const;
 	IBone*													GetBone( const lang::String& name ) const;

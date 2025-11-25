@@ -52,9 +52,7 @@ public:
 
 	// IMeshCodec methods.
 	virtual ITriangleMesh*									Load( IScene* scene, io::IStream* stream, const img::PixelFormat& format, mat::IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity );
-	virtual ISkeleton*										Load( io::IStream* stream );
 	virtual void											Save( const ITriangleMesh* mesh, io::IStream* stream, const core::DataMode& mode );
-	virtual void											Save( const ISkeleton* skeleton, io::IStream* stream, const core::DataMode& mode );
 
 protected:
 	ISceneManager*											_sceneManager;

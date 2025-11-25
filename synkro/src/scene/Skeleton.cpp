@@ -82,20 +82,6 @@ IBone* Skeleton::CreateBone( IBone* parent, const String& name, const Matrix4x4&
 	return bone;
 }
 
-void Skeleton::Save( IStream* stream, const DataMode& mode, const MeshCodec& type )
-{
-	_sceneManager->SaveSkeleton( this, stream, mode, type );
-}
-
-void Skeleton::Save( IStream* stream, const DataMode& mode )
-{
-	String type = Path(stream->GetName()).GetExtensionWoDot();
-	if ( !type.IsEmpty() )
-	{
-		Save( stream, mode, MeshCodec(type) );
-	}
-}
-
 void Skeleton::GetBoneTransforms( const Matrix4x4& worldTransform, Matrix4x4** transforms, UInt count ) const
 {
 	// Invalidate bones transforms.
