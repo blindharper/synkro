@@ -46,7 +46,7 @@ SYNKRO_INLINE void AnimationControllerImpl<T>::SetAnimations( IAnimationSet* ani
 }
 
 template <class T>
-SYNKRO_INLINE IAnimationSet* AnimationControllerImpl<T>::GetAnimations() const
+SYNKRO_INLINE IAnimationSet* AnimationControllerImpl<T>::GetAnimations() const SYNKRO_NOEXCEPT
 {
 	return _animations;
 }

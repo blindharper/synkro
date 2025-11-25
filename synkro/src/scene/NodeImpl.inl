@@ -214,7 +214,7 @@ SYNKRO_INLINE void NodeImpl<T>::SetPath( ICurve* path )
 template <class T>
 SYNKRO_INLINE void NodeImpl<T>::SetPathPhase( Float phase )
 {
-	_pathPhase = math::Math::Clamp( phase, 0.0f, 1.0f );
+	_pathPhase = Clamp( phase, 0.0f, 1.0f );
 	if ( _path != nullptr )
 	{
 		math::Vector3 position;

@@ -43,9 +43,6 @@ public:
 	void													Save( const IAnimationSet* animation, io::IStream* stream );
 
 private:
-	IAnimationSet*											LoadBinary( io::IStream* stream );
-	void													SaveBinary( const IAnimationSet* animation, io::IStream* stream );
-
 	void													ReadTrack( io::BinaryReader& rd, IKeyframedBoolTrack* track );
 	void													ReadTrack( io::BinaryReader& rd, IKeyframedColorGradientTrack* track );
 	void													ReadTrack( io::BinaryReader& rd, IKeyframedColorTrack* track );

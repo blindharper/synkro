@@ -29,7 +29,7 @@
 
 
 // Linear interpolation routine.
-template <class T> SYNKRO_INLINE T Lerp( const T& a, const T& b, synkro::Double s )
+template <class T> SYNKRO_INLINE T Lerp( const T& a, const T& b, synkro::Double s ) SYNKRO_NOEXCEPT
 {
 	if ( s < 0.0 )
 		s = 0.0;
@@ -41,13 +41,13 @@ template <class T> SYNKRO_INLINE T Lerp( const T& a, const T& b, synkro::Double 
 }
 
 // Lerp for boolean.
-template <> SYNKRO_INLINE synkro::Bool Lerp<synkro::Bool>( const synkro::Bool& a, const synkro::Bool& b, synkro::Double s )
+template <> SYNKRO_INLINE synkro::Bool Lerp<synkro::Bool>( const synkro::Bool& a, const synkro::Bool& b, synkro::Double s ) SYNKRO_NOEXCEPT
 {
 	return b;
 }
 
 // Lerp for color.
-template <> SYNKRO_INLINE synkro::img::Color Lerp<synkro::img::Color>( const synkro::img::Color& a, const synkro::img::Color& b, synkro::Double s )
+template <> SYNKRO_INLINE synkro::img::Color Lerp<synkro::img::Color>( const synkro::img::Color& a, const synkro::img::Color& b, synkro::Double s ) SYNKRO_NOEXCEPT
 {
 	const synkro::Float red = Lerp( a.R, b.R, s );
 	const synkro::Float green = Lerp( a.G, b.G, s );
@@ -56,7 +56,7 @@ template <> SYNKRO_INLINE synkro::img::Color Lerp<synkro::img::Color>( const syn
 }
 
 // Lerp for color gradient.
-template <> SYNKRO_INLINE synkro::img::ColorGradient Lerp<synkro::img::ColorGradient>( const synkro::img::ColorGradient& a, const synkro::img::ColorGradient& b, synkro::Double s )
+template <> SYNKRO_INLINE synkro::img::ColorGradient Lerp<synkro::img::ColorGradient>( const synkro::img::ColorGradient& a, const synkro::img::ColorGradient& b, synkro::Double s ) SYNKRO_NOEXCEPT
 {
 	const synkro::img::Color start = Lerp( a.Start, b.Start, s );
 	const synkro::img::Color end = Lerp( a.End, b.End, s );
@@ -64,7 +64,7 @@ template <> SYNKRO_INLINE synkro::img::ColorGradient Lerp<synkro::img::ColorGrad
 }
 
 // Lerp for whole number point.
-template <> SYNKRO_INLINE synkro::lang::Point Lerp<synkro::lang::Point>( const synkro::lang::Point& a, const synkro::lang::Point& b, synkro::Double s )
+template <> SYNKRO_INLINE synkro::lang::Point Lerp<synkro::lang::Point>( const synkro::lang::Point& a, const synkro::lang::Point& b, synkro::Double s ) SYNKRO_NOEXCEPT
 {
 	const synkro::Int x = Lerp( a.X, b.X, s );
 	const synkro::Int y = Lerp( a.Y, b.Y, s );
@@ -72,7 +72,7 @@ template <> SYNKRO_INLINE synkro::lang::Point Lerp<synkro::lang::Point>( const s
 }
 
 // Lerp for floating-value point.
-template <> SYNKRO_INLINE synkro::lang::PointF Lerp<synkro::lang::PointF>( const synkro::lang::PointF& a, const synkro::lang::PointF& b, synkro::Double s )
+template <> SYNKRO_INLINE synkro::lang::PointF Lerp<synkro::lang::PointF>( const synkro::lang::PointF& a, const synkro::lang::PointF& b, synkro::Double s ) SYNKRO_NOEXCEPT
 {
 	const synkro::Float x = Lerp( a.X, b.X, s );
 	const synkro::Float y = Lerp( a.Y, b.Y, s );
@@ -80,7 +80,7 @@ template <> SYNKRO_INLINE synkro::lang::PointF Lerp<synkro::lang::PointF>( const
 }
 
 // Lerp for size.
-template <> SYNKRO_INLINE synkro::lang::Size Lerp<synkro::lang::Size>( const synkro::lang::Size& a, const synkro::lang::Size& b, synkro::Double s )
+template <> SYNKRO_INLINE synkro::lang::Size Lerp<synkro::lang::Size>( const synkro::lang::Size& a, const synkro::lang::Size& b, synkro::Double s ) SYNKRO_NOEXCEPT
 {
 	const synkro::UInt width = Lerp( a.Width, b.Width, s );
 	const synkro::UInt height = Lerp( a.Height, b.Height, s );
@@ -88,7 +88,7 @@ template <> SYNKRO_INLINE synkro::lang::Size Lerp<synkro::lang::Size>( const syn
 }
 
 // Lerp for range.
-template <> SYNKRO_INLINE synkro::lang::Range Lerp<synkro::lang::Range>( const synkro::lang::Range& a, const synkro::lang::Range& b, synkro::Double s )
+template <> SYNKRO_INLINE synkro::lang::Range Lerp<synkro::lang::Range>( const synkro::lang::Range& a, const synkro::lang::Range& b, synkro::Double s ) SYNKRO_NOEXCEPT
 {
 	const synkro::Int start = Lerp( CastInt(a.Start), CastInt(b.Start), s );
 	const synkro::Int length = Lerp( CastInt(a.Length), CastInt(b.Length), s );
@@ -96,7 +96,7 @@ template <> SYNKRO_INLINE synkro::lang::Range Lerp<synkro::lang::Range>( const s
 }
 
 // Lerp for whole number rectangle.
-template <> SYNKRO_INLINE synkro::lang::Rect Lerp<synkro::lang::Rect>( const synkro::lang::Rect& a, const synkro::lang::Rect& b, synkro::Double s )
+template <> SYNKRO_INLINE synkro::lang::Rect Lerp<synkro::lang::Rect>( const synkro::lang::Rect& a, const synkro::lang::Rect& b, synkro::Double s ) SYNKRO_NOEXCEPT
 {
 	const synkro::Int left = Lerp( a.Left, b.Left, s );
 	const synkro::Int top = Lerp( a.Top, b.Top, s );
@@ -106,7 +106,7 @@ template <> SYNKRO_INLINE synkro::lang::Rect Lerp<synkro::lang::Rect>( const syn
 }
 
 // Lerp for floating-point rectangle.
-template <> SYNKRO_INLINE synkro::lang::RectF Lerp<synkro::lang::RectF>( const synkro::lang::RectF& a, const synkro::lang::RectF& b, synkro::Double s )
+template <> SYNKRO_INLINE synkro::lang::RectF Lerp<synkro::lang::RectF>( const synkro::lang::RectF& a, const synkro::lang::RectF& b, synkro::Double s ) SYNKRO_NOEXCEPT
 {
 	const synkro::Float left = Lerp( a.Left, b.Left, s );
 	const synkro::Float top = Lerp( a.Top, b.Top, s );
@@ -116,7 +116,7 @@ template <> SYNKRO_INLINE synkro::lang::RectF Lerp<synkro::lang::RectF>( const s
 }
 
 // Lerp for vector3.
-template <> SYNKRO_INLINE synkro::math::Vector3 Lerp<synkro::math::Vector3>( const synkro::math::Vector3& a, const synkro::math::Vector3& b, synkro::Double s )
+template <> SYNKRO_INLINE synkro::math::Vector3 Lerp<synkro::math::Vector3>( const synkro::math::Vector3& a, const synkro::math::Vector3& b, synkro::Double s ) SYNKRO_NOEXCEPT
 {
 	const synkro::Float x = Lerp( a.x, b.x, s );
 	const synkro::Float y = Lerp( a.y, b.y, s );
@@ -125,7 +125,7 @@ template <> SYNKRO_INLINE synkro::math::Vector3 Lerp<synkro::math::Vector3>( con
 }
 
 // Lerp for quaternion.
-template <> SYNKRO_INLINE synkro::math::Quaternion Lerp<synkro::math::Quaternion>( const synkro::math::Quaternion& a, const synkro::math::Quaternion& b, synkro::Double s )
+template <> SYNKRO_INLINE synkro::math::Quaternion Lerp<synkro::math::Quaternion>( const synkro::math::Quaternion& a, const synkro::math::Quaternion& b, synkro::Double s ) SYNKRO_NOEXCEPT
 {
 	const synkro::Float cos = Clamp( a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w, -1.0f, 1.0f );
 	const synkro::Float angle = synkro::math::Math::Acos( cos );

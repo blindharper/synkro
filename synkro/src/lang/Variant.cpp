@@ -33,7 +33,7 @@ namespace lang
 
 const Variant Variant::Null;
 
-Variant::Variant( Int value ) :
+Variant::Variant( Int value ) SYNKRO_NOEXCEPT :
 	_type( DataType::Integer ),
 	_int( value ),
 	_float( 0.0f ),
@@ -41,7 +41,7 @@ Variant::Variant( Int value ) :
 {
 }
 
-Variant::Variant( Float value ) :
+Variant::Variant( Float value ) SYNKRO_NOEXCEPT :
 	_type( DataType::Float ),
 	_int( 0 ),
 	_float( value ),
@@ -49,7 +49,7 @@ Variant::Variant( Float value ) :
 {
 }
 
-Variant::Variant( const String& value ) :
+Variant::Variant( const String& value ) SYNKRO_NOEXCEPT :
 	_type( DataType::String ),
 	_int( 0 ),
 	_float( 0.0f ),
@@ -58,7 +58,7 @@ Variant::Variant( const String& value ) :
 {
 }
 
-Variant::Variant( const Char* value ) :
+Variant::Variant( const Char* value ) SYNKRO_NOEXCEPT :
 	_type( DataType::String ),
 	_int( 0 ),
 	_float( 0.0f ),
@@ -67,7 +67,7 @@ Variant::Variant( const Char* value ) :
 {
 }
 
-Variant::Variant( const DateTime& value ) :
+Variant::Variant( const DateTime& value ) SYNKRO_NOEXCEPT :
 	_type( DataType::DateTime ),
 	_int( 0 ),
 	_float( 0.0f ),
@@ -75,7 +75,7 @@ Variant::Variant( const DateTime& value ) :
 {
 }
 
-Variant::Variant( IStream* value ) :
+Variant::Variant( IStream* value ) SYNKRO_NOEXCEPT :
 	_type( DataType::Blob ),
 	_int( 0 ),
 	_float( 0.0f ),
@@ -84,7 +84,7 @@ Variant::Variant( IStream* value ) :
 {
 }
 
-Variant::Variant( const Byte* value, UInt size ) :
+Variant::Variant( const Byte* value, UInt size ) SYNKRO_NOEXCEPT :
 	_type( DataType::Blob ),
 	_int( 0 ),
 	_float( 0.0f ),
@@ -93,7 +93,7 @@ Variant::Variant( const Byte* value, UInt size ) :
 {
 }
 
-Variant::Variant() :
+Variant::Variant() SYNKRO_NOEXCEPT :
 	_type( DataType::Unknown ),
 	_int( 0 ),
 	_float( 0.0f ),
@@ -101,17 +101,17 @@ Variant::Variant() :
 {
 }
 
-DataType Variant::Type() const
+DataType Variant::Type() const SYNKRO_NOEXCEPT
 {
 	return _type;
 }
 
-Bool Variant::IsNull() const
+Bool Variant::IsNull() const SYNKRO_NOEXCEPT
 {
 	return (_type == DataType::Unknown);
 }
 
-Variant::operator Int() const
+Variant::operator Int() const SYNKRO_NOEXCEPT
 {
 	if ( _type == DataType::Integer )
 		return _int;
@@ -128,7 +128,7 @@ Variant::operator Int() const
 	return 0L;
 }
 
-Variant::operator Float() const
+Variant::operator Float() const SYNKRO_NOEXCEPT
 {
 	if ( _type == DataType::Integer )
 		return CastFloat(_int);
@@ -161,7 +161,7 @@ Variant::operator String() const
 	return String::Empty;
 }
 
-Variant::operator DateTime() const
+Variant::operator DateTime() const SYNKRO_NOEXCEPT
 {
 	if ( _type == DataType::String )
 		return Convert::ToDateTime( _string, String::Empty );
@@ -169,7 +169,7 @@ Variant::operator DateTime() const
 	return _date;
 }
 
-Variant::operator IStream*() const
+Variant::operator IStream*() const SYNKRO_NOEXCEPT
 {
 	return _blob.AsPtr();
 }

@@ -12,7 +12,15 @@
 //==============================================================================
 #include "config.h"
 #include <math/Math.h>
+#include <lang/DivisionByZeroException.h>
 #include <limits>
+
+
+//------------------------------------------------------------------------------
+
+using namespace synkro::lang;
+
+//------------------------------------------------------------------------------
 
 
 namespace synkro
@@ -39,40 +47,40 @@ const Float TO_RAD = Math::Pi/180.0f;
 const Float TO_DEG = 180.0f/Math::Pi;
 
 
-Float Math::Abs( Float value )
+Float Math::Abs( Float value ) SYNKRO_NOEXCEPT
 {
 	return fabsf( value );
 }
 
-Float Math::Sign( Float value )
+Float Math::Sign( Float value ) SYNKRO_NOEXCEPT
 {
 	return (value < 0.0f) ? -1.0f : 1.0f;
 }
 
-Float Math::Ceil( Float value )
+Float Math::Ceil( Float value ) SYNKRO_NOEXCEPT
 {
 	return ceilf( value );
 }
 
-Float Math::Floor( Float value )
+Float Math::Floor( Float value ) SYNKRO_NOEXCEPT
 {
 	return floorf( value );
 }
 
-Float Math::Trunc( Float value )
+Float Math::Trunc( Float value ) SYNKRO_NOEXCEPT
 {
 	Double n;
 	return modf( value, &n );
 }
 
-Float Math::Frac( Float value )
+Float Math::Frac( Float value ) SYNKRO_NOEXCEPT
 {
 	Double n;
 	modf( value, &n );
 	return value - n;
 }
 
-Float Math::Round( Float value )
+Float Math::Round( Float value ) SYNKRO_NOEXCEPT
 {
 	const Float floor = Floor( value );
 	const Float ceil = Ceil( value );
@@ -83,107 +91,112 @@ Float Math::Round( Float value )
 		return ceil;
 }
 
-Float Math::Sqrt( Float value )
+Float Math::Sqrt( Float value ) SYNKRO_NOEXCEPT
 {
 	return sqrtf( value );
 }
 
 Float Math::InvSqrt( Float value )
 {
+	assert( value != 0.0f );
+
+	if ( value == 0.0f )
+		throw DivisionByZeroException();
+
 	return 1.0f / sqrtf( value );
 }
 
-Float Math::Pow( Float value, Float power )
+Float Math::Pow( Float value, Float power ) SYNKRO_NOEXCEPT
 {
 	return powf( value, power );
 }
 
-Float Math::Exp( Float value )
+Float Math::Exp( Float value ) SYNKRO_NOEXCEPT
 {
 	return expf( value );
 }
 
-Float Math::Log( Float value )
+Float Math::Log( Float value ) SYNKRO_NOEXCEPT
 {
 	return logf( value );
 }
 
-Float Math::Log10( Float value )
+Float Math::Log10( Float value ) SYNKRO_NOEXCEPT
 {
 	return log10f( value );
 }
 
-Float Math::ToRadians( Float degrees )
+Float Math::ToRadians( Float degrees ) SYNKRO_NOEXCEPT
 {
 	return degrees * TO_RAD;
 }
 
-Float Math::ToDegrees( Float radians )
+Float Math::ToDegrees( Float radians ) SYNKRO_NOEXCEPT
 {
 	return radians * TO_DEG;
 }
 
-Float Math::Sin( Float angle )
+Float Math::Sin( Float angle ) SYNKRO_NOEXCEPT
 {
 	return sinf( angle );
 }
 
-Float Math::Sinh( Float angle )
+Float Math::Sinh( Float angle ) SYNKRO_NOEXCEPT
 {
 	return sinhf( angle );
 }
 
-Float Math::Asin( Float value )
+Float Math::Asin( Float value ) SYNKRO_NOEXCEPT
 {
 	return asinf( value );
 }
 
-Float Math::Cos( Float angle )
+Float Math::Cos( Float angle ) SYNKRO_NOEXCEPT
 {
 	return cosf( angle );
 }
 
-Float Math::Cosh( Float angle )
+Float Math::Cosh( Float angle ) SYNKRO_NOEXCEPT
 {
 	return coshf( angle );
 }
 
-Float Math::Acos( Float value )
+Float Math::Acos( Float value ) SYNKRO_NOEXCEPT
 {
 	return acosf( value );
 }
 
-Float Math::Tan( Float angle )
+Float Math::Tan( Float angle ) SYNKRO_NOEXCEPT
 {
 	return tanf( angle );
 }
 
-Float Math::Tanh( Float angle )
+Float Math::Tanh( Float angle ) SYNKRO_NOEXCEPT
 {
 	return tanhf( angle );
 }
 
-Float Math::Atan( Float value )
+Float Math::Atan( Float value ) SYNKRO_NOEXCEPT
 {
 	return atanf( value );
 }
 
-Float Math::Atan2( Float y, Float x )
+Float Math::Atan2( Float y, Float x ) SYNKRO_NOEXCEPT
 {
 	return atan2f( y, x );
 }
 
-Float Math::Min( Float x, Float y )
+Float Math::Min( Float x, Float y ) SYNKRO_NOEXCEPT
 {
 	return __min( x, y );
 }
 
-Float Math::Max( Float x, Float y )
+Float Math::Max( Float x, Float y ) SYNKRO_NOEXCEPT
 {
 	return __max( x, y );
 }
 
-Float Math::Clamp( Float value, Float min, Float max )
+Float Math::Clamp( Float value, Float min, Float max ) SYNKRO_NOEXCEPT
 {
 	return __max( min, __min(value, max) );
 }

@@ -22,19 +22,19 @@ class DynamicLibrary
 {
 public:
 	// Constructor.
-	DynamicLibrary();
+	DynamicLibrary() SYNKRO_NOEXCEPT;
 
 	// Loads library into memory.
-	void													Open( const char* name );
+	void													Open( const char* name ) SYNKRO_NOEXCEPT;
 
 	// Unloads library. The library cannot be accessed after this method call.
-	void													Close();
+	void													Close() SYNKRO_NOEXCEPT;
 
 	// Indicates whether the library is loaded.
-	synkro::Bool											IsOpen() const;
+	synkro::Bool											IsOpen() const SYNKRO_NOEXCEPT;
 
 	// Retrieves address of the specified symbol.
-	void*													GetSymbol( const char* symbol ) const;
+	void*													GetSymbol( const char* symbol ) const SYNKRO_NOEXCEPT;
 
 private:
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )

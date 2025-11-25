@@ -43,62 +43,62 @@ public:
 	/**
 	 * Creates variant of type Integer.
 	 */
-	Variant( Int value );
+	Variant( Int value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates variant of type Float.
 	 */
-	Variant( Float value );
+	Variant( Float value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates variant of type String.
 	 */
-	Variant( const String& value );
+	Variant( const String& value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates variant of type String.
 	 */
-	Variant( const Char* value );
+	Variant( const Char* value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates variant of type DateTime.
 	 */
-	Variant( const DateTime& value );
+	Variant( const DateTime& value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates variant of type Blob.
 	 */
-	Variant( io::IStream* value );
+	Variant( io::IStream* value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates variant of type Blob.
 	 */
-	Variant( const Byte* value, UInt size );
+	Variant( const Byte* value, UInt size ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates NULL variant.
 	 */
-	Variant();
+	Variant() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves variant value type.
 	 */
-	DataType												Type() const;
+	DataType												Type() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Indicates whether the variant has the value of NULL.
 	 */
-	Bool													IsNull() const;
+	Bool													IsNull() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Casts variant value to integer value.
 	 */
-															operator Int() const;
+															operator Int() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Casts variant value to floating-point value.
 	 */
-															operator Float() const;
+															operator Float() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Casts variant value to string value.
@@ -108,12 +108,12 @@ public:
 	/**
 	 * Casts variant value to date-time value.
 	 */
-															operator DateTime() const;
+															operator DateTime() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Casts variant value to BLOB value.
 	 */
-															operator io::IStream*() const;
+															operator io::IStream*() const SYNKRO_NOEXCEPT;
 
 private:
 	DataType												_type;

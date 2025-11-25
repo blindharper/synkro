@@ -10,12 +10,12 @@
 //
 // Purpose: Defines dynamically-loaded library.
 //==============================================================================
-SYNKRO_INLINE DynamicLibrary::DynamicLibrary() :
+SYNKRO_INLINE DynamicLibrary::DynamicLibrary() SYNKRO_NOEXCEPT :
 	_dll( 0 )
 {
 }
 
-SYNKRO_INLINE void DynamicLibrary::Open( const char* name )
+SYNKRO_INLINE void DynamicLibrary::Open( const char* name ) SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	_dll = ::LoadLibraryA( name );
@@ -26,7 +26,7 @@ SYNKRO_INLINE void DynamicLibrary::Open( const char* name )
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-SYNKRO_INLINE void DynamicLibrary::Close()
+SYNKRO_INLINE void DynamicLibrary::Close() SYNKRO_NOEXCEPT
 {
 	if ( _dll != 0 )
 	{
@@ -41,12 +41,12 @@ SYNKRO_INLINE void DynamicLibrary::Close()
 	}
 }
 
-SYNKRO_INLINE synkro::Bool DynamicLibrary::IsOpen() const
+SYNKRO_INLINE synkro::Bool DynamicLibrary::IsOpen() const SYNKRO_NOEXCEPT
 {
 	return (_dll != 0);
 }
 
-SYNKRO_INLINE void* DynamicLibrary::GetSymbol( const char* symbol ) const
+SYNKRO_INLINE void* DynamicLibrary::GetSymbol( const char* symbol ) const SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	return _dll ? ::GetProcAddress( _dll, symbol ) : 0;

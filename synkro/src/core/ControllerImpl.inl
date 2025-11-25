@@ -11,7 +11,7 @@
 // Purpose: Generic controller implementation.
 //==============================================================================
 template <class T> 
-SYNKRO_INLINE ControllerImpl<T>::ControllerImpl() :
+SYNKRO_INLINE ControllerImpl<T>::ControllerImpl() SYNKRO_NOEXCEPT :
 	_state( ControllerState::Inactive ),
 	_time( 0.0 )
 {
@@ -52,32 +52,32 @@ SYNKRO_INLINE void ControllerImpl<T>::Update( Double delta )
 }
 
 template <class T>
-SYNKRO_INLINE void ControllerImpl<T>::SetTime( Double time )
+SYNKRO_INLINE void ControllerImpl<T>::SetTime( Double time ) SYNKRO_NOEXCEPT
 {
 	_time = time;
 }
 
 template <class T>
-SYNKRO_INLINE void ControllerImpl<T>::Restart()
+SYNKRO_INLINE void ControllerImpl<T>::Restart() SYNKRO_NOEXCEPT
 {
 	Start( false );
 	Start( true );
 }
 
 template <class T>
-SYNKRO_INLINE void ControllerImpl<T>::Reset()
+SYNKRO_INLINE void ControllerImpl<T>::Reset() SYNKRO_NOEXCEPT
 {
 	_time = 0.0;
 }
 
 template <class T>
-SYNKRO_INLINE Double ControllerImpl<T>::GetTime() const
+SYNKRO_INLINE Double ControllerImpl<T>::GetTime() const SYNKRO_NOEXCEPT
 {
 	return _time;
 }
 
 template <class T>
-SYNKRO_INLINE ControllerState ControllerImpl<T>::GetState() const
+SYNKRO_INLINE ControllerState ControllerImpl<T>::GetState() const SYNKRO_NOEXCEPT
 {
 	return _state;
 }

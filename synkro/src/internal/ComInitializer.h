@@ -23,7 +23,7 @@ class ComInitializer
 {
 public:
 	// Constructor & destructor.
-	ComInitializer();
+	ComInitializer() SYNKRO_NOEXCEPT;
 	~ComInitializer();
 
 private:

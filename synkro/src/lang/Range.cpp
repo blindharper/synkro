@@ -22,48 +22,48 @@ namespace lang
 {
 
 
-Range::Range( UInt start, UInt length ) :
+Range::Range( UInt start, UInt length ) SYNKRO_NOEXCEPT :
 	Start( start ),
 	Length( length )
 {
 }
 
-Range::Range( UInt length ) :
+Range::Range( UInt length ) SYNKRO_NOEXCEPT :
 	Start( 0 ),
 	Length( length )
 {
 }
 
-Range::Range( const Range& other ) :
+Range::Range( const Range& other ) SYNKRO_NOEXCEPT :
 	Start( other.Start ),
 	Length( other.Length )
 {
 }
 
-Range::Range() :
+Range::Range() SYNKRO_NOEXCEPT :
 	Start( 0 ),
 	Length( 0 )
 {
 }
 
-Range& Range::Set( UInt start, UInt length )
+Range& Range::Set( UInt start, UInt length ) SYNKRO_NOEXCEPT
 {
 	Start = start;
 	Length = length;
 	return *this;
 }
 
-Range& Range::operator=( const Range& other )
+Range& Range::operator=( const Range& other ) SYNKRO_NOEXCEPT
 {
 	return Set( other.Start, other.Length );
 }
 
-Bool Range::operator==( const Range& other ) const
+Bool Range::operator==( const Range& other ) const SYNKRO_NOEXCEPT
 {
 	return (Start == other.Start) && (Length == other.Length);
 }
 
-Bool Range::operator!=( const Range& other ) const
+Bool Range::operator!=( const Range& other ) const SYNKRO_NOEXCEPT
 {
 	return (Start != other.Start) || (Length != other.Length);
 }

@@ -136,6 +136,10 @@ IAnimationSet* AnimationSystem::LoadAnimation( IStream* stream, const AnimationC
 
 	assert( stream != nullptr );
 
+	if ( stream == nullptr )
+		throw lang::BadArgumentException( L"Failed to load animation. Bad stream.", L"stream" );
+
+
 	const UInt key = stream->ID();
 	LogInfoStart( MessagePriority::Lowest, Formatter::Format(L"Loading animation. Name = {0,q}. Key = 0x{1,x}.", stream->GetName(), key) );
 	if ( _animationCache.ContainsKey(key) )

@@ -22,47 +22,47 @@ namespace lang
 {
 
 
-Size::Size( UInt width, UInt height ) :
+Size::Size( UInt width, UInt height ) SYNKRO_NOEXCEPT :
 	Width( width ),
 	Height( height )
 {
 }
 
-Size::Size( const Size& other ) :
+Size::Size( const Size& other ) SYNKRO_NOEXCEPT :
 	Width( other.Width ),
 	Height( other.Height )
 {
 }
 
-Size::Size() :
+Size::Size() SYNKRO_NOEXCEPT :
 	Width( 0 ),
 	Height( 0 )
 {
 }
 
-Size& Size::Set( UInt width, UInt height )
+Size& Size::Set( UInt width, UInt height ) SYNKRO_NOEXCEPT
 {
 	Width = width;
 	Height = height;
 	return *this;
 }
 
-Size& Size::operator=( const Size& other )
+Size& Size::operator=( const Size& other ) SYNKRO_NOEXCEPT
 {
 	return Set( other.Width, other.Height );
 }
 
-Bool Size::operator==( const Size& other ) const
+Bool Size::operator==( const Size& other ) const SYNKRO_NOEXCEPT
 {
 	return (Width == other.Width) && (Height == other.Height);
 }
 
-Bool Size::operator!=( const Size& other ) const
+Bool Size::operator!=( const Size& other ) const SYNKRO_NOEXCEPT
 {
 	return (Width != other.Width) || (Height != other.Height);
 }
 
-Bool Size::IsEmpty() const
+Bool Size::IsEmpty() const SYNKRO_NOEXCEPT
 {
 	return (Width == 0) || (Height == 0);
 }

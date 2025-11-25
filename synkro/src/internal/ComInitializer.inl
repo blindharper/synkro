@@ -10,7 +10,7 @@
 //
 // Purpose: Defines COM framework initializer.
 //==============================================================================
-SYNKRO_INLINE ComInitializer::ComInitializer()
+SYNKRO_INLINE ComInitializer::ComInitializer() SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	::CoInitializeEx( nullptr, COINIT_MULTITHREADED );

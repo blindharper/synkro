@@ -36,7 +36,7 @@ namespace math
 
 
 // Calculates 3x3 matrix determinant. a,b,c identify rows, i,j,k - columns.
-SYNKRO_INLINE static Float Det3( const Matrix4x4& mtx, Int a, Int b, Int c, Int i, Int j, Int k )
+SYNKRO_INLINE static Float Det3( const Matrix4x4& mtx, Int a, Int b, Int c, Int i, Int j, Int k ) SYNKRO_NOEXCEPT
 {
 	return	mtx.m[a][i]*(mtx.m[b][j]*mtx.m[c][k] - mtx.m[b][k]*mtx.m[c][j]) -
 			mtx.m[b][i]*(mtx.m[a][j]*mtx.m[c][k] - mtx.m[a][k]*mtx.m[c][j]) +
@@ -47,17 +47,17 @@ SYNKRO_INLINE static Float Det3( const Matrix4x4& mtx, Int a, Int b, Int c, Int 
 
 const Matrix4x4 Matrix4x4::Identity;
 
-Matrix4x4::Matrix4x4()
+Matrix4x4::Matrix4x4() SYNKRO_NOEXCEPT
 {
 	MakeIdentity();
 }
 
-Matrix4x4::Matrix4x4( const Matrix4x4& other )
+Matrix4x4::Matrix4x4( const Matrix4x4& other ) SYNKRO_NOEXCEPT
 {
 	Copy( d, other.d, 16 );
 }
 
-Matrix4x4::Matrix4x4( Float value )
+Matrix4x4::Matrix4x4( Float value ) SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 4; ++i )
 	{
@@ -81,7 +81,7 @@ Matrix4x4::Matrix4x4( Float* array )
 Matrix4x4::Matrix4x4( Float _00, Float _01, Float _02, Float _03,
 					  Float _10, Float _11, Float _12, Float _13,
 					  Float _20, Float _21, Float _22, Float _23,
-					  Float _30, Float _31, Float _32, Float _33 )
+					  Float _30, Float _31, Float _32, Float _33 ) SYNKRO_NOEXCEPT
 {
 	this->_00 = _00; this->_01 = _01; this->_02 = _02; this->_03 = _03;
 	this->_10 = _10; this->_11 = _11; this->_12 = _12; this->_13 = _13;
@@ -89,7 +89,7 @@ Matrix4x4::Matrix4x4( Float _00, Float _01, Float _02, Float _03,
 	this->_30 = _30; this->_31 = _31; this->_32 = _32; this->_33 = _33;
 }
 
-Matrix4x4& Matrix4x4::MakeIdentity()
+Matrix4x4& Matrix4x4::MakeIdentity() SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 4; ++i )
 	{
@@ -101,23 +101,23 @@ Matrix4x4& Matrix4x4::MakeIdentity()
 	return *this;
 }
 
-Matrix4x4& Matrix4x4::SetTranslation( const Vector3& translation )
+Matrix4x4& Matrix4x4::SetTranslation( const Vector3& translation ) SYNKRO_NOEXCEPT
 {
 	Copy( &m[3][0], &translation.x, 3 );
 	return *this;
 }
 
-Matrix4x4& Matrix4x4::SetOrientation( const Vector3& axis, Float angle )
+Matrix4x4& Matrix4x4::SetOrientation( const Vector3& axis, Float angle ) SYNKRO_NOEXCEPT
 {
 	return *this = Rotate( axis, angle );
 }
 
-Matrix4x4& Matrix4x4::SetOrientation( const Quaternion& orientation )
+Matrix4x4& Matrix4x4::SetOrientation( const Quaternion& orientation ) SYNKRO_NOEXCEPT
 {
 	return *this = Rotate( orientation );
 }
 
-Matrix4x4& Matrix4x4::SetScale( const Vector3& scale )
+Matrix4x4& Matrix4x4::SetScale( const Vector3& scale ) SYNKRO_NOEXCEPT
 {
 	m[0][0] = scale.x;
 	m[1][1] = scale.y;
@@ -125,23 +125,23 @@ Matrix4x4& Matrix4x4::SetScale( const Vector3& scale )
 	return *this;
 }
 
-Matrix4x4& Matrix4x4::SetScale( Float scale )
+Matrix4x4& Matrix4x4::SetScale( Float scale ) SYNKRO_NOEXCEPT
 {
 	m[0][0] = m[1][1] = m[2][2] = scale;
 	return *this;
 }
 
-Matrix4x4& Matrix4x4::SetPerspectiveProjection( Float horzFOV, Float aspect, Float front, Float back )
+Matrix4x4& Matrix4x4::SetPerspectiveProjection( Float horzFOV, Float aspect, Float front, Float back ) SYNKRO_NOEXCEPT
 {
 	return *this = PerspectiveProjection( horzFOV, aspect, front, back );
 }
 
-Matrix4x4& Matrix4x4::SetLookAt( const Vector3& target, const Vector3& position, const Vector3& up )
+Matrix4x4& Matrix4x4::SetLookAt( const Vector3& target, const Vector3& position, const Vector3& up ) SYNKRO_NOEXCEPT
 {
 	return *this = LookAt( target, position, up );
 }
 
-Matrix4x4& Matrix4x4::operator+=( const Matrix4x4& other )
+Matrix4x4& Matrix4x4::operator+=( const Matrix4x4& other ) SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 16; ++i )
 	{
@@ -150,7 +150,7 @@ Matrix4x4& Matrix4x4::operator+=( const Matrix4x4& other )
 	return *this;
 }
 
-Matrix4x4& Matrix4x4::operator-=( const Matrix4x4& other )
+Matrix4x4& Matrix4x4::operator-=( const Matrix4x4& other ) SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 16; ++i )
 	{
@@ -159,12 +159,12 @@ Matrix4x4& Matrix4x4::operator-=( const Matrix4x4& other )
 	return *this;
 }
 
-Matrix4x4& Matrix4x4::operator*=( const Matrix4x4& other )
+Matrix4x4& Matrix4x4::operator*=( const Matrix4x4& other ) SYNKRO_NOEXCEPT
 {
 	return *this = *this * other;
 }
 
-Matrix4x4& Matrix4x4::operator*=( Float value )
+Matrix4x4& Matrix4x4::operator*=( Float value ) SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 16; ++i )
 	{
@@ -188,22 +188,22 @@ Matrix4x4& Matrix4x4::operator/=( Float value )
 	return *this;
 }
 
-Matrix4x4 Matrix4x4::operator+( const Matrix4x4& other ) const
+Matrix4x4 Matrix4x4::operator+( const Matrix4x4& other ) const SYNKRO_NOEXCEPT
 {
 	return Matrix4x4(*this) += other;
 }
 
-Matrix4x4 Matrix4x4::operator-( const Matrix4x4& other ) const
+Matrix4x4 Matrix4x4::operator-( const Matrix4x4& other ) const SYNKRO_NOEXCEPT
 {
 	return Matrix4x4(*this) -= other;
 }
 
-Matrix4x4 Matrix4x4::operator-() const
+Matrix4x4 Matrix4x4::operator-() const SYNKRO_NOEXCEPT
 {
 	return Matrix4x4(*this) *= -1.0f;
 }
 
-Matrix4x4 Matrix4x4::operator*( const Matrix4x4& other ) const
+Matrix4x4 Matrix4x4::operator*( const Matrix4x4& other ) const SYNKRO_NOEXCEPT
 {
 	Float res[16];
 
@@ -230,7 +230,7 @@ Matrix4x4 Matrix4x4::operator*( const Matrix4x4& other ) const
 	return Matrix4x4( res );
 }
 
-Matrix4x4 Matrix4x4::operator*( Float value ) const
+Matrix4x4 Matrix4x4::operator*( Float value ) const SYNKRO_NOEXCEPT
 {
 	return Matrix4x4( m[0][0]*value, m[0][1]*value, m[0][2]*value, m[0][3]*value,
 					  m[1][0]*value, m[1][1]*value, m[1][2]*value, m[1][3]*value,
@@ -252,7 +252,7 @@ Matrix4x4 Matrix4x4::operator/( Float value ) const
 					  m[3][0]*denom, m[3][1]*denom, m[3][2]*denom, m[3][3]*denom );
 }
 
-Vector3 Matrix4x4::operator*( const Vector3& vec ) const
+Vector3 Matrix4x4::operator*( const Vector3& vec ) const SYNKRO_NOEXCEPT
 {
 	Vector3 res
 	(
@@ -268,7 +268,7 @@ Vector3 Matrix4x4::operator*( const Vector3& vec ) const
 	return res;
 }
 
-Bool Matrix4x4::operator==( const Matrix4x4& other ) const
+Bool Matrix4x4::operator==( const Matrix4x4& other ) const SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 16; ++i )
 	{
@@ -280,7 +280,7 @@ Bool Matrix4x4::operator==( const Matrix4x4& other ) const
 	return true;
 }
 
-Bool Matrix4x4::operator!=( const Matrix4x4& other ) const
+Bool Matrix4x4::operator!=( const Matrix4x4& other ) const SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 16; ++i )
 	{
@@ -292,7 +292,7 @@ Bool Matrix4x4::operator!=( const Matrix4x4& other ) const
 	return false;
 }
 
-Float Matrix4x4::Determinant() const
+Float Matrix4x4::Determinant() const SYNKRO_NOEXCEPT
 {
 	return	m[0][0]*Det3(*this, 1,2,3, 1,2,3) -
 			m[0][1]*Det3(*this, 1,2,3, 0,2,3) +
@@ -300,7 +300,7 @@ Float Matrix4x4::Determinant() const
 			m[0][3]*Det3(*this, 1,2,3, 0,1,2);
 }
 
-Matrix4x4 Matrix4x4::Inverse() const
+Matrix4x4 Matrix4x4::Inverse() const SYNKRO_NOEXCEPT
 {
 	Matrix4x4 r( 1.0f );
 	Matrix4x4 t( *this );
@@ -337,7 +337,7 @@ Matrix4x4 Matrix4x4::Inverse() const
 	return r;
 }
 
-Matrix4x4 Matrix4x4::Transpose() const
+Matrix4x4 Matrix4x4::Transpose() const SYNKRO_NOEXCEPT
 {
 	Matrix4x4 mat;
 	for ( UInt i = 0; i < 4; ++i )
@@ -350,17 +350,17 @@ Matrix4x4 Matrix4x4::Transpose() const
 	return mat;
 }
 
-Vector3 Matrix4x4::Translation() const
+Vector3 Matrix4x4::Translation() const SYNKRO_NOEXCEPT
 {
 	return Vector3( (Float*)&this->m[3][0] );
 }
 
-Vector4 Matrix4x4::Translation4() const
+Vector4 Matrix4x4::Translation4() const SYNKRO_NOEXCEPT
 {
 	return Vector4( (Float*)&this->m[3][0] );
 }
 
-Quaternion Matrix4x4::Orientation() const
+Quaternion Matrix4x4::Orientation() const SYNKRO_NOEXCEPT
 {
 	Quaternion rot;
 
@@ -406,27 +406,27 @@ Quaternion Matrix4x4::Orientation() const
 	return rot;
 }
 
-Vector3 Matrix4x4::Scale() const
+Vector3 Matrix4x4::Scale() const SYNKRO_NOEXCEPT
 {
 	return Vector3( m[0][0], m[1][1], m[2][2] );
 }
 
-Vector3 Matrix4x4::Right() const
+Vector3 Matrix4x4::Right() const SYNKRO_NOEXCEPT
 {
 	return Vector3( m[0][0], m[1][0], m[2][0] );
 }
 
-Vector3 Matrix4x4::Up() const
+Vector3 Matrix4x4::Up() const SYNKRO_NOEXCEPT
 {
 	return Vector3( m[0][1], m[1][1], m[2][1] );
 }
 
-Vector3 Matrix4x4::Forward() const
+Vector3 Matrix4x4::Forward() const SYNKRO_NOEXCEPT
 {
 	return Vector3( m[0][2], m[1][2], m[2][2] );
 }
 
-Vector3 Matrix4x4::Rotate( const Vector3& vec ) const
+Vector3 Matrix4x4::Rotate( const Vector3& vec ) const SYNKRO_NOEXCEPT
 {
 	Vector3 res
 	(
@@ -437,7 +437,7 @@ Vector3 Matrix4x4::Rotate( const Vector3& vec ) const
 	return res;
 }
 
-Matrix4x4 Matrix4x4::Rotate( const Vector3& axis, Float angle ) const
+Matrix4x4 Matrix4x4::Rotate( const Vector3& axis, Float angle ) const SYNKRO_NOEXCEPT
 {
 	Matrix4x4 res( 1.0f );
 
@@ -462,7 +462,7 @@ Matrix4x4 Matrix4x4::Rotate( const Vector3& axis, Float angle ) const
 	return res;
 }
 
-Matrix4x4 Matrix4x4::Rotate( const Quaternion& orientation ) const
+Matrix4x4 Matrix4x4::Rotate( const Quaternion& orientation ) const SYNKRO_NOEXCEPT
 {
 	Matrix4x4 res( 1.0f );
 
@@ -495,7 +495,7 @@ Matrix4x4 Matrix4x4::Rotate( const Quaternion& orientation ) const
 	return res;
 }
 
-Matrix4x4 Matrix4x4::RotateX( Float angle ) const
+Matrix4x4 Matrix4x4::RotateX( Float angle ) const SYNKRO_NOEXCEPT
 {
 	Matrix4x4 res( 1.0f );
 	const Float c = Math::Cos( angle );
@@ -507,7 +507,7 @@ Matrix4x4 Matrix4x4::RotateX( Float angle ) const
 	return res;
 }
 
-Matrix4x4 Matrix4x4::RotateY( Float angle ) const
+Matrix4x4 Matrix4x4::RotateY( Float angle ) const SYNKRO_NOEXCEPT
 {
 	Matrix4x4 res( 1.0f );
 	const Float c = Math::Cos( angle );
@@ -519,7 +519,7 @@ Matrix4x4 Matrix4x4::RotateY( Float angle ) const
 	return res;
 }
 
-Matrix4x4 Matrix4x4::RotateZ( Float angle ) const
+Matrix4x4 Matrix4x4::RotateZ( Float angle ) const SYNKRO_NOEXCEPT
 {
 	Matrix4x4 res( 1.0f );
 	const Float c = Math::Cos( angle );
@@ -531,28 +531,28 @@ Matrix4x4 Matrix4x4::RotateZ( Float angle ) const
 	return res;
 }
 
-Matrix4x4 Matrix4x4::MirrorX() const
+Matrix4x4 Matrix4x4::MirrorX() const SYNKRO_NOEXCEPT
 {
 	Matrix4x4 res( 1.0f );
 	res.m[0][0] = -1.0f;
 	return res;
 }
 
-Matrix4x4 Matrix4x4::MirrorY() const
+Matrix4x4 Matrix4x4::MirrorY() const SYNKRO_NOEXCEPT
 {
 	Matrix4x4 res( 1.0f );
 	res.m[1][1] = -1.0f;
 	return res;
 }
 
-Matrix4x4 Matrix4x4::MirrorZ() const
+Matrix4x4 Matrix4x4::MirrorZ() const SYNKRO_NOEXCEPT
 {
 	Matrix4x4 res( 1.0f );
 	res.m[2][2] = -1.0f;
 	return res;
 }
 
-Matrix4x4 Matrix4x4::PerspectiveProjection( Float horzFOV, Float aspect, Float front, Float back ) const
+Matrix4x4 Matrix4x4::PerspectiveProjection( Float horzFOV, Float aspect, Float front, Float back ) const SYNKRO_NOEXCEPT
 {
 	const Float w = Math::Abs( 1.0f/Math::Tan(horzFOV*0.5f) ); // 1/tan(x) == cot(x)
 	const Float vw = 2.0f*front/w;
@@ -569,7 +569,7 @@ Matrix4x4 Matrix4x4::PerspectiveProjection( Float horzFOV, Float aspect, Float f
 	return res;
 }
 
-Matrix4x4 Matrix4x4::LookAt( const Vector3& target, const Vector3& eye, const Vector3& up ) const
+Matrix4x4 Matrix4x4::LookAt( const Vector3& target, const Vector3& eye, const Vector3& up ) const SYNKRO_NOEXCEPT
 {
 	const Vector3 z = (target - eye).Normalize();
 	const Vector3 x = (up^z).Normalize();
@@ -598,7 +598,7 @@ Matrix4x4 Matrix4x4::LookAt( const Vector3& target, const Vector3& eye, const Ve
 	return res;
 }
 
-Bool Matrix4x4::IsIdentity() const
+Bool Matrix4x4::IsIdentity() const SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 4; ++i )
 	{

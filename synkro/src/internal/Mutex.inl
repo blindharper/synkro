@@ -10,7 +10,7 @@
 //
 // Purpose: Defines mutex.
 //==============================================================================
-SYNKRO_INLINE Mutex::Mutex()
+SYNKRO_INLINE Mutex::Mutex() SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	::InitializeCriticalSection( &_handle );
@@ -32,7 +32,7 @@ SYNKRO_INLINE Mutex::~Mutex()
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-SYNKRO_INLINE void Mutex::Lock()
+SYNKRO_INLINE void Mutex::Lock() SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	::EnterCriticalSection( &_handle );
@@ -43,7 +43,7 @@ SYNKRO_INLINE void Mutex::Lock()
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-SYNKRO_INLINE void Mutex::Unlock()
+SYNKRO_INLINE void Mutex::Unlock() SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	::LeaveCriticalSection( &_handle );

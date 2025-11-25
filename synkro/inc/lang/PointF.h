@@ -39,58 +39,58 @@ public:
 	 * @param x Horizontal coordinate.
 	 * @param y Vertical coordinate.
 	 */
-	PointF( Float x, Float y );
+	PointF( Float x, Float y ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy constructor.
 	 */
-	PointF( const PointF& other );
+	PointF( const PointF& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Constructs an empty point.
 	 */
-	PointF();
+	PointF() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Sets point coordinates.
 	 * @param x Horizontal coordinate.
 	 * @param y Vertical coordinate.
 	 */
-	PointF&													Set( Float x, Float y );
+	PointF&													Set( Float x, Float y ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy by reference.
 	 */
-	PointF&													operator=( const PointF& other );
+	PointF&													operator=( const PointF& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Adds another point to this one.
 	 */
-	PointF&													operator+=( const PointF& other );
+	PointF&													operator+=( const PointF& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Subtracts another point from this one.
 	 */
-	PointF&													operator-=( const PointF& other );
+	PointF&													operator-=( const PointF& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns the difference between this point and another one.
 	 */
-	PointF													operator-( const PointF& other ) const;
+	PointF													operator-( const PointF& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two points for equality.
 	 * @param other PointF to compare to.
 	 * @return True for equal points, false otherwise.
 	 */
-	Bool													operator==( const PointF& other ) const;
+	Bool													operator==( const PointF& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two points for inequality.
 	 * @param other PointF to compare to.
 	 * @return True for unequal points, false otherwise.
 	 */
-	Bool													operator!=( const PointF& other ) const;
+	Bool													operator!=( const PointF& other ) const SYNKRO_NOEXCEPT;
 };
 
 

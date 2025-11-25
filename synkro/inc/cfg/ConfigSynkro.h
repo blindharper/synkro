@@ -106,6 +106,20 @@
 #	define SYNKRO_INLINE inline
 #endif // ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 
+// Define noexcept directive.
+#if ( SYNKRO_COMPILER == SYNKRO_COMPILER_MSVC )
+#	if ( SYNKRO_COMPILER_VERSION >= 1915 )
+#		define SYNKRO_NOEXCEPT noexcept
+#	else
+#		define SYNKRO_NOEXCEPT
+#	endif // ( SYNKRO_COMPILER_VERSION >= 1915 )
+#elif ( SYNKRO_COMPILER == SYNKRO_COMPILER_GNUC )
+#	if ( __cplusplus >= 201103L ) // C++11
+#		define SYNKRO_NOEXCEPT noexcept
+#	else
+#		define SYNKRO_NOEXCEPT
+#	endif // ( __cplusplus >= 201103L )
+#endif // ( SYNKRO_COMPILER == SYNKRO_COMPILER_MSVC )
 
 // Platform-specific headers.
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )

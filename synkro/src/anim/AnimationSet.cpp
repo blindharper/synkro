@@ -32,7 +32,7 @@ namespace anim
 {
 
 
-AnimationSet::AnimationSet( BaseAnimationSystem* animationSystem, const String& name ) :
+AnimationSet::AnimationSet( BaseAnimationSystem* animationSystem, const String& name ) SYNKRO_NOEXCEPT :
 	_animations( A(P(IAnimation)) ),
 	_indexes( A(IndexEntry) ),
 	_animationSystem( animationSystem ),
@@ -72,7 +72,7 @@ IAnimation* AnimationSet::CreateAnimation( const String& name )
 	return animation;
 }
 
-Double AnimationSet::GetLength() const
+Double AnimationSet::GetLength() const SYNKRO_NOEXCEPT
 {
 	Double length = 0.0;
 

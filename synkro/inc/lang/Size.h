@@ -39,48 +39,48 @@ public:
 	 * @param width Width.
 	 * @param height Height.
 	 */
-	Size( UInt width, UInt height );
+	Size( UInt width, UInt height ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy constructor.
 	 */
-	Size( const Size& other );
+	Size( const Size& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Constructs an empty size.
 	 */
-	Size();
+	Size() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Sets size dimensions.
 	 * @param width Horizontal dimension.
 	 * @param height Vertical dimension.
 	 */
-	Size&													Set( UInt width, UInt height );
+	Size&													Set( UInt width, UInt height ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy by reference.
 	 */
-	Size&													operator=( const Size& other );
+	Size&													operator=( const Size& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two sizes for equality.
 	 * @param other Size to compare to.
 	 * @return True for equal sizes, false otherwise.
 	 */
-	Bool													operator==( const Size& other ) const;
+	Bool													operator==( const Size& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two sizes for inequality.
 	 * @param other Size to compare to.
 	 * @return True for unequal sizes, false otherwise.
 	 */
-	Bool													operator!=( const Size& other ) const;
+	Bool													operator!=( const Size& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Indicates if either width or height is zero.
 	 */
-	Bool													IsEmpty() const;
+	Bool													IsEmpty() const SYNKRO_NOEXCEPT;
 };
 
 

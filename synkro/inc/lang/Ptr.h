@@ -44,18 +44,18 @@ public:
 	 * Increments object reference count and stores the reference.
 	 * @param other Object to create pointer on.
 	 */
-	Ptr( T* other );
+	Ptr( T* other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Increments object reference count and stores the reference.
 	 * @param other Object to create pointer on.
 	 */
-	Ptr( const Ptr<T>& other );
+	Ptr( const Ptr<T>& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates null pointer.
 	 */
-	Ptr();
+	Ptr() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Releases the object.
@@ -66,41 +66,41 @@ public:
 	 * Releases reference to the old object and stores the reference to the new object.
 	 * @param other Object to create pointer on.
 	 */
-	Ptr&													operator=( T* other );
+	Ptr&													operator=( T* other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Releases reference to the old object and stores the reference to the new object.
 	 * @param other Object to create pointer on.
 	 */
-	Ptr&													operator=( const Ptr<T>& other );
+	Ptr&													operator=( const Ptr<T>& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two pointers for equality.
 	 * @param other Pointer to compare to.
 	 * @return True if the references point to the same unique object, false otherwise.
 	 */
-	Bool													operator==( T* other ) const;
+	Bool													operator==( T* other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two pointers for equality.
 	 * @param other Pointer to compare to.
 	 * @return True if the references point to the same unique object, false otherwise.
 	 */
-	Bool													operator==( const Ptr<T>& other ) const;
+	Bool													operator==( const Ptr<T>& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two pointers for inequality.
 	 * @param other Pointer to compare to.
 	 * @return True if the references point to different unique objects, false otherwise.
 	 */
-	Bool													operator!=( T* other ) const;
+	Bool													operator!=( T* other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two pointers for inequality.
 	 * @param other Pointer to compare to.
 	 * @return True if the references point to different unique objects, false otherwise.
 	 */
-	Bool													operator!=( const Ptr<T>& other ) const;
+	Bool													operator!=( const Ptr<T>& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Provides access to the object.
@@ -115,12 +115,12 @@ public:
 	/**
 	 * Provides access to the object.
 	 */
-															operator T*() const;
+															operator T*() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Provides access to the object.
 	 */
-	T*														AsPtr() const;
+	T*														AsPtr() const SYNKRO_NOEXCEPT;
 
 private:
 	T*														_object;

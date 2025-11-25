@@ -35,18 +35,18 @@ class ControllerImpl :
 {
 public:
 	// Constructors & destructor.
-	ControllerImpl();
+	ControllerImpl() SYNKRO_NOEXCEPT;
 	virtual ~ControllerImpl();
 
 	// IController methods.
 	virtual void											Start( Bool start );
 	virtual void											Pause( Bool pause );
 	virtual void											Update( Double delta );
-	virtual void											SetTime( Double time );
-	virtual void											Restart();
-	virtual void											Reset();
-	virtual Double											GetTime() const;
-	virtual ControllerState									GetState() const;
+	virtual void											SetTime( Double time ) SYNKRO_NOEXCEPT;
+	virtual void											Restart() SYNKRO_NOEXCEPT;
+	virtual void											Reset() SYNKRO_NOEXCEPT;
+	virtual Double											GetTime() const SYNKRO_NOEXCEPT;
+	virtual ControllerState									GetState() const SYNKRO_NOEXCEPT;
 
 protected:
 	ControllerState											_state;

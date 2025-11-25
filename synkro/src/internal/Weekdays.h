@@ -21,8 +21,8 @@ synkro::Char* WeekdaysShort[];
 synkro::Char* WeekdaysLong[];
 
 
-synkro::UInt StringToWeekdayShort( const synkro::Char* str );
-synkro::UInt StringToWeekdayLong( const synkro::Char* str );
+synkro::UInt StringToWeekdayShort( const synkro::Char* str ) SYNKRO_NOEXCEPT;
+synkro::UInt StringToWeekdayLong( const synkro::Char* str ) SYNKRO_NOEXCEPT;
 
 
 #endif // _SYNKRO_INTERNAL_WEEKDAYS_

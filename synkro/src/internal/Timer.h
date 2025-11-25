@@ -22,31 +22,31 @@ class Timer
 {
 public:
 	// Constructor.
-	Timer();
+	Timer() SYNKRO_NOEXCEPT;
 
 	// Returns the time, in milliseconds, elapsed since last method call.
-	synkro::Double											GetElapsedMilliseconds();
+	synkro::Double											GetElapsedMilliseconds() SYNKRO_NOEXCEPT;
 
 	// Returns the time, in milliseconds, elapsed since the specified timestamp.
-	synkro::Double											GetElapsedMilliseconds( synkro::ULong& lastTime, synkro::Bool modify = true ) const;
+	synkro::Double											GetElapsedMilliseconds( synkro::ULong& lastTime, synkro::Bool modify = true ) const SYNKRO_NOEXCEPT;
 
 	// Returns the time, in seconds, elapsed since last method call.
-	synkro::Double											GetElapsedSeconds();
+	synkro::Double											GetElapsedSeconds() SYNKRO_NOEXCEPT;
 
 	// Returns the time, in seconds, elapsed since the specified timestamp.
-	synkro::Double											GetElapsedSeconds( synkro::ULong& lastTime, synkro::Bool modify = true ) const;
+	synkro::Double											GetElapsedSeconds( synkro::ULong& lastTime, synkro::Bool modify = true ) const SYNKRO_NOEXCEPT;
 
 	// Returns the time, in ticks, elapsed since last method call.
-	synkro::ULong											GetElapsedTicks();
+	synkro::ULong											GetElapsedTicks() SYNKRO_NOEXCEPT;
 
 	// Returns the time, in ticks, elapsed since the specified timestamp.
-	synkro::ULong											GetElapsedTicks( synkro::ULong& lastTime, synkro::Bool modify = true ) const;
+	synkro::ULong											GetElapsedTicks( synkro::ULong& lastTime, synkro::Bool modify = true ) const SYNKRO_NOEXCEPT;
 
 	// Returns current time stamp.
-	synkro::ULong											GetTimeStamp() const;
+	synkro::ULong											GetTimeStamp() const SYNKRO_NOEXCEPT;
 
 	// Retrieves timer's frequency.
-	synkro::Double											GetTicksPerSecond() const;
+	synkro::Double											GetTicksPerSecond() const SYNKRO_NOEXCEPT;
 
 private:
 	Timer( const Timer& );

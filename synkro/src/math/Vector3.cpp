@@ -13,7 +13,6 @@
 #include "config.h"
 #include <math/Vector3.h>
 #include <math/Math.h>
-#include <math/Math.h>
 #include <core/Str.h>
 #include <lang/BadArgumentException.h>
 #include <lang/DivisionByZeroException.h>
@@ -47,21 +46,21 @@ const Vector3 Vector3::Y( 0.0f, 1.0f, 0.0f );
 const Vector3 Vector3::Z( 0.0f, 0.0f, 1.0f );
 
 
-Vector3::Vector3() :
+Vector3::Vector3() SYNKRO_NOEXCEPT :
 	x( 0.0f ),
 	y( 0.0f ),
 	z( 0.0f )
 {
 }
 
-Vector3::Vector3( const Vector3& other ) :
+Vector3::Vector3( const Vector3& other ) SYNKRO_NOEXCEPT :
 	x( other.x ),
 	y( other.y ),
 	z( other.z )
 {
 }
 
-Vector3::Vector3( Float value ) :
+Vector3::Vector3( Float value ) SYNKRO_NOEXCEPT :
 	x( value ),
 	y( value ),
 	z( value )
@@ -78,14 +77,14 @@ Vector3::Vector3( Float* array )
 	Copy( v, array, 3 );
 }
 
-Vector3::Vector3( Float _x, Float _y, Float _z ) :
+Vector3::Vector3( Float _x, Float _y, Float _z ) SYNKRO_NOEXCEPT :
 	x( _x ),
 	y( _y ),
 	z( _z )
 {
 }
 
-Vector3& Vector3::operator=( const Vector3& other )
+Vector3& Vector3::operator=( const Vector3& other ) SYNKRO_NOEXCEPT
 {
 	if ( other != *this )
 	{
@@ -96,7 +95,7 @@ Vector3& Vector3::operator=( const Vector3& other )
 	return *this;
 }
 
-Vector3& Vector3::operator+=( const Vector3& other )
+Vector3& Vector3::operator+=( const Vector3& other ) SYNKRO_NOEXCEPT
 {
 	x += other.x;
 	y += other.y;
@@ -104,7 +103,7 @@ Vector3& Vector3::operator+=( const Vector3& other )
 	return *this;
 }
 
-Vector3& Vector3::operator-=( const Vector3& other )
+Vector3& Vector3::operator-=( const Vector3& other ) SYNKRO_NOEXCEPT
 {
 	x -= other.x;
 	y -= other.y;
@@ -112,7 +111,7 @@ Vector3& Vector3::operator-=( const Vector3& other )
 	return *this;
 }
 
-Vector3& Vector3::operator*=( Float value )
+Vector3& Vector3::operator*=( Float value ) SYNKRO_NOEXCEPT
 {
 	x *= value;
 	y *= value;
@@ -133,29 +132,29 @@ Vector3& Vector3::operator/=( Float value )
 	return *this;
 }
 
-Vector3& Vector3::Normalize()
+Vector3& Vector3::Normalize() SYNKRO_NOEXCEPT
 {
 	const Float len = Length();
 
 	return (len != 0.0f) ? *this/=len : *this;
 }
 
-Vector3 Vector3::operator-() const
+Vector3 Vector3::operator-() const SYNKRO_NOEXCEPT
 {
 	return Vector3( -x, -y, -z );
 }
 
-Vector3 Vector3::operator+( const Vector3& other ) const
+Vector3 Vector3::operator+( const Vector3& other ) const SYNKRO_NOEXCEPT
 {
 	return Vector3( x+other.x, y+other.y, z+other.z );
 }
 
-Vector3 Vector3::operator-( const Vector3& other ) const
+Vector3 Vector3::operator-( const Vector3& other ) const SYNKRO_NOEXCEPT
 {
 	return Vector3( x-other.x, y-other.y, z-other.z );
 }
 
-Vector3 Vector3::operator*( Float value ) const
+Vector3 Vector3::operator*( Float value ) const SYNKRO_NOEXCEPT
 {
 	return Vector3( x*value, y*value, z*value );
 }
@@ -170,37 +169,37 @@ Vector3 Vector3::operator/( Float value ) const
 	return Vector3( x/value, y/value, z/value );
 }
 
-Vector3 Vector3::operator^( const Vector3& other ) const
+Vector3 Vector3::operator^( const Vector3& other ) const SYNKRO_NOEXCEPT
 {
 	return Vector3( y*other.z - z*other.y, z*other.x - x*other.z, x*other.y - y*other.x );
 }
 
-Float Vector3::operator*( const Vector3& other ) const
+Float Vector3::operator*( const Vector3& other ) const SYNKRO_NOEXCEPT
 {
 	return x*other.x + y*other.y + z*other.z;
 }
 
-Bool Vector3::operator==( const Vector3& other ) const
+Bool Vector3::operator==( const Vector3& other ) const SYNKRO_NOEXCEPT
 {
 	return (x == other.x) && (y == other.y) && (z == other.z);
 }
 
-Bool Vector3::operator!=( const Vector3& other ) const
+Bool Vector3::operator!=( const Vector3& other ) const SYNKRO_NOEXCEPT
 {
 	return (x != other.x) || (y != other.y) || (z != other.z);
 }
 
-Float Vector3::Length() const
+Float Vector3::Length() const SYNKRO_NOEXCEPT
 {
 	return Math::Sqrt( x*x + y*y + z*z );
 }
 
-Float Vector3::LengthSquared() const
+Float Vector3::LengthSquared() const SYNKRO_NOEXCEPT
 {
 	return x*x + y*y + z*z;
 }
 
-Vector3 Vector3::Rotate( const Vector3& axis, Float angle ) const
+Vector3 Vector3::Rotate( const Vector3& axis, Float angle ) const SYNKRO_NOEXCEPT
 {
 	const Vector3 vec = *this;
 	Vector3 unitAxis = axis; unitAxis.Normalize();

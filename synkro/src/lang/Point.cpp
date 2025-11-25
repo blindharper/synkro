@@ -22,71 +22,71 @@ namespace lang
 {
 
 
-Point::Point( Int x, Int y ) :
+Point::Point( Int x, Int y ) SYNKRO_NOEXCEPT :
 	X( x ),
 	Y( y )
 {
 }
 
-Point::Point( const Point& other ) :
+Point::Point( const Point& other ) SYNKRO_NOEXCEPT :
 	X( other.X ),
 	Y( other.Y )
 {
 }
 
-Point::Point() :
+Point::Point() SYNKRO_NOEXCEPT :
 	X( 0L ),
 	Y( 0L )
 {
 }
 
-Point& Point::Set( Int x, Int y )
+Point& Point::Set( Int x, Int y ) SYNKRO_NOEXCEPT
 {
 	X = x;
 	Y = y;
 	return *this;
 }
 
-Point Point::Offset( Int x, Int y ) const
+Point Point::Offset( Int x, Int y ) const SYNKRO_NOEXCEPT
 {
 	return Point( X+x, Y+y );
 }
 
-Point& Point::operator=( const Point& other )
+Point& Point::operator=( const Point& other ) SYNKRO_NOEXCEPT
 {
 	return Set( other.X, other.Y );
 }
 
-Point& Point::operator+=( const Point& other )
+Point& Point::operator+=( const Point& other ) SYNKRO_NOEXCEPT
 {
 	X += other.X;
 	Y += other.Y;
 	return *this;
 }
 
-Point& Point::operator-=( const Point& other )
+Point& Point::operator-=( const Point& other ) SYNKRO_NOEXCEPT
 {
 	X -= other.X;
 	Y -= other.Y;
 	return *this;
 }
 
-Point Point::operator+( const Point& other ) const
+Point Point::operator+( const Point& other ) const SYNKRO_NOEXCEPT
 {
 	return Point( X+other.X, Y+other.Y );
 }
 
-Point Point::operator-( const Point& other ) const
+Point Point::operator-( const Point& other ) const SYNKRO_NOEXCEPT
 {
 	return Point( X-other.X, Y-other.Y );
 }
 
-Bool Point::operator==( const Point& other ) const
+Bool Point::operator==( const Point& other ) const SYNKRO_NOEXCEPT
 {
 	return (X == other.X) && (Y == other.Y);
 }
 
-Bool Point::operator!=( const Point& other ) const
+Bool Point::operator!=( const Point& other ) const SYNKRO_NOEXCEPT
 {
 	return (X != other.X) || (Y != other.Y);
 }

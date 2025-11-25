@@ -12,7 +12,6 @@
 //=============================================================================
 #include "config.h"
 #include <math/Matrix3x3.h>
-#include <math/Math.h>
 #include <core/Str.h>
 #include <lang/BadArgumentException.h>
 #include <lang/DivisionByZeroException.h>
@@ -34,9 +33,10 @@ namespace synkro
 namespace math
 {
 
+
 const Matrix3x3 Matrix3x3::Identity;
 
-Matrix3x3::Matrix3x3()
+Matrix3x3::Matrix3x3() SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 9; ++i )
 	{
@@ -44,12 +44,12 @@ Matrix3x3::Matrix3x3()
 	}
 }
 
-Matrix3x3::Matrix3x3( const Matrix3x3& other )
+Matrix3x3::Matrix3x3( const Matrix3x3& other ) SYNKRO_NOEXCEPT
 {
 	Copy( d, other.d, 9 );
 }
 
-Matrix3x3::Matrix3x3( Float value )
+Matrix3x3::Matrix3x3( Float value ) SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 3; ++i )
 	{
@@ -72,14 +72,14 @@ Matrix3x3::Matrix3x3( Float* array )
 
 Matrix3x3::Matrix3x3( Float _00, Float _01, Float _02,
 					  Float _10, Float _11, Float _12,
-					  Float _20, Float _21, Float _22 )
+					  Float _20, Float _21, Float _22 ) SYNKRO_NOEXCEPT
 {
 	this->_00 = _00; this->_01 = _01; this->_02 = _02;
 	this->_10 = _10; this->_11 = _11; this->_12 = _12;
 	this->_20 = _20; this->_21 = _21; this->_22 = _22;
 }
 
-Matrix3x3& Matrix3x3::operator+=( const Matrix3x3& other )
+Matrix3x3& Matrix3x3::operator+=( const Matrix3x3& other ) SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 9; ++i )
 	{
@@ -88,7 +88,7 @@ Matrix3x3& Matrix3x3::operator+=( const Matrix3x3& other )
 	return *this;
 }
 
-Matrix3x3& Matrix3x3::operator-=( const Matrix3x3& other )
+Matrix3x3& Matrix3x3::operator-=( const Matrix3x3& other ) SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 9; ++i )
 	{
@@ -97,7 +97,7 @@ Matrix3x3& Matrix3x3::operator-=( const Matrix3x3& other )
 	return *this;
 }
 
-Matrix3x3& Matrix3x3::operator*=( Float value )
+Matrix3x3& Matrix3x3::operator*=( Float value ) SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 9; ++i )
 	{
@@ -121,22 +121,22 @@ Matrix3x3& Matrix3x3::operator/=( Float value )
 	return *this;
 }
 
-Matrix3x3 Matrix3x3::operator+( const Matrix3x3& other ) const
+Matrix3x3 Matrix3x3::operator+( const Matrix3x3& other ) const SYNKRO_NOEXCEPT
 {
 	return Matrix3x3(*this) += other;
 }
 
-Matrix3x3 Matrix3x3::operator-( const Matrix3x3& other ) const
+Matrix3x3 Matrix3x3::operator-( const Matrix3x3& other ) const SYNKRO_NOEXCEPT
 {
 	return Matrix3x3(*this) -= other;
 }
 
-Matrix3x3 Matrix3x3::operator-() const
+Matrix3x3 Matrix3x3::operator-() const SYNKRO_NOEXCEPT
 {
 	return Matrix3x3(*this) *= -1.0f;
 }
 
-Matrix3x3 Matrix3x3::operator*( Float value ) const
+Matrix3x3 Matrix3x3::operator*( Float value ) const SYNKRO_NOEXCEPT
 {
 	return Matrix3x3( m[0][0]*value, m[0][1]*value, m[0][2]*value,
 					  m[1][0]*value, m[1][1]*value, m[1][2]*value,
@@ -156,14 +156,14 @@ Matrix3x3 Matrix3x3::operator/( Float value ) const
 					  m[2][0]*denom, m[2][1]*denom, m[2][2]*denom );
 }
 
-Float Matrix3x3::Determinant() const
+Float Matrix3x3::Determinant() const SYNKRO_NOEXCEPT
 {
 	return m[0][0]*(m[1][1]*m[2][2] - m[2][1]*m[1][2]) -
 		   m[0][1]*(m[1][0]*m[2][2] - m[2][0]*m[1][2]) +
 		   m[0][2]*(m[1][0]*m[2][1] - m[2][0]*m[1][1]);
 }
 
-Matrix3x3 Matrix3x3::Transpose() const
+Matrix3x3 Matrix3x3::Transpose() const SYNKRO_NOEXCEPT
 {
 	Matrix3x3 mat;
 	for ( UInt i = 0; i < 3; ++i )
@@ -176,7 +176,7 @@ Matrix3x3 Matrix3x3::Transpose() const
 	return mat;
 }
 
-Bool Matrix3x3::operator==( const Matrix3x3& other ) const
+Bool Matrix3x3::operator==( const Matrix3x3& other ) const SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 9; ++i )
 	{
@@ -188,7 +188,7 @@ Bool Matrix3x3::operator==( const Matrix3x3& other ) const
 	return true;
 }
 
-Bool Matrix3x3::operator!=( const Matrix3x3& other ) const
+Bool Matrix3x3::operator!=( const Matrix3x3& other ) const SYNKRO_NOEXCEPT
 {
 	for ( UInt i = 0; i < 9; ++i )
 	{

@@ -35,7 +35,7 @@ enum
 };
 
 
-static void Set( UShort* date, UShort year, UShort month, UShort day, UShort hour, UShort minute, UShort second, UShort millisecond )
+static void Set( UShort* date, UShort year, UShort month, UShort day, UShort hour, UShort minute, UShort second, UShort millisecond ) SYNKRO_NOEXCEPT
 {
 	date[TIME_YEAR]			= year;
 	date[TIME_MONTH]		= month;
@@ -50,37 +50,37 @@ static void Set( UShort* date, UShort year, UShort month, UShort day, UShort hou
 
 const DateTime DateTime::Invalid = DateTime( 0 );
 
-DateTime::DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute, UShort second, UShort millisecond )
+DateTime::DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute, UShort second, UShort millisecond ) SYNKRO_NOEXCEPT
 {
 	Set( _value, year, month, day, hour, minute, second, millisecond );
 }
 
-DateTime::DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute, UShort second )
+DateTime::DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute, UShort second ) SYNKRO_NOEXCEPT
 {
 	Set( _value, year, month, day, hour, minute, second, 0 );
 }
 
-DateTime::DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute )
+DateTime::DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute ) SYNKRO_NOEXCEPT
 {
 	Set( _value, year, month, day, hour, minute, 0, 0 );
 }
 
-DateTime::DateTime( UShort year, UShort month, UShort day, UShort hour )
+DateTime::DateTime( UShort year, UShort month, UShort day, UShort hour ) SYNKRO_NOEXCEPT
 {
 	Set( _value, year, month, day, hour, 0, 0, 0 );
 }
 
-DateTime::DateTime( UShort year, UShort month, UShort day )
+DateTime::DateTime( UShort year, UShort month, UShort day ) SYNKRO_NOEXCEPT
 {
 	Set( _value, year, month, day, 0, 0, 0, 0 );
 }
 
-DateTime::DateTime( UShort fake )
+DateTime::DateTime( UShort fake ) SYNKRO_NOEXCEPT
 {
 	Set( _value, 0, 0, 0, 0, 0, 0, 0 );
 }
 
-DateTime::DateTime()
+DateTime::DateTime() SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	::GetLocalTime( reinterpret_cast<SYSTEMTIME*>(&_value) );
@@ -89,62 +89,62 @@ DateTime::DateTime()
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-UShort DateTime::Year() const
+UShort DateTime::Year() const SYNKRO_NOEXCEPT
 {
 	return _value[TIME_YEAR];
 }
 
-UShort DateTime::Month() const
+UShort DateTime::Month() const SYNKRO_NOEXCEPT
 {
 	return _value[TIME_MONTH];
 }
 
-UShort DateTime::DayOfWeek() const
+UShort DateTime::DayOfWeek() const SYNKRO_NOEXCEPT
 {
 	return _value[TIME_DAYOFWEEK];
 }
 
-UShort DateTime::Day() const
+UShort DateTime::Day() const SYNKRO_NOEXCEPT
 {
 	return _value[TIME_DAY];
 }
 
-UShort DateTime::Hour() const
+UShort DateTime::Hour() const SYNKRO_NOEXCEPT
 {
 	return _value[TIME_HOUR];
 }
 
-UShort DateTime::Minute() const
+UShort DateTime::Minute() const SYNKRO_NOEXCEPT
 {
 	return _value[TIME_MINUTE];
 }
 
-UShort DateTime::Second() const
+UShort DateTime::Second() const SYNKRO_NOEXCEPT
 {
 	return _value[TIME_SECOND];
 }
 
-UShort DateTime::Millisecond() const
+UShort DateTime::Millisecond() const SYNKRO_NOEXCEPT
 {
 	return _value[TIME_MILLISECOND];
 }
 
-Float DateTime::TotalHours() const
+Float DateTime::TotalHours() const SYNKRO_NOEXCEPT
 {
 	return CastFloat(_value[TIME_HOUR]) + TotalMinutes()/60.0f;
 }
 
-Float DateTime::TotalMinutes() const
+Float DateTime::TotalMinutes() const SYNKRO_NOEXCEPT
 {
 	return CastFloat(_value[TIME_MINUTE]) + TotalSeconds()/60.0f;
 }
 
-Float DateTime::TotalSeconds() const
+Float DateTime::TotalSeconds() const SYNKRO_NOEXCEPT
 {
 	return CastFloat(_value[TIME_SECOND]) + 0.001f*CastFloat(_value[TIME_MILLISECOND]);
 }
 
-Bool DateTime::operator==( const DateTime& other ) const
+Bool DateTime::operator==( const DateTime& other ) const SYNKRO_NOEXCEPT
 {
 	for ( UInt i = TIME_YEAR; i <= TIME_MILLISECOND; ++i )
 	{
@@ -154,12 +154,12 @@ Bool DateTime::operator==( const DateTime& other ) const
 	return true;
 }
 
-Bool DateTime::operator!=( const DateTime& other ) const
+Bool DateTime::operator!=( const DateTime& other ) const SYNKRO_NOEXCEPT
 {
 	return !(*this == other);
 }
 
-Bool DateTime::IsValid() const
+Bool DateTime::IsValid() const SYNKRO_NOEXCEPT
 {
 	return (*this != Invalid);
 }

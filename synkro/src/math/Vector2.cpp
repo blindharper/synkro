@@ -35,19 +35,19 @@ namespace math
 {
 
 
-Vector2::Vector2() :
+Vector2::Vector2() SYNKRO_NOEXCEPT :
 	x( 0.0f ),
 	y( 0.0f )
 {
 }
 
-Vector2::Vector2( const Vector2& other ) :
+Vector2::Vector2( const Vector2& other ) SYNKRO_NOEXCEPT :
 	x( other.x ),
 	y( other.y )
 {
 }
 
-Vector2::Vector2( Float value ) :
+Vector2::Vector2( Float value ) SYNKRO_NOEXCEPT :
 	x( value ),
 	y( value )
 {
@@ -63,13 +63,13 @@ Vector2::Vector2( Float* array )
 	Copy( v, array, 2 );
 }
 
-Vector2::Vector2( Float _x, Float _y ) :
+Vector2::Vector2( Float _x, Float _y ) SYNKRO_NOEXCEPT :
 	x( _x ),
 	y( _y )
 {
 }
 
-Vector2& Vector2::operator=( const Vector2& other )
+Vector2& Vector2::operator=( const Vector2& other ) SYNKRO_NOEXCEPT
 {
 	if ( other != *this )
 	{
@@ -79,21 +79,21 @@ Vector2& Vector2::operator=( const Vector2& other )
 	return *this;
 }
 
-Vector2& Vector2::operator+=( const Vector2& other )
+Vector2& Vector2::operator+=( const Vector2& other ) SYNKRO_NOEXCEPT
 {
 	x += other.x;
 	y += other.y;
 	return *this;
 }
 
-Vector2& Vector2::operator-=( const Vector2& other )
+Vector2& Vector2::operator-=( const Vector2& other ) SYNKRO_NOEXCEPT
 {
 	x -= other.x;
 	y -= other.y;
 	return *this;
 }
 
-Vector2& Vector2::operator*=( Float value )
+Vector2& Vector2::operator*=( Float value ) SYNKRO_NOEXCEPT
 {
 	x *= value;
 	y *= value;
@@ -112,29 +112,29 @@ Vector2& Vector2::operator/=( Float value )
 	return *this;
 }
 
-Vector2& Vector2::Normalize()
+Vector2& Vector2::Normalize() SYNKRO_NOEXCEPT
 {
 	const Float len = Length();
 
 	return (len != 0.0f) ? *this/=len : *this;
 }
 
-Vector2 Vector2::operator-() const
+Vector2 Vector2::operator-() const SYNKRO_NOEXCEPT
 {
 	return Vector2( -x, -y );
 }
 
-Vector2 Vector2::operator+( const Vector2& other ) const
+Vector2 Vector2::operator+( const Vector2& other ) const SYNKRO_NOEXCEPT
 {
 	return Vector2( x+other.x, y+other.y );
 }
 
-Vector2 Vector2::operator-( const Vector2& other ) const
+Vector2 Vector2::operator-( const Vector2& other ) const SYNKRO_NOEXCEPT
 {
 	return Vector2( x-other.x, y-other.y );
 }
 
-Vector2 Vector2::operator*( Float value ) const
+Vector2 Vector2::operator*( Float value ) const SYNKRO_NOEXCEPT
 {
 	return Vector2( x*value, y*value );
 }
@@ -149,22 +149,22 @@ Vector2 Vector2::operator/( Float value ) const
 	return Vector2( x/value, y/value );
 }
 
-Float Vector2::operator*( const Vector2& other ) const
+Float Vector2::operator*( const Vector2& other ) const SYNKRO_NOEXCEPT
 {
 	return x*other.x + y*other.y;
 }
 
-Bool Vector2::operator==( const Vector2& other ) const
+Bool Vector2::operator==( const Vector2& other ) const SYNKRO_NOEXCEPT
 {
 	return (x == other.x) && (y == other.y);
 }
 
-Bool Vector2::operator!=( const Vector2& other ) const
+Bool Vector2::operator!=( const Vector2& other ) const SYNKRO_NOEXCEPT
 {
 	return (x != other.x) || (y != other.y);
 }
 
-Float Vector2::Length() const
+Float Vector2::Length() const SYNKRO_NOEXCEPT
 {
 	return Math::Sqrt( x*x + y*y );
 }

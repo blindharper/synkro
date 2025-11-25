@@ -36,13 +36,13 @@ class BinarySemaphore
 {
 public:
 	// Sets the semaphore resource to unlocked state.
-	BinarySemaphore( synkro::Bool signaled );
+	BinarySemaphore( synkro::Bool signaled ) SYNKRO_NOEXCEPT;
 
 	// Gets access to resource guarded by the semaphore.
-	void													Wait();
+	void													Wait() SYNKRO_NOEXCEPT;
 
 	// Signals that the resource is ready to be accessed.
-	void													Signal();
+	void													Signal() SYNKRO_NOEXCEPT;
 
 private:
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
@@ -59,7 +59,7 @@ private:
 class BinarySemaphoreLock
 {
 public:
-	SYNKRO_INLINE BinarySemaphoreLock( BinarySemaphore* semaphore ) :
+	SYNKRO_INLINE BinarySemaphoreLock( BinarySemaphore* semaphore ) SYNKRO_NOEXCEPT :
 		_semaphore( semaphore )
 	{
 		_semaphore->Wait();

@@ -15,7 +15,7 @@
 
 
 // Helper function for swapping two pointers.
-template <class T> SYNKRO_INLINE static void Swap( const T* first, const T* second )
+template <class T> SYNKRO_INLINE static void Swap( const T* first, const T* second ) SYNKRO_NOEXCEPT
 {
 	const T* _tmp = first;
 	first = second;
@@ -23,7 +23,7 @@ template <class T> SYNKRO_INLINE static void Swap( const T* first, const T* seco
 }
 
 // Helper function for swapping two values.
-template <class T> SYNKRO_INLINE static void Swap( T& first, T& second )
+template <class T> SYNKRO_INLINE static void Swap( T& first, T& second ) SYNKRO_NOEXCEPT
 {
 	T _tmp = first;
 	first = second;

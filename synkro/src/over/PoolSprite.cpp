@@ -14,7 +14,6 @@
 #include "PoolSprite.h"
 #include "SpritePool.h"
 #include "SpriteAnimationController.h"
-#include <math/Math.h>
 
 
 //------------------------------------------------------------------------------
@@ -165,7 +164,7 @@ void PoolSprite::SetOrientation( Float orientation )
 
 void PoolSprite::SetOpacity( Float opacity )
 {
-	opacity = Math::Clamp( opacity, 0.0f, 1.0f );
+	opacity = Clamp( opacity, 0.0f, 1.0f );
 
 	if ( opacity != _opacity )
 	{

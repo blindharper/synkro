@@ -39,49 +39,49 @@ public:
 	 * @param start Starting index of the range.
 	 * @param length Range length.
 	 */
-	Range( UInt start, UInt length );
+	Range( UInt start, UInt length ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Constructs a range with starting index of zero.
 	 * @param length Range length.
 	 */
-	Range( UInt length );
+	Range( UInt length ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy constructor.
 	 */
-	Range( const Range& other );
+	Range( const Range& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Constructs an empty range.
 	 */
-	Range();
+	Range() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Sets range properties.
 	 * @param start Starting index of the range.
 	 * @param length Range length.
 	 */
-	Range&													Set( UInt start, UInt length );
+	Range&													Set( UInt start, UInt length ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Copy by reference.
 	 */
-	Range&													operator=( const Range& other );
+	Range&													operator=( const Range& other ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two ranges for equality.
 	 * @param other Range to compare to.
 	 * @return True for equal ranges, false otherwise.
 	 */
-	Bool													operator==( const Range& other ) const;
+	Bool													operator==( const Range& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two ranges for inequality.
 	 * @param other Range to compare to.
 	 * @return True for unequal ranges, false otherwise.
 	 */
-	Bool													operator!=( const Range& other ) const;
+	Bool													operator!=( const Range& other ) const SYNKRO_NOEXCEPT;
 };
 
 

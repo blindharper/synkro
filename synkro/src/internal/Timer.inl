@@ -10,7 +10,7 @@
 //
 // Purpose: Defines system timer.
 //==============================================================================
-SYNKRO_INLINE Timer::Timer() :
+SYNKRO_INLINE Timer::Timer() SYNKRO_NOEXCEPT :
 	_ticksPerSecond( 0.0 ),
 	_lastTime( 0 )
 {
@@ -24,29 +24,29 @@ SYNKRO_INLINE Timer::Timer() :
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-SYNKRO_INLINE synkro::Double Timer::GetElapsedMilliseconds()
+SYNKRO_INLINE synkro::Double Timer::GetElapsedMilliseconds() SYNKRO_NOEXCEPT
 {
 	return 1000.0*GetElapsedSeconds();
 }
 
-SYNKRO_INLINE synkro::Double Timer::GetElapsedMilliseconds( synkro::ULong& lastTime, synkro::Bool modify ) const
+SYNKRO_INLINE synkro::Double Timer::GetElapsedMilliseconds( synkro::ULong& lastTime, synkro::Bool modify ) const SYNKRO_NOEXCEPT
 {
 	return 1000.0*GetElapsedSeconds( lastTime, modify );
 }
 
-SYNKRO_INLINE synkro::Double Timer::GetElapsedSeconds()
+SYNKRO_INLINE synkro::Double Timer::GetElapsedSeconds() SYNKRO_NOEXCEPT
 {
 	const synkro::ULong ticks = GetElapsedTicks();
 	return CastDouble(ticks) / _ticksPerSecond;
 }
 
-SYNKRO_INLINE synkro::Double Timer::GetElapsedSeconds( synkro::ULong& lastTime, synkro::Bool modify ) const
+SYNKRO_INLINE synkro::Double Timer::GetElapsedSeconds( synkro::ULong& lastTime, synkro::Bool modify ) const SYNKRO_NOEXCEPT
 {
 	const synkro::ULong ticks = GetElapsedTicks( lastTime, modify );
 	return CastDouble(ticks) / _ticksPerSecond;
 }
 
-SYNKRO_INLINE synkro::ULong Timer::GetElapsedTicks()
+SYNKRO_INLINE synkro::ULong Timer::GetElapsedTicks() SYNKRO_NOEXCEPT
 {
 	const synkro::ULong currentTime = GetTimeStamp();
 	const synkro::ULong ticks = currentTime - _lastTime;
@@ -54,7 +54,7 @@ SYNKRO_INLINE synkro::ULong Timer::GetElapsedTicks()
 	return ticks;
 }
 
-SYNKRO_INLINE synkro::ULong Timer::GetElapsedTicks( synkro::ULong& lastTime, synkro::Bool modify ) const
+SYNKRO_INLINE synkro::ULong Timer::GetElapsedTicks( synkro::ULong& lastTime, synkro::Bool modify ) const SYNKRO_NOEXCEPT
 {
 	synkro::ULong currentTime = GetTimeStamp();
 	const synkro::ULong ticks = currentTime - lastTime;
@@ -65,7 +65,7 @@ SYNKRO_INLINE synkro::ULong Timer::GetElapsedTicks( synkro::ULong& lastTime, syn
 	return ticks;
 }
 
-SYNKRO_INLINE synkro::ULong Timer::GetTimeStamp() const
+SYNKRO_INLINE synkro::ULong Timer::GetTimeStamp() const SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	static LARGE_INTEGER currentTime;
@@ -76,7 +76,7 @@ SYNKRO_INLINE synkro::ULong Timer::GetTimeStamp() const
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-SYNKRO_INLINE synkro::Double Timer::GetTicksPerSecond() const
+SYNKRO_INLINE synkro::Double Timer::GetTicksPerSecond() const SYNKRO_NOEXCEPT
 {
 	return _ticksPerSecond;
 }

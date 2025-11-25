@@ -51,13 +51,13 @@ public:
 	static const Matrix4x4									Identity;
 
 	/** Constructs a default matrix. */
-	Matrix4x4();
+	Matrix4x4() SYNKRO_NOEXCEPT;
 
 	/** Copy constructor. */
-	Matrix4x4( const Matrix4x4& other );
+	Matrix4x4( const Matrix4x4& other ) SYNKRO_NOEXCEPT;
 
 	/** Constructs identity matrix multiplied by value. */
-	explicit Matrix4x4( Float value );
+	explicit Matrix4x4( Float value ) SYNKRO_NOEXCEPT;
 
 	/** Constructs matrix from an array of 16 scalars. */
 	explicit Matrix4x4( Float* array );
@@ -66,61 +66,61 @@ public:
 	Matrix4x4( Float _00, Float _01, Float _02, Float _03,
 			   Float _10, Float _11, Float _12, Float _13,
 			   Float _20, Float _21, Float _22, Float _23,
-			   Float _30, Float _31, Float _32, Float _33 );
+			   Float _30, Float _31, Float _32, Float _33 ) SYNKRO_NOEXCEPT;
 
 	/** Sets matrix to identity. */
-	Matrix4x4&												MakeIdentity();
+	Matrix4x4&												MakeIdentity() SYNKRO_NOEXCEPT;
 
 	/** Sets matrix translation. */
-	Matrix4x4&												SetTranslation( const Vector3& translation );
+	Matrix4x4&												SetTranslation( const Vector3& translation ) SYNKRO_NOEXCEPT;
 
 	/** Produces matrix for rotation on 'angle' radians around given axis. */
-	Matrix4x4&												SetOrientation( const Vector3& axis, Float angle );
+	Matrix4x4&												SetOrientation( const Vector3& axis, Float angle ) SYNKRO_NOEXCEPT;
 
 	/** Produces matrix for rotation from given quaternion. */
-	Matrix4x4&												SetOrientation( const Quaternion& orientation );
+	Matrix4x4&												SetOrientation( const Quaternion& orientation ) SYNKRO_NOEXCEPT;
 
 	/** Sets matrix scale. */
-	Matrix4x4&												SetScale( const Vector3& scale );
+	Matrix4x4&												SetScale( const Vector3& scale ) SYNKRO_NOEXCEPT;
 
 	/** Scales matrix uniformly in all dimensions. */
-	Matrix4x4&												SetScale( Float scale );
+	Matrix4x4&												SetScale( Float scale ) SYNKRO_NOEXCEPT;
 
 	/** Produces perspective projection matrix. */
-	Matrix4x4&												SetPerspectiveProjection( Float horzFOV, Float aspect, Float front, Float back );
+	Matrix4x4&												SetPerspectiveProjection( Float horzFOV, Float aspect, Float front, Float back ) SYNKRO_NOEXCEPT;
 
 	/** Adjusts matrix orientation so that it looks at the specified point. */
-	Matrix4x4&												SetLookAt( const Vector3& target, const Vector3& eye, const Vector3& up );
+	Matrix4x4&												SetLookAt( const Vector3& target, const Vector3& eye, const Vector3& up ) SYNKRO_NOEXCEPT;
 
 	/** Adds another matrix to this one. */
-	Matrix4x4&												operator+=( const Matrix4x4& other );
+	Matrix4x4&												operator+=( const Matrix4x4& other ) SYNKRO_NOEXCEPT;
 
 	/** Subtracts another matrix from this one. */
-	Matrix4x4&												operator-=( const Matrix4x4& other );
+	Matrix4x4&												operator-=( const Matrix4x4& other ) SYNKRO_NOEXCEPT;
 
 	/** Multiplies matrix by another matrix. */
-	Matrix4x4&												operator*=( const Matrix4x4& other );
+	Matrix4x4&												operator*=( const Matrix4x4& other ) SYNKRO_NOEXCEPT;
 
 	/** Multiplies matrix by a scalar. */
-	Matrix4x4&												operator*=( Float value );
+	Matrix4x4&												operator*=( Float value ) SYNKRO_NOEXCEPT;
 
 	/** Divides matrix by a scalar. */
 	Matrix4x4&												operator/=( Float value );
 
 	/** Returns the sum of two matrices. */
-	Matrix4x4												operator+( const Matrix4x4& other ) const;
+	Matrix4x4												operator+( const Matrix4x4& other ) const SYNKRO_NOEXCEPT;
 
 	/** Returns the difference between two matrices. */
-	Matrix4x4												operator-( const Matrix4x4& other ) const;
+	Matrix4x4												operator-( const Matrix4x4& other ) const SYNKRO_NOEXCEPT;
 
 	/** Returns component-wise negation of this matrix. */
-	Matrix4x4												operator-() const;
+	Matrix4x4												operator-() const SYNKRO_NOEXCEPT;
 
 	/** Returns the product of two matrices. */
-	Matrix4x4												operator*( const Matrix4x4& other ) const;
+	Matrix4x4												operator*( const Matrix4x4& other ) const SYNKRO_NOEXCEPT;
 
 	/** Returns matrix multiplied by a scalar. */
-	Matrix4x4												operator*( Float value ) const;
+	Matrix4x4												operator*( Float value ) const SYNKRO_NOEXCEPT;
 
 	/** Returns matrix divided by a scalar. */
 	Matrix4x4												operator/( Float value ) const;
@@ -130,58 +130,58 @@ public:
 	 * @param vector Vector to be transformed.
 	 * @return Transformed vector.
 	 */
-	Vector3													operator*( const Vector3& vector ) const;
+	Vector3													operator*( const Vector3& vector ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests matrices for equality.
 	 * @param other Matrix to compare to.
 	 * @return true for equal matrices.
 	 */
-	Bool													operator==( const Matrix4x4& other ) const;
+	Bool													operator==( const Matrix4x4& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests matrices for inequality.
 	 * @param other Matrix to compare to.
 	 * @return true for unequal matrices.
 	 */
-	Bool													operator!=( const Matrix4x4& other ) const;
+	Bool													operator!=( const Matrix4x4& other ) const SYNKRO_NOEXCEPT;
 
 	/** Returns matrix determinant. */
-	Float													Determinant() const;
+	Float													Determinant() const SYNKRO_NOEXCEPT;
 
 	/** Returns inverted matrix. */
-	Matrix4x4												Inverse() const;
+	Matrix4x4												Inverse() const SYNKRO_NOEXCEPT;
 
 	/** Returns transposed matrix. */
-	Matrix4x4												Transpose() const;
+	Matrix4x4												Transpose() const SYNKRO_NOEXCEPT;
 
 	/** Returns matrix translation. */
-	Vector3													Translation() const;
+	Vector3													Translation() const SYNKRO_NOEXCEPT;
 
 	/** Returns matrix translation as a 4-component vector. */
-	Vector4													Translation4() const;
+	Vector4													Translation4() const SYNKRO_NOEXCEPT;
 
 	/** Returns matrix orientation. */
-	Quaternion												Orientation() const;
+	Quaternion												Orientation() const SYNKRO_NOEXCEPT;
 
 	/** Returns matrix scale. */
-	Vector3													Scale() const;
+	Vector3													Scale() const SYNKRO_NOEXCEPT;
 
 	/** Returns matrix orientation X axis. */
-	Vector3													Right() const;
+	Vector3													Right() const SYNKRO_NOEXCEPT;
 
 	/** Returns matrix orientation Y axis. */
-	Vector3													Up() const;
+	Vector3													Up() const SYNKRO_NOEXCEPT;
 
 	/** Returns matrix orientation Z axis. */
-	Vector3													Forward() const;
+	Vector3													Forward() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Rotates the specified vector.
 	 * @param vector Vector to be rotated.
 	 * @return Rotated vector.
 	 */
-	Vector3													Rotate( const Vector3& vector ) const;
+	Vector3													Rotate( const Vector3& vector ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Rotates the matrix around arbitrary axis.
@@ -189,44 +189,44 @@ public:
 	 * @param angle Angle, in radians, for which to rotate the matrix.
 	 * @return Rotated matrix.
 	 */
-	Matrix4x4												Rotate( const Vector3& axis, Float angle ) const;
+	Matrix4x4												Rotate( const Vector3& axis, Float angle ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Rotates the matrix using given quaternion.
 	 * @param orientation Quaternion used to rotate the matrix.
 	 * @return Rotated matrix.
 	 */
-	Matrix4x4												Rotate( const Quaternion& orientation ) const;
+	Matrix4x4												Rotate( const Quaternion& orientation ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Rotates the matrix around X-axis.
 	 * @param angle Angle, in radians, for which to rotate the matrix.
 	 * @return Rotated matrix.
 	 */
-	Matrix4x4												RotateX( Float angle ) const;
+	Matrix4x4												RotateX( Float angle ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Rotates the matrix around Y-axis.
 	 * @param angle Angle, in radians, for which to rotate the matrix.
 	 * @return Rotated matrix.
 	 */
-	Matrix4x4												RotateY( Float angle ) const;
+	Matrix4x4												RotateY( Float angle ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Rotates the matrix around Z-axis.
 	 * @param angle Angle, in radians, for which to rotate the matrix.
 	 * @return Rotated matrix.
 	 */
-	Matrix4x4												RotateZ( Float angle ) const;
+	Matrix4x4												RotateZ( Float angle ) const SYNKRO_NOEXCEPT;
 
 	/** Returns mirror matrix for X-axis. */
-	Matrix4x4												MirrorX() const;
+	Matrix4x4												MirrorX() const SYNKRO_NOEXCEPT;
 
 	/** Returns mirror matrix for Y-axis. */
-	Matrix4x4												MirrorY() const;
+	Matrix4x4												MirrorY() const SYNKRO_NOEXCEPT;
 
 	/** Returns mirror matrix for Z-axis. */
-	Matrix4x4												MirrorZ() const;
+	Matrix4x4												MirrorZ() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns perspective projection matrix.
@@ -235,7 +235,7 @@ public:
 	 * @param front Near view-plane.
 	 * @param back Far view-plane.
 	 */
-	Matrix4x4												PerspectiveProjection( Float horzFOV, Float aspect, Float front, Float back ) const;
+	Matrix4x4												PerspectiveProjection( Float horzFOV, Float aspect, Float front, Float back ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns matrix looking at the specified point.
@@ -243,13 +243,13 @@ public:
 	 * @param position Position from which to look.
 	 * @param up Vector pointing to the top.
 	 */
-	Matrix4x4												LookAt( const Vector3& target, const Vector3& position, const Vector3& up ) const;
+	Matrix4x4												LookAt( const Vector3& target, const Vector3& position, const Vector3& up ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests matrix for identity.
 	 * @return true for identity matrix, false otherwise.
 	 */
-	Bool													IsIdentity() const;
+	Bool													IsIdentity() const SYNKRO_NOEXCEPT;
 };
 
 

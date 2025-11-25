@@ -26,7 +26,7 @@ Char* WeekdaysShort[] = { L"Sun", L"Mon", L"Tue", L"Wed", L"Thu", L"Fri", L"Sat"
 Char* WeekdaysLong[] = { L"Sunday", L"Monday", L"Tuesday", L"Wednesday", L"Thursday", L"Friday", L"Saturday" };
 
 
-UInt StringToWeekdayShort( const Char* str )
+UInt StringToWeekdayShort( const Char* str ) SYNKRO_NOEXCEPT
 {
 	constexpr UInt count = SizeOf( WeekdaysShort );
 	for ( UInt i = 0; i < count; ++i )
@@ -37,7 +37,7 @@ UInt StringToWeekdayShort( const Char* str )
 	return none;
 }
 
-UInt StringToWeekdayLong( const Char* str )
+UInt StringToWeekdayLong( const Char* str ) SYNKRO_NOEXCEPT
 {
 	constexpr UInt count = SizeOf( WeekdaysLong );
 	for ( UInt i = 0; i < count; ++i )

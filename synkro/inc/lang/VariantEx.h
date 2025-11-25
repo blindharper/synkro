@@ -37,67 +37,67 @@ public:
 	 * @param name Variant name.
 	 * @param value Variant value.
 	 */
-	VariantEx( const String& name, Int value );
+	VariantEx( const String& name, Int value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates variant of type Integer.
 	 * @param name Variant name.
 	 * @param value Variant value.
 	 */
-	VariantEx( const String& name, UInt value );
+	VariantEx( const String& name, UInt value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates variant of type Float.
 	 * @param name Variant name.
 	 * @param value Variant value.
 	 */
-	VariantEx( const String& name, Float value );
+	VariantEx( const String& name, Float value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates variant of type String.
 	 * @param name Variant name.
 	 * @param value Variant value.
 	 */
-	VariantEx( const String& name, const String& value );
+	VariantEx( const String& name, const String& value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates variant of type String.
 	 * @param name Variant name.
 	 * @param value Variant value.
 	 */
-	VariantEx( const String& name, const Char* value );
+	VariantEx( const String& name, const Char* value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates variant of type DateTime.
 	 * @param name Variant name.
 	 * @param value Variant value.
 	 */
-	VariantEx( const String& name, const DateTime& value );
+	VariantEx( const String& name, const DateTime& value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates variant of type Blob.
 	 * @param name Variant name.
 	 * @param value Variant value.
 	 */
-	VariantEx( const String& name, io::IStream* value );
+	VariantEx( const String& name, io::IStream* value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates variant of type Blob.
 	 * @param name Variant name.
 	 * @param value Variant value.
 	 */
-	VariantEx( const String& name, const Byte* value, UInt size );
+	VariantEx( const String& name, const Byte* value, UInt size ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates NULL variant.
 	 * @param name Variant name.
 	 */
-	VariantEx( const String& name );
+	VariantEx( const String& name ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates nameless NULL variant.
 	 */
-	VariantEx();
+	VariantEx() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Variant name.
