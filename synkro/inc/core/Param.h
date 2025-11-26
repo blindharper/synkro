@@ -245,7 +245,7 @@ public:
 
 	//--------------------------------------------------------------------------
 
-	/** Creates configuration parameter with the specified properties. */
+	/** Creates configuration parameter with the given properties. */
 	Param( const lang::String& name, const ParamType type, const ParamConstraint constraints, const lang::String& defaultValue, const lang::String& data, const lang::String& description );
 	Param();
 	

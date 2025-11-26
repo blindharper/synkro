@@ -50,7 +50,7 @@ class SYNKRO_API Profiler
 {
 public:
 	/**
-	 * Loads and initializes the specified profiler module.
+	 * Loads and initializes the given profiler module.
 	 * @param filename Profiler module filename. If empty, there will be no profiler.
 	 * @param expand Indicates whether to force expanding collapsed blocks.
 	 */
@@ -62,7 +62,7 @@ public:
 	static void												Finalize();
 
 	/**
-	 * Begins profiling of the specified block of code.
+	 * Begins profiling of the given block of code.
 	 * @param name Name of the scope to profile.
 	 * @param collapse Indicates whether to profile nested blocks. If true, nested blocks are not profiled.
 	 */

@@ -36,7 +36,7 @@ iface IAudioPlayer :
 {
 public:
 	/**
-	 * Creates sound buffer of the specified duration.
+	 * Creates sound buffer of the given duration.
 	 * @param format Buffer format. Using format other than that of the player can lead to format conversion overhead.
 	 * @param length Buffer length, in seconds.
 	 * @param chunkCount Number of chunks to split the buffer into.
@@ -45,7 +45,7 @@ public:
 	virtual ISoundBuffer*									CreateSoundBuffer( const sound::SoundFormat& format, Double length, UInt chunkCount ) = 0;
 
 	/**
-	 * Creates sound emitter of the specified duration.
+	 * Creates sound emitter of the given duration.
 	 * @param format Buffer format. Using format other than that of the player can lead to format conversion overhead.
 	 * @param length Buffer length, in seconds.
 	 * @return Created emitter.

@@ -32,7 +32,7 @@ namespace audio
 class SYNKRO_API RecorderDesc
 {
 public:
-	/** Creates recorder description with the specified properties. */
+	/** Creates recorder description with the given properties. */
 	RecorderDesc( const lang::String& name, UInt channelCount );
 
 	/** Creates default recorder description. */

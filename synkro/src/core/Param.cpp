@@ -35,7 +35,7 @@
 #define SYNKRO_PARAM( PARAM, VALUE ) \
 		const Char* Param::PARAM = L##VALUE;
 
-// Defines configuration parameter with the specified name, type, label and description.
+// Defines configuration parameter with the given name, type, label and description.
 #define P1( PARAM, TYPE, DESCRIPTION ) \
 		  { Param::##PARAM, ParamType::##TYPE, ParamConstraint::None, L"", L"", L##DESCRIPTION },
 

@@ -38,7 +38,7 @@ class SYNKRO_API MemoryManager
 {
 public:
 	/**
-	 * Loads and initializes the specified memory manager module.
+	 * Loads and initializes the given memory manager module.
 	 * @param filename Memory manager module filename. If empty, there will be no memory manager.
 	 * @param showLines Indicates whether to gather statistics for particular lines.
 	 */

@@ -30,7 +30,7 @@ namespace gfx
 class BaseResource
 {
 public:
-	// Sets the specified collection as a resource's parent.
+	// Sets the given collection as a resource's parent.
 	virtual void											AddParent( ResourceSet* parent ) = 0;
 
 	// Removes previously set parent.

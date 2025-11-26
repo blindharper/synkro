@@ -1079,6 +1079,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\src\ui\EditStyleConst.h" />
     <ClInclude Include="..\..\..\src\ui\Frame.h" />
     <ClInclude Include="..\..\..\src\ui\FrameImpl.h" />
+    <ClInclude Include="..\..\..\src\ui\ThemeReader.h" />
     <ClInclude Include="..\..\..\src\ui\UiEvent.h" />
     <ClInclude Include="..\..\..\src\ui\UiEx.h" />
     <ClInclude Include="..\..\..\src\ui\UiReader.h" />

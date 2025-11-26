@@ -34,7 +34,7 @@ class SYNKRO_API BadArgumentException :
 {
 public:
 	/**
-	 * Creates exception with the specified attributes.
+	 * Creates exception with the given attributes.
 	 * @param message Error message.
 	 * @param argument Argument name.
 	 * @param value Argument value.
@@ -42,7 +42,7 @@ public:
 	BadArgumentException( const String& message, const String& argument, const String& value );
 
 	/**
-	 * Creates exception with the specified attributes.
+	 * Creates exception with the given attributes.
 	 * @param message Error message.
 	 * @param argument Argument name.
 	 */

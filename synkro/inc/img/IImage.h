@@ -100,7 +100,7 @@ public:
 	virtual Byte*											AddLevel( UInt width, UInt height, UInt stride, const Byte* data, UInt size ) = 0;
 
 	/**
-	 * Zeroes the opacity of the pixels having the specified color.
+	 * Zeroes the opacity of the pixels having the given color.
 	 * @param color Color denoting transparent pixels.
 	 * @exception InvalidOperationException Image is compressed or has no alpha channel.
 	 */
@@ -149,7 +149,7 @@ public:
 	/**
 	 * Retrieves particular element data.
 	 * @param element Image element index.
-	 * @return Data for the topmost level of the specified element.
+	 * @return Data for the topmost level of the given element.
 	 * @exception BadArgumentException Wrong level index.
 	 */
 	virtual Byte*											GetElement( UInt element ) const = 0;
@@ -169,7 +169,7 @@ public:
 	 * Retrieves mip level data.
 	 * @param element Image element index.
 	 * @param level Mip level index.
-	 * @return Data for the given level of the specified element.
+	 * @return Data for the given level of the given element.
 	 * @exception OutOfRangeException Index is out of range.
 	 */
 	virtual Byte*											GetLevel( UInt element, UInt level ) const = 0;
@@ -248,7 +248,7 @@ public:
 	virtual gfx::ICubeRenderTexture*						AsCubeRenderTexture() const = 0;
 
 	/**
-	 * Produces a copy of the image converted to the specified pixel format.
+	 * Produces a copy of the image converted to the given pixel format.
 	 */
 	virtual IImage*											Clone( const PixelFormat& format ) const = 0;
 

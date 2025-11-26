@@ -211,7 +211,7 @@ public:
 	static Float											Max( Float x, Float y ) SYNKRO_NOEXCEPT;
 
 	/**
-	 * Clamps the specified value to the given minimum and maximum range.
+	 * Clamps the given value to the given minimum and maximum range.
 	 */
 	static Float											Clamp( Float value, Float min, Float max ) SYNKRO_NOEXCEPT;
 };

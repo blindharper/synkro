@@ -41,7 +41,7 @@ public:
 	virtual Bool											Read() = 0;
 
 	/**
-	 * Retrieves the value of the specified column from the current record.
+	 * Retrieves the value of the given column from the current record.
 	 * @param column Column name.
 	 * @return Requested cell value.
 	 */

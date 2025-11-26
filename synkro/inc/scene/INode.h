@@ -161,7 +161,7 @@ public:
 	virtual void											SetPathPhase( Float phase ) = 0;
 
 	/**
-	 * Links node to specified parent node. To remove parent, pass null.
+	 * Links node to given parent node. To remove parent, pass nullptr.
 	 * @param parent Parent node.
 	 */
 	virtual void											SetParent( INode* parent ) = 0;

@@ -128,7 +128,7 @@ public:
 		return buf;
 	}
 
-	// Creates an instance of string of the specified capacity, or returns existing one.
+	// Creates an instance of string of the given capacity, or returns existing one.
 	static Impl* Create( const char* str )
 	{
 		// Do not allocate memory for empty strings.
@@ -146,7 +146,7 @@ public:
 		return impl;
 	}
 
-	// Creates an instance of string of the specified capacity, or returns existing one.
+	// Creates an instance of string of the given capacity, or returns existing one.
 	static Impl* Create( const Char* str )
 	{
 		// Do not allocate memory for empty strings.
@@ -181,7 +181,7 @@ SEMAPHORE_SIGNAL(_semaphore)
 		return &(*iter);
 	}
 
-	// Destroys specified string representation.
+	// Destroys given string representation.
 	static void Destroy( Impl* impl )
 	{
 		// Prevent removing strings from empty btree.

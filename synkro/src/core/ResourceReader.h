@@ -31,7 +31,7 @@ namespace core
 class ResourceReader
 {
 public:
-	// Creates resource reader from the specified stream directory.
+	// Creates resource reader from the given stream directory.
 	ResourceReader( io::IStreamDirectory* directory );
 
 	// Gets resource stream by resource name.

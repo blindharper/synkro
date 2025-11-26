@@ -36,7 +36,7 @@ iface IPrimitive :
 {
 public:
 	/**
-	 * Draws primitive the specified number of times.
+	 * Draws primitive the given number of times.
 	 * @param startElement Element at which to start drawing.
 	 * @param elementCount Number of elements to draw.
 	 * @param startInstance Instance at which to start drawing.

@@ -61,7 +61,7 @@ public:
 	virtual void											InsertItem( UInt index, const lang::String& text ) = 0;
 
 	/** 
-	 * Sets the text for the specified item.
+	 * Sets the text for the given item.
 	 * @param index Index of the item for which to set text.
 	 * @param text New item text.
 	 * @exception OutOfRangeException Index is out of range.
@@ -69,7 +69,7 @@ public:
 	virtual void											SetItemText( UInt index, const lang::String& text ) = 0;
 
 	/** 
-	 * Sets user-defined data for the specified item.
+	 * Sets user-defined data for the given item.
 	 * @param index Index of the item for which to set data.
 	 * @param data New item data.
 	 * @exception OutOfRangeException Index is out of range.
@@ -77,7 +77,7 @@ public:
 	virtual void											SetItemData( UInt index, Pointer data ) = 0;
 
 	/**
-	 * Selects the specified item.
+	 * Selects the given item.
 	 * @param index Index of the item to select. Set to none to remove selection.
 	 */
 	virtual void											SelectItem( UInt index ) = 0;
@@ -126,7 +126,7 @@ public:
 	virtual Pointer											GetItemData( UInt index ) const = 0;
 
 	/**
-	 * Retrieves the index of the item whose text starts with the specified text.
+	 * Retrieves the index of the item whose text starts with the given text.
 	 * @param text Text to search for.
 	 * @param index Index at which to start searching.
 	 * @return Index of the item, if found, or none otherwise.

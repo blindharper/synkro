@@ -34,7 +34,7 @@ class SYNKRO_API NullReferenceException :
 {
 public:
 	/**
-	 * Creates exception with the specified arguments.
+	 * Creates exception with the given arguments.
 	 * @param file File where null pointer is defined.
 	 * @param line Line number where null pointer is defined.
 	 */

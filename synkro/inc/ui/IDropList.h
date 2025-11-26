@@ -46,7 +46,7 @@ public:
 	virtual void											Highlight( Bool highlight ) = 0;
 
 	/**
-	 * Highlights the specified item.
+	 * Highlights the given item.
 	 * @param index Index of the item to highlight. Set to none to remove highlight.
 	 */
 	virtual void											HighlightItem( UInt index ) = 0;

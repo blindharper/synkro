@@ -42,14 +42,14 @@ public:
 	ConfigurationException( const lang::String& param, const ParamConstraint constraint );
 
 	/**
-	 * Creates an exception with the specified error message.
+	 * Creates an exception with the given error message.
 	 * @param message Error message.
 	 * @param param Parameter name.
 	 */
 	ConfigurationException( const lang::String& message, const lang::String& param );
 
 	/**
-	 * Creates an exception with the specified error message.
+	 * Creates an exception with the given error message.
 	 * @param message Error message.
 	 */
 	ConfigurationException( const lang::String& message );

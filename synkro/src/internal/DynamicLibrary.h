@@ -33,7 +33,7 @@ public:
 	// Indicates whether the library is loaded.
 	synkro::Bool											IsOpen() const SYNKRO_NOEXCEPT;
 
-	// Retrieves address of the specified symbol.
+	// Retrieves address of the given symbol.
 	void*													GetSymbol( const char* symbol ) const SYNKRO_NOEXCEPT;
 
 private:

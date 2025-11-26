@@ -34,7 +34,7 @@ class SYNKRO_API OutOfRangeException :
 {
 public:
 	/**
-	 * Creates exception with the specified attributes.
+	 * Creates exception with the given attributes.
 	 * @param index Actual index value.
 	 * @param maximum Maximum allowed index value.
 	 */

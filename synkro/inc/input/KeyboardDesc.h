@@ -35,7 +35,7 @@ public:
 	/** Creates default keyboard description. */
 	KeyboardDesc();
 
-	/** Creates keyboard description with the specified properties. */
+	/** Creates keyboard description with the given properties. */
 	KeyboardDesc( const lang::String& name, UInt keyCount );
 
 	/** User-friendly device name. */

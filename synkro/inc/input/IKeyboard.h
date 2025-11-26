@@ -53,7 +53,7 @@ public:
 	/**
 	 * Converts key scancode to a logical key.
 	 * @param code Key scancode.
-	 * @return Keyboard key corresponding to the specified scancode.
+	 * @return Keyboard key corresponding to the given scancode.
 	 */
 	virtual Key												ToKey( Byte code ) const = 0;
 
@@ -61,7 +61,7 @@ public:
 	 * Converts key scancode to a ASCII character.
 	 * @param code Key scancode.
 	 * @param shift Indicates whether the Shift key is pressed.
-	 * @return Character corresponding to the specified scancode.
+	 * @return Character corresponding to the given scancode.
 	 */
 	virtual char											ToChar( Byte code, Bool shift ) const = 0;
 

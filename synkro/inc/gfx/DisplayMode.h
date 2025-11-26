@@ -48,13 +48,13 @@ public:
 	/** Greatest display mode. */
 	static const DisplayMode								Maximum;
 
-	/** Creates display mode with the specified parameters. */
+	/** Creates display mode with the given parameters. */
 	DisplayMode( UInt width, UInt height, UInt depth, Bool fullscreen );
 
-	/** Creates display mode with the specified parameters. */
+	/** Creates display mode with the given parameters. */
 	DisplayMode( const lang::String& mode, Bool fullscreen );
 
-	/** Creates windowed display mode of the specified dimensions. */
+	/** Creates windowed display mode of the given dimensions. */
 	DisplayMode( UInt width, UInt height );
 
 	/** Creates default display mode. */

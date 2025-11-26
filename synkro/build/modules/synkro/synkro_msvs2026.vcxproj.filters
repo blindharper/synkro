@@ -1741,6 +1741,9 @@
     <Filter Include="core\Implementation\Configuration\Editor\Scene\Sierpinski">
       <UniqueIdentifier>{0323613a-c008-4d58-8590-cca7903680e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ui\Implementation\Theme\Reader">
+      <UniqueIdentifier>{5c080a89-9afc-4273-b7c8-218323b318e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\lang\Encoding.h">
@@ -5187,6 +5190,9 @@
     <ClInclude Include="..\..\..\src\core\ConfigurationScene\SierpinskiConfigurationScene.h">
       <Filter>core\Implementation\Configuration\Editor\Scene\Sierpinski</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\ui\ThemeReader.h">
+      <Filter>ui\Implementation\Theme\Reader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\src\lang\Stack.inl">
@@ -6328,9 +6334,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\input\Arcball.cpp">
       <Filter>input\Implementation\Device\Arcball</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\ui\ThemeReader.cpp">
-      <Filter>ui\Implementation\Theme</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\src\ui\ListItem.cpp">
       <Filter>ui\Implementation\Widget\List</Filter>
@@ -7629,6 +7632,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\core\ConfigurationScene\SierpinskiConfigurationScene.cpp">
       <Filter>core\Implementation\Configuration\Editor\Scene\Sierpinski</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\ui\ThemeReader.cpp">
+      <Filter>ui\Implementation\Theme\Reader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -47,7 +47,7 @@ class SYNKRO_API Enum
 {
 public:
 	/**
-	 * Creates a constant with the specified value.
+	 * Creates a constant with the given value.
 	 * @param value Constant value.
 	 */
 	Enum( UInt value );

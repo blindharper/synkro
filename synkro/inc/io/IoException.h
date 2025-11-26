@@ -34,7 +34,7 @@ class SYNKRO_API IoException :
 {
 public:
 	/**
-	* Creates exception with the specified error message.
+	* Creates exception with the given error message.
 	* @param message Error message.
 	*/
 	IoException( const lang::String& message );

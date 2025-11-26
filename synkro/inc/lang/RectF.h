@@ -134,21 +134,21 @@ public:
 	Bool													operator!=( const RectF& other ) const SYNKRO_NOEXCEPT;
 
 	/**
-	 * Checks whether the specified point is inside the rectangle borders.
+	 * Checks whether the given point is inside the rectangle borders.
 	 * @param point Point to test.
 	 * @return True if the point is inside the rectangle.
 	 */
 	Bool													IsInside( const PointF& point ) const SYNKRO_NOEXCEPT;
 
 	/**
-	 * Checks whether the specified point is outside the rectangle borders.
+	 * Checks whether the given point is outside the rectangle borders.
 	 * @param point Point to test.
 	 * @return True if the point is outside the rectangle.
 	 */
 	Bool													IsOutside( const PointF& point ) const SYNKRO_NOEXCEPT;
 
 	/**
-	 * Checks whether the specified point lays on the rectangle borders.
+	 * Checks whether the given point lays on the rectangle borders.
 	 * @param point Point to test.
 	 * @return True if the point lays on the rectangle borders.
 	 */

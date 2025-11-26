@@ -49,7 +49,7 @@ public:
 	// Constructs an empty hash set with the given capacity and load factor.
 	explicit Set( UInt initialCapacity, Float loadFactor, const A& alloc );
 
-	// Constructs an empty hash set with specified initial capacity, load factor and hash function.
+	// Constructs an empty hash set with the given initial capacity, load factor and hash function.
 	explicit Set( UInt initialCapacity, Float loadFactor, const F& hashFunc, const E& equalFunc, const A& alloc );
 
 	// Creates a copy of another set.
@@ -61,10 +61,10 @@ public:
 	// Creates a copy of another set.
 	Set<K,F,E,A>&											operator=( const Set<K,F,E,A>& other );
 
-	// Puts the specified key to the container.
+	// Puts the given key to the container.
 	void													Put( const K& key );
 
-	// Removes specified key. Does nothing if the key is not in the set.
+	// Removes the given key. Does nothing if the key is not in the set.
 	void													Remove( const K& key );
 
 	// Removes all keys from the container.

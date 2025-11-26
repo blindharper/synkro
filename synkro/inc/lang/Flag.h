@@ -50,32 +50,32 @@ class SYNKRO_API Flag :
 {
 public:
 	/**
-	 * Creates a constant with the specified value.
+	 * Creates a constant with the given value.
 	 * @param value Constant value.
 	 */
 	Flag( UInt value );
 
 	/**
-	 * Sets the specified bit flag.
+	 * Sets the given bit flag.
 	 * @param flag Flag to set.
 	 */
 	void													Set( const Flag& flag );
 
 	/**
-	 * Resets the specified bit flag.
+	 * Resets the given bit flag.
 	 * @param flag Flag to reset.
 	 */
 	void													Reset( const Flag& flag );
 
 	/**
-	 * Tests if the specified bit flag is set.
+	 * Tests if the given bit flag is set.
 	 * @param flag Flag to test.
 	 * @return True if the flag is set, false otherwise.
 	 */
 	Bool													IsSet( const Flag& flag ) const;
 
 	/**
-	 * Tests if the specified bit flag is not set.
+	 * Tests if the given bit flag is not set.
 	 * @param flag Flag to test.
 	 * @return True if the flag is not set, false otherwise.
 	 */

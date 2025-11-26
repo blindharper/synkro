@@ -53,16 +53,16 @@ public:
 	// Inserts element at the given position.
 	void													Insert( UInt index, const T& elem );
 
-	// Sets a set of elements from the specified buffer.
+	// Sets a set of elements from the given buffer.
 	void													Set( UInt start, const T* elems, UInt size );
 
-	// Swaps elements at the specified indices.
+	// Swaps elements at the given indices.
 	void													Swap( UInt first, UInt second );
 
-	// Removes an element at the specified index.
+	// Removes an element at the given index.
 	void													Remove( UInt index );
 
-	// Removes an element with the specified value.
+	// Removes an element with the given value.
 	void													Remove( const T& elem );
 
 	// Sets vector capacity to match its actual size.
@@ -114,10 +114,10 @@ public:
 	// Searches the element in the vector in reverse order starting with the last one.
 	UInt													LastIndexOf( const T& elem ) const;
 
-	// Returns true if the vector contains the specified element.
+	// Returns true if the vector contains the given element.
 	Bool													Contains( const T& elem ) const;
 
-	// Retrieves a set of elements to the specified buffer.
+	// Retrieves a set of elements to the given buffer.
 	void													Get( UInt start, T* elems, UInt size ) const;
 
 	// Retrieves vector capacity.

@@ -17,12 +17,8 @@
 #include "config.h"
 #include <io/XmlReader.h>
 #include <ui/Orientation.h>
-#include <lang/Vector.h>
-#include <lang/Map.h>
 #include <lang/Rect.h>
-#include <lang/Formatter.h>
 #include <lang/Parser.h>
-#include <img/Color.h>
 
 
 namespace synkro
@@ -70,7 +66,7 @@ public:
 		THEME_RECT_COUNT,
 	};
 
-	// Creates a theme reader from the specified stream directory.
+	// Creates a theme reader from the given stream directory.
 	ThemeReader( io::IStreamDirectory* directory );
 	
 	Bool													Read();
