@@ -39,10 +39,12 @@ public:
 
 		// Setup animations.
 		PtrNodeAnimationController ctrlMesh = _mesh->CreateAnimationController( nullptr, nullptr );
-		PtrWaveFloatTrack trackMesh = ctrlMesh->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
-		trackMesh->SetType( WaveType::SawtoothDown );
-		trackMesh->SetAmplitude( Math::TwoPi );
-		trackMesh->SetFrequency( 1.0f/Math::Pi );
+		PtrNoiseFloatTrack trackMeshYaw = ctrlMesh->CreateOrientationYawTrack( AnimationTrack::FloatNoise )->AsNoise();
+		trackMeshYaw->SetSeed( 200 );
+		PtrNoiseFloatTrack trackMeshPitch = ctrlMesh->CreateOrientationPitchTrack( AnimationTrack::FloatNoise )->AsNoise();
+		trackMeshPitch->SetSeed( 500 );
+		PtrNoiseFloatTrack trackMeshRoll = ctrlMesh->CreateOrientationRollTrack( AnimationTrack::FloatNoise )->AsNoise();
+		trackMeshRoll->SetSeed( 1000 );
 		ctrlMesh->SetMode( AnimationMode::Loop );
 		ctrlMesh->Start( true );
 
@@ -51,6 +53,8 @@ public:
 		trackMesh2->SetType( WaveType::SawtoothUp );
 		trackMesh2->SetAmplitude( Math::TwoPi );
 		trackMesh2->SetFrequency( 1.0f/Math::Pi );
+		PtrNoiseFloatTrack trackMesh2ScaleY = ctrlMesh2->CreateScaleYTrack( AnimationTrack::FloatNoise )->AsNoise();
+		trackMesh2ScaleY->SetSeed( 350 );
 		ctrlMesh2->SetMode( AnimationMode::Loop );
 		ctrlMesh2->Start( true );
 
