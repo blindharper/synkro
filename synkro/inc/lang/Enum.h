@@ -21,7 +21,7 @@
 // Begins enumeration value declaration.
 #define SYNKRO_ENUM_BEGIN( NAME )					\
 	class SYNKRO_API NAME : public synkro::lang::Enum		\
-	{ public: NAME( UInt value = 0 ) : Enum( value ) {} 
+	{ public: NAME( UInt value = 0 ) SYNKRO_NOEXCEPT : Enum( value ) {} 
 
 // Declares enumeration constant.
 #define SYNKRO_ENUM_CONST( NAME, CONST ) \
@@ -50,41 +50,41 @@ public:
 	 * Creates a constant with the given value.
 	 * @param value Constant value.
 	 */
-	Enum( UInt value );
+	Enum( UInt value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Creates a constant with default value.
 	 */
-	Enum();
+	Enum() SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two enumeration constants for equality.
 	 * @param other Constant to compare to.
 	 * @return True if the constants are equal, false otherwise.
 	 */
-	Bool													operator==( const Enum& other ) const;
+	Bool													operator==( const Enum& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests two enumeration constants for inequality.
 	 * @param other Constant to compare to.
 	 * @return True if the constants are unequal, false otherwise.
 	 */
-	Bool													operator!=( const Enum& other ) const;
+	Bool													operator!=( const Enum& other ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Calculates enumeration value hash code.
 	 */
-	Int														HashCode() const;
+	Int														HashCode() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Gets enumeration constant value.
 	 */
-	UInt													Value() const;
+	UInt													Value() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Casts enum to numeric value.
 	 */
-															operator UInt() const;
+															operator UInt() const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Calculates numeric value for the given enumeration constant.
@@ -92,7 +92,7 @@ public:
 	 * @param value String representation of an enumeration constant.
 	 * @return Enumeration constant value.
 	 */
-	static UInt												GetValue( const String& type, const String& value );
+	static UInt												GetValue( const String& type, const String& value ) SYNKRO_NOEXCEPT;
 
 protected:
 	UInt													_value;

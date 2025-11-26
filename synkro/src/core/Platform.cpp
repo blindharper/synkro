@@ -44,7 +44,7 @@ namespace core
 	const UInt Platform::ProcessorCount = 0;
 	static UInt _id = 0;
 
-void Platform::Error( const Char* message )
+void Platform::Error( const Char* message ) SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	::MessageBoxW( NULL, message, L"ERROR", MB_ICONERROR|MB_OK );
@@ -53,7 +53,7 @@ void Platform::Error( const Char* message )
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-Bool Platform::Question( const Char* title, const Char* question )
+Bool Platform::Question( const Char* title, const Char* question ) SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	return ::MessageBoxW( NULL, question, title, MB_ICONQUESTION|MB_YESNO ) == IDYES;
@@ -62,7 +62,7 @@ Bool Platform::Question( const Char* title, const Char* question )
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-void Platform::Sleep( UInt time )
+void Platform::Sleep( UInt time ) SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	::Sleep( time );
@@ -71,7 +71,7 @@ void Platform::Sleep( UInt time )
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-Int Platform::Increment( Int value )
+Int Platform::Increment( Int value ) SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	return ::InterlockedIncrement( (LONG*)&value );
@@ -80,7 +80,7 @@ Int Platform::Increment( Int value )
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-Int Platform::Decrement( Int value )
+Int Platform::Decrement( Int value ) SYNKRO_NOEXCEPT
 {
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	return ::InterlockedDecrement( (LONG*)&value );
@@ -89,7 +89,7 @@ Int Platform::Decrement( Int value )
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 }
 
-UInt Platform::NextID()
+UInt Platform::NextID() SYNKRO_NOEXCEPT
 {
 	return ++_id;
 }

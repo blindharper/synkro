@@ -44,7 +44,7 @@ static const String::Impl* EMPTY_IMPL = (const String::Impl*)0;
 
 
 // Tests if the string implementation is non-empty and non-null.
-SYNKRO_INLINE static Bool IsValid( String::Impl* impl )
+SYNKRO_INLINE static Bool IsValid( String::Impl* impl ) SYNKRO_NOEXCEPT
 {
 	return (impl != EMPTY_IMPL) && (impl != NULL_IMPL);
 }
@@ -66,6 +66,10 @@ public:
 
 	Impl::Impl() :
 		perm( false ),
+		refs( 0 ),
+		size( 0 ),
+		hash( 0 ),
+		hashCI( 0 ),
 		buffer( 0 )
 	{
 	}
@@ -170,7 +174,7 @@ SEMAPHORE_WAIT(_semaphore)
 		impl.refs	= 0;
 		impl.buffer	= const_cast<Char*>(str);
 
-		BtreeIterator<String::Impl> iter = _strings.Insert( impl );
+		const BtreeIterator<String::Impl> iter = _strings.Insert( impl );
 		impl.buffer = 0; // In order to prevent deleting buffer twice. (See ~Impl())
 
 		// Add reference.
@@ -192,7 +196,7 @@ SEMAPHORE_WAIT(_semaphore)
 
 		if ( IsValid(impl) )
 		{
-			BtreeIterator<String::Impl> iter = _strings.Find( *impl );
+			const BtreeIterator<String::Impl> iter = _strings.Find( *impl );
 			if ( iter.IsValid() )
 			{
 				(*iter).refs--;
@@ -1112,7 +1116,7 @@ Bool String::IsHexadecimal() const SYNKRO_NOEXCEPT
 		Bool valid = false;
 		for ( Byte b = 0; b < 16; ++b )
 		{
-			Char ch = _impl->buffer[i];
+			const Char ch = _impl->buffer[i];
 			if ( _wcsnicmp(&ch, &_hex[b], 1) == 0 )
 			{
 				valid = true;
@@ -1152,7 +1156,7 @@ UInt String::HashCode() const SYNKRO_NOEXCEPT
 
 Char String::operator[]( UInt index ) const
 {
-	UInt maximum = IsValid(_impl) ? _impl->size : 0;
+	const UInt maximum = IsValid(_impl) ? _impl->size : 0;
 	if ( index >= maximum )
 		throw OutOfRangeException( index, maximum );
 

@@ -11,30 +11,46 @@
 // Purpose: Implements formattable argument.
 //==============================================================================
 SYNKRO_INLINE Formattable::Formattable() SYNKRO_NOEXCEPT :
-	_type( VALUE_NONE )
+	_type( VALUE_NONE ),
+	_number( 0.0 ),
+	_ansi( nullptr ),
+	_unicode( nullptr ),
+	_dateTime( 0 )
 {
 }
 
 SYNKRO_INLINE Formattable::Formattable( Double value ) SYNKRO_NOEXCEPT :
 	_type( VALUE_NUMBER ),
-	_number( value )
+	_number( value ),
+	_ansi( nullptr ),
+	_unicode( nullptr ),
+	_dateTime( 0 )
 {
 }
 
 SYNKRO_INLINE Formattable::Formattable( const char* value ) SYNKRO_NOEXCEPT :
 	_type( VALUE_ANSI ),
-	_ansi( value )
+	_number( 0.0 ),
+	_ansi( value ),
+	_unicode( nullptr ),
+	_dateTime( 0 )
 {
 }
 
 SYNKRO_INLINE Formattable::Formattable( const Char* value ) SYNKRO_NOEXCEPT :
 	_type( VALUE_UNICODE ),
-	_unicode( value )
+	_number( 0.0 ),
+	_ansi( nullptr ),
+	_unicode( value ),
+	_dateTime( 0 )
 {
 }
 
 SYNKRO_INLINE Formattable::Formattable( const DateTime& value ) SYNKRO_NOEXCEPT :
 	_type( VALUE_DATETIME ),
+	_number( 0.0 ),
+	_ansi( nullptr ),
+	_unicode( nullptr ),
 	_dateTime( value )
 {
 }

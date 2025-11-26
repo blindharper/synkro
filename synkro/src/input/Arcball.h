@@ -78,6 +78,7 @@ private:
 		}
 
 		ZoomEvent() :
+			Delta( 0 ),
 			Handled( false )
 		{
 		}

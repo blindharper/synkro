@@ -21,9 +21,9 @@
 // Begins enumeration value declaration.
 #define SYNKRO_FLAG_BEGIN( NAME )					\
 	class SYNKRO_API NAME : public synkro::lang::Flag		\
-	{ public: NAME( UInt value = 0) : Flag( value ) {} \
-	SYNKRO_INLINE NAME& operator|=( const NAME& flag ) { _value |= flag._value; return *this; } \
-	SYNKRO_INLINE const NAME operator|( const NAME& flag ) const { return NAME( _value | flag._value ); }
+	{ public: NAME( UInt value = 0 ) SYNKRO_NOEXCEPT : Flag( value ) {} \
+	SYNKRO_INLINE NAME& operator|=( const NAME& flag ) SYNKRO_NOEXCEPT { _value |= flag._value; return *this; } \
+	SYNKRO_INLINE const NAME operator|( const NAME& flag ) const SYNKRO_NOEXCEPT { return NAME( _value | flag._value ); }
 
 // Declares enumeration constant.
 #define SYNKRO_FLAG_CONST( NAME, CONST ) \
@@ -53,39 +53,39 @@ public:
 	 * Creates a constant with the given value.
 	 * @param value Constant value.
 	 */
-	Flag( UInt value );
+	Flag( UInt value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Sets the given bit flag.
 	 * @param flag Flag to set.
 	 */
-	void													Set( const Flag& flag );
+	void													Set( const Flag& flag ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Resets the given bit flag.
 	 * @param flag Flag to reset.
 	 */
-	void													Reset( const Flag& flag );
+	void													Reset( const Flag& flag ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if the given bit flag is set.
 	 * @param flag Flag to test.
 	 * @return True if the flag is set, false otherwise.
 	 */
-	Bool													IsSet( const Flag& flag ) const;
+	Bool													IsSet( const Flag& flag ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Tests if the given bit flag is not set.
 	 * @param flag Flag to test.
 	 * @return True if the flag is not set, false otherwise.
 	 */
-	Bool													IsNotSet( const Flag& flag ) const;
+	Bool													IsNotSet( const Flag& flag ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns the number of set bits.
 	 * @return The number of set bits.
 	 */
-	UInt													Bits() const;
+	UInt													Bits() const SYNKRO_NOEXCEPT;
 };
 
 

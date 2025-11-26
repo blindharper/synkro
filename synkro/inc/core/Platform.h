@@ -55,7 +55,7 @@ public:
 	 * Displays an error message.
 	 * @param message Error message.
 	 */
-	static void												Error( const Char* message );
+	static void												Error( const Char* message ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Displays a Yes/No question.
@@ -63,28 +63,28 @@ public:
 	 * @param question Question text.
 	 * @return True, if the user hit Yes, false otherwise.
 	 */
-	static Bool												Question( const Char* title, const Char* question );
+	static Bool												Question( const Char* title, const Char* question ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Suspends the calling thread for the given amount of time.
 	 * @param time Sleep time, in milliseconds.
 	 */
-	static void												Sleep( UInt time );
+	static void												Sleep( UInt time ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns given value incremented by one. Increment is thread-safe.
 	 */
-	static Int												Increment( Int value );
+	static Int												Increment( Int value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns given value decremented by one. Decrement is thread-safe.
 	 */
-	static Int												Decrement( Int value );
+	static Int												Decrement( Int value ) SYNKRO_NOEXCEPT;
 
 	/**
 	 * Returns unique identifier.
 	 */
-	static UInt												NextID();
+	static UInt												NextID() SYNKRO_NOEXCEPT;
 };
 
 
