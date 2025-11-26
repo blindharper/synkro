@@ -13,7 +13,6 @@
 #include "config.h"
 #include "ThemeReader.h"
 #include <io/IStreamDirectory.h>
-#include <io/Path.h>
 
 
 //------------------------------------------------------------------------------

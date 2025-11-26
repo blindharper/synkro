@@ -96,7 +96,7 @@ public:
 	// Performs profiler initialization.
 	static void												Initialize( Bool expand );
 
-	// Begins profiling of the specified block of code.
+	// Begins profiling of the given block of code.
 	// @param name Name of the scope to profile.
 	static void												BeginProfile( const char* name, Bool collapse );
 

@@ -41,7 +41,7 @@ public:
 	virtual void											ListenPort( UShort port ) = 0;
 
 	/**
-	 * Creates peer with the specified port.
+	 * Creates peer with the given port.
 	 * @param port Peer's port.
 	 */
 	virtual INetworkPeer*									CreatePeer( UShort port ) = 0;

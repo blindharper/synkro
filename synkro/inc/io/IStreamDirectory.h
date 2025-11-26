@@ -76,7 +76,7 @@ public:
 	virtual IStream*										GetStream( const lang::String& name ) const = 0;
 
 	/**
-	 * Retrieves a set of streams matching the specified pattern.
+	 * Retrieves a set of streams matching the given pattern.
 	 * @param pattern Search pattern.
 	 * @return Stream set.
 	 */

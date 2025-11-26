@@ -43,7 +43,7 @@ iface IGraphicsDevice :
 {
 public:
 	/**
-	 * Creates rendering window based on the specified frame window.
+	 * Creates rendering window based on the given frame window.
 	 * @remarks Rendering window is a wrapper around frame window that owns frame buffers.
 	 * @param window Source window.
 	 * @param displayMode Window's display mode.
@@ -55,7 +55,7 @@ public:
 	virtual IFrameRenderWindow*								CreateRenderWindow( win::IFrameWindow* window, const DisplayMode& displayMode, Bool vsync, UInt sampleCount, UInt sampleQuality ) = 0;
 
 	/**
-	 * Creates rendering window based on the specified view window.
+	 * Creates rendering window based on the given view window.
 	 * @param window Source window.
 	 * @param format Window's pixel format.
 	 * @param vsync Specifies whether to synchronize presentation of a frame with the vertical blank.
@@ -137,7 +137,7 @@ public:
 	virtual ICubeDepthTexture*								CreateDepthTexture( UInt length, const img::PixelFormat& colorFormat, const DepthFormat& depthFormat, Bool stencil, UInt sampleCount, UInt sampleQuality ) = 0;
 
 	/**
-	 * Creates linear texture with the specified properties.
+	 * Creates linear texture with the given properties.
 	 * @param usage Data usage.
 	 * @param length Texture length.
 	 * @param format Pixel format.
@@ -182,7 +182,7 @@ public:
 	virtual IVolumeTexture*									CreateTexture( const DataUsage& usage, UInt width, UInt height, UInt depth, const img::PixelFormat& format, UInt levelCount ) = 0;
 
 	/**
-	 * Creates typed buffer with the specified properties.
+	 * Creates typed buffer with the given properties.
 	 * @param usage Data usage.
 	 * @param dataType Buffer data type.
 	 * @param count Number of elements in the array.
@@ -191,7 +191,7 @@ public:
 	virtual ITypedBuffer*									CreateTypedBuffer( const DataUsage& usage, const ProgramDataType& dataType, UInt count ) = 0;
 
 	/**
-	 * Creates structured buffer with the specified properties.
+	 * Creates structured buffer with the given properties.
 	 * @param usage Data usage.
 	 * @param stride Structure size, in bytes.
 	 * @param count Number of elements in the array.
@@ -242,7 +242,7 @@ public:
 	virtual IRect*											CreateScissorRect( Int left, Int top, Int right, Int bottom ) = 0;
 
 	/**
-	 * Tests if the device supports specified pixel format.
+	 * Tests if the device supports given pixel format.
 	 * @param format Pixel format to test.
 	 * @return True, if the device supports pixel format, false otherwise.
 	 */

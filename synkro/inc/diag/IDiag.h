@@ -36,7 +36,7 @@ iface IDiag :
 {
 public:
 	/**
-	 * Creates a log with the specified name or returns existing one.
+	 * Creates a log with the given name or returns existing one.
 	 * @param name Unique log name.
 	 * @param level Logging level.
 	 * @param mode Logging mode.

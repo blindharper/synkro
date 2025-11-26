@@ -27,19 +27,19 @@ public:
 	// Returns the time, in milliseconds, elapsed since last method call.
 	synkro::Double											GetElapsedMilliseconds() SYNKRO_NOEXCEPT;
 
-	// Returns the time, in milliseconds, elapsed since the specified timestamp.
+	// Returns the time, in milliseconds, elapsed since the given timestamp.
 	synkro::Double											GetElapsedMilliseconds( synkro::ULong& lastTime, synkro::Bool modify = true ) const SYNKRO_NOEXCEPT;
 
 	// Returns the time, in seconds, elapsed since last method call.
 	synkro::Double											GetElapsedSeconds() SYNKRO_NOEXCEPT;
 
-	// Returns the time, in seconds, elapsed since the specified timestamp.
+	// Returns the time, in seconds, elapsed since the given timestamp.
 	synkro::Double											GetElapsedSeconds( synkro::ULong& lastTime, synkro::Bool modify = true ) const SYNKRO_NOEXCEPT;
 
 	// Returns the time, in ticks, elapsed since last method call.
 	synkro::ULong											GetElapsedTicks() SYNKRO_NOEXCEPT;
 
-	// Returns the time, in ticks, elapsed since the specified timestamp.
+	// Returns the time, in ticks, elapsed since the given timestamp.
 	synkro::ULong											GetElapsedTicks( synkro::ULong& lastTime, synkro::Bool modify = true ) const SYNKRO_NOEXCEPT;
 
 	// Returns current time stamp.

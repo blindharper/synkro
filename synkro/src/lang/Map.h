@@ -50,7 +50,7 @@ public:
 	// Constructs an empty hash map with the given capacity and load factor.
 	explicit Map( UInt initialCapacity, Float loadFactor, const A& alloc );
 
-	// Constructs an empty hash map with specified initial capacity, load factor, default value and hash function.
+	// Constructs an empty hash map with the given initial capacity, load factor, default value and hash function.
 	explicit Map( UInt initialCapacity, Float loadFactor, const T& defaultValue, const F& hashFunc, const E& equalFunc, const A& alloc );
 
 	// Creates a copy of another map.
@@ -62,26 +62,26 @@ public:
 	// Creates a copy of another map.
 	Map<K,T,F,E,A>&											operator=( const Map<K,T,F,E,A>& other );
 
-	// Returns the value of specified key. Puts the key to the map if not exist.
+	// Returns the value of the given key. Puts the key to the map if not exist.
 	T&														operator[]( const K& key );
 
-	// Returns the value of specified key. 
+	// Returns the value of the given key. 
 	T&														Get( const K& key );
 
-	// Puts the value at specified key to the container. 
+	// Puts the value at the given key to the container. 
 	// If there is already old value with the same key it is overwritten.
 	void													Put( const K& key, const T& value );
 
-	// Removes value at specified key. Does nothing if the key is not in the map.
+	// Removes value at the given key. Does nothing if the key is not in the map.
 	void													Remove( const K& key );
 
 	// Removes all keys from the container.
 	void													Clear();
 
-	// Returns the value of specified key. Puts the key to the map if not exist.
+	// Returns the value of the given key. Puts the key to the map if not exist.
 	const T&												operator[]( const K& key ) const;
 
-	// Returns the value of specified key. Returns default value if the key is not in the map.
+	// Returns the value of the given key. Returns default value if the key is not in the map.
 	const T&												Get( const K& key ) const;
 
 	// Returns map load factor.

@@ -66,7 +66,7 @@ public:
 	static Bool												Question( const Char* title, const Char* question );
 
 	/**
-	 * Suspends the calling thread for the specified amount of time.
+	 * Suspends the calling thread for the given amount of time.
 	 * @param time Sleep time, in milliseconds.
 	 */
 	static void												Sleep( UInt time );

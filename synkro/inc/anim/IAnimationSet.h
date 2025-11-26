@@ -64,7 +64,7 @@ public:
 	 * Create animation and adds it to the collection. Created animation becomes active.
 	 * @param name Animation name.
 	 * @return Created animation.
-	 * @exception BadArgumentException Animation with the specified name already exists.
+	 * @exception BadArgumentException Animation with the given name already exists.
 	 */
 	virtual IAnimation*										CreateAnimation( const lang::String& name ) = 0;
 

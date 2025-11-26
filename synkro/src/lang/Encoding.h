@@ -59,7 +59,7 @@ public:
 	static Encoding*										Get( const char* name );
 
 protected:
-	// Copies the specified Unicode code point 
+	// Copies the given Unicode code point 
 	// to character array provided there's enough space.
 	// Returns the number of characters copied.
 	static UInt												CopyChar( Char* p, UInt len, UInt cp );

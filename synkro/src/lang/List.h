@@ -44,19 +44,19 @@ public:
 	// Creates a copy of another list.
 	List<T,A>&												operator=( const List<T,A>& other );
 
-	// Searches list for the given element starting at the specified position.
+	// Searches list for the given element starting at the given position.
 	ListIterator<T>											Find( const T& elem, const ListIterator<T>& it );
 
 	// Searches list for the given element starting at the beginning.
 	ListIterator<T>											Find( const T& elem );
 
-	// Searches list for the last occurence of given element starting at the specified position.
+	// Searches list for the last occurence of given element starting at the given position.
 	ListIterator<T>											FindLast( const T& elem, const ListIterator<T>& it );
 
 	// Searches list for the last occurence of given element starting at the end.
 	ListIterator<T>											FindLast( const T& elem );
 
-	// Inserts element into the list at the specified position.
+	// Inserts element into the list at the given position.
 	ListIterator<T>											Insert( const T& elem, const ListIterator<T>& it );
 
 	// Inserts element into the list at the beginning.

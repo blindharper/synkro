@@ -39,7 +39,7 @@ public:
 	 * Creates keyframed boolean track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 */
 	virtual IKeyframedBoolTrack*							CreateBoolTrack( const lang::String& name ) = 0;
 
@@ -48,7 +48,7 @@ public:
 	 * @param name Track name.
 	 * @param script Expression script.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
@@ -59,7 +59,7 @@ public:
 	 * @param name Track name.
 	 * @param expression Expression text.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionBoolTrack*							CreateBoolTrack( const lang::String& name, const lang::String& expression ) = 0;
@@ -68,7 +68,7 @@ public:
 	 * Creates keyframed color track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 */
 	virtual IKeyframedColorTrack*							CreateColorTrack( const lang::String& name ) = 0;
 
@@ -77,7 +77,7 @@ public:
 	 * @param name Track name.
 	 * @param script Expression script.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
@@ -88,7 +88,7 @@ public:
 	 * @param name Track name.
 	 * @param expression Expression text.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionColorTrack*							CreateColorTrack( const lang::String& name, const lang::String& expression ) = 0;
@@ -98,7 +98,7 @@ public:
 	 * @param name Track name.
 	 * @param type Track type.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Unknown track type.
 	 * @exception BadArgumentException Wrong track data type.
 	 */
@@ -108,7 +108,7 @@ public:
 	 * Creates keyframed color gradient track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 */
 	virtual IKeyframedColorGradientTrack*					CreateColorGradientTrack( const lang::String& name ) = 0;
 
@@ -117,7 +117,7 @@ public:
 	 * @param name Track name.
 	 * @param script Expression script.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
@@ -128,7 +128,7 @@ public:
 	 * @param name Track name.
 	 * @param expression Expression text.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionColorGradientTrack*					CreateColorGradientTrack( const lang::String& name, const lang::String& expression ) = 0;
@@ -137,7 +137,7 @@ public:
 	 * Creates keyframed floating-point track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 */
 	virtual IKeyframedFloatTrack*							CreateFloatTrack( const lang::String& name ) = 0;
 
@@ -146,7 +146,7 @@ public:
 	 * @param name Track name.
 	 * @param script Expression script.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
@@ -157,7 +157,7 @@ public:
 	 * @param name Track name.
 	 * @param expression Expression text.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionFloatTrack*							CreateFloatTrack( const lang::String& name, const lang::String& expression ) = 0;
@@ -167,7 +167,7 @@ public:
 	 * @param name Track name.
 	 * @param type Track type.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Unknown track type.
 	 * @exception BadArgumentException Wrong track data type.
 	 */
@@ -177,7 +177,7 @@ public:
 	 * Creates keyframed rectangle track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 */
 	virtual IKeyframedFloatRectTrack*						CreateFloatRectTrack( const lang::String& name ) = 0;
 
@@ -186,7 +186,7 @@ public:
 	 * @param name Track name.
 	 * @param script Expression script.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
@@ -197,7 +197,7 @@ public:
 	 * @param name Track name.
 	 * @param expression Expression text.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionFloatRectTrack*						CreateFloatRectTrack( const lang::String& name, const lang::String& expression ) = 0;
@@ -206,7 +206,7 @@ public:
 	 * Creates keyframed whole-number track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 */
 	virtual IKeyframedIntTrack*								CreateIntTrack( const lang::String& name ) = 0;
 
@@ -215,7 +215,7 @@ public:
 	 * @param name Track name.
 	 * @param script Expression script.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
@@ -226,7 +226,7 @@ public:
 	 * @param name Track name.
 	 * @param expression Expression text.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionIntTrack*							CreateIntTrack( const lang::String& name, const lang::String& expression ) = 0;
@@ -235,7 +235,7 @@ public:
 	 * Creates keyframed 4x4-matrix track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 */
 	virtual IKeyframedMatrix4x4Track*						CreateMatrix4x4Track( const lang::String& name ) = 0;
 
@@ -244,7 +244,7 @@ public:
 	 * @param name Track name.
 	 * @param script Expression script.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
@@ -255,7 +255,7 @@ public:
 	 * @param name Track name.
 	 * @param expression Expression text.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionMatrix4x4Track*						CreateMatrix4x4Track( const lang::String& name, const lang::String& expression ) = 0;
@@ -264,7 +264,7 @@ public:
 	 * Creates keyframed point track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 */
 	virtual IKeyframedPointTrack*							CreatePointTrack( const lang::String& name ) = 0;
 
@@ -273,7 +273,7 @@ public:
 	 * @param name Track name.
 	 * @param script Expression script.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
@@ -284,7 +284,7 @@ public:
 	 * @param name Track name.
 	 * @param expression Expression text.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionPointTrack*							CreatePointTrack( const lang::String& name, const lang::String& expression ) = 0;
@@ -293,7 +293,7 @@ public:
 	 * Creates keyframed quaternion track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 */
 	virtual IKeyframedQuaternionTrack*						CreateQuaternionTrack( const lang::String& name ) = 0;
 
@@ -302,7 +302,7 @@ public:
 	 * @param name Track name.
 	 * @param script Expression script.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
@@ -313,7 +313,7 @@ public:
 	 * @param name Track name.
 	 * @param expression Expression text.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionQuaternionTrack*						CreateQuaternionTrack( const lang::String& name, const lang::String& expression ) = 0;
@@ -322,7 +322,7 @@ public:
 	 * Creates keyframed range track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 */
 	virtual IKeyframedRangeTrack*							CreateRangeTrack( const lang::String& name ) = 0;
 
@@ -331,7 +331,7 @@ public:
 	 * @param name Track name.
 	 * @param script Expression script.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
@@ -342,7 +342,7 @@ public:
 	 * @param name Track name.
 	 * @param expression Expression text.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionRangeTrack*							CreateRangeTrack( const lang::String& name, const lang::String& expression ) = 0;
@@ -351,7 +351,7 @@ public:
 	 * Creates keyframed rectangle track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 */
 	virtual IKeyframedRectTrack*							CreateRectTrack( const lang::String& name ) = 0;
 
@@ -360,7 +360,7 @@ public:
 	 * @param name Track name.
 	 * @param script Expression script.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
@@ -371,7 +371,7 @@ public:
 	 * @param name Track name.
 	 * @param expression Expression text.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionRectTrack*							CreateRectTrack( const lang::String& name, const lang::String& expression ) = 0;
@@ -380,7 +380,7 @@ public:
 	 * Creates keyframed size track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 */
 	virtual IKeyframedSizeTrack*							CreateSizeTrack( const lang::String& name ) = 0;
 
@@ -389,7 +389,7 @@ public:
 	 * @param name Track name.
 	 * @param script Expression script.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
@@ -400,7 +400,7 @@ public:
 	 * @param name Track name.
 	 * @param expression Expression text.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionSizeTrack*							CreateSizeTrack( const lang::String& name, const lang::String& expression ) = 0;
@@ -409,7 +409,7 @@ public:
 	 * Creates keyframed empty 3-component vector track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 */
 	virtual IKeyframedVector3Track*							CreateVector3Track( const lang::String& name ) = 0;
 
@@ -418,7 +418,7 @@ public:
 	 * @param name Track name.
 	 * @param script Expression script.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Bad script.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
@@ -429,7 +429,7 @@ public:
 	 * @param name Track name.
 	 * @param expression Expression text.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionVector3Track*						CreateVector3Track( const lang::String& name, const lang::String& expression ) = 0;
@@ -439,7 +439,7 @@ public:
 	 * @param name Track name.
 	 * @param type Track type.
 	 * @return Created animation track.
-	 * @exception BadArgumentException Track with the specified name already exists.
+	 * @exception BadArgumentException Track with the given name already exists.
 	 * @exception BadArgumentException Unknown track type.
 	 * @exception BadArgumentException Wrong track data type.
 	 */

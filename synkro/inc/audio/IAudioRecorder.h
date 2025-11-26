@@ -36,7 +36,7 @@ iface IAudioRecorder :
 {
 public:
 	/**
-	 * Creates voice buffer of the specified duration.
+	 * Creates voice buffer of the given duration.
 	 * @param format Buffer format.
 	 * @param length Buffer length, in seconds.
 	 * @param chunkCount Number of chunks to split the buffer into.

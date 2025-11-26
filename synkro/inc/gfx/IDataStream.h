@@ -36,7 +36,7 @@ iface IDataStream :
 {
 public:
 	/**
-	 * Opens stream with the specified access type.
+	 * Opens stream with the given access type.
 	 * @param mode Stream open mode.
 	 * @return True, if stream was successfully opened, false otherwise.
 	 */

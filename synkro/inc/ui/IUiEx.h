@@ -53,7 +53,7 @@ public:
 	virtual void											Listen( UiListener* listener ) = 0;
 
 	/**
-	 * Applies the specified theme to all widgets.
+	 * Applies the given theme to all widgets.
 	 * @param theme Theme to apply.
 	 */
 	virtual void											SetThemeName( const ThemeName& theme ) = 0;

@@ -37,7 +37,7 @@
 class SYNKRO_API Logger
 {
 public:
-	// Binds logger to the specified log.
+	// Binds logger to the given log.
 	Logger( synkro::diag::ILog* log, const synkro::diag::LogFacility& facility );
 
 	void													InfoStart( const synkro::diag::MessagePriority& priority, const synkro::lang::String& text ) const;

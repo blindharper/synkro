@@ -32,7 +32,7 @@ namespace audio
 class SYNKRO_API PlayerDesc
 {
 public:
-	/** Creates player description with the specified properties. */
+	/** Creates player description with the given properties. */
 	PlayerDesc( const lang::String& name, const sound::SoundFormat& format, UInt memorySize );
 
 	/** Creates default player description. */

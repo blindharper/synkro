@@ -34,7 +34,7 @@ class SYNKRO_API NotSupportedException :
 {
 public:
 	/**
-	 * Creates exception with the specified error message.
+	 * Creates exception with the given error message.
 	 * @param message Error message.
 	 */
 	NotSupportedException( const String& message );

@@ -38,10 +38,10 @@ public:
 	// Destroys the set.
 	~SetEx();
 
-	// Puts the specified key to the container. 
+	// Puts the given key to the container. 
 	void													Put( const K& key );
 
-	// Removes specified key. Does nothing if the key is not in the set.
+	// Removes the given key. Does nothing if the key is not in the set.
 	void													Remove( const K& key );
 
 	// Removes all keys from the container.

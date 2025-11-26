@@ -37,7 +37,7 @@ public:
 	static const DateTime									Invalid;
 
 	/**
-	 * Creates date with the specified year, month, day and time.
+	 * Creates date with the given year, month, day and time.
 	 * @param year Year component of the date.
 	 * @param month Month component of the date.
 	 * @param day Day component of the date.
@@ -49,7 +49,7 @@ public:
 	DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute, UShort second, UShort millisecond ) SYNKRO_NOEXCEPT;
 
 	/**
-	 * Creates date with the specified year, month, day and time.
+	 * Creates date with the given year, month, day and time.
 	 * @param year Year component of the date.
 	 * @param month Month component of the date.
 	 * @param day Day component of the date.
@@ -60,7 +60,7 @@ public:
 	DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute, UShort second ) SYNKRO_NOEXCEPT;
 
 	/**
-	 * Creates date with the specified year, month, day and time.
+	 * Creates date with the given year, month, day and time.
 	 * @param year Year component of the date.
 	 * @param month Month component of the date.
 	 * @param day Day component of the date.
@@ -70,7 +70,7 @@ public:
 	DateTime( UShort year, UShort month, UShort day, UShort hour, UShort minute ) SYNKRO_NOEXCEPT;
 
 	/**
-	 * Creates date with the specified year, month, day and time.
+	 * Creates date with the given year, month, day and time.
 	 * @param year Year component of the date.
 	 * @param month Month component of the date.
 	 * @param day Day component of the date.
@@ -79,7 +79,7 @@ public:
 	DateTime( UShort year, UShort month, UShort day, UShort hour ) SYNKRO_NOEXCEPT;
 
 	/**
-	 * Creates date with the specified year, month and day.
+	 * Creates date with the given year, month and day.
 	 * @param year Year component of the date.
 	 * @param month Month component of the date.
 	 * @param day Day component of the date.

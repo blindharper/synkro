@@ -46,7 +46,7 @@ public:
 	virtual void											ClearCache() = 0;
 
 	/**
-	 * Creates an empty image of the specified pixel format.
+	 * Creates an empty image of the given pixel format.
 	 * @param format Image pixel format.
 	 * @return Created image if succeeded, or nullptr otherwise.
 	 */

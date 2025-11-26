@@ -35,7 +35,7 @@ iface INetworkPeer :
 {
 public:
 	/**
-	 * Sends a message to the specified peer.
+	 * Sends a message to the given peer.
 	 * @param peer Peer to send message to.
 	 * @param message Network message.
 	 * @param size message size, in bytes.

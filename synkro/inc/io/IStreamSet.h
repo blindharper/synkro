@@ -39,7 +39,7 @@ public:
 	virtual void											Clear() = 0;
 
 	/**
-	 * Adds the specified stream to the set.
+	 * Adds the given stream to the set.
 	 * @param stream Stream to add.
 	 * @exception BadArgumentException Stream is null.
 	 */
@@ -59,9 +59,9 @@ public:
 	virtual IStream*										Get( UInt index ) const = 0;
 
 	/**
-	 * Retrieves the index of the specified stream.
+	 * Retrieves the index of the given stream.
 	 * @param stream Stream to look for.
-	 * @return Non-negative index of the specified stream if one is found, or none otherwise.
+	 * @return Non-negative index of the given stream if one is found, or none otherwise.
 	 */
 	virtual UInt											IndexOf( IStream* stream ) const = 0;
 };

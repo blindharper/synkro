@@ -62,7 +62,7 @@ public:
 	virtual IFrame*											GetPanel( UInt index ) const = 0;
 
 	/** 
-	 * Retrieves the text of the specified panel.
+	 * Retrieves the text of the given panel.
 	 * @param index Panel index.
 	 * @exception OutOfRangeException Index is out of range.
 	 * @return Panel text.

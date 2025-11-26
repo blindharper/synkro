@@ -34,7 +34,7 @@ public:
 	/** Creates default device description. */
 	NetworkDeviceDesc();
 
-	/** Creates device description with the specified address. */
+	/** Creates device description with the given address. */
 	NetworkDeviceDesc( UInt address );
 
 	/** Device IP address. */

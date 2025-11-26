@@ -89,7 +89,7 @@ public:
 	/** Produces perspective projection matrix. */
 	Matrix4x4&												SetPerspectiveProjection( Float horzFOV, Float aspect, Float front, Float back ) SYNKRO_NOEXCEPT;
 
-	/** Adjusts matrix orientation so that it looks at the specified point. */
+	/** Adjusts matrix orientation so that it looks at the given point. */
 	Matrix4x4&												SetLookAt( const Vector3& target, const Vector3& eye, const Vector3& up ) SYNKRO_NOEXCEPT;
 
 	/** Adds another matrix to this one. */
@@ -126,7 +126,7 @@ public:
 	Matrix4x4												operator/( Float value ) const;
 
 	/**
-	 * Applies matrix transformation to the specified vector.
+	 * Applies matrix transformation to the given vector.
 	 * @param vector Vector to be transformed.
 	 * @return Transformed vector.
 	 */
@@ -177,7 +177,7 @@ public:
 	Vector3													Forward() const SYNKRO_NOEXCEPT;
 
 	/**
-	 * Rotates the specified vector.
+	 * Rotates the given vector.
 	 * @param vector Vector to be rotated.
 	 * @return Rotated vector.
 	 */
@@ -238,7 +238,7 @@ public:
 	Matrix4x4												PerspectiveProjection( Float horzFOV, Float aspect, Float front, Float back ) const SYNKRO_NOEXCEPT;
 
 	/**
-	 * Returns matrix looking at the specified point.
+	 * Returns matrix looking at the given point.
 	 * @param target Point at which to look.
 	 * @param position Position from which to look.
 	 * @param up Vector pointing to the top.

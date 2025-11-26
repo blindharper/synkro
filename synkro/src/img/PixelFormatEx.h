@@ -46,7 +46,7 @@ public:
 	// @exception BadArgumentException Unknown pixel format.
 	static void												SetAlpha( Byte* data, const PixelFormat& format, UInt width, UInt height, UInt stride, const Byte* alpha, UInt strideAlpha );
 
-	// Sets the value of alpha channel for the pixels with the specified color.
+	// Sets the value of alpha channel for the pixels with the given color.
 	// @param data Image data.
 	// @param format Image pixel format.
 	// @param width Image width.
@@ -58,7 +58,7 @@ public:
 	// @exception BadArgumentException Unknown pixel format.
 	static void												SetAlpha( Byte* data, const PixelFormat& format, UInt width, UInt height, UInt stride, const Color& color, Byte alpha );
 
-	// Sets color value of the specified image pixel.
+	// Sets color value of the given image pixel.
 	// @param data Image data.
 	// @param format Image pixel format.
 	// @param width Image width.
@@ -71,7 +71,7 @@ public:
 	// @exception BadArgumentException Invalid pixel coordinate.
 	static void												SetPixel( Byte* data, const PixelFormat& format, UInt width, UInt height, UInt stride, UInt x, UInt y, const Color& color );
 
-	// Retrieves color value of the specified image pixel.
+	// Retrieves color value of the given image pixel.
 	// @param data Image data.
 	// @param format Image pixel format.
 	// @param width Image width.
@@ -85,7 +85,7 @@ public:
 	// @exception BadArgumentException Invalid pixel coordinate.
 	static Color											GetPixel( const Byte* data, const PixelFormat& format, UInt width, UInt height, UInt stride, UInt x, UInt y );
 
-	// Copies an array of pixels to the specified memory block.
+	// Copies an array of pixels to the given memory block.
 	// @param dst Destination memory block.
 	// @param dstFormat Destination pixel format.
 	// @param src Source memory block.

@@ -35,7 +35,7 @@ public:
 	/** Creates default mouse description. */
 	MouseDesc();
 
-	/** Creates mouse description with the specified properties. */
+	/** Creates mouse description with the given properties. */
 	MouseDesc( const lang::String& name, UInt axisCount, UInt buttonCount );
 
 	/** User-friendly device name. */

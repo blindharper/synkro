@@ -51,7 +51,7 @@ public:
 	virtual IFrameWindow*									CreateWindow( Bool popup, Bool sizeable, const lang::String& title, UInt icon, UInt width, UInt height ) = 0;
 
 	/**
-	 * Creates frame window in the specified monitor.
+	 * Creates frame window in the given monitor.
 	 * @param monitor Monitor containing the window.
 	 * @exception Exception Failed to create window.
 	 */

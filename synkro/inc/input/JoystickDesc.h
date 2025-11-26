@@ -35,7 +35,7 @@ public:
 	/** Creates default joystick description. */
 	JoystickDesc();
 
-	/** Creates joystick description with the specified properties. */
+	/** Creates joystick description with the given properties. */
 	JoystickDesc( const lang::String& name, UInt axisCount, UInt buttonCount, Bool forceFeedback );
 
 	/** User-friendly device name. */

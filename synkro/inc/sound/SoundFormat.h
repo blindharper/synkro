@@ -59,7 +59,7 @@ public:
 	SoundFormat( UInt samplesPerSecond, UInt bitsPerSample, const SoundChannel& channels, UInt channelCount );
 
 	/**
-	 * Creates sound format with the specified channel mapping. The number of channels is derived from channel mapping.
+	 * Creates sound format with the given channel mapping. The number of channels is derived from channel mapping.
 	 * @param samplesPerSecond Sample rate, in Hertz.
 	 * @param bitsPerSample Bitrate.
 	 * @param channels Channel mapping.

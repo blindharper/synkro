@@ -81,7 +81,7 @@ public:
 	virtual IText*											CreateText( const img::Color& color, const lang::Point& location, const lang::String& text ) = 0;
 
 	/**
-	 * Calculates the dimensions of the specified text.
+	 * Calculates the dimensions of the given text.
 	 * @param text Text to calculate the dimensions for.
 	 * @param [out] size Text dimensions.
 	 */

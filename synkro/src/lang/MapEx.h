@@ -38,26 +38,26 @@ public:
 	// Destroys the map.
 	~MapEx();
 
-	// Returns the value of specified key. Puts the key to the map if not exist.
+	// Returns the value of the given key. Puts the key to the map if not exist.
 	T&														operator[]( const K& key );
 
-	// Returns the value of specified key. 
+	// Returns the value of the given key. 
 	T&														Get( const K& key );
 
-	// Puts the value at specified key to the container. 
+	// Puts the value at the given key to the container. 
 	// If there is already old value with the same key it is overwritten.
 	void													Put( const K& key, const T& value );
 
-	// Removes value at specified key. Does nothing if the key is not in the map.
+	// Removes value at the given key. Does nothing if the key is not in the map.
 	void													Remove( const K& key );
 
 	// Removes all keys from the container.
 	void													Clear();
 
-	// Returns the value of specified key. Puts the key to the map if not exist.
+	// Returns the value of the given key. Puts the key to the map if not exist.
 	const T&												operator[]( const K& key ) const;
 
-	// Returns the value of specified key. Returns default value if the key is not in the map.
+	// Returns the value of the given key. Returns default value if the key is not in the map.
 	const T&												Get( const K& key ) const;
 
 	// Returns map load factor.

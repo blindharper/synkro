@@ -85,10 +85,10 @@ public:
 	// Creates an absolute path from a relative path and a base path.
 	static lang::String										MakeAbsolute( const lang::String& base, const lang::String& path );
 
-	// Retrieves the list of directories under the specified path.
+	// Retrieves the list of directories under the given path.
 	static UInt												GetDirs( const lang::String& path, lang::Vector<lang::String>* dirs );
 
-	// Retrieves the list of files under the specified path.
+	// Retrieves the list of files under the given path.
 	static UInt												GetFiles( const lang::String& path, const lang::String& mask, lang::Vector<lang::String>* files );
 
 protected:

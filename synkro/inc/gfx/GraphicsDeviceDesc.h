@@ -35,7 +35,7 @@ public:
 	/** Creates default device description. */
 	GraphicsDeviceDesc();
 
-	/** Creates device description with the specified properties. */
+	/** Creates device description with the given properties. */
 	GraphicsDeviceDesc( const lang::String& name, const GraphicsDeviceType& type );
 
 	/** User-friendly device name. */

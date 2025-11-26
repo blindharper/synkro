@@ -32,10 +32,10 @@ namespace ui
 class SYNKRO_API ListItem
 {
 public:
-	/** Creates a list item with the specified properties. */
+	/** Creates a list item with the given properties. */
 	ListItem( const lang::String& text, Pointer data );
 
-	/** Creates a list item with the specified text. */
+	/** Creates a list item with the given text. */
 	ListItem( const lang::String& text );
 
 	/** Creates default list item. */

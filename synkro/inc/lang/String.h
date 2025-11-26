@@ -429,14 +429,14 @@ public:
 	 * Retrieves an entry by index from the string treated as 'delim'-delimited list.
 	 * @param index Index of the entry to return.
 	 * @param delim Delimiter character.
-	 * @return Specified entry.
+	 * @return Requested entry.
 	 */
 	String													Entry( UInt index, Char delim ) const SYNKRO_NOEXCEPT;
 
 	/**
 	 * Retrieves an entry by index from the string treated as comma-delimited list.
 	 * @param index Index of the entry to return.
-	 * @return Specified entry.
+	 * @return Requested entry.
 	 */
 	String													Entry( UInt index ) const SYNKRO_NOEXCEPT;
 

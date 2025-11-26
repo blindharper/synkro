@@ -59,7 +59,7 @@ public:
 	// Returns all-time number of memory blocks allocated to all groups.
 	static UInt												BlocksTotal();
 
-	// Creates new memory group with the specified name.
+	// Creates new memory group with the given name.
 	// param name Memory group name.
 	// return Created memory group.
 	static void*											GroupCreate( const char* name );

@@ -44,16 +44,16 @@ public:
 	// Creates a copy of another tree.
 	Tree<T,A>&												operator=( const Tree<T,A>& other );
 
-	// Searches tree item children for the specified element.
+	// Searches tree item children for the given element.
 	TreeIterator<T>											Find( const TreeIterator<T>& item, const T& elem, Bool recurse );
 
-	// Searches tree item children for the specified element.
+	// Searches tree item children for the given element.
 	TreeIterator<T>											Find( const TreeIterator<T>& item, const T& elem );
 
-	// Searches tree item children for the specified element.
+	// Searches tree item children for the given element.
 	TreeIterator<T>											Find( const T& elem, Bool recurse );
 
-	// Searches tree item children for the specified element.
+	// Searches tree item children for the given element.
 	TreeIterator<T>											Find( const T& elem );
 
 	// Adds an element as item child.

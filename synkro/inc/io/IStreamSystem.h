@@ -38,7 +38,7 @@ iface IStreamSystem :
 {
 public:
 	/**
-	 * Creates directory from the specified path and adds all its subdirectories to stream system.
+	 * Creates directory from the given path and adds all its subdirectories to stream system.
 	 * @param path Path to map as a trunk directory.
 	 * @param recursive Indicates whether to map all indirect subdirectories.
 	 * @return Created directory, if path exists, or null otherwise.

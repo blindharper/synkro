@@ -37,7 +37,7 @@ iface IStream :
 {
 public:
 	/**
-	 * Opens stream with the specified access type.
+	 * Opens stream with the given access type.
 	 * @param mode Stream open mode.
 	 */
 	virtual void											Open( const OpenMode& mode ) = 0;

@@ -33,7 +33,7 @@ public:
 	// Constuctor.
 	Mask( const String& pattern );
 
-	// Tests if the specified text matches mask pattern.
+	// Tests if the given text matches mask pattern.
 	Bool													Matches( const String& text ) const;
 
 private:
