@@ -76,6 +76,7 @@
 #define PtrKeyframedRangeTrack P(synkro::anim::IKeyframedRangeTrack)
 #define PtrKeyframedRectTrack P(synkro::anim::IKeyframedRectTrack)
 #define PtrKeyframedVector3Track P(synkro::anim::IKeyframedVector3Track)
+#define PtrNoiseFloatTrack P(synkro::anim::INoiseFloatTrack)
 #define PtrWaveFloatTrack P(synkro::anim::IWaveFloatTrack)
 
 
