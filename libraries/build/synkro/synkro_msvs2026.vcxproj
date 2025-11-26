@@ -1,0 +1,2452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug_static|x64">
+      <Configuration>debug_static</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="perf_static|x64">
+      <Configuration>perf_static</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="perf|x64">
+      <Configuration>perf</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release_static|x64">
+      <Configuration>release_static</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>synkro</ProjectName>
+    <ProjectGuid>{E28EF5AA-43DF-4C6D-B372-C03CA9630D58}</ProjectGuid>
+    <RootNamespace>synkro</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</GenerateManifest>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">false</LinkIncremental>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='perf|x64'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='debug|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='perf|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='perf|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='perf|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='release|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">synkro_debug</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">synkro_debug</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">synkro_perf</TargetName>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='debug|x64'">../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">synkro_perf</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
+    <OutDir>../../../synkro/bin/win64/</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'">
+    <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
+    <OutDir>../../../synkro/bin/win64/</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <OutDir>../../../synkro/bin/win64/</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|Win32'">
+    <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">
+    <OutDir>../../../synkro/lib/win64\</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+    <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">
+    <OutDir>../../../synkro/lib/win64\</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+    <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">
+    <OutDir>../../../synkro/lib/win64\</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+    <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/src;../../../synkro/src/internal;../../../external/src;../../../synkro/inc;../../src/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;UNICODE;_DEBUG;_WINDOWS;_USRDLL;SYNKRO_EXPORTS;SYNKRO_PERF;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)synkro_debug.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../external/lib/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalManifestDependencies>%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)synkro_debug.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../src/synkro/synkro_x64.dll.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>del "$(OutDir)$(TargetName).exp"
+del "$(OutDir)$(TargetName).ilk"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/src;../../../synkro/src/internal;../../../external/src;../../../synkro/inc;../../src/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;_DEBUG;_WINDOWS;SYNKRO_EXPORTS;SYNKRO_PERF;SYNKRO_STATIC;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)synkro_debug.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../synkro/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalManifestDependencies>%(AdditionalManifestDependencies)</AdditionalManifestDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)synkro_debug.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../src/synkro/synkro_x64.dll.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/src;../../../synkro/src/internal;../../../external/src;../../../synkro/inc;../../src/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;UNICODE;NDEBUG;_WINDOWS;_USRDLL;SYNKRO_EXPORTS;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../external/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../src/synkro/synkro_x64.dll.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>del "$(OutDir)$(TargetName).exp"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/src;../../../synkro/src/internal;../../../external/src;../../../synkro/inc;../../src/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;NDEBUG;_WINDOWS;SYNKRO_EXPORTS;SYNKRO_STATIC;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../synkro/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../src/synkro/synkro_x64.dll.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/src;../../../synkro/src/internal;../../../external/src;../../../synkro/inc;../../src/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;NDEBUG;_WINDOWS;SYNKRO_EXPORTS;SYNKRO_STATIC;SYNKRO_PERF;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../synkro/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../src/synkro/synkro_x64.dll.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/src;../../../synkro/src/internal;../../../external/src;../../../synkro/inc;../../src/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;NDEBUG;_WINDOWS;_USRDLL;SYNKRO_EXPORTS;SYNKRO_PERF;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>comctl32.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)synkro_perf.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../external/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+    <Manifest>
+      <AdditionalManifestFiles>../../src/synkro/synkro_x64.dll.manifest;%(AdditionalManifestFiles)</AdditionalManifestFiles>
+    </Manifest>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>del "$(OutDir)$(TargetName).exp"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\synkro\inc\anim\AnimationCodec.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\AnimationDataType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\AnimationDirection.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\AnimationListener.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\ExpressionException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\ExpressionParam.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationBoolTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationCodec.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationCodecFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationColorGradientTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationColorTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationFloatRectTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationFloatTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationIntTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationMatrix4x4Track.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationPointTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationQuaternionTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationRangeTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationRectTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationSet.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationSizeTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationVector3Track.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionBoolTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionColorGradientTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionColorTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionFloatRectTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionFloatTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionIntTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionMatrix4x4Track.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionPointTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionQuaternionTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionRangeTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionRectTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionScript.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionSizeTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IExpressionVector3Track.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedBoolTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedColorGradientTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedColorTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedFloatRectTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedFloatTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedIntTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedMatrix4x4Track.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedPointTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedQuaternionTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedRangeTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedRectTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedSizeTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedVector3Track.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\INoiseFloatTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\Interpolation.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IPlaybackAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralBoolTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralColorGradientTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralColorTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralFloatRectTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralFloatTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralIntTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralMatrix4x4Track.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralPointTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralQuaternionTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralRangeTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralRectTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralSizeTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralVector3Track.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IRecordAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IWaveFloatTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\ProcedureType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\WaveType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\IAudioBuffer.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\IAudioChunk.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\IAudioEnvironment.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\IAudioPlayer.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\IAudioRecorder.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\ISoundBuffer.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\ISoundEmitter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\ISoundListener.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\IVoiceBuffer.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\PlayerDesc.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\RecorderDesc.h" />
+    <ClInclude Include="..\..\..\synkro\inc\cfg\ConfigWindows.h" />
+    <ClInclude Include="..\..\..\synkro\inc\cfg\Interfaces.h" />
+    <ClInclude Include="..\..\..\synkro\inc\cons\cons.h" />
+    <ClInclude Include="..\..\..\synkro\inc\cons\IConsole.h" />
+    <ClInclude Include="..\..\..\synkro\inc\cons\IConsoleCommand.h" />
+    <ClInclude Include="..\..\..\synkro\inc\cons\IConsoleCommandFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\ConfigurationException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\ControllerState.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\DataMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\IConstraint.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\IContext.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\IContextEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\Iface.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\ILibrary.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\INodeList.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\IStringList.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\ITriangleMeshList.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\Language.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\ProgressListener.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\SynkroListener.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\Task.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\TimerListener.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\Version.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\CombinationType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\ComparisonType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\DatabaseException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\DatabaseSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\db.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\IDatabase.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\IDatabaseQuery.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\IDatabaseSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\IDatabaseSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\IDatabaseSystemFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\IDataCursor.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\IDataFilter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\IDataTable.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\IDeleteQuery.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\IInsertQuery.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\ISelectQuery.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\ITableIndex.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\IUpdateQuery.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\SortOrder.h" />
+    <ClInclude Include="..\..\..\synkro\inc\db\TableColumn.h" />
+    <ClInclude Include="..\..\..\synkro\inc\diag\LogFacility.h" />
+    <ClInclude Include="..\..\..\synkro\inc\diag\LogListener.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\Aspect.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\CompareFunction.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\DataAccess.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\DataStream.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\DisplayModeFormat.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\GraphicsDeviceDesc.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IBlendStateSet.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IBuffer.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ICubeDepthTexture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ICubeRenderMap.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IDataBuffer.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IDataBufferSet.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IDataFormatEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IDataStream.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IDepthStencilState.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IGraphicsDeviceEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ILineRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ILineRenderQueue.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IOverlayRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IOverlayRenderQueue.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IPlainDepthTexture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IPlainRenderMap.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IPostProcessRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IPostProcessRenderQueue.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IRect.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IRenderMap.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IRenderState.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IRenderView.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ISceneRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ISceneRenderQueue.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ISkyRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IStructuredBuffer.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ITypedBuffer.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IVirtualRenderWindow.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\MapMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ProgramStageType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\RenderViewStats.h" />
+    <ClInclude Include="..\..\..\synkro\inc\img\ImageCodecContext.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\ArcballListener.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\JoystickListener.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\KeyboardListener.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\MouseListener.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\DivisionByZeroException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\Formattable.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\Formatter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mat\IMaterialMap.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mat\IOpaqueMaterial.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mat\ISimpleMaterialAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mat\ITransparentMaterial.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mat\ITransparentMaterialAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mat\IVisualMaterialAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mem\MemoryStats.h" />
+    <ClInclude Include="..\..\..\synkro\inc\net\INetworkDevice.h" />
+    <ClInclude Include="..\..\..\synkro\inc\net\INetworkDeviceEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\net\INetworkPeer.h" />
+    <ClInclude Include="..\..\..\synkro\inc\net\INetworkSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\net\INetworkSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\net\INetworkSystemFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\net\net.h" />
+    <ClInclude Include="..\..\..\synkro\inc\net\NetworkAddress.h" />
+    <ClInclude Include="..\..\..\synkro\inc\net\NetworkDeviceDesc.h" />
+    <ClInclude Include="..\..\..\synkro\inc\net\NetworkException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\net\NetworkListener.h" />
+    <ClInclude Include="..\..\..\synkro\inc\net\NetworkMessage.h" />
+    <ClInclude Include="..\..\..\synkro\inc\net\NetworkSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\ITextAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\ITextPoolAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ColorMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\DebugMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\FogType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IConeLight.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IConeLightAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IConeSound.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IDirectLight.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IFogAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ILineMesh.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ILineMeshBatch.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ILineSetAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IMeshBatchAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IOmniLight.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IOmniLightAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IOmniSound.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IPointSetAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ISceneAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ISceneEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ISceneFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ISkeletonAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ITriangleMesh.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ITriangleMeshBatch.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\SceneType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\script\IScriptMachine.h" />
+    <ClInclude Include="..\..\..\synkro\inc\script\IScriptObject.h" />
+    <ClInclude Include="..\..\..\synkro\inc\script\IScriptSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\script\IScriptSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\script\IScriptSystemFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\script\script.h" />
+    <ClInclude Include="..\..\..\synkro\inc\script\ScriptException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\script\ScriptMethod.h" />
+    <ClInclude Include="..\..\..\synkro\inc\script\ScriptParam.h" />
+    <ClInclude Include="..\..\..\synkro\inc\script\ScriptParamType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\script\ScriptSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\IMusicAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\ISound2D.h" />
+    <ClInclude Include="..\..\..\synkro\inc\synkro.h" />
+    <ClInclude Include="..\..\..\synkro\inc\synkrostatic.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\Anchor.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IAccordion.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IAngle.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\UiListener.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\UiType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\HotKey.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IUiEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IUiFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IOption.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\ISwitch.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\ITheme.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\ThemeName.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\WidgetState.h" />
+    <ClInclude Include="..\..\..\synkro\inc\img\ColorGradient.h" />
+    <ClInclude Include="..\..\..\synkro\inc\img\ImageStats.h" />
+    <ClInclude Include="..\..\..\synkro\inc\img\PixelChannel.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\IJoystickEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\IKeyboardEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\IMouseEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\JoystickDesc.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\KeyboardDesc.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\KeyboardState.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\MouseDesc.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\AccessMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\DataType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\GradientType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\NullReferenceException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\OutOfRangeException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\PointF.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\Range.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\RectF.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\Variant.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\VariantEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\Volume.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mat\IMaterialManager.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mat\IMultiMaterial.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mat\ISimpleMaterial.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mat\IVisualMaterial.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mat\LightingModel.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mat\mat.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\IOverlayManager.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\IPolyLine.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\IQuad.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\ISpriteAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\ISpritePool.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\ITextPool.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\Attenuation.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IBone.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ICameraAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ICameraRecordController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ICurve.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IFog.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ILightAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ILineSet.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ILookAtConstraint.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IMeshBuilder.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IMeshBuilderFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\INodeAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\INodeRecordController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IParentConstraint.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IPointMesh.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IPointMeshBatch.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IPointSet.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IPrimitiveAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ISceneManager.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ISkeleton.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ISound.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ISoundAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ITriangleSet.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\MeshBuilder.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\ISound3D.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\SoundChannel.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IColorFilter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IColorFilterAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IDepthFilter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IDepthMap.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IDepthOfFieldFilter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IEmbossFilter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IEmbossFilterAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IFogFilter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IFogFilterAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IKernel3x3Filter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IKernel3x3FilterAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\ILightFilter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IMotionBlurFilter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\ISimpleFilter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\ISimpleFilterAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IViewport.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IViewportAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IViewportFilter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IViewportFilterAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IViewportFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IViewportManager.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\IViewportTransitionController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\StereoMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\TransitionEffect.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\view.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\ViewMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\ViewportFilter.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\ViewportListener.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\IFrameWindowEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\IMonitor.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\IViewWindowEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\MonitorOrientation.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\WindowListener.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationCodec\AnimationCodecImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationDataTypeConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationModeConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationSet.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrackImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\ProceduralTrackImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\WaveTypeConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\BaseAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\BaseAnimationSystem.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\InterpolationConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\KeyframedTrackImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\PlaybackControllerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\RecordControllerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Task\SaveAnimationTask.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\AudioBufferImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\AudioChunk.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\AudioChunkImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\AudioEnvironment.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\AudioPlayer.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\AudioPlayerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\AudioRecorder.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\AudioRecorderImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\BaseAudioPlayer.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\BaseAudioRecorder.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\SoundBuffer.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\SoundBufferImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\SoundEmitter.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\SoundEmitterImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\SoundListener.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\SoundListenerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\VoiceBuffer.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\VoiceBufferImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\cons\BaseConsole.h" />
+    <ClInclude Include="..\..\..\synkro\src\cons\Console.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\BaseFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\BaseResource.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationBanner.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationEditor.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\ConfigurationScene.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\PointMeshConfigurationScene.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\ProjectorsConfigurationScene.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\RubikCubeConfigurationScene.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\SierpinskiConfigurationScene.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\TesseractConfigurationScene.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ConstraintImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ControllerStateConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\FactoryList.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\FactoryTable.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\List\NodeList.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\List\StringList.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\List\TriangleMeshList.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ParamTypeConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\PlainLogFile.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\Resource.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ResourceList.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ResourceReader.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ResourceTable.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\RichLogFile.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\Win32\Win32ConfigurationEditor.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\Win32\Win32ExceptionHandler.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\BaseDatabase.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\BaseDatabaseQuery.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\BaseDatabaseQueryImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\BaseDataTable.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\Database.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\DatabaseImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\DatabaseQueryImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\DatabaseSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\DataCursor.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\DataCursorImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\DataFilter.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\DataTable.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\DataTableImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\DeleteQuery.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\DeleteQueryImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\InsertQuery.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\InsertQueryImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\SelectQuery.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\SelectQueryImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\TableIndex.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\TableIndexImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\UpdateQuery.h" />
+    <ClInclude Include="..\..\..\synkro\src\db\UpdateQueryImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\diag\BaseLog.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\AbsFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\BaseExpressionScript.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\BinaryExpression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\BinaryOperatorType.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\CeilFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ColorExpression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ColorFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ComplexExpression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\Constant.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ConstantExpression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ControlExpression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\CosFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ExpFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\Expression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ExpressionCompiler.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ExpressionList.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ExpressionParamEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ExpressionScript.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ExpressionStatement.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ExpressionTrackImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ExpressionType.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\FloatExpression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\FloatFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\FloorFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\Function.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\FunctionExpression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\Identifier.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\IdentifierType.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\KeywordType.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\LerpFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\Matrix4x4Expression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\Matrix4x4Function.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\MaxFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\MetaExpression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\MinFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ParseMode.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\PowFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ReturnExpression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\ReturnStatement.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\SignFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\SimpleExpression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\SinFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\SqrtFunction.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\Token.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\TokenExpression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\TokenType.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\UnaryExpression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\UnaryOperatorType.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\Variable.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\VariableDeclaration.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\VariableExpression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\Vector3Expression.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Expression\Vector3Function.h" />
+    <ClInclude Include="..\..\..\external\src\stream.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\AspectConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\BaseRenderMap.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\BlendStateEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\BlendStateSet.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\BlendStateSetImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\BufferImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\CubeDepthTexture.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\CubeDepthTextureImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\CubeRenderMap.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\DataBufferImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\DataBufferSetImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\DataStreamImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\DataStreamWriter.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\DepthStencilState.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\DepthStencilStateImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\DisplayModeFormatConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\LineRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\LineRenderQueue.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\Ndc.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\OverlayRenderMap.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\OverlayRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\OverlayRenderQueue.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\PlainDepthTexture.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\PlainDepthTextureImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\PlainRenderMap.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\PostProcessRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\PostProcessRenderQueue.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\PrimitiveTypeConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ProgramDataTypeConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ProgramParamEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ProgramStageTypeConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RectEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RectImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RenderChainImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RenderMapImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RenderObjectImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RenderQueueImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RenderStateImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RenderView.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ResourceImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\SceneRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\SceneRenderQueue.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\SkyboxRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\SkyRenderObjectImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\SkysphereRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\StructuredBuffer.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\StructuredBufferImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\TypedBuffer.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\TypedBufferImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\VirtualRenderWindow.h" />
+    <ClInclude Include="..\..\..\synkro\src\img\BaseImage.h" />
+    <ClInclude Include="..\..\..\synkro\src\img\ImageCodec\ImageCodecContextEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\img\RenderImage\CubeRenderImage.h" />
+    <ClInclude Include="..\..\..\synkro\src\img\RenderImage\PlainRenderImage.h" />
+    <ClInclude Include="..\..\..\synkro\src\img\Task\LoadImageTask.h" />
+    <ClInclude Include="..\..\..\synkro\src\img\Task\PrepareImageTask.h" />
+    <ClInclude Include="..\..\..\synkro\src\img\Task\SaveImageTask.h" />
+    <ClInclude Include="..\..\..\synkro\src\input\BaseInputSystem.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Reverse.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\SafeDelete.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\BaseStreamSystem.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\GradientTypeConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\StringBuilder.h" />
+    <ClInclude Include="..\..\..\synkro\src\math\CubicBezier.h" />
+    <ClInclude Include="..\..\..\synkro\src\math\Intersection.h" />
+    <ClInclude Include="..\..\..\synkro\src\math\TcbSpline.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\BaseMaterial.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\MaterialMapImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\MaterialTriangleSet.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\OpaqueMaterial.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\OpaqueMaterialInstance.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\SimpleMaterialAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\SimpleMaterialAnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\SimpleMaterialProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\SoftOpaqueMaterial.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\TransparentMaterial.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\TransparentMaterialAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\TransparentMaterialInstance.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\TransparentMaterialProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\net\NetworkDevice.h" />
+    <ClInclude Include="..\..\..\synkro\src\net\NetworkDeviceImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\net\NetworkPeer.h" />
+    <ClInclude Include="..\..\..\synkro\src\net\NetworkPeerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\net\NetworkSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\net\NetworkSystemImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\BaseFont.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\BaseOverlayManager.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\BaseSpritePool.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\BaseText.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\BaseTextImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\BaseTextPool.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\SpriteAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\SpriteProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\TextAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\TextPoolAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\TextPoolProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\TextProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\BaseFog.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\BaseLight.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\BaseMeshBatch.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\BaseSceneManager.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\BoneProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\CameraAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\CameraProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\ConeLight.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\ConeLightAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\ConeLightProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\ConeSound.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\Curve.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\DebugHelper.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\DirectLight.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\FogAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\FogProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\Gizmo.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\LightAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\LightAnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\LightImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\LightProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\LineMesh.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\LineMeshBatch.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\LineMeshInstance.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\LineSetAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\LineSetProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshBatchAnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshBatchImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshBatchProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\MeshCodecImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\NodeAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\NodeProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\OmniLight.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\OmniLightAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\OmniLightProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\OmniSound.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\PointMeshBatch.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\PointMeshInstance.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\PointSetAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\PointSetProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveAnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\SceneAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\SceneProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\SkeletonAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\SoftTriangleMesh.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\SoundAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\SoundImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\SoundProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\TriangleMesh.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\TriangleMeshBatch.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\TriangleSetImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\script\ScriptMachine.h" />
+    <ClInclude Include="..\..\..\synkro\src\script\ScriptMachineImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\script\ScriptObject.h" />
+    <ClInclude Include="..\..\..\synkro\src\script\ScriptObjectImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\script\ScriptSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\script\ScriptSystemImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\sound\BaseMusic.h" />
+    <ClInclude Include="..\..\..\synkro\src\sound\BaseSoundManager.h" />
+    <ClInclude Include="..\..\..\synkro\src\sound\BaseVoice.h" />
+    <ClInclude Include="..\..\..\synkro\src\sound\MusicAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\sound\MusicProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\sound\Sound2D.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\Accordion.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\AlignmentConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\Angle.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\BaseAnchoredObject.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\BaseAnchoredObjectImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\BaseFrame.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\BaseUi.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\BaseUiEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\BaseOption.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\BaseThemeWidget.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\BaseThemeWidgetImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\Button.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\Cursor.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\DropList.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\Edit.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\EditStyleConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\Frame.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\FrameImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\ThemeReader.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\UiEvent.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\UiEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\UiReader.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\Label.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\List.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\ListWrapperImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\Option.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\OrientationConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\Picture.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\Progress.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\Slider.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\Switch.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\Theme.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\WidgetEffect.h" />
+    <ClInclude Include="..\..\..\synkro\src\ui\WidgetWrapperImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\img\BaseImageManager.h" />
+    <ClInclude Include="..\..\..\synkro\src\img\ImageImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\img\ImageTypeConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\img\PixelFormatEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\input\JoystickImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\input\KeyboardImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\input\KeyConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\input\MouseImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Average.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Clamp.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Compare.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\DynamicLibrary.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Equal.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Hash.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Lerp.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Max.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Min.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\SafeClose.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\SafeRelease.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Sort.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\ToColor.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\ToVector.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\SeekOriginConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\StreamEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\XmlDocument.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\ZipDirectory.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\ZipFolder.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\ZipStream.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\Allocator.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\Btree.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\BtreeItem.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\BtreeIterator.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\BtreeNode.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\Convert.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\DataTypeConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\Mask.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\ASCII7Encoding.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\Encoding.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\Set.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\SetEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\SetItem.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\SetIterator.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\UTF16Encoding.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\UTF32Encoding.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\UTF8Encoding.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\Stack.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\StackOverflowException.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\StackUnderflowException.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\List.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\ListItem.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\ListIterator.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\Tree.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\TreeItem.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\TreeIterator.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\Vector.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\VectorEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\Map.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\MapEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\MapIterator.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\MapPair.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\Queue.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\QueueEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\QueueItem.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\Parseable.h" />
+    <ClInclude Include="..\..\..\synkro\src\lang\Parser.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\BadArgumentException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\DateTime.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\Enum.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\Exception.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\Flag.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\InvalidOperationException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\lang.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\NotSupportedException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\Point.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\Ptr.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\Random.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\Rect.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\Size.h" />
+    <ClInclude Include="..\..\..\synkro\inc\lang\String.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\Configuration.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\Library.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\FactoryImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\CallStack.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ObjectImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\Synkro.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ControllerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\Thread.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ThreadPool.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ExceptionHandler.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\core.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\IConfiguration.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\IController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\IFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\ISynkro.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\IObject.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\IResource.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\ISystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\Param.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\ParamConstraint.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\ParamType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\Platform.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\ResourceType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\Str.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\VersionException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mem\mem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mem\MemoryManager.h" />
+    <ClInclude Include="..\..\..\synkro\inc\mem\OperatorNew.h" />
+    <ClInclude Include="..\..\..\synkro\inc\prf\prf.h" />
+    <ClInclude Include="..\..\..\synkro\inc\prf\Profiler.h" />
+    <ClInclude Include="..\..\..\synkro\inc\math\Math.h" />
+    <ClInclude Include="..\..\..\synkro\inc\math\Matrix3x3.h" />
+    <ClInclude Include="..\..\..\synkro\inc\math\Matrix4x4.h" />
+    <ClInclude Include="..\..\..\synkro\inc\math\Quaternion.h" />
+    <ClInclude Include="..\..\..\synkro\inc\math\Vector2.h" />
+    <ClInclude Include="..\..\..\synkro\inc\math\Vector3.h" />
+    <ClInclude Include="..\..\..\synkro\inc\math\Vector4.h" />
+    <ClInclude Include="..\..\..\synkro\inc\img\Color.h" />
+    <ClInclude Include="..\..\..\synkro\inc\img\IImage.h" />
+    <ClInclude Include="..\..\..\synkro\inc\img\IImageCodec.h" />
+    <ClInclude Include="..\..\..\synkro\inc\img\IImageCodecFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\img\IImageManager.h" />
+    <ClInclude Include="..\..\..\synkro\inc\img\ImageCodec.h" />
+    <ClInclude Include="..\..\..\synkro\inc\img\ImageType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\img\img.h" />
+    <ClInclude Include="..\..\..\synkro\inc\img\PixelFormat.h" />
+    <ClInclude Include="..\..\..\synkro\src\img\Image.h" />
+    <ClInclude Include="..\..\..\synkro\src\img\ImageManager.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\IFrameWindow.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\IIconWindow.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\IViewWindow.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\IWindow.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\IWindowSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\IWindowSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\IWindowSystemFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\win.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\WindowSystem.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\DiffuseMap.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\MaterialDesc.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\MaterialManager.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\MultiMaterial.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\OpacityMap.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\SimpleMaterialImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\mat\VisualMaterialImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\FontTemplate.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\OverlayManager.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\PolyLine.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\PoolSprite.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\PoolText.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\Quad.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\Sprite.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\SpritePool.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\TextBuffer.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\TextDesc.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\BaseCamera.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\BaseNode.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\BaseScene.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\BaseSkeleton.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\Bone.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\CameraRecordController.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\Dummy.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\Fog.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\FogState.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\LineSet.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\LookAtConstraint.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\NodeAnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\NodeRecordControllerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\NormalBuilder.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\ParentConstraint.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\PointMesh.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\PointSet.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\SceneManager.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\Skeleton.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\SoftTriangleSet.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\TriangleSet.h" />
+    <ClInclude Include="..\..\..\synkro\src\sound\BaseSound3D.h" />
+    <ClInclude Include="..\..\..\synkro\src\sound\Sound3D.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\BaseViewport.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\BaseViewportManager.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\BaseViewportTransitionController.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Color\ColorFilterProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthMap.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\FogFilterProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Emboss\EmbossFilterProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Kernel3x3FilterProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Simple\SimpleFilterProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\ViewportFilterAnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\ViewportFilterImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\ViewportFilterProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\StereoModeConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\TransitionEffectConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\ViewModeConst.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Viewport.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\ViewportAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\ViewportManager.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\ViewportProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\ViewportTransitionController.h" />
+    <ClInclude Include="..\..\..\synkro\src\win\FrameWindow.h" />
+    <ClInclude Include="..\..\..\synkro\src\win\FrameWindowImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\win\IconWindowImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\win\Monitor.h" />
+    <ClInclude Include="..\..\..\synkro\src\win\ViewWindow.h" />
+    <ClInclude Include="..\..\..\synkro\src\win\ViewWindowImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\win\WindowImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\win\WindowSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\BlendMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\BlendOperation.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\CubeFace.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\CullMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\DataUsage.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\DepthFormat.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\DisplayMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\FillMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\gfx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\GraphicsDeviceType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\GraphicsException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\GraphicsStats.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\GraphicsSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IBlendState.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ICubeRenderTexture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ICubeTexture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IDataFormat.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IDepthTexture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IFloatStream.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IFrameRenderWindow.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IFrameRenderWindowEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IGraphicsDevice.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IGraphicsSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IGraphicsSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IGraphicsSystemFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IIndexBuffer.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ILinearRenderTexture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ILinearTexture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ILongStream.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IMatrix4x4Stream.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IndexType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IParameterSet.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IPlainRenderTexture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IPlainTexture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IPrimitive.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IPrimitiveEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IProgram.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IProgramStage.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IRasterizerState.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IRenderQueue.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IRenderTexture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IRenderTextureSet.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IRenderWindow.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IResource.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IResourceSet.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ISamplerState.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ISamplerStateSet.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IShortStream.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ITexture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IVector2Stream.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IVector3Stream.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IVector4Stream.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IViewRenderWindow.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IViewRenderWindowEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IVolumeRenderTexture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IVolumeTexture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\PrimitiveType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ProgramDataType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ProgramParam.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\StencilOperation.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\TextureAddress.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\TextureFilter.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\Classes.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\CubeTexture.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\CubeTextureImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\LinearTexture.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\LinearTextureImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\PlainTexture.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\PlainTextureImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\TextureImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\VolumeTexture.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\VolumeTextureImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\DataFormat.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\Primitive.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\PrimitiveImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\GraphicsDevice.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\GraphicsDeviceImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\Program.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ProgramImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ProgramReader.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ProgramStage.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ProgramStageImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\BlendState.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RasterizerState.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RasterizerStateImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\SamplerState.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\SamplerStateImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\SamplerStateSet.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\SamplerStateSetImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\Matrix4x4Stream.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\NdcVector4Stream.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\GraphicsSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\GraphicsSystemImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RenderChain.h" />
+    <ClInclude Include="..\..\..\synkro\src\win\WindowSystemImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\BaseResource.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\BaseResourceImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ResourceSet.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ResourceSetImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\CubeRenderTexture.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\CubeRenderTextureImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\DepthTextureImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\LinearRenderTexture.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\LinearRenderTextureImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\PlainRenderTexture.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\PlainRenderTextureImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RenderTextureImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RenderTextureSetImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\VolumeRenderTexture.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\VolumeRenderTextureImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ParameterSet.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ParameterSetImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\BaseRenderWindow.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\BaseRenderWindowImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\RenderWindowImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\FrameRenderWindow.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\FrameRenderWindowImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ViewRenderWindow.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\ViewRenderWindowImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\diag\Diag.h" />
+    <ClInclude Include="..\..\..\synkro\src\diag\Log.h" />
+    <ClInclude Include="..\..\..\synkro\inc\diag\diag.h" />
+    <ClInclude Include="..\..\..\synkro\inc\diag\IDiag.h" />
+    <ClInclude Include="..\..\..\synkro\inc\diag\ILog.h" />
+    <ClInclude Include="..\..\..\synkro\inc\diag\LogLevel.h" />
+    <ClInclude Include="..\..\..\synkro\inc\diag\LogMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\diag\MessagePriority.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\Path.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\BinaryReader.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\StreamReader.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\TextReader.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\XmlReader.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\BinaryStream.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\FileStream.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\StreamImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\StreamSet.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\TextStream.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\BinaryWriter.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\StreamWriter.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\TextWriter.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\XmlWriter.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\NullStreamSystem.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\StreamSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\StreamSystemImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\BaseDirectory.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\StreamDirectoryEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\io\StreamDirectoryImpl.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\FileNotFoundException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\io.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\IoException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\IStream.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\IStreamDirectory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\IStreamDirectoryFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\IStreamSet.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\IStreamSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\IStreamSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\IStreamSystemFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\OpenMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\SeekOrigin.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\StreamDirectory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\io\StreamSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\cfg\ConfigSynkro.h" />
+    <ClInclude Include="..\..\..\synkro\inc\cfg\SynkroVersion.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\Axis.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\IArcball.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\IInputDevice.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\IInputSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\IInputSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\IInputSystemFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\IJoystick.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\IKeyboard.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\IMouse.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\input.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\InputException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\InputSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\JoystickButton.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\JoystickState.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\Key.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\MouseButton.h" />
+    <ClInclude Include="..\..\..\synkro\inc\input\MouseState.h" />
+    <ClInclude Include="..\..\..\synkro\src\input\InputSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\input\InputSystemImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\input\Keyboard.h" />
+    <ClInclude Include="..\..\..\synkro\src\input\Mouse.h" />
+    <ClInclude Include="..\..\..\synkro\src\input\Joystick.h" />
+    <ClInclude Include="..\..\..\synkro\src\input\Arcball.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\Alignment.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\CursorType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\EditStyle.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\ui.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IButton.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\ICursor.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IDropList.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IEdit.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IFrame.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IUi.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\ILabel.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IList.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IPicture.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IProgress.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\ISlider.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\IWidget.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\ListItem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\Orientation.h" />
+    <ClInclude Include="..\..\..\synkro\inc\ui\ProgressType.h" />
+    <ClInclude Include="..\..\src\synkro\resource.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\Animation.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\anim.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\AnimationMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\AnimationTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimation.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\IAnimationTrackFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\LightState.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\Camera.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\NodeImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\Scene.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ICamera.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ILight.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IMesh.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IMeshCodec.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IMeshCodecFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\INode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IPrimitive.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IScene.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\MeshCodec.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\scene.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\AudioSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\audio\AudioSystemImpl.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\audio.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\AudioException.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\AudioSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\IAudioSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\IAudioSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\audio\IAudioSystemFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\sound\SoundManager.h" />
+    <ClInclude Include="..\..\..\synkro\src\sound\Music.h" />
+    <ClInclude Include="..\..\..\synkro\src\sound\Voice.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\IMusic.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\ISoundCodec.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\ISoundCodecFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\ISoundManager.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\IVoice.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\PlaybackMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\sound.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\SoundCodec.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\SoundCodecContext.h" />
+    <ClInclude Include="..\..\..\synkro\inc\sound\SoundFormat.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\Overlay.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\FontEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\Text.h" />
+    <ClInclude Include="..\..\..\synkro\src\over\TextPool.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\FontStyle.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\IFont.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\IOverlay.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\ISprite.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\IText.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\Order.h" />
+    <ClInclude Include="..\..\..\synkro\inc\over\over.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\BinarySemaphore.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\ComInitializer.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Copy.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Enum.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Logger.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Months.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Mutex.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Semaphore.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\SizeOf.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Swap.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Timer.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Weekdays.h" />
+    <ClInclude Include="..\..\..\synkro\src\internal\Zero.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\synkro\inc\lang\Formattable.inl" />
+    <None Include="..\..\src\synkro\strings.inl" />
+    <None Include="..\..\..\synkro\src\anim\Animation.inl" />
+    <None Include="..\..\..\synkro\src\anim\AnimationCodec\AnimationCodecImpl.inl" />
+    <None Include="..\..\..\synkro\src\anim\AnimationSet.inl" />
+    <None Include="..\..\..\synkro\src\anim\AnimationTrackImpl.inl" />
+    <None Include="..\..\..\synkro\src\anim\AnimationTrack\ProceduralTrackImpl.inl" />
+    <None Include="..\..\..\synkro\src\anim\KeyframedTrackImpl.inl" />
+    <None Include="..\..\..\synkro\src\anim\PlaybackControllerImpl.inl" />
+    <None Include="..\..\..\synkro\src\anim\RecordControllerImpl.inl" />
+    <None Include="..\..\..\synkro\src\audio\AudioBufferImpl.inl" />
+    <None Include="..\..\..\synkro\src\audio\AudioChunk.inl" />
+    <None Include="..\..\..\synkro\src\audio\AudioChunkImpl.inl" />
+    <None Include="..\..\..\synkro\src\audio\AudioEnvironment.inl" />
+    <None Include="..\..\..\synkro\src\audio\AudioPlayer.inl" />
+    <None Include="..\..\..\synkro\src\audio\AudioPlayerImpl.inl" />
+    <None Include="..\..\..\synkro\src\audio\AudioRecorder.inl" />
+    <None Include="..\..\..\synkro\src\audio\AudioRecorderImpl.inl" />
+    <None Include="..\..\..\synkro\src\audio\SoundBuffer.inl" />
+    <None Include="..\..\..\synkro\src\audio\SoundBufferImpl.inl" />
+    <None Include="..\..\..\synkro\src\audio\SoundEmitter.inl" />
+    <None Include="..\..\..\synkro\src\audio\SoundEmitterImpl.inl" />
+    <None Include="..\..\..\synkro\src\audio\SoundListener.inl" />
+    <None Include="..\..\..\synkro\src\audio\SoundListenerImpl.inl" />
+    <None Include="..\..\..\synkro\src\audio\VoiceBuffer.inl" />
+    <None Include="..\..\..\synkro\src\audio\VoiceBufferImpl.inl" />
+    <None Include="..\..\..\synkro\src\cons\Console.inl" />
+    <None Include="..\..\..\synkro\src\core\ConstraintImpl.inl" />
+    <None Include="..\..\..\synkro\src\core\List\NodeList.inl" />
+    <None Include="..\..\..\synkro\src\core\List\StringList.inl" />
+    <None Include="..\..\..\synkro\src\core\List\TriangleMeshList.inl" />
+    <None Include="..\..\..\synkro\src\core\Param.inl" />
+    <None Include="..\..\..\synkro\src\core\PlainLogFile.inl" />
+    <None Include="..\..\..\synkro\src\db\BaseDatabaseQueryImpl.inl" />
+    <None Include="..\..\..\synkro\src\db\DatabaseImpl.inl" />
+    <None Include="..\..\..\synkro\src\db\DatabaseQueryImpl.inl" />
+    <None Include="..\..\..\synkro\src\db\DataCursor.inl" />
+    <None Include="..\..\..\synkro\src\db\DataCursorImpl.inl" />
+    <None Include="..\..\..\synkro\src\db\DataFilter.inl" />
+    <None Include="..\..\..\synkro\src\db\DataTableImpl.inl" />
+    <None Include="..\..\..\synkro\src\db\DeleteQuery.inl" />
+    <None Include="..\..\..\synkro\src\db\DeleteQueryImpl.inl" />
+    <None Include="..\..\..\synkro\src\db\InsertQuery.inl" />
+    <None Include="..\..\..\synkro\src\db\InsertQueryImpl.inl" />
+    <None Include="..\..\..\synkro\src\db\SelectQuery.inl" />
+    <None Include="..\..\..\synkro\src\db\SelectQueryImpl.inl" />
+    <None Include="..\..\..\synkro\src\db\TableIndexImpl.inl" />
+    <None Include="..\..\..\synkro\src\db\UpdateQuery.inl" />
+    <None Include="..\..\..\synkro\src\db\UpdateQueryImpl.inl" />
+    <None Include="..\..\..\synkro\src\anim\Expression\ExpressionScript.inl" />
+    <None Include="..\..\..\synkro\src\anim\Expression\ExpressionTrackImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\BlendStateEx.inl" />
+    <None Include="..\..\..\synkro\src\gfx\BlendStateSet.inl" />
+    <None Include="..\..\..\synkro\src\gfx\BlendStateSetImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\BufferImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\CubeDepthTexture.inl" />
+    <None Include="..\..\..\synkro\src\gfx\CubeDepthTextureImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\CubeRenderMap.inl" />
+    <None Include="..\..\..\synkro\src\gfx\CubeTexture.inl" />
+    <None Include="..\..\..\synkro\src\gfx\DataBufferImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\DataBufferSetImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\DataStreamImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\DataStreamWriter.inl" />
+    <None Include="..\..\..\synkro\src\gfx\DepthStencilState.inl" />
+    <None Include="..\..\..\synkro\src\gfx\DepthStencilStateImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\LinearTexture.inl" />
+    <None Include="..\..\..\synkro\src\gfx\LineRenderObject.inl" />
+    <None Include="..\..\..\synkro\src\gfx\Ndc.inl" />
+    <None Include="..\..\..\synkro\src\gfx\OverlayRenderMap.inl" />
+    <None Include="..\..\..\synkro\src\gfx\OverlayRenderObject.inl" />
+    <None Include="..\..\..\synkro\src\gfx\OverlayRenderQueue.inl" />
+    <None Include="..\..\..\synkro\src\gfx\PlainDepthTexture.inl" />
+    <None Include="..\..\..\synkro\src\gfx\PlainDepthTextureImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\PlainRenderMap.inl" />
+    <None Include="..\..\..\synkro\src\gfx\PlainTexture.inl" />
+    <None Include="..\..\..\synkro\src\gfx\PostProcessRenderObject.inl" />
+    <None Include="..\..\..\synkro\src\gfx\PostProcessRenderQueue.inl" />
+    <None Include="..\..\..\synkro\src\gfx\RectEx.inl" />
+    <None Include="..\..\..\synkro\src\gfx\RectImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\RenderChainImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\RenderMapImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\RenderObjectImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\RenderQueueImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\RenderStateImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\RenderView.inl" />
+    <None Include="..\..\..\synkro\src\gfx\ResourceImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\SceneRenderObject.inl" />
+    <None Include="..\..\..\synkro\src\gfx\SceneRenderQueue.inl" />
+    <None Include="..\..\..\synkro\src\gfx\SkyRenderObjectImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\StructuredBuffer.inl" />
+    <None Include="..\..\..\synkro\src\gfx\StructuredBufferImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\TypedBuffer.inl" />
+    <None Include="..\..\..\synkro\src\gfx\TypedBufferImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\VirtualRenderWindow.inl" />
+    <None Include="..\..\..\synkro\src\img\Image.inl" />
+    <None Include="..\..\..\synkro\src\math\CubicBezier.inl" />
+    <None Include="..\..\..\synkro\src\math\TcbSpline.inl" />
+    <None Include="..\..\..\synkro\src\mat\MaterialMapImpl.inl" />
+    <None Include="..\..\..\synkro\src\mat\OpaqueMaterial.inl" />
+    <None Include="..\..\..\synkro\src\mat\OpaqueMaterialInstance.inl" />
+    <None Include="..\..\..\synkro\src\mat\SimpleMaterialAnimationControllerImpl.inl" />
+    <None Include="..\..\..\synkro\src\mat\TransparentMaterial.inl" />
+    <None Include="..\..\..\synkro\src\mat\TransparentMaterialInstance.inl" />
+    <None Include="..\..\..\synkro\src\net\NetworkDevice.inl" />
+    <None Include="..\..\..\synkro\src\net\NetworkDeviceImpl.inl" />
+    <None Include="..\..\..\synkro\src\net\NetworkPeer.inl" />
+    <None Include="..\..\..\synkro\src\net\NetworkPeerImpl.inl" />
+    <None Include="..\..\..\synkro\src\net\NetworkSystemEx.inl" />
+    <None Include="..\..\..\synkro\src\net\NetworkSystemImpl.inl" />
+    <None Include="..\..\..\synkro\src\over\BaseTextImpl.inl" />
+    <None Include="..\..\..\synkro\src\scene\ConeLight.inl" />
+    <None Include="..\..\..\synkro\src\scene\ConeSound.inl" />
+    <None Include="..\..\..\synkro\src\scene\Curve.inl" />
+    <None Include="..\..\..\synkro\src\scene\DebugHelper.inl" />
+    <None Include="..\..\..\synkro\src\scene\DirectLight.inl" />
+    <None Include="..\..\..\synkro\src\scene\Gizmo.inl" />
+    <None Include="..\..\..\synkro\src\scene\LightAnimationControllerImpl.inl" />
+    <None Include="..\..\..\synkro\src\scene\LightImpl.inl" />
+    <None Include="..\..\..\synkro\src\scene\LineMesh.inl" />
+    <None Include="..\..\..\synkro\src\scene\LineMeshBatch.inl" />
+    <None Include="..\..\..\synkro\src\scene\LineMeshInstance.inl" />
+    <None Include="..\..\..\synkro\src\scene\LineSet.inl" />
+    <None Include="..\..\..\synkro\src\scene\MeshBatchAnimationControllerImpl.inl" />
+    <None Include="..\..\..\synkro\src\scene\MeshBatchImpl.inl" />
+    <None Include="..\..\..\synkro\src\scene\MeshCodec\MeshCodecImpl.inl" />
+    <None Include="..\..\..\synkro\src\scene\OmniLight.inl" />
+    <None Include="..\..\..\synkro\src\scene\OmniSound.inl" />
+    <None Include="..\..\..\synkro\src\scene\PointMeshBatch.inl" />
+    <None Include="..\..\..\synkro\src\scene\PointMeshInstance.inl" />
+    <None Include="..\..\..\synkro\src\scene\PointSet.inl" />
+    <None Include="..\..\..\synkro\src\scene\PrimitiveAnimationControllerImpl.inl" />
+    <None Include="..\..\..\synkro\src\scene\SoundImpl.inl" />
+    <None Include="..\..\..\synkro\src\scene\TriangleMesh.inl" />
+    <None Include="..\..\..\synkro\src\scene\TriangleMeshBatch.inl" />
+    <None Include="..\..\..\synkro\src\scene\TriangleSet.inl" />
+    <None Include="..\..\..\synkro\src\scene\TriangleSetImpl.inl" />
+    <None Include="..\..\..\synkro\src\script\ScriptMachine.inl" />
+    <None Include="..\..\..\synkro\src\script\ScriptMachineImpl.inl" />
+    <None Include="..\..\..\synkro\src\script\ScriptObject.inl" />
+    <None Include="..\..\..\synkro\src\script\ScriptObjectImpl.inl" />
+    <None Include="..\..\..\synkro\src\script\ScriptSystemEx.inl" />
+    <None Include="..\..\..\synkro\src\script\ScriptSystemImpl.inl" />
+    <None Include="..\..\..\synkro\src\sound\Sound2D.inl" />
+    <None Include="..\..\..\synkro\src\sound\SoundManager.inl" />
+    <None Include="..\..\..\synkro\src\ui\Accordion.inl" />
+    <None Include="..\..\..\synkro\src\ui\Angle.inl" />
+    <None Include="..\..\..\synkro\src\ui\BaseAnchoredObjectImpl.inl" />
+    <None Include="..\..\..\synkro\src\ui\BaseThemeWidgetImpl.inl" />
+    <None Include="..\..\..\synkro\src\ui\Button.inl" />
+    <None Include="..\..\..\synkro\src\ui\Cursor.inl" />
+    <None Include="..\..\..\synkro\src\ui\DropList.inl" />
+    <None Include="..\..\..\synkro\src\ui\Edit.inl" />
+    <None Include="..\..\..\synkro\src\ui\Frame.inl" />
+    <None Include="..\..\..\synkro\src\ui\FrameImpl.inl" />
+    <None Include="..\..\..\synkro\src\ui\UiEx.inl" />
+    <None Include="..\..\..\synkro\src\ui\Label.inl" />
+    <None Include="..\..\..\synkro\src\ui\List.inl" />
+    <None Include="..\..\..\synkro\src\ui\ListWrapperImpl.inl" />
+    <None Include="..\..\..\synkro\src\ui\Option.inl" />
+    <None Include="..\..\..\synkro\src\ui\Picture.inl" />
+    <None Include="..\..\..\synkro\src\ui\Progress.inl" />
+    <None Include="..\..\..\synkro\src\ui\Slider.inl" />
+    <None Include="..\..\..\synkro\src\ui\Switch.inl" />
+    <None Include="..\..\..\synkro\src\ui\Theme.inl" />
+    <None Include="..\..\..\synkro\src\ui\WidgetWrapperImpl.inl" />
+    <None Include="..\..\..\synkro\src\img\ImageImpl.inl" />
+    <None Include="..\..\..\synkro\src\input\InputSystemEx.inl" />
+    <None Include="..\..\..\synkro\src\input\JoystickImpl.inl" />
+    <None Include="..\..\..\synkro\src\input\KeyboardImpl.inl" />
+    <None Include="..\..\..\synkro\src\input\MouseImpl.inl" />
+    <None Include="..\..\..\synkro\src\internal\DynamicLibrary.inl" />
+    <None Include="..\..\..\synkro\src\io\BinaryReader.inl" />
+    <None Include="..\..\..\synkro\src\io\BinaryWriter.inl" />
+    <None Include="..\..\..\synkro\src\io\StreamEx.inl" />
+    <None Include="..\..\..\synkro\src\io\StreamSet.inl" />
+    <None Include="..\..\..\synkro\src\io\ZipStream.inl" />
+    <None Include="..\..\..\synkro\src\lang\Allocator.inl" />
+    <None Include="..\..\..\synkro\src\lang\Btree.inl" />
+    <None Include="..\..\..\synkro\src\lang\BtreeIterator.inl" />
+    <None Include="..\..\..\synkro\src\lang\Set.inl" />
+    <None Include="..\..\..\synkro\src\lang\SetEx.inl" />
+    <None Include="..\..\..\synkro\src\lang\SetIterator.inl" />
+    <None Include="..\..\..\synkro\src\lang\Stack.inl" />
+    <None Include="..\..\..\synkro\src\lang\List.inl" />
+    <None Include="..\..\..\synkro\src\lang\ListIterator.inl" />
+    <None Include="..\..\..\synkro\src\lang\Tree.inl" />
+    <None Include="..\..\..\synkro\src\lang\TreeIterator.inl" />
+    <None Include="..\..\..\synkro\src\lang\Vector.inl" />
+    <None Include="..\..\..\synkro\src\lang\VectorEx.inl" />
+    <None Include="..\..\..\synkro\src\lang\Map.inl" />
+    <None Include="..\..\..\synkro\src\lang\MapEx.inl" />
+    <None Include="..\..\..\synkro\src\lang\MapIterator.inl" />
+    <None Include="..\..\..\synkro\src\lang\Queue.inl" />
+    <None Include="..\..\..\synkro\src\lang\QueueEx.inl" />
+    <None Include="..\..\..\synkro\src\lang\Parseable.inl" />
+    <None Include="..\..\..\synkro\src\lang\Parser.inl" />
+    <None Include="..\..\..\synkro\inc\lang\Ptr.inl" />
+    <None Include="..\..\..\synkro\src\core\Library.inl" />
+    <None Include="..\..\..\synkro\src\core\FactoryImpl.inl" />
+    <None Include="..\..\..\synkro\src\core\ObjectImpl.inl" />
+    <None Include="..\..\..\synkro\src\core\Synkro.inl" />
+    <None Include="..\..\..\synkro\src\core\ControllerImpl.inl" />
+    <None Include="..\..\..\synkro\src\mat\MultiMaterial.inl" />
+    <None Include="..\..\..\synkro\src\mat\SimpleMaterialImpl.inl" />
+    <None Include="..\..\..\synkro\src\mat\VisualMaterialImpl.inl" />
+    <None Include="..\..\..\synkro\src\over\OverlayManager.inl" />
+    <None Include="..\..\..\synkro\src\over\PolyLine.inl" />
+    <None Include="..\..\..\synkro\src\over\PoolSprite.inl" />
+    <None Include="..\..\..\synkro\src\over\PoolText.inl" />
+    <None Include="..\..\..\synkro\src\over\Quad.inl" />
+    <None Include="..\..\..\synkro\src\over\Sprite.inl" />
+    <None Include="..\..\..\synkro\src\over\SpritePool.inl" />
+    <None Include="..\..\..\synkro\src\over\TextPool.inl" />
+    <None Include="..\..\..\synkro\src\scene\Bone.inl" />
+    <None Include="..\..\..\synkro\src\scene\Fog.inl" />
+    <None Include="..\..\..\synkro\src\scene\LookAtConstraint.inl" />
+    <None Include="..\..\..\synkro\src\scene\MeshImpl.inl" />
+    <None Include="..\..\..\synkro\src\scene\NodeAnimationControllerImpl.inl" />
+    <None Include="..\..\..\synkro\src\scene\NodeRecordControllerImpl.inl" />
+    <None Include="..\..\..\synkro\src\scene\NormalBuilder.inl" />
+    <None Include="..\..\..\synkro\src\scene\ParentConstraint.inl" />
+    <None Include="..\..\..\synkro\src\scene\PointMesh.inl" />
+    <None Include="..\..\..\synkro\src\scene\SceneManager.inl" />
+    <None Include="..\..\..\synkro\src\scene\Skeleton.inl" />
+    <None Include="..\..\..\synkro\src\sound\Sound3D.inl" />
+    <None Include="..\..\..\synkro\src\view\Filter\Depth\DepthMap.inl" />
+    <None Include="..\..\..\synkro\src\view\Filter\ViewportFilterAnimationControllerImpl.inl" />
+    <None Include="..\..\..\synkro\src\view\Filter\ViewportFilterImpl.inl" />
+    <None Include="..\..\..\synkro\src\view\Viewport.inl" />
+    <None Include="..\..\..\synkro\src\view\ViewportManager.inl" />
+    <None Include="..\..\..\synkro\src\view\ViewportTransitionController.inl" />
+    <None Include="..\..\..\synkro\src\win\FrameWindow.inl" />
+    <None Include="..\..\..\synkro\src\win\FrameWindowImpl.inl" />
+    <None Include="..\..\..\synkro\src\win\IconWindowImpl.inl" />
+    <None Include="..\..\..\synkro\src\win\Monitor.inl" />
+    <None Include="..\..\..\synkro\src\win\ViewWindow.inl" />
+    <None Include="..\..\..\synkro\src\win\ViewWindowImpl.inl" />
+    <None Include="..\..\..\synkro\src\win\WindowImpl.inl" />
+    <None Include="..\..\..\synkro\src\win\WindowSystemEx.inl" />
+    <None Include="..\..\..\synkro\src\gfx\CubeTextureImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\LinearTextureImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\PlainTextureImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\TextureImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\VolumeTexture.inl" />
+    <None Include="..\..\..\synkro\src\gfx\VolumeTextureImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\DataFormat.inl" />
+    <None Include="..\..\..\synkro\src\gfx\Primitive.inl" />
+    <None Include="..\..\..\synkro\src\gfx\PrimitiveImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\GraphicsDevice.inl" />
+    <None Include="..\..\..\synkro\src\gfx\GraphicsDeviceImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\Program.inl" />
+    <None Include="..\..\..\synkro\src\gfx\ProgramImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\ProgramStageImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\BlendState.inl" />
+    <None Include="..\..\..\synkro\src\gfx\RasterizerState.inl" />
+    <None Include="..\..\..\synkro\src\gfx\RasterizerStateImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\SamplerState.inl" />
+    <None Include="..\..\..\synkro\src\gfx\SamplerStateImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\SamplerStateSet.inl" />
+    <None Include="..\..\..\synkro\src\gfx\SamplerStateSetImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\GraphicsSystemEx.inl" />
+    <None Include="..\..\..\synkro\src\gfx\GraphicsSystemImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\BaseResourceImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\ResourceSet.inl" />
+    <None Include="..\..\..\synkro\src\gfx\ResourceSetImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\CubeRenderTexture.inl" />
+    <None Include="..\..\..\synkro\src\gfx\CubeRenderTextureImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\DepthTextureImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\LinearRenderTexture.inl" />
+    <None Include="..\..\..\synkro\src\gfx\LinearRenderTextureImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\PlainRenderTexture.inl" />
+    <None Include="..\..\..\synkro\src\gfx\PlainRenderTextureImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\RenderTextureImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\RenderTextureSetImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\VolumeRenderTexture.inl" />
+    <None Include="..\..\..\synkro\src\gfx\VolumeRenderTextureImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\ParameterSet.inl" />
+    <None Include="..\..\..\synkro\src\gfx\ParameterSetImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\BaseRenderWindowImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\RenderWindowImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\FrameRenderWindow.inl" />
+    <None Include="..\..\..\synkro\src\gfx\FrameRenderWindowImpl.inl" />
+    <None Include="..\..\..\synkro\src\gfx\ViewRenderWindow.inl" />
+    <None Include="..\..\..\synkro\src\gfx\ViewRenderWindowImpl.inl" />
+    <None Include="..\..\..\synkro\src\diag\Diag.inl" />
+    <None Include="..\..\..\synkro\src\diag\Log.inl" />
+    <None Include="..\..\..\synkro\src\io\Path.inl" />
+    <None Include="..\..\..\synkro\src\io\StreamReader.inl" />
+    <None Include="..\..\..\synkro\src\io\StreamImpl.inl" />
+    <None Include="..\..\..\synkro\src\io\StreamWriter.inl" />
+    <None Include="..\..\..\synkro\src\io\StreamSystemImpl.inl" />
+    <None Include="..\..\..\synkro\src\io\StreamDirectoryEx.inl" />
+    <None Include="..\..\..\synkro\src\io\StreamDirectoryImpl.inl" />
+    <None Include="..\..\..\synkro\src\input\InputSystemImpl.inl" />
+    <None Include="..\..\..\synkro\src\input\Keyboard.inl" />
+    <None Include="..\..\..\synkro\src\input\Mouse.inl" />
+    <None Include="..\..\..\synkro\src\input\Joystick.inl" />
+    <None Include="..\..\..\synkro\src\input\Arcball.inl" />
+    <None Include="..\..\..\synkro\src\anim\AnimationControllerImpl.inl" />
+    <None Include="..\..\..\synkro\src\anim\AnimationSystem.inl" />
+    <None Include="..\..\..\synkro\src\scene\Camera.inl" />
+    <None Include="..\..\..\synkro\src\scene\NodeImpl.inl" />
+    <None Include="..\..\..\synkro\src\audio\AudioSystemEx.inl" />
+    <None Include="..\..\..\synkro\src\audio\AudioSystemImpl.inl" />
+    <None Include="..\..\..\synkro\src\sound\Music.inl" />
+    <None Include="..\..\..\synkro\src\sound\Voice.inl" />
+    <None Include="..\..\..\synkro\src\over\Overlay.inl" />
+    <None Include="..\..\..\synkro\src\over\FontEx.inl" />
+    <None Include="..\..\..\synkro\src\over\Text.inl" />
+    <None Include="..\..\..\synkro\src\internal\BinarySemaphore.inl" />
+    <None Include="..\..\..\synkro\src\internal\ComInitializer.inl" />
+    <None Include="..\..\..\synkro\src\internal\Logger.inl" />
+    <None Include="..\..\..\synkro\src\internal\Mutex.inl" />
+    <None Include="..\..\..\synkro\src\internal\Semaphore.inl" />
+    <None Include="..\..\..\synkro\src\internal\Timer.inl" />
+    <None Include="..\..\..\synkro\src\win\WindowSystemImpl.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\synkro\synkro.core.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationCodec\AnimationCodec.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationDataType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationDirection.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\AnimationTrack.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\ProcedureType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\WaveType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Interpolation.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Task\SaveAnimationTask.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\audio\AudioChunk.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\audio\AudioEnvironment.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\audio\AudioPlayer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\audio\AudioRecorder.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\audio\PlayerDesc.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\audio\RecorderDesc.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\audio\SoundBuffer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\audio\SoundEmitter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\audio\SoundListener.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\audio\VoiceBuffer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\cons\Console.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationBanner.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationEditor.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\ConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\PointMeshConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\ProjectorsConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\RubikCubeConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\SierpinskiConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\TesseractConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ControllerState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\DataMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\FactoryList.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\FactoryTable.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\Iface.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\Language.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\List\NodeList.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\List\StringList.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\List\TriangleMeshList.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\PlainLogFile.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\Resource.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ResourceList.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ResourceReader.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ResourceTable.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\RichLogFile.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\Version.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\Win32\Win32ConfigurationEditor.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\Win32\Win32ExceptionHandler.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\CombinationType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\ComparisonType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\Database.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\DatabaseException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\DatabaseSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\DatabaseSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\DataCursor.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\DataFilter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\DataTable.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\DeleteQuery.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\InsertQuery.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\SelectQuery.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\SortOrder.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\TableColumn.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\TableIndex.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\db\UpdateQuery.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\diag\LogFacility.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\AbsFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\BinaryExpression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\CeilFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ColorExpression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ColorFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ComplexExpression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Constant.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ConstantExpression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ControlExpression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\CosFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ExpFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Expression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ExpressionCompiler.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ExpressionException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ExpressionList.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ExpressionParam.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ExpressionParamEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ExpressionScript.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\FloatExpression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\FloatFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\FloorFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Function.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\FunctionExpression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Identifier.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\LerpFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Matrix4x4Expression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Matrix4x4Function.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\MaxFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\MetaExpression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\MinFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\PowFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ReturnExpression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\ReturnStatement.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\SignFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\SimpleExpression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\SinFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\SqrtFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Token.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\TokenExpression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\UnaryExpression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Variable.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\VariableDeclaration.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\VariableExpression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Vector3Expression.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Expression\Vector3Function.cpp" />
+    <ClCompile Include="..\..\..\external\src\stream.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Aspect.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\BlendStateEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\BlendStateSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\CompareFunction.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\CubeDepthTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\CubeRenderMap.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\DataAccess.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\DataStream.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\DepthStencilState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\DisplayModeFormat.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\GraphicsDeviceDesc.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\LineRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\LineRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\MapMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Ndc.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\OverlayRenderMap.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\OverlayRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\OverlayRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PlainDepthTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PlainRenderMap.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PostProcessRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PostProcessRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ProgramParamEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\RectEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\RenderView.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\RenderViewStats.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SkyboxRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SkysphereRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\StructuredBuffer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\TypedBuffer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\VirtualRenderWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\ImageCodec.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\ImageCodecContext.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\ImageCodecContextEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\RenderImage\CubeRenderImage.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\RenderImage\PlainRenderImage.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\Task\LoadImageTask.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\Task\PrepareImageTask.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\Task\SaveImageTask.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\DivisionByZeroException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\StringBuilder.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\math\CubicBezier.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\math\Intersection.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\math\TcbSpline.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\MaterialTriangleSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\OpaqueMaterial.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\OpaqueMaterialInstance.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\SimpleMaterialAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\SimpleMaterialProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\SoftOpaqueMaterial.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\TransparentMaterial.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\TransparentMaterialAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\TransparentMaterialInstance.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\TransparentMaterialProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mem\MemoryStats.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\net\NetworkAddress.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\net\NetworkDevice.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\net\NetworkDeviceDesc.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\net\NetworkException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\net\NetworkMessage.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\net\NetworkPeer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\net\NetworkSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\net\NetworkSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\SpriteAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\SpriteProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\TextAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\TextPoolAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\TextPoolProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\TextProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\BoneProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\CameraAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\CameraProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\ColorMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\ConeLight.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\ConeLightAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\ConeLightProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\ConeSound.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\Curve.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\DebugHelper.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\DebugMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\DirectLight.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\FogAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\FogProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\Gizmo.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\LightAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\LightProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\LineMesh.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\LineMeshBatch.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\LineMeshInstance.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\LineSetAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\LineSetProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshBatchProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshBuilder\MeshBuilder.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\MeshCodec.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\NodeAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\NodeProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\OmniLight.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\OmniLightAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\OmniLightProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\OmniSound.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\PointMeshBatch.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\PointMeshInstance.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\PointSetAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\PointSetProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\PrimitiveAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\PrimitiveProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\SceneAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\SceneProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\SceneType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\SkeletonAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\SoftTriangleMesh.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\SoundAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\SoundProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\TriangleMesh.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\TriangleMeshBatch.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\script\ScriptException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\script\ScriptMachine.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\script\ScriptMethod.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\script\ScriptObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\script\ScriptParam.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\script\ScriptParamType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\script\ScriptSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\script\ScriptSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\sound\MusicAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\sound\MusicProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\sound\Sound2D.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\sound\SoundCodec\SoundCodec.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\sound\SoundCodec\SoundCodecContext.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Accordion.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Anchor.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Angle.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Button.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Cursor.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\DropList.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Edit.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Frame.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\UiEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\UiReader.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\UiType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\HotKey.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Label.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\List.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Option.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Picture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Progress.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Slider.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Switch.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Theme.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\ThemeName.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\WidgetEffect.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\WidgetState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\ColorGradient.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\ImageStats.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\PixelChannel.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\PixelFormatEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\JoystickDesc.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\KeyboardDesc.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\MouseDesc.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\AccessMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\StreamEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\XmlDocument.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\ZipDirectory.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\ZipFolder.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\ZipStream.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Convert.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\DataType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Enum.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Flag.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\GradientType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Mask.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\NullReferenceException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\OutOfRangeException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Point.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\PointF.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Random.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Range.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Rect.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\RectF.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Size.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\String.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Formatter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\ASCII7Encoding.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Encoding.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\UTF16Encoding.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\UTF32Encoding.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\UTF8Encoding.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Parser.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\DateTime.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\BadArgumentException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Exception.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\InvalidOperationException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\NotSupportedException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\Platform.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\VersionException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\Configuration.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\Param.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\Library.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ResourceType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\Str.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\CallStack.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\Synkro.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\Thread.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ThreadPool.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ExceptionHandler.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Variant.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\VariantEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\lang\Volume.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\DiffuseMap.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\LightingModel.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\MaterialDesc.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\MaterialManager.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\MultiMaterial.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mat\OpacityMap.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\mem\MemoryManager.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\FontTemplate.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\OverlayManager.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\PolyLine.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\PoolSprite.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\PoolText.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\Quad.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\Sprite.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\SpritePool.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\TextBuffer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\TextDesc.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\prf\Profiler.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\math\Math.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\math\Matrix3x3.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\math\Matrix4x4.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\math\Quaternion.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\math\Vector2.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\math\Vector3.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\math\Vector4.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\Color.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\Image.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\ImageManager.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\ImageType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\PixelFormat.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\Attenuation.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\Bone.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\CameraRecordController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\Dummy.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\Fog.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\LineSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\LookAtConstraint.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\ParentConstraint.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\PointMesh.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\PointSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\SceneManager.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\Skeleton.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\SoftTriangleSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\TriangleSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\sound\Sound3D.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\sound\SoundChannel.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Color\ColorFilterProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\DepthMap.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\FogFilterProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Emboss\EmbossFilterProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Kernel3x3FilterProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Simple\SimpleFilterProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\ViewportFilter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\ViewportFilterProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\StereoMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\TransitionEffect.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\ViewMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Viewport.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\ViewportAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\ViewportManager.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\ViewportProperty.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\ViewportTransitionController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\FrameWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\Monitor.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\MonitorOrientation.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\ViewWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\WindowSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\WindowSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\CubeFace.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\DataUsage.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\DepthFormat.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\GraphicsException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\GraphicsStats.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ProgramDataType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\CubeTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\LinearTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PlainTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\TextureAddress.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\TextureFilter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\VolumeTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\DataFormat.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\IndexType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Primitive.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\PrimitiveType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\DisplayMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\GraphicsDevice.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\GraphicsDeviceType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Program.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ProgramReader.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ProgramStage.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ProgramStageType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\BlendMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\BlendOperation.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\BlendState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\StencilOperation.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\CullMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\FillMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\RasterizerState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SamplerState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SamplerStateSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Matrix4x4Stream.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\NdcVector4Stream.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\GraphicsSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\GraphicsSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ResourceSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\CubeRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\LinearRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PlainRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\VolumeRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ParameterSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ProgramParam.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\FrameRenderWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ViewRenderWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\diag\Diag.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\diag\Log.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\diag\LogLevel.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\diag\LogMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\diag\MessagePriority.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\FileNotFoundException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\IoException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\OpenMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\SeekOrigin.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\Path.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\TextReader.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\XmlReader.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\BinaryStream.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\FileStream.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\StreamSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\TextStream.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\TextWriter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\XmlWriter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\NullStreamSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\StreamSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\StreamSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\StreamDirectory.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\StreamDirectoryEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Axis.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\InputException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\InputSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\InputSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Key.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Keyboard.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\KeyboardState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Mouse.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\MouseButton.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\MouseState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Joystick.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\JoystickButton.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\JoystickState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Arcball.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Alignment.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\EditStyle.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\Orientation.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\ProgressType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\ThemeReader.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\CursorType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\ui\ListItem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\Animation.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationMode.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\FogType.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\Camera.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\Scene.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\audio\AudioException.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\audio\AudioSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\audio\AudioSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\sound\PlaybackMode.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\sound\SoundFormat.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\sound\SoundManager.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\sound\Music.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\sound\Voice.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\Order.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\Overlay.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\FontEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\FontStyle.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\over\Text.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\over\TextPool.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\internal\Months.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\internal\Weekdays.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\src\synkro\synkro.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\src\synkro\banner.bmp" />
+    <Image Include="..\..\src\synkro\synkro.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="\develop\blindharper\synkro\libraries\src\synkro\synkro.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

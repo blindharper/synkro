@@ -1,0 +1,31 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="debug" />
+    <BuildType Name="debug_static" />
+    <BuildType Name="perf" />
+    <BuildType Name="perf_static" />
+    <BuildType Name="release" />
+    <BuildType Name="release_static" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="synkro/synkro_msvs2026.vcxproj" Id="e28ef5aa-43df-4c6d-b372-c03ca9630d58" />
+  <Project Path="synkro.anim/synkro.anim_msvs2026.vcxproj" Id="d4ad4055-e884-4078-9ed3-5f20642bb3ee" />
+  <Project Path="synkro.audio.al/synkro.audio.al_msvs2026.vcxproj" Id="72c96283-6cd7-4703-b6f7-84ad732c05c6" />
+  <Project Path="synkro.audio.ds8/synkro.audio.ds8_msvs2026.vcxproj" Id="3b2236fa-422c-43c7-b64b-28e9c05e0f7b" />
+  <Project Path="synkro.audio.winmm/synkro.audio.winmm_msvs2026.vcxproj" Id="dffd02bf-0bce-426a-99f1-043043441d97" />
+  <Project Path="synkro.cons/synkro.cons_msvs2026.vcxproj" Id="98fbdffc-1997-4713-824a-4b45ee2140e9" />
+  <Project Path="synkro.db.sqlite/synkro.db.sqlite_msvs2026.vcxproj" Id="c4b22084-f6f7-4bfc-b961-6765c2b2f46c" />
+  <Project Path="synkro.gfx.dx11/synkro.gfx.dx11_msvs2026.vcxproj" Id="8382a661-157d-4fe4-8e89-37016a48b509" />
+  <Project Path="synkro.img/synkro.img_msvs2026.vcxproj" Id="e09e52cd-784e-4678-b8eb-79a8049523bf" />
+  <Project Path="synkro.input.di8/synkro.input.di8_msvs2026.vcxproj" Id="a00fba59-511b-498f-9de2-5b94fcccb33b" />
+  <Project Path="synkro.input.win32/synkro.input.win32_msvs2026.vcxproj" Id="3fb2a0e5-3cbc-4fec-96e2-9848840c0d32" />
+  <Project Path="synkro.io/synkro.io_msvs2026.vcxproj" Id="35f7ddd0-388e-41f8-b659-875c02475e55" />
+  <Project Path="synkro.mat/synkro.mat_msvs2026.vcxproj" Id="877d198b-deaa-49ce-9d9c-adf33cb7f275" />
+  <Project Path="synkro.net.ws2/synkro.net.ws2_msvs2026.vcxproj" Id="49411e84-e33f-4fec-a0de-6b0b0579934c" />
+  <Project Path="synkro.scene/synkro.scene_msvs2026.vcxproj" Id="70fb0e3a-21f0-4d15-9f95-506385ce3431" />
+  <Project Path="synkro.script.lua/synkro.script.lua_msvs2026.vcxproj" Id="76567d1a-52c2-46b1-b0af-7d5bb44fc08f" />
+  <Project Path="synkro.sound/synkro.sound_msvs2026.vcxproj" Id="0f29ae09-9cab-4925-a4e6-b83dd8c07223" />
+  <Project Path="synkro.ui/synkro.ui_msvs2026.vcxproj" Id="c4487c65-7ae0-4a5d-a3c9-b6a04659c78a" />
+  <Project Path="synkro.view/synkro.view_msvs2026.vcxproj" Id="d773b653-e22f-44ff-a84f-30fb2c853112" />
+  <Project Path="synkro.win.win32/synkro.win.win32_msvs2026.vcxproj" Id="5155f2a2-0e74-49ef-8f50-7c7ec64d761c" />
+</Solution>
