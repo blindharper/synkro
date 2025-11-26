@@ -24,42 +24,42 @@ namespace lang
 {
 
 
-Enum::Enum( UInt value ) :
+Enum::Enum( UInt value ) SYNKRO_NOEXCEPT :
 	_value( value )
 {
 }
 
-Enum::Enum() :
+Enum::Enum() SYNKRO_NOEXCEPT :
 	_value( 0 )
 {
 }
 
-Bool Enum::operator==( const Enum& other ) const
+Bool Enum::operator==( const Enum& other ) const SYNKRO_NOEXCEPT
 {
 	return (this->_value == other._value);
 }
 
-Bool Enum::operator!=( const Enum& other ) const
+Bool Enum::operator!=( const Enum& other ) const SYNKRO_NOEXCEPT
 {
 	return (this->_value != other._value);
 }
 
-Int Enum::HashCode() const
+Int Enum::HashCode() const SYNKRO_NOEXCEPT
 {
 	return CastInt(_value);
 }
 
-UInt Enum::Value() const
+UInt Enum::Value() const SYNKRO_NOEXCEPT
 {
 	return _value;
 }
 
-Enum::operator UInt() const
+Enum::operator UInt() const SYNKRO_NOEXCEPT
 {
 	return _value;
 }
 
-UInt Enum::GetValue( const String& type, const String& value )
+UInt Enum::GetValue( const String& type, const String& value ) SYNKRO_NOEXCEPT
 {
 	if ( type.EqualsTo(L"Alignment", true) )
 		return ui::Alignment(value).Value();

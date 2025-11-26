@@ -55,7 +55,7 @@ SYNKRO_FLAG_BEGIN( FontStyle )
 	FontStyle( const lang::String& style );
 
 	/** Converts font style to string. */
-	lang::String								ToString() const;
+	lang::String											ToString() const;
 SYNKRO_FLAG_END()
 
 

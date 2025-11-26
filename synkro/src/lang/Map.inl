@@ -99,7 +99,7 @@ Map<K,T,F,E,A>& Map<K,T,F,E,A>::operator=( const Map<K,T,F,E,A>& other )
 		_alloc = other._alloc;
 		if ( other._size > 0 )
 		{
-			UInt capacity = other._capacity;
+			const UInt capacity = other._capacity;
 			MapPair<K,T>* data = AllocateMap( capacity );
 			other.RehashTo( data, capacity );
 			_capacity = capacity;

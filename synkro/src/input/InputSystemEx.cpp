@@ -150,7 +150,7 @@ IArcball* InputSystemEx::CreateArcball( IMouseEx* mouse, IWindow* window )
 
 void InputSystemEx::ListenKeyDown( IKeyboardEx* keyboard, KeyboardListener* listener, const Key& key, Bool discrete )
 {
-	UInt device = ((Keyboard*)keyboard)->GetIndex();
+	const UInt device = ((Keyboard*)keyboard)->GetIndex();
 	KeyboardListenerDesc* desc = GetListener( listener );
 	for ( UInt i = 0; i < desc->Events.Size(); ++i )
 	{
@@ -165,7 +165,7 @@ void InputSystemEx::ListenKeyDown( IKeyboardEx* keyboard, KeyboardListener* list
 
 void InputSystemEx::ListenKeyUp( IKeyboardEx* keyboard, KeyboardListener* listener, const Key& key )
 {
-	UInt device = ((Keyboard*)keyboard)->GetIndex();
+	const UInt device = ((Keyboard*)keyboard)->GetIndex();
 	KeyboardListenerDesc* desc = GetListener( listener );
 	for ( UInt i = 0; i < desc->Events.Size(); ++i )
 	{
@@ -177,7 +177,7 @@ void InputSystemEx::ListenKeyUp( IKeyboardEx* keyboard, KeyboardListener* listen
 
 void InputSystemEx::ListenKeyPress( IKeyboardEx* keyboard, KeyboardListener* listener )
 {
-	UInt device = ((Keyboard*)keyboard)->GetIndex();
+	const UInt device = ((Keyboard*)keyboard)->GetIndex();
 	KeyboardListenerDesc* desc = GetListener( listener );
 	for ( UInt i = 0; i < desc->Events.Size(); ++i )
 	{
@@ -189,7 +189,7 @@ void InputSystemEx::ListenKeyPress( IKeyboardEx* keyboard, KeyboardListener* lis
 
 void InputSystemEx::ListenMouseClick( IMouseEx* mouse, MouseListener* listener, const MouseButton& buttons )
 {
-	UInt device = ((Mouse*)mouse)->GetIndex();
+	const UInt device = ((Mouse*)mouse)->GetIndex();
 	MouseListenerDesc* desc = GetListener( listener );
 	for ( UInt i = 0; i < desc->Events.Size(); ++i )
 	{
@@ -201,7 +201,7 @@ void InputSystemEx::ListenMouseClick( IMouseEx* mouse, MouseListener* listener, 
 
 void InputSystemEx::ListenMouseDoubleClick( IMouseEx* mouse, MouseListener* listener, const MouseButton& buttons )
 {
-	UInt device = ((Mouse*)mouse)->GetIndex();
+	const UInt device = ((Mouse*)mouse)->GetIndex();
 	MouseListenerDesc* desc = GetListener( listener );
 	for ( UInt i = 0; i < desc->Events.Size(); ++i )
 	{
@@ -213,7 +213,7 @@ void InputSystemEx::ListenMouseDoubleClick( IMouseEx* mouse, MouseListener* list
 
 void InputSystemEx::ListenMouseDown( IMouseEx* mouse, MouseListener* listener, const MouseButton& buttons )
 {
-	UInt device = ((Mouse*)mouse)->GetIndex();
+	const UInt device = ((Mouse*)mouse)->GetIndex();
 	MouseListenerDesc* desc = GetListener( listener );
 	for ( UInt i = 0; i < desc->Events.Size(); ++i )
 	{
@@ -225,7 +225,7 @@ void InputSystemEx::ListenMouseDown( IMouseEx* mouse, MouseListener* listener, c
 
 void InputSystemEx::ListenMouseUp( IMouseEx* mouse, MouseListener* listener, const MouseButton& buttons )
 {
-	UInt device = ((Mouse*)mouse)->GetIndex();
+	const UInt device = ((Mouse*)mouse)->GetIndex();
 	MouseListenerDesc* desc = GetListener( listener );
 	for ( UInt i = 0; i < desc->Events.Size(); ++i )
 	{
@@ -237,7 +237,7 @@ void InputSystemEx::ListenMouseUp( IMouseEx* mouse, MouseListener* listener, con
 
 void InputSystemEx::ListenMouseAxisMove( IMouseEx* mouse, MouseListener* listener, const Axis& axis )
 {
-	UInt device = ((Mouse*)mouse)->GetIndex();
+	const UInt device = ((Mouse*)mouse)->GetIndex();
 	MouseListenerDesc* desc = GetListener( listener );
 	for ( UInt i = 0; i < desc->Events.Size(); ++i )
 	{
@@ -249,7 +249,7 @@ void InputSystemEx::ListenMouseAxisMove( IMouseEx* mouse, MouseListener* listene
 
 void InputSystemEx::ListenJoystickDown( IJoystickEx* joystick, JoystickListener* listener, const JoystickButton& button )
 {
-	UInt device = ((Joystick*)joystick)->GetIndex();
+	const UInt device = ((Joystick*)joystick)->GetIndex();
 	JoystickListenerDesc* desc = GetListener( listener );
 	for ( UInt i = 0; i < desc->Events.Size(); ++i )
 	{
@@ -261,7 +261,7 @@ void InputSystemEx::ListenJoystickDown( IJoystickEx* joystick, JoystickListener*
 
 void InputSystemEx::ListenJoystickUp( IJoystickEx* joystick, JoystickListener* listener, const JoystickButton& button )
 {
-	UInt device = ((Joystick*)joystick)->GetIndex();
+	const UInt device = ((Joystick*)joystick)->GetIndex();
 	JoystickListenerDesc* desc = GetListener( listener );
 	for ( UInt i = 0; i < desc->Events.Size(); ++i )
 	{
@@ -273,7 +273,7 @@ void InputSystemEx::ListenJoystickUp( IJoystickEx* joystick, JoystickListener* l
 
 void InputSystemEx::ListenJoystickAxisMove( IJoystickEx* joystick, JoystickListener* listener, const Axis& axis )
 {
-	UInt device = ((Joystick*)joystick)->GetIndex();
+	const UInt device = ((Joystick*)joystick)->GetIndex();
 	JoystickListenerDesc* desc = GetListener( listener );
 	for ( UInt i = 0; i < desc->Events.Size(); ++i )
 	{

@@ -12,6 +12,7 @@
 //==============================================================================
 template <class T>
 SYNKRO_INLINE ImageCodecImpl<T>::ImageCodecImpl( Float quality ) :
+	_imageManager( nullptr ),
 	_quality( quality )
 {
 }
@@ -120,7 +121,7 @@ SYNKRO_INLINE void ImageCodecImpl<T>::Save( ImageCodecContext* context )
 		const Byte* data = nullptr;
 		for ( UInt i = 0; (data = GetNextSurface(context)) != nullptr; ++i )
 		{
-			UInt idxStream = SupportsMipmaps() ? 0 : i;
+			const UInt idxStream = SupportsMipmaps() ? 0 : i;
 			if ( idxStream >= context->Streams->GetSize() )
 				return;
 		
@@ -155,7 +156,7 @@ template <class T>
 SYNKRO_INLINE UInt ImageCodecImpl<T>::Read( ImageCodecContext* context, io::IStream* stream, void* data, UInt size )
 {
 	ImageCodecContextEx* ctx = (ImageCodecContextEx*)context;
-	UInt bytes = stream->Read( data, size );
+	const UInt bytes = stream->Read( data, size );
 	ctx->BytesRead += bytes;
 	UpdateProgress( context );
 	return bytes;
@@ -188,8 +189,8 @@ template <class T>
 SYNKRO_INLINE Byte* ImageCodecImpl<T>::CreateSurface( ImageCodecContext* context, UInt width, UInt height, UInt stride, const Byte* data, UInt size )
 {
 	ImageCodecContextEx* ctx = (ImageCodecContextEx*)context;
-	UInt currentSquare = ctx->CurrentWidth * ctx->CurrentHeight;
-	UInt square = width * height;
+	const UInt currentSquare = ctx->CurrentWidth * ctx->CurrentHeight;
+	const UInt square = width * height;
 	ctx->CurrentWidth = width;
 	ctx->CurrentHeight = height;
 	if ( square >= currentSquare )

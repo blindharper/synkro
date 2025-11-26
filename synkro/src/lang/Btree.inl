@@ -243,7 +243,7 @@ SYNKRO_INLINE void Btree<T,A>::Split( BtreeNode<T>* nodeLeft )
 {
 	// Unlink median element.
 	BtreeItem<T>* itemMedian = nodeLeft->first;
-	UInt cnt = _nodeSize/2;
+	const UInt cnt = _nodeSize/2;
 	for ( UInt i = 0; i < cnt; ++i )
 	{
 		itemMedian = itemMedian->next;

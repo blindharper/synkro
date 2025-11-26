@@ -22,32 +22,32 @@ namespace lang
 {
 
 
-Flag::Flag( UInt value ) :
+Flag::Flag( UInt value ) SYNKRO_NOEXCEPT :
 	Enum( value )
 {
 }
 
-void Flag::Set( const Flag& flag )
+void Flag::Set( const Flag& flag ) SYNKRO_NOEXCEPT
 {
 	_value |= flag._value;
 }
 
-void Flag::Reset( const Flag& flag )
+void Flag::Reset( const Flag& flag ) SYNKRO_NOEXCEPT
 {
 	_value &= ~flag._value;
 }
 
-Bool Flag::IsSet( const Flag& flag ) const
+Bool Flag::IsSet( const Flag& flag ) const SYNKRO_NOEXCEPT
 {
 	return (this->_value & flag._value) != 0;
 }
 
-Bool Flag::IsNotSet( const Flag& flag ) const
+Bool Flag::IsNotSet( const Flag& flag ) const SYNKRO_NOEXCEPT
 {
 	return (this->_value & flag._value) == 0;
 }
 
-UInt Flag::Bits() const
+UInt Flag::Bits() const SYNKRO_NOEXCEPT
 {
 	UInt cnt = 0;
 

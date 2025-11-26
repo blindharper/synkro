@@ -51,7 +51,7 @@
 
 // Converts string to flag value.
 #define SET_FLAG_VALUE( TYPE )						\
-	UInt count = TYPE.EntryCount( L'|' );			\
+	const UInt count = TYPE.EntryCount( L'|' );			\
 	for ( UInt f = 0; f < count; ++f )				\
 	{												\
 		lang::String s = TYPE.Entry( f, L'|' );		\

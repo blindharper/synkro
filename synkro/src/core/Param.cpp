@@ -241,7 +241,7 @@ public:
 			gfx::DisplayMode::GetMode( i, mode );
 
 			Zero( aspect, 64 );
-			Float modeAspect = GetAspect( mode );
+			const Float modeAspect = GetAspect( mode );
 
 			Float diffMin = math::Math::MaxFloat;
 			constexpr UInt cnt = SizeOf( aspects );

@@ -47,7 +47,7 @@ SYNKRO_INLINE T* Allocator<T>::Allocate( UInt count )
 	void* memory = mem::MemoryManager::Allocate( sizeof(T)*count, _name, _index );
 	T* item0 = reinterpret_cast<T*>( memory );
 	Int i = 0;
-	Int c = count;
+	const Int c = count;
 
 	try
 	{

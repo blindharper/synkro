@@ -286,7 +286,7 @@ void ThemeReader::ReadProgress()
 
 void ThemeReader::ReadSlider()
 {
-	Orientation orientation( _rd.GetAttributeValue(L"orientation") );
+	const Orientation orientation( _rd.GetAttributeValue(L"orientation") );
 	ReadRect( (orientation == Orientation::Horizontal) ? THEME_SLIDER_HORZ_RECT : THEME_SLIDER_VERT_RECT, L"rect" );
 	ReadRect( (orientation == Orientation::Horizontal) ? THEME_SLIDER_HORZ_CENTER : THEME_SLIDER_VERT_CENTER, L"center" );
 	ReadRect( (orientation == Orientation::Horizontal) ? THEME_SLIDER_HORZ_THUMB : THEME_SLIDER_VERT_THUMB, L"thumb" );
