@@ -1,0 +1,13 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="debug" />
+    <BuildType Name="release" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="libjpeg/libjpeg_msvs2026.vcxproj" Id="4d27a163-8001-49eb-8828-43dd4c1dc492" />
+  <Project Path="libmad/libmad_msvs2026.vcxproj" Id="61a1cb09-c8d8-4a9b-96f7-ead4a51d2e2e" />
+  <Project Path="libpng/libpng_msvs2026.vcxproj" Id="250cd82f-7362-4016-ac4e-b149bb0ab88e" />
+  <Project Path="lua/lua_msvs2026.vcxproj" Id="bf8189bd-9b3f-4a2c-baa9-61d372fc82d4" />
+  <Project Path="sqlite/sqlite_msvs2026.vcxproj" Id="2a4fd7aa-7e1b-447b-aa13-bb943c07f62b" />
+  <Project Path="zlib/zlib_msvs2026.vcxproj" Id="f7407608-4012-491e-8b88-15d9b14ab849" />
+</Solution>

@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug_static|x64">
+      <Configuration>debug_static</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="perf_static|x64">
+      <Configuration>perf_static</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="perf|x64">
+      <Configuration>perf</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release_static|x64">
+      <Configuration>release_static</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>synkro.view</ProjectName>
+    <ProjectGuid>{D773B653-E22F-44FF-A84F-30FB2C853112}</ProjectGuid>
+    <RootNamespace>synkro.view</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</GenerateManifest>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">false</LinkIncremental>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='perf|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='perf|x64'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='debug|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='perf|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='perf|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='perf|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='release|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">synkro_debug.view</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">synkro_debug.view</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">.lib</TargetExt>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">synkro_perf.view</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">synkro_perf.view</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
+    <OutDir>../../../synkro/bin/win64/</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
+    <OutDir>../../../synkro/bin/win64/</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'">
+    <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
+    <OutDir>../../../synkro/bin/win64/</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">
+    <OutDir>../../../synkro/lib/win64/</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+    <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">
+    <OutDir>../../../synkro/lib/win64/</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+    <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">
+    <OutDir>../../../synkro/lib/win64/</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+    <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <PreBuildEvent>
+      <Message>Building resources...</Message>
+      <Command>..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.view\programs.mak"</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.view;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>FPM_64BIT;_WIN64;_UNICODE;UNICODE;_DEBUG;_WINDOWS;_USRDLL;SYNKROLIB_EXPORTS;SYNKRO_PERF;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <ResourceCompile>
+      <ShowProgress>false</ShowProgress>
+      <ResourceOutputFileName>$(OutDir)synkro_debug.view.res</ResourceOutputFileName>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>synkro_debug.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)synkro_debug.view.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../external/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)synkro_debug.view.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>
+      </ImportLibrary>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Command>del "$(OutDir)$(TargetName).exp"
+del "$(OutDir)$(TargetName).ilk"
+del "$(OutDir)$(TargetName).lib"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">
+    <PreBuildEvent>
+      <Message>Building resources...</Message>
+      <Command>..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.view\programs.mak"</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.view;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_UNICODE;UNICODE;_DEBUG;_WINDOWS;SYNKRO_PERF;SYNKRO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <ResourceCompile>
+      <ShowProgress>false</ShowProgress>
+      <ResourceOutputFileName>$(OutDir)synkro_debug.view.res</ResourceOutputFileName>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>synkro_debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)synkro_debug.view.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)synkro_debug.view.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>
+      </ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <PreBuildEvent>
+      <Message>Building resources...</Message>
+      <Command>..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.view\programs.mak"</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.view;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>FPM_64BIT;WIN64;_UNICODE;UNICODE;NDEBUG;_WINDOWS;_USRDLL;SYNKROLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)synkro.view.res</ResourceOutputFileName>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>synkro.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../external/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>
+      </ImportLibrary>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>del "$(OutDir)$(TargetName).exp"
+del "$(OutDir)$(TargetName).lib"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">
+    <PreBuildEvent>
+      <Message>Building resources...</Message>
+      <Command>..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.view\programs.mak"</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.view;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_UNICODE;UNICODE;NDEBUG;_WINDOWS;SYNKRO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)synkro.view.res</ResourceOutputFileName>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>synkro.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>
+      </ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">
+    <PreBuildEvent>
+      <Message>Building...</Message>
+      <Command>..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.view\programs.mak"</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.view;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_UNICODE;UNICODE;NDEBUG;_WINDOWS;SYNKRO_STATIC;SYNKRO_PERF;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)synkro.view.res</ResourceOutputFileName>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>synkro.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>
+      </ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'">
+    <PreBuildEvent>
+      <Message>Building resources...</Message>
+      <Command>..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.view\programs.mak"</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.view;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_UNICODE;UNICODE;NDEBUG;_WINDOWS;_USRDLL;SYNKRO_PERF;SYNKROLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>config.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(OutDir)synkro.view.res</ResourceOutputFileName>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <Link>
+      <AdditionalDependencies>synkro_perf.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)synkro_perf.view.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../external/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <ImportLibrary>
+      </ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+      <Command>del "$(OutDir)$(TargetName).exp"
+del "$(OutDir)$(TargetName).lib"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Color\ColorFilter.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Color\ColorFilterAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Color\ColorFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilter.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilterImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthOfFieldFilter.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthOfFieldFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\FogFilter.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\FogFilterAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\FogFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\MotionBlurFilter.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\MotionBlurFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\BlurFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\DilationFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Emboss\EmbossFilter.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Emboss\EmbossFilterAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Emboss\EmbossFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\ErosionFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Kernel3x3Filter.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Kernel3x3FilterAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Kernel3x3FilterImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\LaplacianFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\PrewittFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\SharpenFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\SobelFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Pass\AlphaFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Pass\BlueFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Pass\GrayscaleFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Pass\GreenFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Pass\NegativeFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Pass\PassFilter.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Pass\RedFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Pass\SepiaFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Simple\BrightnessFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Simple\ContrastFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Simple\HueFilterFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Simple\SimpleFilter.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Simple\SimpleFilterAnimationController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\synkro.view\programs.cpp" />
+    <ClCompile Include="..\..\src\synkro.view\synkro.view.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Color\ColorFilter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Color\ColorFilterAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\DepthOfFieldFilter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\FogFilter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\FogFilterAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\MotionBlurFilter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Emboss\EmbossFilter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Emboss\EmbossFilterAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Kernel3x3Filter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Kernel3x3FilterAnimationController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Pass\PassFilter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Simple\SimpleFilter.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Simple\SimpleFilterAnimationController.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\synkro\synkro_msvs2026.vcxproj">
+      <Project>{e28ef5aa-43df-4c6d-b372-c03ca9630d58}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\synkro.view\factories.inl" />
+    <None Include="..\..\src\synkro.view\resources.inl" />
+    <None Include="..\..\..\synkro\src\view\Filter\Color\ColorFilter.inl" />
+    <None Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilter.inl" />
+    <None Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilterImpl.inl" />
+    <None Include="..\..\..\synkro\src\view\Filter\Depth\DepthOfFieldFilter.inl" />
+    <None Include="..\..\..\synkro\src\view\Filter\Depth\FogFilter.inl" />
+    <None Include="..\..\..\synkro\src\view\Filter\Depth\MotionBlurFilter.inl" />
+    <None Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Emboss\EmbossFilter.inl" />
+    <None Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Kernel3x3FilterImpl.inl" />
+    <None Include="..\..\..\synkro\src\view\Filter\Simple\SimpleFilter.inl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

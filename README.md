@@ -2,7 +2,7 @@
 Synkro is a free 3d graphics framework for C++ developers
 
 # Build instructions
-Open synkro.build/buildall_msvs2026.slnx in MS Visual Studio 2026
+Open build/buildall_msvs2026.slnx in MS Visual Studio 2026
 and choose the desired configuration then run build.
 
 For dynamic build configuration (without "_static" suffix),
@@ -22,7 +22,3 @@ prior to calling SynkroCreate declated in synkro.h
 By default, the demos or tools run in windowed mode.
 On very first run, the window size is wrong and the GUI can't be seen.
 To fix this, use CTRL+F keystroke to switch to fullscreen mode and back.
-
-# Donations
-This project is a work in progress. You can donate for its further development.
-BTC wallet: bc1qcc30ghv8gc8msrlf8mduessg3w8wj8jrm2cy68

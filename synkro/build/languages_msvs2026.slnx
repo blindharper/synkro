@@ -1,8 +1,0 @@
-<Solution>
-  <Configurations>
-    <BuildType Name="english" />
-    <BuildType Name="russian" />
-    <Platform Name="x64" />
-  </Configurations>
-  <Project Path="languages/synkro.lng/synkro.lng_msvs2026.vcxproj" Id="16942c20-125f-4c77-b63b-e55f08f4d03c" />
-</Solution>
