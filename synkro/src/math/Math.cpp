@@ -37,9 +37,11 @@ namespace math
 
 const Float Math::E = 2.718281828459045f;
 const Float Math::Pi = 4.0f*atanf(1.0f);
-const Float Math::TwoPi = 8.0f*atanf(1.0f);
-const Float Math::HalfPi = 2.0f*atanf(1.0f);
-const Float Math::QuarterPi = atanf(1.0f);
+const Float Math::TwoPi = 2.0f*Math::Pi;
+const Float Math::HalfPi = 0.5f*Math::Pi;
+const Float Math::QuarterPi = 0.25f*Math::Pi;
+const Float Math::OneOverPi = 1.0f/Math::Pi;
+const Float Math::OneOverTwoPi = 1.0f/Math::TwoPi;
 const Float Math::Eps = 1e-6f;
 const Float Math::MinFloat = std::numeric_limits<Float>::min();
 const Float Math::MaxFloat = std::numeric_limits<Float>::max();

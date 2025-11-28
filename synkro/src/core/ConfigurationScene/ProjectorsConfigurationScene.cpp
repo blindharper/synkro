@@ -98,33 +98,33 @@ ProjectorsConfigurationScene::ProjectorsConfigurationScene( ISynkro* synkro ) :
 	IWaveFloatTrack* trackPositionX = targetCtrl->CreatePositionXTrack( AnimationTrack::FloatWave )->AsWave();
 	trackPositionX->SetType( WaveType::Sine );
 	trackPositionX->SetAmplitude( 50.0f );
-	trackPositionX->SetFrequency( 1.0f/Math::Pi );
+	trackPositionX->SetFrequency( Math::OneOverPi );
 
 	IWaveFloatTrack* trackPositionZ = targetCtrl->CreatePositionZTrack( AnimationTrack::FloatWave )->AsWave();
 	trackPositionZ->SetType( WaveType::Sine );
 	trackPositionZ->SetAmplitude( 50.0f );
-	trackPositionZ->SetFrequency( 2.0f/Math::Pi );
+	trackPositionZ->SetFrequency( 2.0f*Math::OneOverPi );
 
 	IWaveFloatTrack* trackPositionX2 = targetCtrl2->CreatePositionXTrack( AnimationTrack::FloatWave )->AsWave();
 	trackPositionX2->SetType( WaveType::Sine );
 	trackPositionX2->SetAmplitude( 50.0f );
-	trackPositionX2->SetFrequency( 1.0f/Math::Pi );
+	trackPositionX2->SetFrequency( Math::OneOverPi );
 
 	IWaveFloatTrack* trackPositionZ2 = targetCtrl2->CreatePositionZTrack( AnimationTrack::FloatWave )->AsWave();
 	trackPositionZ2->SetType( WaveType::Sine );
 	trackPositionZ2->SetPhase( Math::HalfPi );
 	trackPositionZ2->SetAmplitude( 50.0f );
-	trackPositionZ2->SetFrequency( 1.0f/Math::Pi );
+	trackPositionZ2->SetFrequency( Math::OneOverPi );
 
 	IWaveFloatTrack* trackPositionX3 = targetCtrl3->CreatePositionXTrack( AnimationTrack::FloatWave )->AsWave();
 	trackPositionX3->SetType( WaveType::Sine );
 	trackPositionX3->SetAmplitude( 50.0f );
-	trackPositionX3->SetFrequency( 2.0f/Math::Pi );
+	trackPositionX3->SetFrequency( 2.0f*Math::OneOverPi );
 
 	IWaveFloatTrack* trackPositionZ3 = targetCtrl3->CreatePositionZTrack( AnimationTrack::FloatWave )->AsWave();
 	trackPositionZ3->SetType( WaveType::Sine );
 	trackPositionZ3->SetAmplitude( 50.0f );
-	trackPositionZ3->SetFrequency( 1.0f/Math::Pi );
+	trackPositionZ3->SetFrequency( Math::OneOverPi );
 	
 	// Setup projectors.
 	_projector = _scene->CreateConeLight( nullptr, L"Projector" );

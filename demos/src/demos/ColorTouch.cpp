@@ -47,7 +47,7 @@ public:
 		PtrWaveFloatTrack trackYaw2 = centerCtrl->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackYaw2->SetType( WaveType::SawtoothDown );
 		trackYaw2->SetAmplitude( Math::TwoPi );
-		trackYaw2->SetFrequency( 1.0f/Math::Pi );
+		trackYaw2->SetFrequency( Math::OneOverPi );
 		centerCtrl->SetMode( AnimationMode::Loop );
 		centerCtrl->SetSpeed( 0.5 );
 		centerCtrl->Start( true );
@@ -59,7 +59,7 @@ public:
 		trackYaw2 = centerCtrl->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackYaw2->SetType( WaveType::SawtoothUp );
 		trackYaw2->SetAmplitude( Math::TwoPi );
-		trackYaw2->SetFrequency( 1.0f/Math::Pi );
+		trackYaw2->SetFrequency( Math::OneOverPi );
 		trackYaw2->SetPhase( Math::Pi );
 		centerCtrl->SetMode( AnimationMode::Loop );
 		centerCtrl->SetSpeed( 0.5 );
@@ -72,7 +72,7 @@ public:
 		trackYaw2 = centerCtrl->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackYaw2->SetType( WaveType::SawtoothUp );
 		trackYaw2->SetAmplitude( Math::TwoPi );
-		trackYaw2->SetFrequency( 1.0f/Math::Pi );
+		trackYaw2->SetFrequency( Math::OneOverPi );
 		trackYaw2->SetPhase( Math::HalfPi );
 		centerCtrl->SetMode( AnimationMode::Loop );
 		centerCtrl->SetSpeed( 0.5 );
