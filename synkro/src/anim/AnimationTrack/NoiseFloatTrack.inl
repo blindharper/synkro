@@ -12,12 +12,12 @@
 //==============================================================================
 SYNKRO_INLINE void NoiseFloatTrack::GetValue( Double time, Float& value ) const
 {
-	UInt i = CastUInt(time);
-	Double f = time - CastDouble(i);
-	Double s = f*f*(3 - 2*f);
-	Float v0 = GetNoise( i );
-	Float v1 = GetNoise( i+1 );
-	value = Lerp( v0, v1, s );
+	const UInt i = CastUInt(time);
+	const Double f = time - CastDouble(i);
+	const Double s = f*f*(3 - 2*f);
+	const Float v0 = GetNoise( i );
+	const Float v1 = GetNoise( i+1 );
+	value = _shift + _magnitude*Lerp( v0, v1, s );
 }
 
 SYNKRO_INLINE IKeyframedFloatTrack* NoiseFloatTrack::AsKeyframed() const
@@ -35,28 +35,29 @@ SYNKRO_INLINE IExpressionFloatTrack* NoiseFloatTrack::AsExpression() const
 	return nullptr;
 }
 
-SYNKRO_INLINE INoiseFloatTrack* NoiseFloatTrack::AsNoise() const
-{
-	return (INoiseFloatTrack*)this;
-}
-
 SYNKRO_INLINE IWaveFloatTrack* NoiseFloatTrack::AsWave() const
 {
 	return nullptr;
 }
 
-SYNKRO_INLINE void NoiseFloatTrack::SetSeed( UInt seed )
+SYNKRO_INLINE void NoiseFloatTrack::SetMagnitude( Float magnitude )
 {
-	_seed = seed;
+	assert( magnitude >= 0.0f );
+
+	_magnitude = magnitude;
 }
 
-SYNKRO_INLINE UInt NoiseFloatTrack::GetSeed() const
+SYNKRO_INLINE void NoiseFloatTrack::SetShift( Float shift )
 {
-	return _seed;
+	_shift = shift;
 }
 
-SYNKRO_INLINE Float NoiseFloatTrack::GetNoise( UInt x ) const
+SYNKRO_INLINE Float NoiseFloatTrack::GetMagnitude() const
 {
-	x = (x << 13) ^ x;
-	return (1.0f - ((x * (x*x*15731 + 789221) + 1376312589) & 0x7fffffff) / 1073741824.0f);
+	return _magnitude;
+}
+
+SYNKRO_INLINE Float NoiseFloatTrack::GetShift() const
+{
+	return _shift;
 }

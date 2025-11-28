@@ -13,10 +13,12 @@
 #include "config.h"
 #include "ConfigurationEditor.h"
 #include "ConfigurationBanner.h"
+#include "ConfigurationScene/NoiseConfigurationScene.h"
 #include "ConfigurationScene/PointMeshConfigurationScene.h"
 #include "ConfigurationScene/ProjectorsConfigurationScene.h"
 #include "ConfigurationScene/RubikCubeConfigurationScene.h"
 #include "ConfigurationScene/SierpinskiConfigurationScene.h"
+#include "ConfigurationScene/TeapotConfigurationScene.h"
 #include "ConfigurationScene/TesseractConfigurationScene.h"
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	#include "Win32/Win32ConfigurationEditor.h"
@@ -79,13 +81,15 @@ void ConfigurationEditor::Show( IConfiguration* config )
 
 	ConfigurationBanner banner( _synkro );
 	Random rnd;
-	switch ( rnd.GetInt(5) )
+	switch ( rnd.GetInt(7) )
 	{
-		case 0: RunScene<PointMeshConfigurationScene>(); break;
-		case 1: RunScene<ProjectorsConfigurationScene>(); break;
-		case 2: RunScene<RubikCubeConfigurationScene>(); break;
-		case 3: RunScene<SierpinskiConfigurationScene>(); break;
-		case 4: RunScene<TesseractConfigurationScene>(); break;
+		case 0: RunScene<NoiseConfigurationScene>(); break;
+		case 1: RunScene<PointMeshConfigurationScene>(); break;
+		case 2: RunScene<ProjectorsConfigurationScene>(); break;
+		case 3: RunScene<RubikCubeConfigurationScene>(); break;
+		case 4: RunScene<SierpinskiConfigurationScene>(); break;
+		case 5: RunScene<TeapotConfigurationScene>(); break;
+		case 6: RunScene<TesseractConfigurationScene>(); break;
 		default: RunScene<ConfigurationScene>(); break;
 	}
 }

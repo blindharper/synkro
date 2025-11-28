@@ -474,7 +474,12 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedRectTrack.h" />
     <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedSizeTrack.h" />
     <ClInclude Include="..\..\..\synkro\inc\anim\IKeyframedVector3Track.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\INoiseBoolTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\INoiseColorGradientTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\INoiseColorTrack.h" />
     <ClInclude Include="..\..\..\synkro\inc\anim\INoiseFloatTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\INoiseQuaternionTrack.h" />
+    <ClInclude Include="..\..\..\synkro\inc\anim\INoiseVector3Track.h" />
     <ClInclude Include="..\..\..\synkro\inc\anim\Interpolation.h" />
     <ClInclude Include="..\..\..\synkro\inc\anim\IPlaybackAnimationController.h" />
     <ClInclude Include="..\..\..\synkro\inc\anim\IProceduralBoolTrack.h" />
@@ -800,10 +805,12 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationBanner.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationEditor.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\ConfigurationScene.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\NoiseConfigurationScene.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\PointMeshConfigurationScene.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\ProjectorsConfigurationScene.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\RubikCubeConfigurationScene.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\SierpinskiConfigurationScene.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\TeapotConfigurationScene.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\TesseractConfigurationScene.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConstraintImpl.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ControllerStateConst.h" />
@@ -1895,6 +1902,8 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <None Include="..\..\..\synkro\src\win\WindowSystemImpl.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\NoiseConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\TeapotConfigurationScene.cpp" />
     <ClCompile Include="..\..\src\synkro\synkro.core.cpp" />
     <ClCompile Include="..\..\..\synkro\src\anim\AnimationCodec\AnimationCodec.cpp" />
     <ClCompile Include="..\..\..\synkro\src\anim\AnimationDataType.cpp" />

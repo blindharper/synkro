@@ -13,7 +13,6 @@
 #include "config.h"
 #include "Console.h"
 #include <cons/IConsoleCommandFactory.h>
-#include <core/Version.h>
 #include <core/IResource.h>
 #include <core/ResourceReader.h>
 #include <gfx/IGraphicsSystemEx.h>
@@ -25,7 +24,6 @@
 #include <over/ITextAnimationController.h>
 #include <over/IFont.h>
 #include <img/IImage.h>
-#include <img/ImageCodec.h>
 #include <img/IImageManager.h>
 #include <input/IKeyboardEx.h>
 #include <io/IStreamDirectory.h>

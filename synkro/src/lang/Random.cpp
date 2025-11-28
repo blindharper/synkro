@@ -70,6 +70,11 @@ Int Random::GetInt() SYNKRO_NOEXCEPT
 	return GetInt( 0, INT_MAX );
 }
 
+UInt Random::GetUInt() SYNKRO_NOEXCEPT
+{
+	return CastUInt( GetInt() );
+}
+
 Bool Random::GetBool() SYNKRO_NOEXCEPT
 {
 	Int v = GetNext( _seed );

@@ -171,6 +171,11 @@ IKeyframedBoolTrack* SpriteAnimationController::CreateVisibilityTrack()
 	return (_trackVisibility = _animations->GetActiveAnimation()->CreateBoolTrack( SpriteProperty::Visibility.ToString()) )->AsKeyframed();
 }
 
+IProceduralBoolTrack* SpriteAnimationController::CreateVisibilityTrack( const AnimationTrack& type )
+{
+	return (_trackVisibility = _animations->GetActiveAnimation()->CreateBoolTrack( SpriteProperty::Visibility.ToString(), type) )->AsProcedural();
+}
+
 void SpriteAnimationController::UpdateTracks()
 {
 	_trackLocation		= GetTrack( _trackLocation, SpriteProperty::Location );

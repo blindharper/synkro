@@ -407,11 +407,22 @@ IOption* Demo::CreateOption( UInt id, const Point& location, const String& text,
 	return CreateOption( id, location, text, data, selected, Color::Transparent );
 }
 
-ISwitch* Demo::CreateSwitch( UInt id, const Point& location, UInt width, const String& text, Bool on )
+ISwitch* Demo::CreateSwitch( UInt id, const Point& location, UInt width, const String& text, const HotKey& hotkey, Bool on )
 {
 	ISwitch* sw = _synkro->GetUi()->CreateSwitch( nullptr, id, location, width, text, on, Color::Transparent );
 	sw->SetAnchor( Anchor::TopRight );
+	sw->SetHotKey( hotkey );
 	return sw;
+}
+
+ISwitch* Demo::CreateSwitch( UInt id, const Point& location, UInt width, const String& text, Bool on )
+{
+	return CreateSwitch( id, location, width, text, HotKey::None, on );
+}
+
+ISwitch* Demo::CreateSwitch( const Point& location, UInt width, const String& text, const HotKey& hotkey, Bool on )
+{
+	return CreateSwitch( none, location, width, text, hotkey, on );
 }
 
 ISwitch* Demo::CreateSwitch( const Point& location, UInt width, const String& text, Bool on )

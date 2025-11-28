@@ -37,8 +37,6 @@ public:
 
 	// IFloatTrack methods.
 	void													GetValue( Double time, Float& value ) const;
-
-	// IAnimationFloatTrack methods.
 	IKeyframedFloatTrack*									AsKeyframed() const;
 	IProceduralFloatTrack*									AsProcedural() const;
 	IExpressionFloatTrack*									AsExpression() const;

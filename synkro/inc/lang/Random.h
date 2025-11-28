@@ -64,6 +64,12 @@ public:
 	Int														GetInt() SYNKRO_NOEXCEPT;
 
 	/**
+	 * Generates unsigned whole number.
+	 * @return Generated number.
+	 */
+	UInt													GetUInt() SYNKRO_NOEXCEPT;
+
+	/**
 	 * Generates a boolean value.
 	 * @return Generated value.
 	 */

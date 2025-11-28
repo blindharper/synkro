@@ -54,7 +54,7 @@ class Console :
 public:
 	enum
 	{
-		ID_RESOURCE_CONSOLE = 1,
+		ID_RESOURCE_CONSOLE = 101,
 	};
 
 	// Constructor.

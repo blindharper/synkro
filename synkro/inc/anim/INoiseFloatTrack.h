@@ -34,10 +34,32 @@ iface INoiseFloatTrack :
 {
 public:
 	/**
+	 * Sets noise magnitude. Default is 1.0.
+	 * @param magnitude Noise magnitude.
+	 */
+	virtual void											SetMagnitude( Float magnitude ) = 0;
+
+	/**
+	 * Sets noise value shift. Default is 0.0.
+	 * @param shift Value shift.
+	 */
+	virtual void											SetShift( Float shift ) = 0;
+
+	/**
 	 * Sets noise seed.
 	 * @param seed Noise seed.
 	 */
 	virtual void											SetSeed( UInt seed ) = 0;
+
+	/**
+	 * Retrieves noise magnitude.
+	 */
+	virtual Float											GetMagnitude() const = 0;
+
+	/**
+	 * Retrieves noise value shift.
+	 */
+	virtual Float											GetShift() const = 0;
 
 	/**
 	 * Retrieves noise seed.

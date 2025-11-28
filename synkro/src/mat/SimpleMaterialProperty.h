@@ -28,6 +28,9 @@ namespace mat
 
 // Simple material property names.
 SYNKRO_ENUM_BEGIN( SimpleMaterialProperty )
+	// Diffuse and ambient color.
+	SYNKRO_ENUM_CONST( SimpleMaterialProperty, DiffuseAmbientColor )
+
 	// Diffuse color.
 	SYNKRO_ENUM_CONST( SimpleMaterialProperty, DiffuseColor )
 

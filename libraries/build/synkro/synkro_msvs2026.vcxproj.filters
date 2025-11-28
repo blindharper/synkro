@@ -1744,6 +1744,27 @@
     <Filter Include="ui\Implementation\Theme\Reader">
       <UniqueIdentifier>{5c080a89-9afc-4273-b7c8-218323b318e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="anim\Interface\Track\Color\Procedural">
+      <UniqueIdentifier>{fe8d7b06-5ba9-44f2-ac0c-871b77ef540e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\Implementation\Configuration\Editor\Scene\Noise">
+      <UniqueIdentifier>{b43b4208-2b3d-48ee-bb07-7da4d973754f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="anim\Interface\Track\Bool\Procedural">
+      <UniqueIdentifier>{588f0aa2-27df-4bf8-8901-0eae6dbe99b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\Implementation\Configuration\Editor\Scene\Teapot">
+      <UniqueIdentifier>{d6c6d422-f07f-4fe6-b99d-9baf781e4d66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="anim\Interface\Track\ColorGradient\Procedural">
+      <UniqueIdentifier>{c26015fa-d692-4521-b2e6-7ff52d8df21d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="anim\Interface\Track\Vector3\Procedural">
+      <UniqueIdentifier>{8c93bf3e-4312-4c4b-a86c-85271801af0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="anim\Interface\Track\Quaternion\Procedural">
+      <UniqueIdentifier>{9c576451-d610-4dad-a923-83b0493c10a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\lang\Encoding.h">
@@ -5193,6 +5214,27 @@
     <ClInclude Include="..\..\..\synkro\src\ui\ThemeReader.h">
       <Filter>ui\Implementation\Theme\Reader</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\anim\INoiseColorTrack.h">
+      <Filter>anim\Interface\Track\Color\Procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\NoiseConfigurationScene.h">
+      <Filter>core\Implementation\Configuration\Editor\Scene\Noise</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\anim\INoiseBoolTrack.h">
+      <Filter>anim\Interface\Track\Bool\Procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\TeapotConfigurationScene.h">
+      <Filter>core\Implementation\Configuration\Editor\Scene\Teapot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\anim\INoiseColorGradientTrack.h">
+      <Filter>anim\Interface\Track\ColorGradient\Procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\anim\INoiseVector3Track.h">
+      <Filter>anim\Interface\Track\Vector3\Procedural</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\anim\INoiseQuaternionTrack.h">
+      <Filter>anim\Interface\Track\Quaternion\Procedural</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\synkro\src\lang\Stack.inl">
@@ -7635,6 +7677,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\ui\ThemeReader.cpp">
       <Filter>ui\Implementation\Theme\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\NoiseConfigurationScene.cpp">
+      <Filter>core\Implementation\Configuration\Editor\Scene\Noise</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\TeapotConfigurationScene.cpp">
+      <Filter>core\Implementation\Configuration\Editor\Scene\Teapot</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

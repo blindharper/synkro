@@ -15,7 +15,7 @@
 
 
 #include "config.h"
-#include "ProceduralTrackImpl.h"
+#include "NoiseTrackImpl.h"
 #include <anim/INoiseFloatTrack.h>
 
 
@@ -29,32 +29,30 @@ namespace anim
 
 // Scalar noise animation track.
 class NoiseFloatTrack :
-	public ProceduralTrackImpl<INoiseFloatTrack, TYPE_FLOAT>
+	public NoiseTrackImpl<INoiseFloatTrack, TYPE_FLOAT>
 {
 public:
 	// Constructor.
 	NoiseFloatTrack( const lang::String& name );
 
-	// IFloatTrack methods.
-	void													GetValue( Double time, Float& value ) const;
-
 	// IAnimationFloatTrack methods.
+	void													GetValue( Double time, Float& value ) const;
 	IKeyframedFloatTrack*									AsKeyframed() const;
 	IProceduralFloatTrack*									AsProcedural() const;
 	IExpressionFloatTrack*									AsExpression() const;
 
 	// IProceduralFloatTrack methods.
-	INoiseFloatTrack*										AsNoise() const;
 	IWaveFloatTrack*										AsWave() const;
 
 	// INoiseFloatTrack methods.
-	void													SetSeed( UInt seed );
-	UInt													GetSeed() const;
+	void													SetMagnitude( Float magnitude );
+	void													SetShift( Float shift );
+	Float													GetMagnitude() const;
+	Float													GetShift() const;
 
 private:
-	UInt													_seed;
-
-	Float													GetNoise( UInt x ) const;
+	Float													_magnitude;
+	Float													_shift;
 };
 
 

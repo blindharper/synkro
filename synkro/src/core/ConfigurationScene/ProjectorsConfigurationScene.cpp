@@ -13,6 +13,16 @@
 #include "config.h"
 #include "ProjectorsConfigurationScene.h"
 #include <anim/IWaveFloatTrack.h>
+#include <core/IResource.h>
+#include <core/ResourceReader.h>
+#include <gfx/IGraphicsSystemEx.h>
+#include <gfx/IViewRenderWindowEx.h>
+#include <img/IImageManager.h>
+#include <img/IImage.h>
+#include <io/IStreamDirectory.h>
+#include <io/IStream.h>
+#include <mat/MaterialManager.h>
+#include <mat/IMaterialMap.h>
 #include <mat/IMaterialManager.h>
 #include <scene/ISceneManager.h>
 #include <scene/IScene.h>
@@ -24,6 +34,7 @@
 using namespace synkro::anim;
 using namespace synkro::gfx;
 using namespace synkro::img;
+using namespace synkro::io;
 using namespace synkro::lang;
 using namespace synkro::mat;
 using namespace synkro::math;
@@ -48,10 +59,25 @@ ProjectorsConfigurationScene::ProjectorsConfigurationScene( ISynkro* synkro ) :
 	_camera->SetPosition( Vector3(0.0f, 120.0f, -120.0f) );
 	_camera->LookAt( Vector3::Origin );
 
+	// Load texture resource.
+	P(IStreamDirectory) res; P(IStream) streamImage;
+	core::IResource* unknown = synkro->GetResource( mat::MaterialManager::ID_RESOURCE_TEXTURES );
+	if ( unknown != nullptr )
+	{
+		res = unknown->Load();
+		ResourceReader rd( res );
+		streamImage = rd.GetResource( L"texture.checkers" );
+	}
+	PixelFormat format = _synkro->GetGraphicsSystem()->GetViewWindow( 0 )->GetClientPixelFormat();
+	P(IImage) diffuse = _synkro->GetImageManager()->LoadImage( streamImage, format );
+
 	// Setup material.
 	_material = synkro->GetMaterialManager()->CreateOpaqueMaterial( LightingModel::Gouraud );
+	_material->GetDiffuseMap()->SetImage( diffuse );
 	_material->SetAmbientColor( Color::DimGray );
 	_material->SetDiffuseColor( Color::White );
+	_material->SetTilingHorizontal( 8 );
+	_material->SetTilingVertical( 8 );
 
 	// Create geometry.
 	constexpr Float FLOOR_SIZE = 100.0f;

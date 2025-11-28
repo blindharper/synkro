@@ -96,6 +96,12 @@ public:
 	 * Creates keyframed track controlling sprite visibility.
 	 */
 	virtual anim::IKeyframedBoolTrack*						CreateVisibilityTrack() = 0;
+
+	/**
+	 * Creates procedural track controlling sprite visibility.
+	 * @param type Track type.
+	 */
+	virtual anim::IProceduralBoolTrack*						CreateVisibilityTrack( const anim::AnimationTrack& type ) = 0;
 };
 
 

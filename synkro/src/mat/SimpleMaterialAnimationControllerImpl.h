@@ -45,6 +45,10 @@ public:
 	virtual ISimpleMaterialAnimationController*				AsSimple() const;
 
 	// ISimpleMaterialAnimationController methods.
+	virtual anim::IKeyframedColorTrack*						CreateDiffuseAmbientColorTrack();
+	virtual anim::IProceduralColorTrack*					CreateDiffuseAmbientColorTrack( const anim::AnimationTrack& type );
+	virtual anim::IExpressionColorTrack*					CreateDiffuseAmbientColorTrack( anim::IExpressionScript* script );
+	virtual anim::IExpressionColorTrack*					CreateDiffuseAmbientColorTrack( const lang::String& expression );
 	virtual anim::IKeyframedColorTrack*						CreateDiffuseColorTrack();
 	virtual anim::IProceduralColorTrack*					CreateDiffuseColorTrack( const anim::AnimationTrack& type );
 	virtual anim::IExpressionColorTrack*					CreateDiffuseColorTrack( anim::IExpressionScript* script );
@@ -72,6 +76,7 @@ public:
 
 protected:
 	ISimpleMaterial*										_material;
+	anim::IAnimationColorTrack*								_trackDiffuseAmbient;
 	anim::IAnimationColorTrack*								_trackDiffuse;
 	anim::IAnimationColorTrack*								_trackAmbient;
 	anim::IAnimationColorTrack*								_trackEmissive;

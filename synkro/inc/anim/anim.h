@@ -52,7 +52,12 @@
 #include <anim/IProceduralColorTrack.h>
 #include <anim/IProceduralFloatTrack.h>
 #include <anim/IProceduralVector3Track.h>
+#include <anim/INoiseBoolTrack.h>
+#include <anim/INoiseColorTrack.h>
+#include <anim/INoiseColorGradientTrack.h>
 #include <anim/INoiseFloatTrack.h>
+#include <anim/INoiseQuaternionTrack.h>
+#include <anim/INoiseVector3Track.h>
 #include <anim/IWaveFloatTrack.h>
 #include <anim/AnimationTrack.h>
 #include <anim/AnimationCodec.h>
@@ -76,7 +81,12 @@
 #define PtrKeyframedRangeTrack P(synkro::anim::IKeyframedRangeTrack)
 #define PtrKeyframedRectTrack P(synkro::anim::IKeyframedRectTrack)
 #define PtrKeyframedVector3Track P(synkro::anim::IKeyframedVector3Track)
+#define PtrNoiseBoolTrack P(synkro::anim::INoiseBoolTrack)
+#define PtrNoiseColorTrack P(synkro::anim::INoiseColorTrack)
+#define PtrNoiseColorGradientTrack P(synkro::anim::INoiseColorGradientTrack)
 #define PtrNoiseFloatTrack P(synkro::anim::INoiseFloatTrack)
+#define PtrNoiseQuaternionTrack P(synkro::anim::INoiseQuaternionTrack)
+#define PtrNoiseVector3Track P(synkro::anim::INoiseVector3Track)
 #define PtrWaveFloatTrack P(synkro::anim::IWaveFloatTrack)
 
 

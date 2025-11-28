@@ -444,7 +444,7 @@ void Win32ConfigurationEditor::BeginEditing( UInt idxParam )
 			::SendMessageW( _editor, WM_SETFONT, (WPARAM)font, (LPARAM)TRUE );
 			::SetWindowLongPtr( _editor, GWLP_USERDATA, (LONG)idxParam );
 
-			_editor2 = ::CreateWindowExW( WS_EX_CLIENTEDGE, WC_LISTVIEWW, L"", WS_TABSTOP | WS_CHILDWINDOW | WS_VISIBLE | LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER, rc.left+1, rc.top+17, CastInt(rc.right-rc.left-1), CastInt(80), _list, (HMENU)nullptr, (HINSTANCE)nullptr, (LPVOID)0 );
+			_editor2 = ::CreateWindowExW( WS_EX_CLIENTEDGE, WC_LISTVIEWW, L"", WS_TABSTOP | WS_CHILDWINDOW | WS_VISIBLE | LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER, rc.left+1, rc.top+17, CastInt(rc.right-rc.left-1), CastInt(96), _list, (HMENU)nullptr, (HINSTANCE)nullptr, (LPVOID)0 );
 			::SendMessageW( _editor2, LVM_SETEXTENDEDLISTVIEWSTYLE, 0, LVS_EX_DOUBLEBUFFER | LVS_EX_FULLROWSELECT | LVS_EX_CHECKBOXES );
 			AddListViewColumn( _editor2, 0, L"", (rc.right-rc.left-25) );
 			

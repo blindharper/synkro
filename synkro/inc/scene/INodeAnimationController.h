@@ -188,6 +188,14 @@ public:
 	virtual anim::IKeyframedQuaternionTrack*				CreateOrientationTrack() = 0;
 
 	/**
+	 * Creates procedural track controlling node orientation.
+	 * @param type Track type.
+	 * @return Created orientation track.
+	 * @exception BadArgumentException Orientation track already exists.
+	 */
+	virtual anim::IProceduralQuaternionTrack*				CreateOrientationTrack( const anim::AnimationTrack& type ) = 0;
+
+	/**
 	 * Creates expression track controlling node orientation.
 	 * @param script Expression script.
 	 * @return Created orientation track.

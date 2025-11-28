@@ -33,11 +33,26 @@ SYNKRO_ENUM_BEGIN( AnimationTrack )
 	/** Custom track. */
 	SYNKRO_ENUM_CONST( AnimationTrack, Custom )
 
+	/** Scalar wave. */
+	SYNKRO_ENUM_CONST( AnimationTrack, FloatWave )
+
+	/** Boolean noise. */
+	SYNKRO_ENUM_CONST( AnimationTrack, BoolNoise )
+
+	/** Color noise. */
+	SYNKRO_ENUM_CONST( AnimationTrack, ColorNoise )
+
+	/** Color gradient noise. */
+	SYNKRO_ENUM_CONST( AnimationTrack, ColorGradientNoise )
+
 	/** Scalar floating-point noise. */
 	SYNKRO_ENUM_CONST( AnimationTrack, FloatNoise )
 
-	/** Scalar wave. */
-	SYNKRO_ENUM_CONST( AnimationTrack, FloatWave )
+	/** Quaternion noise. */
+	SYNKRO_ENUM_CONST( AnimationTrack, QuaternionNoise )
+
+	/** 3-component vector noise. */
+	SYNKRO_ENUM_CONST( AnimationTrack, Vector3Noise )
 
 	/** Converts animation track type to string. */
 	lang::String											ToString() const;

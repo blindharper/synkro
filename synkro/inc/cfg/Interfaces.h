@@ -1,7 +1,7 @@
 //==============================================================================
 // This file is a part of the Synkro Framework.
 // 
-// Copyright (c) Nobody. No rights reserved :)
+// Copyright (c) Nobody. No rights reserved ;-7
 //
 // The contents herein is the property of the Mankind.
 // Use, distribution and modification of this source code
@@ -67,7 +67,12 @@ iface IKeyframedRangeTrack;
 iface IKeyframedRectTrack;
 iface IKeyframedSizeTrack;
 iface IKeyframedVector3Track;
+iface INoiseBoolTrack;
+iface INoiseColorGradientTrack;
+iface INoiseColorTrack;
 iface INoiseFloatTrack;
+iface INoiseQuaternionTrack;
+iface INoiseVector3Track;
 iface IPlaybackAnimationController;
 iface IProceduralBoolTrack;
 iface IProceduralColorGradientTrack;

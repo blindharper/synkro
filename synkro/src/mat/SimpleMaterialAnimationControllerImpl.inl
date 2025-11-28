@@ -14,6 +14,7 @@ template <class T>
 SYNKRO_INLINE SimpleMaterialAnimationControllerImpl<T>::SimpleMaterialAnimationControllerImpl( ISimpleMaterial* material, anim::IAnimationSystem* animationSystem, anim::IAnimationSet* animations, anim::AnimationListener* listener ) :
 	anim::PlaybackControllerImpl<T>( animationSystem, animations, listener ),
 	_material( material ),
+	_trackDiffuseAmbient( nullptr ),
 	_trackDiffuse( nullptr ),
 	_trackAmbient( nullptr ),
 	_trackEmissive( nullptr ),
@@ -34,18 +35,28 @@ SYNKRO_INLINE void SimpleMaterialAnimationControllerImpl<T>::Update( Double delt
 	PlaybackControllerImpl<T>::Update( delta );
 
 	// Update material.
-	if ( _trackDiffuse != nullptr )
+	if ( _trackDiffuseAmbient != nullptr )
 	{
-		img::Color diffuse;
-		_trackDiffuse->GetValue( CurrentTime(), diffuse );
-		_material->SetDiffuseColor( diffuse );
+		img::Color color;
+		_trackDiffuseAmbient->GetValue( CurrentTime(), color );
+		_material->SetDiffuseColor( color );
+		_material->SetAmbientColor( color );
 	}
-
-	if ( _trackAmbient != nullptr )
+	else
 	{
-		img::Color ambient;
-		_trackAmbient->GetValue( CurrentTime(), ambient );
-		_material->SetAmbientColor( ambient );
+		if ( _trackDiffuse != nullptr )
+		{
+			img::Color diffuse;
+			_trackDiffuse->GetValue( CurrentTime(), diffuse );
+			_material->SetDiffuseColor( diffuse );
+		}
+
+		if ( _trackAmbient != nullptr )
+		{
+			img::Color ambient;
+			_trackAmbient->GetValue( CurrentTime(), ambient );
+			_material->SetAmbientColor( ambient );
+		}
 	}
 
 	if ( _trackEmissive != nullptr )
@@ -74,6 +85,30 @@ template <class T>
 SYNKRO_INLINE ISimpleMaterialAnimationController* SimpleMaterialAnimationControllerImpl<T>::AsSimple() const
 {
 	return (ISimpleMaterialAnimationController*)this;
+}
+
+template <class T>
+SYNKRO_INLINE anim::IKeyframedColorTrack* SimpleMaterialAnimationControllerImpl<T>::CreateDiffuseAmbientColorTrack()
+{
+	return (_trackDiffuseAmbient = _animations->GetActiveAnimation()->CreateColorTrack( SimpleMaterialProperty::DiffuseAmbientColor.ToString()) )->AsKeyframed();
+}
+
+template <class T>
+SYNKRO_INLINE anim::IProceduralColorTrack* SimpleMaterialAnimationControllerImpl<T>::CreateDiffuseAmbientColorTrack( const anim::AnimationTrack& type )
+{
+	return (_trackDiffuseAmbient = _animations->GetActiveAnimation()->CreateColorTrack( SimpleMaterialProperty::DiffuseAmbientColor.ToString(), type) )->AsProcedural();
+}
+
+template <class T>
+SYNKRO_INLINE anim::IExpressionColorTrack* SimpleMaterialAnimationControllerImpl<T>::CreateDiffuseAmbientColorTrack( anim::IExpressionScript* script )
+{
+	return (_trackDiffuseAmbient = _animations->GetActiveAnimation()->CreateColorTrack( SimpleMaterialProperty::DiffuseAmbientColor.ToString(), script) )->AsExpression();
+}
+
+template <class T>
+SYNKRO_INLINE anim::IExpressionColorTrack* SimpleMaterialAnimationControllerImpl<T>::CreateDiffuseAmbientColorTrack( const lang::String& expression )
+{
+	return (_trackDiffuseAmbient = _animations->GetActiveAnimation()->CreateColorTrack( SimpleMaterialProperty::DiffuseAmbientColor.ToString(), expression) )->AsExpression();
 }
 
 template <class T>
@@ -205,9 +240,10 @@ SYNKRO_INLINE ITransparentMaterialAnimationController* SimpleMaterialAnimationCo
 template <class T>
 SYNKRO_INLINE void SimpleMaterialAnimationControllerImpl<T>::UpdateTracks()
 {
-	_trackDiffuse		= GetTrack( _trackDiffuse, SimpleMaterialProperty::DiffuseColor );
-	_trackAmbient		= GetTrack( _trackAmbient, SimpleMaterialProperty::AmbientColor );
-	_trackEmissive		= GetTrack( _trackEmissive, SimpleMaterialProperty::EmissiveColor );
-	_trackSpecular		= GetTrack( _trackSpecular, SimpleMaterialProperty::SpecularColor );
-	_trackSpecularPower	= GetTrack( _trackSpecularPower, SimpleMaterialProperty::SpecularPower );
+	_trackDiffuseAmbient	= GetTrack( _trackDiffuseAmbient, SimpleMaterialProperty::DiffuseAmbientColor );
+	_trackDiffuse			= GetTrack( _trackDiffuse, SimpleMaterialProperty::DiffuseColor );
+	_trackAmbient			= GetTrack( _trackAmbient, SimpleMaterialProperty::AmbientColor );
+	_trackEmissive			= GetTrack( _trackEmissive, SimpleMaterialProperty::EmissiveColor );
+	_trackSpecular			= GetTrack( _trackSpecular, SimpleMaterialProperty::SpecularColor );
+	_trackSpecularPower		= GetTrack( _trackSpecularPower, SimpleMaterialProperty::SpecularPower );
 }

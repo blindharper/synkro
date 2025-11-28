@@ -44,6 +44,12 @@ public:
 	 * Retrieves procedure type.
 	 */
 	virtual ProcedureType									GetProcedureType() const = 0;
+
+	/**
+	 * Casts track to noise track.
+	 * @return Non-null for noise track, nullptr otherwise.
+	 */
+	virtual INoiseVector3Track*								AsNoise() const = 0;
 };
 
 

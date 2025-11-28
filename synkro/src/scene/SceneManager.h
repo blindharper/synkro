@@ -40,6 +40,11 @@ class SceneManager :
 	public Logger
 {
 public:
+	enum
+	{
+		ID_RESOURCE_MODELS = 301,
+	};
+
 	// Constructor & destructor.
 	SceneManager( core::IContext* context, diag::ILog* log );
 	~SceneManager();

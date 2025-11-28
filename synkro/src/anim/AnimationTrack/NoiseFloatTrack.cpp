@@ -30,8 +30,9 @@ namespace anim
 
 
 NoiseFloatTrack::NoiseFloatTrack( const String& name ) :
-	ProceduralTrackImpl<INoiseFloatTrack, TYPE_FLOAT>( name, ProcedureType::Noise ),
-	_seed( 0 )
+	NoiseTrackImpl<INoiseFloatTrack, TYPE_FLOAT>( name ),
+	_magnitude( 1.0f ),
+	_shift( 0.0f )	
 {
 }
 

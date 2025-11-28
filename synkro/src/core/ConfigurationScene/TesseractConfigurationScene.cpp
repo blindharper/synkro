@@ -59,7 +59,7 @@ TesseractConfigurationScene::TesseractConfigurationScene( ISynkro* synkro ) :
 
 	// Set positions.
 	constexpr Float s = 0.5f;
-	Vector4 positions[16] =
+	const Vector4 positions[16] =
 	{
 		Vector4( s, s, s, s ),
 		Vector4( -s, s, s, s ),
@@ -91,7 +91,7 @@ TesseractConfigurationScene::TesseractConfigurationScene( ISynkro* synkro ) :
 	tess->SetColors( colors, 0, SizeOf(colors) );
 
 	// Set indices.
-	UInt indices[64] =
+	const UInt indices[64] =
 	{
 		0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
 		0, 2, 1, 3, 4, 6, 5, 7, 8, 10, 9, 11, 12, 14, 13, 15,
