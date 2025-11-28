@@ -36,7 +36,7 @@ public:
 		PtrWaveFloatTrack trackYaw = worldCtrl->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackYaw->SetType( WaveType::SawtoothUp );
 		trackYaw->SetAmplitude( Math::TwoPi );
-		trackYaw->SetFrequency( 1.0f/Math::Pi );
+		trackYaw->SetFrequency( Math::OneOverPi );
 		trackYaw->SetPhase( Math::ToRadians(30.0f) );
 		worldCtrl->SetMode( AnimationMode::Loop );
 		worldCtrl->SetSpeed( 0.5 );

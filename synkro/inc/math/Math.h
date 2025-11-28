@@ -61,6 +61,16 @@ public:
 	static const Float										QuarterPi;
 
 	/**
+	 * 1/PI.
+	 */
+	static const Float										OneOverPi;
+
+	/**
+	 * 1/(2*PI).
+	 */
+	static const Float										OneOverTwoPi;
+
+	/**
 	 * Calculation accuracy.
 	 */
 	static const Float										Eps;

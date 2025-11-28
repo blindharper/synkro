@@ -42,7 +42,7 @@ public:
 		PtrWaveFloatTrack trackMesh = ctrlMesh->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackMesh->SetType( WaveType::SawtoothDown );
 		trackMesh->SetAmplitude( Math::TwoPi );
-		trackMesh->SetFrequency( 1.0f/Math::Pi );
+		trackMesh->SetFrequency( Math::OneOverPi );
 		ctrlMesh->SetMode( AnimationMode::Loop );
 		ctrlMesh->Start( true );
 
@@ -50,7 +50,7 @@ public:
 		PtrWaveFloatTrack trackMesh2 = ctrlMesh2->CreateOrientationPitchTrack( AnimationTrack::FloatWave )->AsWave();
 		trackMesh2->SetType( WaveType::SawtoothUp );
 		trackMesh2->SetAmplitude( Math::TwoPi );
-		trackMesh2->SetFrequency( 1.0f/Math::Pi );
+		trackMesh2->SetFrequency( Math::OneOverPi );
 		ctrlMesh2->SetMode( AnimationMode::Loop );
 		ctrlMesh2->Start( true );
 
@@ -58,7 +58,7 @@ public:
 		PtrWaveFloatTrack trackMesh3 = ctrlMesh3->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackMesh3->SetType( WaveType::SawtoothUp );
 		trackMesh3->SetAmplitude( Math::TwoPi );
-		trackMesh3->SetFrequency( 1.0f/Math::Pi );
+		trackMesh3->SetFrequency( Math::OneOverPi );
 		ctrlMesh3->SetMode( AnimationMode::Loop );
 		ctrlMesh3->Start( true );
 
@@ -66,7 +66,7 @@ public:
 		PtrWaveFloatTrack trackMesh4 = ctrlMesh4->CreateOrientationPitchTrack( AnimationTrack::FloatWave )->AsWave();
 		trackMesh4->SetType( WaveType::SawtoothDown );
 		trackMesh4->SetAmplitude( Math::TwoPi );
-		trackMesh4->SetFrequency( 1.0f/Math::Pi );
+		trackMesh4->SetFrequency( Math::OneOverPi );
 		ctrlMesh4->SetMode( AnimationMode::Loop );
 		ctrlMesh4->Start( true );
 
