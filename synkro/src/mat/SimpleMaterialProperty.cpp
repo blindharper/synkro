@@ -23,26 +23,28 @@ namespace mat
 {
 
 
-SYNKRO_DEFINE_CONST( SimpleMaterialProperty, DiffuseColor,	0 )
-SYNKRO_DEFINE_CONST( SimpleMaterialProperty, AmbientColor,	1 )
-SYNKRO_DEFINE_CONST( SimpleMaterialProperty, EmissiveColor,	2 )
-SYNKRO_DEFINE_CONST( SimpleMaterialProperty, SpecularColor,	3 )
-SYNKRO_DEFINE_CONST( SimpleMaterialProperty, SpecularPower,	4 )
+SYNKRO_DEFINE_CONST( SimpleMaterialProperty, DiffuseAmbientColor,	0 )
+SYNKRO_DEFINE_CONST( SimpleMaterialProperty, DiffuseColor,			1 )
+SYNKRO_DEFINE_CONST( SimpleMaterialProperty, AmbientColor,			2 )
+SYNKRO_DEFINE_CONST( SimpleMaterialProperty, EmissiveColor,			3 )
+SYNKRO_DEFINE_CONST( SimpleMaterialProperty, SpecularColor,			4 )
+SYNKRO_DEFINE_CONST( SimpleMaterialProperty, SpecularPower,			5 )
 
 
 struct TypeDesc
 {
 	SimpleMaterialProperty	type;
-	const Char*		name;
+	const Char*				name;
 };
 
 static TypeDesc _desc[] = 
 {
-	{ SimpleMaterialProperty::DiffuseColor,		L"Color.Diffuse" },
-	{ SimpleMaterialProperty::AmbientColor,		L"Color.Ambient" },
-	{ SimpleMaterialProperty::EmissiveColor,	L"Color.Emissive" },
-	{ SimpleMaterialProperty::SpecularColor,	L"Color.Specular" },
-	{ SimpleMaterialProperty::SpecularPower,	L"Color.Specular.Power" },
+	{ SimpleMaterialProperty::DiffuseAmbientColor,	L"Color.DiffuseAmbient" },
+	{ SimpleMaterialProperty::DiffuseColor,			L"Color.Diffuse" },
+	{ SimpleMaterialProperty::AmbientColor,			L"Color.Ambient" },
+	{ SimpleMaterialProperty::EmissiveColor,		L"Color.Emissive" },
+	{ SimpleMaterialProperty::SpecularColor,		L"Color.Specular" },
+	{ SimpleMaterialProperty::SpecularPower,		L"Color.Specular.Power" },
 };
 static UInt _count = SizeOf( _desc );
 

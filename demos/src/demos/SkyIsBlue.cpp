@@ -21,6 +21,13 @@ public:
 		// Setup camera.
 		_camera->SetPosition( Vector3::Origin );
 		_camera->SetBack( 16000.0f );
+
+		Random rnd;
+		_ctrlCamera = _camera->CreateAnimationController( nullptr, nullptr );
+		PtrNoiseQuaternionTrack trackOrientation = _ctrlCamera->CreateOrientationTrack( AnimationTrack::QuaternionNoise )->AsNoise();
+		trackOrientation->SetMagnitude( Math::Pi );
+		trackOrientation->SetSeed( rnd.GetUInt() );
+		_ctrlCamera->SetMode( AnimationMode::Loop );
 	}
 
 	void InitUi() override
@@ -28,6 +35,7 @@ public:
 		// Create UI widgets.
 		_btnSkySphere = CreateButton( none, Point( _widgetLeft, 120 ), L"Sky [S]phere", Anchor::TopRight, HotKey( Key::S, true ) );
 		_btnSkyBox = CreateButton( none, Point( _widgetLeft, 150 ), L"Sky [B]ox", Anchor::TopRight, HotKey( Key::B, true ) );
+		_switchAnimateCamera = CreateSwitch( Point(_widgetLeft, 180), 160, L"[A]nimate camera", HotKey(Key::A, true), false );
 	}
 
 	// ArcballListener methods.
@@ -63,6 +71,20 @@ public:
 		return false;
 	}
 
+	Bool OnUiValueChanged( IWidget* sender ) override
+	{
+		if ( Demo::OnUiValueChanged(sender) )
+			return true;
+
+		if ( sender == _switchAnimateCamera )
+		{
+			_ctrlCamera->Start( _switchAnimateCamera->IsOn() );
+			return true;
+		}
+
+		return false;
+	}
+
 	void SetSkySphere()
 	{
 		PtrImage imageSky = GetImage( L"Spherical_Panorama_2560px.jpg" );
@@ -76,8 +98,11 @@ public:
 	}
 
 private:
+	PtrNodeAnimationController								_ctrlCamera;
+
 	PtrButton												_btnSkySphere;
 	PtrButton												_btnSkyBox;
+	PtrSwitch												_switchAnimateCamera;
 };
 
 SYNKRO_DEMO_BEGIN

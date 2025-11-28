@@ -10,6 +10,9 @@
     <ClCompile Include="..\..\src\synkro.mat\programs.cpp">
       <Filter>res</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\synkro.mat\resources.cpp">
+      <Filter>res</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\synkro.mat\resources.inl" />

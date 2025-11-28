@@ -37,7 +37,7 @@ SYNKRO_INLINE IWaveFloatTrack* WaveFloatTrack::AsWave() const
 
 SYNKRO_INLINE void WaveFloatTrack::SetAmplitude( Float amplitude )
 {
-	assert( amplitude > 0.0f );
+	assert( amplitude >= 0.0f );
 
 	_amplitude = amplitude;
 }
@@ -49,7 +49,7 @@ SYNKRO_INLINE void WaveFloatTrack::SetOffset( Float offset )
 
 SYNKRO_INLINE void WaveFloatTrack::SetFrequency( Float frequency )
 {
-	assert( frequency > 0.0f );
+	assert( frequency >= 0.0f );
 
 	_frequency = frequency;
 }

@@ -43,7 +43,7 @@ template <class T> SYNKRO_INLINE T Lerp( const T& a, const T& b, synkro::Double 
 // Lerp for boolean.
 template <> SYNKRO_INLINE synkro::Bool Lerp<synkro::Bool>( const synkro::Bool& a, const synkro::Bool& b, synkro::Double s ) SYNKRO_NOEXCEPT
 {
-	return b;
+	return (s < 0.5) ? a : b;
 }
 
 // Lerp for color.

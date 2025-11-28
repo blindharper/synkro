@@ -65,6 +65,7 @@ public:
 	virtual anim::IExpressionFloatTrack*					CreatePositionZTrack( anim::IExpressionScript* script );
 	virtual anim::IExpressionFloatTrack*					CreatePositionZTrack( const lang::String& expression );
 	virtual anim::IKeyframedQuaternionTrack*				CreateOrientationTrack();
+	virtual anim::IProceduralQuaternionTrack*				CreateOrientationTrack( const anim::AnimationTrack& type );
 	virtual anim::IExpressionQuaternionTrack*				CreateOrientationTrack( anim::IExpressionScript* script );
 	virtual anim::IExpressionQuaternionTrack*				CreateOrientationTrack( const lang::String& expression );
 	virtual anim::IKeyframedFloatTrack*						CreateOrientationYawTrack();

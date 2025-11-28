@@ -40,6 +40,9 @@
     <Filter Include="MeshBuilder\Torus">
       <UniqueIdentifier>{2422b33b-92d4-4792-8323-8f4e983beeb1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{1306e479-ea59-4426-9101-61ce8581f50d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\ObjMeshCodec.h">
@@ -159,6 +162,9 @@
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\XMeshCodec.cpp">
       <Filter>MeshCodec\X</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\synkro.scene\resources.cpp">
+      <Filter>res</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\synkro.scene\factories.inl" />
@@ -171,5 +177,6 @@
     <None Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshInstance.inl">
       <Filter>Scene\Default</Filter>
     </None>
+    <None Include="..\..\src\synkro.scene\resources.inl" />
   </ItemGroup>
 </Project>

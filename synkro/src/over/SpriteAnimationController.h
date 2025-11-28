@@ -51,6 +51,7 @@ public:
 	anim::IProceduralFloatTrack*							CreateOpacityTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedFloatRectTrack*							CreateFrameTrack();
 	anim::IKeyframedBoolTrack*								CreateVisibilityTrack();
+	anim::IProceduralBoolTrack*								CreateVisibilityTrack( const anim::AnimationTrack& type );
 
 	// Other methods.
 	void													UpdateTracks();

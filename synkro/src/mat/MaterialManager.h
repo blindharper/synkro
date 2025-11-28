@@ -36,6 +36,11 @@ class MaterialManager :
 	public Logger
 {
 public:
+	enum
+	{
+		ID_RESOURCE_TEXTURES = 201,
+	};
+
 	// Constructor & destructor.
 	MaterialManager( core::IContext* context, diag::ILog* log );
 	~MaterialManager();

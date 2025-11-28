@@ -42,6 +42,7 @@ public:
 	IKeyframedBoolTrack*									CreateBoolTrack( const lang::String& name );
 	IExpressionBoolTrack*									CreateBoolTrack( const lang::String& name, IExpressionScript* script );
 	IExpressionBoolTrack*									CreateBoolTrack( const lang::String& name, const lang::String& expression );
+	IProceduralBoolTrack*									CreateBoolTrack( const lang::String& name, const AnimationTrack& type );
 	IKeyframedColorTrack*									CreateColorTrack( const lang::String& name );
 	IExpressionColorTrack*									CreateColorTrack( const lang::String& name, IExpressionScript* script );
 	IExpressionColorTrack*									CreateColorTrack( const lang::String& name, const lang::String& expression );
@@ -49,6 +50,7 @@ public:
 	IKeyframedColorGradientTrack*							CreateColorGradientTrack( const lang::String& name );
 	IExpressionColorGradientTrack*							CreateColorGradientTrack( const lang::String& name, IExpressionScript* script );
 	IExpressionColorGradientTrack*							CreateColorGradientTrack( const lang::String& name, const lang::String& expression );
+	IProceduralColorGradientTrack*							CreateColorGradientTrack( const lang::String& name, const AnimationTrack& type );
 	IKeyframedFloatTrack*									CreateFloatTrack( const lang::String& name );
 	IExpressionFloatTrack*									CreateFloatTrack( const lang::String& name, IExpressionScript* script );
 	IExpressionFloatTrack*									CreateFloatTrack( const lang::String& name, const lang::String& expression );
@@ -68,6 +70,7 @@ public:
 	IKeyframedQuaternionTrack*								CreateQuaternionTrack( const lang::String& name );
 	IExpressionQuaternionTrack*								CreateQuaternionTrack( const lang::String& name, IExpressionScript* script );
 	IExpressionQuaternionTrack*								CreateQuaternionTrack( const lang::String& name, const lang::String& expression );
+	IProceduralQuaternionTrack*								CreateQuaternionTrack( const lang::String& name, const AnimationTrack& type );
 	IKeyframedRangeTrack*									CreateRangeTrack( const lang::String& name );
 	IExpressionRangeTrack*									CreateRangeTrack( const lang::String& name, IExpressionScript* script );
 	IExpressionRangeTrack*									CreateRangeTrack( const lang::String& name, const lang::String& expression );

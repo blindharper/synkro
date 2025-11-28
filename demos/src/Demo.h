@@ -153,7 +153,9 @@ protected:
 	ISlider*												CreateSlider( UInt id, const Point& location, UInt minPosition, UInt maxPosition, UInt position );
 	IOption*												CreateOption( UInt id, const Point& location, const String& text, Pointer data, Bool selected, const Color& color );
 	IOption*												CreateOption( UInt id, const Point& location, const String& text, Pointer data, Bool selected );
+	ISwitch*												CreateSwitch( UInt id, const Point& location, UInt width, const String& text, const HotKey& hotkey, Bool on );
 	ISwitch*												CreateSwitch( UInt id, const Point& location, UInt width, const String& text, Bool on );
+	ISwitch*												CreateSwitch( const Point& location, UInt width, const String& text, const HotKey& hotkey, Bool on );
 	ISwitch*												CreateSwitch( const Point& location, UInt width, const String& text, Bool on );
 	IDropList*												CreateDropList( const Point& location, const Size& size );
 	IImage*													GetImage( const String& name, const PixelFormat& format );

@@ -83,12 +83,9 @@ public:
 		_textVersion = font->CreateText(ColorGradient(GradientType::Vertical, Color::Yellow, Color::Red), Point(500, 500), Version::Current.ToString(), Order::Highest, Order::High);
 		
 		ITextAnimationController* ctrlTextVersion = _textVersion->CreateAnimationController( nullptr, nullptr );
-		PtrWaveFloatTrack trackOrientation = ctrlTextVersion->CreateOrientationTrack( AnimationTrack::FloatWave )->AsWave();
-		trackOrientation->SetType( WaveType::SawtoothUp );
-		trackOrientation->SetAmplitude( Math::TwoPi );
-		trackOrientation->SetFrequency( 0.1f );
-		trackOrientation->SetLength( 3.0 );
-		ctrlTextVersion->SetMode( AnimationMode::PingPong );
+		PtrNoiseFloatTrack trackOrientation = ctrlTextVersion->CreateOrientationTrack( AnimationTrack::FloatNoise )->AsNoise();
+		trackOrientation->SetMagnitude( Math::Pi );
+		ctrlTextVersion->SetMode( AnimationMode::Loop );
 		ctrlTextVersion->Start( true );
 
 		// Create text pool.
@@ -100,7 +97,8 @@ public:
 		IKeyframedColorGradientTrack* trackGradient = ctrlText->CreateColorGradientTrack();
 		trackGradient->SetKey( 0.0, ColorGradient(GradientType::Horizontal, Color::Red, Color::RoyalBlue) );
 		trackGradient->SetKey( 1.0, ColorGradient(GradientType::Horizontal, Color::RoyalBlue, Color::Red), Interpolation::EaseIn );
-		ctrlText->SetMode( AnimationMode::PingPong );
+		trackGradient->SetKey( 2.0, ColorGradient(GradientType::Horizontal, Color::Red, Color::RoyalBlue) );
+		ctrlText->SetMode( AnimationMode::Loop );
 		ctrlText->Start( true );
 
 		_text2 = _textPool->CreateText( ColorGradient(GradientType::Vertical, Color::Lime, Color::Yellow), Point(350, 100), L"Another pool text" );

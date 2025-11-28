@@ -135,6 +135,15 @@
       <Build Solution="perf_static|*" Project="false" />
       <Build Solution="release_static|*" Project="false" />
     </Project>
+    <Project Path="../demos/build/MakeSomeNoise/MakeSomeNoise_msvs2026.vcxproj" Id="212aa438-55dd-4b52-9740-9e330a9581ac">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="perf_static|*" Project="perf" />
+      <BuildType Solution="release_static|*" Project="release" />
+      <Build Solution="debug_static|*" Project="false" />
+      <Build Solution="perf_static|*" Project="false" />
+      <Build Solution="release_static|*" Project="false" />
+    </Project>
     <Project Path="../demos/build/Picking/Picking_msvs2026.vcxproj" Id="ec2dd058-e4dc-45f0-99de-5907c8323a58">
       <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="debug" />
@@ -308,14 +317,6 @@
     <Project Path="../libraries/build/synkro.view/synkro.view_msvs2026.vcxproj" Id="d773b653-e22f-44ff-a84f-30fb2c853112" />
     <Project Path="../libraries/build/synkro.win.win32/synkro.win.win32_msvs2026.vcxproj" Id="5155f2a2-0e74-49ef-8f50-7c7ec64d761c" />
     <Project Path="../libraries/build/synkro/synkro_msvs2026.vcxproj" Id="e28ef5aa-43df-4c6d-b372-c03ca9630d58">
-      <BuildDependency Project="../utils/build/codegen/codegen_msvs2026.vcxproj" />
-      <BuildDependency Project="../utils/build/docgen/docgen_msvs2026.vcxproj" />
-      <BuildDependency Project="../utils/build/ifacegen/ifacegen_msvs2026.vcxproj" />
-      <BuildDependency Project="../utils/build/instgen/instgen_msvs2026.vcxproj" />
-      <BuildDependency Project="../utils/build/lincount/lincount_msvs2026.vcxproj" />
-      <BuildDependency Project="../utils/build/resgen/resgen_msvs2026.vcxproj" />
-      <BuildDependency Project="../utils/build/resmake/resmake_msvs2026.vcxproj" />
-      <BuildDependency Project="../utils/build/respack/respack_msvs2026.vcxproj" />
       <BuildDependency Project="../external/build/libjpeg/libjpeg_msvs2026.vcxproj" />
       <BuildDependency Project="../external/build/libmad/libmad_msvs2026.vcxproj" />
       <BuildDependency Project="../external/build/libpng/libpng_msvs2026.vcxproj" />
@@ -324,6 +325,14 @@
       <BuildDependency Project="../external/build/zlib/zlib_msvs2026.vcxproj" />
       <BuildDependency Project="../instruments/build/memmgr/memmgr_msvs2026.vcxproj" />
       <BuildDependency Project="../instruments/build/profiler/profiler_msvs2026.vcxproj" />
+      <BuildDependency Project="../utils/build/codegen/codegen_msvs2026.vcxproj" />
+      <BuildDependency Project="../utils/build/docgen/docgen_msvs2026.vcxproj" />
+      <BuildDependency Project="../utils/build/ifacegen/ifacegen_msvs2026.vcxproj" />
+      <BuildDependency Project="../utils/build/instgen/instgen_msvs2026.vcxproj" />
+      <BuildDependency Project="../utils/build/lincount/lincount_msvs2026.vcxproj" />
+      <BuildDependency Project="../utils/build/resgen/resgen_msvs2026.vcxproj" />
+      <BuildDependency Project="../utils/build/resmake/resmake_msvs2026.vcxproj" />
+      <BuildDependency Project="../utils/build/respack/respack_msvs2026.vcxproj" />
     </Project>
   </Folder>
   <Folder Name="/tools/">

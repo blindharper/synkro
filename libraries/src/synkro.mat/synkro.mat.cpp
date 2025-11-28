@@ -11,13 +11,14 @@
 // Purpose: 'synkro.mat' library.
 //==============================================================================
 #include "config.h"
+#include <mat/MaterialManager.h>
 
 #define SYNKROLIB_NAME			L"synkro.mat"
 #define SYNKROLIB_DESC			L"Synkro Material Library"
-#define SYNKROLIB_COMMENT		L"Material programs"
+#define SYNKROLIB_COMMENT		L"Material programs and textures"
 #define SYNKROLIB_RESOURCES		_resources
 #define SYNKROLIB_INIT			SynkroMatInit
 #define SYNKROLIB_VERSION_MAJOR	1
-#define SYNKROLIB_VERSION_MINOR	0
+#define SYNKROLIB_VERSION_MINOR	1
 #define SYNKROLIB_VERSION_PATCH	0
 #include "../synkrolib.inl"

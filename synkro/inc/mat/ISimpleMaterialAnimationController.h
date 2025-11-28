@@ -34,6 +34,35 @@ iface ISimpleMaterialAnimationController :
 {
 public:
 	/**
+	 * Creates keyframed track controlling material's diffuse and ambient color.
+	 * @return Created diffuse and ambient color track.
+	 * @exception BadArgumentException Diffuse and ambient color track already exists.
+	 */
+	virtual anim::IKeyframedColorTrack*						CreateDiffuseAmbientColorTrack() = 0;
+
+	/**
+	 * Creates procedural track controlling material's diffuse and ambient color.
+	 * @param type Track type.
+	 * @return Created diffuse and ambient color track.
+	 * @exception BadArgumentException Diffuse and ambient color track already exists.
+	 */
+	virtual anim::IProceduralColorTrack*					CreateDiffuseAmbientColorTrack( const anim::AnimationTrack& type ) = 0;
+
+	/**
+	 * Creates expression track controlling material's diffuse and ambient color.
+	 * @param script Expression script.
+	 * @return Created diffuse and ambient color track.
+	 */
+	virtual anim::IExpressionColorTrack*					CreateDiffuseAmbientColorTrack( anim::IExpressionScript* script ) = 0;
+
+	/**
+	 * Creates expression track controlling material's diffuse and ambient color.
+	 * @param expression Expression text.
+	 * @return Created diffuse and ambient color track.
+	 */
+	virtual anim::IExpressionColorTrack*					CreateDiffuseAmbientColorTrack( const lang::String& expression ) = 0;
+
+	/**
 	 * Creates keyframed track controlling material's diffuse color.
 	 * @return Created diffuse color track.
 	 * @exception BadArgumentException Diffuse color track already exists.

@@ -291,6 +291,12 @@ SYNKRO_INLINE anim::IKeyframedQuaternionTrack* NodeAnimationControllerImpl<T>::C
 }
 
 template <class T>
+SYNKRO_INLINE anim::IProceduralQuaternionTrack* NodeAnimationControllerImpl<T>::CreateOrientationTrack( const anim::AnimationTrack& type )
+{
+	return (_trackOrientation = _animations->GetActiveAnimation()->CreateQuaternionTrack( NodeProperty::Orientation.ToString(), type) )->AsProcedural();
+}
+
+template <class T>
 SYNKRO_INLINE anim::IExpressionQuaternionTrack* NodeAnimationControllerImpl<T>::CreateOrientationTrack( anim::IExpressionScript* script )
 {
 	return (_trackOrientation = _animations->GetActiveAnimation()->CreateQuaternionTrack( NodeProperty::Orientation.ToString(), script) )->AsExpression();

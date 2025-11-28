@@ -65,6 +65,17 @@ public:
 	virtual IExpressionBoolTrack*							CreateBoolTrack( const lang::String& name, const lang::String& expression ) = 0;
 
 	/**
+	 * Creates procedural boolean track and adds it to the animation.
+	 * @param name Track name.
+	 * @param type Track type.
+	 * @return Created animation track.
+	 * @exception BadArgumentException Track with the given name already exists.
+	 * @exception BadArgumentException Unknown track type.
+	 * @exception BadArgumentException Wrong track data type.
+	 */
+	virtual IProceduralBoolTrack*							CreateBoolTrack( const lang::String& name, const AnimationTrack& type ) = 0;
+
+	/**
 	 * Creates keyframed color track and adds it to the animation.
 	 * @param name Track name.
 	 * @return Created animation track.
@@ -132,6 +143,17 @@ public:
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionColorGradientTrack*					CreateColorGradientTrack( const lang::String& name, const lang::String& expression ) = 0;
+
+	/**
+	 * Creates procedural color gradient track and adds it to the animation.
+	 * @param name Track name.
+	 * @param type Track type.
+	 * @return Created animation track.
+	 * @exception BadArgumentException Track with the given name already exists.
+	 * @exception BadArgumentException Unknown track type.
+	 * @exception BadArgumentException Wrong track data type.
+	 */
+	virtual IProceduralColorGradientTrack*					CreateColorGradientTrack( const lang::String& name, const AnimationTrack& type ) = 0;
 
 	/**
 	 * Creates keyframed floating-point track and adds it to the animation.
@@ -317,6 +339,17 @@ public:
 	 * @exception BadArgumentException Wrong expression type.
 	 */
 	virtual IExpressionQuaternionTrack*						CreateQuaternionTrack( const lang::String& name, const lang::String& expression ) = 0;
+
+	/**
+	 * Creates procedural quaternion vector track and adds it to the animation.
+	 * @param name Track name.
+	 * @param type Track type.
+	 * @return Created animation track.
+	 * @exception BadArgumentException Track with the given name already exists.
+	 * @exception BadArgumentException Unknown track type.
+	 * @exception BadArgumentException Wrong track data type.
+	 */
+	virtual IProceduralQuaternionTrack*						CreateQuaternionTrack( const lang::String& name, const AnimationTrack& type ) = 0;
 
 	/**
 	 * Creates keyframed range track and adds it to the animation.

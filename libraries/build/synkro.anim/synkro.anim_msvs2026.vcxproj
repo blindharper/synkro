@@ -405,13 +405,29 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClInclude Include="..\..\..\synkro\src\anim\AnimationCodec\SqlAnimationCodecFactory.h" />
     <ClInclude Include="..\..\..\synkro\src\anim\AnimationCodec\XmlAnimationCodec.h" />
     <ClInclude Include="..\..\..\synkro\src\anim\AnimationCodec\XmlAnimationCodecFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseBoolTrack.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseBoolTrackFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorGradientTrack.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorGradientTrackFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorTrack.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorTrackFactory.h" />
     <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseFloatTrack.h" />
     <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseFloatTrackFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseQuaternionTrack.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseQuaternionTrackFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseTrackImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseVector3Track.h" />
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseVector3TrackFactory.h" />
     <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\ProceduralTrackImpl.h" />
     <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\WaveFloatTrack.h" />
     <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\WaveFloatTrackFactory.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseBoolTrack.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorGradientTrack.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorTrack.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseQuaternionTrack.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseVector3Track.cpp" />
     <ClCompile Include="..\..\src\synkro.anim\synkro.anim.cpp" />
     <ClCompile Include="..\..\..\synkro\src\anim\AnimationCodec\BinAnimationCodec.cpp" />
     <ClCompile Include="..\..\..\synkro\src\anim\AnimationCodec\SqlAnimationCodec.cpp" />
@@ -426,6 +442,12 @@ del "$(OutDir)$(TargetName).lib"</Command>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseBoolTrack.inl" />
+    <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorGradientTrack.inl" />
+    <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorTrack.inl" />
+    <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseQuaternionTrack.inl" />
+    <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseTrackImpl.inl" />
+    <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseVector3Track.inl" />
     <None Include="..\..\src\synkro.anim\factories.inl" />
     <None Include="..\..\..\synkro\src\anim\AnimationCodec\AnimationCodecImpl.inl" />
     <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseFloatTrack.inl" />

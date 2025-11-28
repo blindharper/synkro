@@ -198,6 +198,11 @@
 del "$(OutDir)$(TargetName).ilk"
 del "$(OutDir)$(TargetName).lib"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.scene\resources.mak"</Command>
+      <Message>Building resources...</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">
     <ClCompile>
@@ -239,6 +244,11 @@ del "$(OutDir)$(TargetName).lib"</Command>
       <Command>
       </Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.scene\resources.mak"</Command>
+      <Message>Building resources...</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
     <ClCompile>
@@ -279,6 +289,11 @@ del "$(OutDir)$(TargetName).lib"</Command>
       <Command>del "$(OutDir)$(TargetName).exp"
 del "$(OutDir)$(TargetName).lib"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Message>Building resources...</Message>
+      <Command>
+..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.scene\resources.mak"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">
     <ClCompile>
@@ -318,6 +333,11 @@ del "$(OutDir)$(TargetName).lib"</Command>
       <Command>
       </Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.scene\resources.mak"</Command>
+      <Message>Building resources...</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">
     <ClCompile>
@@ -357,6 +377,11 @@ del "$(OutDir)$(TargetName).lib"</Command>
       <Command>
       </Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.scene\resources.mak"</Command>
+      <Message>Building resources...</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'">
     <ClCompile>
@@ -396,6 +421,11 @@ del "$(OutDir)$(TargetName).lib"</Command>
       <Command>del "$(OutDir)$(TargetName).exp"
 del "$(OutDir)$(TargetName).lib"</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>
+..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.scene\resources.mak"</Command>
+      <Message>Building resources...</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultScene.h" />
@@ -424,6 +454,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\XMeshCodecFactory.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\synkro.scene\resources.cpp" />
     <ClCompile Include="..\..\src\synkro.scene\synkro.scene.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultScene.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMesh.cpp" />
@@ -451,6 +482,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <None Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMesh.inl" />
     <None Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshBatch.inl" />
     <None Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshInstance.inl" />
+    <None Include="..\..\src\synkro.scene\resources.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

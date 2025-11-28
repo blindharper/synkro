@@ -44,8 +44,8 @@ public:
 			{
 				trans.SetTranslation( Vector3(x, 0.0f, z) );
 				x += 40.0f;
-				ITriangleMesh* tiny = _tinyTemplate->CreateInstance(nullptr, trans, Color::Random());
-				Int idx = rnd.GetInt()%3;
+				ITriangleMesh* tiny = _tinyTemplate->CreateInstance( nullptr, trans, Color::Random() );
+				UInt idx = rnd.GetUInt()%3;
 
 				ISkeletonAnimationController* skeletonCtrl = tiny->GetSkeleton()->CreateAnimationController( nullptr, nullptr );
 				skeletonCtrl->SetAnimationSet( idx );

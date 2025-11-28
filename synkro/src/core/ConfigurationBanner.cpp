@@ -13,8 +13,9 @@
 #include "config.h"
 #include "ConfigurationBanner.h"
 #include <core/ISynkro.h>
+#include <lang/Random.h>
 #include <anim/IKeyframedFloatTrack.h>
-#include <anim/IKeyframedColorGradientTrack.h>
+#include <anim/INoiseColorGradientTrack.h>
 #include <gfx/IGraphicsSystemEx.h>
 #include <gfx/IGraphicsDeviceEx.h>
 #include <gfx/IViewRenderWindowEx.h>
@@ -71,7 +72,7 @@ ConfigurationBanner::ConfigurationBanner( ISynkro* synkro ) :
 	{
 		const Float width = CastFloat(window->GetWidth());
 		const Float height = CastFloat(window->GetHeight());
-		Vector4 pos[] =
+		const Vector4 pos[] =
 		{
 			Vector4( 0.0f,	0.0f,	0.0f, 1.0f ),
 			Vector4( 0.0f,	height,	0.0f, 1.0f ),
@@ -87,7 +88,7 @@ ConfigurationBanner::ConfigurationBanner( ISynkro* synkro ) :
 	{
 		const Color start = Color::DarkGreen;
 		const Color end = Color::White;
-		Vector4 colors[] =
+		const Vector4 colors[] =
 		{
 			ToVector( start ),
 			ToVector( start ),
@@ -104,11 +105,11 @@ ConfigurationBanner::ConfigurationBanner( ISynkro* synkro ) :
 	_text = font->CreateText( ColorGradient(GradientType::Vertical, Color::Violet, Color::Lime), Point(3, 3), L"SYNKRO", Order::Highest, Order::High );
 
 	// Create text animation.
+	Random rnd;
 	ITextAnimationController* ctrlText = _text->CreateAnimationController( nullptr, nullptr );
-	IKeyframedColorGradientTrack* trackGradient = ctrlText->CreateColorGradientTrack();
-	trackGradient->SetKey( 0.0, ColorGradient(GradientType::Vertical, Color::Violet, Color::Lime) );
-	trackGradient->SetKey( 3.0, ColorGradient(GradientType::Vertical, Color::Yellow, Color::Red) );
-	trackGradient->SetKey( 6.0, ColorGradient(GradientType::Vertical, Color::Violet, Color::Lime) );
+	INoiseColorGradientTrack* trackGradient = ctrlText->CreateColorGradientTrack( AnimationTrack::ColorGradientNoise )->AsNoise();
+	trackGradient->SetGradientType( GradientType::Vertical );
+	trackGradient->SetSeed( rnd.GetUInt() );
 
 	Size sz; font->GetTextSize( _text->GetText(), sz );
 	IKeyframedFloatTrack* trackPosition = ctrlText->CreateLocationXTrack();

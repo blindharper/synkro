@@ -23,9 +23,14 @@ namespace anim
 {
 
 
-SYNKRO_DEFINE_CONST( AnimationTrack, Custom,		0 )
-SYNKRO_DEFINE_CONST( AnimationTrack, FloatNoise,	1 )
-SYNKRO_DEFINE_CONST( AnimationTrack, FloatWave,		2 )
+SYNKRO_DEFINE_CONST( AnimationTrack, Custom,				0 )
+SYNKRO_DEFINE_CONST( AnimationTrack, FloatWave,				1 )
+SYNKRO_DEFINE_CONST( AnimationTrack, BoolNoise,				2 )
+SYNKRO_DEFINE_CONST( AnimationTrack, ColorNoise,			3 )
+SYNKRO_DEFINE_CONST( AnimationTrack, ColorGradientNoise,	4 )
+SYNKRO_DEFINE_CONST( AnimationTrack, FloatNoise,			5 )
+SYNKRO_DEFINE_CONST( AnimationTrack, QuaternionNoise,		6 )
+SYNKRO_DEFINE_CONST( AnimationTrack, Vector3Noise,			7 )
 
 
 struct TypeDesc
@@ -36,9 +41,15 @@ struct TypeDesc
 
 static TypeDesc _desc[] = 
 {
-	{ AnimationTrack::Custom,		L"Custom" },
-	{ AnimationTrack::FloatNoise,	L"FloatNoise" },
-	{ AnimationTrack::FloatWave,	L"FloatWave" },
+	{ AnimationTrack::Custom,				L"Custom" },
+	{ AnimationTrack::FloatWave,			L"FloatWave" },
+	{ AnimationTrack::BoolNoise,			L"BoolNoise" },
+	{ AnimationTrack::ColorNoise,			L"ColorNoise" },
+	{ AnimationTrack::ColorGradientNoise,	L"ColorGradientNoise" },
+	{ AnimationTrack::FloatNoise,			L"FloatNoise" },
+	{ AnimationTrack::QuaternionNoise,		L"QuaternionNoise" },
+	{ AnimationTrack::Vector3Noise,			L"Vector3Noise" },
+	
 };
 static UInt _count = SizeOf( _desc );
 

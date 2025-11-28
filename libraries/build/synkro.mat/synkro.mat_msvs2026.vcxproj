@@ -429,6 +429,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\synkro.mat\programs.cpp" />
+    <ClCompile Include="..\..\src\synkro.mat\resources.cpp" />
     <ClCompile Include="..\..\src\synkro.mat\synkro.mat.cpp" />
   </ItemGroup>
   <ItemGroup>

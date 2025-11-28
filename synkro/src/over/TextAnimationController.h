@@ -50,11 +50,13 @@ public:
 	anim::IKeyframedFloatTrack*								CreateScaleTrack();
 	anim::IProceduralFloatTrack*							CreateScaleTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedColorGradientTrack*						CreateColorGradientTrack();
+	anim::IProceduralColorGradientTrack*					CreateColorGradientTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedColorTrack*								CreateColorTrack();
 	anim::IProceduralColorTrack*							CreateColorTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedFloatTrack*								CreateOpacityTrack();
 	anim::IProceduralFloatTrack*							CreateOpacityTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedBoolTrack*								CreateVisibilityTrack();
+	anim::IProceduralBoolTrack*								CreateVisibilityTrack( const anim::AnimationTrack& type );
 
 	// Other methods.
 	void													UpdateTracks();

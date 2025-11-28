@@ -64,6 +64,14 @@ IExpressionBoolTrack* Animation::CreateBoolTrack( const String& name, const Stri
 	return CreateBoolTrack( name, _animationSystem->CreateScriptInternal(expression) );
 }
 
+IProceduralBoolTrack* Animation::CreateBoolTrack( const String& name, const AnimationTrack& type )
+{
+	VerifyName( name );
+	IProceduralBoolTrack* track = _animationSystem->CreateTrack( name, type, AnimationDataType::Bool )->AsBool()->AsProcedural();
+	AddTrack( track );
+	return track;
+}
+
 IKeyframedColorTrack* Animation::CreateColorTrack( const String& name )
 {
 	VerifyName( name );
@@ -114,6 +122,14 @@ IExpressionColorGradientTrack* Animation::CreateColorGradientTrack( const String
 IExpressionColorGradientTrack* Animation::CreateColorGradientTrack( const String& name, const String& expression )
 {
 	return CreateColorGradientTrack( name, _animationSystem->CreateScriptInternal(expression) );
+}
+
+IProceduralColorGradientTrack* Animation::CreateColorGradientTrack( const String& name, const AnimationTrack& type )
+{
+	VerifyName( name );
+	IProceduralColorGradientTrack* track = _animationSystem->CreateTrack( name, type, AnimationDataType::ColorGradient )->AsColorGradient()->AsProcedural();
+	AddTrack( track );
+	return track;
 }
 
 IKeyframedFloatTrack* Animation::CreateFloatTrack( const String& name )
@@ -254,6 +270,14 @@ IExpressionQuaternionTrack* Animation::CreateQuaternionTrack( const String& name
 IExpressionQuaternionTrack* Animation::CreateQuaternionTrack( const String& name, const String& expression )
 {
 	return CreateQuaternionTrack( name, _animationSystem->CreateScriptInternal(expression) );
+}
+
+IProceduralQuaternionTrack* Animation::CreateQuaternionTrack( const String& name, const AnimationTrack& type )
+{
+	VerifyName( name );
+	IProceduralQuaternionTrack* track = _animationSystem->CreateTrack( name, type, AnimationDataType::Quaternion )->AsQuaternion()->AsProcedural();
+	AddTrack( track );
+	return track;
 }
 
 IKeyframedRangeTrack* Animation::CreateRangeTrack( const String& name )

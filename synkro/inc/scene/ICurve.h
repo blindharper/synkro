@@ -16,6 +16,7 @@
 
 #include "config.h"
 #include <scene/INode.h>
+#include <img/Color.h>
 
 
 namespace synkro

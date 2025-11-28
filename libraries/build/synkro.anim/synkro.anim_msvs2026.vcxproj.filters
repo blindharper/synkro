@@ -7,12 +7,6 @@
     <Filter Include="AnimationTrack">
       <UniqueIdentifier>{f6c144c9-bbf5-4c5e-af66-cc0e55dcec0c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="AnimationTrack\NoiseFloat">
-      <UniqueIdentifier>{82e3e0d8-2965-4034-b961-9985695b7e00}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="AnimationTrack\WaveFloat">
-      <UniqueIdentifier>{e7e09e76-ef09-477c-a861-f7e784d341f0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="AnimationCodec\Xml">
       <UniqueIdentifier>{fc72afe9-915d-437c-944a-ba8699a0ff99}</UniqueIdentifier>
     </Filter>
@@ -21,6 +15,33 @@
     </Filter>
     <Filter Include="AnimationCodec\Bin">
       <UniqueIdentifier>{36d17586-21a0-4936-92ee-30228d68d900}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationTrack\Noise">
+      <UniqueIdentifier>{82e3e0d8-2965-4034-b961-9985695b7e00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationTrack\Noise\Float">
+      <UniqueIdentifier>{91a632c0-197f-441b-8e2a-a87e80c7da76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationTrack\Wave">
+      <UniqueIdentifier>{e7e09e76-ef09-477c-a861-f7e784d341f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationTrack\Wave\Float">
+      <UniqueIdentifier>{0695f3f9-7056-4cf3-a0ce-0517205d7a65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationTrack\Noise\Color">
+      <UniqueIdentifier>{a7121c07-b5b6-45fd-b8b2-8eacca869ffc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationTrack\Noise\Bool">
+      <UniqueIdentifier>{52674b0f-cde1-4a15-aa45-0b7f802c623b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationTrack\Noise\ColorGradient">
+      <UniqueIdentifier>{a6b8e08a-6279-4758-8a93-b140ae2edb8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationTrack\Noise\Vector3">
+      <UniqueIdentifier>{01f2f71e-2537-4824-8776-bebbbf1e6149}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AnimationTrack\Noise\Quaternion">
+      <UniqueIdentifier>{1451ef26-63cb-4e77-9275-89238802ffe7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -36,18 +57,6 @@
     <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\ProceduralTrackImpl.h">
       <Filter>AnimationTrack</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseFloatTrack.h">
-      <Filter>AnimationTrack\NoiseFloat</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseFloatTrackFactory.h">
-      <Filter>AnimationTrack\NoiseFloat</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\WaveFloatTrack.h">
-      <Filter>AnimationTrack\WaveFloat</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\WaveFloatTrackFactory.h">
-      <Filter>AnimationTrack\WaveFloat</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\anim\AnimationCodec\SqlAnimationCodec.h">
       <Filter>AnimationCodec\Sql</Filter>
     </ClInclude>
@@ -60,23 +69,83 @@
     <ClInclude Include="..\..\..\synkro\src\anim\AnimationCodec\BinAnimationCodecFactory.h">
       <Filter>AnimationCodec\Bin</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseFloatTrack.h">
+      <Filter>AnimationTrack\Noise\Float</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseFloatTrackFactory.h">
+      <Filter>AnimationTrack\Noise\Float</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\WaveFloatTrack.h">
+      <Filter>AnimationTrack\Wave\Float</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\WaveFloatTrackFactory.h">
+      <Filter>AnimationTrack\Wave\Float</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseTrackImpl.h">
+      <Filter>AnimationTrack\Noise</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorTrack.h">
+      <Filter>AnimationTrack\Noise\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorTrackFactory.h">
+      <Filter>AnimationTrack\Noise\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseBoolTrack.h">
+      <Filter>AnimationTrack\Noise\Bool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseBoolTrackFactory.h">
+      <Filter>AnimationTrack\Noise\Bool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorGradientTrack.h">
+      <Filter>AnimationTrack\Noise\ColorGradient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorGradientTrackFactory.h">
+      <Filter>AnimationTrack\Noise\ColorGradient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseVector3Track.h">
+      <Filter>AnimationTrack\Noise\Vector3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseVector3TrackFactory.h">
+      <Filter>AnimationTrack\Noise\Vector3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseQuaternionTrack.h">
+      <Filter>AnimationTrack\Noise\Quaternion</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseQuaternionTrackFactory.h">
+      <Filter>AnimationTrack\Noise\Quaternion</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\synkro.anim\synkro.anim.cpp" />
     <ClCompile Include="..\..\..\synkro\src\anim\AnimationCodec\XmlAnimationCodec.cpp">
       <Filter>AnimationCodec\Xml</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseFloatTrack.cpp">
-      <Filter>AnimationTrack\NoiseFloat</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\WaveFloatTrack.cpp">
-      <Filter>AnimationTrack\WaveFloat</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\anim\AnimationCodec\SqlAnimationCodec.cpp">
       <Filter>AnimationCodec\Sql</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\anim\AnimationCodec\BinAnimationCodec.cpp">
       <Filter>AnimationCodec\Bin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseFloatTrack.cpp">
+      <Filter>AnimationTrack\Noise\Float</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\WaveFloatTrack.cpp">
+      <Filter>AnimationTrack\Wave\Float</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorTrack.cpp">
+      <Filter>AnimationTrack\Noise\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseBoolTrack.cpp">
+      <Filter>AnimationTrack\Noise\Bool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorGradientTrack.cpp">
+      <Filter>AnimationTrack\Noise\ColorGradient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseVector3Track.cpp">
+      <Filter>AnimationTrack\Noise\Vector3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseQuaternionTrack.cpp">
+      <Filter>AnimationTrack\Noise\Quaternion</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,10 +157,28 @@
       <Filter>AnimationTrack</Filter>
     </None>
     <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseFloatTrack.inl">
-      <Filter>AnimationTrack\NoiseFloat</Filter>
+      <Filter>AnimationTrack\Noise\Float</Filter>
     </None>
     <None Include="..\..\..\synkro\src\anim\AnimationTrack\WaveFloatTrack.inl">
-      <Filter>AnimationTrack\WaveFloat</Filter>
+      <Filter>AnimationTrack\Wave\Float</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseTrackImpl.inl">
+      <Filter>AnimationTrack\Noise</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorTrack.inl">
+      <Filter>AnimationTrack\Noise\Color</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseBoolTrack.inl">
+      <Filter>AnimationTrack\Noise\Bool</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseColorGradientTrack.inl">
+      <Filter>AnimationTrack\Noise\ColorGradient</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseVector3Track.inl">
+      <Filter>AnimationTrack\Noise\Vector3</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\anim\AnimationTrack\NoiseQuaternionTrack.inl">
+      <Filter>AnimationTrack\Noise\Quaternion</Filter>
     </None>
   </ItemGroup>
 </Project>

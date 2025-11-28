@@ -185,6 +185,11 @@ IKeyframedColorGradientTrack* TextAnimationController::CreateColorGradientTrack(
 	return (_trackColorGradient = _animations->GetActiveAnimation()->CreateColorGradientTrack( TextProperty::ColorGradient.ToString()) )->AsKeyframed();
 }
 
+IProceduralColorGradientTrack* TextAnimationController::CreateColorGradientTrack( const AnimationTrack& type )
+{
+	return (_trackColorGradient = _animations->GetActiveAnimation()->CreateColorGradientTrack( TextProperty::ColorGradient.ToString(), type) )->AsProcedural();
+}
+
 IKeyframedColorTrack* TextAnimationController::CreateColorTrack()
 {
 	return (_trackColor = _animations->GetActiveAnimation()->CreateColorTrack( TextProperty::Color.ToString()) )->AsKeyframed();
@@ -208,6 +213,11 @@ IProceduralFloatTrack* TextAnimationController::CreateOpacityTrack( const Animat
 IKeyframedBoolTrack* TextAnimationController::CreateVisibilityTrack()
 {
 	return (_trackVisibility = _animations->GetActiveAnimation()->CreateBoolTrack( TextProperty::Visibility.ToString()) )->AsKeyframed();
+}
+
+IProceduralBoolTrack* TextAnimationController::CreateVisibilityTrack( const AnimationTrack& type )
+{
+	return (_trackVisibility = _animations->GetActiveAnimation()->CreateBoolTrack( TextProperty::Visibility.ToString(), type) )->AsProcedural();
 }
 
 void TextAnimationController::UpdateTracks()
