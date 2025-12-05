@@ -20,6 +20,6 @@
 #define SYNKROLIB_FACTORIES		_factories
 #define SYNKROLIB_INIT			SynkroSceneInit
 #define SYNKROLIB_VERSION_MAJOR	1
-#define SYNKROLIB_VERSION_MINOR	1
+#define SYNKROLIB_VERSION_MINOR	2
 #define SYNKROLIB_VERSION_PATCH	0
 #include "../synkrolib.inl"
