@@ -11,7 +11,7 @@ using namespace synkro::scene;
 #include <scene/MeshBuilder/TorusMeshBuilderFactory.h>
 
 #include <scene/MeshCodec/ObjMeshCodecFactory.h>
-#include <scene/MeshCodec/XMeshCodecFactory.h>
+#include <scene/MeshCodec/X/XMeshCodecFactory.h>
 
 static DefaultSceneFactory			_factDefaultSceneFactory;
 

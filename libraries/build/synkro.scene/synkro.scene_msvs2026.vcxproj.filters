@@ -43,6 +43,24 @@
     <Filter Include="res">
       <UniqueIdentifier>{1306e479-ea59-4426-9101-61ce8581f50d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MeshCodec\X\Writer">
+      <UniqueIdentifier>{baef77a4-6a71-48ee-85c2-2cdfdd1453ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\X\Writer\Text">
+      <UniqueIdentifier>{465726cd-b5d5-4d35-8bd1-0ba083eb38f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\X\Writer\Binary">
+      <UniqueIdentifier>{33e52b1c-5cd9-4d4f-9e83-7052924c27d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\X\Reader">
+      <UniqueIdentifier>{2885dbfb-289e-4251-9e60-97e50bfa0474}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\X\Reader\Binary">
+      <UniqueIdentifier>{8e483a61-03ff-402d-a35e-f8feb403fa51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\X\Reader\Text">
+      <UniqueIdentifier>{b0b21e20-ace8-4297-8f9f-e69b187f72b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\ObjMeshCodec.h">
@@ -111,11 +129,38 @@
     <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleSet.h">
       <Filter>Scene\Default</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\XMeshCodec.h">
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshCodec.h">
       <Filter>MeshCodec\X</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\XMeshCodecFactory.h">
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshCodecFactory.h">
       <Filter>MeshCodec\X</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMesh.h">
+      <Filter>MeshCodec\X</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshWriter.h">
+      <Filter>MeshCodec\X\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshWriterImpl.h">
+      <Filter>MeshCodec\X\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshTextWriter.h">
+      <Filter>MeshCodec\X\Writer\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshBinaryWriter.h">
+      <Filter>MeshCodec\X\Writer\Binary</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshReader.h">
+      <Filter>MeshCodec\X\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshReaderImpl.h">
+      <Filter>MeshCodec\X\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshBinaryReader.h">
+      <Filter>MeshCodec\X\Reader\Binary</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshTextReader.h">
+      <Filter>MeshCodec\X\Reader\Text</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -159,11 +204,23 @@
     <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleSet.cpp">
       <Filter>Scene\Default</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\XMeshCodec.cpp">
-      <Filter>MeshCodec\X</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\synkro.scene\resources.cpp">
       <Filter>res</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshCodec.cpp">
+      <Filter>MeshCodec\X</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshTextWriter.cpp">
+      <Filter>MeshCodec\X\Writer\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshBinaryWriter.cpp">
+      <Filter>MeshCodec\X\Writer\Binary</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshBinaryReader.cpp">
+      <Filter>MeshCodec\X\Reader\Binary</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshTextReader.cpp">
+      <Filter>MeshCodec\X\Reader\Text</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -178,5 +235,11 @@
       <Filter>Scene\Default</Filter>
     </None>
     <None Include="..\..\src\synkro.scene\resources.inl" />
+    <None Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshWriterImpl.inl">
+      <Filter>MeshCodec\X\Writer</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshReaderImpl.inl">
+      <Filter>MeshCodec\X\Reader</Filter>
+    </None>
   </ItemGroup>
 </Project>
