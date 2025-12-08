@@ -448,8 +448,8 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\PyramidMeshBuilderFactory.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\TorusMeshBuilder.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\TorusMeshBuilderFactory.h" />
-    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\ObjMeshCodec.h" />
-    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\ObjMeshCodecFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjMeshCodec.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjMeshCodecFactory.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\MsZipStream.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMesh.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshBinaryReader.h" />
@@ -464,6 +464,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshWriterImpl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjMeshCodec.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\MsZipStream.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshBinaryReader.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshBinaryWriter.cpp" />
@@ -484,7 +485,6 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClCompile Include="..\..\..\synkro\src\scene\MeshBuilder\PlaneMeshBuilder.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshBuilder\PyramidMeshBuilder.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshBuilder\TorusMeshBuilder.cpp" />
-    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\ObjMeshCodec.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\synkro\synkro_msvs2026.vcxproj">
