@@ -12,6 +12,7 @@
 //==============================================================================
 #include "config.h"
 #include "XMeshCodec.h"
+#include "MsZipStream.h"
 #include <scene/BoneProperty.h>
 #include <scene/ISkeleton.h>
 #include <io/IStreamDirectory.h>
@@ -83,20 +84,56 @@ ITriangleMesh* XMeshCodec::Load( IScene* scene, IStream* stream, const PixelForm
 	const UInt fmt = ReadHeader( stream );
 	CreateReader( fmt );
 	_reader->Initialize( stream );
+
+	Bool binary = false;
+	Bool compressed = false;
+
 	switch ( fmt )
 	{
 		case XOFFILE_FORMAT_BINARY:
-			ReadBinary( loadMaterial, loadSkin, loadAnimations );
+			binary = true;
+			compressed = false;
+			break;
+
+		case XOFFILE_FORMAT_BINARY_COMPRESSED:
+			binary = true;
+			compressed = true;
 			break;
 
 		case XOFFILE_FORMAT_TEXT:
-			ReadText( loadMaterial, loadSkin, loadAnimations );
+			binary = false;
+			compressed = false;
 			break;
-
+		
+		case XOFFILE_FORMAT_TEXT_COMPRESSED:
+			binary = false;
+			compressed = true;
+			break;
+		
 		default:
 			throw Exception( L"Unsupported mesh format." );
 	}
+	
+	// Handle compressed data.
+	P(IStream) streamDecompressed;
+	if ( compressed )
+	{
+		MsZipStream compressed( stream, binary, -MAX_WBITS );
+		streamDecompressed = compressed.Decompress();
+		_reader->Initialize( streamDecompressed );
+	}
 
+	// Read mesh data.
+	if ( binary )
+	{
+		ReadBinary( loadMaterial, loadSkin, loadAnimations );
+	}
+	else
+	{
+		ReadText( loadMaterial, loadSkin, loadAnimations );
+	}
+
+	// Retrieve read data.
 	_reader->GetModels( &_models );
 	_reader->GetMaterials( &_materials );
 	_reader->GetSubMaterials( &_subMaterials );

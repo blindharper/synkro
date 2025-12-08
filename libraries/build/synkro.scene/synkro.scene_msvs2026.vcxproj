@@ -183,7 +183,7 @@
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalDependencies>synkro_debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>synkro_debug.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)synkro_debug.scene.dll</OutputFile>
       <AdditionalLibraryDirectories>../../../external/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -272,7 +272,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalDependencies>synkro.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>synkro.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
       <AdditionalLibraryDirectories>../../../external/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -405,7 +405,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalDependencies>synkro_perf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>synkro_perf.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)synkro_perf.scene.dll</OutputFile>
       <AdditionalLibraryDirectories>../../../external/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -450,6 +450,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\TorusMeshBuilderFactory.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\ObjMeshCodec.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\ObjMeshCodecFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\MsZipStream.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMesh.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshBinaryReader.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshBinaryWriter.h" />
@@ -463,6 +464,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshWriterImpl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\MsZipStream.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshBinaryReader.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshBinaryWriter.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshCodec.cpp" />
