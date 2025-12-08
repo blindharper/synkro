@@ -15,7 +15,6 @@
 #include <io/IStreamDirectory.h>
 #include <io/IStream.h>
 #include <core/CallStack.h>
-#include <scene/IMesh.h>
 #include <scene/ITriangleSet.h>
 #include <mat/IMaterialMap.h>
 #include <mat/IMultiMaterial.h>
@@ -373,7 +372,7 @@ void ObjMeshCodec::PrepareMaterials( IStream* stream, const PixelFormat& format,
 	}
 }
 
-bool ObjMeshCodec::GetFace( IStream* stream, Face& face )
+Bool ObjMeshCodec::GetFace( IStream* stream, Face& face )
 {
 	int ret = 0;
 	
@@ -429,7 +428,7 @@ Float ObjMeshCodec::GetFloat( IStream* stream )
 	return f;
 }
 
-bool ObjMeshCodec::GetLexem( IStream* stream )
+Bool ObjMeshCodec::GetLexem( IStream* stream )
 {
 	if ( !_lexemCache.IsEmpty() )
 	{
@@ -471,7 +470,7 @@ bool ObjMeshCodec::GetLexem( IStream* stream )
 	return false;
 }
 
-bool ObjMeshCodec::PeekLexem( IStream* stream )
+Bool ObjMeshCodec::PeekLexem( IStream* stream )
 {
 	if ( !_lexemCache.IsEmpty() )
 		return true;

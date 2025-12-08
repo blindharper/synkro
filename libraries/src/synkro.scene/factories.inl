@@ -10,7 +10,7 @@ using namespace synkro::scene;
 #include <scene/MeshBuilder/PyramidMeshBuilderFactory.h>
 #include <scene/MeshBuilder/TorusMeshBuilderFactory.h>
 
-#include <scene/MeshCodec/ObjMeshCodecFactory.h>
+#include <scene/MeshCodec/Obj/ObjMeshCodecFactory.h>
 #include <scene/MeshCodec/X/XMeshCodecFactory.h>
 
 static DefaultSceneFactory			_factDefaultSceneFactory;

@@ -66,12 +66,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\ObjMeshCodec.h">
-      <Filter>MeshCodec\Obj</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\ObjMeshCodecFactory.h">
-      <Filter>MeshCodec\Obj</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\BoxMeshBuilder.h">
       <Filter>MeshBuilder\Box</Filter>
     </ClInclude>
@@ -168,12 +162,15 @@
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\MsZipStream.h">
       <Filter>MeshCodec\X\MsZip</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjMeshCodec.h">
+      <Filter>MeshCodec\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjMeshCodecFactory.h">
+      <Filter>MeshCodec\Obj</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\synkro.scene\synkro.scene.cpp" />
-    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\ObjMeshCodec.cpp">
-      <Filter>MeshCodec\Obj</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\scene\MeshBuilder\BoxMeshBuilder.cpp">
       <Filter>MeshBuilder\Box</Filter>
     </ClCompile>
@@ -230,6 +227,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\MsZipStream.cpp">
       <Filter>MeshCodec\X\MsZip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjMeshCodec.cpp">
+      <Filter>MeshCodec\Obj</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

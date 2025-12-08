@@ -15,7 +15,7 @@
 
 
 #include "config.h"
-#include "MeshCodecImpl.h"
+#include "../MeshCodecImpl.h"
 #include <lang/Map.h>
 #include <lang/Vector.h>
 #include <lang/Formatter.h>
@@ -125,11 +125,11 @@ private:
 	UInt													GetMaterialIndex( const lang::String& name );
 	mat::IVisualMaterial*									ChooseMaterial( io::IStream* stream, mat::IVisualMaterial* material, const img::PixelFormat& format, Bool loadMaps );
 	void													PrepareMaterials( io::IStream* stream, const img::PixelFormat& format, Bool loadMaps );
-	bool													GetFace( io::IStream* stream, Face& face );
+	Bool													GetFace( io::IStream* stream, Face& face );
 	lang::String											GetString( io::IStream* stream );
 	Float													GetFloat( io::IStream* stream );
-	bool													GetLexem( io::IStream* stream );
-	bool													PeekLexem( io::IStream* stream );
+	Bool													GetLexem( io::IStream* stream );
+	Bool													PeekLexem( io::IStream* stream );
 	void													SkipComment( io::IStream* stream );
 	char													ReadChar( io::IStream* stream );
 };
