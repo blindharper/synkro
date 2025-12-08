@@ -118,7 +118,7 @@ public:
 		_feedbackCtrl = _feedbackText->CreateAnimationController( nullptr, nullptr );
 		_trackOpacity = _feedbackCtrl->CreateOpacityTrack();
 
-		DisplayModels( L"models" );
+		ExploreDirectory( _synkro->GetStreamSystem()->GetDirectory(L"models") );
 		_listModels->Activate( true );
 	}
 
@@ -269,18 +269,31 @@ public:
 	}
 
 	// Other methods.
-	void DisplayModels( String dirName )
+	void ExploreDirectory( IStreamDirectory* directory )
 	{
 		_listModels->Clear();
-		IStreamDirectory* dir = _synkro->GetStreamSystem()->GetDirectory( dirName );
-		for ( UInt i = 0; i < dir->GetStreamCount(); ++i )
+
+		if ( directory->GetParent() != nullptr )
 		{
-			IStream* stream = dir->GetStream( i );
+			_listModels->AddItem( ListItem(L"[..]"));
+		}
+
+		for ( UInt i = 0; i < directory->GetDirectoryCount(); ++i )
+		{
+			IStreamDirectory* dir = directory->GetDirectory( i );
+			_listModels->AddItem( ListItem(String::Format(L"[{0}]", dir->GetName())) );
+		}
+
+		for ( UInt i = 0; i < directory->GetStreamCount(); ++i )
+		{
+			IStream* stream = directory->GetStream( i );
 			if ( MeshCodec::IsValid(stream->GetName()) )
 			{
 				_listModels->AddItem( ListItem(stream->GetName(), (Pointer)stream) );
 			}
 		}
+
+		_currentDirectory = directory;
 		_labelModels->SetText( String::Format(L"MODELS ({0})", _listModels->GetItemCount()) );
 	}
 
@@ -330,7 +343,25 @@ public:
 		if ( index != none )
 		{
 			IStream* stream = (IStream*)_listModels->GetItemData( index );
-			LoadMesh( stream );
+			if ( stream != nullptr )
+			{
+				LoadMesh( stream );
+			}
+			else
+			{
+				String dirName = _listModels->GetItemText( index );
+				dirName = dirName.Substring( 1, dirName.Length()-2 );
+				PtrStreamDirectory dir;
+				if ( dirName.EqualsTo(String(L"..")) )
+				{
+					dir = _currentDirectory->GetParent();
+				}
+				else
+				{
+					dir = _currentDirectory->GetDirectory( dirName );
+				}
+				ExploreDirectory( dir );
+			}
 		}
 	}
 
@@ -501,6 +532,7 @@ private:
 	Bool													_stopping;
 	DisplayMode												_displayModeWindowed;
 	DisplayMode												_displayModeFullscreen;
+	PtrStreamDirectory										_currentDirectory;
 
 	PtrAccordion											_accordion;
 	PtrButton												_btnFullscreen;
