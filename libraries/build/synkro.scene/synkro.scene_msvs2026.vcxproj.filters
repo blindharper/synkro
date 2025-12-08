@@ -61,6 +61,9 @@
     <Filter Include="MeshCodec\X\Reader\Text">
       <UniqueIdentifier>{b0b21e20-ace8-4297-8f9f-e69b187f72b4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MeshCodec\X\MsZip">
+      <UniqueIdentifier>{1ce29fa7-aed7-4b29-a4f5-2d57dc69a2ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\ObjMeshCodec.h">
@@ -162,6 +165,9 @@
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshTextReader.h">
       <Filter>MeshCodec\X\Reader\Text</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\MsZipStream.h">
+      <Filter>MeshCodec\X\MsZip</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\synkro.scene\synkro.scene.cpp" />
@@ -221,6 +227,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshTextReader.cpp">
       <Filter>MeshCodec\X\Reader\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\MsZipStream.cpp">
+      <Filter>MeshCodec\X\MsZip</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
