@@ -26,7 +26,7 @@ SYNKRO_INLINE void* operator new( size_t size, const char* file, synkro::Int lin
 #if !defined( SYNKRO_DISABLE_MEMMGR )
 	return synkro::mem::MemoryManager::Allocate( (synkro::UInt)size, file, line );
 #else
-	return malloc( n );
+	return malloc( size );
 #endif // !defined( SYNKRO_DISABLE_MEMMGR )
 }
 
@@ -35,7 +35,7 @@ SYNKRO_INLINE void* operator new[]( size_t size, const char* file, synkro::Int l
 #if !defined( SYNKRO_DISABLE_MEMMGR )
 	return synkro::mem::MemoryManager::Allocate( (synkro::UInt)size, file, line );
 #else
-	return malloc( n );
+	return malloc( size );
 #endif // !defined( SYNKRO_DISABLE_MEMMGR )
 }
 
@@ -53,7 +53,7 @@ SYNKRO_INLINE void* operator new( size_t size )
 #if !defined( SYNKRO_DISABLE_MEMMGR )
 	return synkro::mem::MemoryManager::Allocate( (synkro::UInt)size, "Default", -1 );
 #else
-	return malloc( n );
+	return malloc( size );
 #endif // !defined( SYNKRO_DISABLE_MEMMGR )
 }
 
