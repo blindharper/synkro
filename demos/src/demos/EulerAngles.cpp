@@ -18,7 +18,7 @@ public:
 	void InitScene() override
 	{
 		PtrStream stream = GetStream( L"airplane.x" );
-		_airplane = _scene->LoadMesh( stream, nullptr, nullptr, 0 );
+		_airplane = _scene->LoadMesh( stream );
 		Float sphere = _airplane->GetBoundSphere();
 		_airplane->SetScale( 35.0f/sphere );
 		_airplane->SetGizmoSize( 1.0f );

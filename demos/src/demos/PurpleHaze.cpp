@@ -23,10 +23,10 @@ public:
 		// Create models.
 		PtrStream stream = GetStream( L"tiny.x" );
 		ISkeleton* skeleton = _synkro->GetSceneManager()->CreateSkeleton();
-		_tiny = _scene->LoadMesh( stream, nullptr, skeleton, 0 );
-		_tiny2 = _scene->LoadMesh( stream, nullptr, skeleton, 0 );
-		_tiny3 = _scene->LoadMesh( stream, nullptr, skeleton, 0 );
-		_tiny4 = _scene->LoadMesh( stream, nullptr, skeleton, 0 );
+		_tiny = _scene->LoadMesh( stream, skeleton );
+		_tiny2 = _scene->LoadMesh( stream, skeleton );
+		_tiny3 = _scene->LoadMesh( stream, skeleton );
+		_tiny4 = _scene->LoadMesh( stream, skeleton );
 		const Float sphere = _tiny->GetBoundSphere();
 		Vector3 center; _tiny->GetCenter( center );
 		const Float sign = center.y/Math::Abs(center.y);

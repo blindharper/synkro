@@ -187,6 +187,29 @@ public:
 	virtual ITriangleMesh*									LoadMesh( io::IStream* stream, mat::IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity ) = 0;
 
 	/**
+	 * Loads mesh from a stream. Opens stream for reading and closes it after mesh is loaded.
+	 * @param stream Stream from which to load mesh.
+	 * @param material Optional material to assign to mesh.
+	 * @return Loaded mesh if succeeded, or null otherwise.
+	 */
+	virtual ITriangleMesh*									LoadMesh( io::IStream* stream, mat::IVisualMaterial* material ) = 0;
+
+	/**
+	 * Loads mesh from a stream. Opens stream for reading and closes it after mesh is loaded.
+	 * @param stream Stream from which to load mesh.
+	 * @param skeleton Optional skeleton to assign to mesh.
+	 * @return Loaded mesh if succeeded, or null otherwise.
+	 */
+	virtual ITriangleMesh*									LoadMesh( io::IStream* stream, ISkeleton* skeleton ) = 0;
+
+	/**
+	 * Loads mesh from a stream. Opens stream for reading and closes it after mesh is loaded.
+	 * @param stream Stream from which to load mesh.
+	 * @return Loaded mesh if succeeded, or null otherwise.
+	 */
+	virtual ITriangleMesh*									LoadMesh( io::IStream* stream ) = 0;
+
+	/**
 	 * Sets scene ambient light color.
 	 * @param color Ambient light color.
 	 */

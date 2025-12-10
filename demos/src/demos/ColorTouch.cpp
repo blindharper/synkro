@@ -19,7 +19,7 @@ public:
 	{
 		// Create environment.
 		PtrStream stream = GetStream( L"cell.x" );
-		_cell = _scene->LoadMesh( stream, nullptr, nullptr, 0 );
+		_cell = _scene->LoadMesh( stream );
 		_cell->SetScale( 2.0f );
 		INodeAnimationController* ctrlCell = _cell->CreateAnimationController( nullptr, nullptr );
 		PtrWaveFloatTrack trackYaw = ctrlCell->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();

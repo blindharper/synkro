@@ -30,7 +30,7 @@ public:
 		_sun->LookAt( Vector3(10.0f, 3.0f, 0.0f) );
 
 		PtrStream stream = GetStream( L"cell.x" );
-		_cell = _scene->LoadMesh( stream, nullptr, nullptr, 0 );
+		_cell = _scene->LoadMesh( stream );
 
 		// Create stage.
 		constexpr Float STAGE_RADIUS = 3.8f;

@@ -15,7 +15,7 @@ public:
 	void InitScene() override
 	{
 		PtrStream stream = GetStream( L"cell.x" );
-		_cell = _scene->LoadMesh( stream, nullptr, nullptr, 0 );
+		_cell = _scene->LoadMesh( stream );
 		INodeAnimationController* ctrlCell = _cell->CreateAnimationController( nullptr, nullptr );
 		PtrWaveFloatTrack trackYaw = ctrlCell->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackYaw->SetType( WaveType::SawtoothDown );

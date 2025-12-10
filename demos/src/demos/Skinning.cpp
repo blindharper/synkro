@@ -15,22 +15,22 @@ public:
 		// Load models.
 		PtrStream stream = GetStream( L"tiny.x" );
 		PtrSkeleton skeleton = _synkro->GetSceneManager()->CreateSkeleton();
-		_tiny = _scene->LoadMesh( stream, nullptr, skeleton, 0 );
+		_tiny = _scene->LoadMesh( stream, skeleton );
 		const Float radius = _tiny->GetBoundSphere();
 		_tiny->SetScale( 45.0f/radius );
 		_tiny->SetPositionX( -30.0f );
 
 		PtrSkeleton skeleton2 = _synkro->GetSceneManager()->CreateSkeleton(); 
-		_tiny2 = _scene->LoadMesh( stream, nullptr, skeleton2, 0 );
+		_tiny2 = _scene->LoadMesh( stream, skeleton2 );
 		_tiny2->SetScale( 35.0f/radius );
 		_tiny2->SetPositionX( 30.0f );
 
 		PtrSkeleton skeleton3 = _synkro->GetSceneManager()->CreateSkeleton(); 
-		_tiny3 = _scene->LoadMesh( stream, nullptr, skeleton3, 0 );
+		_tiny3 = _scene->LoadMesh( stream, skeleton3 );
 		_tiny3->SetScale( 35.0f/radius );
 		_tiny3->SetPositionZ( 50.0f );
 
-		_tiny4 = _scene->LoadMesh( stream, nullptr, skeleton, 0 );
+		_tiny4 = _scene->LoadMesh( stream, skeleton );
 		_tiny4->SetScale( 35.0f/radius );
 		_tiny4->SetPositionX( -60.0f );
 		_tiny4->SetPositionZ( 50.0f );

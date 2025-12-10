@@ -18,7 +18,7 @@ public:
 	void InitScene() override
 	{
 		PtrStream stream = GetStream( L"cell.x" );
-		_cell = _scene->LoadMesh( stream, nullptr, nullptr, 0 );
+		_cell = _scene->LoadMesh( stream );
 		_cell->SetScale( 2.0f );
 
 		// Create materials.

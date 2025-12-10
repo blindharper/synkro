@@ -79,6 +79,9 @@ public:
 	ILineMeshBatch*											CreateLineMeshBatch( UInt capacity );
 	ITriangleMesh*											LoadMesh( io::IStream* stream, mat::IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity, const MeshCodec& type );
 	ITriangleMesh*											LoadMesh( io::IStream* stream, mat::IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity );
+	ITriangleMesh*											LoadMesh( io::IStream* stream, mat::IVisualMaterial* material );
+	ITriangleMesh*											LoadMesh( io::IStream* stream, ISkeleton* skeleton );
+	ITriangleMesh*											LoadMesh( io::IStream* stream );
 	void													SetAmbientLightColor( const img::Color& color );
 	void													SetAmbientLightIntensity( Float intensity );
 	void													SetSky( img::IImage* map, Float size );
