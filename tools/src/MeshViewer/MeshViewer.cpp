@@ -293,6 +293,11 @@ public:
 			}
 		}
 
+		if ( _listModels->GetItemCount() > 0 )
+		{
+			_listModels->SelectItem( 0 );
+		}
+
 		_currentDirectory = directory;
 		_labelModels->SetText( String::Format(L"MODELS ({0})", _listModels->GetItemCount()) );
 	}

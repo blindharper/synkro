@@ -169,8 +169,8 @@ void DefaultList::Clear()
 	{
 		_texts2[i]->SetText( String::Empty );
 		_texts2[i]->Release();
-		_texts2.Remove( i );
 	}
+	_texts2.Clear();
 
 	UpdateSelection( none );
 }
