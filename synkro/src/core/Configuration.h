@@ -90,6 +90,7 @@ private:
 	void													SortKeys();
 	void													ValidateParam( const ParamValue& param );
 	void													VerifyWriteable();
+	UInt													GetEnumValue( const lang::String param, const lang::String value );
 };
 
 

@@ -13,18 +13,22 @@
 #include "config.h"
 #include "Configuration.h"
 #include <core/ConfigurationException.h>
+#include <diag/LogLevel.h>
 #include <lang/Convert.h>
 #include <io/TextReader.h>
 #include <io/TextWriter.h>
 #include <io/IStream.h>
+#include <ui/ThemeName.h>
 #include "ParamTypeConst.h"
 
 
 //------------------------------------------------------------------------------
 
+using namespace synkro::diag;
 using namespace synkro::io;
 using namespace synkro::img;
 using namespace synkro::lang;
+using namespace synkro::ui;
 
 //------------------------------------------------------------------------------
 
@@ -117,9 +121,12 @@ void Configuration::Load( IStream* stream )
 				break;
 
 			case PARAM_TYPE_INTEGER:
-			case PARAM_TYPE_ENUMERATION:
 			case PARAM_TYPE_FLAG:
 				Set( key, Convert::ToUInt(value) );
+				break;
+
+			case PARAM_TYPE_ENUMERATION:
+				Set( key, GetEnumValue(key, value) );
 				break;
 
 			case PARAM_TYPE_BOOLEAN:
@@ -474,6 +481,27 @@ void Configuration::VerifyWriteable()
 {
 	if ( _readonly )
 		throw ConfigurationException( L"Cannot modify default configuration." );
+}
+
+UInt Configuration::GetEnumValue( const String param, const String value )
+{
+	if ( value.IsInteger() )
+	{
+		return Convert::ToUInt( value );
+	}
+
+	if ( param.EqualsTo(Param::LogLevel) )
+	{
+		const LogLevel level( value );
+		return level.Value();
+	}
+	else if ( param.EqualsTo(Param::UiThemeName) )
+	{
+		const ThemeName theme( value );
+		return theme.Value();
+	}
+
+	return 0;
 }
 
 
