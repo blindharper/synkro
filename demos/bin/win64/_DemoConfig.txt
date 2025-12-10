@@ -1,3 +1,12 @@
 #Graphics.Vsync=false
 #Graphics.Fullscreen=true
 #Graphics.DisplayMode=0
+#Log.Level=Quiet
+#Log.Level=Minimal
+#Log.Level=Limited
+#Log.Level=Normal
+#Log.Level=Moderate
+#Log.Level=Verbose
+Log.Level=Extensive
+#Ui.Theme.Name=Glass
+Ui.Theme.Name=Flat

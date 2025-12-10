@@ -50,6 +50,12 @@ SYNKRO_ENUM_BEGIN( LogLevel )
 
 	/** Extensive logging. */
 	SYNKRO_ENUM_CONST( LogLevel, Extensive )
+
+	/** Creates logging level from string. */
+	LogLevel( const lang::String& level );
+
+	/** Converts logging level to string. */
+	lang::String											ToString() const;
 SYNKRO_ENUM_END()
 
 
