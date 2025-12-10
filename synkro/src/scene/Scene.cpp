@@ -312,6 +312,21 @@ ITriangleMesh* Scene::LoadMesh( IStream* stream, IVisualMaterial* material, ISke
 	return nullptr;
 }
 
+ITriangleMesh* Scene::LoadMesh( IStream* stream, IVisualMaterial* material )
+{
+	return LoadMesh( stream, material, nullptr, 0 );
+}
+
+ITriangleMesh* Scene::LoadMesh( IStream* stream, ISkeleton* skeleton )
+{
+	return LoadMesh( stream, nullptr, skeleton, 0 );
+}
+
+ITriangleMesh* Scene::LoadMesh( IStream* stream )
+{
+	return LoadMesh( stream, nullptr, nullptr, 0 );
+}
+
 void Scene::SetSky( IImage* map, Float size )
 {
 	assert( map != nullptr );

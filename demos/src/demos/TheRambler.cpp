@@ -59,7 +59,7 @@ public:
 		// Create model.
 		PtrStream stream = GetStream( L"tiny.x" );
 		PtrSkeleton skeleton = _synkro->GetSceneManager()->CreateSkeleton();
-		_model = _scene->LoadMesh( stream, nullptr, skeleton, 0 );
+		_model = _scene->LoadMesh( stream, skeleton );
 		const Float sphere = _model->GetBoundSphere();
 		_model->SetScale( 45.0f/sphere );
 		_model->SetPositionY( _dummyYellow->GetPositionY() );
