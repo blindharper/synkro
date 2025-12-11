@@ -55,8 +55,8 @@ String Version::ToString() const
 
 #if defined( SYNKRO_DEBUG )
 	const Char* suffix = L" debug";
-#elif defined( SYNKRO_PERF )
-	const Char* suffix = L" perf";
+#elif defined( SYNKRO_PROFILE )
+	const Char* suffix = L" profile";
 #else
 	const Char* suffix = L"";
 #endif // defined( SYNKRO_DEBUG )

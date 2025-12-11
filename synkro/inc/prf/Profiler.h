@@ -22,7 +22,7 @@
 
 
 // Starts profiling a block of code.
-#if defined( SYNKRO_PERF )
+#if defined( SYNKRO_PROFILE )
 	#define SynkroProfile( NAME ) synkro::prf::ProfileTrigger __pt( NAME, false )
 	#define SynkroProfileCollapsed( NAME ) synkro::prf::ProfileTrigger __pt( NAME, true )
 	#define SynkroProfileBegin( NAME ) { synkro::prf::ProfileTrigger __pt( NAME, false )
@@ -32,7 +32,7 @@
 	#define SynkroProfileCollapsed( NAME )
 	#define SynkroProfileBegin( NAME )
 	#define SynkroProfileEnd()
-#endif // defined( SYNKRO_PERF )
+#endif // defined( SYNKRO_PROFILE )
 
 
 namespace synkro

@@ -38,8 +38,8 @@ public:
 	~Library();
 
 	// ILibrary methods.
-	Bool													IsPerf() const;
 	Bool													IsDebug() const;
+	Bool													IsProfile() const;
 	Bool													IsObject() const;
 	Bool													IsString() const;
 	Bool													IsResource() const;
@@ -64,8 +64,8 @@ public:
 
 private:
 	DynamicLibrary											_dll;
-	SYNKRO_FUNC_GETBOOL										_funcIsPerf;
 	SYNKRO_FUNC_GETBOOL										_funcIsDebug;
+	SYNKRO_FUNC_GETBOOL										_funcIsProfile;
 	SYNKRO_FUNC_GETSTRING									_funcGetName;
 	SYNKRO_FUNC_GETSTRING									_funcGetDescription;
 	SYNKRO_FUNC_GETSTRING									_funcGetAuthor;

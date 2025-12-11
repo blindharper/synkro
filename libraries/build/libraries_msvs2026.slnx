@@ -2,8 +2,8 @@
   <Configurations>
     <BuildType Name="debug" />
     <BuildType Name="debug_static" />
-    <BuildType Name="perf" />
-    <BuildType Name="perf_static" />
+    <BuildType Name="profile" />
+    <BuildType Name="profile_static" />
     <BuildType Name="release" />
     <BuildType Name="release_static" />
     <Platform Name="x64" />

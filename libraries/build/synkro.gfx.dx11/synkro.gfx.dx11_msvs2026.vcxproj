@@ -9,12 +9,12 @@
       <Configuration>debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="perf_static|x64">
-      <Configuration>perf_static</Configuration>
+    <ProjectConfiguration Include="profile_static|x64">
+      <Configuration>profile_static</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="perf|x64">
-      <Configuration>perf</Configuration>
+    <ProjectConfiguration Include="profile|x64">
+      <Configuration>profile</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="release_static|x64">
@@ -44,12 +44,12 @@
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v145</PlatformToolset>
@@ -73,10 +73,10 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="PropertySheets">
@@ -96,10 +96,10 @@
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">true</GenerateManifest>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</IgnoreImportLibrary>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">true</IgnoreImportLibrary>
-    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">false</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'">false</LinkIncremental>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='debug|x64'" />
@@ -108,18 +108,18 @@
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'" />
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='release|x64'" />
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" />
-    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" />
-    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'" />
     <TargetName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">synkro_debug.gfx.dx11</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">synkro_debug.gfx.dx11</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(ProjectName)</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">synkro_perf.gfx.dx11</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='perf|x64'">synkro_perf.gfx.dx11</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'">synkro_profile.gfx.dx11</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='profile|x64'">synkro_profile.gfx.dx11</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
     <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
@@ -131,7 +131,7 @@
     <OutDir>../../../synkro/bin/win64/</OutDir>
     <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'">
     <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
     <OutDir>../../../synkro/bin/win64/</OutDir>
     <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
@@ -146,7 +146,7 @@
     <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
     <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'">
     <OutDir>../../../synkro/lib/win64/</OutDir>
     <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
     <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
@@ -155,7 +155,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../../synkro/inc;../../../external/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN64;_UNICODE;UNICODE;_DEBUG;_WINDOWS;_USRDLL;SYNKROLIB_EXPORTS;SYNKRO_PERF;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN64;_UNICODE;UNICODE;_DEBUG;_WINDOWS;_USRDLL;SYNKROLIB_EXPORTS;SYNKRO_PROFILE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -201,7 +201,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../../synkro/inc;../../../external/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_UNICODE;UNICODE;_DEBUG;_WINDOWS;SYNKRO_PERF;SYNKRO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_UNICODE;UNICODE;_DEBUG;_WINDOWS;SYNKRO_PROFILE;SYNKRO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <FunctionLevelLinking>
@@ -324,7 +324,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
       <Command>..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.gfx.dx11\programs.mak"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='perf_static|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <AdditionalIncludeDirectories>../../../synkro/inc;../../../external/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -365,11 +365,11 @@ del "$(OutDir)$(TargetName).lib"</Command>
       <Command>..\..\..\utils\bin\win64\resmake.exe "..\..\src\synkro.gfx.dx11\programs.mak"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='perf|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.gfx.dx11;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;UNICODE;_UNICODE;NDEBUG;_WINDOWS;SYNKRO_PERF;SYNKROLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;UNICODE;_UNICODE;NDEBUG;_WINDOWS;SYNKRO_PROFILE;SYNKROLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>Create</PrecompiledHeader>
@@ -387,8 +387,8 @@ del "$(OutDir)$(TargetName).lib"</Command>
       </Command>
     </PreLinkEvent>
     <Link>
-      <AdditionalDependencies>synkro_perf.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)synkro_perf.gfx.dx11.dll</OutputFile>
+      <AdditionalDependencies>synkro_profile.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)synkro_profile.gfx.dx11.dll</OutputFile>
       <AdditionalLibraryDirectories>../../../external/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>

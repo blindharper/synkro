@@ -1,7 +1,7 @@
 <Solution>
   <Configurations>
     <BuildType Name="debug" />
-    <BuildType Name="perf" />
+    <BuildType Name="profile" />
     <BuildType Name="release" />
     <Platform Name="x64" />
   </Configurations>
