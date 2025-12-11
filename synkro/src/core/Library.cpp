@@ -44,8 +44,8 @@ Library::Library( const String& path )
 	_funcGetLanguage		= (SYNKRO_FUNC_GETSTRING)_dll.GetSymbol( "SynkroLibGetLanguage" );
 	_funcGetCoreVersion		= (SYNKRO_FUNC_GETUINT)_dll.GetSymbol( "SynkroLibGetCoreVersion" );
 	_funcGetVersion			= (SYNKRO_FUNC_GETUINT)_dll.GetSymbol( "SynkroLibGetVersion" );
-	_funcIsPerf				= (SYNKRO_FUNC_GETBOOL)_dll.GetSymbol( "SynkroLibGetPerf" );
 	_funcIsDebug			= (SYNKRO_FUNC_GETBOOL)_dll.GetSymbol( "SynkroLibGetDebug" );
+	_funcIsProfile				= (SYNKRO_FUNC_GETBOOL)_dll.GetSymbol( "SynkroLibGetProfile" );
 	_funcGetResourceCount	= (SYNKRO_FUNC_GETUINT)_dll.GetSymbol( "SynkroLibGetResourceCount" );
 	_funcGetResource		= (SYNKRO_FUNC_GETRESOURCE)_dll.GetSymbol( "SynkroLibGetResource" );
 	_funcGetFactoryCount	= (SYNKRO_FUNC_GETUINT)_dll.GetSymbol( "SynkroLibGetFactoryCount" );

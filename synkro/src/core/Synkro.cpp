@@ -1080,14 +1080,14 @@ Bool Synkro::RegisterLibrary( ILibrary* lib )
 		return false;
 #endif // SYNKRO_DEBUG
 
-	// Skip non-perf libraries in perf version and vice versa.
-#ifdef SYNKRO_PERF
-	if ( !lib->IsPerf() )
+	// Skip non-profile libraries in profile version and vice versa.
+#ifdef SYNKRO_PROFILE
+	if ( !lib->IsProfile() )
 		return false;
 #else
-	if ( lib->IsPerf() )
+	if ( lib->IsProfile() )
 		return false;
-#endif // SYNKRO_PERF
+#endif // SYNKRO_PROFILE
 
 	// Register resource strings.
 	if ( lib->IsString() )

@@ -34,14 +34,14 @@ iface ILibrary :
 {
 public:
 	/**
-	 * Returns true for profiling libraries.
-	 */
-	virtual Bool											IsPerf() const = 0;
-
-	/**
 	 * Returns true for debug libraries.
 	 */
 	virtual Bool											IsDebug() const = 0;
+
+	/**
+	 * Returns true for profiling libraries.
+	 */
+	virtual Bool											IsProfile() const = 0;
 
 	/**
 	 * Returns true for object libraries.

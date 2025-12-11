@@ -10,14 +10,14 @@
 //
 // Purpose: Library wrapper.
 //==============================================================================
-SYNKRO_INLINE Bool Library::IsPerf() const
-{
-	return (_funcIsPerf != nullptr) ? _funcIsPerf() : false;
-}
-
 SYNKRO_INLINE Bool Library::IsDebug() const
 {
 	return (_funcIsDebug != nullptr) ? _funcIsDebug() : false;
+}
+
+SYNKRO_INLINE Bool Library::IsProfile() const
+{
+	return (_funcIsProfile != nullptr) ? _funcIsProfile() : false;
 }
 
 SYNKRO_INLINE Bool Library::IsObject() const

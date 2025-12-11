@@ -65,7 +65,7 @@ static SYNKRO_FUNC_SAVE_REPORT	_funcSaveReport = nullptr;	// SaveReport().
 
 void Profiler::Initialize( const char* filename, Bool expand )
 {
-#if defined( SYNKRO_PERF )
+#if defined( SYNKRO_PROFILE )
 
 	if ( (_funcInitialize == nullptr) && (_funcBegin == nullptr) && (_funcEnd == nullptr) && (_funcSaveReport == nullptr) )
 	{
@@ -115,12 +115,12 @@ void Profiler::Initialize( const char* filename, Bool expand )
 		_funcInitialize( expand );
 	}
 
-#endif // defined( SYNKRO_PERF )
+#endif // defined( SYNKRO_PROFILE )
 }
 
 void Profiler::Finalize()
 {
-#if defined( SYNKRO_PERF )
+#if defined( SYNKRO_PROFILE )
 
 	_module.Close();
 	_funcInitialize = nullptr;
@@ -128,37 +128,37 @@ void Profiler::Finalize()
 	_funcEnd = nullptr;
 	_funcSaveReport = nullptr;
 
-#endif // defined( SYNKRO_PERF )
+#endif // defined( SYNKRO_PROFILE )
 }
 
 void Profiler::BeginProfile( const char* name, Bool collapse )
 {
-#if defined( SYNKRO_PERF )
+#if defined( SYNKRO_PROFILE )
 
 	_funcBegin( name, collapse );
 
-#endif // defined( SYNKRO_PERF )
+#endif // defined( SYNKRO_PROFILE )
 }
 
 void Profiler::EndProfile()
 {
-#if defined( SYNKRO_PERF )
+#if defined( SYNKRO_PROFILE )
 
 	_funcEnd();
 
-#endif // defined( SYNKRO_PERF )
+#endif // defined( SYNKRO_PROFILE )
 }
 
 void Profiler::SaveReport( const char* filename, Bool accumulate, Bool plain )
 {
-#if defined( SYNKRO_PERF )
+#if defined( SYNKRO_PROFILE )
 
 	if ( _funcSaveReport != nullptr)
 	{
 		_funcSaveReport( filename, accumulate, plain );
 	}
 
-#endif // defined( SYNKRO_PERF )
+#endif // defined( SYNKRO_PROFILE )
 }
 
 

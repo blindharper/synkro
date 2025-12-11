@@ -76,15 +76,6 @@ SYNKRO_EXTERN_C SYNKROLIBRARY_API synkro::UInt SynkroLibGetVersion()
 #endif // defined( SYNKROLIB_VERSION_MAJOR ) && defined ( SYNKROLIB_VERSION_MINOR ) && defined ( SYNKROLIB_VERSION_BUILD )
 }
 
-SYNKRO_EXTERN_C SYNKROLIBRARY_API synkro::Bool SynkroLibGetPerf()
-{
-#ifdef SYNKRO_PERF
-	return true;
-#else
-	return false;
-#endif // SYNKRO_PERF
-}
-
 SYNKRO_EXTERN_C SYNKROLIBRARY_API synkro::Bool SynkroLibGetDebug()
 {
 #ifdef SYNKRO_DEBUG
@@ -92,6 +83,15 @@ SYNKRO_EXTERN_C SYNKROLIBRARY_API synkro::Bool SynkroLibGetDebug()
 #else
 	return false;
 #endif // SYNKRO_DEBUG
+}
+
+SYNKRO_EXTERN_C SYNKROLIBRARY_API synkro::Bool SynkroLibGetProfile()
+{
+#ifdef SYNKRO_PROFILE
+	return true;
+#else
+	return false;
+#endif // SYNKRO_PROFILE
 }
 
 #ifdef SYNKROLIB_RESOURCES
