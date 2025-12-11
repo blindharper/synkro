@@ -1,1 +1,1 @@
-..\..\utils\bin\win64\lincount.exe .. >> lincount.txt
+..\..\utils\bin\win64\lincount.exe ..\src >> lincount.txt
