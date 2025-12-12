@@ -107,10 +107,10 @@ public:
 	Bool													OnMouseAxisMove( UInt device, const input::Axis& axis, Int delta );
 
 	// WindowListener methods.
-	void													OnWindowResize( UInt window, UInt width, UInt height );
-	void													OnWindowCommand( UInt window, UInt command );
-	void													OnWindowActivate( UInt window, Bool active );
-	Bool													OnWindowClosing( UInt window );
+	void													OnWindowResize( Pointer handle, UInt width, UInt height );
+	void													OnWindowCommand( Pointer handle, UInt command );
+	void													OnWindowActivate( Pointer handle, Bool active );
+	Bool													OnWindowClosing( Pointer handle );
 
 	// BaseUiEx methods.
 	gfx::IOverlayRenderObject*								CreateObject( const gfx::PrimitiveType& type, const gfx::IndexType& indexType, UInt vertexCount, UInt indexCount, UInt order );

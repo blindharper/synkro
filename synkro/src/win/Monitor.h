@@ -39,7 +39,7 @@ public:
 	void													GetLocation( lang::Point& location ) const;
 	void													GetSize( lang::Size& size ) const;
 	MonitorOrientation										GetOrientation() const;
-	UInt													GetHandle() const;
+	Pointer													GetHandle() const;
 	lang::String											GetName() const;
 
 private:

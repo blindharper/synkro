@@ -57,7 +57,7 @@ public:
 	/**
 	 * Retrieves unique monitor descriptor.
 	 */
-	virtual UInt											GetHandle() const = 0;
+	virtual Pointer											GetHandle() const = 0;
 
 	/**
 	 * Retrieves monitor's name.

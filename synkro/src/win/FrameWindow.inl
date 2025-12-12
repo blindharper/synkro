@@ -45,7 +45,7 @@ SYNKRO_INLINE UInt FrameWindow::GetHeight() const
 	return _window->GetHeight();
 }
 
-SYNKRO_INLINE UInt FrameWindow::GetHandle() const
+SYNKRO_INLINE Pointer FrameWindow::GetHandle() const
 {
 	return _window->GetHandle();
 }

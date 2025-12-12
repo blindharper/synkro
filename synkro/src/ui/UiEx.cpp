@@ -502,7 +502,7 @@ Bool UiEx::OnMouseAxisMove( UInt device, const Axis& axis, Int delta )
 	return false;
 }
 
-void UiEx::OnWindowResize( UInt window, UInt width, UInt height )
+void UiEx::OnWindowResize( Pointer handle, UInt width, UInt height )
 {
 	Size size; _root->GetSize( size );
 	Point loc; _cursor->GetLocation( loc );
@@ -511,17 +511,17 @@ void UiEx::OnWindowResize( UInt window, UInt width, UInt height )
 	_cursor->SetLocation( newLoc );
 }
 
-void UiEx::OnWindowCommand( UInt window, UInt command )
+void UiEx::OnWindowCommand( Pointer handle, UInt command )
 {
 	// Do nothing.
 }
 
-void UiEx::OnWindowActivate( UInt window, Bool active )
+void UiEx::OnWindowActivate( Pointer handle, Bool active )
 {
 	// Do nothing.
 }
 
-Bool UiEx::OnWindowClosing( UInt window )
+Bool UiEx::OnWindowClosing( Pointer handle )
 {
 	return true;
 }

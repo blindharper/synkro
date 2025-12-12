@@ -43,7 +43,7 @@ public:
 	virtual Int												GetTop() const;
 	virtual UInt											GetWidth() const;
 	virtual UInt											GetHeight() const;
-	virtual UInt											GetHandle() const;
+	virtual Pointer											GetHandle() const;
 	virtual UInt											GetDpi() const;
 	virtual Bool											IsActive() const;
 	virtual Bool											IsClosing() const;

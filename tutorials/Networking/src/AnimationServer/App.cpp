@@ -64,11 +64,11 @@ Bool App::OnSynkroException( const Exception& ex )
 	return false;
 }
 
-void App::OnWindowResize( UInt window, UInt width, UInt height )
+void App::OnWindowResize( Pointer handle, UInt width, UInt height )
 {
 }
 
-void App::OnWindowCommand( UInt window, UInt command )
+void App::OnWindowCommand( Pointer handle, UInt command )
 {
 	switch ( command )
 	{
@@ -94,11 +94,11 @@ void App::OnWindowCommand( UInt window, UInt command )
 	}
 }
 
-void App::OnWindowActivate( UInt window, Bool active )
+void App::OnWindowActivate( Pointer handle, Bool active )
 {
 }
 
-Bool App::OnWindowClosing( UInt window )
+Bool App::OnWindowClosing( Pointer handle )
 {
 	return true;
 }

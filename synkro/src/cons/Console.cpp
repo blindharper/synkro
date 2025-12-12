@@ -354,7 +354,7 @@ Bool Console::OnKeyboardKeyPress( UInt device, Char key )
 	return true;
 }
 
-void Console::OnWindowResize( UInt window, UInt width, UInt height )
+void Console::OnWindowResize( Pointer handle, UInt width, UInt height )
 {
 	_height = CastFloat(height)/2.0f;
 	const UInt lineCount = CastUInt(_height / CastFloat(_lineHeight)) - 1;
@@ -366,15 +366,15 @@ void Console::OnWindowResize( UInt window, UInt width, UInt height )
 	// TODO: texts & caret
 }
 
-void Console::OnWindowCommand( UInt window, UInt command )
+void Console::OnWindowCommand( Pointer handle, UInt command )
 {
 }
 
-void Console::OnWindowActivate( UInt window, Bool active )
+void Console::OnWindowActivate( Pointer handle, Bool active )
 {
 }
 
-Bool Console::OnWindowClosing( UInt window )
+Bool Console::OnWindowClosing( Pointer handle )
 {
 	return true;
 }

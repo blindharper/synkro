@@ -116,10 +116,10 @@ public:
 	Language												GetLanguage() const;
 
 	// WindowListener methods.
-	void													OnWindowResize( UInt window, UInt width, UInt height );
-	void													OnWindowCommand( UInt window, UInt command );
-	void													OnWindowActivate( UInt window, Bool active );
-	Bool													OnWindowClosing( UInt window );
+	void													OnWindowResize( Pointer handle, UInt width, UInt height );
+	void													OnWindowCommand( Pointer handle, UInt command );
+	void													OnWindowActivate( Pointer handle, Bool active );
+	Bool													OnWindowClosing( Pointer handle );
 
 	// Other methods.
 	void													Destroy();

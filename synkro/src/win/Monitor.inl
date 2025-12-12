@@ -25,7 +25,7 @@ SYNKRO_INLINE MonitorOrientation Monitor::GetOrientation() const
 	return _orientation;
 }
 
-SYNKRO_INLINE UInt Monitor::GetHandle() const
+SYNKRO_INLINE Pointer Monitor::GetHandle() const
 {
 	return _handle;
 }
