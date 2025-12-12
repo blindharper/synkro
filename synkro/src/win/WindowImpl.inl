@@ -67,7 +67,7 @@ SYNKRO_INLINE UInt WindowImpl<T>::GetHeight() const
 }
 
 template <class T>
-SYNKRO_INLINE UInt WindowImpl<T>::GetHandle() const
+SYNKRO_INLINE Pointer WindowImpl<T>::GetHandle() const
 {
 	return _handle;
 }

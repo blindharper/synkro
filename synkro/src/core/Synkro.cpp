@@ -410,15 +410,15 @@ void Synkro::SetTimeScale( Double scale, Double duration )
 	_timeScaleTimeToLive = duration;
 }
 
-void Synkro::OnWindowResize( UInt window, UInt width, UInt height )
+void Synkro::OnWindowResize( Pointer handle, UInt width, UInt height )
 {
 }
 
-void Synkro::OnWindowCommand( UInt window, UInt command )
+void Synkro::OnWindowCommand( Pointer handle, UInt command )
 {
 }
 
-void Synkro::OnWindowActivate( UInt window, Bool active )
+void Synkro::OnWindowActivate( Pointer handle, Bool active )
 {
 	if ( active )
 	{
@@ -426,7 +426,7 @@ void Synkro::OnWindowActivate( UInt window, Bool active )
 	}
 }
 
-Bool Synkro::OnWindowClosing( UInt window )
+Bool Synkro::OnWindowClosing( Pointer handle )
 {
 	return true;
 }

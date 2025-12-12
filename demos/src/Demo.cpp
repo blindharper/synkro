@@ -232,22 +232,22 @@ Bool Demo::OnUiValueChanged( IWidget* sender )
 	return false;
 }
 
-void Demo::OnWindowResize( UInt window, UInt width, UInt height )
+void Demo::OnWindowResize( Pointer handle, UInt width, UInt height )
 {
 	// Do nothing.
 }
 
-void Demo::OnWindowCommand( UInt window, UInt command )
+void Demo::OnWindowCommand( Pointer handle, UInt command )
 {
 	// Do nothing.
 }
 
-void Demo::OnWindowActivate( UInt window, Bool active )
+void Demo::OnWindowActivate( Pointer handle, Bool active )
 {
 	// Do nothing.
 }
 
-Bool Demo::OnWindowClosing( UInt window )
+Bool Demo::OnWindowClosing( Pointer handle )
 {
 	return (_poolCreditsCtrl == nullptr) || (_poolCreditsCtrl->GetState() == ControllerState::Inactive);
 }

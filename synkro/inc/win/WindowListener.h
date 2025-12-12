@@ -33,32 +33,32 @@ iface WindowListener
 public:
 	/**
 	 * Handles window resizing.
-	 * @param window Window handle.
+	 * @param handle Window handle.
 	 * @param width New window width.
 	 * @param height New window height.
 	 */
-	virtual void											OnWindowResize( UInt window, UInt width, UInt height ) = 0;
+	virtual void											OnWindowResize( Pointer handle, UInt width, UInt height ) = 0;
 
 	/**
 	 * Handles window command.
-	 * @param window Window handle.
+	 * @param handle Window handle.
 	 * @param command Command identifier.
 	 */
-	virtual void											OnWindowCommand( UInt window, UInt command ) = 0;
+	virtual void											OnWindowCommand( Pointer handle, UInt command ) = 0;
 
 	/**
 	 * Handles window activation.
-	 * @param window Window handle.
+	 * @param handle Window handle.
 	 * @param active Window status.
 	 */
-	virtual void											OnWindowActivate( UInt window, Bool active ) = 0;
+	virtual void											OnWindowActivate( Pointer handle, Bool active ) = 0;
 
 	/**
 	 * Handles window closing.
-	 * @param window Window handle.
+	 * @param handle Window handle.
 	 * @return True to allow window closing, false to prevent it.
 	 */
-	virtual Bool											OnWindowClosing( UInt window ) = 0;
+	virtual Bool											OnWindowClosing( Pointer handle ) = 0;
 };
 
 

@@ -27,10 +27,10 @@ public:
 	Bool													OnSynkroException( const lang::Exception& ex );
 
 	// WindowListener methods.
-	void													OnWindowResize( UInt window, UInt width, UInt height );
-	void													OnWindowCommand( UInt window, UInt command );
-	void													OnWindowActivate( UInt window, Bool active );
-	Bool													OnWindowClosing( UInt window );
+	void													OnWindowResize( Pointer handle, UInt width, UInt height );
+	void													OnWindowCommand( Pointer handle, UInt command );
+	void													OnWindowActivate( Pointer handle, Bool active );
+	Bool													OnWindowClosing( Pointer handle );
 
 	// NetworkListener network.
 	Bool													OnNetworkEvent( UInt device, UShort peer, UInt address, UShort port, const net::NetworkMessage* message, UInt size );

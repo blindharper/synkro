@@ -124,10 +124,10 @@ protected:
 	virtual Bool											OnUiValueChanged( IWidget* sender );
 
 	// WindowListener methods.
-	virtual void											OnWindowResize( UInt window, UInt width, UInt height );
-	virtual void											OnWindowCommand( UInt window, UInt command );
-	virtual void											OnWindowActivate( UInt window, Bool active );
-	virtual Bool											OnWindowClosing( UInt window );
+	virtual void											OnWindowResize( Pointer handle, UInt width, UInt height );
+	virtual void											OnWindowCommand( Pointer handle, UInt command );
+	virtual void											OnWindowActivate( Pointer handle, Bool active );
+	virtual Bool											OnWindowClosing( Pointer handle );
 
 	// Demo methods.
 	ITriangleMesh*											CreateTorus( INode* parent, IVisualMaterial* material, Float radiusMinor, Float radiusMajor, UInt ringCount, UInt sideCount, const Matrix4x4& transform, const Vector3& position );

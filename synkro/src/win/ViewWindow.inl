@@ -50,7 +50,7 @@ SYNKRO_INLINE UInt ViewWindow::GetHeight() const
 	return _window->GetHeight();
 }
 
-SYNKRO_INLINE UInt ViewWindow::GetHandle() const
+SYNKRO_INLINE Pointer ViewWindow::GetHandle() const
 {
 	return _window->GetHandle();
 }

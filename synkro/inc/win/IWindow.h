@@ -81,7 +81,7 @@ public:
 	/**
 	 * Retrieves unique window descriptor.
 	 */
-	virtual UInt											GetHandle() const = 0;
+	virtual Pointer											GetHandle() const = 0;
 
 	/**
 	 * Retrieves window dots per inches ratio.

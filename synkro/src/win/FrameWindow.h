@@ -47,7 +47,7 @@ public:
 	Int														GetTop() const;
 	UInt													GetWidth() const;
 	UInt													GetHeight() const;
-	UInt													GetHandle() const;
+	Pointer													GetHandle() const;
 	UInt													GetDpi() const;
 	Bool													IsActive() const;
 	Bool													IsClosing() const;
