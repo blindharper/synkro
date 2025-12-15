@@ -42,7 +42,7 @@ void App::Run()
 
 void App::OnSynkroInitialize()
 {
-	_window = _synkro->GetGraphicsSystem()->GetFrameWindow( 0 );
+	_window = _synkro->GetGraphicsSystem()->GetFrameWindow();
 	InitScene();
 	InitView();
 	InitInput();
@@ -150,14 +150,14 @@ void App::InitView()
 	_camera->SetOrientation( Quaternion(Vector3::Y, 0.0f) );
 
 	// Setup viewport.
-	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow(0)->GetView(0) );
+	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow()->GetView(0) );
 	_viewport->SetCamera( _camera );
 }
 
 void App::InitOverlay()
 {
 	_synkro->GetOverlayManager()->CreateFont( L"hint", _synkro->GetLanguage(), L"Arial", FontStyle::Bold, 10 );
-	IFrameRenderWindowEx* window = _synkro->GetGraphicsSystem()->GetFrameWindow( 0 );
+	IFrameRenderWindowEx* window = _synkro->GetGraphicsSystem()->GetFrameWindow();
 	IFont* font = _synkro->GetOverlayManager()->GetOverlay( window )->GetFont( L"hint" );
 	_txtHelp = font->CreateText( Color::Yellow, Point(5, 5), L"Press F1 for help", Order::Highest, Order::Highest );
 	String help = L"Toggle fullscreen: F\r\nExit: X";
@@ -186,8 +186,8 @@ IStream* App::GetStream( const String& name )
 void App::ToggleFullscreen()
 {
 	DisplayMode displayMode;
-	_synkro->GetGraphicsSystem()->GetFrameWindow( 0 )->GetDisplayMode( displayMode );
+	_synkro->GetGraphicsSystem()->GetFrameWindow()->GetDisplayMode( displayMode );
 	displayMode = (displayMode == _displayModeFullscreen) ? _displayModeWindowed : _displayModeFullscreen;
 	_camera->SetAspect( displayMode.AspectFactor() );
-	_synkro->GetGraphicsSystem()->GetFrameWindow( 0 )->SetDisplayMode( displayMode );
+	_synkro->GetGraphicsSystem()->GetFrameWindow()->SetDisplayMode( displayMode );
 }

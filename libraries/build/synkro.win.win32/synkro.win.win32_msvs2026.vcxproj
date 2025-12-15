@@ -399,12 +399,14 @@ del "$(OutDir)$(TargetName).lib"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\win\Win32\Win32FrameWindow.h" />
+    <ClInclude Include="..\..\..\synkro\src\win\Win32\Win32HostWindow.h" />
     <ClInclude Include="..\..\..\synkro\src\win\Win32\Win32IconWindow.h" />
     <ClInclude Include="..\..\..\synkro\src\win\Win32\Win32ViewWindow.h" />
     <ClInclude Include="..\..\..\synkro\src\win\Win32\Win32WindowSystem.h" />
     <ClInclude Include="..\..\..\synkro\src\win\Win32\Win32WindowSystemFactory.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32HostWindow.cpp" />
     <ClCompile Include="..\..\src\synkro.win.win32\synkro.win.win32.cpp" />
     <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32FrameWindow.cpp" />
     <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32IconWindow.cpp" />

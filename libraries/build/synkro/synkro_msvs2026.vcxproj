@@ -762,6 +762,8 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\inc\view\ViewportFilter.h" />
     <ClInclude Include="..\..\..\synkro\inc\view\ViewportListener.h" />
     <ClInclude Include="..\..\..\synkro\inc\win\IFrameWindowEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\IHostWindow.h" />
+    <ClInclude Include="..\..\..\synkro\inc\win\IHostWindowEx.h" />
     <ClInclude Include="..\..\..\synkro\inc\win\IMonitor.h" />
     <ClInclude Include="..\..\..\synkro\inc\win\IViewWindowEx.h" />
     <ClInclude Include="..\..\..\synkro\inc\win\MonitorOrientation.h" />
@@ -1301,6 +1303,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\src\view\ViewportTransitionController.h" />
     <ClInclude Include="..\..\..\synkro\src\win\FrameWindow.h" />
     <ClInclude Include="..\..\..\synkro\src\win\FrameWindowImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\win\HostWindow.h" />
     <ClInclude Include="..\..\..\synkro\src\win\IconWindowImpl.h" />
     <ClInclude Include="..\..\..\synkro\src\win\Monitor.h" />
     <ClInclude Include="..\..\..\synkro\src\win\ViewWindow.h" />
@@ -1585,6 +1588,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\synkro\inc\lang\Formattable.inl" />
+    <None Include="..\..\..\synkro\src\win\HostWindow.inl" />
     <None Include="..\..\src\synkro\strings.inl" />
     <None Include="..\..\..\synkro\src\anim\Animation.inl" />
     <None Include="..\..\..\synkro\src\anim\AnimationCodec\AnimationCodecImpl.inl" />
@@ -1904,6 +1908,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
   <ItemGroup>
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\NoiseConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\TeapotConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\HostWindow.cpp" />
     <ClCompile Include="..\..\src\synkro\synkro.core.cpp" />
     <ClCompile Include="..\..\..\synkro\src\anim\AnimationCodec\AnimationCodec.cpp" />
     <ClCompile Include="..\..\..\synkro\src\anim\AnimationDataType.cpp" />

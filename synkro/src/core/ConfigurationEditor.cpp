@@ -25,7 +25,7 @@
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 #include <view/IViewportManager.h>
 #include <win/IWindowSystemEx.h>
-#include <win/IFrameWindowEx.h>
+#include <win/IHostWindowEx.h>
 #include <core/ISynkro.h>
 #include <lang/Random.h>
 
@@ -62,10 +62,10 @@ void ConfigurationEditor::Initialize( Pointer module, ISynkro* synkro )
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 
 	// Create preview pane.
-	win::IFrameWindow* dlg = _synkro->GetWindowSystem()->CreateWindow( handle );
+	win::IHostWindow* dlg = _synkro->GetWindowSystem()->CreateWindow( handle );
 	const Float scale = CastFloat(dlg->GetDpi()) / 96.0f; // Config dialog is designed on a screen with 96 DPI.
-	_synkro->GetWindowSystem()->CreateWindow( _synkro->GetWindowSystem()->GetFrameWindow(0), scale*12, scale*12, scale*690, scale*48 );
-	_synkro->GetWindowSystem()->CreateWindow( _synkro->GetWindowSystem()->GetFrameWindow(0), scale*12, scale*72, scale*267, scale*267 );
+	_synkro->GetWindowSystem()->CreateWindow( _synkro->GetWindowSystem()->GetHostWindow(), scale*12, scale*12, scale*690, scale*48);
+	_synkro->GetWindowSystem()->CreateWindow( _synkro->GetWindowSystem()->GetHostWindow(), scale*12, scale*72, scale*267, scale*267 );
 }
 
 void ConfigurationEditor::Show( IConfiguration* config )

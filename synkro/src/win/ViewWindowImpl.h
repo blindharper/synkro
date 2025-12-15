@@ -33,7 +33,7 @@ class ViewWindowImpl :
 {
 public:
 	// Constructor & destructor.
-	ViewWindowImpl( IFrameWindow* parent, Int left, Int top, UInt width, UInt height );
+	ViewWindowImpl( IHostWindow* parent, Int left, Int top, UInt width, UInt height );
 	virtual ~ViewWindowImpl();
 
 	// IWindow methods.
@@ -42,10 +42,10 @@ public:
 	// IViewWindow methods.
 	virtual void											Show( Bool show );
 	virtual Bool											IsVisible() const;
-	virtual IFrameWindow*									GetParent() const;
+	virtual IHostWindow*									GetParent() const;
 
 protected:
-	IFrameWindow*											_parent;
+	IHostWindow*											_parent;
 	Bool													_visible;
 };
 

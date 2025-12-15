@@ -86,7 +86,7 @@ Ds8AudioSystem::Ds8AudioSystem( const SoundFormat& format, IWindowSystemEx* wind
 	LogInfo( MessagePriority::Lowest, Formatter::Format(Str::Done) );
 
 	// Enumerate available devices.
-	_wnd = (windowSystem->GetFrameWindowCount() > 0) ? (HWND)windowSystem->GetFrameWindow(0)->GetHandle() : nullptr;
+	_wnd = (windowSystem->GetFrameWindow() != nullptr) ? (HWND)windowSystem->GetFrameWindow()->GetHandle() : nullptr;
 
 	// Enumerate player devices.
 	if ( FAILED(pDirectSoundEnumerate(ListPlayerDevice, this)) )

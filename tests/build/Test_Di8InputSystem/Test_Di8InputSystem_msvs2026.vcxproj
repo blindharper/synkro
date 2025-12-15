@@ -22,8 +22,10 @@
     <ClCompile Include="..\..\..\synkro\src\input\Keyboard.cpp" />
     <ClCompile Include="..\..\..\synkro\src\input\Mouse.cpp" />
     <ClCompile Include="..\..\..\synkro\src\win\FrameWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\HostWindow.cpp" />
     <ClCompile Include="..\..\..\synkro\src\win\ViewWindow.cpp" />
     <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32FrameWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32HostWindow.cpp" />
     <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32IconWindow.cpp" />
     <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32ViewWindow.cpp" />
     <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32WindowSystem.cpp" />

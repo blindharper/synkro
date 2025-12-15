@@ -25,19 +25,14 @@ SYNKRO_INLINE IMonitor* WindowSystemEx::GetMonitor() const
 	return _windowSystem->GetMonitor();
 }
 
-SYNKRO_INLINE UInt WindowSystemEx::GetFrameWindowCount() const
+SYNKRO_INLINE IFrameWindowEx* WindowSystemEx::GetFrameWindow() const
 {
-	return _frameWindows.Size();
+	return _frameWindow;
 }
 
-SYNKRO_INLINE IFrameWindowEx* WindowSystemEx::GetFrameWindow( UInt index ) const
+SYNKRO_INLINE IHostWindowEx* WindowSystemEx::GetHostWindow() const
 {
-	assert( index < _frameWindows.Size() );
-
-	if ( index >= _frameWindows.Size() )
-		throw lang::OutOfRangeException( index, _frameWindows.Size() );
-
-	return _frameWindows[index];
+	return _hostWindow;
 }
 
 SYNKRO_INLINE IIconWindow* WindowSystemEx::GetIconWindow() const

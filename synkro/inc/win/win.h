@@ -15,6 +15,7 @@
 
 
 #include <win/IIconWindow.h>
+#include <win/IHostWindowEx.h>
 #include <win/IFrameWindowEx.h>
 #include <win/IViewWindowEx.h>
 #include <win/IMonitor.h>

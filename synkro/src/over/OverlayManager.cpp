@@ -141,9 +141,9 @@ void OverlayManager::Init()
 	// Create an overlay for each rendering window.
 	_fonts.Clear();
 	_overlays.Clear();
-	for ( UInt i = 0; i < graphicsSystem->GetFrameWindowCount(); ++i )
+	if ( graphicsSystem->GetFrameWindow() != nullptr )
 	{
-		IFrameRenderWindowEx* window = graphicsSystem->GetFrameWindow( i );
+		IFrameRenderWindowEx* window = graphicsSystem->GetFrameWindow();
 		IRenderWindow* wnd = (IRenderWindow*)(IFrameRenderWindow*)window;
 		window->EnableOverlay();
 		_overlays[wnd->ID()] = new Overlay( this, wnd, window->GetOverlayQueue(), _context );

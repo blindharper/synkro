@@ -13,6 +13,7 @@
 #include "config.h"
 #include "Win32WindowSystem.h"
 #include "Win32FrameWindow.h"
+#include "Win32HostWindow.h"
 #include "Win32ViewWindow.h"
 #include "Win32IconWindow.h"
 #include <win/Monitor.h>
@@ -68,12 +69,12 @@ IFrameWindow* Win32WindowSystem::CreateWindow( IMonitor* monitor )
 	return new Win32FrameWindow( monitor );
 }
 
-IFrameWindow* Win32WindowSystem::CreateWindow( Pointer handle )
+IHostWindow* Win32WindowSystem::CreateWindow( Pointer handle )
 {
-	return new Win32FrameWindowStub( handle );
+	return new Win32HostWindow( handle );
 }
 
-IViewWindow* Win32WindowSystem::CreateWindow( IFrameWindow* parent, Int left, Int top, UInt width, UInt height )
+IViewWindow* Win32WindowSystem::CreateWindow( IHostWindow* parent, Int left, Int top, UInt width, UInt height )
 {
 	return new Win32ViewWindow( parent, left, top, width, height );
 }

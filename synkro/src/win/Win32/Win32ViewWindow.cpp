@@ -12,7 +12,7 @@
 //==============================================================================
 #include "config.h"
 #include "Win32ViewWindow.h"
-#include <win/IFrameWindow.h>
+#include <win/IHostWindow.h>
 
 
 //------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ static LRESULT CALLBACK wndProc( HWND hwnd, UINT msg, WPARAM wp, LPARAM lp )
 	return ::DefWindowProcW( hwnd, msg, wp, lp );
 }
 
-Win32ViewWindow::Win32ViewWindow( IFrameWindow* parent, Int left, Int top, UInt width, UInt height ) :
+Win32ViewWindow::Win32ViewWindow( IHostWindow* parent, Int left, Int top, UInt width, UInt height ) :
 	ViewWindowImpl<IViewWindow>( parent, left, top, width, height )
 {
 	WNDCLASSEXW wcex;

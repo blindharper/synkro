@@ -1765,6 +1765,12 @@
     <Filter Include="anim\Interface\Track\Quaternion\Procedural">
       <UniqueIdentifier>{9c576451-d610-4dad-a923-83b0493c10a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="win\Interface\Window\Host">
+      <UniqueIdentifier>{0dd22c13-d4f7-4a6c-9f75-a19616b9abd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win\Implementation\Window\Host">
+      <UniqueIdentifier>{fa82e2c7-1e2f-43ed-8339-a46dee72a0c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\lang\Encoding.h">
@@ -5235,6 +5241,15 @@
     <ClInclude Include="..\..\..\synkro\inc\anim\INoiseQuaternionTrack.h">
       <Filter>anim\Interface\Track\Quaternion\Procedural</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\win\IHostWindow.h">
+      <Filter>win\Interface\Window\Host</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\win\IHostWindowEx.h">
+      <Filter>win\Interface\Window\Host</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\win\HostWindow.h">
+      <Filter>win\Implementation\Window\Host</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\synkro\src\lang\Stack.inl">
@@ -6182,6 +6197,9 @@
     </None>
     <None Include="..\..\..\synkro\src\ui\BaseAnchoredObjectImpl.inl">
       <Filter>ui\Implementation\Anchor</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\win\HostWindow.inl">
+      <Filter>win\Implementation\Window\Host</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -7683,6 +7701,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\TeapotConfigurationScene.cpp">
       <Filter>core\Implementation\Configuration\Editor\Scene\Teapot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\HostWindow.cpp">
+      <Filter>win\Implementation\Window\Host</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

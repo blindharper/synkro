@@ -8,16 +8,16 @@
 // is allowed without any permission from the Synkro Project.
 // Website: https://synkro.pro Email: mailto:blindharper70@gmail.com
 //
-// Purpose: View window implementation.
+// Purpose: Host window implementation.
 //==============================================================================
-#ifndef _SYNKRO_WIN_VIEWWINDOW_
-#define _SYNKRO_WIN_VIEWWINDOW_
+#ifndef _SYNKRO_WIN_HOSTWINDOW_
+#define _SYNKRO_WIN_HOSTWINDOW_
 
 
 #include "config.h"
 #include <lang/Vector.h>
 #include <core/ObjectImpl.h>
-#include <win/WindowListener.h>
+#include <win/IHostWindowEx.h>
 #include <win/IViewWindowEx.h>
 
 
@@ -29,13 +29,13 @@ namespace win
 {
 
 
-// View window implementation.
-class ViewWindow :
-	public core::ObjectImpl<IViewWindowEx>
+// Host window implementation.
+class HostWindow :
+	public core::ObjectImpl<IHostWindowEx>
 {
 public:
 	// Constructor.
-	ViewWindow( IViewWindow* window );
+	HostWindow( IHostWindow* window );
 
 	// IWindow methods.
 	Bool													Update();
@@ -51,21 +51,24 @@ public:
 	Bool													IsActive() const;
 	Bool													IsClosing() const;
 
-	// IViewWindow methods.
-	void													Show( Bool show );
-	Bool													IsVisible() const;
-	IHostWindow*											GetParent() const;
+	// IHostWindow methods.
+	void													SetTitle( const lang::String& title );
+	lang::String											GetTitle() const;
 
-	// IViewWindowEx methods.
-	void													Listen( WindowListener* listener );
+	// IHostWindowEx methods.
+	UInt													GetWindowCount() const;
+	IViewWindowEx*											GetWindow( UInt index ) const;
+
+	// Other methods.
+	void													AddWindow( IViewWindowEx* window );
 
 private:
-	lang::Vector<WindowListener*>							_listeners;
-	P(IViewWindow)											_window;
+	lang::Vector<P(IViewWindowEx)>							_windows;
+	P(IHostWindow)											_window;
 };
 
 
-#include "ViewWindow.inl"
+#include "HostWindow.inl"
 
 
 } // win
@@ -74,4 +77,4 @@ private:
 } // synkro
 
 
-#endif // _SYNKRO_WIN_VIEWWINDOW_
+#endif // _SYNKRO_WIN_HOSTWINDOW_

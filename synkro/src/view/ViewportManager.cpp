@@ -256,9 +256,9 @@ void ViewportManager::Init()
 
 	// Create viewport for each rendering window.
 	IGraphicsSystemEx* graphicsSystem = _context->GetGraphicsSystem();
-	for ( UInt i = 0; i < graphicsSystem->GetFrameWindowCount(); ++i )
+	if ( graphicsSystem->GetFrameWindow() != nullptr )
 	{
-		CreateViewport( graphicsSystem->GetFrameWindow(i)->GetView(0), nullptr );
+		CreateViewport( graphicsSystem->GetFrameWindow()->GetView(0), nullptr );
 	}
 	for ( UInt i = 0; i < graphicsSystem->GetViewWindowCount(); ++i )
 	{

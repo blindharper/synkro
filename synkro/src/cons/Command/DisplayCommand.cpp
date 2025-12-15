@@ -47,15 +47,15 @@ void DisplayCommand::Execute( const String& arg )
 	if ( arg.IsEmpty() )
 	{
 		// Print current display mode.		
-		graphicsSystem->GetFrameWindow( 0 )->GetDisplayMode( displayMode );
+		graphicsSystem->GetFrameWindow()->GetDisplayMode( displayMode );
 		con->Print( displayMode.ToString(DisplayModeFormat::Complete) );
 	}
 	else if ( arg.EqualsTo(L"toggle", true) )
 	{
 		// Toggle fullscreen.
-		graphicsSystem->GetFrameWindow( 0 )->GetDisplayMode( displayMode );
+		graphicsSystem->GetFrameWindow()->GetDisplayMode( displayMode );
 		displayMode.Fullscreen = !displayMode.Fullscreen;
-		graphicsSystem->GetFrameWindow( 0 )->SetDisplayMode( displayMode );
+		graphicsSystem->GetFrameWindow()->SetDisplayMode( displayMode );
 		_console->Echo( displayMode.ToString(DisplayModeFormat::Complete) );
 	}
 	else
@@ -74,7 +74,7 @@ void DisplayCommand::Execute( const String& arg )
 		switch ( count )
 		{
 			case 1:
-				graphicsSystem->GetFrameWindow( 0 )->GetDisplayMode( displayMode );
+				graphicsSystem->GetFrameWindow()->GetDisplayMode( displayMode );
 				fullscreen = displayMode.Fullscreen;
 				break;
 
@@ -108,7 +108,7 @@ void DisplayCommand::Execute( const String& arg )
 				displayMode = DisplayMode( arg0, fullscreen );
 
 			displayMode.Fullscreen = fullscreen;
-			graphicsSystem->GetFrameWindow( 0 )->SetDisplayMode( displayMode );
+			graphicsSystem->GetFrameWindow()->SetDisplayMode( displayMode );
 			_console->Echo( displayMode.ToString(DisplayModeFormat::Complete) );
 		}
 		catch ( const Exception& ex )

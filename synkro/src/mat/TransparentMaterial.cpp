@@ -254,7 +254,7 @@ void TransparentMaterial::OnDiffuseMapSet()
 	UInt idxRes = 0;
 	if ( (this->GetDiffuseMap()->GetImage() != nullptr) && (_fragmentResources != nullptr) )
 	{
-		PixelFormat format = (_context->GetGraphicsSystem()->GetFrameWindowCount() > 0) ? _context->GetGraphicsSystem()->GetFrameWindow(0)->GetPixelFormat() : _context->GetGraphicsSystem()->GetViewWindow(0)->GetPixelFormat();
+		PixelFormat format = (_context->GetGraphicsSystem()->GetFrameWindow() != nullptr) ? _context->GetGraphicsSystem()->GetFrameWindow()->GetPixelFormat() : _context->GetGraphicsSystem()->GetViewWindow(0)->GetPixelFormat();
 		IImage* map = this->GetDiffuseMap()->GetImage();
 		map->Prepare( format, 0 );
 		_fragmentResources->Set( idxRes, map->AsResource() );
@@ -395,7 +395,7 @@ void TransparentMaterial::SetFragmentResources( MaterialDesc* mat )
 	UInt idxRes = 0;
 	if ( (this->GetDiffuseMap()->GetImage() != nullptr) && mat->Textured )
 	{
-		PixelFormat format = (_context->GetGraphicsSystem()->GetFrameWindowCount() > 0) ? _context->GetGraphicsSystem()->GetFrameWindow(0)->GetPixelFormat() : _context->GetGraphicsSystem()->GetViewWindow(0)->GetPixelFormat();
+		PixelFormat format = (_context->GetGraphicsSystem()->GetFrameWindow() != nullptr) ? _context->GetGraphicsSystem()->GetFrameWindow()->GetPixelFormat() : _context->GetGraphicsSystem()->GetViewWindow(0)->GetPixelFormat();
 		IImage* map = this->GetDiffuseMap()->GetImage();
 		map->Prepare( format, 0 );
 		_fragmentResources->Set( idxRes, map->AsResource() );

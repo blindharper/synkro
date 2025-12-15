@@ -31,7 +31,6 @@ namespace win
 
 FrameWindow::FrameWindow( IFrameWindow* window ) :
 	_listeners( A(WindowListener*) ),
-	_windows( A(P(IViewWindowEx)) ),
 	_window( window ),
 	_active( _window->IsActive() ),
 	_width( _window->GetWidth() ),

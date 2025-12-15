@@ -61,7 +61,7 @@ DefaultUi::DefaultUi( IGraphicsSystemEx* graphicsSystem, IAnimationSystem* anima
 	_backColor( Color::Black ),
 	Logger( log, LogFacility::UserInterface )
 {
-	IFrameRenderWindow* window = (IFrameRenderWindow*)graphicsSystem->GetFrameWindow( 0 );
+	IFrameRenderWindow* window = (IFrameRenderWindow*)graphicsSystem->GetFrameWindow();
 	_overlay = overlayManager->GetOverlay( (IRenderWindow*)window );
 
 	_blendStates = _graphicsSystem->GetDevice()->GetBlendStates()->Clone();
@@ -148,7 +148,7 @@ void DefaultUi::SetTheme( ITheme* theme )
 IOverlayRenderObject* DefaultUi::CreateObject( const PrimitiveType& type, const IndexType& indexType, UInt vertexCount, UInt indexCount, UInt order )
 {
 	IPrimitive* data = _graphicsSystem->GetDevice()->CreatePrimitive( _theme->GetProgram(), DataUsage::Dynamic, DataAccess::WriteOnly, type, indexType, vertexCount, indexCount, 0, 0, true, false );
-	IOverlayRenderObject* obj = _graphicsSystem->GetFrameWindow(0)->GetOverlayQueue()->CreateObject( data );
+	IOverlayRenderObject* obj = _graphicsSystem->GetFrameWindow()->GetOverlayQueue()->CreateObject( data );
 	obj->SetOrder( order );
 	obj->SetBlendStates( _blendStates );
 	obj->SetFragmentResources( _theme->GetResources() );
@@ -160,7 +160,7 @@ IOverlayRenderObject* DefaultUi::CreateObject( const PrimitiveType& type, const 
 IOverlayRenderObject* DefaultUi::CreateLineObject( const PrimitiveType& type, UInt vertexCount, UInt order )
 {
 	IPrimitive* data = _graphicsSystem->GetDevice()->CreatePrimitive( _graphicsSystem->GetProgram(L"overlay.monochrome"), DataUsage::Dynamic, DataAccess::WriteOnly, type, IndexType::None, vertexCount, 0, 0, 0, true, false );
-	IOverlayRenderObject* obj = _graphicsSystem->GetFrameWindow(0)->GetOverlayQueue()->CreateObject( data );
+	IOverlayRenderObject* obj = _graphicsSystem->GetFrameWindow()->GetOverlayQueue()->CreateObject( data );
 	obj->SetOrder( order );
 	obj->SetBlendStates( _blendStates );
 	obj->SetFragmentResources( _theme->GetResources() );

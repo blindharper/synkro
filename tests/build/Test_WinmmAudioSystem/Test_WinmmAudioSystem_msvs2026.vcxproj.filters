@@ -106,6 +106,12 @@
     <ClCompile Include="..\..\..\synkro\src\sound\SoundCodec\WavSoundCodec.cpp">
       <Filter>sound</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\HostWindow.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32HostWindow.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\audio\Context.h" />

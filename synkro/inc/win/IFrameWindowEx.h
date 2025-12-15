@@ -38,19 +38,6 @@ public:
 	 * @param listener Event listener.
 	 */
 	virtual void											Listen( WindowListener* listener ) = 0;
-
-	/**
-	 * Retrieves the total number of view windows owned by this window.
-	 */
-	virtual UInt											GetWindowCount() const = 0;
-
-	/**
-	 * Retrieves view window by index.
-	 * @param index Window index.
-	 * @return Requested window.
-	 * @exception OutOfRangeException Index is out of range.
-	 */
-	virtual IViewWindowEx*									GetWindow( UInt index ) const = 0;
 };
 
 

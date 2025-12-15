@@ -52,19 +52,9 @@ SYNKRO_INLINE IGraphicsDeviceEx* GraphicsSystemEx::GetDevice() const
 	return _device;
 }
 
-SYNKRO_INLINE UInt GraphicsSystemEx::GetFrameWindowCount() const
+SYNKRO_INLINE IFrameRenderWindowEx* GraphicsSystemEx::GetFrameWindow() const
 {
-	return _device->_frameWindows.Size();
-}
-
-SYNKRO_INLINE IFrameRenderWindowEx* GraphicsSystemEx::GetFrameWindow( UInt index ) const
-{
-	assert( index < _device->_frameWindows.Size() );
-
-	if ( index >= _device->_frameWindows.Size() )
-		throw lang::OutOfRangeException( index, _device->_frameWindows.Size() );
-
-	return _device->_frameWindows[index];
+	return _device->_frameWindow;
 }
 
 SYNKRO_INLINE UInt GraphicsSystemEx::GetViewWindowCount() const

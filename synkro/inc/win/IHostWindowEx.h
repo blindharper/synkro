@@ -8,14 +8,14 @@
 // is allowed without any permission from the Synkro Project.
 // Website: https://synkro.pro Email: mailto:blindharper70@gmail.com
 //
-// Purpose: Defines viewport window.
+// Purpose: Defines extended host window.
 //==============================================================================
-#ifndef _SYNKRO_WIN_IVIEWWINDOW_
-#define _SYNKRO_WIN_IVIEWWINDOW_
+#ifndef _SYNKRO_WIN_IHOSTWINDOWEX_
+#define _SYNKRO_WIN_IHOSTWINDOWEX_
 
 
 #include "config.h"
-#include <win/IWindow.h>
+#include <win/IHostWindow.h>
 
 
 namespace synkro
@@ -27,27 +27,24 @@ namespace win
 
 
 /**
- * Viewport window. Designed for use in GUI applications.
+ * Extended host window.
  */
-iface IViewWindow :
-	public IWindow
+iface IHostWindowEx :
+	public IHostWindow
 {
 public:
-	/** 
-	 * Sets window visibility.
-	 * @param show Set to true to make window visible, set to false to hide it.
+	/**
+	 * Retrieves the total number of view windows owned by this window.
 	 */
-	virtual void											Show( Bool show ) = 0;
+	virtual UInt											GetWindowCount() const = 0;
 
 	/**
-	 * Indicates whether the window is currently visible.
+	 * Retrieves view window by index.
+	 * @param index Window index.
+	 * @return Requested window.
+	 * @exception OutOfRangeException Index is out of range.
 	 */
-	virtual Bool											IsVisible() const = 0;
-
-	/**
-	 * Retrieves parent window.
-	 */
-	virtual IHostWindow*									GetParent() const = 0;
+	virtual IViewWindowEx*									GetWindow( UInt index ) const = 0;
 };
 
 
@@ -57,4 +54,4 @@ public:
 } // synkro
 
 
-#endif // _SYNKRO_WIN_IVIEWWINDOW_
+#endif // _SYNKRO_WIN_IHOSTWINDOWEX_

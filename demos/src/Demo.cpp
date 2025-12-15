@@ -66,8 +66,8 @@ Bool Demo::IsLit() const
 
 void Demo::OnSynkroInitialize()
 {
-	_window = _synkro->GetGraphicsSystem()->GetFrameWindow( 0 );
-	_synkro->GetWindowSystem()->GetFrameWindow( 0 )->Listen( this );
+	_window = _synkro->GetGraphicsSystem()->GetFrameWindow();
+	_synkro->GetWindowSystem()->GetFrameWindow()->Listen( this );
 	_scene = _synkro->GetSceneManager()->CreateScene( L"Default", GetDebugMode(), IsLit() );
 	CreateShotTexture();
 	InitInputInternal();
@@ -566,7 +566,7 @@ void Demo::InitInputInternal()
 	_synkro->GetInputSystem()->GetKeyboard( 0 )->ListenKeyUp( this, Key::F8 );
 	_synkro->GetInputSystem()->CreateMouse( 0 );
 	IMouseEx* mouse = _synkro->GetInputSystem()->GetMouse( 0 );
-	_synkro->GetInputSystem()->CreateArcball( mouse, _synkro->GetWindowSystem()->GetFrameWindow(0) );
+	_synkro->GetInputSystem()->CreateArcball( mouse, _synkro->GetWindowSystem()->GetFrameWindow() );
 	_synkro->GetInputSystem()->GetArcball()->ListenOrientation( this );
 	_synkro->GetInputSystem()->GetArcball()->ListenZoom( this );
 	InitInput();

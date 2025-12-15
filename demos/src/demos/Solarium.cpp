@@ -80,7 +80,7 @@ public:
 		_camera2->SetPosition( Vector3(0.0f, 5000.0f, -10.0f) );
 		_camera2->LookAt( Vector3::Origin );
 
-		IWindow* window = _synkro->GetWindowSystem()->GetFrameWindow( 0 );
+		IWindow* window = _synkro->GetWindowSystem()->GetFrameWindow();
 		_viewport2 = _synkro->GetViewportManager()->CreateViewport( _window, Rect(Point(window->GetWidth()-420, window->GetHeight()-420), Size(400, 400)), _camera2, Color::LightGray );
 		_viewport2->SetBorderColor( Color::Yellow );
 		_viewport2->ShowBorder( true );

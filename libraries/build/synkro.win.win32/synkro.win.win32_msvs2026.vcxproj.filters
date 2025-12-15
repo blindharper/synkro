@@ -22,6 +22,9 @@
     <Filter Include="WindowSystem\Win32\System">
       <UniqueIdentifier>{87cb7311-3ea4-48ce-b92c-0cf22cc03082}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WindowSystem\Win32\Window\Host">
+      <UniqueIdentifier>{4cfff8c6-14b2-432c-9187-949f0f381f6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\win\Win32\Win32FrameWindow.h">
@@ -39,6 +42,9 @@
     <ClInclude Include="..\..\..\synkro\src\win\Win32\Win32WindowSystemFactory.h">
       <Filter>WindowSystem\Win32\System</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\win\Win32\Win32HostWindow.h">
+      <Filter>WindowSystem\Win32\Window\Host</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\synkro.win.win32\synkro.win.win32.cpp" />
@@ -53,6 +59,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32WindowSystem.cpp">
       <Filter>WindowSystem\Win32\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32HostWindow.cpp">
+      <Filter>WindowSystem\Win32\Window\Host</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

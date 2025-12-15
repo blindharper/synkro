@@ -16,6 +16,7 @@
 #include "FrameWindow.h"
 #include "ViewWindow.h"
 #include <core/Platform.h>
+#include <lang/BadArgumentException.h>
 
 
 //------------------------------------------------------------------------------
@@ -37,7 +38,6 @@ namespace win
 
 WindowSystemEx::WindowSystemEx( Pointer module, ILog* log ) :
 	_windows( A(IWindow*) ),
-	_frameWindows( A(P(FrameWindow)) ),
 	_factory( nullptr ),
 	_module( module ),
 	Logger( log, LogFacility::WindowSystem )
@@ -66,44 +66,46 @@ Bool WindowSystemEx::Update( Double delta )
 
 IFrameWindow* WindowSystemEx::CreateWindow( Bool popup, Bool sizeable, const String& title, UInt icon, UInt width, UInt height )
 {
-	FrameWindow* window = new FrameWindow( _windowSystem->CreateWindow(popup, sizeable, title, icon, width, height) );
-	_frameWindows.Add( window );
-	_windows.Add( window );
-	return window;
+	if ( _frameWindow == nullptr )
+	{
+		_frameWindow = new FrameWindow( _windowSystem->CreateWindow(popup, sizeable, title, icon, width, height) );
+		_windows.Add( _frameWindow );
+	}
+	return _frameWindow;
 }
 
 IFrameWindow* WindowSystemEx::CreateWindow( IMonitor* monitor )
 {
-	for ( UInt i = 0; i < _frameWindows.Size(); ++i )
+	if ( _frameWindow == nullptr )
 	{
-		if ( _frameWindows[i]->GetMonitor() == monitor )
-			return _frameWindows[i];
+		_frameWindow = new FrameWindow( _windowSystem->CreateWindow(monitor) );
+		_windows.Add( _frameWindow );
 	}
-
-	FrameWindow* window = new FrameWindow( _windowSystem->CreateWindow(monitor) );
-	_frameWindows.Add( window );
-	_windows.Add( window );
-	return window;
+	return _frameWindow;
 }
 
-IFrameWindow* WindowSystemEx::CreateWindow( Pointer handle )
+IHostWindow* WindowSystemEx::CreateWindow( Pointer handle )
 {
-	FrameWindow* window = new FrameWindow( _windowSystem->CreateWindow(handle) );
-	_frameWindows.Add( window );
-	_windows.Add( window );
-	return window;
-}
-
-IViewWindow* WindowSystemEx::CreateWindow( IFrameWindow* parent, Int left, Int top, UInt width, UInt height )
-{
-	for ( UInt i = 0; i < _frameWindows.Size(); ++i )
+	if ( _hostWindow == nullptr )
 	{
-		if ( _frameWindows[i] == parent )
-		{
-			IViewWindowEx* window = new ViewWindow( _windowSystem->CreateWindow(parent, left, top, width, height) );
-			_frameWindows[i]->AddWindow( window );
-			return window;
-		}
+		_hostWindow = new HostWindow( _windowSystem->CreateWindow(handle) );
+		_windows.Add( _hostWindow );
+	}
+	return _hostWindow;
+}
+
+IViewWindow* WindowSystemEx::CreateWindow( IHostWindow* parent, Int left, Int top, UInt width, UInt height )
+{
+	assert( parent != nullptr );
+
+	if ( parent == nullptr )
+		throw BadArgumentException( L"Invalid parent", L"parent", L"nullptr" );
+
+	if ( _hostWindow != nullptr )
+	{
+		IViewWindowEx* window = new ViewWindow( _windowSystem->CreateWindow(parent, left, top, width, height) );
+		_hostWindow->AddWindow( window );
+		return window;
 	}
 	
 	return nullptr;
@@ -132,7 +134,8 @@ void WindowSystemEx::Initialize( IWindowSystemFactory* factory )
 void WindowSystemEx::Finalize()
 {
 	_windows.Clear();
-	_frameWindows.Clear();
+	_frameWindow = nullptr;
+	_hostWindow = nullptr;
 	_iconWindow = nullptr;
 }
 

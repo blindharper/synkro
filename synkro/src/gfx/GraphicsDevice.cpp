@@ -39,7 +39,6 @@ namespace gfx
 GraphicsDevice::GraphicsDevice( GraphicsSystemEx* graphicsSystem, IWindowSystemEx* windowSystem, IGraphicsDevice* device, UInt index, ILog* log ) :
 	_formats( A(FormatEntry) ),
 	_programs( A(ProgramEntry) ),
-	_frameWindows( A(P(FrameRenderWindow)) ),
 	_viewWindows( A(P(ViewRenderWindow)) ),
 	_graphicsSystem( graphicsSystem ),
 	_windowSystem( windowSystem ),
@@ -64,16 +63,12 @@ GraphicsDevice::GraphicsDevice( GraphicsSystemEx* graphicsSystem, IWindowSystemE
 
 IFrameRenderWindow* GraphicsDevice::CreateRenderWindow( IFrameWindow* window, const DisplayMode& displayMode, Bool vsync, UInt sampleCount, UInt sampleQuality )
 {
-	for ( UInt i = 0; i < _frameWindows.Size(); ++i )
+	if ( _frameWindow == nullptr )
 	{
-		if ( _frameWindows[i]->GetWindow() == window )
-			return _frameWindows[i];
+		IFrameRenderWindow* wnd = _device->CreateRenderWindow( window, displayMode, vsync, sampleCount, sampleQuality );
+		_frameWindow = new FrameRenderWindow( this, wnd, GetProgram(L"screen"), GetProgram(L"view"), sampleCount, _log );
 	}
-
-	IFrameRenderWindow* wnd = _device->CreateRenderWindow( window, displayMode, vsync, sampleCount, sampleQuality );
-	FrameRenderWindow* frameWindow = new FrameRenderWindow( this, wnd, GetProgram(L"screen"), GetProgram(L"view"), sampleCount, _log );
-	_frameWindows.Add( frameWindow );
-	return frameWindow;
+	return _frameWindow;
 }
 
 IViewRenderWindow* GraphicsDevice::CreateRenderWindow( IViewWindow* window, const PixelFormat& format, Bool vsync, UInt sampleCount, UInt sampleQuality )
