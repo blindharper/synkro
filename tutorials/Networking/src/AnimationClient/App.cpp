@@ -42,7 +42,7 @@ void App::Run()
 
 void App::OnSynkroInitialize()
 {
-	_window = _synkro->GetGraphicsSystem()->GetFrameWindow( 0 );
+	_window = _synkro->GetGraphicsSystem()->GetFrameWindow();
 	InitScene();
 	InitView();
 	InitNetwork();
@@ -140,7 +140,7 @@ void App::InitScene()
 void App::InitView()
 {
 	// Setup viewport.
-	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow(0)->GetView(0) );
+	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow()->GetView(0) );
 	_viewport->SetCamera( _camera );
 	_viewport->SetColor( Color::DirectXDemo );
 }

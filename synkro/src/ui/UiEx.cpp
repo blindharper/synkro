@@ -529,7 +529,7 @@ Bool UiEx::OnWindowClosing( Pointer handle )
 IOverlayRenderObject* UiEx::CreateObject( const PrimitiveType& type, const IndexType& indexType, UInt vertexCount, UInt indexCount, UInt order )
 {
 	IPrimitive* data = _graphicsSystem->GetDevice()->CreatePrimitive( _theme->GetProgram(), DataUsage::Dynamic, DataAccess::WriteOnly, type, indexType, vertexCount, indexCount, 0, 0, true, false );
-	IOverlayRenderObject* obj = _graphicsSystem->GetFrameWindow(0)->GetOverlayQueue()->CreateObject( data );
+	IOverlayRenderObject* obj = _graphicsSystem->GetFrameWindow()->GetOverlayQueue()->CreateObject( data );
 	obj->SetOrder( order );
 	obj->SetBlendStates( _blendStates );
 	obj->SetFragmentResources( _theme->GetResources() );
@@ -651,8 +651,8 @@ void UiEx::Initialize( IUiFactory* factory, IContext* context, const Language& l
 		_factory = factory;
 		_ui = nullptr;
 		_program = _graphicsSystem->GetProgram( L"overlay.textured" );
-		_window = context->GetWindowSystem()->GetFrameWindow( 0 );
-		IRenderWindow* renderWindow = (IRenderWindow*)(IFrameRenderWindow*)_graphicsSystem->GetFrameWindow( 0 );
+		_window = context->GetWindowSystem()->GetFrameWindow();
+		IRenderWindow* renderWindow = (IRenderWindow*)(IFrameRenderWindow*)_graphicsSystem->GetFrameWindow();
 		_pixelFormat = renderWindow->GetClientPixelFormat();
 		_overlay = _overlayManager->GetOverlay( renderWindow );
 		_font = _overlay->GetFont( FONT_NAME );

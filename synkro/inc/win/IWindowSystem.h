@@ -58,11 +58,11 @@ public:
 	virtual IFrameWindow*									CreateWindow( IMonitor* monitor ) = 0;
 
 	/**
-	 * Creates frame window from an existing handle.
+	 * Creates host window from an existing handle.
 	 * @param handle Window handle.
 	 * @exception Exception Invalid window handle.
 	 */
-	virtual IFrameWindow*									CreateWindow( Pointer handle ) = 0;
+	virtual IHostWindow*									CreateWindow( Pointer handle ) = 0;
 
 	/**
 	 * Creates a view window.
@@ -71,10 +71,10 @@ public:
 	 * @param top Top window coordinate.
 	 * @param width Window width.
 	 * @param height Window height.
-	 * @exception BadArgumentException Parent is null.
+	 * @exception BadArgumentException Parent is nullptr.
 	 * @exception Exception Failed to create window.
 	 */
-	virtual IViewWindow*									CreateWindow( IFrameWindow* parent, Int left, Int top, UInt width, UInt height ) = 0;
+	virtual IViewWindow*									CreateWindow( IHostWindow* parent, Int left, Int top, UInt width, UInt height ) = 0;
 
 	/**
 	 * Creates an icon window.

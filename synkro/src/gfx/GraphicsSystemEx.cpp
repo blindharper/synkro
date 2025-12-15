@@ -21,7 +21,7 @@
 #include "SamplerStateSet.h"
 #include "SamplerState.h"
 #include <gfx/IGraphicsSystemFactory.h>
-#include <gfx/ProgramStageType.h>
+#include <win/IHostWindowEx.h>
 #include <internal/SafeClose.h>
 
 
@@ -97,18 +97,18 @@ Bool GraphicsSystemEx::Update( Double delta )
 		Draw( window, window, nullptr, delta, _stats );
 	}
 
-	// Draw frame windows.
-	for ( UInt i = 0; i < _device->_frameWindows.Size(); ++i )
-	{
-		FrameRenderWindow* window = _device->_frameWindows[i];
-		Draw( window, window, window->GetTarget(), delta, _stats );
-	}
-
 	// Draw view windows.
 	for ( UInt i = 0; i < _device->_viewWindows.Size(); ++i )
 	{
 		ViewRenderWindow* window = _device->_viewWindows[i];
 		Draw( window, window, nullptr, delta, _stats );
+	}
+
+	// Draw frame windows.
+	if ( _device->_frameWindow != nullptr )
+	{
+		FrameRenderWindow* window = _device->_frameWindow;
+		Draw( window, window, window->GetTarget(), delta, _stats );
 	}
 
 	return true;
@@ -276,19 +276,17 @@ void GraphicsSystemEx::Init( const DepthFormat& depthFormat, const DisplayMode& 
 	_device->SetDepthFormat( depthFormat );
 
 	// Create rendering windows for all existing physical windows.
-	for ( UInt i = 0; i < _windowSystem->GetFrameWindowCount(); ++i )
+	if ( _windowSystem->GetFrameWindow() != nullptr )
 	{
-		IFrameWindowEx* window = _windowSystem->GetFrameWindow( i );
-		if ( window->IsRenderable() )
+		_device->CreateRenderWindow( _windowSystem->GetFrameWindow(), displayMode, vsync, sampleCount, 0 );
+	}
+
+	IHostWindowEx* host = _windowSystem->GetHostWindow();
+	if ( host != nullptr )
+	{
+		for ( UInt i = 0; i < host->GetWindowCount(); ++i )
 		{
-			_device->CreateRenderWindow( window, displayMode, vsync, sampleCount, 0 );
-		}
-		else
-		{
-			for ( UInt j = 0; j < window->GetWindowCount(); ++j )
-			{
-				_device->CreateRenderWindow( window->GetWindow(j), PixelFormat::R8G8B8A8, vsync, sampleCount, 0 );
-			}
+			_device->CreateRenderWindow( host->GetWindow(i), PixelFormat::R8G8B8A8, vsync, sampleCount, 0 );
 		}
 	}
 }

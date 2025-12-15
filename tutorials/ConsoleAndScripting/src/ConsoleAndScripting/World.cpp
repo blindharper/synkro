@@ -164,7 +164,7 @@ IScriptObject* World::GetObject() const
 
 IImage* World::GetImage( const String& name )
 {
-	PixelFormat fmt = _synkro->GetGraphicsSystem()->GetFrameWindow( 0 )->GetClientPixelFormat();
+	PixelFormat fmt = _synkro->GetGraphicsSystem()->GetFrameWindow()->GetClientPixelFormat();
 	return _synkro->GetImageManager()->LoadImageAsync( GetStream(name), fmt, nullptr );
 }
 

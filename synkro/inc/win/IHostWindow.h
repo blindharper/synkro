@@ -8,14 +8,15 @@
 // is allowed without any permission from the Synkro Project.
 // Website: https://synkro.pro Email: mailto:blindharper70@gmail.com
 //
-// Purpose: Defines viewport window.
+// Purpose: Defines host window.
 //==============================================================================
-#ifndef _SYNKRO_WIN_IVIEWWINDOW_
-#define _SYNKRO_WIN_IVIEWWINDOW_
+#ifndef _SYNKRO_WIN_IHOSTWINDOW_
+#define _SYNKRO_WIN_IHOSTWINDOW_
 
 
 #include "config.h"
 #include <win/IWindow.h>
+#include <lang/String.h>
 
 
 namespace synkro
@@ -27,27 +28,22 @@ namespace win
 
 
 /**
- * Viewport window. Designed for use in GUI applications.
+ * Non-renderable top-level window. Used as a host for view windows.
  */
-iface IViewWindow :
+iface IHostWindow :
 	public IWindow
 {
 public:
-	/** 
-	 * Sets window visibility.
-	 * @param show Set to true to make window visible, set to false to hide it.
+	/**
+	 * Sets text displayed in the window caption.
+	 * @param title New window title.
 	 */
-	virtual void											Show( Bool show ) = 0;
+	virtual void											SetTitle( const lang::String& title ) = 0;
 
 	/**
-	 * Indicates whether the window is currently visible.
+	 * Retrieves window title.
 	 */
-	virtual Bool											IsVisible() const = 0;
-
-	/**
-	 * Retrieves parent window.
-	 */
-	virtual IHostWindow*									GetParent() const = 0;
+	virtual lang::String									GetTitle() const = 0;
 };
 
 
@@ -57,4 +53,4 @@ public:
 } // synkro
 
 
-#endif // _SYNKRO_WIN_IVIEWWINDOW_
+#endif // _SYNKRO_WIN_IHOSTWINDOW_

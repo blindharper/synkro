@@ -18,6 +18,7 @@
 #include <core/ObjectImpl.h>
 #include <win/IWindowSystemEx.h>
 #include <win/IIconWindow.h>
+#include "HostWindow.h"
 #include "FrameWindow.h"
 
 
@@ -45,16 +46,16 @@ public:
 	// IWindowSystem methods.
 	IFrameWindow*											CreateWindow( Bool popup, Bool sizeable, const lang::String& title, UInt icon, UInt width, UInt height );
 	IFrameWindow*											CreateWindow( IMonitor* monitor );
-	IFrameWindow*											CreateWindow( Pointer handle );
-	IViewWindow*											CreateWindow( IFrameWindow* parent, Int left, Int top, UInt width, UInt height );
+	IHostWindow*											CreateWindow( Pointer handle );
+	IViewWindow*											CreateWindow( IHostWindow* parent, Int left, Int top, UInt width, UInt height );
 	IIconWindow*											CreateWindow( UInt icon, const lang::String& hint );
 	UInt													GetMonitorCount() const;
 	IMonitor*												GetMonitor( UInt index ) const;
 	IMonitor*												GetMonitor() const;
 
 	// IWindowSystemEx methods.
-	UInt													GetFrameWindowCount() const;
-	IFrameWindowEx*											GetFrameWindow( UInt index ) const;
+	IFrameWindowEx*											GetFrameWindow() const;
+	IHostWindowEx*											GetHostWindow() const;
 	IIconWindow*											GetIconWindow() const;
 
 	// Other methods.
@@ -64,9 +65,10 @@ public:
 private:
 	IWindowSystemFactory*									_factory;
 	P(IWindowSystem)										_windowSystem;
-	lang::Vector<P(FrameWindow)>							_frameWindows;
-	lang::Vector<IWindow*>									_windows;
+	P(FrameWindow)											_frameWindow;
+	P(HostWindow)											_hostWindow;
 	P(IIconWindow)											_iconWindow;
+	lang::Vector<IWindow*>									_windows;
 	Pointer													_module;
 };
 

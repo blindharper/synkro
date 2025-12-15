@@ -80,7 +80,7 @@ SYNKRO_INLINE Bool ViewWindow::IsVisible() const
 	return _window->IsVisible();
 }
 
-SYNKRO_INLINE IFrameWindow* ViewWindow::GetParent() const
+SYNKRO_INLINE IHostWindow* ViewWindow::GetParent() const
 {
 	return _window->GetParent();
 }

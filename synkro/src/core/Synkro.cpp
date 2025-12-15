@@ -384,9 +384,9 @@ void Synkro::Initialize( IConfiguration* config )
 		}
 
 		// Subscribe to frame window events.
-		if ( _windowSystem->GetFrameWindowCount() > 0 )
+		if ( _windowSystem->GetFrameWindow() != nullptr )
 		{
-			_windowSystem->GetFrameWindow(0)->Listen( this );
+			_windowSystem->GetFrameWindow()->Listen( this );
 		}
 
 		// Initialize application.
@@ -539,9 +539,9 @@ void Synkro::InitConsole( IConfiguration* config )
 		return;
 
 	// Create console.
-	if ( _graphicsSystem->GetFrameWindowCount() > 0 )
+	if ( _graphicsSystem->GetFrameWindow() != nullptr )
 	{
-		IOverlay* overlay = _overlayManager->GetOverlay( (IRenderWindow*)(IFrameRenderWindow*)_graphicsSystem->GetFrameWindow(0) );
+		IOverlay* overlay = _overlayManager->GetOverlay( (IRenderWindow*)(IFrameRenderWindow*)_graphicsSystem->GetFrameWindow() );
 		_console = new Console( this, overlay, _diag->GetLog() );
 
 		// Register console commands.
@@ -612,7 +612,7 @@ void Synkro::InitGraphicsSystem( IConfiguration* config )
 	SynkroCall( "Synkro.InitGraphicsSystem", String::Empty );
 	SynkroProfile( "Synkro.InitGraphicsSystem" );
 
-	if ( _windowSystem->GetFrameWindowCount() == 0 )
+	if ( (_windowSystem->GetFrameWindow() == nullptr) && (_windowSystem->GetHostWindow() == nullptr) )
 		return;
 
 	if ( _graphicsSystem == nullptr )
@@ -903,7 +903,7 @@ void Synkro::InitUi( IConfiguration* config )
 	if ( ExistsOrDisabled(_ui, config, Param::UiEnable) )
 		return;
 
-	if ( _graphicsSystem->GetFrameWindowCount() == 0 )
+	if ( _graphicsSystem->GetFrameWindow() == nullptr )
 		throw Exception( L"Failed to create user interface. Frame rendering window is missing." );
 
 	// Create UI.

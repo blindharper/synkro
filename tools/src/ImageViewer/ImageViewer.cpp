@@ -80,7 +80,7 @@ public:
 		_progress->ShowText( true );
 		_progress->Show( false );
 
-		IOverlay* overlay = _synkro->GetOverlayManager()->GetOverlay( _synkro->GetGraphicsSystem()->GetFrameWindow(0) );
+		IOverlay* overlay = _synkro->GetOverlayManager()->GetOverlay( _synkro->GetGraphicsSystem()->GetFrameWindow() );
 		_font = overlay->GetFont(L"ui");
 		_feedbackText = _font->CreateText( Color::White, Point(), String::Empty, Order::Highest, Order::Highest );
 		_feedbackText->Show( false );
@@ -190,7 +190,7 @@ public:
 
 	void CreateSprite( IImage* image )
 	{
-		IFrameRenderWindowEx* window = _synkro->GetGraphicsSystem()->GetFrameWindow( 0 );
+		IFrameRenderWindowEx* window = _synkro->GetGraphicsSystem()->GetFrameWindow();
 		const Size szWin( window->GetWidth(), window->GetHeight() );
 		PixelFormat format = window->GetClientPixelFormat();
 		IOverlay* overlay = _synkro->GetOverlayManager()->GetOverlay( _viewport->GetView()->GetWindow() );
@@ -238,7 +238,7 @@ public:
 			}
 
 			_stream = stream;
-			IFrameRenderWindowEx* window = _synkro->GetGraphicsSystem()->GetFrameWindow( 0 );
+			IFrameRenderWindowEx* window = _synkro->GetGraphicsSystem()->GetFrameWindow();
 			const Size szWin( window->GetWidth(), window->GetHeight() );
 			PixelFormat format = window->GetClientPixelFormat();
 			_progress->SetValue( 0 );
@@ -272,10 +272,10 @@ public:
 	void ToggleFullscreen()
 	{
 		DisplayMode displayMode;
-		_synkro->GetGraphicsSystem()->GetFrameWindow( 0 )->GetDisplayMode( displayMode );
+		_synkro->GetGraphicsSystem()->GetFrameWindow()->GetDisplayMode( displayMode );
 		displayMode = (displayMode == _displayModeFullscreen) ? _displayModeWindowed : _displayModeFullscreen;
 		_camera->SetAspect( displayMode.AspectFactor() );
-		_synkro->GetGraphicsSystem()->GetFrameWindow( 0 )->SetDisplayMode( displayMode );
+		_synkro->GetGraphicsSystem()->GetFrameWindow()->SetDisplayMode( displayMode );
 	}
 
 	void DisplayFeedback( const String& text, const Color& color = Color::White, Double delay = 2.0 )

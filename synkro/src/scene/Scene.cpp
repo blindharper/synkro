@@ -351,7 +351,7 @@ void Scene::SetSky( IImage* map, Float size )
 			_skybox->SetFragmentSamplers( samplers );
 		}
 
-		PixelFormat format = (_context->GetGraphicsSystem()->GetFrameWindowCount() > 0) ? _context->GetGraphicsSystem()->GetFrameWindow(0)->GetPixelFormat() : _context->GetGraphicsSystem()->GetViewWindow(0)->GetPixelFormat();
+		PixelFormat format = (_context->GetGraphicsSystem()->GetFrameWindow() != nullptr) ? _context->GetGraphicsSystem()->GetFrameWindow()->GetPixelFormat() : _context->GetGraphicsSystem()->GetViewWindow(0)->GetPixelFormat();
 		map->Prepare( format, 1 );
 		_skybox->GetFragmentResources()->Set( 0, map->AsResource() );
 	}
@@ -371,7 +371,7 @@ void Scene::SetSky( IImage* map, Float size )
 			_skysphere->SetFragmentSamplers( samplers );
 		}
 
-		PixelFormat format = (_context->GetGraphicsSystem()->GetFrameWindowCount() > 0) ? _context->GetGraphicsSystem()->GetFrameWindow(0)->GetPixelFormat() : _context->GetGraphicsSystem()->GetViewWindow(0)->GetPixelFormat();
+		PixelFormat format = (_context->GetGraphicsSystem()->GetFrameWindow() != nullptr) ? _context->GetGraphicsSystem()->GetFrameWindow()->GetPixelFormat() : _context->GetGraphicsSystem()->GetViewWindow(0)->GetPixelFormat();
 		map->Prepare( format, 1 );
 		_skysphere->GetFragmentResources()->Set( 0, map->AsResource() );
 	}

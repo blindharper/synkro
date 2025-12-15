@@ -80,11 +80,6 @@ public:
 	 * Indicates whether the window is sizeable.
 	 */
 	virtual Bool											IsSizeable() const = 0;
-
-	/**
-	 * Indicates whether the window is meant for rendering.
-	 */
-	virtual Bool											IsRenderable() const = 0;
 };
 
 

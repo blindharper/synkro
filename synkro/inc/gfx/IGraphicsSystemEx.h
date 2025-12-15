@@ -127,17 +127,9 @@ public:
 	virtual IGraphicsDeviceEx*								GetDevice() const = 0;
 
 	/**
-	 * Retrieves the total number of frame windows.
+	 * Retrieves frame window.
 	 */
-	virtual UInt											GetFrameWindowCount() const = 0;
-
-	/**
-	 * Retrieves frame window by index.
-	 * @param index Window index.
-	 * @return Requested window.
-	 * @exception OutOfRangeException Index is out of range.
-	 */
-	virtual IFrameRenderWindowEx*							GetFrameWindow( UInt index ) const = 0;
+	virtual IFrameRenderWindowEx*							GetFrameWindow() const = 0;
 
 	/**
 	 * Retrieves the total number of view windows.

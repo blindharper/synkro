@@ -62,19 +62,12 @@ public:
 	IMonitor*												GetMonitor() const;
 	Bool													IsPopup() const;
 	Bool													IsSizeable() const;
-	Bool													IsRenderable() const;
 
 	// IFrameWindowEx methods.
 	void													Listen( WindowListener* listener );
-	UInt													GetWindowCount() const;
-	IViewWindowEx*											GetWindow( UInt index ) const;
-
-	// Other methods.
-	void													AddWindow( IViewWindowEx* window );
 
 private:
 	lang::Vector<WindowListener*>							_listeners;
-	lang::Vector<P(IViewWindowEx)>							_windows;
 	P(IFrameWindow)											_window;
 	Bool													_active;
 	UInt													_width;

@@ -67,8 +67,7 @@ public:
 	UInt													GetDeviceCount() const;
 	IGraphicsDeviceEx*										GetDevice( UInt index ) const;
 	IGraphicsDeviceEx*										GetDevice() const;
-	UInt													GetFrameWindowCount() const;
-	IFrameRenderWindowEx*									GetFrameWindow( UInt index ) const;
+	IFrameRenderWindowEx*									GetFrameWindow() const;
 	UInt													GetViewWindowCount() const;
 	IViewRenderWindowEx*									GetViewWindow( UInt index ) const;
 	UInt													GetVirtualWindowCount() const;

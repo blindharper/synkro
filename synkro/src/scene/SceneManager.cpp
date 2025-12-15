@@ -158,7 +158,7 @@ ITriangleMesh* SceneManager::LoadMesh( IScene* scene, IStream* stream, IVisualMa
 	{
 		IGraphicsSystemEx* graphicsSystem =_context->GetGraphicsSystem();
 		stream->Open( OpenMode::Read );
-		PixelFormat clientFormat = (graphicsSystem->GetFrameWindowCount() > 0) ? graphicsSystem->GetFrameWindow(0)->GetClientPixelFormat() : graphicsSystem->GetViewWindow(0)->GetClientPixelFormat();
+		PixelFormat clientFormat = (graphicsSystem->GetFrameWindow() != nullptr) ? graphicsSystem->GetFrameWindow()->GetClientPixelFormat() : graphicsSystem->GetViewWindow(0)->GetClientPixelFormat();
 		mesh = codec->Load( scene, stream, clientFormat, material, skeleton, instanceCapacity );
 		stream->Close();
 	}

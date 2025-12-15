@@ -109,7 +109,7 @@ Console::Console( ISynkro* synkro, IOverlay* overlay, ILog* log ) :
 	const UInt lineCount = CastUInt(_height / CastFloat(_lineHeight)) - 1;
 	_height = (lineCount+1)*CastFloat(_lineHeight) + 4;
 
-	PixelFormat format = _graphicsSystem->GetFrameWindow( 0 )->GetClientPixelFormat();
+	PixelFormat format = _graphicsSystem->GetFrameWindow()->GetClientPixelFormat();
 	P(IImage) back = synkro->GetImageManager()->LoadImage( streamBack, format );
 	_console = overlay->CreateSprite( back, Order::Highest, Order::High, Point(0, CastInt(-_height)), Size(width, CastUInt(_height)));
 	_console->SetFrame( RectF(0.0f, 0.0f, CastFloat(width)/CastFloat(back->GetWidth()), CastFloat(_height)/CastFloat(back->GetHeight())) );
@@ -117,7 +117,7 @@ Console::Console( ISynkro* synkro, IOverlay* overlay, ILog* log ) :
 	_consoleTrack = _consoleCtrl->CreateLocationTrack();
 	_consoleTrack->SetKey( 0.0, Point(0, CastInt(-_height)) );
 	_consoleTrack->SetKey( 1.0, Point(0, 0) );
-	synkro->GetWindowSystem()->GetFrameWindow( 0 )->Listen( this );
+	synkro->GetWindowSystem()->GetFrameWindow()->Listen( this );
 
 	// Initialize sound stuff.
 	if ( (_soundManager != nullptr) && (synkro->GetAudioSystem()->GetTotalPlayerCount() > 0) )

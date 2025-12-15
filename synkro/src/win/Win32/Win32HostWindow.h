@@ -8,15 +8,15 @@
 // is allowed without any permission from the Synkro Project.
 // Website: https://synkro.pro Email: mailto:blindharper70@gmail.com
 //
-// Purpose: Win32 view window implementation.
+// Purpose: Win32 host window implementation.
 //==============================================================================
-#ifndef _SYNKRO_WIN_WIN32VIEWWINDOW_
-#define _SYNKRO_WIN_WIN32VIEWWINDOW_
+#ifndef _SYNKRO_WIN_WIN32HOSTWINDOW_
+#define _SYNKRO_WIN_WIN32HOSTWINDOW_
 
 
 #include "config.h"
-#include <win/ViewWindowImpl.h>
-#include <win/IViewWindow.h>
+#include <win/WindowImpl.h>
+#include <win/IHostWindow.h>
 
 
 namespace synkro
@@ -27,22 +27,26 @@ namespace win
 {
 
 
-// Win32 view window implementation.
-class Win32ViewWindow :
-	public ViewWindowImpl<IViewWindow>
+// Windows host window.
+class Win32HostWindow :
+	public WindowImpl<IHostWindow>
 {
 public:
-	// Constructor & destructor.
-	Win32ViewWindow( IHostWindow* parent, Int left, Int top, UInt width, UInt height );
-	~Win32ViewWindow();
+	// Constructor.
+	Win32HostWindow( Pointer handle );
 
 	// IWindow methods.
+	Bool													Update();
 	void													Close();
 	void													SetPosition( Int left, Int top );
 	void													SetSize( UInt width, UInt height );
 
-	// IViewWindow methods.
-	void													Show( Bool show );
+	// IHostWindow methods.
+	void													SetTitle( const lang::String& title );
+	lang::String											GetTitle() const;
+
+private:
+	lang::String											_title;
 };
 
 
@@ -52,4 +56,4 @@ public:
 } // synkro
 
 
-#endif // _SYNKRO_WIN_WIN32VIEWWINDOW_
+#endif // _SYNKRO_WIN_WIN32HOSTWINDOW_

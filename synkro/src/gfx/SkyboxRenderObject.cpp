@@ -39,7 +39,7 @@ namespace gfx
 SkyboxRenderObject::SkyboxRenderObject( IGraphicsSystemEx* graphicsSystem ) :
 	SkyRenderObjectImpl<ISkyRenderObject>( graphicsSystem, graphicsSystem->GetProgram(L"skybox") )
 {
-	IRenderWindow* window = (IRenderWindow*)(IFrameRenderWindow*)graphicsSystem->GetFrameWindow( 0 );
+	IRenderWindow* window = (IRenderWindow*)(IFrameRenderWindow*)graphicsSystem->GetFrameWindow();
 	const UInt width = window->GetWidth();
 	const UInt height = window->GetHeight();
 	Ndc ndc( window, width, height );

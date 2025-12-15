@@ -63,6 +63,6 @@ void App::Configure()
 void App::InitView()
 {
 	// Setup viewport.
-	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow(0)->GetView(0) );
+	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow()->GetView(0) );
 	_viewport->SetColor( Color::BedazzledBlue );
 }

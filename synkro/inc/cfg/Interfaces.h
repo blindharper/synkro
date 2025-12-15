@@ -489,6 +489,8 @@ namespace win
 
 iface IFrameWindow;
 iface IFrameWindowEx;
+iface IHostWindow;
+iface IHostWindowEx;
 iface IIconWindow;
 iface IMonitor;
 iface IViewWindow;

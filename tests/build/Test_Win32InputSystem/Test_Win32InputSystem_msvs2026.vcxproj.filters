@@ -53,6 +53,12 @@
     <ClCompile Include="..\..\..\synkro\src\input\Win32\Win32Mouse.cpp">
       <Filter>input</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32HostWindow.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\HostWindow.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="win">

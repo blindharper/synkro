@@ -100,8 +100,8 @@ private:
 	typedef lang::MapPair<lang::String, P(IProgram)>		ProgramEntry;
 
 	mutable lang::Map<img::PixelFormat, Bool>				_formats;
-	lang::Vector<P(FrameRenderWindow)>						_frameWindows;
 	lang::Vector<P(ViewRenderWindow)>						_viewWindows;
+	P(FrameRenderWindow)									_frameWindow;
 	GraphicsSystemEx*										_graphicsSystem;
 	win::IWindowSystemEx*									_windowSystem;
 	P(IGraphicsDevice)										_device;

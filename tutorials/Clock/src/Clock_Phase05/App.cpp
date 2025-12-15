@@ -157,7 +157,7 @@ void App::InitView()
 	_camera->SetBack( 10000.0f );
 
 	// Setup viewport.
-	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow(0)->GetView(0) );
+	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow()->GetView(0) );
 	_viewport->SetCamera( _camera );
 	_viewport->SetColor( Color::BedazzledBlue );
 }
@@ -165,7 +165,7 @@ void App::InitView()
 void App::InitOverlay()
 {
 	_synkro->GetOverlayManager()->CreateFont( L"hint", _synkro->GetLanguage(), L"Arial", FontStyle::Bold, 10 );
-	IFrameRenderWindowEx* window = _synkro->GetGraphicsSystem()->GetFrameWindow( 0 );
+	IFrameRenderWindowEx* window = _synkro->GetGraphicsSystem()->GetFrameWindow();
 	IFont* font = _synkro->GetOverlayManager()->GetOverlay( window )->GetFont( L"hint" );
 	_txtHelp = font->CreateText( Color::Yellow, Point(5, 5), L"Press F1 for help", Order::Highest, Order::Highest );
 	String help = L"Toggle fullscreen: F\r\nDigital clock: D\r\nAnalog clock: A\r\nToggle sound: S\r\nExit: X";
@@ -183,8 +183,8 @@ void App::InitInput()
 void App::ToggleFullscreen()
 {
 	DisplayMode displayMode;
-	_synkro->GetGraphicsSystem()->GetFrameWindow( 0 )->GetDisplayMode( displayMode );
+	_synkro->GetGraphicsSystem()->GetFrameWindow()->GetDisplayMode( displayMode );
 	displayMode = (displayMode == _displayModeFullscreen) ? _displayModeWindowed : _displayModeFullscreen;
 	_camera->SetAspect( displayMode.AspectFactor() );
-	_synkro->GetGraphicsSystem()->GetFrameWindow( 0 )->SetDisplayMode( displayMode );
+	_synkro->GetGraphicsSystem()->GetFrameWindow()->SetDisplayMode( displayMode );
 }

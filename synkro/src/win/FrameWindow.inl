@@ -109,28 +109,3 @@ SYNKRO_INLINE Bool FrameWindow::IsSizeable() const
 {
 	return _window->IsSizeable();
 }
-
-SYNKRO_INLINE Bool FrameWindow::IsRenderable() const
-{
-	return _window->IsRenderable();
-}
-
-SYNKRO_INLINE UInt FrameWindow::GetWindowCount() const
-{
-	return _windows.Size();
-}
-
-SYNKRO_INLINE IViewWindowEx* FrameWindow::GetWindow( UInt index ) const
-{
-	assert( index < _windows.Size() );
-
-	if ( index >= _windows.Size() )
-		throw new lang::OutOfRangeException( index, _windows.Size() );
-
-	return _windows[index];
-}
-
-SYNKRO_INLINE void FrameWindow::AddWindow( IViewWindowEx* window )
-{
-	_windows.Add( window );
-}

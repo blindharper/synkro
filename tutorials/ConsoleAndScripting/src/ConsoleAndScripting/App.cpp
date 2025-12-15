@@ -49,7 +49,7 @@ void App::Run()
 
 void App::OnSynkroInitialize()
 {
-	_window = _synkro->GetGraphicsSystem()->GetFrameWindow( 0 );
+	_window = _synkro->GetGraphicsSystem()->GetFrameWindow();
 	InitView();
 	InitScripting();
 }
@@ -88,7 +88,7 @@ void App::Configure()
 void App::InitView()
 {
 	// Setup viewport.
-	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow(0)->GetView(0) );
+	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow()->GetView(0) );
 }
 
 void App::InitScripting()

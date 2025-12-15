@@ -75,7 +75,7 @@ public:
 		_camera2->SetPosition( Vector3(0.0f, 180.0f, -10.0f) );
 		_camera2->LookAt( Vector3::Origin );
 
-		IWindow* window = _synkro->GetWindowSystem()->GetFrameWindow( 0 );
+		IWindow* window = _synkro->GetWindowSystem()->GetFrameWindow();
 		_picture = _synkro->GetViewportManager()->CreateViewport( _window, Rect(Point(window->GetWidth()-330, window->GetHeight()-250), Size(320, 240)), _camera2, Color::LightGray );
 		_picture->SetBorderColor( Color::Red );
 		_picture->SetLabelColor( Color::DarkOrange );

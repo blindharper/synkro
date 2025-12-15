@@ -11,7 +11,7 @@
 // Purpose: Generic view window implementation.
 //==============================================================================
 template <class T>
-SYNKRO_INLINE ViewWindowImpl<T>::ViewWindowImpl( IFrameWindow* parent, Int left, Int top, UInt width, UInt height ) :
+SYNKRO_INLINE ViewWindowImpl<T>::ViewWindowImpl( IHostWindow* parent, Int left, Int top, UInt width, UInt height ) :
 	WindowImpl<T>( left, top, width, height ),
 	_parent( parent ),
 	_visible( true )
@@ -43,7 +43,7 @@ SYNKRO_INLINE Bool ViewWindowImpl<T>::IsVisible() const
 }
 
 template <class T>
-SYNKRO_INLINE IFrameWindow* ViewWindowImpl<T>::GetParent() const
+SYNKRO_INLINE IHostWindow* ViewWindowImpl<T>::GetParent() const
 {
 	return _parent;
 }

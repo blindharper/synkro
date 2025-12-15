@@ -181,7 +181,7 @@ void Tool::InitView()
 	_camera->SetFront( 0.1f );
 	_camera->SetBack( 10000.0f );
 
-	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow(0)->GetView(0) );
+	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow()->GetView(0) );
 	_viewport->SetCamera( _camera );
 	_viewport->SetColor( Color::DimGray );
 }
@@ -197,7 +197,7 @@ void Tool::InitInput()
 	_synkro->GetInputSystem()->CreateKeyboard( 0 );
 	_synkro->GetInputSystem()->CreateMouse( 0 );
 	IMouseEx* mouse = _synkro->GetInputSystem()->GetMouse( 0 );
-	_synkro->GetInputSystem()->CreateArcball( mouse, _synkro->GetWindowSystem()->GetFrameWindow(0) );
+	_synkro->GetInputSystem()->CreateArcball( mouse, _synkro->GetWindowSystem()->GetFrameWindow() );
 	_synkro->GetInputSystem()->GetArcball()->ListenOrientation( this );
 	_synkro->GetInputSystem()->GetArcball()->ListenZoom( this );
 }

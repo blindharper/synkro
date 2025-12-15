@@ -34,9 +34,7 @@ public:
 		_windowSystem = new WindowSystemEx( _module, nullptr );
 		_windowSystem->Initialize( _factWindowSys );
 		_windowSystem->CreateWindow( false, true, _title, 0, 640, 480 );
-		IFrameWindowEx* wnd = _windowSystem->GetFrameWindow( 0 );
-		IViewWindow* view = _windowSystem->CreateWindow( wnd, 50, 120, 300, 200 );
-		IViewWindow* view2 = _windowSystem->CreateWindow( wnd, 400, 10, 100, 400 );
+		IFrameWindowEx* wnd = _windowSystem->GetFrameWindow();
 		IIconWindow* icon = _windowSystem->CreateWindow( 0, _title );
 		icon->AddMenuItem( 100, 100, L"Command 1" );
 		icon->AddMenuItem( 200, 200, L"Command 2" );
@@ -50,37 +48,37 @@ public:
 		}
 	}
 
-	void OnWindowResize( UInt window, UInt width, UInt height )
+	void OnWindowResize( Pointer handle, UInt width, UInt height )
 	{
 		String title = String::Format( L"Width: {0}, Height: {1}", width, height );
-		_windowSystem->GetFrameWindow( 0 )->SetTitle( title );
+		_windowSystem->GetFrameWindow()->SetTitle( title );
 	}
 
-	void OnWindowCommand( UInt window, UInt command )
+	void OnWindowCommand( Pointer handle, UInt command )
 	{
 		switch ( command )
 		{
 			case 100:
-				_windowSystem->GetFrameWindow( 0 )->SetTitle( L"Command 1" );
+				_windowSystem->GetFrameWindow()->SetTitle( L"Command 1" );
 				break;
 
 			case 200:
-				_windowSystem->GetFrameWindow( 0 )->SetTitle( L"Command 2" );
+				_windowSystem->GetFrameWindow()->SetTitle( L"Command 2" );
 				break;
 
 			case 300:
 				_running = false;
-				_windowSystem->GetFrameWindow( 0 )->Activate();
+				_windowSystem->GetFrameWindow()->Activate();
 				break;
 		}
 	}
 
-	void OnWindowActivate( UInt window, Bool active )
+	void OnWindowActivate( Pointer handle, Bool active )
 	{
-		_windowSystem->GetFrameWindow( 0 )->SetTitle( active ? L"Active" : L"Inactive" );
+		_windowSystem->GetFrameWindow()->SetTitle( active ? L"Active" : L"Inactive" );
 	}
 
-	Bool OnWindowClosing( UInt window )
+	Bool OnWindowClosing( Pointer handle )
 	{
 		return Platform::Question( L"Close Window", L"Are you sure you want to quit?" );
 	}

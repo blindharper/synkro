@@ -121,7 +121,7 @@ IMouse* Di8InputSystem::CreateMouse( UInt index )
 	{
 		if ( (_guids[i].Type == DI8DEVTYPE_MOUSE) && (idx++ == index) )
 		{
-			HWND wnd = (_windowSystem->GetFrameWindowCount() > 0) ? (HWND)(_windowSystem->GetFrameWindow(0)->GetHandle()) : nullptr;
+			HWND wnd = (_windowSystem->GetFrameWindow() != nullptr) ? (HWND)(_windowSystem->GetFrameWindow()->GetHandle()) : nullptr;
 			return new Di8Mouse( _di8, _guids[i].Guid, wnd, _mice[index] );
 		}
 	}
@@ -141,7 +141,7 @@ IJoystick* Di8InputSystem::CreateJoystick( UInt index )
 	{
 		if ( (_guids[i].Type == DI8DEVTYPE_JOYSTICK) && (idx++ == index) )
 		{
-			HWND wnd = (_windowSystem->GetFrameWindowCount() > 0) ? (HWND)(_windowSystem->GetFrameWindow(0)->GetHandle()) : nullptr;
+			HWND wnd = (_windowSystem->GetFrameWindow() != nullptr) ? (HWND)(_windowSystem->GetFrameWindow()->GetHandle()) : nullptr;
 			return new Di8Joystick( _di8, _guids[i].Guid, wnd, _joysticks[index] );
 		}
 	}
@@ -161,7 +161,7 @@ IKeyboard* Di8InputSystem::CreateKeyboard( UInt index )
 	{
 		if ( (_guids[i].Type == DI8DEVTYPE_KEYBOARD) && (idx++ == index) )
 		{
-			HWND wnd = (_windowSystem->GetFrameWindowCount() > 0) ? (HWND)(_windowSystem->GetFrameWindow(0)->GetHandle()) : nullptr;
+			HWND wnd = (_windowSystem->GetFrameWindow() != nullptr) ? (HWND)(_windowSystem->GetFrameWindow()->GetHandle()) : nullptr;
 			return new Di8Keyboard( _di8, _guids[i].Guid, wnd, _keyboards[index] );
 		}
 	}
