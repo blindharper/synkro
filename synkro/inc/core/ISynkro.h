@@ -44,6 +44,12 @@ public:
 	virtual void											Run( const Bool& running ) = 0;
 
 	/**
+	 * Runs one iteration of systems update.
+	 * @return True, if update succeded, false if update failed.
+	 */
+	virtual Bool											Step() = 0;
+
+	/**
 	 * Adds a task to the system task queue.
 	 * @param task Task to execute.
 	 */

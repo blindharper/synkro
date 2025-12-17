@@ -38,6 +38,7 @@
 #include <diag/Diag.h>
 #include <ui/UiEx.h>
 #include <core/ISynkro.h>
+#include <core/TimerListener.h>
 #include <internal/Timer.h>
 #include "FactoryTable.h"
 #include "ResourceTable.h"
@@ -95,6 +96,7 @@ public:
 
 	// ISynkro methods.
 	void													Run( const Bool& running );
+	Bool													Step();
 	void													Execute( Task* task );
 	Bool													Configure( IConfiguration* config );
 	IResource*												CreateResource( const Byte* data, UInt size );
@@ -174,6 +176,8 @@ private:
 	Double													_time;
 	Double													_timeScale;
 	Double													_timeScaleTimeToLive;
+	Double													_delta;
+	Double													_deltaUnscaled;
 	UInt													_frame;
 	Pointer													_module;
 	Language												_language;

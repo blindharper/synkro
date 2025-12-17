@@ -147,6 +147,61 @@ SYNKRO_INLINE win::IWindowSystemEx* Synkro::GetWindowSystem() const
 	return _windowSystem;
 }
 
+SYNKRO_INLINE Bool Synkro::Step()
+{
+	SynkroProfile( "Synkro.Step" );
+
+	// Do update.
+	SynkroProfileBegin( "Synkro.Step.Systems" );
+	_deltaUnscaled = _timer.GetElapsedSeconds();
+	_delta = _deltaUnscaled * _timeScale;
+	_time += _delta;
+
+	// Update time scale, if needed.
+	if ( _timeScaleTimeToLive > 0.0 )
+	{
+		_timeScaleTimeToLive -= _deltaUnscaled;
+		if ( _timeScaleTimeToLive <= 0.0 )
+		{
+			_timeScale = 1.0;
+			_timeScaleTimeToLive = 0.0;
+		}
+	}
+
+	// Update subsystems.
+	for ( UInt i = 0; i < _systems.Size(); ++i )
+	{
+		// Exit loop, if needed.
+		if ( !_systems[i]->Update(_delta) )
+			return false;
+	}
+	SynkroProfileEnd();
+
+	// Update system event listeners.
+	SynkroProfileBegin( "Synkro.Step.Listener" );
+	if ( (_listener != nullptr) && _updateListener )
+	{
+		_listener->OnSynkroUpdate( _delta );
+	}
+	SynkroProfileEnd();
+
+	// Update timers.
+	SynkroProfileBegin( "Synkro.Step.Timers" );
+	for ( UInt i = 0; i < _timers.Size(); ++i )
+	{
+		TimerDesc& timer = _timers[i];
+		timer.Time -= _delta;
+		if ( timer.Time <= 0.0 )
+		{
+			timer.Time += CastDouble(timer.Interval)*0.001;
+			timer.Listener->OnTimerTick( timer.ID );
+		}
+	}
+	SynkroProfileEnd();
+
+	return true;
+}
+
 SYNKRO_INLINE IConfiguration* Synkro::GetConfiguration() const
 {
 	return _config;

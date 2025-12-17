@@ -25,7 +25,6 @@
 #include <diag/BaseLog.h>
 #include <core/IResource.h>
 #include <core/Param.h>
-#include <core/TimerListener.h>
 #include <gfx/GraphicsSystem.h>
 #include <core/VersionException.h>
 #include "ParamTypeConst.h"
@@ -99,6 +98,8 @@ Synkro::Synkro( Pointer module, UInt version, SynkroListener* listener ) :
 	_time( 0.0 ),
 	_timeScale( 1.0 ),
 	_timeScaleTimeToLive( 0.0 ),
+	_delta( 0.0 ),
+	_deltaUnscaled( 0.0 ),
 	_frame( 0 ),
 	_language( Language::English ),
 	_module( module ),
@@ -206,59 +207,12 @@ void Synkro::Run( const Bool& running )
 
 		// Enter main loop.
 		_time = 0.0; _frame = 0;
-		Double delta = _timer.GetElapsedSeconds();
-		Double deltaUnscaled = 0.0;
+		_delta = _timer.GetElapsedSeconds();
+		_deltaUnscaled = 0.0;
 		for ( ; running ; ++_frame )
 		{
-			SynkroProfile( "Synkro.Run.Step" );
-
-			// Do update.
-			SynkroProfileBegin( "Synkro.Run.Step.Systems" );
-			deltaUnscaled = _timer.GetElapsedSeconds();
-			delta = deltaUnscaled * _timeScale;
-			_time += delta;
-
-			// Update time scale, if needed.
-			if ( _timeScaleTimeToLive > 0.0 )
-			{
-				_timeScaleTimeToLive -= deltaUnscaled;
-				if ( _timeScaleTimeToLive <= 0.0 )
-				{
-					_timeScale = 1.0;
-					_timeScaleTimeToLive = 0.0;
-				}
-			}
-
-			// Update subsystems.
-			for ( UInt i = 0; i < _systems.Size(); ++i )
-			{
-				// Exit loop, if needed.
-				if ( !_systems[i]->Update(delta) )
-					return;
-			}
-			SynkroProfileEnd();
-
-			// Update system event listeners.
-			SynkroProfileBegin( "Synkro.Run.Step.Listener" );
-			if ( (_listener != nullptr) && _updateListener )
-			{
-				_listener->OnSynkroUpdate( delta );
-			}
-			SynkroProfileEnd();
-
-			// Update timers.
-			SynkroProfileBegin( "Synkro.Run.Step.Timers" );
-			for ( UInt i = 0; i < _timers.Size(); ++i )
-			{
-				TimerDesc& timer = _timers[i];
-				timer.Time -= delta;
-				if ( timer.Time <= 0.0 )
-				{
-					timer.Time += CastDouble(timer.Interval)*0.001;
-					timer.Listener->OnTimerTick( timer.ID );
-				}
-			}
-			SynkroProfileEnd();
+			if ( !Step() )
+				return;
 		}
 	}
 	catch ( const Exception& ex )
