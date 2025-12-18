@@ -64,8 +64,8 @@ void ConfigurationEditor::Initialize( Pointer module, ISynkro* synkro )
 	// Create preview pane.
 	win::IHostWindow* dlg = _synkro->GetWindowSystem()->CreateWindow( handle );
 	const Float scale = CastFloat(dlg->GetDpi()) / 96.0f; // Config dialog is designed on a screen with 96 DPI.
-	_synkro->GetWindowSystem()->CreateWindow( _synkro->GetWindowSystem()->GetHostWindow(), scale*12, scale*12, scale*690, scale*48);
-	_synkro->GetWindowSystem()->CreateWindow( _synkro->GetWindowSystem()->GetHostWindow(), scale*12, scale*72, scale*267, scale*267 );
+	_synkro->GetWindowSystem()->CreateWindow( dlg, scale*12, scale*12, scale*690, scale*48 );
+	_synkro->GetWindowSystem()->CreateWindow( dlg, scale*12, scale*72, scale*267, scale*267 );
 }
 
 void ConfigurationEditor::Show( IConfiguration* config )
