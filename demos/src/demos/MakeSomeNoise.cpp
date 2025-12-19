@@ -39,13 +39,13 @@ public:
 		_ctrlMesh = _mesh->CreateAnimationController( nullptr, nullptr );
 		_trackMeshYaw = _ctrlMesh->CreateOrientationYawTrack( AnimationTrack::FloatNoise )->AsNoise();
 		_trackMeshYaw->SetMagnitude( Math::Pi );
-		_trackMeshYaw->SetSeed( 20 );
+		_trackMeshYaw->SetSeed( rnd.GetUInt() );
 		_trackMeshPitch = _ctrlMesh->CreateOrientationPitchTrack( AnimationTrack::FloatNoise )->AsNoise();
 		_trackMeshPitch->SetMagnitude( Math::Pi );
-		_trackMeshPitch->SetSeed( 50 );
+		_trackMeshPitch->SetSeed( rnd.GetUInt() );
 		_trackMeshRoll = _ctrlMesh->CreateOrientationRollTrack( AnimationTrack::FloatNoise )->AsNoise();
 		_trackMeshRoll->SetMagnitude( Math::Pi );
-		_trackMeshRoll->SetSeed( 10 );
+		_trackMeshRoll->SetSeed( rnd.GetUInt() );
 
 		PtrNoiseFloatTrack trackPosY = _ctrlMesh->CreatePositionYTrack( AnimationTrack::FloatNoise )->AsNoise();
 		trackPosY->SetMagnitude( 50.0f );
