@@ -87,17 +87,17 @@ NoiseConfigurationScene::NoiseConfigurationScene( ISynkro* synkro ) :
 	// Create controllers.
 	INodeAnimationController* ctrlMesh = _mesh->CreateAnimationController( nullptr, nullptr );
 
+	Random rnd;
 	INoiseFloatTrack* trackYaw = ctrlMesh->CreateOrientationYawTrack( AnimationTrack::FloatNoise )->AsNoise();
 	trackYaw->SetMagnitude( Math::Pi );
-	trackYaw->SetSeed( 20 );
+	trackYaw->SetSeed( rnd.GetUInt() );
 	INoiseFloatTrack* trackPitch = ctrlMesh->CreateOrientationPitchTrack( AnimationTrack::FloatNoise )->AsNoise();
 	trackPitch->SetMagnitude( Math::Pi );
-	trackPitch->SetSeed( 50 );
+	trackPitch->SetSeed( rnd.GetUInt() );
 	INoiseFloatTrack* trackRoll = ctrlMesh->CreateOrientationRollTrack( AnimationTrack::FloatNoise )->AsNoise();
 	trackRoll->SetMagnitude( Math::Pi );
-	trackRoll->SetSeed( 100 );
+	trackRoll->SetSeed( rnd.GetUInt() );
 
-	Random rnd;
 	ISimpleMaterialAnimationController* ctrlMaterial = _material->CreateAnimationController( nullptr, nullptr )->AsSimple();
 	INoiseColorTrack* trackColor = ctrlMaterial->CreateDiffuseAmbientColorTrack( AnimationTrack::ColorNoise )->AsNoise();
 	trackColor->SetSeed( rnd.GetUInt() );
