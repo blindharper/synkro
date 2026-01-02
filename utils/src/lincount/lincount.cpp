@@ -50,7 +50,6 @@ int CountLines( const char* filename )
 				if ( line.find("*/") == 0 )
 					comment = false;
 			}
-				
 
 			if ( !comment )
 				++lines;
