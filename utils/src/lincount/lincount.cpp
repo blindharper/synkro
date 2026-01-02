@@ -29,7 +29,7 @@ int CountLines( const char* filename )
 			{
 				line.assign( line.substr(1) );
 			}
-			while ( (pos = line.rfind('\t') == line.length()-1) )
+			while ( (line.length() > 0) && (pos = line.rfind('\t') == line.length()-1) )
 			{
 				line.assign( line.substr(0, line.length()-1) );
 			}
@@ -45,7 +45,12 @@ int CountLines( const char* filename )
 			}
 
 			if ( line.find("/*") == 0 )
+			{
 				comment = true;
+				if ( line.find("/*") == 0 )
+					comment = false;
+			}
+				
 
 			if ( !comment )
 				++lines;
