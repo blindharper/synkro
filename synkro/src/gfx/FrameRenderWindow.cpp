@@ -43,7 +43,7 @@ FrameRenderWindow::FrameRenderWindow( GraphicsDevice* device, IFrameRenderWindow
 	BaseRenderWindowImpl<BaseRenderWindow>( device, window, window->GetWidth(), window->GetHeight(), programScreen, programView, sampleCount),
 	_window( window ),
 	_target( nullptr ),
-	Logger( log, LogFacility::WindowSystem )
+	Logger( log, LogFacility::GraphicsSystem )
 {
 	// Create default view.
 	CreateView( 0, 0, window->GetWidth(), window->GetHeight(), sampleCount, Vector4(0.0f, 0.0f, 0.0f, 1.0f) );

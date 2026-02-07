@@ -36,8 +36,9 @@ class AudioSystemEx :
 	public Logger
 {
 public:
-	// Constructor.
+	// Constructor & destructor.
 	AudioSystemEx( const sound::SoundFormat& format, diag::ILog* log );
+	~AudioSystemEx();
 
 	// ISystem methods.
 	Bool													Update( Double delta );

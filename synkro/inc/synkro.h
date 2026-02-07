@@ -31,6 +31,7 @@
 #include <mem/mem.h>
 #include <net/net.h>
 #include <over/over.h>
+#include <phys/phys.h>
 #include <prf/prf.h>
 #include <scene/scene.h>
 #include <script/script.h>

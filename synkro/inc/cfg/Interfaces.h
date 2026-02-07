@@ -345,6 +345,23 @@ iface ITextPoolAnimationController;
 
 } // over
 
+namespace phys
+{
+
+iface IActor;
+iface IDynamicActor;
+iface IPhysicsEnvironment;
+iface IPhysicsMaterial;
+iface IPhysicsSystem;
+iface IPhysicsSystemEx;
+iface IPhysicsSystemFactory;
+iface IRigidActor;
+iface IRigidBody;
+iface IShape;
+iface IStaticActor;
+
+} // phys
+
 namespace scene
 {
 

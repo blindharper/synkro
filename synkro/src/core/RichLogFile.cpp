@@ -67,13 +67,14 @@ void RichLogFile::OnLogStart( const DateTime& time )
 		WriteLine( L"::selection { background: #5e011f; color:#ffffff; }" );
 		WriteLine( L".centered { text-align:center; }" );
 		WriteLine( L".thread { color:#ffa500; }" );
-		WriteLine( L".time { color:#8a0000; padding-right:8px; }" );
+		WriteLine( L".time { color:#bfbfbf; padding-right:8px; }" );
 		WriteLine( L".facility { color:#696969; padding-right:8px; }" );
 		WriteLine( L".info { color:#51a635; }" );
 		WriteLine( L".warning { color:#ffff00; }" );
 		WriteLine( L".error { color:#ff0000; }" );
 		WriteLine( L".num { color:#ff0000; }" );
 		WriteLine( L".string { color:#bfbfbf; }" );
+		WriteLine( L"tr:hover { background-color:#5e011f; }" );
 		WriteLine( L"</style>" );
 		WriteLine( L"</head>" );
 		WriteLine( L"<body>" );

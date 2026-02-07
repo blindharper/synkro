@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\src\net\Test_Ws2NetworkSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\net\NetworkDevice.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\net\NetworkPeer.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\net\NetworkSystemEx.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\net\Ws2\Ws2.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\net\Ws2\Ws2NetworkDevice.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\net\Ws2\Ws2NetworkPeer.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\net\Ws2\Ws2NetworkSystem.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\net\NetworkSystemTest.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="net">
+      <UniqueIdentifier>{a5176fbd-1eff-467a-8f7a-4e6cf894ce8c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

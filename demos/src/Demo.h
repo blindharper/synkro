@@ -46,6 +46,7 @@ using namespace synkro::lang;
 using namespace synkro::mat;
 using namespace synkro::math;
 using namespace synkro::over;
+using namespace synkro::phys;
 using namespace synkro::scene;
 using namespace synkro::sound;
 using namespace synkro::ui;

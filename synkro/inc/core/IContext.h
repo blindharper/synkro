@@ -89,6 +89,11 @@ public:
 	virtual over::IOverlayManager*							GetOverlayManager() const = 0;
 
 	/**
+	 * Retrieves physics system.
+	 */
+	virtual phys::IPhysicsSystemEx*							GetPhysicsSystem() const = 0;
+
+	/**
 	 * Retrieves scene manager.
 	 */
 	virtual scene::ISceneManager*							GetSceneManager() const = 0;

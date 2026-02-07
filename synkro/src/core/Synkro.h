@@ -30,6 +30,7 @@
 #include <script/ScriptSystemEx.h>
 #include <io/StreamSystemEx.h>
 #include <over/OverlayManager.h>
+#include <phys/PhysicsSystemEx.h>
 #include <sound/SoundManager.h>
 #include <cons/Console.h>
 #include <view/ViewportManager.h>
@@ -79,6 +80,7 @@ public:
 	mat::IMaterialManager*									GetMaterialManager() const;
 	net::INetworkSystemEx*									GetNetworkSystem() const;
 	over::IOverlayManager*									GetOverlayManager() const;
+	phys::IPhysicsSystemEx*									GetPhysicsSystem() const;
 	scene::ISceneManager*									GetSceneManager() const;
 	script::IScriptSystemEx*								GetScriptSystem() const;
 	sound::ISoundManager*									GetSoundManager() const;
@@ -137,6 +139,7 @@ public:
 	void													InitMaterialManager( IConfiguration* config );
 	void													InitNetworkSystem( IConfiguration* config );
 	void													InitOverlayManager( IConfiguration* config );
+	void													InitPhysicsSystem( IConfiguration* config );
 	void													InitSceneManager( IConfiguration* config );	
 	void													InitScriptSystem( IConfiguration* config );
 	void													InitSoundManager( IConfiguration* config );
@@ -212,6 +215,7 @@ private:
 	P(view::ViewportManager)								_viewportManager;
 	P(script::ScriptSystemEx)								_scriptSystem;
 	P(over::OverlayManager)									_overlayManager;
+	P(phys::PhysicsSystemEx)								_physicsSystem;
 	P(scene::SceneManager)									_sceneManager;
 	P(ui::UiEx)												_ui;
 	P(cons::Console)										_console;

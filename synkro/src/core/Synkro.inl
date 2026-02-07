@@ -97,6 +97,13 @@ SYNKRO_INLINE over::IOverlayManager* Synkro::GetOverlayManager() const
 	return _overlayManager;
 }
 
+SYNKRO_INLINE phys::IPhysicsSystemEx* Synkro::GetPhysicsSystem() const
+{
+	SynkroCall( "Synkro.GetPhysicsSystem", lang::String::Empty );
+
+	return _physicsSystem;
+}
+
 SYNKRO_INLINE scene::ISceneManager* Synkro::GetSceneManager() const
 {
 	return _sceneManager;

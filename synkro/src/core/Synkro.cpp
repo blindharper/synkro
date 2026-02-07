@@ -60,6 +60,7 @@ using namespace synkro::math;
 using namespace synkro::mem;
 using namespace synkro::net;
 using namespace synkro::over;
+using namespace synkro::phys;
 using namespace synkro::prf;
 using namespace synkro::scene;
 using namespace synkro::script;
@@ -325,6 +326,7 @@ void Synkro::Initialize( IConfiguration* config )
 		InitMaterialManager( config );
 		InitSoundManager( config );
 		InitOverlayManager( config );
+		InitPhysicsSystem( config );
 		InitSceneManager( config );
 		InitViewportManager( config );
 		InitScriptSystem( config );
@@ -391,6 +393,7 @@ void Synkro::Destroy()
 
 	// Finalize sub-systems.
 	if ( _ui != nullptr ) { _ui->Finalize(); }
+	if ( _physicsSystem != nullptr ) { _physicsSystem->Finalize(); }
 	if ( _inputSystem != nullptr ) { _inputSystem->Finalize(); }
 	if ( _graphicsSystem != nullptr ) { _graphicsSystem->Finalize(); }
 	if ( _audioSystem != nullptr ) { _audioSystem->Finalize(); }
@@ -735,6 +738,29 @@ void Synkro::InitOverlayManager( IConfiguration* config )
 		_systems.Add( _overlayManager = new OverlayManager(this, _diag->GetLog()) );
 	}
 	_overlayManager->Init();
+}
+
+void Synkro::InitPhysicsSystem( IConfiguration* config )
+{
+	SynkroCall( "Synkro.InitPhysicsSystem", String::Empty );
+	SynkroProfile( "Synkro.InitPhysicsSystem" );
+
+	if ( ExistsOrDisabled(_physicsSystem, config, Param::PhysicsEnable) )
+		return;
+
+	// Create physics system.
+	if ( _physicsSystem == nullptr )
+	{
+		_systems.Add( _physicsSystem = new PhysicsSystemEx(_diag->GetLog()) );
+	}
+
+	// Initialize physics system.
+	Enum physicsSystem; config->Get( Param::PhysicsSystem, &physicsSystem );
+	IPhysicsSystemFactory* factPhysicsSystem = (IPhysicsSystemFactory*)GetFactory( Iface::PhysicsSystem, physicsSystem );
+	if ( factPhysicsSystem == nullptr )
+		throw Exception( L"Failed to instantiate physics system. System factory is missing." );
+
+	_physicsSystem->Initialize( factPhysicsSystem );
 }
 
 void Synkro::InitSceneManager( IConfiguration* config )

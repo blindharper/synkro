@@ -41,6 +41,9 @@ void Demo::Run()
 	if ( s_editConfig && !_synkro->Configure(_config) )
 		return;
 
+	// Emit log message.
+	_synkro->GetDiag()->GetLog()->Info( LogFacility::User, MessagePriority::Normal, Formatter::Format(L"Running demo {0,q}...", _title) );
+
 	// Create main window.
 	String mode; _config->Get( Param::GraphicsDisplayMode, &mode );
 	_displayModeWindowed = DisplayMode( mode, false );
@@ -94,6 +97,8 @@ void Demo::OnSynkroUpdate( Double delta )
 
 	if ( _window->GetTarget() != nullptr )
 	{
+		_synkro->GetDiag()->GetLog()->Info( LogFacility::User, MessagePriority::Normal, Formatter::Format(L"Saving screenshot...") );
+
 		_window->SetTarget( nullptr );
 		PtrStreamDirectory dirShots = _synkro->GetStreamSystem()->BuildDirectory( L"../../shots" );
 		_shotStream = dirShots->CreateStream( GetShotName() );

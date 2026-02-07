@@ -16,9 +16,7 @@
 #include "ParentConstraint.h"
 #include "LookAtConstraint.h"
 #include "TriangleSet.h"
-#include <gfx/ISceneRenderObject.h>
-#include <gfx/ISceneRenderQueue.h>
-#include <gfx/IPrimitiveEx.h>
+#include <phys/IRigidActor.h>
 
 
 //------------------------------------------------------------------------------
@@ -30,6 +28,7 @@ using namespace synkro::input;
 using namespace synkro::io;
 using namespace synkro::lang;
 using namespace synkro::math;
+using namespace synkro::phys;
 
 //------------------------------------------------------------------------------
 
@@ -56,6 +55,10 @@ TriangleMesh::TriangleMesh( ITriangleMesh* mesh, ISceneEx* scene, IContext* cont
 
 INodeAnimationController* TriangleMesh::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
+	// Prevent creating animation controller if dynamic simulations are here.
+	if ( GetActor() != nullptr )
+		throw InvalidOperationException( L"Cannot create animation controller. Physics actor is non-null." );
+
 	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new NodeAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
@@ -67,6 +70,19 @@ IParentConstraint* TriangleMesh::CreateParentConstraint( INode* parent, const Ma
 ILookAtConstraint* TriangleMesh::CreateLookAtConstraint( INode* target )
 {
 	return (_lookAtConstraint == nullptr) ? _lookAtConstraint = new LookAtConstraint( _context->GetGraphicsSystem(), this, target ) : _lookAtConstraint;
+}
+
+void TriangleMesh::GetWorldTransform( Matrix4x4& transform ) const
+{
+	IRigidActor* rigidActor = (GetActor() != nullptr) ? GetActor()->AsRigid() : nullptr;
+	if ( rigidActor != nullptr )
+	{
+		rigidActor->GetWorldTransform( transform );
+	}
+	else
+	{
+		MeshImpl<ITriangleMesh>::GetWorldTransform( transform );
+	}
 }
 
 ITriangleSet* TriangleMesh::CreateTriangleList( const String& name, UInt vertexCount, UInt indexCount, Bool adjacency, const Matrix4x4& transform )
@@ -101,10 +117,25 @@ void TriangleMesh::Save( IStream* stream, const DataMode& mode )
 	throw NotSupportedException();
 }
 
+void TriangleMesh::SetActor( IActor* actor )
+{
+	assert( actor != nullptr );
+
+	// Prevent setting actor if animation controller is here.
+	if ( _ctrlAnimation != nullptr )
+		throw InvalidOperationException( L"Cannot set actor. Animation controller is non-null." );
+
+	_actor = actor;
+}
+
 void TriangleMesh::Update()
 {
-	NodeImpl<ITriangleMesh>::ApplyConstraints( _ctrlAnimation );
-
+	// Get mesh world transform either from physics or from node hierarchy.
+	IRigidActor* rigidActor = (GetActor() != nullptr) ? GetActor()->AsRigid() : nullptr;
+	if ( rigidActor == nullptr )
+	{
+		NodeImpl<ITriangleMesh>::ApplyConstraints( _ctrlAnimation );
+	}
 	Matrix4x4 worldTransform;
 	GetWorldTransform( worldTransform );
 

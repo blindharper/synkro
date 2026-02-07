@@ -43,6 +43,12 @@ AudioSystemEx::AudioSystemEx( const SoundFormat& format, ILog* log ) :
 	_recorders( A(P(AudioRecorder)) ),
 	Logger( log, LogFacility::AudioSystem )
 {
+	LogInfo( MessagePriority::Lowest, Formatter::Format(L"Creating audio system...") );
+}
+
+AudioSystemEx::~AudioSystemEx()
+{
+	LogInfo( MessagePriority::Lowest, Formatter::Format(L"Destroying audio system...") );
 }
 
 Bool AudioSystemEx::Update( Double delta )

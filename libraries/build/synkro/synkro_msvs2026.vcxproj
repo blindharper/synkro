@@ -163,7 +163,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../../synkro/src;../../../synkro/src/internal;../../../external/src;../../../synkro/inc;../../src/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN64;UNICODE;_DEBUG;_WINDOWS;_USRDLL;SYNKRO_EXPORTS;SYNKRO_PROFILE;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN64;UNICODE;_DEBUG;_WINDOWS;_USRDLL;SYNKRO_EXPORTS;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -208,7 +208,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../../synkro/src;../../../synkro/src/internal;../../../external/src;../../../synkro/inc;../../src/synkro;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;UNICODE;_DEBUG;_WINDOWS;SYNKRO_EXPORTS;SYNKRO_PROFILE;SYNKRO_STATIC;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;UNICODE;_DEBUG;_WINDOWS;SYNKRO_EXPORTS;SYNKRO_STATIC;ISOLATION_AWARE_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <FunctionLevelLinking>
@@ -623,6 +623,20 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\inc\net\NetworkSystem.h" />
     <ClInclude Include="..\..\..\synkro\inc\over\ITextAnimationController.h" />
     <ClInclude Include="..\..\..\synkro\inc\over\ITextPoolAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\ForceMode.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\IActor.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\IDynamicActor.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsEnvironment.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsMaterial.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsSystem.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsSystemFactory.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\IRigidActor.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\IRigidBody.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\IShape.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\IStaticActor.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\phys.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\PhysicsSystem.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\ColorMode.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\DebugMode.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\FogType.h" />
@@ -1005,6 +1019,14 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\src\over\TextPoolAnimationController.h" />
     <ClInclude Include="..\..\..\synkro\src\over\TextPoolProperty.h" />
     <ClInclude Include="..\..\..\synkro\src\over\TextProperty.h" />
+    <ClInclude Include="..\..\..\synkro\src\phys\DynamicActor.h" />
+    <ClInclude Include="..\..\..\synkro\src\phys\PhysicsEnvironment.h" />
+    <ClInclude Include="..\..\..\synkro\src\phys\PhysicsEnvironmentImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\phys\PhysicsMaterial.h" />
+    <ClInclude Include="..\..\..\synkro\src\phys\PhysicsMaterialImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\phys\PhysicsSystemEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\phys\Shape.h" />
+    <ClInclude Include="..\..\..\synkro\src\phys\StaticActor.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\BaseFog.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\BaseLight.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\BaseMeshBatch.h" />
@@ -1588,6 +1610,9 @@ del "$(OutDir)$(TargetName).ilk"</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\synkro\inc\lang\Formattable.inl" />
+    <None Include="..\..\..\synkro\src\phys\PhysicsEnvironmentImpl.inl" />
+    <None Include="..\..\..\synkro\src\phys\PhysicsMaterialImpl.inl" />
+    <None Include="..\..\..\synkro\src\phys\PhysicsSystemEx.inl" />
     <None Include="..\..\..\synkro\src\win\HostWindow.inl" />
     <None Include="..\..\src\synkro\strings.inl" />
     <None Include="..\..\..\synkro\src\anim\Animation.inl" />
@@ -1908,6 +1933,13 @@ del "$(OutDir)$(TargetName).ilk"</Command>
   <ItemGroup>
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\NoiseConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\TeapotConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\phys\DynamicActor.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\phys\PhysicsEnvironment.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\phys\PhysicsMaterial.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\phys\PhysicsSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\phys\PhysicsSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\phys\Shape.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\phys\StaticActor.cpp" />
     <ClCompile Include="..\..\..\synkro\src\win\HostWindow.cpp" />
     <ClCompile Include="..\..\src\synkro\synkro.core.cpp" />
     <ClCompile Include="..\..\..\synkro\src\anim\AnimationCodec\AnimationCodec.cpp" />

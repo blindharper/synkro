@@ -111,8 +111,10 @@ public:
 	ITriangleSet*											CreateTriangleSet( const lang::String& name, const lang::Range& range );
 	void													Save( io::IStream* stream, const core::DataMode& mode, const MeshCodec& type );
 	void													Save( io::IStream* stream, const core::DataMode& mode );
+	void													SetActor( phys::IActor* actor );
 	ISkeleton*												GetSkeleton() const;
 	mat::IVisualMaterial*									GetMaterial() const;
+	phys::IActor*											GetActor() const;
 	IScene*													GetScene() const;
 	ITriangleMeshBatch*										AsBatch() const;
 

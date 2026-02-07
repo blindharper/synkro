@@ -20,6 +20,7 @@
   <Project Path="Lighting/Lighting_msvs2026.vcxproj" Id="ce040889-3ca0-45c8-b0c5-7c29152612a6" />
   <Project Path="LookAtMe/LookAtMe_msvs2026.vcxproj" Id="0d482fd8-f796-49a7-bb86-0b64c98bb331" />
   <Project Path="MakeSomeNoise/MakeSomeNoise_msvs2026.vcxproj" Id="212aa438-55dd-4b52-9740-9e330a9581ac" />
+  <Project Path="MayTheForce/MayTheForce_msvs2026.vcxproj" Id="cda157d3-f696-4664-9558-bc322702fbfc" />
   <Project Path="Picking/Picking_msvs2026.vcxproj" Id="ec2dd058-e4dc-45f0-99de-5907c8323a58" />
   <Project Path="PictureInPicture/PictureInPicture_msvs2026.vcxproj" Id="c8b3edc2-6df2-4b2b-b1d6-886aa07cda77" />
   <Project Path="PurpleHaze/PurpleHaze_msvs2026.vcxproj" Id="c90ecdd7-cf7b-49de-8317-723c4dd92523" />

@@ -28,6 +28,7 @@ using namespace synkro::io;
 using namespace synkro::lang;
 using namespace synkro::mat;
 using namespace synkro::math;
+using namespace synkro::phys;
 
 //------------------------------------------------------------------------------
 
@@ -75,6 +76,11 @@ void DefaultTriangleMeshInstance::Save( IStream* stream, const DataMode& mode, c
 }
 
 void DefaultTriangleMeshInstance::Save( IStream* stream, const DataMode& mode )
+{
+	// Do nothing.
+}
+
+void DefaultTriangleMeshInstance::SetActor( IActor* actor )
 {
 	// Do nothing.
 }

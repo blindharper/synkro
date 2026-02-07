@@ -20,6 +20,7 @@
 #include <scene/ISkeleton.h>
 #include <scene/ITriangleSet.h>
 #include <gfx/PrimitiveType.h>
+#include <phys/IActor.h>
 #include "MeshImpl.h"
 #include "BaseNode.h"
 
@@ -61,6 +62,7 @@ public:
 	void													SetScaleY( Float scale );
 	void													SetScaleZ( Float scale );
 	void													SetParent( INode* parent );
+	void													GetWorldTransform( math::Matrix4x4& transform ) const;
 
 	// IMesh methods.
 	ITriangleMesh*											AsTriangle() const;
@@ -71,8 +73,10 @@ public:
 	ITriangleSet*											CreateTriangleSet( const lang::String& name, const lang::Range& range );
 	void													Save( io::IStream* stream, const core::DataMode& mode, const MeshCodec& type );
 	void													Save( io::IStream* stream, const core::DataMode& mode );
+	void													SetActor( phys::IActor* actor );
 	ISkeleton*												GetSkeleton() const;
 	mat::IVisualMaterial*									GetMaterial() const;
+	phys::IActor*											GetActor() const;
 	IScene*													GetScene() const;
 	ITriangleMeshBatch*										AsBatch() const;
 
@@ -82,6 +86,7 @@ public:
 private:
 	P(ITriangleMesh)										_mesh;
 	P(INodeAnimationController)								_ctrlAnimation;
+	P(phys::IActor)											_actor;
 	P(ISkeleton)											_skeleton;
 	lang::Vector<math::Matrix4x4>							_boneTransforms;
 

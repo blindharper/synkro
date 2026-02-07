@@ -38,11 +38,12 @@ SYNKRO_DEFINE_CONST( Iface, NetworkSystem,		11 )
 SYNKRO_DEFINE_CONST( Iface, MeshBuilder,		12 )
 SYNKRO_DEFINE_CONST( Iface, MeshCodec,			13 )
 SYNKRO_DEFINE_CONST( Iface, ViewportFilter,		14 )
-SYNKRO_DEFINE_CONST( Iface, ScriptSystem,		15 )
-SYNKRO_DEFINE_CONST( Iface, Scene,				16 )
-SYNKRO_DEFINE_CONST( Iface, SoundCodec,			17 )
-SYNKRO_DEFINE_CONST( Iface, Ui,					18 )
-SYNKRO_DEFINE_CONST( Iface, WindowSystem,		19 )
+SYNKRO_DEFINE_CONST( Iface, PhysicsSystem,		15 )
+SYNKRO_DEFINE_CONST( Iface, ScriptSystem,		16 )
+SYNKRO_DEFINE_CONST( Iface, Scene,				17 )
+SYNKRO_DEFINE_CONST( Iface, SoundCodec,			18 )
+SYNKRO_DEFINE_CONST( Iface, Ui,					19 )
+SYNKRO_DEFINE_CONST( Iface, WindowSystem,		20 )
 
 
 } // core

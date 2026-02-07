@@ -22,6 +22,7 @@
 #include <gfx/GraphicsSystem.h>
 #include <input/InputSystem.h>
 #include <net/NetworkSystem.h>
+#include <phys/PhysicsSystem.h>
 #include <script/ScriptSystem.h>
 #include <sound/SoundFormat.h>
 #include <io/StreamSystem.h>
@@ -134,6 +135,10 @@ SYNKRO_PARAM( LogFileMaxSize,			"Log.File.MaxSize" )
 SYNKRO_PARAM( NetworkEnable,			"Network.Enable" )
 SYNKRO_PARAM( NetworkSystem,			"Network.System" )
 
+// Physics
+SYNKRO_PARAM( PhysicsEnable,			"Physics.Enable" )
+SYNKRO_PARAM( PhysicsSystem,			"Physics.System" )
+
 // Script
 SYNKRO_PARAM( ScriptEnable,				"Script.Enable" )
 SYNKRO_PARAM( ScriptSystem,				"Script.System" )
@@ -197,6 +202,7 @@ public:
 	const Char* DefaultStreamSystem;
 	const Char* DefaultInputSystem;
 	const Char* DefaultNetworkSystem;
+	const Char* DefaultPhysicsSystem;
 	const Char* DefaultScriptSystem;
 	const Char* DefaulWindowSystem;
 
@@ -290,6 +296,7 @@ public:
 		DefaultAudioSystem		= L"OpenAL";
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 		DefaultDatabaseSystem	= L"Sqlite";
+		DefaultPhysicsSystem	= L"PhysX";
 		DefaultScriptSystem		= L"Lua";
 	}
 } L_init;

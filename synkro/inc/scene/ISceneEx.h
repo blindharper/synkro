@@ -270,6 +270,11 @@ public:
 	virtual audio::IAudioEnvironment*						GetAudioEnvironment() const = 0;
 
 	/**
+	 * Retrieves underlying physics environment.
+	 */
+	virtual phys::IPhysicsEnvironment*						GetPhysicsEnvironment() const = 0;
+
+	/**
 	 * Retrieves scene name.
 	 */
 	virtual lang::String									GetName() const = 0;

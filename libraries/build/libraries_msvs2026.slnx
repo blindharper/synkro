@@ -22,6 +22,7 @@
   <Project Path="synkro.io/synkro.io_msvs2026.vcxproj" Id="35f7ddd0-388e-41f8-b659-875c02475e55" />
   <Project Path="synkro.mat/synkro.mat_msvs2026.vcxproj" Id="877d198b-deaa-49ce-9d9c-adf33cb7f275" />
   <Project Path="synkro.net.ws2/synkro.net.ws2_msvs2026.vcxproj" Id="49411e84-e33f-4fec-a0de-6b0b0579934c" />
+  <Project Path="synkro.phys.physx/synkro.phys.physx_msvs2026.vcxproj" Id="c886f634-fca8-4379-85e5-6252c681f995" />
   <Project Path="synkro.scene/synkro.scene_msvs2026.vcxproj" Id="70fb0e3a-21f0-4d15-9f95-506385ce3431" />
   <Project Path="synkro.script.lua/synkro.script.lua_msvs2026.vcxproj" Id="76567d1a-52c2-46b1-b0af-7d5bb44fc08f" />
   <Project Path="synkro.sound/synkro.sound_msvs2026.vcxproj" Id="0f29ae09-9cab-4925-a4e6-b83dd8c07223" />
