@@ -17,7 +17,6 @@
 #include <gfx/PrimitiveTypeConst.h>
 #include <gfx/ISceneRenderObject.h>
 #include <gfx/ISceneRenderQueue.h>
-#include <gfx/IPrimitiveEx.h>
 #include <mat/BaseMaterial.h>
 
 
@@ -32,6 +31,7 @@ using namespace synkro::io;
 using namespace synkro::lang;
 using namespace synkro::mat;
 using namespace synkro::math;
+using namespace synkro::phys;
 
 //------------------------------------------------------------------------------
 
@@ -111,6 +111,11 @@ void DefaultTriangleMeshBatch::Save( IStream* stream, const DataMode& mode, cons
 }
 
 void DefaultTriangleMeshBatch::Save( IStream* stream, const DataMode& mode )
+{
+	throw NotSupportedException();
+}
+
+void DefaultTriangleMeshBatch::SetActor( IActor* actor )
 {
 	throw NotSupportedException();
 }

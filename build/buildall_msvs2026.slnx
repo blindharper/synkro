@@ -144,6 +144,15 @@
       <Build Solution="profile_static|*" Project="false" />
       <Build Solution="release_static|*" Project="false" />
     </Project>
+    <Project Path="../demos/build/MayTheForce/MayTheForce_msvs2026.vcxproj" Id="cda157d3-f696-4664-9558-bc322702fbfc">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="profile" />
+      <BuildType Solution="profile_static|*" Project="profile" />
+      <BuildType Solution="release_static|*" Project="release" />
+      <Build Solution="debug_static|*" Project="false" />
+      <Build Solution="profile_static|*" Project="false" />
+      <Build Solution="release_static|*" Project="false" />
+    </Project>
     <Project Path="../demos/build/Picking/Picking_msvs2026.vcxproj" Id="ec2dd058-e4dc-45f0-99de-5907c8323a58">
       <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="debug" />
@@ -269,6 +278,12 @@
       <BuildType Solution="profile|*" Project="release" />
       <BuildType Solution="release_static|*" Project="release" />
     </Project>
+    <Project Path="../external/build/physx/physx_msvs2026.vcxproj" Id="695bfb76-4b0d-4fcf-9813-0c6205e0ada8">
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="profile_static|*" Project="release" />
+      <BuildType Solution="profile|*" Project="release" />
+      <BuildType Solution="release_static|*" Project="release" />
+    </Project>
     <Project Path="../external/build/sqlite/sqlite_msvs2026.vcxproj" Id="2a4fd7aa-7e1b-447b-aa13-bb943c07f62b">
       <BuildType Solution="debug_static|*" Project="debug" />
       <BuildType Solution="profile_static|*" Project="release" />
@@ -310,8 +325,13 @@
     <Project Path="../libraries/build/synkro.io/synkro.io_msvs2026.vcxproj" Id="35f7ddd0-388e-41f8-b659-875c02475e55" />
     <Project Path="../libraries/build/synkro.mat/synkro.mat_msvs2026.vcxproj" Id="877d198b-deaa-49ce-9d9c-adf33cb7f275" />
     <Project Path="../libraries/build/synkro.net.ws2/synkro.net.ws2_msvs2026.vcxproj" Id="49411e84-e33f-4fec-a0de-6b0b0579934c" />
+    <Project Path="../libraries/build/synkro.phys.physx/synkro.phys.physx_msvs2026.vcxproj" Id="c886f634-fca8-4379-85e5-6252c681f995">
+      <BuildDependency Project="../external/build/physx/physx_msvs2026.vcxproj" />
+    </Project>
     <Project Path="../libraries/build/synkro.scene/synkro.scene_msvs2026.vcxproj" Id="70fb0e3a-21f0-4d15-9f95-506385ce3431" />
-    <Project Path="../libraries/build/synkro.script.lua/synkro.script.lua_msvs2026.vcxproj" Id="76567d1a-52c2-46b1-b0af-7d5bb44fc08f" />
+    <Project Path="../libraries/build/synkro.script.lua/synkro.script.lua_msvs2026.vcxproj" Id="76567d1a-52c2-46b1-b0af-7d5bb44fc08f">
+      <BuildDependency Project="../external/build/lua/lua_msvs2026.vcxproj" />
+    </Project>
     <Project Path="../libraries/build/synkro.sound/synkro.sound_msvs2026.vcxproj" Id="0f29ae09-9cab-4925-a4e6-b83dd8c07223" />
     <Project Path="../libraries/build/synkro.ui/synkro.ui_msvs2026.vcxproj" Id="c4487c65-7ae0-4a5d-a3c9-b6a04659c78a" />
     <Project Path="../libraries/build/synkro.view/synkro.view_msvs2026.vcxproj" Id="d773b653-e22f-44ff-a84f-30fb2c853112" />

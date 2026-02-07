@@ -16,7 +16,6 @@
 
 #include "config.h"
 #include <anim/AnimationSystem.h>
-#include <audio/IAudioSystemEx.h>
 #include <audio/IAudioPlayer.h>
 #include <audio/IAudioEnvironment.h>
 #include <scene/ISceneEx.h>
@@ -28,6 +27,7 @@
 #include <gfx/GraphicsDevice.h>
 #include <gfx/ISkyRenderObject.h>
 #include <gfx/IStructuredBuffer.h>
+#include <phys/IPhysicsEnvironment.h>
 #include <core/IContext.h>
 #include "DebugHelper.h"
 #include "BaseSceneManager.h"
@@ -92,6 +92,7 @@ public:
 	void													GetAmbientLightColor( img::Color& color ) const;
 	Float													GetAmbientLightIntensity() const;
 	audio::IAudioEnvironment*								GetAudioEnvironment() const;
+	phys::IPhysicsEnvironment*								GetPhysicsEnvironment() const;
 	lang::String											GetName() const;
 	DebugMode												GetDebugMode() const;
 
@@ -133,6 +134,7 @@ private:
 	BaseSceneManager*										_sceneManager;
 	P(ISceneAnimationController)							_ctrlAnimation;
 	P(audio::IAudioEnvironment)								_audioEnvironment;
+	P(phys::IPhysicsEnvironment)							_physicsEnvironment;
 	P(gfx::IProgram)										_program;
 	math::Vector4											_ambientLightColor;
 	Float													_ambientLightIntensity;

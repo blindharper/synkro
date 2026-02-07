@@ -25,6 +25,11 @@ SYNKRO_INLINE mat::IVisualMaterial* TriangleMeshBatch::GetMaterial() const
 	return _batch->GetMaterial();
 }
 
+SYNKRO_INLINE phys::IActor* TriangleMeshBatch::GetActor() const
+{
+	return nullptr;
+}
+
 SYNKRO_INLINE IScene* TriangleMeshBatch::GetScene() const
 {
 	return _scene;

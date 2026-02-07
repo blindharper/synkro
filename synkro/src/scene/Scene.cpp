@@ -29,12 +29,14 @@
 #include "BaseNode.h"
 #include "Fog.h"
 #include "SceneAnimationController.h"
+#include <audio/IAudioSystemEx.h>
 #include <gfx/IProgramStage.h>
 #include <gfx/IGraphicsSystemEx.h>
 #include <scene/SceneManager.h>
 #include <sound/ISoundManager.h>
 #include <io/IStream.h>
 #include <io/Path.h>
+#include <phys/IPhysicsSystemEx.h>
 #include <img/BaseImage.h>
 #include <core/CallStack.h>
 
@@ -51,6 +53,7 @@ using namespace synkro::io;
 using namespace synkro::lang;
 using namespace synkro::mat;
 using namespace synkro::math;
+using namespace synkro::phys;
 using namespace synkro::sound;
 
 //------------------------------------------------------------------------------
@@ -107,10 +110,16 @@ Scene::Scene( IScene* scene, BaseSceneManager* sceneManager, IContext* context, 
 	// Create root node.
 	_root = new Dummy( this, _context, L"World", false );
 
-	// Create audio scene.
+	// Create audio environment.
 	if ( _context->GetAudioSystem() != nullptr )
 	{
 		_audioEnvironment = _context->GetAudioSystem()->CreateEnvironment();
+	}
+
+	// Create physics environment.
+	if ( _context->GetPhysicsSystem() != nullptr )
+	{
+		_physicsEnvironment = _context->GetPhysicsSystem()->CreateEnvironment( _name );
 	}
 }
 

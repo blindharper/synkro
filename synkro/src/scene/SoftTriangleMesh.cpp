@@ -29,6 +29,7 @@ using namespace synkro::io;
 using namespace synkro::lang;
 using namespace synkro::mat;
 using namespace synkro::math;
+using namespace synkro::phys;
 
 //------------------------------------------------------------------------------
 
@@ -110,6 +111,11 @@ void SoftTriangleMesh::Save( IStream* stream, const DataMode& mode )
 	}
 }
 
+void SoftTriangleMesh::SetActor( IActor* actor )
+{
+	// Do nothing.
+}
+
 ISkeleton* SoftTriangleMesh::GetSkeleton() const
 {
 	return _skeleton;
@@ -118,6 +124,11 @@ ISkeleton* SoftTriangleMesh::GetSkeleton() const
 IVisualMaterial* SoftTriangleMesh::GetMaterial() const
 {
 	return _material;
+}
+
+IActor* SoftTriangleMesh::GetActor() const
+{
+	return nullptr;
 }
 
 IScene* SoftTriangleMesh::GetScene() const

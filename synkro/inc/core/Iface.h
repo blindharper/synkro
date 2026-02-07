@@ -75,6 +75,9 @@ SYNKRO_ENUM_BEGIN( Iface )
 	/** view::IViewportFilter interface. */
 	SYNKRO_ENUM_CONST( Iface, ViewportFilter )
 
+	/** phys::IPhysicsSystem interface. */
+	SYNKRO_ENUM_CONST( Iface, PhysicsSystem )
+
 	/** script::IScriptSystem interface. */
 	SYNKRO_ENUM_CONST( Iface, ScriptSystem )
 

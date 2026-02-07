@@ -19,7 +19,6 @@
 #include <scene/MeshCodec.h>
 #include <core/DataMode.h>
 #include <lang/Range.h>
-#include <img/Color.h>
 
 
 namespace synkro
@@ -86,6 +85,13 @@ public:
 	virtual void											Save( io::IStream* stream, const core::DataMode& mode ) = 0;
 
 	/**
+	 * Sets optional underlying physics actor.
+	 * @param actor Physics actor.
+	 * @exception InvalidOperationException Animation controller is non-null.
+	 */
+	virtual void											SetActor( phys::IActor* actor ) = 0;
+
+	/**
 	 * Retrieves mesh skeleton.
 	 */
 	virtual ISkeleton*										GetSkeleton() const = 0;
@@ -94,6 +100,11 @@ public:
 	 * Retrieves mesh material.
 	 */
 	virtual mat::IVisualMaterial*							GetMaterial() const = 0;
+
+	/**
+	 * Retrieves underlying physics actor.
+	 */
+	virtual phys::IActor*									GetActor() const = 0;
 
 	/**
 	 * Retrieves scene holding the node.

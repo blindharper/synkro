@@ -16,6 +16,7 @@
 
 #include "config.h"
 #include <scene/ITriangleMesh.h>
+#include <img/Color.h>
 
 
 namespace synkro

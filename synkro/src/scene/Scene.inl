@@ -50,6 +50,11 @@ SYNKRO_INLINE audio::IAudioEnvironment* Scene::GetAudioEnvironment() const
 	return _audioEnvironment;
 }
 
+SYNKRO_INLINE phys::IPhysicsEnvironment* Scene::GetPhysicsEnvironment() const
+{
+	return _physicsEnvironment;
+}
+
 SYNKRO_INLINE lang::String Scene::GetName() const
 {
 	return _name;

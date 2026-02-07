@@ -32,6 +32,7 @@ using namespace synkro::input;
 using namespace synkro::io;
 using namespace synkro::lang;
 using namespace synkro::math;
+using namespace synkro::phys;
 
 //------------------------------------------------------------------------------
 
@@ -95,6 +96,11 @@ void TriangleMeshBatch::Save( IStream* stream, const DataMode& mode, const MeshC
 }
 
 void TriangleMeshBatch::Save( IStream* stream, const DataMode& mode )
+{
+	throw NotSupportedException();
+}
+
+void TriangleMeshBatch::SetActor( IActor* actor )
 {
 	throw NotSupportedException();
 }

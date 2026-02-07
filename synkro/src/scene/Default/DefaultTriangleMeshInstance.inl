@@ -320,6 +320,11 @@ SYNKRO_INLINE mat::IVisualMaterial* DefaultTriangleMeshInstance::GetMaterial() c
 	return _material;
 }
 
+SYNKRO_INLINE phys::IActor* DefaultTriangleMeshInstance::GetActor() const
+{
+	return nullptr;
+}
+
 SYNKRO_INLINE IScene* DefaultTriangleMeshInstance::GetScene() const
 {
 	return nullptr;

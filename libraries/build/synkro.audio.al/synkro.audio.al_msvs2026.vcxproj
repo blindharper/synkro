@@ -161,7 +161,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.audio.al;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>FPM_64BIT;_WIN64;_UNICODE;UNICODE;_DEBUG;_WINDOWS;_USRDLL;SYNKROLIB_EXPORTS;SYNKRO_PROFILE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FPM_64BIT;_WIN64;_UNICODE;UNICODE;_DEBUG;_WINDOWS;_USRDLL;SYNKROLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -203,7 +203,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.audio.al;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_UNICODE;UNICODE;_DEBUG;_WINDOWS;SYNKRO_PROFILE;SYNKRO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_UNICODE;UNICODE;_DEBUG;_WINDOWS;SYNKRO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <FunctionLevelLinking>

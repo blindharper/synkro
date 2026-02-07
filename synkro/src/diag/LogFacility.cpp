@@ -36,12 +36,14 @@ SYNKRO_DEFINE_CONST( LogFacility, StreamSystem,		9 )
 SYNKRO_DEFINE_CONST( LogFacility, MaterialManager,	10 )
 SYNKRO_DEFINE_CONST( LogFacility, NetworkSystem,	11 )
 SYNKRO_DEFINE_CONST( LogFacility, OverlayManager,	12 )
-SYNKRO_DEFINE_CONST( LogFacility, SceneManager,		13 )
-SYNKRO_DEFINE_CONST( LogFacility, ScriptSystem,		14 )
-SYNKRO_DEFINE_CONST( LogFacility, SoundManager,		15 )
-SYNKRO_DEFINE_CONST( LogFacility, UserInterface,	16 )
-SYNKRO_DEFINE_CONST( LogFacility, ViewportManager,	17 )
-SYNKRO_DEFINE_CONST( LogFacility, WindowSystem,		18 )
+SYNKRO_DEFINE_CONST( LogFacility, PhysicsSystem,	13 )
+SYNKRO_DEFINE_CONST( LogFacility, SceneManager,		14 )
+SYNKRO_DEFINE_CONST( LogFacility, ScriptSystem,		15 )
+SYNKRO_DEFINE_CONST( LogFacility, SoundManager,		16 )
+SYNKRO_DEFINE_CONST( LogFacility, UserInterface,	17 )
+SYNKRO_DEFINE_CONST( LogFacility, ViewportManager,	18 )
+SYNKRO_DEFINE_CONST( LogFacility, WindowSystem,		19 )
+SYNKRO_DEFINE_CONST( LogFacility, User,				20 )
 
 
 struct TypeDesc
@@ -65,12 +67,14 @@ static TypeDesc _desc[] =
 	{ LogFacility::MaterialManager,		L"MaterialManager " },
 	{ LogFacility::NetworkSystem,		L"NetworkSystem   " },
 	{ LogFacility::OverlayManager,		L"OverlayManager  " },
+	{ LogFacility::PhysicsSystem,		L"PhysicsSystem   " },
 	{ LogFacility::SceneManager,		L"SceneManager    " },
 	{ LogFacility::ScriptSystem,		L"ScriptSystem    " },
 	{ LogFacility::SoundManager,		L"SoundManager    " },
 	{ LogFacility::UserInterface,		L"UserInterface   " },
 	{ LogFacility::ViewportManager,		L"ViewportManager " },
 	{ LogFacility::WindowSystem,		L"WindowSystem    " },
+	{ LogFacility::User,				L"User            " },
 };
 static UInt _count = SizeOf( _desc );
 

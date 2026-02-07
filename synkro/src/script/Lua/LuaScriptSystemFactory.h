@@ -31,7 +31,7 @@ namespace script
 
 // Lua scripting system factory.
 SYNKRO_FACTORY_BEGIN( LuaScriptSystemFactory, IScriptSystemFactory, ScriptSystem, ScriptSystem::Lua )
-	IScriptSystem*	Create( diag::ILog* log ) { return new LuaScriptSystem(null, log); }
+	IScriptSystem*	Create( diag::ILog* log ) { return new LuaScriptSystem(nullptr, log); }
 SYNKRO_FACTORY_END()
 
 

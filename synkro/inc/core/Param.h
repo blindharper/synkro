@@ -167,6 +167,16 @@ public:
 	static const Char* NetworkSystem;
 
 	//--------------------------------------------------------------------------
+	// Phys
+	//--------------------------------------------------------------------------
+
+	/** Indicates whether to enable dynamic simulations. */
+	static const Char* PhysicsEnable;
+
+	/** Name of the physics system. */
+	static const Char* PhysicsSystem;
+
+	//--------------------------------------------------------------------------
 	// Script
 	//--------------------------------------------------------------------------
 

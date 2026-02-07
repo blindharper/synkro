@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\src\synkro.phys.physx\synkro.phys.physx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxPhysicsSystem.cpp">
+      <Filter>PhysicsSystem\PhysX\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxPhysicsMaterial.cpp">
+      <Filter>PhysicsSystem\PhysX\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxPhysicsEnvironment.cpp">
+      <Filter>PhysicsSystem\PhysX\Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\Physx\Physx.cpp">
+      <Filter>PhysicsSystem\PhysX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxBoxShape.cpp">
+      <Filter>PhysicsSystem\PhysX\Shape\Box</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxStaticActor.cpp">
+      <Filter>PhysicsSystem\PhysX\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxDynamicActor.cpp">
+      <Filter>PhysicsSystem\PhysX\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxPlaneShape.cpp">
+      <Filter>PhysicsSystem\PhysX\Shape\Plane</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\synkro.phys.physx\factories.inl" />
+    <None Include="..\..\..\synkro\src\phys\Physx\PhysxShapeImpl.inl">
+      <Filter>PhysicsSystem\PhysX\Shape</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="PhysicsSystem">
+      <UniqueIdentifier>{3c868a00-699d-47eb-b3d8-0f55c5ad7c3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsSystem\PhysX">
+      <UniqueIdentifier>{fbb25b3f-81a9-409d-9b76-ab577ac9d562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsSystem\PhysX\System">
+      <UniqueIdentifier>{fe52150f-332d-4e23-b092-d4a182070639}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsSystem\PhysX\Material">
+      <UniqueIdentifier>{68f41c27-0eec-44fe-b776-126996d10e46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsSystem\PhysX\Environment">
+      <UniqueIdentifier>{75b14e33-b3b4-436a-b72a-84de890f7bfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsSystem\PhysX\Shape">
+      <UniqueIdentifier>{5b2fa2e4-351c-4270-bc92-b48171f72c44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsSystem\PhysX\Shape\Box">
+      <UniqueIdentifier>{09ba0499-b648-478b-b00f-31531a20b229}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsSystem\PhysX\Actor">
+      <UniqueIdentifier>{7477c822-d5d1-4fe9-9376-5b50bfd94430}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsSystem\PhysX\Shape\Plane">
+      <UniqueIdentifier>{b026cc61-1f68-4ce2-8b69-a3493280dde0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxPhysicsSystemFactory.h">
+      <Filter>PhysicsSystem\PhysX\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxPhysicsSystem.h">
+      <Filter>PhysicsSystem\PhysX\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxPhysicsMaterial.h">
+      <Filter>PhysicsSystem\PhysX\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxPhysicsEnvironment.h">
+      <Filter>PhysicsSystem\PhysX\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\Physx.h">
+      <Filter>PhysicsSystem\PhysX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxShapeImpl.h">
+      <Filter>PhysicsSystem\PhysX\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxBaseMaterial.h">
+      <Filter>PhysicsSystem\PhysX\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxBoxShape.h">
+      <Filter>PhysicsSystem\PhysX\Shape\Box</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxStaticActor.h">
+      <Filter>PhysicsSystem\PhysX\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxBaseShape.h">
+      <Filter>PhysicsSystem\PhysX\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxDynamicActor.h">
+      <Filter>PhysicsSystem\PhysX\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxPlaneShape.h">
+      <Filter>PhysicsSystem\PhysX\Shape\Plane</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

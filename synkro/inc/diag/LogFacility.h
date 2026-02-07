@@ -69,6 +69,9 @@ SYNKRO_ENUM_BEGIN( LogFacility )
 	/** Overlay manager. */
 	SYNKRO_ENUM_CONST( LogFacility, OverlayManager )
 
+	/** Physics system. */
+	SYNKRO_ENUM_CONST( LogFacility, PhysicsSystem )
+
 	/** Scene manager. */
 	SYNKRO_ENUM_CONST( LogFacility, SceneManager )
 
@@ -86,6 +89,9 @@ SYNKRO_ENUM_BEGIN( LogFacility )
 
 	/** Window system. */
 	SYNKRO_ENUM_CONST( LogFacility, WindowSystem )
+
+	/** User code. */
+	SYNKRO_ENUM_CONST( LogFacility, User )
 
 	/** Converts log facility to string. */
 	lang::String											ToString() const;

@@ -1771,6 +1771,36 @@
     <Filter Include="win\Implementation\Window\Host">
       <UniqueIdentifier>{fa82e2c7-1e2f-43ed-8339-a46dee72a0c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="phys">
+      <UniqueIdentifier>{62b86d70-9e90-4574-9667-a3df078ec7d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="phys\Implementation">
+      <UniqueIdentifier>{e557c88e-a8fb-4d6a-a58c-924f93c1fd79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="phys\Interface">
+      <UniqueIdentifier>{2e05de96-16a2-4c0e-9b77-548e29811121}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="phys\Interface\System">
+      <UniqueIdentifier>{3194df07-ec2d-4526-b2bb-d4f008b2ec89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="phys\Implementation\System">
+      <UniqueIdentifier>{efbd19e7-53f8-4e2a-92e6-5477edffd6cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="phys\Interface\Actor">
+      <UniqueIdentifier>{75325105-30ee-48e3-a291-8fa7e7315176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="phys\Implementation\Material">
+      <UniqueIdentifier>{e1a94737-8a8d-434b-998c-3663a3eeb208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="phys\Implementation\Environment">
+      <UniqueIdentifier>{40b5dfab-6620-485e-9e6c-d2e47a1e7258}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="phys\Implementation\Shape">
+      <UniqueIdentifier>{85d54ce9-3dbf-4215-bd79-d3700706a21b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="phys\Implementation\Actor">
+      <UniqueIdentifier>{c64cb2a6-3cea-4aee-8a21-1095cc6e74d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\lang\Encoding.h">
@@ -5250,6 +5280,72 @@
     <ClInclude Include="..\..\..\synkro\src\win\HostWindow.h">
       <Filter>win\Implementation\Window\Host</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\phys.h">
+      <Filter>phys\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsSystem.h">
+      <Filter>phys\Interface\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsSystemFactory.h">
+      <Filter>phys\Interface\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\PhysicsSystem.h">
+      <Filter>phys\Interface\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\PhysicsSystemEx.h">
+      <Filter>phys\Implementation\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsEnvironment.h">
+      <Filter>phys\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsMaterial.h">
+      <Filter>phys\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsSystemEx.h">
+      <Filter>phys\Interface\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\IRigidActor.h">
+      <Filter>phys\Interface\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\IActor.h">
+      <Filter>phys\Interface\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\PhysicsMaterialImpl.h">
+      <Filter>phys\Implementation\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\PhysicsMaterial.h">
+      <Filter>phys\Implementation\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\ForceMode.h">
+      <Filter>phys\Interface\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\IDynamicActor.h">
+      <Filter>phys\Interface\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\IRigidBody.h">
+      <Filter>phys\Interface\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\IStaticActor.h">
+      <Filter>phys\Interface\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\PhysicsEnvironmentImpl.h">
+      <Filter>phys\Implementation\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\PhysicsEnvironment.h">
+      <Filter>phys\Implementation\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\IShape.h">
+      <Filter>phys\Interface\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Shape.h">
+      <Filter>phys\Implementation\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\StaticActor.h">
+      <Filter>phys\Implementation\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\DynamicActor.h">
+      <Filter>phys\Implementation\Actor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\synkro\src\lang\Stack.inl">
@@ -6200,6 +6296,15 @@
     </None>
     <None Include="..\..\..\synkro\src\win\HostWindow.inl">
       <Filter>win\Implementation\Window\Host</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\phys\PhysicsSystemEx.inl">
+      <Filter>phys\Implementation\System</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\phys\PhysicsMaterialImpl.inl">
+      <Filter>phys\Implementation\Material</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\phys\PhysicsEnvironmentImpl.inl">
+      <Filter>phys\Implementation\Environment</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -7704,6 +7809,27 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\win\HostWindow.cpp">
       <Filter>win\Implementation\Window\Host</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\PhysicsSystem.cpp">
+      <Filter>phys\Implementation\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\PhysicsSystemEx.cpp">
+      <Filter>phys\Implementation\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\PhysicsMaterial.cpp">
+      <Filter>phys\Implementation\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\PhysicsEnvironment.cpp">
+      <Filter>phys\Implementation\Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\Shape.cpp">
+      <Filter>phys\Implementation\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\StaticActor.cpp">
+      <Filter>phys\Implementation\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\DynamicActor.cpp">
+      <Filter>phys\Implementation\Actor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -153,6 +153,11 @@ SYNKRO_INLINE mat::IVisualMaterial* TriangleMesh::GetMaterial() const
 	return _mesh->GetMaterial();
 }
 
+SYNKRO_INLINE phys::IActor* TriangleMesh::GetActor() const
+{
+	return _actor;
+}
+
 SYNKRO_INLINE IScene* TriangleMesh::GetScene() const
 {
 	return _scene;

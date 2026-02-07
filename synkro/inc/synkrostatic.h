@@ -90,6 +90,11 @@ SYNKRO_API void												SynkroMatInit();
 SYNKRO_API void												SynkroNetWs2Init();
 
 /**
+ * Performs PhysX physics library initialization.
+ */
+SYNKRO_API void												SynkroPhysPhysxInit();
+
+/**
  * Performs scene library initialization.
  */
 SYNKRO_API void												SynkroSceneInit();
