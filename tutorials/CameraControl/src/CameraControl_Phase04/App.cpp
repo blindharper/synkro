@@ -496,6 +496,7 @@ void App::InitView()
 	// Setup viewport.
 	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow()->GetView(0) );
 	_viewport->SetCamera( _camera );
+	_viewport->Activate();
 }
 
 void App::InitOverlay()
