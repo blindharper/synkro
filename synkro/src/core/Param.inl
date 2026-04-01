@@ -11,7 +11,7 @@ P2( AnimationEnable,		Boolean,				"false",																						"Indicates wheth
 //	Audio
 ////-----------------------	----------- -----------	-----------------------------------	----------------------------------------------------------	-------------------------------------------------------------------------------------------
 P2( AudioEnable,			Boolean,				"false",																						"Indicates whether to enable sound playback and recording." )
-P4( AudioSystem,			Enumeration,			_init.DefaultAudioSystem,			"Custom|OpenAL|DirectSound8|WinMM",							"Audio system implementation." )
+P4( AudioSystem,			Enumeration,			_init.DefaultAudioSystem,			"Custom|OpenAL",											"Audio system implementation." )
 P4( AudioFormat,			Enumeration,			"0",								_init.SoundFormats,											"Sound format to use in application." )
 
 ////-----------------------	----------- -----------	-----------------------------------	----------------------------------------------------------	-------------------------------------------------------------------------------------------

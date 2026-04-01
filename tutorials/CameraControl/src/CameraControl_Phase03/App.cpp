@@ -228,7 +228,7 @@ void App::Configure()
 	_config = _synkro->GetConfiguration()->Clone();
 	_config->Set( Param::AnimationEnable, true );
 	_config->Set( Param::AudioEnable, true );
-	_config->Set( Param::AudioSystem, AudioSystem::DirectSound8 );
+	_config->Set( Param::AudioSystem, AudioSystem::OpenAL );
 	_config->Set( Param::GraphicsSystem, GraphicsSystem::DirectX11 );
 	_config->Set( Param::GraphicsDepthFormat, DepthFormat::D32F );
 	_config->Set( Param::GraphicsDisplayMode, DisplayMode::Medium.Index() );

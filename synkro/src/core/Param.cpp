@@ -287,14 +287,12 @@ public:
 
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 		DefaultGraphicsSystem	= L"DirectX11";
-		DefaultAudioSystem		= L"DirectSound8";
 		DefaultStreamSystem		= L"Win32";
 		DefaultInputSystem		= L"Win32";
 		DefaultNetworkSystem	= L"WinSock2";
 		DefaulWindowSystem		= L"Win32";
-#else
-		DefaultAudioSystem		= L"OpenAL";
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
+		DefaultAudioSystem		= L"OpenAL";
 		DefaultDatabaseSystem	= L"Sqlite";
 		DefaultPhysicsSystem	= L"PhysX";
 		DefaultScriptSystem		= L"Lua";
