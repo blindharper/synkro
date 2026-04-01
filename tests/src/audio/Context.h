@@ -18,6 +18,7 @@ public:
 	synkro::mat::IMaterialManager*									GetMaterialManager() const { return nullptr; }
 	synkro::net::INetworkSystemEx*									GetNetworkSystem() const { return nullptr; }
 	synkro::over::IOverlayManager*									GetOverlayManager() const { return nullptr; }
+	synkro::phys::IPhysicsSystemEx*									GetPhysicsSystem() const { return nullptr; }
 	synkro::scene::ISceneManager*									GetSceneManager() const { return nullptr; }
 	synkro::script::IScriptSystemEx*								GetScriptSystem() const { return nullptr; }
 	synkro::sound::ISoundManager*									GetSoundManager() const { return nullptr; }

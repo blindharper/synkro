@@ -20,11 +20,8 @@
 #include <sound/IMusic.h>
 #include <sound/IMusicAnimationController.h>
 #include <sound/ISoundCodec.h>
-#include <audio/IAudioSystemEx.h>
 #include <audio/ISoundBuffer.h>
-#include <audio/IAudioChunk.h>
 #include <audio/IAudioPlayer.h>
-#include <audio/IAudioSystem.h>
 #include <sound/SoundCodecContext.h>
 #include <io/IStream.h>
 #include <lang/Vector.h>
@@ -63,6 +60,7 @@ public:
 	Int														GetPan() const;
 	PlaybackMode											GetMode() const;
 	UInt													GetLoopCount() const;
+	UInt													GetIteration() const;
 	Double													GetLength() const;
 
 	// BaseMusic methods.
@@ -80,6 +78,7 @@ private:
 	ISoundCodec*											_codec;
 	PlaybackMode											_mode;
 	UInt													_loopCount;
+	UInt													_iteration;
 	UInt													_chunkIndex;
 	Bool													_playing;
 	Double													_length;

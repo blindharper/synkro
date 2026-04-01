@@ -109,6 +109,11 @@ public:
 	virtual UInt											GetLoopCount() const = 0;
 
 	/**
+	 * Retrieves current playback iteration.
+	 */
+	virtual UInt											GetIteration() const = 0;
+
+	/**
 	 * Retrieves music duration, in seconds.
 	 */
 	virtual Double											GetLength() const = 0;
