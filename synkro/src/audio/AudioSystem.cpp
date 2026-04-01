@@ -25,8 +25,6 @@ namespace audio
 
 SYNKRO_DEFINE_CONST( AudioSystem, Custom,		0 )
 SYNKRO_DEFINE_CONST( AudioSystem, OpenAL,		1 )
-SYNKRO_DEFINE_CONST( AudioSystem, DirectSound8,	2 )
-SYNKRO_DEFINE_CONST( AudioSystem, WinMM,		3 )
 
 
 } // audio

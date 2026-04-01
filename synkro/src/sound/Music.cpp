@@ -111,7 +111,7 @@ void Music::Update()
 		{
 			if ( ++_iteration >= _loopCount )
 			{
-				//_playing = false;
+				_playing = false;
 				_iteration = 0;
 				break;
 			}

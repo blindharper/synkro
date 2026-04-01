@@ -35,12 +35,6 @@ SYNKRO_ENUM_BEGIN( AudioSystem )
 
 	/** OpenAL based audio system. */
 	SYNKRO_ENUM_CONST( AudioSystem, OpenAL )
-
-	/** DirectSound8 based audio system. */
-	SYNKRO_ENUM_CONST( AudioSystem, DirectSound8 )
-
-	/** WinMM based audio system. */
-	SYNKRO_ENUM_CONST( AudioSystem, WinMM )
 SYNKRO_ENUM_END()
 
 

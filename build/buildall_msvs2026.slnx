@@ -314,8 +314,6 @@
   <Folder Name="/libraries/">
     <Project Path="../libraries/build/synkro.anim/synkro.anim_msvs2026.vcxproj" Id="d4ad4055-e884-4078-9ed3-5f20642bb3ee" />
     <Project Path="../libraries/build/synkro.audio.al/synkro.audio.al_msvs2026.vcxproj" Id="72c96283-6cd7-4703-b6f7-84ad732c05c6" />
-    <Project Path="../libraries/build/synkro.audio.ds8/synkro.audio.ds8_msvs2026.vcxproj" Id="3b2236fa-422c-43c7-b64b-28e9c05e0f7b" />
-    <Project Path="../libraries/build/synkro.audio.winmm/synkro.audio.winmm_msvs2026.vcxproj" Id="dffd02bf-0bce-426a-99f1-043043441d97" />
     <Project Path="../libraries/build/synkro.cons/synkro.cons_msvs2026.vcxproj" Id="98fbdffc-1997-4713-824a-4b45ee2140e9" />
     <Project Path="../libraries/build/synkro.db.sqlite/synkro.db.sqlite_msvs2026.vcxproj" Id="c4b22084-f6f7-4bfc-b961-6765c2b2f46c" />
     <Project Path="../libraries/build/synkro.gfx.dx11/synkro.gfx.dx11_msvs2026.vcxproj" Id="8382a661-157d-4fe4-8e89-37016a48b509" />

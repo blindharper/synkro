@@ -34,7 +34,7 @@ public:
 	{
 		config->Set( Param::AudioEnable, true );
 		config->Set( Param::AudioFormat, CastUInt(5) );
-		config->Set( Param::AudioSystem, AudioSystem::DirectSound8 );
+		config->Set( Param::AudioSystem, AudioSystem::OpenAL );
 		config->Set( Param::CoreThreadPoolCapacity, CastUInt(8) );
 		config->Set( Param::GraphicsDisplayMode, CastUInt(DisplayMode::AboveMedium.Index()) );
 		config->Set( Param::GraphicsFullscreen, false );
