@@ -13,6 +13,8 @@
 #include "config.h"
 #include "Music.h"
 #include "MusicAnimationController.h"
+#include <audio/IAudioChunk.h>
+#include <audio/IAudioSystemEx.h>
 #include <internal/SafeDelete.h>
 
 
@@ -45,6 +47,7 @@ Music::Music( BaseSoundManager* soundManager, IContext* context, ISoundCodec* co
 	_codec( codec ),
 	_mode( PlaybackMode::Unknown ),
 	_loopCount( 1 ),
+	_iteration( 0 ),
 	_chunkIndex( 0 ),
 	_playing( false ),
 	_length( 0.0 )
@@ -53,7 +56,7 @@ Music::Music( BaseSoundManager* soundManager, IContext* context, ISoundCodec* co
 	SoundFormat soundFormat;
 	_soundContext = new SoundCodecContext( stream, false );
 	_length = _codec->Load( _soundContext, soundFormat );
-	_player = _context->GetAudioSystem()->GetPlayer(soundFormat);
+	_player = _context->GetAudioSystem()->GetPlayer( soundFormat );
 	_buffer = _player->CreateSoundBuffer( soundFormat, 1.0, 10 );
 
 	// Fill buffer with data.
@@ -81,7 +84,7 @@ IMusicAnimationController* Music::CreateAnimationController( IAnimationSet* anim
 
 void Music::Play( Bool play )
 {
-	_buffer->Process( play, (_mode == PlaybackMode::Loop) );
+	_buffer->Process( play, true );
 	_playing = play;
 	if ( !play )
 	{
@@ -104,7 +107,19 @@ void Music::Update()
 		_data.SetSize( chunk->GetSize() );
 		Byte* d = _data.Begin();
 		const UInt size = _codec->Decode( _soundContext, &d, _data.Size() );
-		chunk->Write( d, size );
+		if ( size == 0 )
+		{
+			if ( ++_iteration >= _loopCount )
+			{
+				//_playing = false;
+				_iteration = 0;
+				break;
+			}
+		}
+		else
+		{
+			chunk->Write( d, size );
+		}
 	}
 }
 

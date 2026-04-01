@@ -66,6 +66,11 @@ SYNKRO_INLINE UInt Music::GetLoopCount() const
 	return _loopCount;
 }
 
+SYNKRO_INLINE UInt Music::GetIteration() const
+{
+	return _iteration;
+}
+
 SYNKRO_INLINE Double Music::GetLength() const
 {
 	return _length;
