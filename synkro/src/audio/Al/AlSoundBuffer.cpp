@@ -112,7 +112,6 @@ void AlSoundBuffer::Process( Bool start, Bool loop )
 	else
 	{
 		Al::SourceStop( _buffer );
-		Al::Sourcei( _buffer, AL_BUFFER, 0 );
 		if ( _chunks.Size() == 1 )
 		{
 			_chunks[0]->_processing = false;
