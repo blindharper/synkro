@@ -34,6 +34,7 @@
     <ClCompile Include="..\..\..\synkro\src\sound\MusicAnimationController.cpp" />
     <ClCompile Include="..\..\..\synkro\src\sound\Sound2D.cpp" />
     <ClCompile Include="..\..\..\synkro\src\sound\Sound3D.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\sound\SoundCodec\Mp3SoundCodec.cpp" />
     <ClCompile Include="..\..\..\synkro\src\sound\SoundCodec\WavSoundCodec.cpp" />
     <ClCompile Include="..\..\..\synkro\src\sound\SoundManager.cpp" />
     <ClCompile Include="..\..\..\synkro\src\sound\Voice.cpp" />
@@ -117,9 +118,9 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>synkro_debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>synkro_debug.lib;libmadd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName)_debug.exe</OutputFile>
-      <AdditionalLibraryDirectories>../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../../synkro/bin/win64;../../../external/lib/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)$(ProjectName).pdb</ProgramDatabaseFile>
       <SubSystem>Console</SubSystem>
@@ -148,9 +149,9 @@ del "$(OutDir)$(TargetName).ilk"</Command>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>synkro.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>synkro.lib;libmad.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
-      <AdditionalLibraryDirectories>../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../../synkro/bin/win64;../../../external/lib/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <ProgramDatabaseFile>
       </ProgramDatabaseFile>
