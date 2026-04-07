@@ -7,9 +7,8 @@
 #include <audio/AudioSystemEx.h>
 #include <sound/SoundManager.h>
 #include <sound/BaseSound3D.h>
-#include <sound/Sound.h>
 #include <sound/Music.h>
-//#include <sound/SoundCodec/Mp3SoundCodecFactory.h>
+#include <sound/SoundCodec/Mp3SoundCodecFactory.h>
 #include <sound/SoundCodec/WavSoundCodecFactory.h>
 #include <io/FileStream.h>
 #include <lang/Convert.h>
@@ -43,9 +42,9 @@ public:
 
 	void Run()
 	{
-		//TestSound2D();
+		TestSound2D();
 		//TestSound3D();
-		TestMusic();
+		//TestMusic();
 	}
 
 	void TestSound2D()
@@ -63,20 +62,17 @@ public:
 		ctx.AudioSystem = audioSystem;
 		ctx.WindowSystem = windowSystem;
 		P(SoundManager) soundManager = new SoundManager( &ctx, nullptr );
-		WavSoundCodecFactory factWavCodec;
-		soundManager->RegisterCodec( &factWavCodec );
-		/*Mp3SoundCodecFactory factMp3Codec;
-		soundManager->RegisterCodec( &factMp3Codec );*/
+		Mp3SoundCodecFactory factMp3Codec;
+		soundManager->RegisterCodec( &factMp3Codec );
 
 		// Load sound from file.
-		P(io::IStream) stream = new io::FileStream( "../../data/audio/Rock01.wav" );
-		//P(io::IStream) stream = new io::FileStream( "../../data/audio/demo.mp3" );
+		P(io::IStream) stream = new io::FileStream( "../../data/audio/demo.mp3" );
 		P(ISound2D) snd = soundManager->LoadSound2D( stream );
 		snd->Play( true );
 
 		while ( window->Update() && snd->IsPlaying() )
 		{
-			//window->SetTitle( snd->IsPlaying() ? L"Playing" : L"Stopped" );
+			window->SetTitle( snd->IsPlaying() ? L"Playing" : L"Stopped" );
 		}
 	}
 
@@ -135,7 +131,7 @@ public:
 				
 			listener->SetPosition( Vector3(x, 0.0f, 0.0f) );
 			listener->Bind();
-			window->SetTitle( String::Format(L"x = {0,#.000000}", x));
+			window->SetTitle( String::Format(L"x = {0,#.000000}", x) );
 		}
 	}
 
