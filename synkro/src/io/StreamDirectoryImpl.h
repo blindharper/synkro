@@ -17,6 +17,7 @@
 #include "config.h"
 #include <core/ObjectImpl.h>
 #include <lang/Vector.h>
+#include <lang/Map.h>
 #include <lang/Mask.h>
 #include <io/IStream.h>
 #include <io/StreamSet.h>
@@ -56,12 +57,15 @@ public:
 	virtual lang::String									GetName() const;
 
 protected:
+	typedef lang::MapPair<lang::String, P(IStreamSet)>		StreamSetEntry;
+
 	IStreamDirectory*										_parent;
 	P(IStream)												_stream;
 	lang::String											_path;
 	lang::String											_name;
 	lang::Vector<P(IStream)>								_streams;
 	lang::Vector<P(IStreamDirectory)>						_dirs;
+	lang::MapCI<lang::String, P(IStreamSet)>				_streamSets;
 };
 
 

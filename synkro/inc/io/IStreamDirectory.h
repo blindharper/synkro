@@ -78,13 +78,13 @@ public:
 	/**
 	 * Retrieves a set of streams matching the given pattern.
 	 * @param pattern Search pattern.
-	 * @return Stream set.
+	 * @return Stream set, if streams are found, nullptr otherwise.
 	 */
 	virtual IStreamSet*										GetStreams( const lang::String& pattern ) const = 0;
 
 	/**
 	 * Retrieves all streams in the directory.
-	 * @return Stream set.
+	 * @return Stream set, if the directory is not empty, nullptr otherwise.
 	 */
 	virtual IStreamSet*										GetStreams() const = 0;
 

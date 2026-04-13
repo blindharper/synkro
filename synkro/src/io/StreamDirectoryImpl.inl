@@ -15,7 +15,8 @@ SYNKRO_INLINE StreamDirectoryImpl<T>::StreamDirectoryImpl( IStreamDirectory* par
 	_parent( parent ),
 	_path( path ),
 	_streams( A(P(IStream)) ),
-	_dirs( A(P(IStreamDirectory)) )
+	_dirs( A(P(IStreamDirectory)) ),
+	_streamSets( A(StreamSetEntry) )
 {
 	Path p( path );
 	_name = p.GetName();
@@ -121,16 +122,19 @@ SYNKRO_INLINE IStream* StreamDirectoryImpl<T>::GetStream( const lang::String& na
 template <class T>
 SYNKRO_INLINE IStreamSet* StreamDirectoryImpl<T>::GetStreams( const lang::String& pattern ) const
 {
-	IStreamSet* streams = new StreamSet();
+	if ( _streamSets.ContainsKey(pattern) )
+		return _streamSets[pattern];
 
 	lang::Mask mask( pattern );
+	P(IStreamSet) streams = new StreamSet();
 	for ( UInt i = 0; i < _streams.Size(); ++i )
 	{
 		if ( mask.Matches(_streams[i]->GetName()) )
 			streams->Add( _streams[i] );
 	}
 
-	return streams;
+	_streamSets[pattern] = (streams->GetSize() > 0) ? streams : nullptr;
+	return _streamSets[pattern];
 }
 
 template <class T>
