@@ -481,7 +481,7 @@ IStreamSet* Demo::GetStreams( const String& dirName, const String& pattern )
 		throw FileNotFoundException( dirName );
 
 	IStreamSet* streams = dir->GetStreams( pattern );
-	if ( streams->GetSize() == 0 )
+	if ( streams == nullptr )
 		throw Exception( String::Format(L"Directory {0,q} is empty", dirName) );
 
 	return streams;
