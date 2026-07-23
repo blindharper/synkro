@@ -33,9 +33,6 @@ SYNKRO_ENUM_BEGIN( InputSystem )
 	/** Custom input system. */
 	SYNKRO_ENUM_CONST( InputSystem, Custom )
 
-	/** Win32 input system. */
-	SYNKRO_ENUM_CONST( InputSystem, Win32 )
-
 	/** DirectInput8 based input system. */
 	SYNKRO_ENUM_CONST( InputSystem, DirectInput8 )
 SYNKRO_ENUM_END()

@@ -288,7 +288,7 @@ public:
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 		DefaultGraphicsSystem	= L"DirectX11";
 		DefaultStreamSystem		= L"Win32";
-		DefaultInputSystem		= L"Win32";
+		DefaultInputSystem		= L"DirectInput8";
 		DefaultNetworkSystem	= L"WinSock2";
 		DefaulWindowSystem		= L"Win32";
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS

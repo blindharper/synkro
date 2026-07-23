@@ -16,7 +16,6 @@
   <Project Path="synkro.gfx.dx11/synkro.gfx.dx11_msvs2026.vcxproj" Id="8382a661-157d-4fe4-8e89-37016a48b509" />
   <Project Path="synkro.img/synkro.img_msvs2026.vcxproj" Id="e09e52cd-784e-4678-b8eb-79a8049523bf" />
   <Project Path="synkro.input.di8/synkro.input.di8_msvs2026.vcxproj" Id="a00fba59-511b-498f-9de2-5b94fcccb33b" />
-  <Project Path="synkro.input.win32/synkro.input.win32_msvs2026.vcxproj" Id="3fb2a0e5-3cbc-4fec-96e2-9848840c0d32" />
   <Project Path="synkro.io/synkro.io_msvs2026.vcxproj" Id="35f7ddd0-388e-41f8-b659-875c02475e55" />
   <Project Path="synkro.mat/synkro.mat_msvs2026.vcxproj" Id="877d198b-deaa-49ce-9d9c-adf33cb7f275" />
   <Project Path="synkro.net.ws2/synkro.net.ws2_msvs2026.vcxproj" Id="49411e84-e33f-4fec-a0de-6b0b0579934c" />
