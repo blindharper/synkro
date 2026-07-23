@@ -35,7 +35,7 @@ iface ISceneRenderObject :
 {
 public:
 	/**
-	 * Controls whether the render the object should be rendered in the given render view.
+	 * Controls whether the object should be rendered in the given render view.
 	 * @param view Render view.
 	 * @param render True to render the object in the render view.
 	 */
@@ -160,9 +160,9 @@ public:
 	virtual void											SetInstanceRange( UInt start, UInt count ) = 0;
 
 	/**
-	 * Indicates whether the render the object should be rendered in the given render view.
+	 * Indicates whether the object should be rendered in the given render view.
 	 * @param view Render view.
-	 * @return True if the render object should be rendered, false otherwise.
+	 * @return True if the object should be rendered, false otherwise.
 	 */
 	virtual Bool											IsRenderable( IRenderView* view ) const = 0;
 

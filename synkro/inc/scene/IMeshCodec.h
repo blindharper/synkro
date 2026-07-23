@@ -36,6 +36,15 @@ iface IMeshCodec :
 {
 public:
 	/**
+	 * Loads mesh set from stream set.
+	 * @param scene Scene to load mesh into.
+	 * @param streams Streams to load mesh from.
+	 * @param format Format to convert image data to.
+	 * @return Loaded mesh set.
+	 */
+	// TODO: virtual ITriangleMeshSet*								Load( IScene* scene, io::IStreamSet* streams, const img::PixelFormat& format ) = 0;
+
+	/**
 	 * Loads mesh from stream.
 	 * @param scene Scene to load mesh into.
 	 * @param stream Stream to load mesh from.

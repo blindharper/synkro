@@ -198,6 +198,14 @@ public:
 	virtual StereoMode										GetStereoMode() const = 0;
 
 	/**
+	 * Returns size of an object in pixels after projection transformation.
+	 * @param distance Distance to the object along camera Z-axis.
+	 * @param size Size of the object in 3D scene camera space along camera X-axis.
+	 * @return Size of an object in pixels.
+	 */
+	virtual Float											GetProjectedSize( Float distance, Float size ) const = 0;
+
+	/**
 	 * Retrieves viewport location.
 	 * @param [out] location Viewport location.
 	 */

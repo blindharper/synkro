@@ -55,6 +55,12 @@ public:
 	virtual ITriangleMeshBatch*								CreateTriangleMeshBatch( mat::IVisualMaterial* material, ISkeleton* skeleton, UInt capacity ) = 0;
 
 	/**
+	 * Creates a set of triangle meshes.
+	 * @return Created mesh set.
+	 */
+	// TODO: virtual ITriangleMeshSet*								CreateTriangleMeshSet() = 0;
+
+	/**
 	 * Picks a mesh that is hit by the given ray.
 	 * @param origin Coordinate of ray origin.
 	 * @param direction Ray direction.

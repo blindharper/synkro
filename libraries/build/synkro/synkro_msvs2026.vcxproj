@@ -659,6 +659,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\inc\scene\ISkeletonAnimationController.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\ITriangleMesh.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\ITriangleMeshBatch.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\ITriangleMeshSet.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\SceneType.h" />
     <ClInclude Include="..\..\..\synkro\inc\script\IScriptMachine.h" />
     <ClInclude Include="..\..\..\synkro\inc\script\IScriptObject.h" />

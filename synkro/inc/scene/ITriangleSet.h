@@ -148,6 +148,18 @@ public:
 	virtual Bool											GetIndices( UInt* indices, UInt start, UInt count ) const = 0;
 
 	/**
+	 * Retrieves the number of rendering objects.
+	 */
+	// TODO: virtual UInt											GetRenderObjectCount() const = 0;
+
+	/**
+	 * Retrieves underlying rendering object by index.
+	 * @param index Index of the rendering object to retrieve.
+	 * @exception OutOfRangeException Index is out of range.
+	 */
+	// TODO: virtual gfx::ISceneRenderObject*						GetRenderObject( UInt index ) const = 0;
+
+	/**
 	 * Retrieves underlying rendering object.
 	 */
 	virtual gfx::ISceneRenderObject*						GetRenderObject() const = 0;
