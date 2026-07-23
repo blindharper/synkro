@@ -55,7 +55,7 @@ P3( ImagingCodecQuality,	Integer,	Positive,	"100",																							"Image 
 //	Input
 ////-----------------------	----------- -----------	-----------------------------------	----------------------------------------------------------	-------------------------------------------------------------------------------------------
 P2( InputEnable,			Boolean,				"false",																						"Indicates whether to enable user input processing." )
-P4( InputSystem,			Enumeration,			_init.DefaultInputSystem,			"Custom|Win32|DirectInput8",								"Input system implementation." )
+P4( InputSystem,			Enumeration,			_init.DefaultInputSystem,			"Custom|DirectInput8",										"Input system implementation." )
 
 ////-----------------------	----------- -----------	-----------------------------------	----------------------------------------------------------	-------------------------------------------------------------------------------------------
 //	Log

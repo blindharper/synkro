@@ -70,11 +70,6 @@ SYNKRO_API void												SynkroImgInit();
 SYNKRO_API void												SynkroInputDi8Init();
 
 /**
- * Performs Win32 input library initialization.
- */
-SYNKRO_API void												SynkroInputWin32Init();
-
-/**
  * Performs I/O library initialization.
  */
 SYNKRO_API void												SynkroIoInit();

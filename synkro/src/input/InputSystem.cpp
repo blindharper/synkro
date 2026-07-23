@@ -25,8 +25,7 @@ namespace input
 
 
 SYNKRO_DEFINE_CONST( InputSystem, Custom,		0 )
-SYNKRO_DEFINE_CONST( InputSystem, Win32,		1 )
-SYNKRO_DEFINE_CONST( InputSystem, DirectInput8,	2 )
+SYNKRO_DEFINE_CONST( InputSystem, DirectInput8,	1 )
 
 
 } // input

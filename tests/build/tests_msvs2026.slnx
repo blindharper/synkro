@@ -12,7 +12,6 @@
   <Project Path="Test_SqliteDatabaseSystem/Test_SqliteDatabaseSystem_msvs2026.vcxproj" Id="2c66dbe5-dda4-4f44-9966-c06c3de6803c" />
   <Project Path="Test_StdProfiler/Test_StdProfiler_msvs2026.vcxproj" Id="ac8fdf47-8114-4c3b-ae48-8c4afa8d1caa" />
   <Project Path="Test_ThreadPool/Test_ThreadPool_msvs2026.vcxproj" Id="6ef1900f-325d-4566-a96b-48a518b1d8d5" />
-  <Project Path="Test_Win32InputSystem/Test_Win32InputSystem_msvs2026.vcxproj" Id="133dca2e-2f99-4b9b-a013-19a0ce8c4686" />
   <Project Path="Test_Win32StreamSystem/Test_Win32StreamSystem_msvs2026.vcxproj" Id="ef77942f-7a6e-48ed-9987-60532da402a9" />
   <Project Path="Test_Win32WindowSystem/Test_Win32WindowSystem_msvs2026.vcxproj" Id="b24cd7c2-d90e-4f01-a88b-f2baf3d728a1" />
   <Project Path="Test_Ws2NetworkSystem/Test_Ws2NetworkSystem_msvs2026.vcxproj" Id="b8cf1117-fac2-4269-bcf1-5f58d9d27a42" />
