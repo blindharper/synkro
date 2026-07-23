@@ -65,7 +65,7 @@ protected:
 	lang::String											_name;
 	lang::Vector<P(IStream)>								_streams;
 	lang::Vector<P(IStreamDirectory)>						_dirs;
-	lang::MapCI<lang::String, P(IStreamSet)>				_streamSets;
+	mutable lang::MapCI<lang::String, P(IStreamSet)>		_streamSets;
 };
 
 

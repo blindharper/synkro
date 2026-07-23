@@ -413,6 +413,7 @@ iface ISound;
 iface ISoundAnimationController;
 iface ITriangleMesh;
 iface ITriangleMeshBatch;
+iface ITriangleMeshSet;
 iface ITriangleSet;
 
 } // scene

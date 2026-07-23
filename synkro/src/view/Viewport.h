@@ -85,6 +85,7 @@ public:
 	scene::ICamera*											GetCamera() const;
 	ViewMode												GetViewMode() const;
 	StereoMode												GetStereoMode() const;
+	Float													GetProjectedSize( Float distance, Float size ) const;
 	void													GetLocation( lang::Point& location ) const;
 	void													GetSize( lang::Size& size ) const;
 	void													GetRect( lang::Rect& rect ) const;

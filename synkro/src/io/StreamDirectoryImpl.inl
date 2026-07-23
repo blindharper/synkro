@@ -29,7 +29,8 @@ SYNKRO_INLINE StreamDirectoryImpl<T>::StreamDirectoryImpl( IStreamDirectory* par
 	_parent( parent ),
 	_stream( stream ),
 	_streams( A(P(IStream)) ),
-	_dirs( A(P(IStreamDirectory)) )
+	_dirs( A(P(IStreamDirectory)) ),
+	_streamSets( A(StreamSetEntry) )
 {
 	_name = _stream->GetName();
 }
@@ -37,7 +38,8 @@ SYNKRO_INLINE StreamDirectoryImpl<T>::StreamDirectoryImpl( IStreamDirectory* par
 template <class T>
 SYNKRO_INLINE StreamDirectoryImpl<T>::StreamDirectoryImpl() :
 	_streams( A(P(IStream)) ),
-	_dirs( A(P(IStreamDirectory)) )
+	_dirs( A(P(IStreamDirectory)) ),
+	_streamSets( A(StreamSetEntry) )
 {
 }
 

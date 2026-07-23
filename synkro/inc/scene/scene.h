@@ -24,6 +24,7 @@
 #include <scene/ILineMeshBatch.h>
 #include <scene/IPointMeshBatch.h>
 #include <scene/ITriangleMeshBatch.h>
+#include <scene/ITriangleMeshSet.h>
 #include <scene/IMeshBatchAnimationController.h>
 #include <scene/ISkeleton.h>
 #include <scene/ISkeletonAnimationController.h>
@@ -62,6 +63,7 @@
 #define PtrLineMesh P(synkro::scene::ILineMesh)
 #define PtrTriangleMesh P(synkro::scene::ITriangleMesh)
 #define PtrTriangleMeshBatch P(synkro::scene::ITriangleMeshBatch)
+#define PtrTriangleMeshSet P(synkro::scene::ITriangleMeshSet)
 #define PtrNodeAnimationController P(synkro::scene::INodeAnimationController)
 #define PtrNode P(synkro::scene::INode)
 #define PtrLightAnimationController P(synkro::scene::ILightAnimationController)

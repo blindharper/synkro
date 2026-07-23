@@ -5346,6 +5346,9 @@
     <ClInclude Include="..\..\..\synkro\src\phys\DynamicActor.h">
       <Filter>phys\Implementation\Actor</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\scene\ITriangleMeshSet.h">
+      <Filter>scene\Interface\Node\Mesh\Triangle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\synkro\src\lang\Stack.inl">

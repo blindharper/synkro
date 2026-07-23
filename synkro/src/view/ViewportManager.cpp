@@ -109,15 +109,24 @@ Bool ViewportManager::Update( Double delta )
 			if ( triangleMesh->AsBatch() != nullptr )
 				continue;
 
-			Matrix4x4 trans; triangleMesh->GetWorldTransform( trans );
-			Vector3 position = trans.Translation();
-			Vector3 center; triangleMesh->GetCenter( center );
-			const Float radius = triangleMesh->GetBoundSphere();
-			const Bool renderable = camera->IsInView( position+center, radius );
-			for ( UInt k = 0; k < triangleMesh->GetSubsetCount(); ++k )
+			// See if we have mesh set or a plain mesh.
+			/*ITriangleMeshSet* triangleMeshSet = triangleMesh->AsSet();
+			if ( triangleMeshSet != nullptr )
 			{
-				ITriangleSet* subset = triangleMesh->GetSubset( k )->AsTriangleSet();
-				subset->GetRenderObject()->SetRenderable( viewport->GetView(), renderable );
+				// TODO:
+			}
+			else*/
+			{
+				Matrix4x4 trans; triangleMesh->GetWorldTransform( trans );
+				const Vector3 position = trans.Translation();
+				Vector3 center; triangleMesh->GetCenter( center );
+				const Float radius = triangleMesh->GetBoundSphere();
+				const Bool renderable = camera->IsInView( position+center, radius );
+				for ( UInt k = 0; k < triangleMesh->GetSubsetCount(); ++k )
+				{
+					ITriangleSet* subset = triangleMesh->GetSubset( k )->AsTriangleSet();
+					subset->GetRenderObject()->SetRenderable( viewport->GetView(), renderable );
+				}
 			}
 		}
 	}

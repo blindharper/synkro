@@ -379,6 +379,15 @@ ITriangleMesh* Viewport::PickMesh( const Point& location, Float* distance ) cons
 	return _camera->GetSceneEx()->PickMesh( origin, direction, distance );
 }
 
+Float Viewport::GetProjectedSize( Float distance, Float size ) const
+{
+	const Float front = _camera->GetFront();
+	if ( distance < front )
+		distance = front;
+	const Float widthProjectionScalar = (CastFloat(_size.Width)*0.5f) / Math::Tan( _camera->GetHorizontalFieldOfView()*0.5f );
+	return size / distance * widthProjectionScalar;
+}
+
 Bool Viewport::IsOverlay( ITriangleMesh* mesh ) const
 {
 	assert( mesh != nullptr );
