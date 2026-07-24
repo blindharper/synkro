@@ -80,7 +80,7 @@ public:
 		_camera2->SetPosition( Vector3(0.0f, 5000.0f, -10.0f) );
 		_camera2->LookAt( Vector3::Origin );
 
-		IWindow* window = _synkro->GetWindowSystem()->GetFrameWindow();
+		PtrWindow window = _synkro->GetWindowSystem()->GetFrameWindow();
 		_viewport2 = _synkro->GetViewportManager()->CreateViewport( _window, Rect(Point(window->GetWidth()-420, window->GetHeight()-420), Size(400, 400)), _camera2, Color::LightGray );
 		_viewport2->SetBorderColor( Color::Yellow );
 		_viewport2->ShowBorder( true );
@@ -103,8 +103,8 @@ public:
 			Vector3 center; planet->GetCenter( center );
 			Matrix4x4 trans; planet->GetWorldTransform( trans );
 			const Float radius = planet->GetBoundSphere();
-			Vector3 position = trans.Translation();
-			Bool ok = _camera->IsInView( position+center, radius );
+			const Vector3 position = trans.Translation();
+			const Bool ok = _camera->IsInView( position+center, radius );
 			planet->GetMaterial()->AsSimple()->SetEmissiveColor( ok ? Color::White : Color::Black );
 		}
 	}
@@ -112,7 +112,7 @@ public:
 	INode* CreateCenter( Double speed )
 	{
 		INode* center = _scene->CreateDummy( nullptr, String::Empty );
-		INodeAnimationController* centerCtrl = center->CreateAnimationController( nullptr, nullptr );
+		PtrNodeAnimationController centerCtrl = center->CreateAnimationController( nullptr, nullptr );
 		PtrWaveFloatTrack trackYaw = centerCtrl->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackYaw->SetType( WaveType::SawtoothUp );
 		trackYaw->SetAmplitude( Math::TwoPi );
@@ -126,7 +126,7 @@ public:
 	ITriangleMesh* CreatePlanet( INode* parent, const String& name, const String& map, Float radius, const Vector3& position )
 	{
 		PtrImage image = GetImage( map );
-		IOpaqueMaterial* material = _synkro->GetMaterialManager()->CreateOpaqueMaterial( LightingModel::Gouraud );
+		PtrOpaqueMaterial material = _synkro->GetMaterialManager()->CreateOpaqueMaterial( LightingModel::Gouraud );
 		material->SetAmbientColor( Color::DimGray );
 		material->SetDiffuseColor( Color::White );
 		material->SetEmissiveColor( Color::White );

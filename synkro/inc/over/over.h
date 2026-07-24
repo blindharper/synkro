@@ -31,6 +31,7 @@
 #define PtrOverlay P(synkro::over::IOverlay)
 #define PtrFont P(synkro::over::IFont)
 #define PtrSprite P(synkro::over::ISprite)
+#define PtrSpriteAnimationController P(synkro::over::ISpriteAnimationController)
 #define PtrText P(synkro::over::IText)
 #define PtrTextAnimationController P(synkro::over::ITextAnimationController)
 #define PtrTextPool P(synkro::over::ITextPool)

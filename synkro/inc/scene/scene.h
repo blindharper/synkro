@@ -60,6 +60,7 @@
 #define PtrOmniLight P(synkro::scene::IOmniLight)
 #define PtrFog P(synkro::scene::IFog)
 #define PtrFogAnimationController P(synkro::scene::IFogAnimationController)
+#define PtrPrimitiveAnimationController P(synkro::scene::IPrimitiveAnimationController)
 #define PtrLineMesh P(synkro::scene::ILineMesh)
 #define PtrTriangleMesh P(synkro::scene::ITriangleMesh)
 #define PtrTriangleMeshBatch P(synkro::scene::ITriangleMeshBatch)

@@ -22,7 +22,7 @@ public:
 		_cell->SetScale( 2.0f );
 
 		// Create materials.
-		IImage* diffuseMap = GetImage( L"checkers.jpg" );
+		PtrImage diffuseMap = GetImage( L"checkers.jpg" );
 		_materialPurple = CreateMaterial( diffuseMap, Color::Purple );
 		_materialOrange = CreateMaterial( diffuseMap, Color::OrangeAerospace );
 		_materialGreen = CreateMaterial( diffuseMap, Color::BritishRacingGreen );
@@ -153,7 +153,7 @@ public:
 
 		if ( sender == _switchAnimate )
 		{
-			Bool animate = _switchAnimate->IsOn();
+			const Bool animate = _switchAnimate->IsOn();
 			_ctrlPurple->Start( animate );
 			_ctrlOrange->Start( animate );
 			_ctrlGreen->Start( animate );
@@ -186,7 +186,7 @@ public:
 
 	IViewport* CreateViewport( const Vector3& eye, const Vector3& at, const Size& size )
 	{
-		ICamera* camera = _scene->CreateCamera( nullptr, String::Empty );
+		PtrCamera camera = _scene->CreateCamera( nullptr, String::Empty );
 		camera->SetHorizontalFieldOfView( Math::ToRadians(_orgFov) );
 		camera->SetAspect( _displayModeWindowed.AspectFactor() );
 		camera->SetFront( 0.1f );
@@ -202,8 +202,8 @@ public:
 
 	ISimpleMaterialAnimationController* AnimateMaterial( IOpaqueMaterial* material, const Color& color, Double duration )
 	{
-		ISimpleMaterialAnimationController* ctrl = material->CreateAnimationController( nullptr, nullptr )->AsSimple();
-		IKeyframedColorTrack* trackColor = ctrl->CreateEmissiveColorTrack();
+		PtrSimpleMaterialAnimationController ctrl = material->CreateAnimationController( nullptr, nullptr )->AsSimple();
+		PtrKeyframedColorTrack trackColor = ctrl->CreateEmissiveColorTrack();
 		trackColor->SetKey( 0.0, Color::Black );
 		trackColor->SetKey( 0.5*duration, color );
 		trackColor->SetKey( duration, Color::Black );

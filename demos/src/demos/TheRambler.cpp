@@ -13,7 +13,7 @@ public:
 	void InitScene() override
 	{
 		// Create materials.
-		IImage* imageCheckers = GetImage( L"checkers.jpg" );
+		PtrImage imageCheckers = GetImage( L"checkers.jpg" );
 		_materialFloor = CreateTexturedMaterial( imageCheckers );
 
 		_materialRed = CreateColoredMaterial( Color::Red );

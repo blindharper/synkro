@@ -19,10 +19,10 @@ public:
 	void InitScene() override
 	{
 		// Create materials.
-		IImage* imageCheckers = GetImage( L"checkers.jpg" );
+		PtrImage imageCheckers = GetImage( L"checkers.jpg" );
 		_materialFloor = CreateTexturedMaterial( imageCheckers, 200 );
 
-		IImage* imageCrate = GetImage( L"crate.bmp" );
+		PtrImage imageCrate = GetImage( L"crate.bmp" );
 		_materialCrate = CreateTexturedMaterial( imageCrate, 1 );
 
 		_physicsMaterial = _synkro->GetPhysicsSystem()->CreateMaterial( 0.5f, 0.5f, 0.6f );

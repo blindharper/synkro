@@ -21,7 +21,7 @@ public:
 		PtrStream stream = GetStream( L"cell.x" );
 		_cell = _scene->LoadMesh( stream );
 		_cell->SetScale( 2.0f );
-		INodeAnimationController* ctrlCell = _cell->CreateAnimationController( nullptr, nullptr );
+		PtrNodeAnimationController ctrlCell = _cell->CreateAnimationController( nullptr, nullptr );
 		PtrWaveFloatTrack trackYaw = ctrlCell->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackYaw->SetType( WaveType::SawtoothDown );
 		trackYaw->SetAmplitude( Math::TwoPi );
@@ -43,7 +43,7 @@ public:
 		constexpr Float ELECTRON_RADIUS = 0.15f;
 		_centers->Add( _scene->CreateDummy(_nucleus, String::Empty) );
 		_centers->Get(0)->SetOrientationYaw( Math::HalfPi );		
-		INodeAnimationController* centerCtrl = _centers->Get(0)->CreateAnimationController( nullptr, nullptr );
+		PtrNodeAnimationController centerCtrl = _centers->Get( 0 )->CreateAnimationController( nullptr, nullptr );
 		PtrWaveFloatTrack trackYaw2 = centerCtrl->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackYaw2->SetType( WaveType::SawtoothDown );
 		trackYaw2->SetAmplitude( Math::TwoPi );
@@ -54,8 +54,8 @@ public:
 		_electrons->Add( CreateSphere(_centers->Get(0), _materialElectron, ELECTRON_RADIUS, 40, 40, Matrix4x4::Identity, Vector3(2.0f, 0.0f, 0.0f)) );
 
 		_centers->Add( _scene->CreateDummy(_nucleus, String::Empty) );
-		_centers->Get(1)->SetOrientationPitch( Math::HalfPi );
-		centerCtrl = _centers->Get(1)->CreateAnimationController( nullptr, nullptr );
+		_centers->Get( 1 )->SetOrientationPitch( Math::HalfPi );
+		centerCtrl = _centers->Get( 1 )->CreateAnimationController( nullptr, nullptr );
 		trackYaw2 = centerCtrl->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackYaw2->SetType( WaveType::SawtoothUp );
 		trackYaw2->SetAmplitude( Math::TwoPi );
@@ -67,8 +67,8 @@ public:
 		_electrons->Add( CreateSphere(_centers->Get(1), _materialElectron, ELECTRON_RADIUS, 40, 40, Matrix4x4::Identity, Vector3(1.7f, 0.0f, 0.0f)) );
 
 		_centers->Add( _scene->CreateDummy(_nucleus, String::Empty) );
-		_centers->Get(2)->SetOrientationPitch( Math::QuarterPi );		
-		centerCtrl = _centers->Get(2)->CreateAnimationController( nullptr, nullptr );
+		_centers->Get( 2 )->SetOrientationPitch( Math::QuarterPi );		
+		centerCtrl = _centers->Get( 2 )->CreateAnimationController( nullptr, nullptr );
 		trackYaw2 = centerCtrl->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackYaw2->SetType( WaveType::SawtoothUp );
 		trackYaw2->SetAmplitude( Math::TwoPi );

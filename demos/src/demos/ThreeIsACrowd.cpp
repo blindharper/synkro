@@ -16,7 +16,7 @@ public:
 		PtrStream stream = GetStream( L"tiny_anim.x" );
 		PtrSkeleton skeleton = _synkro->GetSceneManager()->CreateSkeleton();
 		_tinyTemplate = _scene->LoadMesh( stream, nullptr, skeleton, WIDTH*DEPTH )->AsBatch();
-		_tinyTemplate->SetOrientationPitch(Math::Pi);
+		_tinyTemplate->SetOrientationPitch( Math::Pi );
 		_tinyTemplate->SetOrientationRoll( Math::Pi );
 		_tinyTemplate->SetScale( Vector3(0.11f, 0.1f, 0.1f) );
 
@@ -25,7 +25,7 @@ public:
 		Double offsets[3];
 		for ( UInt i = 0; i < 3; ++i )
 		{
-			lengths[i] = skeleton->GetAnimationSet(i)->GetAnimation(0)->GetLength();
+			lengths[i] = skeleton->GetAnimationSet( i )->GetAnimation( 0 )->GetLength();
 			deltaLengths[i] = lengths[i]/CastDouble(_tinyTemplate->GetCapacity());
 			offsets[i] = 0.0;
 		}
@@ -47,7 +47,7 @@ public:
 				ITriangleMesh* tiny = _tinyTemplate->CreateInstance( nullptr, trans, Color::Random() );
 				UInt idx = rnd.GetUInt()%3;
 
-				ISkeletonAnimationController* skeletonCtrl = tiny->GetSkeleton()->CreateAnimationController( nullptr, nullptr );
+				PtrSkeletonAnimationController skeletonCtrl = tiny->GetSkeleton()->CreateAnimationController( nullptr, nullptr );
 				skeletonCtrl->SetAnimationSet( idx );
 				skeletonCtrl->SetMode( AnimationMode::Loop );
 				skeletonCtrl->SetDirection( AnimationDirection::Forward );

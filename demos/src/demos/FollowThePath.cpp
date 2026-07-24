@@ -23,8 +23,8 @@ public:
 	void InitScene() override
 	{
 		// Create materials.
-		IImage* diffuseMap = GetImage( L"checkers.jpg" );
-		IImage* imageTwinPeaks = GetImage( L"twin_peaks.jpg" );
+		PtrImage diffuseMap = GetImage( L"checkers.jpg" );
+		PtrImage imageTwinPeaks = GetImage( L"twin_peaks.jpg" );
 		_materialCube = CreateMaterial( diffuseMap );
 		_materialCube->SetDiffuseColor( Color::LamborghiniYellow );
 		_materialCube2 = CreateMaterial( diffuseMap );
@@ -73,7 +73,7 @@ public:
 		_path2 = _scene->CreateCurve( nullptr, L"Path2" );
 		_path2->SetColor( Color::FerrariRed );
 
-		_path2->AddPoint(Vector3(30.0f, 0.5f*CUBE_SIDE, 30.0f));
+		_path2->AddPoint( Vector3(30.0f, 0.5f*CUBE_SIDE, 30.0f) );
 		_path2->AddPoint( Vector3(30.0f, 0.5f*CUBE_SIDE, -30.0f) );
 		_path2->AddPoint( Vector3(-30.0f, 0.5f*CUBE_SIDE, -30.0f) );
 		_path2->AddPoint( Vector3(-30.0f, 0.5f*CUBE_SIDE, 30.0f) );
@@ -81,49 +81,49 @@ public:
 
 		_path3 = _scene->CreateCurve( nullptr, L"Path3" );
 		_path3->SetColor( Color::KiwiGreen );
-		_path3->AddPoint( Vector3(-90.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(-90.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(-80.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(-80.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(-70.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(-70.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(-60.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(-60.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(-50.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(-50.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(-40.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(-40.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(-30.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(-30.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(-20.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(-20.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(-10.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(-10.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(0.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(0.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(10.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(10.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(20.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(20.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(30.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(30.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(40.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(40.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(50.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(50.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(60.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(60.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(70.0f, 12.0f, 60.0f));
-		_path3->AddPoint( Vector3(70.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(80.0f, 20.0f, 60.0f));
-		_path3->AddPoint( Vector3(80.0f, 12.0f, 60.0f));
+		_path3->AddPoint( Vector3(-90.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-90.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-80.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-80.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-70.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-70.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-60.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-60.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-50.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-50.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-40.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-40.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-30.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-30.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-20.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-20.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-10.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(-10.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(0.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(0.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(10.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(10.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(20.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(20.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(30.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(30.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(40.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(40.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(50.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(50.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(60.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(60.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(70.0f, 12.0f, 60.0f) );
+		_path3->AddPoint( Vector3(70.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(80.0f, 20.0f, 60.0f) );
+		_path3->AddPoint( Vector3(80.0f, 12.0f, 60.0f) );
 
 		_cube->SetPath( _path1 );
 		_cube2->SetPath( _path2 );
 		_cube3->SetPath( _path3 );
 		_path = _path1;
 
-		INodeAnimationController* cubeCtrl = _cube->CreateAnimationController( nullptr, nullptr );
+		PtrNodeAnimationController cubeCtrl = _cube->CreateAnimationController( nullptr, nullptr );
 		PtrWaveFloatTrack trackPhase = cubeCtrl->CreatePathPhaseTrack( AnimationTrack::FloatWave )->AsWave();
 		trackPhase->SetType( WaveType::SawtoothUp );
 		trackPhase->SetAmplitude( 1.0f );
@@ -132,7 +132,7 @@ public:
 		cubeCtrl->SetSpeed( 0.1 );
 		cubeCtrl->Start( true );
 
-		INodeAnimationController* cubeCtrl2 = _cube2->CreateAnimationController( nullptr, nullptr );
+		PtrNodeAnimationController cubeCtrl2 = _cube2->CreateAnimationController( nullptr, nullptr );
 		PtrWaveFloatTrack trackPhase2 = cubeCtrl2->CreatePathPhaseTrack( AnimationTrack::FloatWave )->AsWave();
 		trackPhase2->SetType( WaveType::SawtoothUp );
 		trackPhase2->SetAmplitude( 1.0f );
@@ -140,7 +140,7 @@ public:
 		cubeCtrl2->SetSpeed( 0.2 );
 		cubeCtrl2->Start( true );
 
-		INodeAnimationController* cubeCtrl3 = _cube3->CreateAnimationController( nullptr, nullptr );
+		PtrNodeAnimationController cubeCtrl3 = _cube3->CreateAnimationController( nullptr, nullptr );
 		PtrWaveFloatTrack trackPhase3 = cubeCtrl3->CreatePathPhaseTrack( AnimationTrack::FloatWave )->AsWave();
 		trackPhase3->SetType( WaveType::SawtoothUp );
 		trackPhase3->SetAmplitude( 1.0f );
@@ -271,14 +271,14 @@ public:
 
 	Float SliderPositionToLabel( ISlider* slider, ILabel* label, const Char* prefix )
 	{
-		Double value = CastDouble((CastInt(slider->GetPosition())-1000))*0.001;
+		const Double value = CastDouble((CastInt(slider->GetPosition())-1000))*0.001;
 		label->SetText( String::Format(L"{0}{1,0.000}", prefix, value) );
 		return CastFloat(value);
 	}
 
 	void SetSliderPosition( ISlider* slider, ILabel* label, const Char* prefix, Float value )
 	{
-		UInt pos = CastUInt(value*1000.0f + 1000.0f);
+		const UInt pos = CastUInt(value*1000.0f + 1000.0f);
 		slider->SetPosition( pos );
 		label->SetText( String::Format(L"{0}{1,0.000}", prefix, CastDouble(value)) );
 	}

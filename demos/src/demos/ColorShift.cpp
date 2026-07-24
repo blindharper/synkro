@@ -14,7 +14,7 @@ public:
 	{
 		// Load model.
 		PtrStream stream = GetStream( L"tiny.x" );
-		ISkeleton* skeleton = _synkro->GetSceneManager()->CreateSkeleton();
+		PtrSkeleton skeleton = _synkro->GetSceneManager()->CreateSkeleton();
 		_tiny = _scene->LoadMesh( stream, skeleton );
 		const Float sphere = _tiny->GetBoundSphere();
 		_tiny->SetScale( 45.0f/sphere );

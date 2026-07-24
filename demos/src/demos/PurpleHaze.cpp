@@ -13,7 +13,7 @@ public:
 	void InitScene() override
 	{
 		// Create materials.
-		IImage* diffuseMap = GetImage( L"checkers.jpg" );
+		PtrImage diffuseMap = GetImage( L"checkers.jpg" );
 		_materialFloor = CreateMaterial( diffuseMap );
 
 		// Create floor.
@@ -22,7 +22,7 @@ public:
 
 		// Create models.
 		PtrStream stream = GetStream( L"tiny.x" );
-		ISkeleton* skeleton = _synkro->GetSceneManager()->CreateSkeleton();
+		PtrSkeleton skeleton = _synkro->GetSceneManager()->CreateSkeleton();
 		_tiny = _scene->LoadMesh( stream, skeleton );
 		_tiny2 = _scene->LoadMesh( stream, skeleton );
 		_tiny3 = _scene->LoadMesh( stream, skeleton );
@@ -69,7 +69,7 @@ public:
 		_viewportCtrl->SetMode( AnimationMode::Single );
 
 		// Setup fragment fog.
-		_fragmentFog = _viewport->CreateFilter(ViewportFilter::Fog)->AsDepth()->AsFog();
+		_fragmentFog = _viewport->CreateFilter( ViewportFilter::Fog )->AsDepth()->AsFog();
 		_fragmentFog->SetCamera( _camera );
 		_fragmentFog->SetDepthMap( _viewport->CreateDepthTarget() );
 		_fragmentFogCtrl = _fragmentFog->CreateAnimationController( nullptr, nullptr )->AsFog();

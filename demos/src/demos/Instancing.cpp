@@ -192,7 +192,7 @@ public:
 		constexpr Float DELTA = 0.5f;
 		constexpr Float side = (CUBE_SIDE - DELTA*(CastFloat(SIDE_LENGTH)-1.0f))/CastFloat(SIDE_LENGTH);
 		_center2 = _scene2->CreateDummy( nullptr, L"Center" );
-		IImage* diffuseMap = GetImage( L"crate.bmp" );
+		PtrImage diffuseMap = GetImage( L"crate.bmp" );
 		_cube = _scene2->CreateTriangleMeshBatch( CreateMaterial(diffuseMap), nullptr, CAPACITY );
 		_synkro->GetSceneManager()->BuildMesh( _cube, MeshBuilder::Box, Vector4(side, side, side, 0.0f), Size(), Matrix4x4::Identity );
 		constexpr Float start = -(CastFloat(SIDE_LENGTH)-1.0f)*(side+DELTA)*0.5f;
@@ -228,7 +228,7 @@ public:
 
 	void ShowTexture( Bool show )
 	{
-		IImage* image = GetImage( show ? L"crate.bmp" : L"blank.bmp" );
+		PtrImage image = GetImage( show ? L"crate.bmp" : L"blank.bmp" );
 		_cube->GetMaterial()->AsSimple()->GetDiffuseMap()->SetImage( image );
 		for ( UInt i = 0; i < CAPACITY; ++i )
 		{
@@ -258,8 +258,8 @@ public:
 							break;
 					}
 					const UInt index = SIDE_LENGTH*(SIDE_LENGTH*k+j)+i;
-					_cubesArray->Get(index)->GetMaterial()->AsSimple()->SetDiffuseColor( color );
-					_cubesInstanced->Get(index)->GetMaterial()->AsSimple()->SetDiffuseColor( color );
+					_cubesArray->Get( index )->GetMaterial()->AsSimple()->SetDiffuseColor( color );
+					_cubesInstanced->Get( index )->GetMaterial()->AsSimple()->SetDiffuseColor( color );
 				}
 			}
 		}
