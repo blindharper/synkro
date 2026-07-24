@@ -8,7 +8,6 @@
     <BuildType Name="release_static" />
     <Platform Name="x64" />
   </Configurations>
-  <Project Path="synkro/synkro_msvs2026.vcxproj" Id="e28ef5aa-43df-4c6d-b372-c03ca9630d58" />
   <Project Path="synkro.anim/synkro.anim_msvs2026.vcxproj" Id="d4ad4055-e884-4078-9ed3-5f20642bb3ee" />
   <Project Path="synkro.audio.al/synkro.audio.al_msvs2026.vcxproj" Id="72c96283-6cd7-4703-b6f7-84ad732c05c6" />
   <Project Path="synkro.cons/synkro.cons_msvs2026.vcxproj" Id="98fbdffc-1997-4713-824a-4b45ee2140e9" />
@@ -16,7 +15,7 @@
   <Project Path="synkro.gfx.dx11/synkro.gfx.dx11_msvs2026.vcxproj" Id="8382a661-157d-4fe4-8e89-37016a48b509" />
   <Project Path="synkro.img/synkro.img_msvs2026.vcxproj" Id="e09e52cd-784e-4678-b8eb-79a8049523bf" />
   <Project Path="synkro.input.di8/synkro.input.di8_msvs2026.vcxproj" Id="a00fba59-511b-498f-9de2-5b94fcccb33b" />
-  <Project Path="synkro.io/synkro.io_msvs2026.vcxproj" Id="35f7ddd0-388e-41f8-b659-875c02475e55" />
+  <Project Path="synkro.io.win32/synkro.io.win32_msvs2026.vcxproj" Id="35f7ddd0-388e-41f8-b659-875c02475e55" />
   <Project Path="synkro.mat/synkro.mat_msvs2026.vcxproj" Id="877d198b-deaa-49ce-9d9c-adf33cb7f275" />
   <Project Path="synkro.net.ws2/synkro.net.ws2_msvs2026.vcxproj" Id="49411e84-e33f-4fec-a0de-6b0b0579934c" />
   <Project Path="synkro.phys.physx/synkro.phys.physx_msvs2026.vcxproj" Id="c886f634-fca8-4379-85e5-6252c681f995" />
@@ -26,4 +25,5 @@
   <Project Path="synkro.ui/synkro.ui_msvs2026.vcxproj" Id="c4487c65-7ae0-4a5d-a3c9-b6a04659c78a" />
   <Project Path="synkro.view/synkro.view_msvs2026.vcxproj" Id="d773b653-e22f-44ff-a84f-30fb2c853112" />
   <Project Path="synkro.win.win32/synkro.win.win32_msvs2026.vcxproj" Id="5155f2a2-0e74-49ef-8f50-7c7ec64d761c" />
+  <Project Path="synkro/synkro_msvs2026.vcxproj" Id="e28ef5aa-43df-4c6d-b372-c03ca9630d58" />
 </Solution>
