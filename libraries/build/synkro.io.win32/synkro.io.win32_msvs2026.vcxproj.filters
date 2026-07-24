@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\external\src\stream.cpp" />
-    <ClCompile Include="..\..\src\synkro.io\synkro.io.cpp" />
+    <ClCompile Include="..\..\src\synkro.io.win32\synkro.io.win32.cpp" />
     <ClCompile Include="..\..\..\synkro\src\io\Win32\Win32StreamSystem.cpp">
       <Filter>StreamSystem\Win32\System</Filter>
     </ClCompile>
@@ -55,6 +55,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\src\synkro.io\factories.inl" />
+    <None Include="..\..\src\synkro.io.win32\factories.inl" />
   </ItemGroup>
 </Project>

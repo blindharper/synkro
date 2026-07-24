@@ -35,16 +35,6 @@ SYNKRO_API void												SynkroAnimInit();
 SYNKRO_API void												SynkroAudioAlInit();
 
 /**
- * Performs DirectSound8 audio library initialization.
- */
-SYNKRO_API void												SynkroAudioDs8Init();
-
-/**
- * Performs WinMM audio library initialization.
- */
-SYNKRO_API void												SynkroAudioWinmmInit();
-
-/**
  * Performs console library initialization.
  */
 SYNKRO_API void												SynkroConsInit();
@@ -70,9 +60,9 @@ SYNKRO_API void												SynkroImgInit();
 SYNKRO_API void												SynkroInputDi8Init();
 
 /**
- * Performs I/O library initialization.
+ * Performs Win32 I/O library initialization.
  */
-SYNKRO_API void												SynkroIoInit();
+SYNKRO_API void												SynkroIoWin32Init();
 
 /**
  * Performs material library initialization.

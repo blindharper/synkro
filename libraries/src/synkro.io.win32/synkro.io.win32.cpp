@@ -8,15 +8,15 @@
 // is allowed without any permission from the Synkro Project.
 // Website: https://synkro.pro Email: mailto:blindharper70@gmail.com
 //
-// Purpose: 'synkro.io' library.
+// Purpose: 'synkro.io.win32' library.
 //==============================================================================
 #include "config.h"
 
-#define SYNKROLIB_NAME			L"synkro.io"
+#define SYNKROLIB_NAME			L"synkro.io.win32"
 #define SYNKROLIB_DESC			L"Synkro I/O Library"
-#define SYNKROLIB_COMMENT		L"Stream systems and directories"
+#define SYNKROLIB_COMMENT		L"Win32 stream system"
 #define SYNKROLIB_FACTORIES		_factories
-#define SYNKROLIB_INIT			SynkroIoInit
+#define SYNKROLIB_INIT			SynkroIoWin32Init
 #define SYNKROLIB_VERSION_MAJOR	1
 #define SYNKROLIB_VERSION_MINOR	0
 #define SYNKROLIB_VERSION_PATCH	0

@@ -27,9 +27,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>synkro.io</ProjectName>
+    <ProjectName>synkro.io.win32</ProjectName>
     <ProjectGuid>{35F7DDD0-388E-41F8-B659-875C02475E55}</ProjectGuid>
-    <RootNamespace>synkro.io</RootNamespace>
+    <RootNamespace>synkro.io.win32</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -120,12 +120,12 @@
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release_static|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'" />
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">synkro_debug.io</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">synkro_debug.io</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">synkro_debug.io.win32</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">synkro_debug.io.win32</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">.lib</TargetExt>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">$(ProjectName)</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'">synkro_profile.io</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='profile|x64'">synkro_profile.io</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'">synkro_profile.io.win32</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='profile|x64'">synkro_profile.io.win32</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
     <IncludePath>../../../synkro/inc;../../../synkro/src;$(IncludePath)</IncludePath>
@@ -160,7 +160,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.io;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.io.win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>FPM_64BIT;_WIN64;_UNICODE;UNICODE;_DEBUG;_WINDOWS;_USRDLL;SYNKROLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -176,7 +176,7 @@
     </ClCompile>
     <ResourceCompile>
       <ShowProgress>false</ShowProgress>
-      <ResourceOutputFileName>$(OutDir)synkro_debug.io.res</ResourceOutputFileName>
+      <ResourceOutputFileName>$(OutDir)synkro_debug.io.win32.res</ResourceOutputFileName>
     </ResourceCompile>
     <PreLinkEvent>
       <Command>
@@ -184,10 +184,10 @@
     </PreLinkEvent>
     <Link>
       <AdditionalDependencies>synkro_debug.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)synkro_debug.io.dll</OutputFile>
+      <OutputFile>$(OutDir)synkro_debug.io.win32.dll</OutputFile>
       <AdditionalLibraryDirectories>../../../external/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)synkro_debug.io.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)synkro_debug.io.win32.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <ImportLibrary>
       </ImportLibrary>
@@ -202,7 +202,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug_static|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.io;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.io.win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_UNICODE;UNICODE;_DEBUG;_WINDOWS;SYNKRO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -219,7 +219,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     </ClCompile>
     <ResourceCompile>
       <ShowProgress>false</ShowProgress>
-      <ResourceOutputFileName>$(OutDir)synkro_debug.io.res</ResourceOutputFileName>
+      <ResourceOutputFileName>$(OutDir)synkro_debug.io.win32.res</ResourceOutputFileName>
     </ResourceCompile>
     <PreLinkEvent>
       <Command>
@@ -227,10 +227,10 @@ del "$(OutDir)$(TargetName).lib"</Command>
     </PreLinkEvent>
     <Link>
       <AdditionalDependencies>synkro_debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)synkro_debug.io.dll</OutputFile>
+      <OutputFile>$(OutDir)synkro_debug.io.win32.dll</OutputFile>
       <AdditionalLibraryDirectories>../../../lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)synkro_debug.io.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)synkro_debug.io.win32.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <ImportLibrary>
       </ImportLibrary>
@@ -243,7 +243,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.io;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.io.win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>FPM_64BIT;WIN64;_UNICODE;UNICODE;NDEBUG;_WINDOWS;_USRDLL;SYNKROLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -255,7 +255,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <ResourceOutputFileName>$(OutDir)synkro.io.res</ResourceOutputFileName>
+      <ResourceOutputFileName>$(OutDir)synkro.io.win32.res</ResourceOutputFileName>
     </ResourceCompile>
     <PreLinkEvent>
       <Command>
@@ -283,7 +283,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.io;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.io.win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_UNICODE;UNICODE;NDEBUG;_WINDOWS;SYNKRO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -295,7 +295,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <ResourceOutputFileName>$(OutDir)synkro.io.res</ResourceOutputFileName>
+      <ResourceOutputFileName>$(OutDir)synkro.io.win32.res</ResourceOutputFileName>
     </ResourceCompile>
     <PreLinkEvent>
       <Command>
@@ -322,7 +322,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='profile_static|x64'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.io;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.io.win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_UNICODE;UNICODE;NDEBUG;_WINDOWS;SYNKRO_STATIC;SYNKRO_PROFILE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -334,7 +334,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <ResourceOutputFileName>$(OutDir)synkro.io.res</ResourceOutputFileName>
+      <ResourceOutputFileName>$(OutDir)synkro.io.win32.res</ResourceOutputFileName>
     </ResourceCompile>
     <PreLinkEvent>
       <Command>
@@ -361,7 +361,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.io;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../synkro/inc;../../../synkro/src/internal;../../../external/src;../../src/synkro.io.win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_UNICODE;UNICODE;NDEBUG;_WINDOWS;_USRDLL;SYNKRO_PROFILE;SYNKROLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -373,7 +373,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
-      <ResourceOutputFileName>$(OutDir)synkro.io.res</ResourceOutputFileName>
+      <ResourceOutputFileName>$(OutDir)synkro.io.win32.res</ResourceOutputFileName>
     </ResourceCompile>
     <PreLinkEvent>
       <Command>
@@ -381,7 +381,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     </PreLinkEvent>
     <Link>
       <AdditionalDependencies>synkro_profile.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)synkro_profile.io.dll</OutputFile>
+      <OutputFile>$(OutDir)synkro_profile.io.win32.dll</OutputFile>
       <AdditionalLibraryDirectories>../../../external/lib/win64;../../../synkro/bin/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -406,7 +406,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClInclude Include="..\..\..\synkro\src\io\ZipDirectoryFactory.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\synkro.io\synkro.io.cpp" />
+    <ClCompile Include="..\..\src\synkro.io.win32\synkro.io.win32.cpp" />
     <ClCompile Include="..\..\..\external\src\stream.cpp" />
     <ClCompile Include="..\..\..\synkro\src\io\Win32\Win32Directory.cpp" />
     <ClCompile Include="..\..\..\synkro\src\io\Win32\Win32Stream.cpp" />
@@ -419,7 +419,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\src\synkro.io\factories.inl" />
+    <None Include="..\..\src\synkro.io.win32\factories.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
