@@ -18,7 +18,7 @@ public:
 	void InitScene() override
 	{
 		// Create materials.
-		IImage* diffuseMap = GetImage( L"checkers.jpg" );
+		PtrImage diffuseMap = GetImage( L"checkers.jpg" );
 		_material = CreateMaterial( diffuseMap );
 		_material2 = CreateMaterial( diffuseMap );
 		_material3 = CreateMaterial( diffuseMap );
@@ -84,15 +84,15 @@ public:
 
 	void AnimateSphere( ITriangleMesh* sphere, IExpressionScript* script, Float amplitude, Float frequency, Float phase )
 	{
-		IExpressionScript* scriptClone = script->Clone();
-		ExpressionParam* paramAmplitude = scriptClone->GetParam( L"AMP" );
+		PtrExpressionScript scriptClone = script->Clone();
+		PtrExpressionParam paramAmplitude = scriptClone->GetParam( L"AMP" );
 		scriptClone->SetParamValue( paramAmplitude, amplitude );
-		ExpressionParam* paramFreq = scriptClone->GetParam( L"FREQ" );
+		PtrExpressionParam paramFreq = scriptClone->GetParam( L"FREQ" );
 		scriptClone->SetParamValue( paramFreq, frequency );
-		ExpressionParam* paramPhase = scriptClone->GetParam( L"PHASE" );
+		PtrExpressionParam paramPhase = scriptClone->GetParam( L"PHASE" );
 		scriptClone->SetParamValue( paramPhase, phase );
 
-		INodeAnimationController* ctrl = sphere->CreateAnimationController( nullptr, nullptr );
+		PtrNodeAnimationController ctrl = sphere->CreateAnimationController( nullptr, nullptr );
 		ctrl->CreateOrientationYawTrack( scriptClone );
 		ctrl->CreateScaleUniformTrack( scriptClone );
 		ctrl->SetMode( AnimationMode::Loop );
@@ -101,13 +101,13 @@ public:
 
 	void AnimateMaterial( IOpaqueMaterial* material, IExpressionScript* script, const Color& color1, const Color& color2 )
 	{
-		IExpressionScript* scriptClone = script->Clone();
-		ExpressionParam* paramColor1 = scriptClone->GetParam( L"COLOR1" );
+		PtrExpressionScript scriptClone = script->Clone();
+		PtrExpressionParam paramColor1 = scriptClone->GetParam( L"COLOR1" );
 		scriptClone->SetParamValue( paramColor1, color1 );
-		ExpressionParam* paramColor2 = scriptClone->GetParam( L"COLOR2" );
+		PtrExpressionParam paramColor2 = scriptClone->GetParam( L"COLOR2" );
 		scriptClone->SetParamValue( paramColor2, color2 );
 
-		ISimpleMaterialAnimationController* ctrl = material->CreateAnimationController( nullptr, nullptr )->AsSimple();
+		PtrSimpleMaterialAnimationController ctrl = material->CreateAnimationController( nullptr, nullptr )->AsSimple();
 		ctrl->CreateDiffuseColorTrack( scriptClone );
 		ctrl->SetMode( AnimationMode::Loop );
 		ctrl->Start( true );

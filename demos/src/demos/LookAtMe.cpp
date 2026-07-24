@@ -23,8 +23,8 @@ public:
 	void InitScene() override
 	{
 		// Create shared material.
-		IImage* imageCheckers = GetImage( L"checkers.jpg" );
-		IImage* imageTwinPeaks = GetImage( L"twin_peaks.jpg" );
+		PtrImage imageCheckers = GetImage( L"checkers.jpg" );
+		PtrImage imageTwinPeaks = GetImage( L"twin_peaks.jpg" );
 		_materialFloor = CreateTexturedMaterial( imageTwinPeaks );
 		_materialFloor->SetSpecularColor( Color::Black );
 
@@ -32,7 +32,7 @@ public:
 		_world = _scene->CreateDummy( nullptr, L"Center" );
 		_world->SetPosition( Vector3(0.0f, 1.0f, -70.0f) );
 		_world->ShowGizmo( false );
-		INodeAnimationController* worldCtrl = _world->CreateAnimationController( nullptr, nullptr );
+		PtrNodeAnimationController worldCtrl = _world->CreateAnimationController( nullptr, nullptr );
 		PtrWaveFloatTrack trackYaw = worldCtrl->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackYaw->SetType( WaveType::SawtoothUp );
 		trackYaw->SetAmplitude( Math::TwoPi );
@@ -51,7 +51,7 @@ public:
 
 		// Create sphere.
 		constexpr Float SPHERE_RADIUS = 5.0f;
-		IOpaqueMaterial* sphereMat = CreateTexturedMaterial( imageCheckers );
+		PtrOpaqueMaterial sphereMat = CreateTexturedMaterial( imageCheckers );
 		sphereMat->SetTilingHorizontal( 8 );
 		sphereMat->SetTilingVertical( 8 );
 		sphereMat->SetAmbientColor( Color::OrangeAerospace );
@@ -63,12 +63,12 @@ public:
 
 		// Create box.
 		constexpr Float HEAD_SIDE = 18.0f;
-		IImage* imageFace = GetImage( L"face.jpg" );
-		IOpaqueMaterial* materialFace = CreateTexturedMaterial( imageFace );
+		PtrImage imageFace = GetImage( L"face.jpg" );
+		PtrOpaqueMaterial materialFace = CreateTexturedMaterial( imageFace );
 		materialFace->SetDiffuseColor( Color::White );
 		materialFace->SetAmbientColor( Color::White );
 		materialFace->SetEmissiveColor( Color::White );
-		IOpaqueMaterial* materialGray = _synkro->GetMaterialManager()->CreateOpaqueMaterial( LightingModel::Gouraud );
+		PtrOpaqueMaterial materialGray = _synkro->GetMaterialManager()->CreateOpaqueMaterial( LightingModel::Gouraud );
 		materialGray->SetAmbientColor( Color::Gray );
 		materialGray->SetDiffuseColor( Color::Gray );
 		PtrMultiMaterial mat = _synkro->GetMaterialManager()->CreateMultiMaterial( 6 );

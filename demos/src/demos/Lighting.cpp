@@ -189,7 +189,7 @@ public:
 		}
 		else if ( sender == _sliderIntensity )
 		{
-			Float intensity = CastFloat(_sliderIntensity->GetPosition())*0.001f;
+			const Float intensity = CastFloat(_sliderIntensity->GetPosition())*0.001f;
 			_light->SetIntensity( intensity );
 			SetColorComponent( _labelIntensity, _sliderIntensity, L"Intensity: ", intensity );
 			return true;

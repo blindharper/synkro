@@ -19,8 +19,8 @@ public:
 	void InitScene() override
 	{
 		// Create materials.
-		IImage* diffuseMap = GetImage( L"checkers.jpg" );
-		IImage* imageTwinPeaks = GetImage( L"twin_peaks.jpg" );
+		PtrImage diffuseMap = GetImage( L"checkers.jpg" );
+		PtrImage imageTwinPeaks = GetImage( L"twin_peaks.jpg" );
 		_material = CreateMaterial( diffuseMap );
 		_materialFloor = CreateFloorMaterial( imageTwinPeaks );
 
@@ -33,7 +33,7 @@ public:
 		// Create world node.
 		_world = _scene->CreateDummy( nullptr, L"World" );
 		_worldCtrl = _world->CreateAnimationController( nullptr, nullptr );
-		PtrWaveFloatTrack trackYaw = _worldCtrl->CreateOrientationYawTrack(AnimationTrack::FloatWave)->AsWave();
+		PtrWaveFloatTrack trackYaw = _worldCtrl->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
 		trackYaw->SetType( WaveType::SawtoothUp );
 		trackYaw->SetAmplitude( Math::TwoPi );
 		trackYaw->SetFrequency( 0.00125f );
@@ -75,7 +75,7 @@ public:
 		_camera2->SetPosition( Vector3(0.0f, 180.0f, -10.0f) );
 		_camera2->LookAt( Vector3::Origin );
 
-		IWindow* window = _synkro->GetWindowSystem()->GetFrameWindow();
+		PtrWindow window = _synkro->GetWindowSystem()->GetFrameWindow();
 		_picture = _synkro->GetViewportManager()->CreateViewport( _window, Rect(Point(window->GetWidth()-330, window->GetHeight()-250), Size(320, 240)), _camera2, Color::LightGray );
 		_picture->SetBorderColor( Color::Red );
 		_picture->SetLabelColor( Color::DarkOrange );
@@ -89,7 +89,7 @@ public:
 
 	void InitUi() override
 	{
-		_labelSpeed = CreateLabel(Point(_widgetLeft, 440), L"Animation Speed");
+		_labelSpeed = CreateLabel( Point(_widgetLeft, 440), L"Animation Speed" );
 		_sliderSpeed = CreateSlider( none, Point(_widgetLeft, 460), 0, 200, 100 );
 
 		_labelOpacity = CreateLabel( Point(_widgetLeft, 490), L"Picture Opacity" );
@@ -183,7 +183,7 @@ public:
 
 	void PickAmbientColor()
 	{
-		Color color = Color::Random();
+		const Color color = Color::Random();
 		_light->SetAmbientColor( color );
 		_viewport->SetLabelText( color.ToString() );
 	}
@@ -193,7 +193,7 @@ private:
 	PtrOpaqueMaterial										_material;
 	PtrDirectLight											_light;
 	PtrNode													_world;
-	INodeAnimationController*								_worldCtrl;
+	PtrNodeAnimationController								_worldCtrl;
 	PtrTriangleMesh											_floor;
 	PtrTriangleMesh											_torus;
 	PtrTriangleMesh											_sphere;

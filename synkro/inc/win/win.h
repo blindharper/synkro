@@ -25,6 +25,7 @@
 #include <win/WindowSystem.h>
 
 
+#define PtrWindow P(synkro::win::IWindow)
 #define PtrIconWindow P(synkro::win::IIconWindow)
 
 

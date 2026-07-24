@@ -26,7 +26,7 @@ public:
 		_paramSpeed2 = _script->DeclareParam( L"SPEED2", AnimationDataType::Float );
 		_script->SetParamValue( _paramSpeed1, 1.0f );
 		_script->SetParamValue( _paramSpeed2, 1.0f );
-		IPrimitiveAnimationController* ctrl = _cube->GetSubset(0)->CreateAnimationController( nullptr, nullptr );
+		PtrPrimitiveAnimationController ctrl = _cube->GetSubset( 0 )->CreateAnimationController( nullptr, nullptr );
 		ctrl->CreateTransformTrack( _script );
 		ctrl->SetMode( AnimationMode::Loop );
 		ctrl->Start( true );
@@ -98,7 +98,7 @@ public:
 
 		// Set positions.
 		constexpr Float s = 0.5f;
-		Vector4 positions[16] =
+		const Vector4 positions[16] =
 		{
 			Vector4( s, s, s, s ),
 			Vector4( -s, s, s, s ),
@@ -128,7 +128,7 @@ public:
 		cube->SetColors( colors, 0, 16 );
 
 		// Set indices.
-		UInt indices[64] =
+		const UInt indices[64] =
 		{
 			0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
 			0, 2, 1, 3, 4, 6, 5, 7, 8, 10, 9, 11, 12, 14, 13, 15,
@@ -150,8 +150,8 @@ private:
 
 	PtrLineMesh												_cube;
 	PtrExpressionScript										_script;
-	ExpressionParam*										_paramSpeed1;
-	ExpressionParam*										_paramSpeed2;
+	PtrExpressionParam										_paramSpeed1;
+	PtrExpressionParam										_paramSpeed2;
 
 	PtrLabel												_labelSpeed1;
 	PtrSlider												_sliderSpeed1;

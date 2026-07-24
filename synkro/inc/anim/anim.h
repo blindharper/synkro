@@ -88,6 +88,7 @@
 #define PtrNoiseQuaternionTrack P(synkro::anim::INoiseQuaternionTrack)
 #define PtrNoiseVector3Track P(synkro::anim::INoiseVector3Track)
 #define PtrWaveFloatTrack P(synkro::anim::IWaveFloatTrack)
+#define PtrExpressionParam synkro::anim::ExpressionParam*
 
 
 namespace synkro

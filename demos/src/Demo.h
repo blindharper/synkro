@@ -13,7 +13,7 @@
 #	define SYNKRO_DEMO_BEGIN														\
 	int APIENTRY WinMain( HINSTANCE, HINSTANCE, LPSTR cmd, int )					\
 	{																				\
-		SynkroMemoryInit( "memmgr", true, "_DemoMemory.html", false, false );	\
+		SynkroMemoryInit( "memmgr", true, "_DemoMemory.html", false, false );		\
 		SynkroProfileInit( "profiler", true, "_DemoProfile.html", false, false );	\
 		Demo::EditConfig( _strcmpi(cmd, "cfg") == 0 );
 
@@ -21,7 +21,7 @@
 #	define SYNKRO_DEMO_BEGIN														\
 	int main( int argc, char* cmd[] )												\
 	{																				\
-		SynkroMemoryInit( "memmgr", true, "_DemoMemory.html", false, false );	\
+		SynkroMemoryInit( "memmgr", true, "_DemoMemory.html", false, false );		\
 		SynkroProfileInit( "profiler", true, "_DemoProfile.html", false, false );
 
 #endif // ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )

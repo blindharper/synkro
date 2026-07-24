@@ -151,7 +151,6 @@ public:
 		material->SetSpecularPower( 10.0f );
 		material->SetTilingHorizontal( 8 );
 		material->SetTilingVertical( 8 );
-
 		return material;
 	}
 

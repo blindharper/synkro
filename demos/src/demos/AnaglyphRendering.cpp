@@ -47,14 +47,14 @@ public:
 		_primitives->Add( CreateTorus( _origin, _materialOrange, TORUS_RADIUS, 2.0f*TORUS_RADIUS, 40, 40, Matrix4x4::Identity.RotateZ(Math::HalfPi), GetPosition(RADIUS, GetAngle(0))) );
 
 		// Setup up-down animation and then re-use it for all primitives.
-		INodeAnimationController* ctrl = _primitives->Get(_primitives->GetSize()-1)->CreateAnimationController(nullptr, nullptr);
+		PtrNodeAnimationController ctrl = _primitives->Get(_primitives->GetSize()-1)->CreateAnimationController(nullptr, nullptr);
 		PtrWaveFloatTrack trackPosition = ctrl->CreatePositionYTrack( AnimationTrack::FloatWave )->AsWave();
 		trackPosition->SetType( WaveType::Sine );
 		trackPosition->SetAmplitude( 2.0f );
 		trackPosition->SetFrequency( 3.0f );
 		ctrl->SetMode( AnimationMode::Loop );
 		ctrl->Start( true );
-		IAnimationSet* animations = ctrl->GetAnimations();
+		PtrAnimationSet animations = ctrl->GetAnimations();
 
 		constexpr Float SPHERE_RADIUS = 20.0f;
 		_primitives->Add( CreateSphere( _origin, _materialPurple, SPHERE_RADIUS, 40, 40, Matrix4x4::Identity, GetPosition(RADIUS, GetAngle(1))) );
@@ -181,7 +181,7 @@ public:
 
 	void CreateController( IAnimationSet* animations )
 	{
-		INodeAnimationController* ctrl = _primitives->Get(_primitives->GetSize()-1)->CreateAnimationController( animations, nullptr );
+		PtrNodeAnimationController ctrl = _primitives->Get(_primitives->GetSize()-1)->CreateAnimationController( animations, nullptr );
 		ctrl->SetMode( AnimationMode::Loop );
 	}
 

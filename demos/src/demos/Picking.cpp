@@ -25,7 +25,7 @@ public:
 		_light->LookAt( Vector3(0.0f, 0.0f, -1.0f) );
 
 		// Create materials.
-		IImage* diffuseMap = GetImage( L"checkers.jpg" );
+		PtrImage diffuseMap = GetImage( L"checkers.jpg" );
 		_material = CreateMaterial( diffuseMap, Color::OrangeAerospace );
 		_material2 = CreateMaterial( diffuseMap, Color::LamborghiniYellow );
 		_material3 = CreateMaterial( diffuseMap, Color::BrightNavyBlue );
@@ -94,7 +94,7 @@ public:
 
 		Point loc;
 		_synkro->GetUi()->GetCursor()->GetLocation( loc );
-		IViewport* viewport = _synkro->GetViewportManager()->GetViewport( _window, loc );
+		PtrViewport viewport = _synkro->GetViewportManager()->GetViewport( _window, loc );
 		if ( viewport != nullptr )
 		{
 			Float distance = 0.0f;

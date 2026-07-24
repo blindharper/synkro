@@ -550,7 +550,7 @@ void Demo::InitUiInternal()
 	_synkro->GetOverlayManager()->CreateFont( L"stats", _synkro->GetLanguage(), L"Arial", FontStyle::Bold, 10 );
 	_window->GetDisplayMode( displayMode );
 	Enum graphicsSystem; _config->Get( Param::GraphicsSystem, &graphicsSystem );
-	IFont* font = _synkro->GetOverlayManager()->GetOverlay( _window )->GetFont( L"stats" );
+	PtrFont font = _synkro->GetOverlayManager()->GetOverlay( _window )->GetFont( L"stats" );
 	_txtDevice = font->CreateText( Color::Orange, Point(5, 5), desc.Name.Append(L" (").Append(((GraphicsSystem)graphicsSystem).ToString()).Append(L")"), Order::Highest, Order::Highest );
 	_txtDisplayMode = font->CreateText( Color::Orange, Point(5, 22), displayMode.ToString(DisplayModeFormat::Aspect), Order::Highest, Order::Highest );
 	_txtStats = font->CreateText( Color::Yellow, Point(5, 42), L"Triangles: 0", Order::Highest, Order::Highest );
@@ -570,7 +570,7 @@ void Demo::InitInputInternal()
 	_synkro->GetInputSystem()->GetKeyboard( 0 )->ListenKeyDown( this, Key::Escape, true );
 	_synkro->GetInputSystem()->GetKeyboard( 0 )->ListenKeyUp( this, Key::F8 );
 	_synkro->GetInputSystem()->CreateMouse( 0 );
-	IMouseEx* mouse = _synkro->GetInputSystem()->GetMouse( 0 );
+	PtrMouseEx mouse = _synkro->GetInputSystem()->GetMouse( 0 );
 	_synkro->GetInputSystem()->CreateArcball( mouse, _synkro->GetWindowSystem()->GetFrameWindow() );
 	_synkro->GetInputSystem()->GetArcball()->ListenOrientation( this );
 	_synkro->GetInputSystem()->GetArcball()->ListenZoom( this );
@@ -670,7 +670,7 @@ void Demo::CreateCredits()
 	// Set animation.
 	Size szViewport; _viewport->GetSize( szViewport );
 	_poolCreditsCtrl = _poolCredits->CreateAnimationController( nullptr, this );
-	IKeyframedPointTrack* track = firstTime ? _poolCreditsCtrl->CreateOffsetTrack() : _poolCreditsCtrl->GetAnimations()->GetAnimation(0)->GetTrack(0)->AsPoint()->AsKeyframed();
+	PtrKeyframedPointTrack track = firstTime ? _poolCreditsCtrl->CreateOffsetTrack() : _poolCreditsCtrl->GetAnimations()->GetAnimation(0)->GetTrack(0)->AsPoint()->AsKeyframed();
 	track->Clear();
 	track->SetKey( 0.0, Point((szViewport.Width-maxWidth)/2, szViewport.Height) );
 	track->SetKey( _soundCredits->GetLength(), Point((szViewport.Width-maxWidth)/2, -top) );
