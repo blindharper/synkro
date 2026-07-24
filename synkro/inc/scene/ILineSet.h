@@ -48,7 +48,7 @@ public:
 	 * @param start Index of the starting vertex.
 	 * @param count Total number of vertices.
 	 */
-	virtual void											SetPositions( const math::Vector4* positions, UInt start, UInt count ) = 0;
+	virtual void											SetPositions4D( const math::Vector4* positions, UInt start, UInt count ) = 0;
 
 	/**
 	 * Sets vertex colors.
