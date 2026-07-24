@@ -78,7 +78,7 @@ TesseractConfigurationScene::TesseractConfigurationScene( ISynkro* synkro ) :
 		Vector4( s, -s, -s, -s ),
 		Vector4( -s, -s, -s, -s ),
 	};
-	tess->SetPositions( positions, 0, SizeOf(positions) );
+	tess->SetPositions4D( positions, 0, SizeOf(positions) );
 
 	// Paint internal and external cubes with complementary colors.
 	Color colors[16] = {};

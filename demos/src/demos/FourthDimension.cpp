@@ -117,7 +117,7 @@ public:
 			Vector4( s, -s, -s, -s ),
 			Vector4( -s, -s, -s, -s ),
 		};
-		cube->SetPositions( positions, 0, 16 );
+		cube->SetPositions4D( positions, 0, 16 );
 
 		// Paint internal and external cubes with complementary colors.
 		Color colors[16] = {};

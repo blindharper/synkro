@@ -129,7 +129,7 @@ void LineSet::SetPositions( const Vector3* positions, UInt start, UInt count )
 	_boundSphere = Math::Sqrt( boundSphere2 );
 }
 
-void LineSet::SetPositions( const Vector4* positions, UInt start, UInt count )
+void LineSet::SetPositions4D( const Vector4* positions, UInt start, UInt count )
 {
 	IVector4Stream* stream = (IVector4Stream*)_object->GetData()->GetVertexStream( DataStream::Position4D, 0 );
 	if ( stream == nullptr )

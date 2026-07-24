@@ -65,7 +65,7 @@ public:
 
 	// ILineSet methods.
 	void													SetPositions( const math::Vector3* positions, UInt start, UInt count );
-	void													SetPositions( const math::Vector4* positions, UInt start, UInt count );
+	void													SetPositions4D( const math::Vector4* positions, UInt start, UInt count );
 	void													SetColors( const img::Color* colors, UInt start, UInt count );
 	void													SetIndices( const UInt* indices, UInt start, UInt count );
 	void													SetColor( const img::Color& color );
