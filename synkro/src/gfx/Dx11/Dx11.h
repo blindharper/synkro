@@ -42,9 +42,6 @@
 #include <d3d11.h>
 #include <d3dcompiler.h>
 #include "Dx11Context.h"
-#undef new
-#include <dx/d3dx11async.h>
-#define new SYNKRO_NEW
 
 
 typedef HRESULT (WINAPI *LPD3D11CREATEDEVICE)( IDXGIAdapter*, D3D_DRIVER_TYPE, HMODULE, UINT, D3D_FEATURE_LEVEL*, UINT, UINT, ID3D11Device**, D3D_FEATURE_LEVEL*, ID3D11DeviceContext** );

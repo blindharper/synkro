@@ -13,7 +13,6 @@
 #include "config.h"
 #include "Dx11.h"
 #include <gfx/Dx/DxGi.h>
-#include <dx/d3dx11core.h>
 #include <gfx/DataStream.h>
 
 
@@ -23,6 +22,14 @@ using namespace synkro::img;
 using namespace synkro::lang;
 
 //------------------------------------------------------------------------------
+
+
+#define _FACD3D  0x876
+#define MAKE_D3DHRESULT( code )  MAKE_HRESULT( 1, _FACD3D, code )
+#define MAKE_D3DSTATUS( code )  MAKE_HRESULT( 0, _FACD3D, code )
+
+#define D3DERR_INVALIDCALL                      MAKE_D3DHRESULT(2156)
+#define D3DERR_WASSTILLDRAWING                  MAKE_D3DHRESULT(540)
 
 
 namespace synkro
