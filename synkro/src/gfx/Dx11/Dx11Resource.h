@@ -15,7 +15,7 @@
 
 
 #include "config.h"
-#include <dx/d3dx11tex.h>
+#include <d3d11.h>
 
 
 namespace synkro

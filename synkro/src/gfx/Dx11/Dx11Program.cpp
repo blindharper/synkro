@@ -16,9 +16,6 @@
 #include "Dx11Include.h"
 #include <io/BinaryReader.h>
 #include <internal/SafeRelease.h>
-#undef new
-#include <dx/d3dx11async.h>
-#define new SYNKRO_NEW
 
 
 //------------------------------------------------------------------------------
