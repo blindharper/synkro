@@ -1938,7 +1938,7 @@ static ColorString _colorString[] =
 	{ Color::RoseGold,							L"RoseGold" },
 	{ Color::RoseMadder,						L"RoseMadder" },
 	{ Color::RosePink,							L"RosePink" },
-	{ Color::RoseQuartz			,				L"RoseQuartz" },
+	{ Color::RoseQuartz,						L"RoseQuartz" },
 	{ Color::RoseRed,							L"RoseRed" },
 	{ Color::RoseTaupe,							L"RoseTaupe" },
 	{ Color::RoseVale,							L"RoseVale" },
