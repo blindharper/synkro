@@ -10,15 +10,18 @@
 //
 // Purpose: Defines scene rendering queue.
 //==============================================================================
-SYNKRO_INLINE ILineRenderQueue* SceneRenderQueue::GetLineQueue() const
-{
-	return _lineQueue;
-}
-
-SYNKRO_INLINE void SceneRenderQueue::ProcessLines( GraphicsStats& stats )
+SYNKRO_INLINE void SceneRenderQueue::ProcessLinesAndPoints( GraphicsStats& stats )
 {
 	if ( _enabled )
 	{
-		_lineQueue->Process( stats );
+		if ( _lineQueue != nullptr )
+		{
+			_lineQueue->Process( stats );
+		}
+
+		if ( _pointQueue != nullptr )
+		{
+			_pointQueue->Process( stats );
+		}
 	}
 }

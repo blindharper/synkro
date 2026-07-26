@@ -244,42 +244,52 @@ Bool Synkro::Configure( IConfiguration* config )
 	cfg->Set( Param::ImagingEnable, true );
 	cfg->Set( Param::GraphicsSampleCount, CastUInt(8) );
 
-	// Initialize thread pool.
-	InitThreadPool( cfg );
+	try
+	{
+		// Initialize thread pool.
+		InitThreadPool( cfg );
 
-	// Initialize core subsystems.
-	InitAnimationSystem( cfg );
-	InitWindowSystem( cfg );
+		// Initialize core subsystems.
+		InitAnimationSystem( cfg );
+		InitWindowSystem( cfg );
 
-	// Initialize editor and environment.
-	ConfigurationEditor::Initialize( _module, this );
-	InitGraphicsSystem( cfg );
-	InitImageManager( cfg );
-	InitMaterialManager( cfg );
-	InitOverlayManager( cfg );
-	InitSceneManager( cfg );
-	InitViewportManager( cfg );
-	_systems.Add( _graphicsSystem );
-	_inited = true;
+		// Initialize editor and environment.
+		ConfigurationEditor::Initialize( _module, this );
+		InitGraphicsSystem( cfg );
+		InitImageManager( cfg );
+		InitMaterialManager( cfg );
+		InitOverlayManager( cfg );
+		InitSceneManager( cfg );
+		InitViewportManager( cfg );
+		_systems.Add( _graphicsSystem );
+		_inited = true;
 
-	// Run environment.
-	_updateListener = false;
-	ConfigurationEditor::Show( config );
-	_updateListener = true;
-	_inited = false;
-	_timers.Clear();
+		// Run environment.
+		_updateListener = false;
+		ConfigurationEditor::Show( config );
+		_updateListener = true;
+		_inited = false;
+		_timers.Clear();
 
-	// Remove graphics system.
-	_systems.Remove( _systems.Size()-1 );
+		// Remove graphics system.
+		_systems.Remove( _systems.Size()-1 );
 
-	// Finalize editor.
-	ConfigurationEditor::Finalize();
-	Destroy();
+		// Finalize editor.
+		ConfigurationEditor::Finalize();
+		Destroy();
 
-	AsBaseLog( _diag->GetLog() )->Pause( false );
+		AsBaseLog( _diag->GetLog() )->Pause( false );
 
-	// Get user's choice.
-	return ConfigurationEditor::GetResult();
+		// Get user's choice.
+		return ConfigurationEditor::GetResult();
+	}
+	catch ( const Exception& ex )
+	{
+		HandleException( ex );
+		_inited = false;
+	}
+
+	return false;
 }
 
 IResource* Synkro::CreateResource( const Byte* data, UInt size )

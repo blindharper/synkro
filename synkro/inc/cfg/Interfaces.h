@@ -213,6 +213,8 @@ iface IPlainDepthTexture;
 iface IPlainRenderMap;
 iface IPlainRenderTexture;
 iface IPlainTexture;
+iface IPointRenderObject;
+iface IPointRenderQueue;
 iface IPostProcessRenderObject;
 iface IPostProcessRenderQueue;
 iface IPrimitive;

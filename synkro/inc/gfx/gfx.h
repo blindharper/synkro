@@ -33,6 +33,7 @@
 #include <gfx/ISceneRenderQueue.h>
 #include <gfx/ISceneRenderObject.h>
 #include <gfx/ISkyRenderObject.h>
+#include <gfx/IPointRenderQueue.h>
 #include <gfx/ILineRenderQueue.h>
 #include <gfx/GraphicsSystem.h>
 #include <gfx/GraphicsException.h>

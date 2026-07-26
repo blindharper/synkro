@@ -9,6 +9,8 @@ class GraphicsSystemEx;
 class GraphicsDevice;
 class LineRenderObject;
 class LineRenderQueue;
+class PointRenderObject;
+class PointRenderQueue;
 class SceneRenderObject;
 class SceneRenderQueue;
 class PostProcessRenderObject;

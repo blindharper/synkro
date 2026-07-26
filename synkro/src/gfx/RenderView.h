@@ -19,7 +19,6 @@
 #include <lang/Set.h>
 #include <gfx/IRenderView.h>
 #include <gfx/ISceneRenderObject.h>
-#include <gfx/ILineRenderQueue.h>
 #include <gfx/IPlainRenderTexture.h>
 #include <gfx/IPlainDepthTexture.h>
 #include <gfx/IResourceSet.h>
@@ -81,6 +80,7 @@ public:
 	IRect*													GetScissorRect() const;
 	IParameterSet*											GetVertexParams() const;
 	IResourceSet*											GetVertexResources() const;
+	IParameterSet		*									GetGeometryParams() const;
 	IParameterSet*											GetFragmentParams() const;
 	IParameterSet*											GetLeftChannelVertexParams() const;
 	IParameterSet*											GetRightChannelVertexParams() const;

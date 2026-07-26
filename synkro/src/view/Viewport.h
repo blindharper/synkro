@@ -25,12 +25,10 @@
 #include <gfx/IRenderView.h>
 #include <gfx/IRenderWindow.h>
 #include <gfx/IProgram.h>
-#include <gfx/IProgramStage.h>
 #include <gfx/IParameterSet.h>
-#include <gfx/IPlainDepthTexture.h>
 #include <gfx/IOverlayRenderObject.h>
-#include <gfx/IGraphicsDeviceEx.h>
 #include <gfx/IGraphicsSystemEx.h>
+#include <gfx/IGraphicsDeviceEx.h>
 #include <scene/IScene.h>
 #include <scene/ICamera.h>
 #include <over/IText.h>

@@ -18,7 +18,7 @@
 
 
 constexpr synkro::Byte 		SYNKRO_VERSION_MAJOR = 1;
-constexpr synkro::Byte 		SYNKRO_VERSION_MINOR = 7;
+constexpr synkro::Byte 		SYNKRO_VERSION_MINOR = 8;
 constexpr synkro::Byte 		SYNKRO_VERSION_PATCH = 0;
 constexpr synkro::UInt		SYNKRO_VERSION = (SYNKRO_VERSION_MAJOR << 16) | (SYNKRO_VERSION_MINOR << 8) | SYNKRO_VERSION_PATCH;
 

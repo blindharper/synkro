@@ -24,10 +24,9 @@
 #include <scene/ITriangleSet.h>
 #include <view/ViewportFilter.h>
 #include <view/IDepthFilter.h>
-#include <gfx/IGraphicsDevice.h>
+#include <gfx/IProgramStage.h>
 #include <gfx/IPlainRenderTexture.h>
 #include <gfx/IPostProcessRenderQueue.h>
-#include <internal/SafeDelete.h>
 
 
 //------------------------------------------------------------------------------
@@ -475,6 +474,7 @@ void Viewport::Update()
 	_filters.Each( *this );
 
 	// Set render view parameters.
+	Matrix4x4 transView; Matrix4x4 transProj;
 	if ( (_stereoMode != StereoMode::None) && (_stereoMode != StereoMode::True) )
 	{
 		if ( _camera->GetEyeDistance() == 0.0f )
@@ -482,8 +482,8 @@ void Viewport::Update()
 			_camera->SetEyeDistance( 0.005f );
 		}
 		// Set right channel's stuff, if stereo mode is active.
-		Matrix4x4 transView; _camera->GetViewTransform( transView );
-		Matrix4x4 transProj; _camera->GetProjectionTransform( transProj );
+		_camera->GetViewTransform( transView );
+		_camera->GetProjectionTransform( transProj );
 		_camera->GetLeftViewTransform( transView );
 		_paramsLeft.Set( transView, transProj );
 		_view->SetLeftChannelVertexParams( _paramsLeft.Params );
@@ -499,8 +499,8 @@ void Viewport::Update()
 	}
 	else
 	{
-		Matrix4x4 transView; _camera->GetViewTransform( transView );
-		Matrix4x4 transProj; _camera->GetProjectionTransform( transProj );
+		_camera->GetViewTransform( transView );
+		_camera->GetProjectionTransform( transProj );
 		_paramsLeft.Set( transView, transProj );
 		_view->SetLeftChannelVertexParams( _paramsLeft.Params );
 	}

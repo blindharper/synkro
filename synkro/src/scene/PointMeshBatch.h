@@ -19,7 +19,7 @@
 #include <scene/IPointMeshBatch.h>
 #include <scene/IMeshBatchAnimationController.h>
 #include <scene/IPrimitive.h>
-#include <gfx/ILineRenderObject.h>
+#include <gfx/IPointRenderObject.h>
 #include "BaseMeshBatch.h"
 #include "BaseScene.h"
 

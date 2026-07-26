@@ -1801,6 +1801,12 @@
     <Filter Include="phys\Implementation\Actor">
       <UniqueIdentifier>{c64cb2a6-3cea-4aee-8a21-1095cc6e74d1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gfx\Interface\RenderQueue\Point">
+      <UniqueIdentifier>{a1098e28-9a31-4fd1-bcdc-b618d56520f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gfx\Implementation\RenderQueue\Point">
+      <UniqueIdentifier>{81f09ef3-b1ed-4982-ab43-cf3e87129a8c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\lang\Encoding.h">
@@ -5349,6 +5355,18 @@
     <ClInclude Include="..\..\..\synkro\inc\scene\ITriangleMeshSet.h">
       <Filter>scene\Interface\Node\Mesh\Triangle</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IPointRenderObject.h">
+      <Filter>gfx\Interface\RenderQueue\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IPointRenderQueue.h">
+      <Filter>gfx\Interface\RenderQueue\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\gfx\PointRenderObject.h">
+      <Filter>gfx\Implementation\RenderQueue\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\gfx\PointRenderQueue.h">
+      <Filter>gfx\Implementation\RenderQueue\Point</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\synkro\src\lang\Stack.inl">
@@ -6308,6 +6326,9 @@
     </None>
     <None Include="..\..\..\synkro\src\phys\PhysicsEnvironmentImpl.inl">
       <Filter>phys\Implementation\Environment</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\gfx\PointRenderObject.inl">
+      <Filter>gfx\Implementation\RenderQueue\Point</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -7833,6 +7854,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\phys\DynamicActor.cpp">
       <Filter>phys\Implementation\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderQueue.cpp">
+      <Filter>gfx\Implementation\RenderQueue\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderObject.cpp">
+      <Filter>gfx\Implementation\RenderQueue\Point</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
