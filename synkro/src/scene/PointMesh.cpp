@@ -17,7 +17,7 @@
 #include "ParentConstraint.h"
 #include "LookAtConstraint.h"
 #include <gfx/ISceneRenderQueue.h>
-#include <gfx/ILineRenderQueue.h>
+#include <gfx/IPointRenderQueue.h>
 #include <gfx/IProgram.h>
 #include <gfx/IProgramStage.h>
 #include <gfx/IPrimitiveEx.h>
@@ -72,11 +72,11 @@ ILookAtConstraint* PointMesh::CreateLookAtConstraint( INode* target )
 
 IPointSet* PointMesh::CreatePointList( const String& name, UInt count, Float size, const ColorMode& colorMode, const Matrix4x4& transform )
 {
-	String programName = (colorMode == ColorMode::Colored) ? L"line.colored" : L"line.monochrome";
+	String programName = (colorMode == ColorMode::Colored) ? L"point.colored" : L"point.monochrome";
 	IProgram* program = _context->GetGraphicsSystem()->GetProgram( programName );
 	gfx::IPrimitive* data = _context->GetGraphicsSystem()->GetDevice()->CreatePrimitive( program, DataUsage::Dynamic, DataAccess::WriteOnly, PrimitiveType::PointList, IndexType::None, count, 0, 0, 0, true, false );
-	ILineRenderQueue* queue = _scene->GetRenderQueue()->GetLineQueue();
-	ILineRenderObject* object = queue->CreateObject( data );
+	IPointRenderQueue* queue = _scene->GetRenderQueue()->GetPointQueue();
+	IPointRenderObject* object = queue->CreateObject( data );
 	if ( !name.IsNull() )
 	{
 		object->SetVertexParameters( program->GetVertexStage()->GetParameters()->Clone( object->ID(), true) );

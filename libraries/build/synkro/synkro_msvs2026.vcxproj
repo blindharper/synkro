@@ -577,6 +577,8 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\inc\gfx\IOverlayRenderQueue.h" />
     <ClInclude Include="..\..\..\synkro\inc\gfx\IPlainDepthTexture.h" />
     <ClInclude Include="..\..\..\synkro\inc\gfx\IPlainRenderMap.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IPointRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\IPointRenderQueue.h" />
     <ClInclude Include="..\..\..\synkro\inc\gfx\IPostProcessRenderObject.h" />
     <ClInclude Include="..\..\..\synkro\inc\gfx\IPostProcessRenderQueue.h" />
     <ClInclude Include="..\..\..\synkro\inc\gfx\IRect.h" />
@@ -948,6 +950,8 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\src\gfx\PlainDepthTexture.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\PlainDepthTextureImpl.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\PlainRenderMap.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\PointRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\PointRenderQueue.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\PostProcessRenderObject.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\PostProcessRenderQueue.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\PrimitiveTypeConst.h" />
@@ -1611,6 +1615,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\synkro\inc\lang\Formattable.inl" />
+    <None Include="..\..\..\synkro\src\gfx\PointRenderObject.inl" />
     <None Include="..\..\..\synkro\src\phys\PhysicsEnvironmentImpl.inl" />
     <None Include="..\..\..\synkro\src\phys\PhysicsMaterialImpl.inl" />
     <None Include="..\..\..\synkro\src\phys\PhysicsSystemEx.inl" />
@@ -1934,6 +1939,8 @@ del "$(OutDir)$(TargetName).ilk"</Command>
   <ItemGroup>
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\NoiseConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\TeapotConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderQueue.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\DynamicActor.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\PhysicsEnvironment.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\PhysicsMaterial.cpp" />

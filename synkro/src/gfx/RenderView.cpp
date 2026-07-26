@@ -102,6 +102,9 @@ RenderView::RenderView() :
 	_blendStateDisabled( nullptr ),
 	_scene( nullptr ),
 	_postProcess( nullptr ),
+	_vertexParams( nullptr ),
+	_vertexResources( nullptr ),
+	_fragmentParams( nullptr ),
 	_leftVertexParams( nullptr ),
 	_rightVertexParams( nullptr ),
 	_colorTarget( nullptr ),
@@ -220,8 +223,8 @@ void RenderView::Draw( Double delta, GraphicsStats& stats )
 				_scene->Process( this, false, _fill, _rightMask, _rightVertexParams, stats );
 			}
 
-			// Draw line geometry.
-			_scene->ProcessLines( stats );
+			// Draw line & point geometry.
+			_scene->ProcessLinesAndPoints( stats );
 		}
 	
 		// Present results.

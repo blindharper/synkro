@@ -19,7 +19,7 @@
 #include <core/ObjectImpl.h>
 #include <scene/IPointSet.h>
 #include <scene/IPointSetAnimationController.h>
-#include <gfx/ILineRenderObject.h>
+#include <gfx/IPointRenderObject.h>
 #include <gfx/IPrimitiveEx.h>
 #include <gfx/IParameterSet.h>
 
@@ -38,7 +38,7 @@ class PointSet :
 {
 public:
 	// Constructor.
-	PointSet( core::IContext* context, gfx::ILineRenderObject* object, UInt start, UInt count, Float size );
+	PointSet( core::IContext* context, gfx::IPointRenderObject* object, UInt start, UInt count, Float size );
 
 	// IPrimitive methods.
 	IPrimitiveAnimationController*							CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
@@ -75,7 +75,7 @@ public:
 private:
 	core::IContext*											_context;
 	P(IPointSetAnimationController)							_ctrlAnimation;
-	P(gfx::ILineRenderObject)								_object;
+	P(gfx::IPointRenderObject)								_object;
 	gfx::ProgramParam*										_paramColor;
 	gfx::ProgramParam*										_paramTransform;
 	math::Matrix4x4											_transform;

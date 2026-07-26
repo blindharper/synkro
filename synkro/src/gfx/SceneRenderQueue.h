@@ -20,6 +20,7 @@
 #include <lang/Vector.h>
 #include "RenderQueueImpl.h"
 #include "LineRenderQueue.h"
+#include "PointRenderQueue.h"
 #include <gfx/GraphicsStats.h>
 #include <gfx/ISceneRenderQueue.h>
 #include <gfx/IPrimitive.h>
@@ -112,18 +113,20 @@ public:
 	ISkyRenderObject*										CreateSkysphereObject( Float radius );
 	ISkyRenderObject*										CreateSkyboxObject();
 	ILineRenderQueue*										GetLineQueue() const;
+	IPointRenderQueue*										GetPointQueue() const;
 
 	// Other methods.
 	void													RemoveObject( SceneRenderObject* object );
 	void													Process( IRenderView* view, Bool overlay, const FillMode& fill, const img::PixelChannel& mask, IParameterSet* vertexParams, GraphicsStats& stats );
-	void													ProcessLines( GraphicsStats& stats );
+	void													ProcessLinesAndPoints( GraphicsStats& stats );
 
 private:
 	typedef lang::MapPair<lang::String, ResourceItem>		ResourceEntry;
 
 	lang::Map<lang::String, ResourceItem>					_resources;
 	lang::Vector<SceneRenderObject*>						_dirty;
-	P(LineRenderQueue)										_lineQueue;
+	mutable P(LineRenderQueue)								_lineQueue;
+	mutable P(PointRenderQueue)								_pointQueue;
 	IGraphicsSystemEx*										_graphicsSystem;
 	ISkyRenderObject*										_sky;
 

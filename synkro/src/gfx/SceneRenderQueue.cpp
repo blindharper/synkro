@@ -16,6 +16,7 @@
 #include "SkyboxRenderObject.h"
 #include "SkysphereRenderObject.h"
 #include "LineRenderQueue.h"
+#include "PointRenderQueue.h"
 #include "Program.h"
 #include "BlendStateSet.h"
 #include "DepthStencilState.h"
@@ -136,7 +137,8 @@ String ResourceItem::Key() const
 SceneRenderQueue::SceneRenderQueue( IGraphicsSystemEx* graphicsSystem ) :
 	_resources( A(ResourceEntry) ),
 	_dirty( A(SceneRenderObject*) ),
-	_lineQueue( new LineRenderQueue(graphicsSystem) ),
+	_lineQueue( nullptr ),
+	_pointQueue( nullptr ),
 	_graphicsSystem( graphicsSystem ),
 	_sky( nullptr )
 {
@@ -165,6 +167,24 @@ ISkyRenderObject* SceneRenderQueue::CreateSkysphereObject( Float radius )
 ISkyRenderObject* SceneRenderQueue::CreateSkyboxObject()
 {
 	return _sky = new SkyboxRenderObject( _graphicsSystem );
+}
+
+ILineRenderQueue* SceneRenderQueue::GetLineQueue() const
+{
+	if ( _lineQueue == nullptr )
+	{
+		_lineQueue = new LineRenderQueue( _graphicsSystem );
+	}
+	return _lineQueue;
+}
+
+IPointRenderQueue* SceneRenderQueue::GetPointQueue() const
+{
+	if ( _pointQueue == nullptr )
+	{
+		_pointQueue = new PointRenderQueue( _graphicsSystem );
+	}
+	return _pointQueue;
 }
 
 void SceneRenderQueue::RemoveObject( SceneRenderObject* object )

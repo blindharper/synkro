@@ -64,6 +64,7 @@
 	<program name="viewport.lit" parent="scene.lit" input="scene.lit" vertex="scene\viewport_lit.vs"/>
 	<program name="skybox" parent="viewport" input="skybox" vertex="scene\skybox.vs" fragment="scene\skybox.fs"/>
 	<program name="skysphere" parent="viewport" input="skysphere" vertex="scene\skysphere.vs" fragment="scene\skysphere.fs"/>
+	<program name="point.monochrome" parent="viewport" input="scene" vertex="scene\point.vs" fragment="scene\point.fs"/>
 	<program name="line.monochrome" parent="viewport" input="scene" vertex="scene\line.vs" fragment="scene\line.fs"/>
 	<program name="line4d.monochrome" parent="viewport" input="scene4d" vertex="scene\line4d.vs" fragment="scene\line.fs"/>
 	<program name="line.colored" parent="viewport" input="scene.colored" vertex="scene\line_colored.vs" fragment="scene\line.fs"/>

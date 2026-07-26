@@ -16,7 +16,7 @@
 #include "MeshBatchAnimationControllerImpl.h"
 #include "PointSet.h"
 #include <gfx/ISceneRenderQueue.h>
-#include <gfx/ILineRenderQueue.h>
+#include <gfx/IPointRenderQueue.h>
 #include <gfx/IProgram.h>
 #include <gfx/IProgramStage.h>
 #include <gfx/IPrimitiveEx.h>
@@ -67,11 +67,10 @@ INodeAnimationController* PointMeshBatch::CreateAnimationController( IAnimationS
 
 IPointSet* PointMeshBatch::CreatePointList( const String& name, UInt count, Float size, const ColorMode& colorMode, const Matrix4x4& transform )
 {
-	IProgram* program = _context->GetGraphicsSystem()->GetProgram( L"line.instanced" );
+	IProgram* program = _context->GetGraphicsSystem()->GetProgram( L"point.instanced" );
 	gfx::IPrimitive* data = _context->GetGraphicsSystem()->GetDevice()->CreatePrimitive( program, DataUsage::Dynamic, DataAccess::WriteOnly, PrimitiveType::PointList, IndexType::None, count, 0, _instances.Capacity(), 0, true, false );
-	ILineRenderQueue* queue = _scene->GetRenderQueue()->GetLineQueue();
-	ILineRenderObject* object = queue->CreateObject( data );
-	// TODO: size!!!
+	IPointRenderQueue* queue = _scene->GetRenderQueue()->GetPointQueue();
+	IPointRenderObject* object = queue->CreateObject( data );
 	if ( !name.IsNull() )
 	{
 		object->SetVertexParameters( program->GetVertexStage()->GetParameters()->Clone(object->ID(), true) );

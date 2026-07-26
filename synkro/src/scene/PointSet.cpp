@@ -13,7 +13,7 @@
 #include "config.h"
 #include "PointSet.h"
 #include "PointSetAnimationController.h"
-#include <gfx/ILineRenderQueue.h>
+#include <gfx/IPointRenderQueue.h>
 #include <gfx/IProgram.h>
 #include <gfx/IProgramStage.h>
 #include <gfx/IVector3Stream.h>
@@ -44,7 +44,7 @@ namespace scene
 {
 
 
-PointSet::PointSet( IContext* context, ILineRenderObject* object, UInt start, UInt count, Float size ) :
+PointSet::PointSet( IContext* context, IPointRenderObject* object, UInt start, UInt count, Float size ) :
 	_context( context ),
 	_object( object ),
 	_paramColor( nullptr ),
@@ -55,10 +55,11 @@ PointSet::PointSet( IContext* context, ILineRenderObject* object, UInt start, UI
 {
 	assert( _object != nullptr );
 
-	if ( _object->GetVertexParameters() != nullptr )
+	IParameterSet* vertexParams = _object->GetVertexParameters();
+	if ( vertexParams != nullptr )
 	{
-		_paramColor = _object->GetVertexParameters()->GetParam( L"sp_color" );
-		_paramTransform = _object->GetVertexParameters()->GetParam( L"p_transform" );
+		_paramColor = vertexParams->GetParam( L"sp_color" );
+		_paramTransform = vertexParams->GetParam( L"p_transform" );
 	}
 
 	if ( count > 0 )
@@ -149,7 +150,7 @@ void PointSet::SetColors( const Color* colors, UInt start, UInt count )
 
 IPointSet* PointSet::CreateSubset( UInt start, UInt count )
 {
-	ILineRenderObject* object = _object->GetQueue()->CreateObject( _object->GetData() );
+	IPointRenderObject* object = _object->GetQueue()->CreateObject( _object->GetData() );
 	object->SetVertexParameters( _object->GetData()->GetProgram()->GetVertexStage()->GetParameters()->Clone( object->ID(), true) );
 	return new PointSet( _context, object, start, count, _size );
 }

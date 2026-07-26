@@ -59,6 +59,11 @@ public:
 	 * Retrieves line rendering queue.
 	 */
 	virtual ILineRenderQueue*								GetLineQueue() const = 0;
+
+	/**
+	 * Retrieves point rendering queue.
+	 */
+	virtual IPointRenderQueue*								GetPointQueue() const = 0;
 };
 
 
