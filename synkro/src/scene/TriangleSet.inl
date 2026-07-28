@@ -175,11 +175,6 @@ SYNKRO_INLINE void TriangleSet::SetBoneTransforms( const math::Matrix4x4* transf
 	_set->SetBoneTransforms( transforms, count );
 }
 
-SYNKRO_INLINE Bool TriangleSet::GetPositions( math::Vector3* positions, UInt start, UInt count ) const
-{
-	throw lang::InvalidOperationException( L"Cannot get positions." );
-}
-
 SYNKRO_INLINE Bool TriangleSet::GetNormals( math::Vector3* normals, UInt start, UInt count ) const
 {
 	throw lang::InvalidOperationException( L"Cannot get normals." );

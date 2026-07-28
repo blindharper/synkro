@@ -35,6 +35,7 @@
 #include <scene/ITriangleSet.h>
 #include <scene/IMeshCodec.h>
 #include <scene/IMeshCodecFactory.h>
+#include <scene/IPrimitiveMorphController.h>
 #include <scene/ISceneAnimationController.h>
 #include <scene/ILookAtConstraint.h>
 #include <scene/IParentConstraint.h>
@@ -61,6 +62,7 @@
 #define PtrFog P(synkro::scene::IFog)
 #define PtrFogAnimationController P(synkro::scene::IFogAnimationController)
 #define PtrPrimitiveAnimationController P(synkro::scene::IPrimitiveAnimationController)
+#define PtrPrimitiveMorphController P(synkro::scene::IPrimitiveMorphController)
 #define PtrLineMesh P(synkro::scene::ILineMesh)
 #define PtrTriangleMesh P(synkro::scene::ITriangleMesh)
 #define PtrTriangleMeshBatch P(synkro::scene::ITriangleMeshBatch)

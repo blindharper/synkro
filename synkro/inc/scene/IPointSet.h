@@ -35,14 +35,6 @@ iface IPointSet :
 {
 public:
 	/**
-	 * Sets vertex position coordinates.
-	 * @param positions Array of vertex positions.
-	 * @param start Index of the starting vertex.
-	 * @param count Total number of vertices.
-	 */
-	virtual void											SetPositions( const math::Vector3* positions, UInt start, UInt count ) = 0;
-
-	/**
 	 * Sets vertex colors.
 	 * @param colors Array of vertex colors.
 	 * @param start Index of the starting vertex.

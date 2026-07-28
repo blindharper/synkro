@@ -13,6 +13,7 @@
 #include "config.h"
 #include "LineSet.h"
 #include "LineSetAnimationController.h"
+#include "PrimitiveMorphController.h"
 #include <gfx/ILineRenderQueue.h>
 #include <gfx/IProgram.h>
 #include <gfx/IProgramStage.h>
@@ -22,7 +23,6 @@
 #include <gfx/IVector4Stream.h>
 #include <gfx/IMatrix4x4Stream.h>
 #include <gfx/DataStreamWriter.h>
-#include <lang/Vector.h>
 
 
 //------------------------------------------------------------------------------
@@ -47,6 +47,7 @@ namespace scene
 
 
 LineSet::LineSet( IContext* context, ILineRenderObject* object, UInt start, UInt count ) :
+	_positions( A(Vector3) ),
 	_context( context ),
 	_object( object ),
 	_paramColor( nullptr ),
@@ -56,21 +57,64 @@ LineSet::LineSet( IContext* context, ILineRenderObject* object, UInt start, UInt
 {
 	assert( _object != nullptr );
 
-	if ( _object->GetVertexParameters() != nullptr )
+	IParameterSet* vertexParams = _object->GetVertexParameters();
+	if ( vertexParams != nullptr )
 	{
-		_paramColor = _object->GetVertexParameters()->GetParam( L"sp_color" );
-		_paramTransform = _object->GetVertexParameters()->GetParam( L"p_transform" );
+		_paramColor = vertexParams->GetParam( L"sp_color" );
+		_paramTransform = vertexParams->GetParam( L"p_transform" );
 	}
 
 	if ( count > 0 )
 	{
 		_object->SetElementRange( start, count );
 	}
+
+	_positions.SetSize( object->GetData()->GetVertexCount() );
 }
 
 IPrimitiveAnimationController* LineSet::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
 	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new LineSetAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
+}
+
+IPrimitiveMorphController* LineSet::CreateMorphController( IAnimationSet* animations, AnimationListener* listener )
+{
+	return (_ctrlMorph == nullptr) ? _ctrlMorph = new PrimitiveMorphController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlMorph;
+}
+
+void LineSet::SetPositions( const Vector3* positions, UInt start, UInt count )
+{
+	IVector3Stream* stream = (IVector3Stream*)_object->GetData()->GetVertexStream( DataStream::Position3D, 0 );
+	if ( stream == nullptr )
+		throw InvalidOperationException( L"Cannot set 3D positions for non-3D primitive." );
+
+	DataStreamWriter sw( stream );
+	if ( !sw.Open() )
+		return;
+
+	stream->SetPosition( start );
+	stream->Write( positions, count );
+	Copy( _positions.Begin(), positions, count );
+
+	// Update center and bounding sphere.
+	Vector3 total;
+	Float boundSphere2 = 0.0f;
+	if ( start == 0 )
+	{
+		_boundSphere = 0.0f;
+	}
+	const Vector3* vec = positions+start;
+	for ( UInt i = 0; i < count; ++i, ++vec )
+	{
+		total += *vec;
+		const Float len2 = vec->LengthSquared();
+		if ( boundSphere2 < len2 )
+		{
+			boundSphere2 = len2;
+		}
+	}
+	_center = total/CastFloat(count);
+	_boundSphere = Math::Sqrt( boundSphere2 );
 }
 
 void LineSet::SetInstanceTransform( UInt index, const Matrix4x4& transform )
@@ -95,38 +139,10 @@ void LineSet::SetInstanceColor( UInt index, const Color& color )
 	}
 }
 
-void LineSet::SetPositions( const Vector3* positions, UInt start, UInt count )
+Bool LineSet::GetPositions( Vector3* positions, UInt start, UInt count ) const
 {
-	IVector3Stream* stream = (IVector3Stream*)_object->GetData()->GetVertexStream( DataStream::Position3D, 0 );
-	if ( stream == nullptr )
-		throw InvalidOperationException( L"Cannot set 3D positions for non-3D primitive." );
-
-	DataStreamWriter sw( stream );
-	if ( !sw.Open() )
-		return;
-
-	stream->SetPosition( start );
-	stream->Write( positions, count );
-
-	// Update center and bounding sphere.
-	Vector3 total;
-	Float boundSphere2 = 0.0f;
-	if ( start == 0 )
-	{
-		_boundSphere = 0.0f;
-	}
-	const Vector3* vec = positions+start;
-	for ( UInt i = 0; i < count; ++i, ++vec )
-	{
-		total += *vec;
-		const Float len2 = vec->LengthSquared();
-		if ( boundSphere2 < len2 )
-		{
-			boundSphere2 = len2;
-		}
-	}
-	_center = total/CastFloat(count);
-	_boundSphere = Math::Sqrt( boundSphere2 );
+	Copy( positions, _positions.Begin(), count );
+	return true;
 }
 
 void LineSet::SetPositions4D( const Vector4* positions, UInt start, UInt count )

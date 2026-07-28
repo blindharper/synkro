@@ -655,6 +655,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\inc\scene\IOmniLightAnimationController.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\IOmniSound.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\IPointSetAnimationController.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IPrimitiveMorphController.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\ISceneAnimationController.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\ISceneEx.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\ISceneFactory.h" />
@@ -824,6 +825,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationBanner.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationEditor.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\ConfigurationScene.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\MorphingConfigurationScene.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\NoiseConfigurationScene.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\PointMeshConfigurationScene.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\ProjectorsConfigurationScene.h" />
@@ -1074,6 +1076,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\src\scene\PointSetProperty.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveAnimationController.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveAnimationControllerImpl.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveMorphController.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveProperty.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\SceneAnimationController.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\SceneProperty.h" />
@@ -1937,6 +1940,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <None Include="..\..\..\synkro\src\win\WindowSystemImpl.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\MorphingConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\NoiseConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\TeapotConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderObject.cpp" />
@@ -1948,6 +1952,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClCompile Include="..\..\..\synkro\src\phys\PhysicsSystemEx.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\Shape.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\StaticActor.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\PrimitiveMorphController.cpp" />
     <ClCompile Include="..\..\..\synkro\src\win\HostWindow.cpp" />
     <ClCompile Include="..\..\src\synkro\synkro.core.cpp" />
     <ClCompile Include="..\..\..\synkro\src\anim\AnimationCodec\AnimationCodec.cpp" />

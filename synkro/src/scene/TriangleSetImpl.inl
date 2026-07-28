@@ -47,9 +47,53 @@ SYNKRO_INLINE IPrimitiveAnimationController* TriangleSetImpl<T>::CreateAnimation
 }
 
 template <class T>
+SYNKRO_INLINE IPrimitiveMorphController* TriangleSetImpl<T>::CreateMorphController( anim::IAnimationSet* animations, anim::AnimationListener* listener )
+{
+	return nullptr;
+}
+
+template <class T>
 SYNKRO_INLINE void TriangleSetImpl<T>::Show( Bool show )
 {
 	_object->Enable( show );
+}
+
+template <class T>
+SYNKRO_INLINE void TriangleSetImpl<T>::SetPositions( const math::Vector3* positions, UInt start, UInt count )
+{
+	gfx::IVector3Stream* stream = (gfx::IVector3Stream*)_object->GetData()->GetVertexStream( gfx::DataStream::Position3D, 0 );
+	if ( stream == nullptr )
+		throw lang::InvalidOperationException( L"Cannot set 3D positions for non-3D primitive." );
+
+	gfx::DataStreamWriter sw( stream );
+	if ( !sw.Open() )
+		return;
+
+	// Update positions.
+	stream->SetPosition( start );
+	stream->Write( positions, count );
+	_positions.Clear();
+	_positions.Add( positions, count );
+
+	// Update center and bounding sphere.
+	math::Vector3 total;
+	Float boundSphere2 = 0.0f;
+	if ( start == 0 )
+	{
+		_boundSphere = 0.0f;
+	}
+	const math::Vector3* vec = positions+start;
+	for ( UInt i = 0; i < count; ++i, ++vec )
+	{
+		total += *vec;
+		const Float len2 = vec->LengthSquared();
+		if ( boundSphere2 < len2 )
+		{
+			boundSphere2 = len2;
+		}
+	}
+	_center = total/CastFloat(count);
+	_boundSphere = math::Math::Sqrt( boundSphere2 );
 }
 
 template <class T>
@@ -118,6 +162,17 @@ template <class T>
 SYNKRO_INLINE Bool TriangleSetImpl<T>::IsVisible() const
 {
 	return _object->IsEnabled();
+}
+
+template <class T>
+SYNKRO_INLINE Bool TriangleSetImpl<T>::GetPositions( math::Vector3* positions, UInt start, UInt count ) const
+{
+	if ( start+count <= _positions.Size() )
+	{
+		Copy( positions, &_positions[start], count );
+		return true;
+	}
+	return false;
 }
 
 template <class T>
@@ -223,44 +278,6 @@ SYNKRO_INLINE void TriangleSetImpl<T>::EndSetBoneWeights()
 		_boneWeights->Close();
 		_boneWeights = nullptr;
 	}
-}
-
-template <class T>
-SYNKRO_INLINE void TriangleSetImpl<T>::SetPositions( const math::Vector3* positions, UInt start, UInt count )
-{
-	gfx::IVector3Stream* stream = (gfx::IVector3Stream*)_object->GetData()->GetVertexStream( gfx::DataStream::Position3D, 0 );
-	if ( stream == nullptr )
-		throw lang::InvalidOperationException( L"Cannot set 3D positions for non-3D primitive." );
-
-	gfx::DataStreamWriter sw( stream );
-	if ( !sw.Open() )
-		return;
-
-	// Update positions.
-	stream->SetPosition( start );
-	stream->Write( positions, count );
-	_positions.Clear();
-	_positions.Add( positions, count );
-
-	// Update center and bounding sphere.
-	math::Vector3 total;
-	Float boundSphere2 = 0.0f;
-	if ( start == 0 )
-	{
-		_boundSphere = 0.0f;
-	}
-	const math::Vector3* vec = positions+start;
-	for ( UInt i = 0; i < count; ++i, ++vec )
-	{
-		total += *vec;
-		const Float len2 = vec->LengthSquared();
-		if ( boundSphere2 < len2 )
-		{
-			boundSphere2 = len2;
-		}
-	}
-	_center = total/CastFloat(count);
-	_boundSphere = math::Math::Sqrt( boundSphere2 );
 }
 
 template <class T>
@@ -395,17 +412,6 @@ SYNKRO_INLINE void TriangleSetImpl<T>::SetBoneTransforms( const math::Matrix4x4*
 		ITypedBuffer* buffer = res->AsBuffer()->AsTyped();
 		buffer->Set( transforms, count );
 	}
-}
-
-template <class T>
-SYNKRO_INLINE Bool TriangleSetImpl<T>::GetPositions( math::Vector3* positions, UInt start, UInt count ) const
-{
-	if ( start+count <= _positions.Size() )
-	{
-		Copy( positions, &_positions[start], count );
-		return true;
-	}
-	return false;
 }
 
 template <class T>

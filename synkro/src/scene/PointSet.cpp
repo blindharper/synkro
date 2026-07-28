@@ -13,6 +13,7 @@
 #include "config.h"
 #include "PointSet.h"
 #include "PointSetAnimationController.h"
+#include "PrimitiveMorphController.h"
 #include <gfx/IPointRenderQueue.h>
 #include <gfx/IProgram.h>
 #include <gfx/IProgramStage.h>
@@ -20,7 +21,6 @@
 #include <gfx/IVector4Stream.h>
 #include <gfx/IMatrix4x4Stream.h>
 #include <gfx/DataStreamWriter.h>
-#include <lang/Vector.h>
 
 
 //------------------------------------------------------------------------------
@@ -45,6 +45,7 @@ namespace scene
 
 
 PointSet::PointSet( IContext* context, IPointRenderObject* object, UInt start, UInt count, Float size ) :
+	_positions( A(Vector3) ),
 	_context( context ),
 	_object( object ),
 	_paramColor( nullptr ),
@@ -66,11 +67,53 @@ PointSet::PointSet( IContext* context, IPointRenderObject* object, UInt start, U
 	{
 		_object->SetElementRange( start, count );
 	}
+
+	_positions.SetSize( object->GetData()->GetVertexCount() );
 }
 
 IPrimitiveAnimationController* PointSet::CreateAnimationController( IAnimationSet* animations, AnimationListener* listener )
 {
 	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new PointSetAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
+}
+
+IPrimitiveMorphController* PointSet::CreateMorphController( IAnimationSet* animations, AnimationListener* listener )
+{
+	return (_ctrlMorph == nullptr) ? _ctrlMorph = new PrimitiveMorphController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlMorph;
+}
+
+void PointSet::SetPositions( const Vector3* positions, UInt start, UInt count )
+{
+	IVector3Stream* stream = (IVector3Stream*)_object->GetData()->GetVertexStream( DataStream::Position3D, 0 );
+	if ( stream == nullptr )
+		throw InvalidOperationException( L"Cannot set 3D positions for non-3D primitive." );
+
+	DataStreamWriter sw( stream );
+	if ( !sw.Open() )
+		return;
+
+	stream->SetPosition( start );
+	stream->Write( positions, count );
+	Copy( _positions.Begin(), positions, count );
+
+	// Update center and bounding sphere.
+	Vector3 total;
+	Float boundSphere2 = 0.0f;
+	if ( start == 0 )
+	{
+		_boundSphere = 0.0f;
+	}
+	const Vector3* vec = positions+start;
+	for ( UInt i = 0; i < count; ++i, ++vec )
+	{
+		total += *vec;
+		const Float len2 = vec->LengthSquared();
+		if ( boundSphere2 < len2 )
+		{
+			boundSphere2 = len2;
+		}
+	}
+	_center = total/CastFloat(count);
+	_boundSphere = Math::Sqrt( boundSphere2 );
 }
 
 void PointSet::SetInstanceTransform( UInt index, const Matrix4x4& transform )
@@ -95,40 +138,6 @@ void PointSet::SetInstanceColor( UInt index, const Color& color )
 	}
 }
 
-void PointSet::SetPositions( const Vector3* positions, UInt start, UInt count )
-{
-	IVector3Stream* stream = (IVector3Stream*)_object->GetData()->GetVertexStream( DataStream::Position3D, 0 );
-	if ( stream == nullptr )
-		throw InvalidOperationException( L"Cannot set 3D positions for non-3D primitive." );
-
-	DataStreamWriter sw( stream );
-	if ( !sw.Open() )
-		return;
-
-	stream->SetPosition( start );
-	stream->Write( positions, count );
-
-	// Update center and bounding sphere.
-	Vector3 total;
-	Float boundSphere2 = 0.0f;
-	if ( start == 0 )
-	{
-		_boundSphere = 0.0f;
-	}
-	const Vector3* vec = positions+start;
-	for ( UInt i = 0; i < count; ++i, ++vec )
-	{
-		total += *vec;
-		const Float len2 = vec->LengthSquared();
-		if ( boundSphere2 < len2 )
-		{
-			boundSphere2 = len2;
-		}
-	}
-	_center = total/CastFloat(count);
-	_boundSphere = Math::Sqrt( boundSphere2 );
-}
-
 void PointSet::SetColors( const Color* colors, UInt start, UInt count )
 {
 	IVector4Stream* stream = (IVector4Stream*)_object->GetData()->GetVertexStream( DataStream::Color, 0 );
@@ -146,6 +155,12 @@ void PointSet::SetColors( const Color* colors, UInt start, UInt count )
 	}
 	stream->SetPosition( start );
 	stream->Write( cols.Begin(), cols.Size() );
+}
+
+Bool PointSet::GetPositions( Vector3* positions, UInt start, UInt count ) const
+{
+	Copy( positions, _positions.Begin(), count );
+	return true;
 }
 
 IPointSet* PointSet::CreateSubset( UInt start, UInt count )

@@ -404,6 +404,7 @@ iface IPointSet;
 iface IPointSetAnimationController;
 iface IPrimitive;
 iface IPrimitiveAnimationController;
+iface IPrimitiveMorphController;
 iface IScene;
 iface ISceneAnimationController;
 iface ISceneEx;

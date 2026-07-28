@@ -47,14 +47,6 @@ public:
 	virtual void											EndSetBoneWeights() = 0;
 
 	/**
-	 * Sets vertex position coordinates.
-	 * @param positions Array of vertex positions.
-	 * @param start Index of the starting vertex.
-	 * @param count Total number of vertices.
-	 */
-	virtual void											SetPositions( const math::Vector3* positions, UInt start, UInt count ) = 0;
-
-	/**
 	 * Sets vertex normals.
 	 * @param normals Array of vertex normals.
 	 * @param start Index of the starting vertex.
@@ -101,15 +93,6 @@ public:
 	 * @param count Total number of transform matrices.
 	 */
 	virtual void											SetBoneTransforms( const math::Matrix4x4* transforms, UInt count ) = 0;
-
-	/**
-	 * Retrieves vertex position coordinates.
-	 * @param [out] positions Array of vertex positions.
-	 * @param start Index of the starting vertex.
-	 * @param count Total number of vertices.
-	 * @return True if succeeded, or false otherwise.
-	 */
-	virtual Bool											GetPositions( math::Vector3* positions, UInt start, UInt count ) const = 0;
 
 	/**
 	 * Retrieves vertex normals.

@@ -37,18 +37,34 @@ iface IPrimitive :
 {
 public:
 	/**
-	 * Creates primitive controller.
-	 * @param animations Optional node animation sequence.
+	 * Creates primitive animation controller.
+	 * @param animations Optional primitive animation sequence.
 	 * @param listener Controller listener.
 	 * @return Created controller.
 	 */
 	virtual IPrimitiveAnimationController*					CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener ) = 0;
+
+	/**
+	 * Creates primitive morph controller.
+	 * @param animations Optional primitive animation sequence.
+	 * @param listener Controller listener.
+	 * @return Created controller.
+	 */
+	virtual IPrimitiveMorphController*						CreateMorphController( anim::IAnimationSet* animations, anim::AnimationListener* listener ) = 0;
 
 	/** 
 	 * Shows or hides primitive.
 	 * @param show Set to true to make primitive visible, set to false to hide it.
 	 */
 	virtual void											Show( Bool show ) = 0;
+
+	/**
+	 * Sets vertex position coordinates.
+	 * @param positions Array of vertex positions.
+	 * @param start Index of the starting vertex.
+	 * @param count Total number of vertices.
+	 */
+	virtual void											SetPositions( const math::Vector3* positions, UInt start, UInt count ) = 0;
 
 	/**
 	 * Sets the range of active primitive elements.
@@ -99,6 +115,15 @@ public:
 	 * Retrieves primitive visibility.
 	 */
 	virtual Bool											IsVisible() const = 0;
+
+	/**
+	 * Retrieves vertex position coordinates.
+	 * @param [out] positions Array of vertex positions.
+	 * @param start Index of the starting vertex.
+	 * @param count Total number of vertices.
+	 * @return True if succeeded, or false otherwise.
+	 */
+	virtual Bool											GetPositions( math::Vector3* positions, UInt start, UInt count ) const = 0;
 
 	/**
 	 * Retrieves the range of active primitive elements.
