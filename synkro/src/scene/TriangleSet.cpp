@@ -13,6 +13,7 @@
 #include "config.h"
 #include "TriangleSet.h"
 #include "PrimitiveAnimationController.h"
+#include "PrimitiveMorphController.h"
 #include <gfx/IGraphicsSystemEx.h>
 #include <gfx/IGraphicsDeviceEx.h>
 #include <gfx/ISceneRenderQueue.h>
@@ -72,6 +73,11 @@ IPrimitiveAnimationController* TriangleSet::CreateAnimationController( IAnimatio
 	return (_ctrlAnimation == nullptr) ? _ctrlAnimation = new PrimitiveAnimationController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlAnimation;
 }
 
+IPrimitiveMorphController* TriangleSet::CreateMorphController( anim::IAnimationSet* animations, anim::AnimationListener* listener )
+{
+	return (_ctrlMorph == nullptr) ? _ctrlMorph = new PrimitiveMorphController( this, _context->GetAnimationSystem(), animations, listener ) : _ctrlMorph;
+}
+
 void TriangleSet::SetPositions( const Vector3* positions, UInt start, UInt count )
 {
 	_set->SetPositions( positions, start, count );
@@ -124,6 +130,10 @@ void TriangleSet::SetNormals( const Vector3* normals, UInt start, UInt count )
 	}
 }
 
+Bool TriangleSet::GetPositions( Vector3* positions, UInt start, UInt count ) const
+{
+	return _set->GetPositions( positions, start, count );
+}
 
 } // scene
 

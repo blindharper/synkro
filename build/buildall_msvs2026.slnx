@@ -146,7 +146,16 @@
     </Project>
     <Project Path="../demos/build/MayTheForce/MayTheForce_msvs2026.vcxproj" Id="cda157d3-f696-4664-9558-bc322702fbfc">
       <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
-      <BuildType Solution="debug_static|*" Project="profile" />
+      <BuildType Solution="debug_static|*" Project="debug" />
+      <BuildType Solution="profile_static|*" Project="profile" />
+      <BuildType Solution="release_static|*" Project="release" />
+      <Build Solution="debug_static|*" Project="false" />
+      <Build Solution="profile_static|*" Project="false" />
+      <Build Solution="release_static|*" Project="false" />
+    </Project>
+    <Project Path="../demos/build/Morphing/Morphing_msvs2026.vcxproj" Id="b8ed81ec-ced9-4bc1-9d34-aa4f2f605ebe">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
+      <BuildType Solution="debug_static|*" Project="debug" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
       <Build Solution="debug_static|*" Project="false" />

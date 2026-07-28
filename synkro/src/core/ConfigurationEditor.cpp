@@ -13,6 +13,7 @@
 #include "config.h"
 #include "ConfigurationEditor.h"
 #include "ConfigurationBanner.h"
+#include "ConfigurationScene/MorphingConfigurationScene.h"
 #include "ConfigurationScene/NoiseConfigurationScene.h"
 #include "ConfigurationScene/PointMeshConfigurationScene.h"
 #include "ConfigurationScene/ProjectorsConfigurationScene.h"
@@ -81,15 +82,16 @@ void ConfigurationEditor::Show( IConfiguration* config )
 
 	ConfigurationBanner banner( _synkro );
 	Random rnd;
-	switch ( rnd.GetInt(7) )
+	switch ( rnd.GetInt(8) )
 	{
-		case 0: RunScene<NoiseConfigurationScene>(); break;
-		case 1: RunScene<PointMeshConfigurationScene>(); break;
-		case 2: RunScene<ProjectorsConfigurationScene>(); break;
-		case 3: RunScene<RubikCubeConfigurationScene>(); break;
-		case 4: RunScene<SierpinskiConfigurationScene>(); break;
-		case 5: RunScene<TeapotConfigurationScene>(); break;
-		case 6: RunScene<TesseractConfigurationScene>(); break;
+		case 0: RunScene<MorphingConfigurationScene>(); break;
+		case 1: RunScene<NoiseConfigurationScene>(); break;
+		case 2: RunScene<PointMeshConfigurationScene>(); break;
+		case 3: RunScene<ProjectorsConfigurationScene>(); break;
+		case 4: RunScene<RubikCubeConfigurationScene>(); break;
+		case 5: RunScene<SierpinskiConfigurationScene>(); break;
+		case 6: RunScene<TeapotConfigurationScene>(); break;
+		case 7: RunScene<TesseractConfigurationScene>(); break;
 		default: RunScene<ConfigurationScene>(); break;
 	}
 }

@@ -59,7 +59,9 @@ public:
 
 	// IPrimitive methods.
 	virtual	IPrimitiveAnimationController*					CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
+	virtual	IPrimitiveMorphController*						CreateMorphController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	virtual	void											Show( Bool show );
+	virtual void											SetPositions( const math::Vector3* positions, UInt start, UInt count );
 	virtual void											SetElementRange( const lang::Range& range );
 	virtual void											SetInstanceRange( const lang::Range& range );
 	virtual	void											SetTransform( const math::Matrix4x4& transform );
@@ -68,6 +70,7 @@ public:
 	virtual	void											SetInstanceColor( UInt index, const img::Color& color );
 	virtual void											Resize( UInt vertexCount, UInt indexCount );
 	virtual Bool											IsVisible() const;
+	virtual Bool											GetPositions( math::Vector3* positions, UInt start, UInt count ) const;
 	virtual void											GetElementRange( lang::Range& range ) const;
 	virtual void											GetInstanceRange( lang::Range& range ) const;
 	virtual UInt											GetVertexCount() const;
@@ -83,14 +86,12 @@ public:
 	// ITriangleSet methods.
 	virtual Bool											BeginSetBoneWeights();
 	virtual void											EndSetBoneWeights();
-	virtual void											SetPositions( const math::Vector3* positions, UInt start, UInt count );
 	virtual void											SetNormals( const math::Vector3* normals, UInt start, UInt count );
 	virtual void											SetColors( const img::Color* colors, UInt start, UInt count );
 	virtual void											SetTextureCoordinates( const math::Vector2* coords, UInt start, UInt count );
 	virtual void											SetIndices( const UInt* indices, UInt start, UInt count );
 	virtual void											SetBoneWeights( UInt index, const Byte* bones, const Float* weights, UInt count );
 	virtual void											SetBoneTransforms( const math::Matrix4x4* transforms, UInt count );
-	virtual Bool											GetPositions( math::Vector3* positions, UInt start, UInt count ) const;
 	virtual Bool											GetNormals( math::Vector3* normals, UInt start, UInt count ) const;
 	virtual Bool											GetColors( img::Color* colors, UInt start, UInt count ) const;
 	virtual Bool											GetTextureCoordinates( math::Vector2* coords, UInt start, UInt count ) const;

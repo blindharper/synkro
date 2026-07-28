@@ -51,9 +51,22 @@ IPrimitiveAnimationController* SoftTriangleSet::CreateAnimationController( IAnim
 	return nullptr;
 }
 
+IPrimitiveMorphController* SoftTriangleSet::CreateMorphController( IAnimationSet* animations, AnimationListener* listener )
+{
+	return nullptr;
+}
+
 void SoftTriangleSet::Show( Bool show )
 {
 	// Do nothing.
+}
+
+void SoftTriangleSet::SetPositions( const Vector3* positions, UInt start, UInt count )
+{
+	if ( _base != nullptr )
+		_base->SetData( _positions, positions, start, count );
+	else
+		SetData( _positions, positions, start, count );
 }
 
 void SoftTriangleSet::SetElementRange( const Range& range )
@@ -110,6 +123,14 @@ void SoftTriangleSet::Resize( UInt vertexCount, UInt indexCount )
 Bool SoftTriangleSet::IsVisible() const
 {
 	return false;
+}
+
+Bool SoftTriangleSet::GetPositions( Vector3* positions, UInt start, UInt count ) const
+{
+	if ( _base != nullptr )
+		return _base->GetData( positions, _base->_positions, start, count );
+	else
+		return GetData( positions, _positions, start, count );
 }
 
 void SoftTriangleSet::GetElementRange( Range& range ) const
@@ -180,14 +201,6 @@ void SoftTriangleSet::EndSetBoneWeights()
 {
 }
 
-void SoftTriangleSet::SetPositions( const Vector3* positions, UInt start, UInt count )
-{
-	if ( _base != nullptr )
-		_base->SetData( _positions, positions, start, count );
-	else
-		SetData( _positions, positions, start, count );
-}
-
 void SoftTriangleSet::SetNormals( const Vector3* normals, UInt start, UInt count )
 {
 	if ( _base != nullptr )
@@ -235,14 +248,6 @@ void SoftTriangleSet::SetBoneWeights( UInt index, const Byte* bones, const Float
 
 void SoftTriangleSet::SetBoneTransforms( const Matrix4x4* transforms, UInt count )
 {
-}
-
-Bool SoftTriangleSet::GetPositions( Vector3* positions, UInt start, UInt count ) const
-{
-	if ( _base != nullptr )
-		return _base->GetData( positions, _base->_positions, start, count );
-	else
-		return GetData( positions, _positions, start, count );
 }
 
 Bool SoftTriangleSet::GetNormals( Vector3* normals, UInt start, UInt count ) const

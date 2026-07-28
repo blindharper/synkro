@@ -1807,6 +1807,15 @@
     <Filter Include="gfx\Implementation\RenderQueue\Point">
       <UniqueIdentifier>{81f09ef3-b1ed-4982-ab43-cf3e87129a8c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="scene\Implementation\Primitive\Controller\Animation">
+      <UniqueIdentifier>{54c9680e-3dda-4cd2-83d9-4d6644bd7ef3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene\Implementation\Primitive\Controller\Morph">
+      <UniqueIdentifier>{2ef53c68-03cf-45e3-8741-27a2c832bd9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\Implementation\Configuration\Editor\Scene\Morphing">
+      <UniqueIdentifier>{28875436-5526-44de-ad66-5cc555a480f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\lang\Encoding.h">
@@ -4408,9 +4417,6 @@
     <ClInclude Include="..\..\..\synkro\src\scene\SoundProperty.h">
       <Filter>scene\Implementation\Node\Sound\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveProperty.h">
-      <Filter>scene\Implementation\Primitive\Controller</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\scene\LineSetProperty.h">
       <Filter>scene\Implementation\Primitive\LineSet\Controller</Filter>
     </ClInclude>
@@ -5145,12 +5151,6 @@
     <ClInclude Include="..\..\..\synkro\src\scene\FogAnimationController.h">
       <Filter>scene\Implementation\Fog\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveAnimationController.h">
-      <Filter>scene\Implementation\Primitive\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveAnimationControllerImpl.h">
-      <Filter>scene\Implementation\Primitive\Controller</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\scene\LineSetAnimationController.h">
       <Filter>scene\Implementation\Primitive\LineSet\Controller</Filter>
     </ClInclude>
@@ -5366,6 +5366,24 @@
     </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\gfx\PointRenderQueue.h">
       <Filter>gfx\Implementation\RenderQueue\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveAnimationController.h">
+      <Filter>scene\Implementation\Primitive\Controller\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveAnimationControllerImpl.h">
+      <Filter>scene\Implementation\Primitive\Controller\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveProperty.h">
+      <Filter>scene\Implementation\Primitive\Controller\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\scene\IPrimitiveMorphController.h">
+      <Filter>scene\Interface\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\PrimitiveMorphController.h">
+      <Filter>scene\Implementation\Primitive\Controller\Morph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\MorphingConfigurationScene.h">
+      <Filter>core\Implementation\Configuration\Editor\Scene\Morphing</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -6276,9 +6294,6 @@
     <None Include="..\..\..\synkro\src\scene\LightAnimationControllerImpl.inl">
       <Filter>scene\Implementation\Node\Light\Controller</Filter>
     </None>
-    <None Include="..\..\..\synkro\src\scene\PrimitiveAnimationControllerImpl.inl">
-      <Filter>scene\Implementation\Primitive\Controller</Filter>
-    </None>
     <None Include="..\..\..\synkro\src\gfx\ResourceImpl.inl">
       <Filter>gfx\Implementation\Resource</Filter>
     </None>
@@ -6329,6 +6344,9 @@
     </None>
     <None Include="..\..\..\synkro\src\gfx\PointRenderObject.inl">
       <Filter>gfx\Implementation\RenderQueue\Point</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\scene\PrimitiveAnimationControllerImpl.inl">
+      <Filter>scene\Implementation\Primitive\Controller\Animation</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -7390,9 +7408,6 @@
     <ClCompile Include="..\..\..\synkro\src\scene\CameraProperty.cpp">
       <Filter>scene\Implementation\Node\Camera\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\scene\PrimitiveProperty.cpp">
-      <Filter>scene\Implementation\Primitive\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\scene\LineSetProperty.cpp">
       <Filter>scene\Implementation\Primitive\LineSet\Controller</Filter>
     </ClCompile>
@@ -7789,9 +7804,6 @@
     <ClCompile Include="..\..\..\synkro\src\scene\FogAnimationController.cpp">
       <Filter>scene\Implementation\Fog\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\scene\PrimitiveAnimationController.cpp">
-      <Filter>scene\Implementation\Primitive\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\scene\LineSetAnimationController.cpp">
       <Filter>scene\Implementation\Primitive\LineSet\Controller</Filter>
     </ClCompile>
@@ -7860,6 +7872,18 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderObject.cpp">
       <Filter>gfx\Implementation\RenderQueue\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\PrimitiveAnimationController.cpp">
+      <Filter>scene\Implementation\Primitive\Controller\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\PrimitiveProperty.cpp">
+      <Filter>scene\Implementation\Primitive\Controller\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\PrimitiveMorphController.cpp">
+      <Filter>scene\Implementation\Primitive\Controller\Morph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\MorphingConfigurationScene.cpp">
+      <Filter>core\Implementation\Configuration\Editor\Scene\Morphing</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

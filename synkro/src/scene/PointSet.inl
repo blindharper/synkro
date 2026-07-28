@@ -42,6 +42,7 @@ SYNKRO_INLINE void PointSet::SetOwnerTransform( const math::Matrix4x4& transform
 SYNKRO_INLINE void PointSet::Resize( UInt vertexCount, UInt indexCount )
 {
 	_object->GetData()->Resize( vertexCount, indexCount, _object->GetData()->GetInstanceCount() );
+	_positions.SetSize( vertexCount );
 }
 
 SYNKRO_INLINE Bool PointSet::IsVisible() const

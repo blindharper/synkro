@@ -42,6 +42,7 @@ SYNKRO_INLINE void LineSet::SetOwnerTransform( const math::Matrix4x4& transform 
 SYNKRO_INLINE void LineSet::Resize( UInt vertexCount, UInt indexCount )
 {
 	_object->GetData()->Resize( vertexCount, indexCount, _object->GetData()->GetInstanceCount() );
+	_positions.SetSize( vertexCount );
 }
 
 SYNKRO_INLINE Bool LineSet::IsVisible() const

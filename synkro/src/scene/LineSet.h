@@ -17,8 +17,10 @@
 #include "config.h"
 #include <core/IContext.h>
 #include <core/ObjectImpl.h>
+#include <lang/Vector.h>
 #include <scene/ILineSet.h>
 #include <scene/ILineSetAnimationController.h>
+#include <scene/IPrimitiveMorphController.h>
 #include <gfx/ILineRenderObject.h>
 #include <gfx/IPrimitiveEx.h>
 #include <gfx/IParameterSet.h>
@@ -42,7 +44,9 @@ public:
 
 	// IPrimitive methods.
 	IPrimitiveAnimationController*							CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
+	IPrimitiveMorphController*								CreateMorphController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	void													Show( Bool show );
+	void													SetPositions( const math::Vector3* positions, UInt start, UInt count );
 	void													SetElementRange( const lang::Range& range );
 	void													SetInstanceRange( const lang::Range& range );
 	void													SetTransform( const math::Matrix4x4& transform );
@@ -51,6 +55,7 @@ public:
 	void													SetInstanceColor( UInt index, const img::Color& color );
 	void													Resize( UInt vertexCount, UInt indexCount );
 	Bool													IsVisible() const;
+	Bool													GetPositions( math::Vector3* positions, UInt start, UInt count ) const;
 	void													GetElementRange( lang::Range& range ) const;
 	void													GetInstanceRange( lang::Range& range ) const;
 	UInt													GetVertexCount() const;
@@ -64,7 +69,6 @@ public:
 	ITriangleSet*											AsTriangleSet() const;
 
 	// ILineSet methods.
-	void													SetPositions( const math::Vector3* positions, UInt start, UInt count );
 	void													SetPositions4D( const math::Vector4* positions, UInt start, UInt count );
 	void													SetColors( const img::Color* colors, UInt start, UInt count );
 	void													SetIndices( const UInt* indices, UInt start, UInt count );
@@ -74,8 +78,10 @@ public:
 	ILineSet*												CreateSubset( UInt start, UInt count );
 
 private:
+	lang::Vector<math::Vector3>								_positions;
 	core::IContext*											_context;
 	P(ILineSetAnimationController)							_ctrlAnimation;
+	P(IPrimitiveMorphController)							_ctrlMorph;
 	P(gfx::ILineRenderObject)								_object;
 	gfx::ProgramParam*										_paramColor;
 	gfx::ProgramParam*										_paramTransform;
