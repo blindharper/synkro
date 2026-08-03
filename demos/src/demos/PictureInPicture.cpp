@@ -98,9 +98,9 @@ public:
 		_optionCamera = CreateOption( none, Point(_widgetLeft, 540), L"Camera #1", null, false );
 		_optionCamera2 = CreateOption( none, Point(_widgetLeft, 570), L"Camera #2", null, true );
 
-		_switchBorder = CreateSwitch( Point(_widgetLeft, 600), 150, L"Show Border", true );
-		_switchLabel = CreateSwitch( Point(_widgetLeft, 630), 150, L"Show Label", true );
-		_switchDepth = CreateSwitch( Point(_widgetLeft, 660), 150, L"Show Depth", false );
+		_switchBorder = CreateSwitch( Point(_widgetLeft, 600), 150, L"Show [b]order", HotKey(Key::B, true), true );
+		_switchLabel = CreateSwitch( Point(_widgetLeft, 630), 150, L"Show [l]abel", HotKey(Key::L, true), true );
+		_switchDepth = CreateSwitch( Point(_widgetLeft, 660), 150, L"Show de[p]th", HotKey(Key::P, true), false );
 	}
 
 	void OnDisplayModeChanged( const DisplayMode& displayMode ) override
