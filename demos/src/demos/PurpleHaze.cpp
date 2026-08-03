@@ -79,7 +79,7 @@ public:
 
 	void InitUi() override
 	{
-		_switchEnable = CreateSwitch( Point(_widgetLeft, 120), 150, L"Enable Fog", true );
+		_switchEnable = CreateSwitch( Point(_widgetLeft, 120), 150, L"[E]nable fog", HotKey(Key::E, true), true );
 
 		_labelTechnique = CreateLabel( Point(_widgetLeft-114, 152), L"Technique:" );
 		_listTechnique = CreateDropList( Point(_widgetLeft, 150), Size(150, 25) );

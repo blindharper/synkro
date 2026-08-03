@@ -111,7 +111,7 @@ public:
 		_btnSequence1 = CreateButton( Point(_widgetLeft, 120), L"Sequence [1]", Anchor::TopRight, HotKey(Key::D1, true) );
 		_btnSequence2 = CreateButton( Point(_widgetLeft, 150), L"Sequence [2]", Anchor::TopRight, HotKey(Key::D2, true) );
 		_btnSequence3 = CreateButton( Point(_widgetLeft, 180), L"Sequence [3]", Anchor::TopRight, HotKey(Key::D3, true) );
-		_switchAnimate = CreateSwitch( Point(_widgetLeft, 210), 150, L"Animate materials", false );
+		_switchAnimate = CreateSwitch( Point(_widgetLeft, 210), 150, L"[A]nimate colors", HotKey(Key::A, true), false );
 	}
 
 	// UiListener methods.
