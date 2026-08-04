@@ -14,6 +14,7 @@ public:
 	{
 		config->Set( Param::PhysicsEnable, true );
 		config->Set( Param::PhysicsSystem, PhysicsSystem::PhysX );
+		config->Set( Param::PhysicsSpeed, CastUInt(8) );
 	}
 
 	void InitScene() override

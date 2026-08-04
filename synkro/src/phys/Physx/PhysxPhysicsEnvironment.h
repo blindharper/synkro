@@ -36,7 +36,7 @@ class PhysxPhysicsEnvironment :
 {
 public:
 	// Constructor & destructor.
-	PhysxPhysicsEnvironment( physx::PxPhysics* physics, const lang::String& name );
+	PhysxPhysicsEnvironment( physx::PxPhysics* physics, const lang::String& name, Float speed );
 	~PhysxPhysicsEnvironment();
 
 	// IPhysicsEnvironment methods.
@@ -49,6 +49,7 @@ private:
 	physx::PxPhysics*										_physics;
 	physx::PxDefaultCpuDispatcher*							_cpuDispatcher;
 	physx::PxScene*											_environment;
+	Float													_speed;
 };
 
 

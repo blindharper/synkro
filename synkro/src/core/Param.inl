@@ -78,6 +78,7 @@ P4( NetworkSystem,			Enumeration,			_init.DefaultNetworkSystem,			"Custom|WinSoc
 ////-----------------------	----------- -----------	-----------------------------------	----------------------------------------------------------	-------------------------------------------------------------------------------------------
 P2( PhysicsEnable,			Boolean,				"false",																						"Indicates whether to enable dynamic simulations." )
 P4( PhysicsSystem,			Enumeration,			_init.DefaultPhysicsSystem,			"Custom|PhysX",												"Physics system implementation." )
+P3( PhysicsSpeed,			Integer,	Positive,	"5",																							"Dynamic simulations speed." )
 
 ////-----------------------	----------- -----------	-----------------------------------	----------------------------------------------------------	-------------------------------------------------------------------------------------------
 //	Script

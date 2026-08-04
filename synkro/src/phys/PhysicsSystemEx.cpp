@@ -83,13 +83,13 @@ IShape* PhysicsSystemEx::CreateBoxShape( IPhysicsMaterial* material, Float width
 	return new Shape( _physicsSystem->CreateBoxShape(((PhysicsMaterial*)material)->_material, width, depth, height) );
 }
 
-void PhysicsSystemEx::Initialize( IPhysicsSystemFactory* factory )
+void PhysicsSystemEx::Initialize( IPhysicsSystemFactory* factory, Float speed )
 {
 	if ( factory != _factory )
 	{
 		_factory = factory;
 		_physicsSystem = nullptr;
-		_physicsSystem = factory->Create( _log );
+		_physicsSystem = factory->Create( speed, _log );
 	}
 }
 
