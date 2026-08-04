@@ -38,7 +38,6 @@ public:
 		Float z = startZ;
 		
 		_instances = _synkro->CreateTriangleMeshList();
-		// TODO: _instances->SetSize( CAPACITY );
 		for ( UInt j = 0; j < DEPTH; ++j )
 		{
 			Float x = startX;
