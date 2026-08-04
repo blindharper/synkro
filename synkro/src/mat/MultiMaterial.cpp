@@ -62,7 +62,7 @@ ITriangleSet* MultiMaterial::CreateTriangleStrip( ITriangleMesh* mesh, UInt inde
 
 IVisualMaterial* MultiMaterial::CreateInstance( ITriangleMeshBatch* batch, UInt index )
 {
-	return nullptr;
+	return AsBaseMaterial(_materials[0].AsPtr())->CreateInstance( batch, index );
 }
 
 void MultiMaterial::Assign( ITriangleMesh* mesh, ISceneRenderObject* object, UInt index )

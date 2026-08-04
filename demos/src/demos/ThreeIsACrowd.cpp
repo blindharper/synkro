@@ -37,6 +37,8 @@ public:
 		constexpr Float startZ = -600.0f;
 		Float z = startZ;
 		
+		_instances = _synkro->CreateTriangleMeshList();
+		// TODO: _instances->SetSize( CAPACITY );
 		for ( UInt j = 0; j < DEPTH; ++j )
 		{
 			Float x = startX;
@@ -44,7 +46,8 @@ public:
 			{
 				trans.SetTranslation( Vector3(x, 0.0f, z) );
 				x += 40.0f;
-				ITriangleMesh* tiny = _tinyTemplate->CreateInstance( nullptr, trans, Color::Random() );
+				PtrTriangleMesh tiny = _tinyTemplate->CreateInstance( nullptr, trans, Color::Random() );
+				_instances->Add( tiny );
 				UInt idx = rnd.GetUInt()%3;
 
 				PtrSkeletonAnimationController skeletonCtrl = tiny->GetSkeleton()->CreateAnimationController( nullptr, nullptr );
@@ -73,9 +76,11 @@ private:
 	{
 		WIDTH = 30,
 		DEPTH = 30,
+		CAPACITY = WIDTH*DEPTH,
 	};
 
 	PtrTriangleMeshBatch									_tinyTemplate;
+	PtrTriangleMeshList										_instances;
 };
 
 SYNKRO_DEMO_BEGIN
