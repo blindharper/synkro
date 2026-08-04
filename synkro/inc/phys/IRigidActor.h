@@ -51,6 +51,12 @@ public:
 	 * @return Requested shape.
 	 */
 	virtual IShape*											GetShape() const = 0;
+
+	/**
+	 * Casts rigid actor to rigid body.
+	 * @return Non-null for rigid body, nullptr otherwise.
+	 */
+	virtual IRigidBody*										AsBody() const = 0;
 };
 
 

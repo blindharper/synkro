@@ -62,6 +62,11 @@ IShape* StaticActor::GetShape() const
 	return _shape;
 }
 
+IRigidBody* StaticActor::AsBody() const
+{
+	return nullptr;
+}
+
 
 } // phys
 

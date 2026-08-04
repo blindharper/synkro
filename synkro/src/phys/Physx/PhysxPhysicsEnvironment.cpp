@@ -36,16 +36,16 @@ namespace phys
 {
 
 
-PhysxPhysicsEnvironment::PhysxPhysicsEnvironment( PxPhysics* physics, const String& name, Float speed ) :
+PhysxPhysicsEnvironment::PhysxPhysicsEnvironment( PxPhysics* physics, const String& name ) :
 	PhysicsEnvironmentImpl<IPhysicsEnvironment>( name ),
-	_physics( physics ),
-	_speed( speed )
+	_physics( physics )
 {
 	_cpuDispatcher = PxDefaultCpuDispatcherCreate( 2 );
 	PxSceneDesc sceneDesc( physics->getTolerancesScale() );
 	sceneDesc.gravity = PxVec3( 0.0f, -9.81f, 0.0f );
 	sceneDesc.cpuDispatcher = _cpuDispatcher;
 	sceneDesc.filterShader = PxDefaultSimulationFilterShader;
+	sceneDesc.simulationEventCallback = this;
 	_environment = _physics->createScene( sceneDesc );
 	
 	PhysicsEnvironmentImpl<IPhysicsEnvironment>::SetGravity( Vector3(sceneDesc.gravity.x, sceneDesc.gravity.y, sceneDesc.gravity.z) );
@@ -59,7 +59,12 @@ PhysxPhysicsEnvironment::~PhysxPhysicsEnvironment()
 
 void PhysxPhysicsEnvironment::Update( Double delta )
 {
-	_environment->simulate( _speed*delta );
+	// Clear events collections.
+	_awakenActors.Clear();
+	_putToSleepActors.Clear();
+
+	// Perform simulation.
+	_environment->simulate( delta );
 	_environment->fetchResults( true );
 }
 
@@ -79,6 +84,46 @@ void PhysxPhysicsEnvironment::SetGravity( const Vector3& gravity )
 	PhysicsEnvironmentImpl<IPhysicsEnvironment>::SetGravity( gravity );
 
 	_environment->setGravity( Physx::Convert(gravity) );
+}
+
+void PhysxPhysicsEnvironment::onConstraintBreak( PxConstraintInfo* constraints, PxU32 count )
+{
+	// Do nothing.
+}
+
+void PhysxPhysicsEnvironment::onWake( PxActor** actors, PxU32 count )
+{
+	for ( PxU32 i = 0; i < count; ++i )
+	{
+		PxActor* actor = actors[i];
+		assert( actor->userData != nullptr );
+		_awakenActors.Add( (IDynamicActor*)actor->userData );
+	}
+}
+
+void PhysxPhysicsEnvironment::onSleep( PxActor** actors, PxU32 count )
+{
+	for ( PxU32 i = 0; i < count; ++i )
+	{
+		PxActor* actor = actors[i];
+		assert( actor->userData != nullptr );
+		_putToSleepActors.Add( (IDynamicActor*)actor->userData );
+	}
+}
+
+void PhysxPhysicsEnvironment::onContact( const PxContactPairHeader& pairHeader, const PxContactPair* pairs, PxU32 nbPairs )
+{
+	// Do nothing.
+}
+
+void PhysxPhysicsEnvironment::onTrigger( PxTriggerPair* pairs, PxU32 count )
+{
+	// Do nothing.
+}
+
+void PhysxPhysicsEnvironment::onAdvance( const PxRigidBody* const* bodyBuffer, const PxTransform* poseBuffer, const PxU32 count )
+{
+	// Do nothing.
 }
 
 

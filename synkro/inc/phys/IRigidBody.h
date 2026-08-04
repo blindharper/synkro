@@ -105,6 +105,12 @@ public:
 	 * Retrieves actor's maximum angular velocity.
 	 */
 	virtual Float											GetMaximumAngularVelocity() const = 0;
+
+	/**
+	 * Casts rigid body to dynamic actor.
+	 * @return Non-null for dynamic actor, nullptr otherwise.
+	 */
+	virtual IDynamicActor*									AsDynamic() const = 0;
 };
 
 

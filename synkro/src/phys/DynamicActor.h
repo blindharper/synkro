@@ -44,6 +44,7 @@ public:
 	void													SetWorldTransform( const math::Matrix4x4& transform );
 	void													GetWorldTransform( math::Matrix4x4& transform ) const;
 	IShape*													GetShape() const;
+	IRigidBody*												AsBody() const;
 
 	// IRigidBody methods.
 	void													AddForce( const ForceMode& mode, const math::Vector3& force );
@@ -51,15 +52,14 @@ public:
 	void													ClearForce( const ForceMode& mode );
 	void													ClearTorque( const ForceMode& mode );
 	void													SetMass( Float mass );
-	void													SetCenterMass( const math::Vector3& center );
 	void													SetInertia( const math::Vector3& inertia );
 	void													SetMaximumLinearVelocity( Float velocity );
 	void													SetMaximumAngularVelocity( Float velocity );
 	Float													GetMass() const;
-	void													GetCenterMass( math::Vector3& center ) const;
 	void													GetInertia( math::Vector3& inertia ) const;
 	Float													GetMaximumLinearVelocity() const;
 	Float													GetMaximumAngularVelocity() const;
+	IDynamicActor*											AsDynamic() const;
 
 	// IDynamicActor methods.
 	void													SetLinearVelocity( const math::Vector3& velocity );

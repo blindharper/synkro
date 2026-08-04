@@ -761,7 +761,8 @@ void Synkro::InitPhysicsSystem( IConfiguration* config )
 	// Create physics system.
 	if ( _physicsSystem == nullptr )
 	{
-		_systems.Add( _physicsSystem = new PhysicsSystemEx(_diag->GetLog()) );
+		Int speed; config->Get( Param::PhysicsSpeed, &speed );
+		_systems.Add( _physicsSystem = new PhysicsSystemEx(speed, _diag->GetLog()) );
 	}
 
 	// Initialize physics system.
@@ -770,8 +771,7 @@ void Synkro::InitPhysicsSystem( IConfiguration* config )
 	if ( factPhysicsSystem == nullptr )
 		throw Exception( L"Failed to instantiate physics system. System factory is missing." );
 
-	Int speed; config->Get( Param::PhysicsSpeed, &speed );
-	_physicsSystem->Initialize( factPhysicsSystem, speed );
+	_physicsSystem->Initialize( factPhysicsSystem );
 }
 
 void Synkro::InitSceneManager( IConfiguration* config )

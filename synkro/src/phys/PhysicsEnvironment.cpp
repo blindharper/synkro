@@ -35,13 +35,23 @@ namespace phys
 
 
 PhysicsEnvironment::PhysicsEnvironment( IPhysicsEnvironment* environment ) :
+	_listeners( A(PhysicsListener*) ),
+	_actorIds( A(ActorIdEntry) ),
 	_environment( environment )
 {
 }
 
 void PhysicsEnvironment::Update( Double delta )
 {
+	// Update underlying window.
 	_environment->Update( delta );
+
+	// Generate events, if needed.
+	if ( !_listeners.IsEmpty() )
+	{
+		FireAwakeEvents();
+		FireSleepEvents();
+	}
 }
 
 IStaticActor* PhysicsEnvironment::CreateStaticActor( const Matrix4x4& transform, IShape* shape )
@@ -51,7 +61,10 @@ IStaticActor* PhysicsEnvironment::CreateStaticActor( const Matrix4x4& transform,
 
 IDynamicActor* PhysicsEnvironment::CreateDynamicActor( const math::Matrix4x4& transform, IShape* shape, Float density )
 {
-	return new DynamicActor( _environment, _environment->CreateDynamicActor(transform, ((Shape*)shape)->_shape, density), shape );
+	IDynamicActor* innerActor = _environment->CreateDynamicActor( transform, ((Shape*)shape)->_shape, density );
+	IDynamicActor* actor = new DynamicActor( _environment, innerActor, shape );
+	_actorIds[innerActor->ID()] = actor;
+	return actor;
 }
 
 void PhysicsEnvironment::SetGravity( const Vector3& gravity )
@@ -67,6 +80,64 @@ void PhysicsEnvironment::GetGravity( Vector3& gravity ) const
 String PhysicsEnvironment::GetName() const
 {
 	return _environment->GetName();
+}
+
+UInt PhysicsEnvironment::GetAwakenActorCount() const
+{
+	return 0;
+}
+
+IDynamicActor* PhysicsEnvironment::GetAwakenActor( UInt index ) const
+{
+	return nullptr;
+}
+
+UInt PhysicsEnvironment::GetPutToSleepActorCount() const
+{
+	return 0;
+}
+
+IDynamicActor* PhysicsEnvironment::GetPutToSleepActor( UInt index ) const
+{
+	return nullptr;
+}
+
+void PhysicsEnvironment::Listen( PhysicsListener* listener )
+{
+	assert( listener != nullptr );
+
+	if ( !_listeners.Contains(listener) )
+	{
+		_listeners.Add( listener );
+	}
+}
+
+void PhysicsEnvironment::FireAwakeEvents()
+{
+	const UInt actorCount = _environment->GetAwakenActorCount();
+	for ( UInt a = 0; a < actorCount; ++a )
+	{
+		IDynamicActor* innerActor = _environment->GetAwakenActor( a );
+		IDynamicActor* actor = _actorIds[innerActor->ID()];
+		for ( UInt i = 0; i < _listeners.Size(); ++i )
+		{
+			_listeners[i]->OnPhysicsActorWake( actor );
+		}
+	}
+}
+
+void PhysicsEnvironment::FireSleepEvents()
+{
+	const UInt actorCount = _environment->GetPutToSleepActorCount();
+	for ( UInt a = 0; a < actorCount; ++a )
+	{
+		IDynamicActor* innerActor = _environment->GetPutToSleepActor( a );
+		IDynamicActor* actor = _actorIds[innerActor->ID()];
+		for ( UInt i = 0; i < _listeners.Size(); ++i )
+		{
+			_listeners[i]->OnPhysicsActorSleep( actor );
+		}
+	}
 }
 
 

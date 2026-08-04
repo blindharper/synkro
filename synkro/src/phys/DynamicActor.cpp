@@ -62,6 +62,11 @@ IShape* DynamicActor::GetShape() const
 	return _shape;
 }
 
+IRigidBody* DynamicActor::AsBody() const
+{
+	return (IRigidBody*)this;
+}
+
 void DynamicActor::AddForce( const ForceMode& mode, const Vector3& force )
 {
 	_actor->AddForce( mode, force );
@@ -120,6 +125,11 @@ Float DynamicActor::GetMaximumLinearVelocity() const
 Float DynamicActor::GetMaximumAngularVelocity() const
 {
 	return _actor->GetMaximumAngularVelocity();
+}
+
+IDynamicActor* DynamicActor::AsDynamic() const
+{
+	return (IDynamicActor*)this;
 }
 
 void DynamicActor::SetLinearVelocity( const Vector3& velocity )

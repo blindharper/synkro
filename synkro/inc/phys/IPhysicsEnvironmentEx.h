@@ -8,14 +8,14 @@
 // is allowed without any permission from the Synkro Project.
 // Website: https://synkro.pro Email: mailto:blindharper70@gmail.com
 //
-// Purpose: Defines physics system factory.
+// Purpose: Defines extended physics environment.
 //==============================================================================
-#ifndef _SYNKRO_PHYS_IPHYSICSSYSTEMFACTORY_
-#define _SYNKRO_PHYS_IPHYSICSSYSTEMFACTORY_
+#ifndef _SYNKRO_PHYS_IPHYSICSENVIRONMENTEX_
+#define _SYNKRO_PHYS_IPHYSICSENVIRONMENTEX_
 
 
 #include "config.h"
-#include <core/IFactory.h>
+#include <phys/IPhysicsEnvironment.h>
 
 
 namespace synkro
@@ -27,18 +27,17 @@ namespace phys
 
 
 /**
- * Physics system factory.
+ * Extended physics environment.
  */
-iface IPhysicsSystemFactory :
-	public core::IFactory
+iface IPhysicsEnvironmentEx :
+	public IPhysicsEnvironment
 {
 public:
 	/**
-	 * Creates physics system.
-	 * @param log Log to write debug messages to.
-	 * @return Created physics system.
+	 * Registers physics event listener.
+	 * @param listener Event listener.
 	 */
-	virtual IPhysicsSystem*									Create( diag::ILog* log ) = 0;
+	virtual void											Listen( PhysicsListener* listener ) = 0;
 };
 
 
@@ -48,4 +47,4 @@ public:
 } // synkro
 
 
-#endif // _SYNKRO_PHYS_IPHYSICSSYSTEMFACTORY_
+#endif // _SYNKRO_PHYS_IPHYSICSENVIRONMENTEX_

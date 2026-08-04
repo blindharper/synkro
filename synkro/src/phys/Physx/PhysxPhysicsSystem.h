@@ -34,7 +34,7 @@ class PhysxPhysicsSystem :
 {
 public:
 	// Constructor & destructor.
-	PhysxPhysicsSystem( Float speed, diag::ILog* log );
+	PhysxPhysicsSystem( diag::ILog* log );
 	~PhysxPhysicsSystem();
 
 	// ISystem methods.
@@ -49,7 +49,6 @@ public:
 private:
 	physx::PxFoundation*									_foundation;
 	physx::PxPhysics*										_physics;
-	Float													_speed;
 };
 
 

@@ -48,6 +48,7 @@ public:
 	void													SetWorldTransform( const math::Matrix4x4& transform );
 	void													GetWorldTransform( math::Matrix4x4& transform ) const;
 	IShape*													GetShape() const;
+	IRigidBody*												AsBody() const;
 
 	// IRigidBody methods.
 	void													AddForce( const ForceMode& mode, const math::Vector3& force );
@@ -62,6 +63,7 @@ public:
 	void													GetInertia( math::Vector3& inertia ) const;
 	Float													GetMaximumLinearVelocity() const;
 	Float													GetMaximumAngularVelocity() const;
+	IDynamicActor*											AsDynamic() const;
 
 	// IDynamicActor methods.
 	void													SetLinearVelocity( const math::Vector3& velocity );

@@ -8,17 +8,13 @@
 // is allowed without any permission from the Synkro Project.
 // Website: https://synkro.pro Email: mailto:blindharper70@gmail.com
 //
-// Purpose: PhysX physics system factory.
+// Purpose: Defines physics listener.
 //==============================================================================
-#ifndef _SYNKRO_PHYS_PHYSXPHYSICSSYSTEMFACTORY_
-#define _SYNKRO_PHYS_PHYSXPHYSICSSYSTEMFACTORY_
+#ifndef _SYNKRO_PHYS_PHYSICSLISTENER_
+#define _SYNKRO_PHYS_PHYSICSLISTENER_
 
 
 #include "config.h"
-#include <core/FactoryImpl.h>
-#include <phys/IPhysicsSystemFactory.h>
-#include <phys/PhysicsSystem.h>
-#include "PhysxPhysicsSystem.h"
 
 
 namespace synkro
@@ -29,10 +25,24 @@ namespace phys
 {
 
 
-// PhysX physics system factory.
-SYNKRO_FACTORY_BEGIN( PhysxPhysicsSystemFactory, IPhysicsSystemFactory, PhysicsSystem, PhysicsSystem::PhysX )
-	IPhysicsSystem*	Create( diag::ILog* log ) { return new PhysxPhysicsSystem(log); }
-SYNKRO_FACTORY_END()
+/**
+ * Physics events listener.
+ */
+iface PhysicsListener
+{
+public:
+	/**
+	 * Handles actor's "Wake" event.
+	 * @param actor Dynamic actor that was awaken.
+	 */
+	virtual void											OnPhysicsActorWake( IDynamicActor* actor ) = 0;
+
+	/**
+	 * Handles actor's "Sleep" event.
+	 * @param actor Dynamic actor that was put to sleep.
+	 */
+	virtual void											OnPhysicsActorSleep( IDynamicActor* actor ) = 0;
+};
 
 
 } // phys
@@ -41,4 +51,4 @@ SYNKRO_FACTORY_END()
 } // synkro
 
 
-#endif // _SYNKRO_PHYS_PHYSXPHYSICSSYSTEMFACTORY_
+#endif // _SYNKRO_PHYS_PHYSICSLISTENER_

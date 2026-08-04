@@ -15,7 +15,8 @@
 
 
 #include <phys/PhysicsSystem.h>
-#include <phys/IPhysicsEnvironment.h>
+#include <phys/PhysicsListener.h>
+#include <phys/IPhysicsEnvironmentEx.h>
 #include <phys/IPhysicsMaterial.h>
 #include <phys/IShape.h>
 #include <phys/IDynamicActor.h>
@@ -23,7 +24,7 @@
 #include <phys/IPhysicsSystemEx.h>
 
 
-#define PtrPhysicsEnvironment P(synkro::phys::IPhysicsEnvironment)
+#define PtrPhysicsEnvironmentEx P(synkro::phys::IPhysicsEnvironmentEx)
 #define PtrPhysicsMaterial P(synkro::phys::IPhysicsMaterial)
 #define PtrShape P(synkro::phys::IShape)
 #define PtrDynamicActor P(synkro::phys::IDynamicActor)

@@ -272,7 +272,7 @@ public:
 	/**
 	 * Retrieves underlying physics environment.
 	 */
-	virtual phys::IPhysicsEnvironment*						GetPhysicsEnvironment() const = 0;
+	virtual phys::IPhysicsEnvironmentEx*					GetPhysicsEnvironment() const = 0;
 
 	/**
 	 * Retrieves scene name.

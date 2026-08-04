@@ -36,10 +36,11 @@ namespace phys
 {
 
 
-PhysicsSystemEx::PhysicsSystemEx( ILog* log ) :
+PhysicsSystemEx::PhysicsSystemEx( Float speed, ILog* log ) :
 	_factory( nullptr ),
-	_environments( A(P(IPhysicsEnvironment)) ),
-	Logger( log, LogFacility::PhysicsSystem )
+	_environments( A(P(IPhysicsEnvironmentEx)) ),
+	Logger( log, LogFacility::PhysicsSystem ),
+	_speed( speed )
 {
 	LogInfo( MessagePriority::Lowest, Formatter::Format(L"Creating physics system...") );
 }
@@ -55,7 +56,7 @@ Bool PhysicsSystemEx::Update( Double delta )
 
 	for ( UInt i = 0; i < _environments.Size(); ++i )
 	{
-		_environments[i]->Update( delta );
+		_environments[i]->Update( _speed*delta );
 	}
 
 	return true;
@@ -63,7 +64,7 @@ Bool PhysicsSystemEx::Update( Double delta )
 
 IPhysicsEnvironment* PhysicsSystemEx::CreateEnvironment( const String& name )
 {
-	IPhysicsEnvironment* environment = new PhysicsEnvironment( _physicsSystem->CreateEnvironment(name) );
+	IPhysicsEnvironmentEx* environment = new PhysicsEnvironment( _physicsSystem->CreateEnvironment(name) );
 	_environments.Add( environment );
 	return environment;
 }
@@ -83,13 +84,13 @@ IShape* PhysicsSystemEx::CreateBoxShape( IPhysicsMaterial* material, Float width
 	return new Shape( _physicsSystem->CreateBoxShape(((PhysicsMaterial*)material)->_material, width, depth, height) );
 }
 
-void PhysicsSystemEx::Initialize( IPhysicsSystemFactory* factory, Float speed )
+void PhysicsSystemEx::Initialize( IPhysicsSystemFactory* factory )
 {
 	if ( factory != _factory )
 	{
 		_factory = factory;
 		_physicsSystem = nullptr;
-		_physicsSystem = factory->Create( speed, _log );
+		_physicsSystem = factory->Create( _log );
 	}
 }
 

@@ -74,6 +74,33 @@ public:
 	 */
 	virtual lang::String									GetName() const = 0;
 
+	/**
+	 * Retrieves the number of actors that awoke during last update.
+	 * @return Number of dynamic actors.
+	 */
+	virtual UInt											GetAwakenActorCount() const = 0;
+
+	/**
+	 * Retrieves dynamic actor just awaken by index.
+	 * @param index Index of the actor to retrieve.
+	 * @return Requested actor.
+	 * @exception OutOfRangeException Index is out of range.
+	 */
+	virtual IDynamicActor*									GetAwakenActor( UInt index ) const = 0;
+
+	/**
+	 * Retrieves the number of actors that were put to sleep during last update.
+	 * @return Number of dynamic actors.
+	 */
+	virtual UInt											GetPutToSleepActorCount() const = 0;
+
+	/**
+	 * Retrieves dynamic actor just put to sleep by index.
+	 * @param index Index of the actor to retrieve.
+	 * @return Requested actor.
+	 * @exception OutOfRangeException Index is out of range.
+	 */
+	virtual IDynamicActor*									GetPutToSleepActor( UInt index ) const = 0;
 };
 
 

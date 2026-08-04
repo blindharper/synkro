@@ -2,11 +2,13 @@
 
 
 class MayTheForce :
-	public Demo
+	public Demo,
+	public PhysicsListener
 {
 public:
 	MayTheForce() :
-		Demo( L"May The Force" )
+		Demo( L"May The Force" ),
+		_activeActorCount( 0 )
 	{
 	}
 
@@ -14,54 +16,131 @@ public:
 	{
 		config->Set( Param::PhysicsEnable, true );
 		config->Set( Param::PhysicsSystem, PhysicsSystem::PhysX );
-		config->Set( Param::PhysicsSpeed, CastUInt(8) );
+		config->Set( Param::PhysicsSpeed, CastUInt(12) );
 	}
 
 	void InitScene() override
 	{
 		// Create materials.
 		PtrImage imageCheckers = GetImage( L"checkers.jpg" );
-		_materialFloor = CreateTexturedMaterial( imageCheckers, 200 );
+		_materialFloor = CreateTexturedMaterial( imageCheckers, Color::White, 200 );
 
 		PtrImage imageCrate = GetImage( L"crate.bmp" );
-		_materialCrate = CreateTexturedMaterial( imageCrate, 1 );
+		_materialCrate = CreateTexturedMaterial( imageCrate, Color::Lime, 1 );
+		_materialCrate2 = CreateTexturedMaterial( imageCrate, Color::Orange, 1 );
 
-		_physicsMaterial = _synkro->GetPhysicsSystem()->CreateMaterial( 0.5f, 0.5f, 0.6f );
+		IPhysicsSystemEx* physicsSystem = _synkro->GetPhysicsSystem();
+		_physicsMaterial = physicsSystem->CreateMaterial( 0.5f, 0.5f, 0.6f );
+
+		// Listen to environment events.
+		IPhysicsEnvironmentEx* physicsEnvironment = _scene->GetPhysicsEnvironment();
+		physicsEnvironment->Listen( this );
 
 		// Create floor actor.
 		constexpr Float FLOOR_SIZE = 20000.0f;
 		_floor = CreatePlane( nullptr, _materialFloor, FLOOR_SIZE, FLOOR_SIZE, 250, Matrix4x4::Identity, Vector3::Origin );
-		IShape* shape = _synkro->GetPhysicsSystem()->CreatePlaneShape( _physicsMaterial, Vector3(0.0f, -1.0f, 0.0f), 0.0f );
+		IShape* shape = physicsSystem->CreatePlaneShape( _physicsMaterial, Vector3(0.0f, 1.0f, 0.0f), 0.0f );
 		Matrix4x4 transform; shape->GetTransform( transform );
-		_actorFloor = _scene->GetPhysicsEnvironment()->CreateStaticActor( transform, shape );
+		_actorFloor = physicsEnvironment->CreateStaticActor( transform, shape );
 
 		// Create crate actors.
-		constexpr Float CRATE_SIDE = 30.0f;
-		_crate = CreateCrate( CRATE_SIDE, 10.0f, Vector3(-30.0f, 180.0f, 0.0f), Vector3(15.0f, 15.0f, 0.0f) );
-		_crate2 = CreateCrate( CRATE_SIDE, 10.0f, Vector3(30.0f, 160.0f, 10.0f), Vector3(-35.0f, 15.0f, 0.0f) );
+		constexpr Float CRATE_SIDE = 40.0f;
+		_crate = CreateCrate( _materialCrate, CRATE_SIDE, 10.0f );
+		_crate2 = CreateCrate( _materialCrate2, CRATE_SIDE, 10.0f );
+		_actor = _crate->GetActor()->AsRigid()->AsBody()->AsDynamic();
+		_actor2 = _crate2->GetActor()->AsRigid()->AsBody()->AsDynamic();
+
+		// Set initial conditions.
+		RunSimulation();
 	}
 
 	void InitView() override
 	{
 		// Setup cameras and viewports.
-		_camera->SetPosition( Vector3(0.0f, 150.0f, -600.0f) );
+		_camera->SetPosition( Vector3(0.0f, 150.0f, -800.0f) );
 		_camera->LookAt( Vector3(0.0f, 25.0f, 300.0f) );
 	}
 
-	ITriangleMesh* CreateCrate( Float size, Float density, const Vector3 position, const Vector3 velocity )
+	void InitUi() override
 	{
-		ITriangleMesh* crate = CreateCube( nullptr, _materialCrate, size, Matrix4x4::Identity, Vector3::Origin );
+		_btnReplay = CreateButton( Point(_widgetLeft, 120), L"[R]eplay", Anchor::TopRight, HotKey(Key::R, true) );
+		_btnReplay->Enable( false );
+	}
+
+	// UiListener methods.
+	Bool OnUiClick( IWidget* sender ) override
+	{
+		if ( Demo::OnUiClick(sender) )
+			return true;
+
+		if ( sender == _btnReplay )
+		{
+			_btnReplay->Enable( false );
+			RunSimulation();
+			return true;
+		}
+
+		return false;
+	}
+
+	// PhysicsListener methods.
+	void OnPhysicsActorWake( IDynamicActor* actor ) override
+	{
+		if ( actor == _actor )
+		{
+			_materialCrate->SetDiffuseColor( Color::Lime );
+		}
+		else if ( actor == _actor2 )
+		{
+			_materialCrate2->SetDiffuseColor( Color::Orange );
+		}
+
+		++_activeActorCount;
+	}
+
+	void OnPhysicsActorSleep( IDynamicActor* actor ) override
+	{
+		if ( actor == _actor )
+		{
+			_materialCrate->SetDiffuseColor( Color::DimGray );
+		}
+		else if ( actor == _actor2 )
+		{
+			_materialCrate2->SetDiffuseColor( Color::DimGray );
+		}
+
+		if ( --_activeActorCount == 0 )
+		{
+			_btnReplay->Enable( true );
+		}
+	}
+
+	void RunSimulation()
+	{
+		Matrix4x4 transform;
+		transform.SetTranslation( Vector3(-30.0f, 180.0f, 0.0f) );
+		_actor->SetWorldTransform( transform );
+		_actor->SetLinearVelocity( Vector3(15.0f, 15.0f, 0.0f) );
+
+		transform.SetTranslation( Vector3(30.0f, 160.0f, 10.0f) );
+		_actor2->SetWorldTransform( transform );
+		_actor2->SetLinearVelocity( Vector3(-35.0f, 15.0f, 0.0f) );
+	}
+
+	ITriangleMesh* CreateCrate( IVisualMaterial* material, Float size, Float density )
+	{
+		Matrix4x4 transform;
+		ITriangleMesh* crate = CreateCube( nullptr, material, size, Matrix4x4::Identity, Vector3::Origin );
 		IShape* shape = _synkro->GetPhysicsSystem()->CreateBoxShape( _physicsMaterial, size, size, size );
-		Matrix4x4 transform; transform.SetTranslation( position );
 		IDynamicActor* actor = _scene->GetPhysicsEnvironment()->CreateDynamicActor( transform, shape, density );
-		actor->SetLinearVelocity( velocity );
 		crate->SetActor( actor );
 		return crate;
 	}
 
-	IOpaqueMaterial* CreateTexturedMaterial( IImage* diffuse, UInt tiling )
+	IOpaqueMaterial* CreateTexturedMaterial( IImage* diffuse, const Color& color, UInt tiling )
 	{
 		IOpaqueMaterial* material = _synkro->GetMaterialManager()->CreateOpaqueMaterial( LightingModel::Gouraud );
+		material->SetDiffuseColor( color );
 		material->GetDiffuseMap()->SetImage( diffuse );
 		material->SetTilingHorizontal( tiling );
 		material->SetTilingVertical( tiling );
@@ -72,10 +151,18 @@ private:
 	PtrPhysicsMaterial										_physicsMaterial;
 	PtrOpaqueMaterial										_materialFloor;
 	PtrOpaqueMaterial										_materialCrate;
+	PtrOpaqueMaterial										_materialCrate2;
+
 	PtrTriangleMesh											_floor;
-	PtrTriangleMesh											_crate;
-	PtrTriangleMesh											_crate2;
 	PtrStaticActor											_actorFloor;
+
+	PtrTriangleMesh											_crate;
+	PtrDynamicActor											_actor;
+	PtrTriangleMesh											_crate2;
+	PtrDynamicActor											_actor2;
+
+	PtrButton												_btnReplay;
+	UInt													_activeActorCount;
 };
 
 SYNKRO_DEMO_BEGIN

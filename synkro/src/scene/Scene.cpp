@@ -111,15 +111,18 @@ Scene::Scene( IScene* scene, BaseSceneManager* sceneManager, IContext* context, 
 	_root = new Dummy( this, _context, L"World", false );
 
 	// Create audio environment.
-	if ( _context->GetAudioSystem() != nullptr )
+	IAudioSystemEx* audioSystem = _context->GetAudioSystem();
+	if ( audioSystem != nullptr )
 	{
-		_audioEnvironment = _context->GetAudioSystem()->CreateEnvironment();
+		_audioEnvironment = audioSystem->CreateEnvironment();
 	}
 
 	// Create physics environment.
-	if ( _context->GetPhysicsSystem() != nullptr )
+	IPhysicsSystemEx* physicsSystem = _context->GetPhysicsSystem();
+	if ( physicsSystem != nullptr )
 	{
-		_physicsEnvironment = _context->GetPhysicsSystem()->CreateEnvironment( _name );
+		physicsSystem->CreateEnvironment( _name );
+		_physicsEnvironment = physicsSystem->GetEnvironment( _name );
 	}
 }
 
