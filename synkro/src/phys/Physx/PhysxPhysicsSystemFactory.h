@@ -31,7 +31,7 @@ namespace phys
 
 // PhysX physics system factory.
 SYNKRO_FACTORY_BEGIN( PhysxPhysicsSystemFactory, IPhysicsSystemFactory, PhysicsSystem, PhysicsSystem::PhysX )
-	IPhysicsSystem*	Create( diag::ILog* log ) { return new PhysxPhysicsSystem(log); }
+	IPhysicsSystem*	Create( Float speed, diag::ILog* log ) { return new PhysxPhysicsSystem(speed, log); }
 SYNKRO_FACTORY_END()
 
 

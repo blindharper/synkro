@@ -35,10 +35,11 @@ iface IPhysicsSystemFactory :
 public:
 	/**
 	 * Creates physics system.
+	 * @param speed Dynamic simulations speed.
 	 * @param log Log to write debug messages to.
 	 * @return Created physics system.
 	 */
-	virtual IPhysicsSystem*									Create( diag::ILog* log ) = 0;
+	virtual IPhysicsSystem*									Create( Float speed, diag::ILog* log ) = 0;
 };
 
 

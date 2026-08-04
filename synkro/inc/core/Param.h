@@ -176,6 +176,9 @@ public:
 	/** Name of the physics system. */
 	static const Char* PhysicsSystem;
 
+	/** Dynamic simulations speed. */
+	static const Char* PhysicsSpeed;
+
 	//--------------------------------------------------------------------------
 	// Script
 	//--------------------------------------------------------------------------

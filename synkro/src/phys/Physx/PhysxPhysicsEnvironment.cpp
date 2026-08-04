@@ -36,9 +36,10 @@ namespace phys
 {
 
 
-PhysxPhysicsEnvironment::PhysxPhysicsEnvironment( PxPhysics* physics, const String& name ) :
+PhysxPhysicsEnvironment::PhysxPhysicsEnvironment( PxPhysics* physics, const String& name, Float speed ) :
 	PhysicsEnvironmentImpl<IPhysicsEnvironment>( name ),
-	_physics( physics )
+	_physics( physics ),
+	_speed( speed )
 {
 	_cpuDispatcher = PxDefaultCpuDispatcherCreate( 2 );
 	PxSceneDesc sceneDesc( physics->getTolerancesScale() );
@@ -58,7 +59,7 @@ PhysxPhysicsEnvironment::~PhysxPhysicsEnvironment()
 
 void PhysxPhysicsEnvironment::Update( Double delta )
 {
-	_environment->simulate( delta );
+	_environment->simulate( _speed*delta );
 	_environment->fetchResults( true );
 }
 

@@ -54,7 +54,7 @@ public:
 	IPhysicsEnvironment*									GetEnvironment( const lang::String& name ) const;
 
 	// Other methods.
-	void													Initialize( IPhysicsSystemFactory* factory );
+	void													Initialize( IPhysicsSystemFactory* factory, Float speed );
 	void													Finalize();
 
 private:

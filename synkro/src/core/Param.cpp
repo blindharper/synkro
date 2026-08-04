@@ -138,6 +138,7 @@ SYNKRO_PARAM( NetworkSystem,			"Network.System" )
 // Physics
 SYNKRO_PARAM( PhysicsEnable,			"Physics.Enable" )
 SYNKRO_PARAM( PhysicsSystem,			"Physics.System" )
+SYNKRO_PARAM( PhysicsSpeed,				"Physics.Speed" )
 
 // Script
 SYNKRO_PARAM( ScriptEnable,				"Script.Enable" )

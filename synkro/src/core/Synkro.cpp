@@ -770,7 +770,8 @@ void Synkro::InitPhysicsSystem( IConfiguration* config )
 	if ( factPhysicsSystem == nullptr )
 		throw Exception( L"Failed to instantiate physics system. System factory is missing." );
 
-	_physicsSystem->Initialize( factPhysicsSystem );
+	Int speed; config->Get( Param::PhysicsSpeed, &speed );
+	_physicsSystem->Initialize( factPhysicsSystem, speed );
 }
 
 void Synkro::InitSceneManager( IConfiguration* config )
