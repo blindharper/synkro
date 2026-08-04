@@ -39,7 +39,9 @@ PhysxDynamicActor::PhysxDynamicActor( PxPhysics* physics, PxScene* environment, 
 	_shape( shape )
 {
 	_actor = physics->createRigidDynamic( Physx::Convert(transform) );
+	_actor->setActorFlag( PxActorFlag::eSEND_SLEEP_NOTIFIES, true );
 	_actor->attachShape( *AsPhysxBaseShape(shape)->AsPhysxShape() );
+	_actor->userData = this;
 	PxRigidBodyExt::updateMassAndInertia( *_actor, density );
 	environment->addActor( *_actor );
 }
@@ -72,6 +74,11 @@ void PhysxDynamicActor::GetWorldTransform( Matrix4x4& transform ) const
 IShape* PhysxDynamicActor::GetShape() const
 {
 	return _shape;
+}
+
+IRigidBody* PhysxDynamicActor::AsBody() const
+{
+	return nullptr;
 }
 
 void PhysxDynamicActor::AddForce( const ForceMode& mode, const Vector3& force )
@@ -135,6 +142,11 @@ Float PhysxDynamicActor::GetMaximumLinearVelocity() const
 Float PhysxDynamicActor::GetMaximumAngularVelocity() const
 {
 	return _actor->getMaxAngularVelocity();
+}
+
+IDynamicActor* PhysxDynamicActor::AsDynamic() const
+{
+	return nullptr;
 }
 
 void PhysxDynamicActor::SetLinearVelocity( const Vector3& velocity )

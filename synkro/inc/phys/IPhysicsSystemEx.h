@@ -43,13 +43,13 @@ public:
 	 * @param index Index of the environment to retrieve.
 	 * @exception OutOfRangeException Index is out of range.
 	 */
-	virtual IPhysicsEnvironment*							GetEnvironment( ULong index ) const = 0;
+	virtual IPhysicsEnvironmentEx*							GetEnvironment( ULong index ) const = 0;
 
 	/**
 	 * Retrieves an environment by name.
 	 * @param name Name of the environment to retrieve.
 	 */
-	virtual IPhysicsEnvironment*							GetEnvironment( const lang::String& name ) const = 0;
+	virtual IPhysicsEnvironmentEx*							GetEnvironment( const lang::String& name ) const = 0;
 };
 
 

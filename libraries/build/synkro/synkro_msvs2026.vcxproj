@@ -629,6 +629,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\inc\phys\IActor.h" />
     <ClInclude Include="..\..\..\synkro\inc\phys\IDynamicActor.h" />
     <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsEnvironment.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsEnvironmentEx.h" />
     <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsMaterial.h" />
     <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsSystem.h" />
     <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsSystemEx.h" />
@@ -638,6 +639,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\inc\phys\IShape.h" />
     <ClInclude Include="..\..\..\synkro\inc\phys\IStaticActor.h" />
     <ClInclude Include="..\..\..\synkro\inc\phys\phys.h" />
+    <ClInclude Include="..\..\..\synkro\inc\phys\PhysicsListener.h" />
     <ClInclude Include="..\..\..\synkro\inc\phys\PhysicsSystem.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\ColorMode.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\DebugMode.h" />

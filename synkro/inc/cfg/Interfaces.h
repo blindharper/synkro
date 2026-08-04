@@ -353,6 +353,7 @@ namespace phys
 iface IActor;
 iface IDynamicActor;
 iface IPhysicsEnvironment;
+iface IPhysicsEnvironmentEx;
 iface IPhysicsMaterial;
 iface IPhysicsSystem;
 iface IPhysicsSystemEx;
@@ -361,6 +362,7 @@ iface IRigidActor;
 iface IRigidBody;
 iface IShape;
 iface IStaticActor;
+iface PhysicsListener;
 
 } // phys
 

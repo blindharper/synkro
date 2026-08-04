@@ -15,7 +15,7 @@ SYNKRO_INLINE ULong PhysicsSystemEx::GetEnvironmentCount() const
 	return _environments.Size();
 }
 
-SYNKRO_INLINE IPhysicsEnvironment* PhysicsSystemEx::GetEnvironment( ULong index ) const
+SYNKRO_INLINE IPhysicsEnvironmentEx* PhysicsSystemEx::GetEnvironment( ULong index ) const
 {
 	assert( index < _environments.Size() );
 
@@ -25,7 +25,7 @@ SYNKRO_INLINE IPhysicsEnvironment* PhysicsSystemEx::GetEnvironment( ULong index 
 	return _environments[index];
 }
 
-SYNKRO_INLINE IPhysicsEnvironment* PhysicsSystemEx::GetEnvironment( const lang::String& name ) const
+SYNKRO_INLINE IPhysicsEnvironmentEx* PhysicsSystemEx::GetEnvironment( const lang::String& name ) const
 {
 	for ( UInt i = 0; i < _environments.Size(); ++i )
 	{

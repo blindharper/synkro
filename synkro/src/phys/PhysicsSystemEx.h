@@ -18,7 +18,7 @@
 #include <core/ObjectImpl.h>
 #include <lang/Vector.h>
 #include <phys/IPhysicsSystemEx.h>
-#include <phys/IPhysicsEnvironment.h>
+#include <phys/IPhysicsEnvironmentEx.h>
 
 
 namespace synkro
@@ -36,7 +36,7 @@ class PhysicsSystemEx :
 {
 public:
 	// Constructor & destructor.
-	PhysicsSystemEx( diag::ILog* log );
+	PhysicsSystemEx( Float speed, diag::ILog* log );
 	~PhysicsSystemEx();
 
 	// ISystem methods.
@@ -50,17 +50,18 @@ public:
 
 	// IPhysicsSystemEx methods.
 	ULong													GetEnvironmentCount() const;
-	IPhysicsEnvironment*									GetEnvironment( ULong index ) const;
-	IPhysicsEnvironment*									GetEnvironment( const lang::String& name ) const;
+	IPhysicsEnvironmentEx*									GetEnvironment( ULong index ) const;
+	IPhysicsEnvironmentEx*									GetEnvironment( const lang::String& name ) const;
 
 	// Other methods.
-	void													Initialize( IPhysicsSystemFactory* factory, Float speed );
+	void													Initialize( IPhysicsSystemFactory* factory );
 	void													Finalize();
 
 private:
 	IPhysicsSystemFactory*									_factory;
 	P(IPhysicsSystem)										_physicsSystem;
-	lang::Vector<P(IPhysicsEnvironment)>					_environments;
+	lang::Vector<P(IPhysicsEnvironmentEx)>					_environments;
+	Float													_speed;
 };
 
 

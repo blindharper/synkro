@@ -12,6 +12,8 @@
 //=============================================================================
 template <class T>
 SYNKRO_INLINE PhysicsEnvironmentImpl<T>::PhysicsEnvironmentImpl( const lang::String& name ) :
+	_awakenActors( A(IDynamicActor*) ),
+	_putToSleepActors( A(IDynamicActor*) ),
 	_name( name )
 {
 }
@@ -37,4 +39,32 @@ template <class T>
 SYNKRO_INLINE lang::String PhysicsEnvironmentImpl<T>::GetName() const
 {
 	return _name;
+}
+
+template <class T>
+SYNKRO_INLINE UInt PhysicsEnvironmentImpl<T>::GetAwakenActorCount() const
+{
+	return _awakenActors.Size();
+}
+
+template <class T>
+SYNKRO_INLINE IDynamicActor* PhysicsEnvironmentImpl<T>::GetAwakenActor( UInt index ) const
+{
+	assert( index < _awakenActors.Size() );
+
+	return _awakenActors[index];
+}
+
+template <class T>
+SYNKRO_INLINE UInt PhysicsEnvironmentImpl<T>::GetPutToSleepActorCount() const
+{
+	return _putToSleepActors.Size();
+}
+
+template <class T>
+SYNKRO_INLINE IDynamicActor* PhysicsEnvironmentImpl<T>::GetPutToSleepActor( UInt index ) const
+{
+	assert( index < _putToSleepActors.Size() );
+
+	return _putToSleepActors[index];
 }

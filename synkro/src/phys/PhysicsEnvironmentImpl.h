@@ -17,6 +17,7 @@
 #include "config.h"
 #include <core/ObjectImpl.h>
 #include <math/Vector3.h>
+#include <lang/Vector.h>
 
 
 namespace synkro
@@ -41,8 +42,14 @@ public:
 	virtual void											SetGravity( const math::Vector3& gravity );
 	virtual void											GetGravity( math::Vector3& gravity ) const;
 	virtual lang::String									GetName() const;
+	virtual UInt											GetAwakenActorCount() const;
+	virtual IDynamicActor*									GetAwakenActor( UInt index ) const;
+	virtual UInt											GetPutToSleepActorCount() const;
+	virtual IDynamicActor*									GetPutToSleepActor( UInt index ) const;
 
 protected:
+	lang::Vector<IDynamicActor*>							_awakenActors;
+	lang::Vector<IDynamicActor*>							_putToSleepActors;
 	math::Vector3											_gravity;
 	lang::String											_name;
 };

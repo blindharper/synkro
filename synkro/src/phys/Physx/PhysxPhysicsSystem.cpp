@@ -40,10 +40,9 @@ namespace phys
 {
 
 
-PhysxPhysicsSystem::PhysxPhysicsSystem( Float speed, ILog* log ) :
+PhysxPhysicsSystem::PhysxPhysicsSystem( ILog* log ) :
 	_foundation( NULL ),
-	_physics( NULL ),
-	_speed( speed )
+	_physics( NULL )
 {
 	_foundation = PxCreateFoundation( PX_PHYSICS_VERSION, _allocator, _callback );
 	_physics = PxCreatePhysics( PX_PHYSICS_VERSION, *_foundation, PxTolerancesScale(), true );
@@ -62,7 +61,7 @@ Bool PhysxPhysicsSystem::Update( Double delta )
 
 IPhysicsEnvironment* PhysxPhysicsSystem::CreateEnvironment( const String& name )
 {
-	return new PhysxPhysicsEnvironment( _physics, name, _speed );
+	return new PhysxPhysicsEnvironment( _physics, name );
 }
 
 IPhysicsMaterial* PhysxPhysicsSystem::CreateMaterial( Float staticFriction, Float dynamicFriction, Float restitution )

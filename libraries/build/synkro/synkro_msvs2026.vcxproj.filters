@@ -1816,6 +1816,15 @@
     <Filter Include="core\Implementation\Configuration\Editor\Scene\Morphing">
       <UniqueIdentifier>{28875436-5526-44de-ad66-5cc555a480f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="phys\Interface\Environment">
+      <UniqueIdentifier>{ecd54f6c-0d81-4133-83d5-446c1edafdc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="phys\Implementation\Actor\Dynamic">
+      <UniqueIdentifier>{402b9d7e-b56f-46bd-96c7-7a09b6592d62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="phys\Implementation\Actor\Static">
+      <UniqueIdentifier>{b681885a-69ff-4406-a662-36a1651e2fb9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\lang\Encoding.h">
@@ -4066,9 +4075,6 @@
     <ClInclude Include="..\..\..\synkro\inc\input\MouseListener.h">
       <Filter>input\Interface\Mouse</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\synkro\inc\win\WindowListener.h">
-      <Filter>win\Interface</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\synkro\inc\ui\UiListener.h">
       <Filter>ui\Interface\Ui</Filter>
     </ClInclude>
@@ -5301,9 +5307,6 @@
     <ClInclude Include="..\..\..\synkro\src\phys\PhysicsSystemEx.h">
       <Filter>phys\Implementation\System</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsEnvironment.h">
-      <Filter>phys\Interface</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsMaterial.h">
       <Filter>phys\Interface</Filter>
     </ClInclude>
@@ -5346,12 +5349,6 @@
     <ClInclude Include="..\..\..\synkro\src\phys\Shape.h">
       <Filter>phys\Implementation\Shape</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\phys\StaticActor.h">
-      <Filter>phys\Implementation\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\phys\DynamicActor.h">
-      <Filter>phys\Implementation\Actor</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\synkro\inc\scene\ITriangleMeshSet.h">
       <Filter>scene\Interface\Node\Mesh\Triangle</Filter>
     </ClInclude>
@@ -5384,6 +5381,24 @@
     </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\MorphingConfigurationScene.h">
       <Filter>core\Implementation\Configuration\Editor\Scene\Morphing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\win\WindowListener.h">
+      <Filter>win\Interface\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsEnvironment.h">
+      <Filter>phys\Interface\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\IPhysicsEnvironmentEx.h">
+      <Filter>phys\Interface\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\phys\PhysicsListener.h">
+      <Filter>phys\Interface\Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\DynamicActor.h">
+      <Filter>phys\Implementation\Actor\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\StaticActor.h">
+      <Filter>phys\Implementation\Actor\Static</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -7861,12 +7876,6 @@
     <ClCompile Include="..\..\..\synkro\src\phys\Shape.cpp">
       <Filter>phys\Implementation\Shape</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\phys\StaticActor.cpp">
-      <Filter>phys\Implementation\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\phys\DynamicActor.cpp">
-      <Filter>phys\Implementation\Actor</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderQueue.cpp">
       <Filter>gfx\Implementation\RenderQueue\Point</Filter>
     </ClCompile>
@@ -7884,6 +7893,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\MorphingConfigurationScene.cpp">
       <Filter>core\Implementation\Configuration\Editor\Scene\Morphing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\DynamicActor.cpp">
+      <Filter>phys\Implementation\Actor\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\StaticActor.cpp">
+      <Filter>phys\Implementation\Actor\Static</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

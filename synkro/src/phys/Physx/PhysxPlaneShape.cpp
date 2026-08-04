@@ -35,7 +35,7 @@ namespace phys
 PhysxPlaneShape::PhysxPlaneShape( PxPhysics* physics, IPhysicsMaterial* material, const Vector3& normal, Float distance ) :
 	PhysxShapeImpl<IShape>( physics, PxPlaneGeometry(), material )
 {
-	PxTransform trans = PxTransformFromPlaneEquation( PxPlane(normal.x, normal.y, normal.z, distance) );
+	PxTransform trans = PxTransformFromPlaneEquation( PxPlane(normal.x, -normal.y, normal.z, distance) );
 	Physx::Convert( trans, _transform );
 }
 

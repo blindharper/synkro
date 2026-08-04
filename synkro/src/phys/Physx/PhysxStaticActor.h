@@ -48,6 +48,7 @@ public:
 	void													SetWorldTransform( const math::Matrix4x4& transform );
 	void													GetWorldTransform( math::Matrix4x4& transform ) const;
 	IShape*													GetShape() const;
+	IRigidBody*												AsBody() const;
 
 private:
 	physx::PxRigidStatic*									_actor;

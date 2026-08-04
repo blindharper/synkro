@@ -15,8 +15,11 @@
 
 
 #include "config.h"
+#include <lang/Map.h>
+#include <lang/Vector.h>
 #include <core/ObjectImpl.h>
-#include <phys/IPhysicsEnvironment.h>
+#include <phys/PhysicsListener.h>
+#include <phys/IPhysicsEnvironmentEx.h>
 
 
 namespace synkro
@@ -29,7 +32,7 @@ namespace phys
 
 // Wrapper physics environment.
 class PhysicsEnvironment :
-	public core::ObjectImpl<IPhysicsEnvironment>
+	public core::ObjectImpl<IPhysicsEnvironmentEx>
 {
 public:
 	// Constructor.
@@ -42,9 +45,23 @@ public:
 	void													SetGravity( const math::Vector3& gravity );
 	void													GetGravity( math::Vector3& gravity ) const;
 	lang::String											GetName() const;
+	UInt													GetAwakenActorCount() const;
+	IDynamicActor*											GetAwakenActor( UInt index ) const;
+	UInt													GetPutToSleepActorCount() const;
+	IDynamicActor*											GetPutToSleepActor( UInt index ) const;
+
+	// IPhysicsEnvironmentEx methods.
+	void													Listen( PhysicsListener* listener );
 
 private:
+	typedef lang::MapPair<UInt, IDynamicActor*>				ActorIdEntry;
+
+	lang::Vector<PhysicsListener*>							_listeners;
+	lang::Map<UInt, IDynamicActor*>							_actorIds;
 	P(IPhysicsEnvironment)									_environment;
+
+	void													FireAwakeEvents();
+	void													FireSleepEvents();
 };
 
 
