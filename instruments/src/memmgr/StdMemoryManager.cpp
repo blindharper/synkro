@@ -918,15 +918,16 @@ void StdMemoryManager::SaveReportRich( const char* filename, Bool leaksOnly )
 				}
 
 				// Print memory usage totals.
+				UInt bytesUsed = BytesUsed();
 				fprintf( file, "<tr><td>" );
 				fprintf( file, "Total" );
 				fprintf( file, "</td>" );
 
-				fprintf( file, "<td class='num'>" );
-				PrintInt3( file, BytesUsed() );
+				fprintf( file, (bytesUsed > 0) ? "<td class='num leak'>" : "<td class='num'>" );
+				PrintInt3( file, bytesUsed );
 				fprintf( file, "</td>" );
 
-				fprintf( file, "<td class='num'>" );
+				fprintf( file, (bytesUsed > 0) ? "<td class='num leak'>" : "<td class='num'>" );
 				PrintInt3( file, BlocksUsed() );
 				fprintf( file, "</td>" );
 
