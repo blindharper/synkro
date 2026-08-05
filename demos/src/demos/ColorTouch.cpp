@@ -96,11 +96,11 @@ public:
 
 	void InitUi() override
 	{
-		_switchNucleusColored = CreateSwitch( Point(_widgetLeft-10, 120), 160, L"Colorize nucleus", false );
-		_switchElectron1Colored = CreateSwitch( Point(_widgetLeft-10, 150), 160, L"Colorize electron #1", false );
-		_switchElectron2Colored = CreateSwitch( Point(_widgetLeft-10, 180), 160, L"Colorize electron #2", false );
-		_switchElectron3Colored = CreateSwitch( Point(_widgetLeft-10, 210), 160, L"Colorize electron #3", false );
-		_switchGrayscaleEbabled = CreateSwitch( Point(_widgetLeft-10, 240), 160, L"Enable grayscale", true );
+		_switchNucleusColored = CreateSwitch( Point(_widgetLeft-20, 120), 170, L"Colorize [n]ucleus", HotKey(Key::N, true), false );
+		_switchElectron1Colored = CreateSwitch( Point(_widgetLeft-20, 150), 170, L"Colorize electron #[1]", HotKey(Key::D1, true), false );
+		_switchElectron2Colored = CreateSwitch( Point(_widgetLeft-20, 180), 170, L"Colorize electron #[2]", HotKey(Key::D2, true), false );
+		_switchElectron3Colored = CreateSwitch( Point(_widgetLeft-20, 210), 170, L"Colorize electron #[3]", HotKey(Key::D3, true), false );
+		_switchGrayscaleEbabled = CreateSwitch( Point(_widgetLeft-20, 240), 170, L"Enable [g]rayscale", HotKey(Key::G, true), true );
 	}
 
 	// UiListener methods.

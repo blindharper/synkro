@@ -171,7 +171,7 @@ public:
 		_sliderContinuity = CreateSlider( none, Point(_widgetLeft, 270), 0, 2000, 1000 );
 		_labelBias = CreateLabel( Point(_widgetLeft, 290), L"Bias: 0.0" );
 		_sliderBias = CreateSlider( none, Point(_widgetLeft, 310), 0, 2000, 1000 );
-		_switchDebugHelpers = CreateSwitch( Point(_widgetLeft, 340), 150, L"Debug helpers", true );
+		_switchDebugHelpers = CreateSwitch( Point(_widgetLeft, 340), 150, L"Debug [h]elpers", HotKey(Key::H, true), true );
 	}
 
 	// UiListener methods.
@@ -263,8 +263,7 @@ public:
 	{
 		IOpaqueMaterial* material = _synkro->GetMaterialManager()->CreateOpaqueMaterial( LightingModel::Gouraud );
 		material->GetDiffuseMap()->SetImage( diffuse );
-		material->SetTilingHorizontal( 8 );
-		material->SetTilingVertical( 8 );
+		material->SetTiling( 8 );
 		material->SetSpecularPower( 10.0f );
 		return material;
 	}

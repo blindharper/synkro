@@ -48,6 +48,7 @@ public:
 	void													SetEmissiveColor( const img::Color& color );
 	void													SetSpecularColor( const img::Color& color );
 	void													SetSpecularPower( Float power );
+	void													SetTiling( UInt tiling );
 	void													SetTilingHorizontal( UInt tiling );
 	void													SetTilingVertical( UInt tiling );
 	ITransparentMaterial*									AsTransparent() const;

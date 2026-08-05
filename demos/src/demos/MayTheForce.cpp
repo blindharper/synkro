@@ -45,7 +45,7 @@ public:
 
 		// Create crate actors.
 		constexpr Float CRATE_SIDE = 40.0f;
-		_crate = CreateCrate( _materialCrate, CRATE_SIDE, 10.0f );
+		_crate = CreateCrate( _materialCrate, CRATE_SIDE, 15.0f );
 		_crate2 = CreateCrate( _materialCrate2, CRATE_SIDE, 10.0f );
 		_actor = _crate->GetActor()->AsRigid()->AsBody()->AsDynamic();
 		_actor2 = _crate2->GetActor()->AsRigid()->AsBody()->AsDynamic();
@@ -57,7 +57,7 @@ public:
 	void InitView() override
 	{
 		// Setup cameras and viewports.
-		_camera->SetPosition( Vector3(0.0f, 150.0f, -800.0f) );
+		_camera->SetPosition( Vector3(-60.0f, 150.0f, -800.0f) );
 		_camera->LookAt( Vector3(0.0f, 25.0f, 300.0f) );
 	}
 
@@ -142,8 +142,7 @@ public:
 		IOpaqueMaterial* material = _synkro->GetMaterialManager()->CreateOpaqueMaterial( LightingModel::Gouraud );
 		material->SetDiffuseColor( color );
 		material->GetDiffuseMap()->SetImage( diffuse );
-		material->SetTilingHorizontal( tiling );
-		material->SetTilingVertical( tiling );
+		material->SetTiling( tiling );
 		return material;
 	}
 

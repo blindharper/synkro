@@ -102,8 +102,6 @@ MorphingConfigurationScene::MorphingConfigurationScene( ISynkro* synkro ) :
 
 	IKeyframedFloatTrack* trackCylinder = ctrlMorph->CreateChannelWeightTrack( L"Cylinder" );
 	trackCylinder->SetKey( 0.0, 0.0 );
-	trackCylinder->SetKey( 2.0, 0.0 );
-	trackCylinder->SetKey( 4.0, 0.0 );
 	trackCylinder->SetKey( 6.0, 0.0 );
 	trackCylinder->SetKey( 8.0, 1.0 );
 	trackCylinder->SetKey( 10.0, 1.0 );

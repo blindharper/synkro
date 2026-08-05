@@ -140,6 +140,30 @@ void TransparentMaterial::SetSpecularPower( Float power )
 	UpdateVertexParameters();
 }
 
+void TransparentMaterial::SetTiling( UInt tiling )
+{
+	// Call base implementation.
+	SimpleMaterialImpl<ITransparentMaterial>::SetTiling( tiling );
+
+	Bool dirty = false;
+	if ( _paramTilingHorizontal != nullptr )
+	{
+		_fragmentParams->Set( _paramTilingHorizontal, CastFloat(_tilingHorizontal) );
+		dirty = true;
+	}
+
+	if ( _paramTilingVertical != nullptr )
+	{
+		_fragmentParams->Set( _paramTilingVertical, CastFloat(_tilingVertical) );
+		dirty = true;
+	}
+
+	if ( dirty )
+	{
+		UpdateVertexParameters();
+	}
+}
+
 void TransparentMaterial::SetTilingHorizontal( UInt tiling )
 {
 	// Call base implementation.

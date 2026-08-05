@@ -76,8 +76,7 @@ ProjectorsConfigurationScene::ProjectorsConfigurationScene( ISynkro* synkro ) :
 	_material->GetDiffuseMap()->SetImage( diffuse );
 	_material->SetAmbientColor( Color::DimGray );
 	_material->SetDiffuseColor( Color::White );
-	_material->SetTilingHorizontal( 8 );
-	_material->SetTilingVertical( 8 );
+	_material->SetTiling( 8 );
 
 	// Create geometry.
 	constexpr Float FLOOR_SIZE = 100.0f;

@@ -15,13 +15,6 @@
 #include "OpaqueMaterial.h"
 #include "TransparentMaterial.h"
 #include "MultiMaterial.h"
-#include <gfx/IGraphicsSystemEx.h>
-#include <gfx/IFrameRenderWindowEx.h>
-#include <gfx/IViewRenderWindowEx.h>
-#include <io/IStreamDirectory.h>
-#include <img/IImageManager.h>
-#include <mat/ISimpleMaterial.h>
-#include <mat/IMaterialMap.h>
 
 
 //------------------------------------------------------------------------------

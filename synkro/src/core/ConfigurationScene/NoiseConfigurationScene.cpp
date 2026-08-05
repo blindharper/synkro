@@ -118,8 +118,7 @@ IOpaqueMaterial* NoiseConfigurationScene::CreateMaterial( IImage* diffuse, const
 	material->SetDiffuseColor( color );
 	material->SetSpecularColor( Color::White );
 	material->SetSpecularPower( 10.0f );
-	material->SetTilingHorizontal( 8 );
-	material->SetTilingVertical( 8 );
+	material->SetTiling( 8 );
 
 	return material;
 }

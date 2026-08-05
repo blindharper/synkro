@@ -75,10 +75,17 @@ SYNKRO_INLINE void SimpleMaterialImpl<T>::SetSpecularPower( Float power )
 }
 
 template <class T>
+SYNKRO_INLINE void SimpleMaterialImpl<T>::SetTiling( UInt tiling )
+{
+	VerifyTiling( tiling );
+
+	_tilingHorizontal = _tilingVertical = tiling;
+}
+
+template <class T>
 SYNKRO_INLINE void SimpleMaterialImpl<T>::SetTilingHorizontal( UInt tiling )
 {
-	if ( tiling == 0 )
-		throw lang::BadArgumentException( L"Material map tiling should be greater than zero.", L"tiling", L"0" );
+	VerifyTiling( tiling );
 
 	_tilingHorizontal = tiling;
 }
@@ -86,8 +93,7 @@ SYNKRO_INLINE void SimpleMaterialImpl<T>::SetTilingHorizontal( UInt tiling )
 template <class T>
 SYNKRO_INLINE void SimpleMaterialImpl<T>::SetTilingVertical( UInt tiling )
 {
-	if ( tiling == 0 )
-		throw lang::BadArgumentException( L"Material map tiling should be greater than zero.", L"tiling", L"0" );
+	VerifyTiling( tiling );
 
 	_tilingVertical = tiling;
 }
@@ -156,4 +162,13 @@ template <class T>
 SYNKRO_INLINE ITransparentMaterial* SimpleMaterialImpl<T>::AsTransparent() const
 {
 	return nullptr;
+}
+
+template <class T>
+SYNKRO_INLINE void SimpleMaterialImpl<T>::VerifyTiling( UInt tiling )
+{
+	assert( tiling > 0 );
+
+	if ( tiling == 0 )
+		throw lang::BadArgumentException( L"Material map tiling should be greater than zero.", L"tiling", L"0" );
 }

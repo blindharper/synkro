@@ -75,7 +75,6 @@ private:
 	{
 		WIDTH = 30,
 		DEPTH = 30,
-		CAPACITY = WIDTH*DEPTH,
 	};
 
 	PtrTriangleMeshBatch									_tinyTemplate;

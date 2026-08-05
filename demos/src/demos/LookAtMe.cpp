@@ -52,8 +52,7 @@ public:
 		// Create sphere.
 		constexpr Float SPHERE_RADIUS = 5.0f;
 		PtrOpaqueMaterial sphereMat = CreateTexturedMaterial( imageCheckers );
-		sphereMat->SetTilingHorizontal( 8 );
-		sphereMat->SetTilingVertical( 8 );
+		sphereMat->SetTiling( 8 );
 		sphereMat->SetAmbientColor( Color::OrangeAerospace );
 		sphereMat->SetDiffuseColor( Color::OrangeAerospace );
 		sphereMat->SetSpecularColor( Color::White );
@@ -117,11 +116,11 @@ public:
 
 	void InitUi() override
 	{
-		_switchCameraLookAt = CreateSwitch( Point(_widgetLeft-10, 120), 150, L"Camera constraint", true );
-		_switchHeadLookAt = CreateSwitch( Point(_widgetLeft-10, 150), 150, L"Head constraint", true );
-		_switchProjectorLookAt = CreateSwitch( Point(_widgetLeft-10, 180), 160, L"Projector constraint", true );
-		_switchProjectorBlinking = CreateSwitch( Point(_widgetLeft-10, 210), 150, L"Projector blinking", false );
-		_switchDebugHelpers = CreateSwitch( Point(_widgetLeft-10, 240), 150, L"Debug helpers", true );
+		_switchCameraLookAt = CreateSwitch( Point(_widgetLeft-20, 120), 170, L"[C]amera constraint", HotKey(Key::C, true), true );
+		_switchHeadLookAt = CreateSwitch( Point(_widgetLeft-20, 150), 170, L"[H]ead constraint", HotKey(Key::H, true), true );
+		_switchProjectorLookAt = CreateSwitch( Point(_widgetLeft-20, 180), 170, L"[P]rojector constraint", HotKey(Key::P, true), true );
+		_switchProjectorBlinking = CreateSwitch( Point(_widgetLeft-20, 210), 170, L"Projector [b]linking", HotKey(Key::B, true), false );
+		_switchDebugHelpers = CreateSwitch( Point(_widgetLeft-20, 240), 170, L"Debu[g] helpers", HotKey(Key::G, true), true );
 	}
 
 	// SynkroListener methods.
