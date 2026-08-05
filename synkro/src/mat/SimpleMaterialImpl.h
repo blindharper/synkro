@@ -48,6 +48,7 @@ public:
 	virtual void											SetEmissiveColor( const img::Color& color );
 	virtual void											SetSpecularColor( const img::Color& color );
 	virtual void											SetSpecularPower( Float power );
+	virtual void											SetTiling( UInt tiling );
 	virtual void											SetTilingHorizontal( UInt tiling );
 	virtual void											SetTilingVertical( UInt tiling );
 	virtual LightingModel									GetLightingModel() const;
@@ -77,6 +78,8 @@ protected:
 	gfx::ProgramParam*										_paramTilingHorizontal;
 	gfx::ProgramParam*										_paramTilingVertical;
 	P(IMaterialMap)											_diffuseMap;
+
+	void													VerifyTiling( UInt tiling );
 };
 
 

@@ -72,6 +72,12 @@ public:
 	virtual void											SetSpecularPower( Float power ) = 0;
 
 	/**
+	 * Sets both horizontal and vertical map tiling.
+	 * @param tiling Tiling value.
+	 */
+	virtual void											SetTiling( UInt tiling ) = 0;
+
+	/**
 	 * Sets horizontal map tiling.
 	 * @param tiling Horizontal tiling.
 	 */

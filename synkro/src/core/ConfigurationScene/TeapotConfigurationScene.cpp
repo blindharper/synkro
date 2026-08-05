@@ -17,14 +17,9 @@
 #include <lang/Random.h>
 #include <core/IResource.h>
 #include <core/ResourceReader.h>
-#include <gfx/IGraphicsSystemEx.h>
-#include <gfx/IViewRenderWindowEx.h>
-#include <img/IImageManager.h>
-#include <img/IImage.h>
 #include <io/IStreamDirectory.h>
 #include <io/IStream.h>
 #include <mat/MaterialManager.h>
-#include <mat/IMaterialMap.h>
 #include <mat/ISimpleMaterialAnimationController.h>
 #include <scene/SceneManager.h>
 #include <scene/INodeAnimationController.h>
@@ -110,8 +105,7 @@ IOpaqueMaterial* TeapotConfigurationScene::CreateMaterial( const Color& color )
 	material->SetDiffuseColor( color );
 	material->SetSpecularColor( Color::White );
 	material->SetSpecularPower( 10.0f );
-	material->SetTilingHorizontal( 8 );
-	material->SetTilingVertical( 8 );
+	material->SetTiling( 8 );
 	material->SetWireframe( true );
 	material->SetTwoSided( true );
 

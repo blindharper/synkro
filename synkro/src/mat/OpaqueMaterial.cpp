@@ -61,8 +61,7 @@ OpaqueMaterial::OpaqueMaterial( IContext* context, const LightingModel& model ) 
 	SetEmissiveColor( Color::Black );
 	SetSpecularColor( Color::White );
 	SetSpecularPower( 1.0f );
-	SetTilingHorizontal( 1 );
-	SetTilingVertical( 1 );
+	SetTiling( 1 );
 }
 
 OpaqueMaterial::OpaqueMaterial( const OpaqueMaterial& other ) :
@@ -132,6 +131,30 @@ void OpaqueMaterial::SetSpecularPower( Float power )
 	SimpleMaterialImpl<IOpaqueMaterial>::SetSpecularPower( power );
 
 	UpdateVertexParameters();
+}
+
+void OpaqueMaterial::SetTiling( UInt tiling )
+{
+	// Call base implementation.
+	SimpleMaterialImpl<IOpaqueMaterial>::SetTiling( tiling );
+
+	Bool dirty = false;
+	if ( _paramTilingHorizontal != nullptr )
+	{
+		_fragmentParams->Set( _paramTilingHorizontal, CastFloat(_tilingHorizontal) );
+		dirty = true;
+	}
+
+	if ( _paramTilingVertical != nullptr )
+	{
+		_fragmentParams->Set( _paramTilingVertical, CastFloat(_tilingVertical) );
+		dirty = true;
+	}
+
+	if ( dirty )
+	{
+		UpdateVertexParameters();
+	}
 }
 
 void OpaqueMaterial::SetTilingHorizontal( UInt tiling )

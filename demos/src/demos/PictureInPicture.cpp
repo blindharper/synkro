@@ -11,6 +11,13 @@ public:
 	{
 	}
 
+	void Configure( IConfiguration* config ) override
+	{
+		_config->Set( Param::UiColorTextNormal, Color::Red );
+		_config->Set( Param::UiColorTextActive, Color::Pink );
+		_config->Set( Param::UiColorTextHovered, Color::Orange );
+	}
+
 	Bool IsLit() const override
 	{
 		return true;
@@ -175,8 +182,7 @@ public:
 	{
 		IOpaqueMaterial* material = _synkro->GetMaterialManager()->CreateOpaqueMaterial( LightingModel::Gouraud );
 		material->GetDiffuseMap()->SetImage( diffuse );
-		material->SetTilingHorizontal( 8 );
-		material->SetTilingVertical( 8 );
+		material->SetTiling( 8 );
 		material->SetSpecularPower( 10.0f );
 		return material;
 	}

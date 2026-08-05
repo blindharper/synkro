@@ -508,13 +508,6 @@ void Demo::ConfigureInternal()
 	_config->Set( Param::GraphicsProgramCache, String(L"../../programs") );
 	_config->Set( Param::GraphicsSampleCount, CastUInt(8) );
 	_config->Set( Param::GraphicsVsync, true );
-	_config->Set( Param::UiEnable, true );
-	_config->Set( Param::UiFontSize, CastUInt(8) );
-	_config->Set( Param::UiThemeName, ThemeName::Flat );
-	_config->Set( Param::UiColorWidgetNormal, Color::RoyalBlue );
-	_config->Set( Param::UiColorTextNormal, Color::White );
-	_config->Set( Param::UiColorTextActive, Color::Cyan );
-	_config->Set( Param::UiColorTextHovered, Color::Yellow );
 	_config->Set( Param::InputEnable, true );
 	_config->Set( Param::InputSystem, InputSystem::DirectInput8 );
 	_config->Set( Param::LogFileName, String(L"_DemoLog.html") );
@@ -523,6 +516,13 @@ void Demo::ConfigureInternal()
 	_config->Set( Param::LogLevel, LogLevel::Extensive );
 	_config->Set( Param::LogMode, LogMode::All );
 	_config->Set( Param::StreamPath, String(L"../../media") );
+	_config->Set( Param::UiEnable, true );
+	_config->Set( Param::UiFontSize, CastUInt(8) );
+	_config->Set( Param::UiThemeName, ThemeName::Flat );
+	_config->Set( Param::UiColorWidgetNormal, Color::RoyalBlue );
+	_config->Set( Param::UiColorTextNormal, Color::White );
+	_config->Set( Param::UiColorTextActive, Color::Cyan );
+	_config->Set( Param::UiColorTextHovered, Color::Yellow );
 }
 
 void Demo::InitViewInternal()
@@ -566,14 +566,15 @@ void Demo::InitUiInternal()
 
 void Demo::InitInputInternal()
 {
-	_synkro->GetInputSystem()->CreateKeyboard( 0 );
-	_synkro->GetInputSystem()->GetKeyboard( 0 )->ListenKeyDown( this, Key::Escape, true );
-	_synkro->GetInputSystem()->GetKeyboard( 0 )->ListenKeyUp( this, Key::F8 );
-	_synkro->GetInputSystem()->CreateMouse( 0 );
-	PtrMouseEx mouse = _synkro->GetInputSystem()->GetMouse( 0 );
-	_synkro->GetInputSystem()->CreateArcball( mouse, _synkro->GetWindowSystem()->GetFrameWindow() );
-	_synkro->GetInputSystem()->GetArcball()->ListenOrientation( this );
-	_synkro->GetInputSystem()->GetArcball()->ListenZoom( this );
+	IInputSystemEx* inputSystem = _synkro->GetInputSystem();
+	inputSystem->CreateKeyboard( 0 );
+	inputSystem->GetKeyboard( 0 )->ListenKeyDown( this, Key::Escape, true );
+	inputSystem->GetKeyboard( 0 )->ListenKeyUp( this, Key::F8 );
+	inputSystem->CreateMouse( 0 );
+	PtrMouseEx mouse = inputSystem->GetMouse( 0 );
+	inputSystem->CreateArcball( mouse, _synkro->GetWindowSystem()->GetFrameWindow() );
+	inputSystem->GetArcball()->ListenOrientation( this );
+	inputSystem->GetArcball()->ListenZoom( this );
 	InitInput();
 }
 

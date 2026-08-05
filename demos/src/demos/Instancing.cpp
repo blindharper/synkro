@@ -51,7 +51,7 @@ public:
 
 		_btnRotationMode = CreateButton( Point(_widgetLeft, 150), L"Rotate instances" );
 		_btnColorize = CreateButton( Point(_widgetLeft, 180), L"Gradient color" );
-		_switchTexture = CreateSwitch( ID_SWITCH_TEXTURE, Point(_widgetLeft, 210), 150, L"Show texture", true );
+		_switchTexture = CreateSwitch( ID_SWITCH_TEXTURE, Point(_widgetLeft, 210), 150, L"Show [t]exture", HotKey(Key::T, true), true );
 		CreateOption( ID_OPTION_ARRAY, Point(_widgetLeft, 240), L"Array", (Pointer)_camera.AsPtr(), true );
 		CreateOption( ID_OPTION_INSTANCING, Point(_widgetLeft, 270), L"Instancing", (Pointer)_camera2.AsPtr(), false );
 	}

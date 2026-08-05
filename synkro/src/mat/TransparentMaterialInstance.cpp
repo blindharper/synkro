@@ -83,6 +83,11 @@ void TransparentMaterialInstance::SetSpecularPower( Float power )
 	_material->SetSpecularPower( power );
 }
 
+void TransparentMaterialInstance::SetTiling( UInt tiling )
+{
+	_material->SetTiling( tiling );
+}
+
 void TransparentMaterialInstance::SetTilingHorizontal( UInt tiling )
 {
 	_material->SetTilingHorizontal( tiling );

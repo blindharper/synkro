@@ -27,9 +27,12 @@ public:
 		_trackYaw = _ctrlAirplane->CreateOrientationYawTrack();
 		_trackPitch = _ctrlAirplane->CreateOrientationPitchTrack();
 		_trackRoll = _ctrlAirplane->CreateOrientationRollTrack();
+		_animationsAngles = _ctrlAirplane->GetAnimations();
 
-		_ctrlAirplaneSmooth = _airplane->CreateAnimationController( nullptr, nullptr );
-		_trackOrientation = _ctrlAirplaneSmooth->CreateOrientationTrack();
+		_animationsSmooth = _synkro->GetAnimationSystem()->CreateAnimationSet( L"Smooth" );
+		_animationsSmooth->CreateAnimation( L"Smooth" );
+		_ctrlAirplane->SetAnimations( _animationsSmooth );
+		_trackOrientation = _ctrlAirplane->CreateOrientationTrack();
 	}
 
 	void InitView() override
@@ -73,9 +76,10 @@ public:
 		if ( Demo::OnUiClick(sender) )
 			return true;
 
+		constexpr Double LENGTH = 1.0;
 		if ( sender == _btnReset )
 		{
-			constexpr Double LENGTH = 1.0;
+			_ctrlAirplane->SetAnimations( _animationsAngles );
 
 			_trackYaw->SetKey( 0.0, _airplane->GetOrientationYaw() );
 			_trackYaw->SetKey( LENGTH, 0.0f, Interpolation::Ease );
@@ -93,14 +97,16 @@ public:
 		}
 		else if ( sender == _btnResetSmooth )
 		{
+			_ctrlAirplane->SetAnimations( _animationsSmooth );
+
 			Quaternion orientation;
 			_airplane->GetOrientation( orientation );
 
 			_trackOrientation->SetKey( 0.0, orientation );
-			_trackOrientation->SetKey( 1.0, Quaternion::Identity, Interpolation::Ease );
+			_trackOrientation->SetKey( LENGTH, Quaternion::Identity, Interpolation::Ease );
 
-			_ctrlAirplaneSmooth->Reset();
-			_ctrlAirplaneSmooth->Start( true );
+			_ctrlAirplane->Reset();
+			_ctrlAirplane->Start( true );
 
 			return true;
 		}
@@ -138,10 +144,13 @@ public:
 private:
 	PtrTriangleMesh											_airplane;
 	PtrNodeAnimationController								_ctrlAirplane;
+
+	PtrAnimationSet											_animationsAngles;
 	PtrKeyframedFloatTrack									_trackYaw;
 	PtrKeyframedFloatTrack									_trackPitch;
 	PtrKeyframedFloatTrack									_trackRoll;
-	PtrNodeAnimationController								_ctrlAirplaneSmooth;
+
+	PtrAnimationSet											_animationsSmooth;
 	PtrKeyframedQuaternionTrack								_trackOrientation;
 
 	PtrLabel												_labelYaw;
