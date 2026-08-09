@@ -66,6 +66,7 @@ void AlSoundEmitter::Process( Bool start, Bool loop )
 {
 	if ( start )
 	{
+		Al::Sourcei( _emitter, AL_LOOPING, AL_TRUE );
 		Al::SourcePlay( _emitter );
 	}
 	else

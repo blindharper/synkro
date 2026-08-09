@@ -42,8 +42,8 @@ public:
 
 	void Run()
 	{
-		TestSound2D();
-		//TestSound3D();
+		//TestSound2D();
+		TestSound3D();
 		//TestMusic();
 	}
 
