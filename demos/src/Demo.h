@@ -131,15 +131,16 @@ protected:
 	virtual Bool											OnWindowClosing( Pointer handle );
 
 	// Demo methods.
-	ITriangleMesh*											CreateTorus( INode* parent, IVisualMaterial* material, Float radiusMinor, Float radiusMajor, UInt ringCount, UInt sideCount, const Matrix4x4& transform, const Vector3& position );
-	ITriangleMesh*											CreateCone( INode* parent, IVisualMaterial* material, Float radius, Float height, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position );
-	ITriangleMesh*											CreateCylinder( INode* parent, IVisualMaterial* material, Float radius, Float height, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position );
-	ITriangleMesh*											CreateEllipsoid( INode* parent, IVisualMaterial* material, Float radiusX, Float radiusY, Float radiusZ, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position );
-	ITriangleMesh*											CreateSphere( INode* parent, IVisualMaterial* material, Float radius, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position );
-	ITriangleMesh*											CreatePyramid( INode* parent, IVisualMaterial* material, Float width, Float depth, Float height, const Matrix4x4& transform, const Vector3& position );
-	ITriangleMesh*											CreateBox( INode* parent, IVisualMaterial* material, Float width, Float height, Float depth, const Matrix4x4& transform, const Vector3& position );
-	ITriangleMesh*											CreateCube( INode* parent, IVisualMaterial* material, Float side, const Matrix4x4& transform, const Vector3& position );
-	ITriangleMesh*											CreatePlane( INode* parent, IVisualMaterial* material, Float width, Float depth, UInt segmentCount, const Matrix4x4& transform, const Vector3& position );
+	ITriangleMesh*											CreateTorus( INode* parent, IVisualMaterial* material, Float radiusMinor, Float radiusMajor, UInt ringCount, UInt sideCount, const Matrix4x4& transform, const Vector3& position, const String& name = String::Empty );
+	ITriangleMesh*											CreateCapsule( INode* parent, IVisualMaterial* material, Float radius, Float height, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position, const String& name = String::Empty );
+	ITriangleMesh*											CreateCone( INode* parent, IVisualMaterial* material, Float radius, Float height, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position, const String& name = String::Empty );
+	ITriangleMesh*											CreateCylinder( INode* parent, IVisualMaterial* material, Float radius, Float height, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position, const String& name = String::Empty );
+	ITriangleMesh*											CreateEllipsoid( INode* parent, IVisualMaterial* material, Float radiusX, Float radiusY, Float radiusZ, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position, const String& name = String::Empty );
+	ITriangleMesh*											CreateSphere( INode* parent, IVisualMaterial* material, Float radius, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position, const String& name = String::Empty );
+	ITriangleMesh*											CreatePyramid( INode* parent, IVisualMaterial* material, Float width, Float depth, Float height, const Matrix4x4& transform, const Vector3& position, const String& name = String::Empty );
+	ITriangleMesh*											CreateBox( INode* parent, IVisualMaterial* material, Float width, Float height, Float depth, const Matrix4x4& transform, const Vector3& position, const String& name = String::Empty );
+	ITriangleMesh*											CreateCube( INode* parent, IVisualMaterial* material, Float side, const Matrix4x4& transform, const Vector3& position, const String& name = String::Empty );
+	ITriangleMesh*											CreatePlane( INode* parent, IVisualMaterial* material, Float width, Float depth, UInt segmentCount, const Matrix4x4& transform, const Vector3& position, const String& name = String::Empty );
 	IAngle*													CreateAngle( UInt id, const Point& location, const Color& color );
 	IAngle*													CreateAngle( UInt id, const Point& location );
 	IButton*												CreateButton( UInt id, const Point& location, const String& text, const Anchor& anchor, const HotKey& hotkey, const Color& color );

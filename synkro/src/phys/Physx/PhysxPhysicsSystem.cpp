@@ -14,6 +14,7 @@
 #include "PhysxPhysicsSystem.h"
 #include "PhysxPhysicsMaterial.h"
 #include "PhysxBoxShape.h"
+#include "PhysxCapsuleShape.h"
 #include "PhysxPlaneShape.h"
 #include "PhysxPhysicsEnvironment.h"
 
@@ -77,6 +78,11 @@ IShape* PhysxPhysicsSystem::CreatePlaneShape( IPhysicsMaterial* material, const 
 IShape* PhysxPhysicsSystem::CreateBoxShape( IPhysicsMaterial* material, Float width, Float depth, Float height )
 {
 	return new PhysxBoxShape( _physics, material, width, depth, height );
+}
+
+IShape* PhysxPhysicsSystem::CreateCapsuleShape( IPhysicsMaterial* material, Float radius, Float height )
+{
+	return new PhysxCapsuleShape( _physics, material, radius, height );
 }
 
 

@@ -84,6 +84,11 @@ IShape* PhysicsSystemEx::CreateBoxShape( IPhysicsMaterial* material, Float width
 	return new Shape( _physicsSystem->CreateBoxShape(((PhysicsMaterial*)material)->_material, width, depth, height) );
 }
 
+IShape* PhysicsSystemEx::CreateCapsuleShape( IPhysicsMaterial* material, Float radius, Float height )
+{
+	return new Shape( _physicsSystem->CreateCapsuleShape(((PhysicsMaterial*)material)->_material, radius, height) );
+}
+
 void PhysicsSystemEx::Initialize( IPhysicsSystemFactory* factory )
 {
 	if ( factory != _factory )

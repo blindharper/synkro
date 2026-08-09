@@ -257,70 +257,75 @@ Bool Demo::OnWindowClosing( Pointer handle )
 	return (_poolCreditsCtrl == nullptr) || (_poolCreditsCtrl->GetState() == ControllerState::Inactive);
 }
 
-ITriangleMesh* Demo::CreateTorus( INode* parent, IVisualMaterial* material, Float radiusMinor, Float radiusMajor, UInt ringCount, UInt sideCount, const Matrix4x4& transform, const Vector3& position )
+ITriangleMesh* Demo::CreateTorus( INode* parent, IVisualMaterial* material, Float radiusMinor, Float radiusMajor, UInt ringCount, UInt sideCount, const Matrix4x4& transform, const Vector3& position, const String& name )
 {
-	ITriangleMesh* torus = _scene->CreateTriangleMesh( parent, String::Empty, material, nullptr );
+	ITriangleMesh* torus = _scene->CreateTriangleMesh( parent, name, material, nullptr );
 	_synkro->GetSceneManager()->BuildMesh( torus, MeshBuilder::Torus, Vector4(radiusMinor, radiusMajor, 0.0f, 0.0f), Size(ringCount, sideCount), transform );
 	torus->SetPosition( position );
 	return torus;
 }
 
-ITriangleMesh* Demo::CreateCone( INode* parent, IVisualMaterial* material, Float radius, Float height, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position )
+ITriangleMesh* Demo::CreateCapsule( INode* parent, IVisualMaterial* material, Float radius, Float height, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position, const String& name )
 {
-	ITriangleMesh* cone = _scene->CreateTriangleMesh( parent, String::Empty, material, nullptr );
+	ITriangleMesh* capsule = _scene->CreateTriangleMesh( parent, name, material, nullptr );
+	_synkro->GetSceneManager()->BuildMesh( capsule, MeshBuilder::Capsule, Vector4(radius, height, 0.0f, 0.0f), Size(stackCount, sliceCount), transform );
+	capsule->SetPosition( position );
+	return capsule;
+}
+
+ITriangleMesh* Demo::CreateCone( INode* parent, IVisualMaterial* material, Float radius, Float height, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position, const String& name )
+{
+	ITriangleMesh* cone = _scene->CreateTriangleMesh( parent, name, material, nullptr );
 	_synkro->GetSceneManager()->BuildMesh( cone, MeshBuilder::Cone, Vector4(radius, height, 0.0f, 0.0f), Size(stackCount, sliceCount), transform );
 	cone->SetPosition( position );
 	return cone;
 }
 
-ITriangleMesh* Demo::CreateCylinder( INode* parent, IVisualMaterial* material, Float radius, Float height, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position )
+ITriangleMesh* Demo::CreateCylinder( INode* parent, IVisualMaterial* material, Float radius, Float height, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position, const String& name )
 {
-	ITriangleMesh* cylinder = _scene->CreateTriangleMesh( parent, String::Empty, material, nullptr );
+	ITriangleMesh* cylinder = _scene->CreateTriangleMesh( parent, name, material, nullptr );
 	_synkro->GetSceneManager()->BuildMesh( cylinder, MeshBuilder::Cylinder, Vector4(radius, height, 0.0f, 0.0f), Size(stackCount, sliceCount), transform );
 	cylinder->SetPosition( position );
 	return cylinder;
 }
 
-ITriangleMesh* Demo::CreateEllipsoid( INode* parent, IVisualMaterial* material, Float radiusX, Float radiusY, Float radiusZ, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position )
+ITriangleMesh* Demo::CreateEllipsoid( INode* parent, IVisualMaterial* material, Float radiusX, Float radiusY, Float radiusZ, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position, const String& name )
 {
-	ITriangleMesh* ellipsoid = _scene->CreateTriangleMesh( parent, String::Empty, material, nullptr );
+	ITriangleMesh* ellipsoid = _scene->CreateTriangleMesh( parent, name, material, nullptr );
 	_synkro->GetSceneManager()->BuildMesh( ellipsoid, MeshBuilder::Ellipsoid, Vector4(radiusX, radiusY, radiusZ, 0.0f), Size(stackCount, sliceCount), transform );
 	ellipsoid->SetPosition( position );
 	return ellipsoid;
 }
 
-ITriangleMesh* Demo::CreateSphere( INode* parent, IVisualMaterial* material, Float radius, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position )
+ITriangleMesh* Demo::CreateSphere( INode* parent, IVisualMaterial* material, Float radius, UInt stackCount, UInt sliceCount, const Matrix4x4& transform, const Vector3& position, const String& name )
 {
-	return CreateEllipsoid( parent, material, radius, radius, radius, stackCount, sliceCount, transform, position );
+	return CreateEllipsoid( parent, material, radius, radius, radius, stackCount, sliceCount, transform, position, name );
 }
 
-ITriangleMesh* Demo::CreatePyramid( INode* parent, IVisualMaterial* material, Float width, Float depth, Float height, const Matrix4x4& transform, const Vector3& position )
+ITriangleMesh* Demo::CreatePyramid( INode* parent, IVisualMaterial* material, Float width, Float depth, Float height, const Matrix4x4& transform, const Vector3& position, const String& name )
 {
-	ITriangleMesh* pyramid = _scene->CreateTriangleMesh( parent, String::Empty, material, nullptr );
+	ITriangleMesh* pyramid = _scene->CreateTriangleMesh( parent, name, material, nullptr );
 	_synkro->GetSceneManager()->BuildMesh( pyramid, MeshBuilder::Pyramid, Vector4(width, depth, height, 0.0f), Size(), transform );
 	pyramid->SetPosition( position );
 	return pyramid;
 }
 
-ITriangleMesh* Demo::CreateBox( INode* parent, IVisualMaterial* material, Float width, Float height, Float depth, const Matrix4x4& transform, const Vector3& position )
+ITriangleMesh* Demo::CreateBox( INode* parent, IVisualMaterial* material, Float width, Float height, Float depth, const Matrix4x4& transform, const Vector3& position, const String& name )
 {
-	ITriangleMesh* box = _scene->CreateTriangleMesh( parent, String::Empty, material, nullptr );
+	ITriangleMesh* box = _scene->CreateTriangleMesh( parent, name, material, nullptr );
 	_synkro->GetSceneManager()->BuildMesh( box, MeshBuilder::Box, Vector4(width, height, depth, 0.0f), Size(), transform );
 	box->SetPosition( position );
 	return box;
 }
 
-ITriangleMesh* Demo::CreateCube( INode* parent, IVisualMaterial* material, Float side, const Matrix4x4& transform, const Vector3& position )
+ITriangleMesh* Demo::CreateCube( INode* parent, IVisualMaterial* material, Float side, const Matrix4x4& transform, const Vector3& position, const String& name )
 {
-	ITriangleMesh* cube = _scene->CreateTriangleMesh( parent, String::Empty, material, nullptr );
-	_synkro->GetSceneManager()->BuildMesh( cube, MeshBuilder::Box, Vector4(side, side, side, 0.0f), Size(), transform );
-	cube->SetPosition( position );
-	return cube;
+	return CreateBox( parent, material, side, side, side, transform, position, name );
 }
 
-ITriangleMesh* Demo::CreatePlane( INode* parent, IVisualMaterial* material, Float width, Float depth, UInt segmentCount, const Matrix4x4& transform, const Vector3& position )
+ITriangleMesh* Demo::CreatePlane( INode* parent, IVisualMaterial* material, Float width, Float depth, UInt segmentCount, const Matrix4x4& transform, const Vector3& position, const String& name )
 {
-	ITriangleMesh* plane = _scene->CreateTriangleMesh( parent, String::Empty, material, nullptr );
+	ITriangleMesh* plane = _scene->CreateTriangleMesh( parent, name, material, nullptr );
 	_synkro->GetSceneManager()->BuildMesh( plane, MeshBuilder::Plane, Vector4(width, depth, 0.0f, 0.0f), Size(segmentCount, 0), transform );
 	plane->SetPosition( position );
 	return plane;

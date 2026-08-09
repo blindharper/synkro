@@ -137,7 +137,7 @@ void EllipsoidMeshBuilder::Build( ITriangleMesh* mesh, const Vector4& param1, co
 	const UInt stackCount = param2.Width;
 	const UInt sliceCount = param2.Height;
 
-	// Create/resize mesh.
+	// Create mesh.
 	const UInt vertexCount = (stackCount+1)*(sliceCount+1);
 	const UInt indexCount = 6*stackCount*sliceCount;
 	ITriangleSet* ellipsoid = mesh->CreateTriangleList( String::Format(L"Ellipsoid {0}", mesh->GetSubsetCount()), vertexCount, indexCount, false, transform );
