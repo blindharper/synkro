@@ -436,6 +436,8 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleSet.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\BoxMeshBuilder.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\BoxMeshBuilderFactory.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\CapsuleMeshBuilder.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\CapsuleMeshBuilderFactory.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\ConeMeshBuilder.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\ConeMeshBuilderFactory.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\CylinderMeshBuilder.h" />
@@ -464,6 +466,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshWriterImpl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshBuilder\CapsuleMeshBuilder.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjMeshCodec.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\MsZipStream.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshBinaryReader.cpp" />

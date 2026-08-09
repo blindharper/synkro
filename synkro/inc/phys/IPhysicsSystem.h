@@ -69,6 +69,15 @@ public:
 	 * @return Created shape.
 	 */
 	virtual IShape*											CreateBoxShape( IPhysicsMaterial* material, Float width, Float depth, Float height ) = 0;
+
+	/**
+	 * Creates capsule shape.
+	 * @param material Shape's material.
+	 * @param radius Capsule radius.
+	 * @param height Capsule height.
+	 * @return Created shape.
+	 */
+	virtual IShape*											CreateCapsuleShape( IPhysicsMaterial* material, Float radius, Float height ) = 0;
 };
 
 

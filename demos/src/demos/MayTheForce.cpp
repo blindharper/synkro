@@ -28,6 +28,7 @@ public:
 		PtrImage imageCrate = GetImage( L"crate.bmp" );
 		_materialCrate = CreateTexturedMaterial( imageCrate, Color::Lime, 1 );
 		_materialCrate2 = CreateTexturedMaterial( imageCrate, Color::Orange, 1 );
+		_materialCapsule = CreateTexturedMaterial( imageCheckers, Color::Yellow, 4 );
 
 		IPhysicsSystemEx* physicsSystem = _synkro->GetPhysicsSystem();
 		_physicsMaterial = physicsSystem->CreateMaterial( 0.5f, 0.5f, 0.6f );
@@ -45,10 +46,12 @@ public:
 
 		// Create crate actors.
 		constexpr Float CRATE_SIDE = 40.0f;
-		_crate = CreateCrate( _materialCrate, CRATE_SIDE, 15.0f );
-		_crate2 = CreateCrate( _materialCrate2, CRATE_SIDE, 10.0f );
+		_crate = CreateCrateActor( _materialCrate, CRATE_SIDE, 15.0f );
+		_crate2 = CreateCrateActor( _materialCrate2, CRATE_SIDE, 10.0f );
+		_capsule = CreateCapsuleActor( _materialCapsule, 10.0f, 30.0f, 10.0f );
 		_actor = _crate->GetActor()->AsRigid()->AsBody()->AsDynamic();
 		_actor2 = _crate2->GetActor()->AsRigid()->AsBody()->AsDynamic();
+		_actor3 = _capsule->GetActor()->AsRigid()->AsBody()->AsDynamic();
 
 		// Set initial conditions.
 		RunSimulation();
@@ -94,6 +97,10 @@ public:
 		{
 			_materialCrate2->SetDiffuseColor( Color::Orange );
 		}
+		else if ( actor == _actor3 )
+		{
+			_materialCapsule->SetDiffuseColor( Color::Yellow );
+		}
 
 		++_activeActorCount;
 	}
@@ -107,6 +114,10 @@ public:
 		else if ( actor == _actor2 )
 		{
 			_materialCrate2->SetDiffuseColor( Color::DimGray );
+		}
+		else if ( actor == _actor3 )
+		{
+			_materialCapsule->SetDiffuseColor( Color::DimGray );
 		}
 
 		if ( --_activeActorCount == 0 )
@@ -125,9 +136,13 @@ public:
 		transform.SetTranslation( Vector3(30.0f, 160.0f, 10.0f) );
 		_actor2->SetWorldTransform( transform );
 		_actor2->SetLinearVelocity( Vector3(-35.0f, 15.0f, 0.0f) );
+
+		transform.SetTranslation( Vector3(30.0f, 100.0f, 60.0f) );
+		_actor3->SetWorldTransform( transform );
+		_actor3->SetLinearVelocity( Vector3(-35.0f, 15.0f, 0.0f) );
 	}
 
-	ITriangleMesh* CreateCrate( IVisualMaterial* material, Float size, Float density )
+	ITriangleMesh* CreateCrateActor( IVisualMaterial* material, Float size, Float density )
 	{
 		Matrix4x4 transform;
 		ITriangleMesh* crate = CreateCube( nullptr, material, size, Matrix4x4::Identity, Vector3::Origin );
@@ -135,6 +150,16 @@ public:
 		IDynamicActor* actor = _scene->GetPhysicsEnvironment()->CreateDynamicActor( transform, shape, density );
 		crate->SetActor( actor );
 		return crate;
+	}
+
+	ITriangleMesh* CreateCapsuleActor( IVisualMaterial* material, Float radius, Float height, Float density )
+	{
+		Matrix4x4 transform;
+		ITriangleMesh* capsule = CreateCapsule( nullptr, material, radius, height, 40, 40, Matrix4x4::Identity, Vector3::Origin );
+		IShape* shape = _synkro->GetPhysicsSystem()->CreateCapsuleShape( _physicsMaterial, radius, height );
+		IDynamicActor* actor = _scene->GetPhysicsEnvironment()->CreateDynamicActor( transform, shape, density );
+		capsule->SetActor( actor );
+		return capsule;
 	}
 
 	IOpaqueMaterial* CreateTexturedMaterial( IImage* diffuse, const Color& color, UInt tiling )
@@ -151,6 +176,7 @@ private:
 	PtrOpaqueMaterial										_materialFloor;
 	PtrOpaqueMaterial										_materialCrate;
 	PtrOpaqueMaterial										_materialCrate2;
+	PtrOpaqueMaterial										_materialCapsule;
 
 	PtrTriangleMesh											_floor;
 	PtrStaticActor											_actorFloor;
@@ -159,6 +185,9 @@ private:
 	PtrDynamicActor											_actor;
 	PtrTriangleMesh											_crate2;
 	PtrDynamicActor											_actor2;
+
+	PtrTriangleMesh											_capsule;
+	PtrDynamicActor											_actor3;
 
 	PtrButton												_btnReplay;
 	UInt													_activeActorCount;

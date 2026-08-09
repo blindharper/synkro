@@ -26,6 +26,9 @@
     <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxPlaneShape.cpp">
       <Filter>PhysicsSystem\PhysX\Shape\Plane</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxCapsuleShape.cpp">
+      <Filter>PhysicsSystem\PhysX\Shape\Capsule</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\synkro.phys.physx\factories.inl" />
@@ -60,6 +63,9 @@
     </Filter>
     <Filter Include="PhysicsSystem\PhysX\Shape\Plane">
       <UniqueIdentifier>{b026cc61-1f68-4ce2-8b69-a3493280dde0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsSystem\PhysX\Shape\Capsule">
+      <UniqueIdentifier>{768ebdf8-9dff-4403-bd4b-c4529bb4c45b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxPlaneShape.h">
       <Filter>PhysicsSystem\PhysX\Shape\Plane</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxCapsuleShape.h">
+      <Filter>PhysicsSystem\PhysX\Shape\Capsule</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

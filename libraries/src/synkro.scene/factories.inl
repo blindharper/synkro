@@ -3,6 +3,7 @@ using namespace synkro::scene;
 #include <scene/Default/DefaultSceneFactory.h>
 
 #include <scene/MeshBuilder/BoxMeshBuilderFactory.h>
+#include <scene/MeshBuilder/CapsuleMeshBuilderFactory.h>
 #include <scene/MeshBuilder/ConeMeshBuilderFactory.h>
 #include <scene/MeshBuilder/CylinderMeshBuilderFactory.h>
 #include <scene/MeshBuilder/EllipsoidMeshBuilderFactory.h>
@@ -16,6 +17,7 @@ using namespace synkro::scene;
 static DefaultSceneFactory			_factDefaultSceneFactory;
 
 static BoxMeshBuilderFactory		_factBoxMeshBuilder;
+static CapsuleMeshBuilderFactory	_factCapsuleMeshBuilder;
 static ConeMeshBuilderFactory		_factConeMeshBuilder;
 static CylinderMeshBuilderFactory	_factCylinderMeshBuilder;
 static EllipsoidMeshBuilderFactory	_factEllipsoidMeshBuilder;
@@ -37,6 +39,7 @@ static synkro::core::IFactory* _factories[] =
 	// Mesh builders.
 	//--------------------------------------------------------------------------
 	&_factBoxMeshBuilder,
+	&_factCapsuleMeshBuilder,
 	&_factConeMeshBuilder,
 	&_factCylinderMeshBuilder,
 	&_factEllipsoidMeshBuilder,

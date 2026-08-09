@@ -64,6 +64,9 @@
     <Filter Include="MeshCodec\X\MsZip">
       <UniqueIdentifier>{1ce29fa7-aed7-4b29-a4f5-2d57dc69a2ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MeshBuilder\Capsule">
+      <UniqueIdentifier>{30c6dabc-57f1-4b88-a270-c4a204d4867d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\BoxMeshBuilder.h">
@@ -168,6 +171,12 @@
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjMeshCodecFactory.h">
       <Filter>MeshCodec\Obj</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\CapsuleMeshBuilder.h">
+      <Filter>MeshBuilder\Capsule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\CapsuleMeshBuilderFactory.h">
+      <Filter>MeshBuilder\Capsule</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\synkro.scene\synkro.scene.cpp" />
@@ -230,6 +239,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjMeshCodec.cpp">
       <Filter>MeshCodec\Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshBuilder\CapsuleMeshBuilder.cpp">
+      <Filter>MeshBuilder\Capsule</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

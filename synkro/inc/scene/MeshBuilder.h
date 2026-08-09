@@ -46,6 +46,18 @@ SYNKRO_ENUM_BEGIN( MeshBuilder )
 	SYNKRO_ENUM_CONST( MeshBuilder, Box )
 
 	/**
+	 * Capsule mesh.
+	 *
+	 * Parameters:
+	 * param1.x: radius.
+	 * param1.y: height.
+	 *
+	 * param2.Width: stackCount.
+	 * param2.Height: sliceCount.
+	 */
+	SYNKRO_ENUM_CONST( MeshBuilder, Capsule )
+
+	/**
 	 * Cone mesh.
 	 *
 	 * Parameters:

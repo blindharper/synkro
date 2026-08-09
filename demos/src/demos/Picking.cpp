@@ -32,10 +32,10 @@ public:
 		_material4 = CreateMaterial( diffuseMap, Color::BritishRacingGreen );
 
 		// Create meshes.
-		_mesh = CreateEllipsoid( nullptr, _material, 40.0f, 20.0f, 30.0f, 40, 40, Matrix4x4::Identity, Vector3(-80.0f, 0.0f, 0.0f) );
-		_mesh2 = CreateCylinder( nullptr, _material2, 10.0f, 30.0f, 40, 40, Matrix4x4::Identity, Vector3(0.0f, 30.0f, 0.0f) );
-		_mesh3 = CreatePyramid( nullptr, _material3, 10.0f, 30.0f, 15.0f, Matrix4x4::Identity, Vector3(50.0f, -70.0f, 0.0f) );
-		_mesh4 = CreateTorus( nullptr, _material4, 10.0f, 30.0f, 30, 30, Matrix4x4::Identity, Vector3(60.0f, -10.0f, 0.0f) );
+		_mesh = CreateEllipsoid( nullptr, _material, 40.0f, 20.0f, 30.0f, 40, 40, Matrix4x4::Identity, Vector3(-80.0f, 0.0f, 0.0f), L"Ellipsoid" );
+		_mesh2 = CreateCapsule( nullptr, _material2, 10.0f, 30.0f, 40, 40, Matrix4x4::Identity, Vector3(0.0f, 30.0f, 0.0f), L"Capsule" );
+		_mesh3 = CreatePyramid( nullptr, _material3, 10.0f, 30.0f, 15.0f, Matrix4x4::Identity, Vector3(50.0f, -70.0f, 0.0f), L"Pyramid" );
+		_mesh4 = CreateTorus( nullptr, _material4, 10.0f, 30.0f, 30, 30, Matrix4x4::Identity, Vector3(60.0f, -10.0f, 0.0f), L"Torus" );
 
 		// Setup animations.
 		PtrNodeAnimationController ctrlMesh = _mesh->CreateAnimationController( nullptr, nullptr );
@@ -105,7 +105,7 @@ public:
 			_pickedMesh = viewport->PickMesh( loc, &distance );
 			if ( _pickedMesh != nullptr )
 			{	
-				viewport->SetLabelText( String::Format(L"{0}. X: {1} Y: {2}. Distance: {3,0.000}", _pickedMesh->GetName(), loc.X, loc.Y, distance) );
+				viewport->SetLabelText( String::Format(L"{0} picked. X: {1} Y: {2}. Distance: {3,0.000}", _pickedMesh->GetName(), loc.X, loc.Y, distance) );
 				_pickedMesh->GetMaterial()->AsSimple()->SetEmissiveColor( Color::DimGray );
 				_synkro->SetTimeScale( 2.0, 1.0 );
 			}			

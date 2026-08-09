@@ -400,6 +400,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
   <ItemGroup>
     <ClCompile Include="..\..\..\synkro\src\phys\Physx\Physx.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxBoxShape.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxCapsuleShape.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxDynamicActor.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxPhysicsEnvironment.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxPhysicsMaterial.cpp" />
@@ -423,6 +424,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxBaseMaterial.h" />
     <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxBaseShape.h" />
     <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxBoxShape.h" />
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxCapsuleShape.h" />
     <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxDynamicActor.h" />
     <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxPhysicsEnvironment.h" />
     <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxPhysicsMaterial.h" />

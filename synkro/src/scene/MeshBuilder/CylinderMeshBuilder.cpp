@@ -55,7 +55,7 @@ void CylinderMeshBuilder::Build( IPointMesh* mesh, const Vector4& param1, const 
 	const UInt vertexCount = (stackCount+1)*(sliceCount+1);
 	IPointSet* cylinder = mesh->CreatePointList( String::Format(L"Cylinder {0}", mesh->GetSubsetCount()), vertexCount, 1.0f, ColorMode::Monochrome, transform );
 
-	// Set positions, texture coordinates and indices.
+	// Set positions.
 	const Float dtheta = Math::TwoPi/CastFloat(sliceCount);
 	const Float dy = height/CastFloat(stackCount);
 	const Float y = -0.5f*height;

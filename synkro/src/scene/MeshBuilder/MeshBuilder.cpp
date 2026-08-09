@@ -25,12 +25,13 @@ namespace scene
 
 SYNKRO_DEFINE_CONST( MeshBuilder, Custom,		0 )
 SYNKRO_DEFINE_CONST( MeshBuilder, Box,			1 )
-SYNKRO_DEFINE_CONST( MeshBuilder, Cone,			2 )
-SYNKRO_DEFINE_CONST( MeshBuilder, Cylinder,		3 )
-SYNKRO_DEFINE_CONST( MeshBuilder, Ellipsoid,	4 )
-SYNKRO_DEFINE_CONST( MeshBuilder, Plane,		5 )
-SYNKRO_DEFINE_CONST( MeshBuilder, Pyramid,		6 )
-SYNKRO_DEFINE_CONST( MeshBuilder, Torus,		7 )
+SYNKRO_DEFINE_CONST( MeshBuilder, Capsule,		2 )
+SYNKRO_DEFINE_CONST( MeshBuilder, Cone,			3 )
+SYNKRO_DEFINE_CONST( MeshBuilder, Cylinder,		4 )
+SYNKRO_DEFINE_CONST( MeshBuilder, Ellipsoid,	5 )
+SYNKRO_DEFINE_CONST( MeshBuilder, Plane,		6 )
+SYNKRO_DEFINE_CONST( MeshBuilder, Pyramid,		7 )
+SYNKRO_DEFINE_CONST( MeshBuilder, Torus,		8 )
 
 
 struct TypeDesc
@@ -43,6 +44,7 @@ static TypeDesc _desc[] =
 {
 	{ MeshBuilder::Custom,		L"Custom" },
 	{ MeshBuilder::Box,			L"Box" },
+	{ MeshBuilder::Capsule,		L"Capsule" },
 	{ MeshBuilder::Cone,		L"Cone" },
 	{ MeshBuilder::Cylinder,	L"Cylinder" },
 	{ MeshBuilder::Ellipsoid,	L"Ellipsoid" },
