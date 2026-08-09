@@ -107,6 +107,7 @@ void AlSoundBuffer::Process( Bool start, Bool loop )
 {
 	if ( start )
 	{
+		Al::Sourcei( _buffer, AL_LOOPING, loop ? AL_TRUE : AL_FALSE );
 		Al::SourcePlay( _buffer );
 	}
 	else
