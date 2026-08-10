@@ -94,6 +94,10 @@ SYNKRO_INLINE UiEvent Option::OnMouseLeave()
 
 SYNKRO_INLINE UiEvent Option::OnMouseUp()
 {
+	// Prevent repetitive "ValueChanged" event generation.
+	if ( _option->IsSelected() )
+		return UI_EVENT_NONE;
+
 	Select( true );
 	return UI_EVENT_VALUE_CHANGED;
 }
