@@ -70,9 +70,9 @@ UiEvent Angle::OnKeyDown( Double deltaTime, const Key& key, Bool alt, Bool shift
 	{
 		case KEY_HOME:
 		case KEY_NUMPAD7:
-			if ( _angle->GetValue() != 0.0f )
+			if ( GetValue() != 0.0f )
 			{
-				_angle->SetValue( 0.0f );
+				SetValue( 0.0f );
 				return UI_EVENT_VALUE_CHANGED;
 			}
 			return UI_EVENT_NONE;
@@ -160,7 +160,7 @@ Bool Angle::LocationToValue( const Point& location )
 		else if ( a >= 360.0f )
 			a -= 360.0f;
 	}
-	_angle->SetValue( a );
+	SetValue( a );
 	return true;
 }
 
@@ -168,15 +168,18 @@ void Angle::AdjustValue( Float delta )
 {
 	const Float oldValue = _angle->GetValue();
 	Float newValue = oldValue + delta;
-	if ( newValue < 0.0f )
+	if ( _angle->GetMaxValue() == 360.0f )
 	{
-		newValue += 360.0f;
+		if ( newValue < 0.0f )
+		{
+			newValue += 360.0f;
+		}
+		else if ( newValue >= 360.0f )
+		{
+			newValue -= 360.0f;
+		}
 	}
-	else if ( newValue >= 360.0f )
-	{
-		newValue -= 360.0f;
-	}
-	_angle->SetValue( newValue );
+	SetValue( newValue );
 }
 
 

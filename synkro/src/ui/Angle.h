@@ -48,7 +48,9 @@ public:
 
 	// IAngle methods.
 	void													Highlight( Bool highlight );
+	void													SetMaxValue( Float maxValue );
 	void													SetValue( Float value );
+	Float													GetMaxValue() const;
 	Float													GetValue() const;
 
 	// BaseWidget methods.

@@ -10,10 +10,20 @@
 //
 // Purpose: Default angle widget implementation.
 //==============================================================================
+SYNKRO_INLINE void DefaultAngle::SetMaxValue( Float maxValue )
+{
+	_maxValue = maxValue;
+}
+
 SYNKRO_INLINE void DefaultAngle::SetValue( Float value )
 {
 	_value = value;
 	UpdateThumb();
+}
+
+SYNKRO_INLINE Float DefaultAngle::GetMaxValue() const
+{
+	return _maxValue;
 }
 
 SYNKRO_INLINE Float DefaultAngle::GetValue() const
