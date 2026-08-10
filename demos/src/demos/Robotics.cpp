@@ -84,13 +84,10 @@ public:
 
 	void InitUi() override
 	{
-		_labelJoint1 = CreateLabel( Point(_widgetLeft, 120), L"Joint #1 rotation: 0" );
-		_sliderJoint1 = CreateSlider( none, Point(_widgetLeft, 140), 0, 3600, 0, Color::DarkRed );
-
-		_labelJoint2 = CreateLabel( Point(_widgetLeft, 160), L"Joint #2 rotation: 0" );
-		_sliderJoint2 = CreateSlider( none, Point(_widgetLeft, 180), 0, 900, 0, Color::DarkGreen );
-
-		_btnHold = CreateButton( Point(_widgetLeft, 210), L"Hold" );
+		_angleJoint1 = CreateAngle( none, Point(_widgetLeft, 100), Color::DarkRed );
+		_angleJoint2 = CreateAngle( none, Point(_widgetLeft+80, 100), Color::DarkGreen );
+		_angleJoint2->SetMaxValue( 90.0f );
+		_btnHold = CreateButton( Point(_widgetLeft, 210), L"[H]old", Anchor::TopRight, HotKey(Key::H, true) );
 	}
 
 	// UiListener methods.
@@ -124,16 +121,14 @@ public:
 		if ( Demo::OnUiValueChanged(sender) )
 			return true;
 
-		if ( sender == _sliderJoint1 )
+		if ( sender == _angleJoint1 )
 		{
-			const Float angle = SliderPositionToLabel( _sliderJoint1, _labelJoint1, L"Joint #1 rotation: " );
-			_joint1->SetOrientationYaw( angle );
+			_joint1->SetOrientationYaw( Math::ToRadians(_angleJoint1->GetValue()) );
 			return true;
 		}
-		else if ( sender == _sliderJoint2 )
+		else if ( sender == _angleJoint2 )
 		{
-			const Float angle = SliderPositionToLabel( _sliderJoint2, _labelJoint2, L"Joint #2 rotation: " );
-			_joint2->SetOrientationPitch( angle );
+			_joint2->SetOrientationPitch( Math::ToRadians(_angleJoint2->GetValue()) );
 			return true;
 		}
 
@@ -148,12 +143,6 @@ public:
 		material->SetAmbientColor( color );
 		material->SetDiffuseColor( color );
 		return material;
-	}
-
-	Float SliderPositionToLabel( ISlider* slider, ILabel* label, const Char* prefix )
-	{
-		label->SetText( String::Format(L"{0}{1}", prefix, CastUInt(slider->GetPosition()*0.1f)) );
-		return Math::ToRadians( CastFloat(slider->GetPosition())*0.1f );
 	}
 
 private:
@@ -178,11 +167,8 @@ private:
 	PtrTriangleMesh											_crate;
 	PtrParentConstraint										_crateParent;
 
-	PtrLabel												_labelJoint1;
-	PtrSlider												_sliderJoint1;
-
-	PtrLabel												_labelJoint2;
-	PtrSlider												_sliderJoint2;
+	PtrAngle												_angleJoint1;
+	PtrAngle												_angleJoint2;
 
 	PtrButton												_btnHold;
 	Bool													_hold;

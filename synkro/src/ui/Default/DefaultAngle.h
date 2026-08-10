@@ -45,7 +45,9 @@ public:
 
 	// IAngle methods.
 	void													Highlight( Bool highlight );
+	void													SetMaxValue( Float maxValue );
 	void													SetValue( Float value );
+	Float													GetMaxValue() const;
 	Float													GetValue() const;
 
 	// BaseThemeWidget methods.
@@ -54,6 +56,7 @@ public:
 
 private:
 	Float													_value;
+	Float													_maxValue;
 	lang::Rect												_rectCircle;
 	lang::Rect												_rectThumb;
 

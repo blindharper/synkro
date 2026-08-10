@@ -41,9 +41,33 @@ SYNKRO_INLINE void Angle::Highlight( Bool highlight )
 	_angle->Highlight( highlight );
 }
 
+SYNKRO_INLINE void Angle::SetMaxValue( Float maxValue )
+{
+	assert( maxValue > 0.0f );
+
+	if ( maxValue <= 0.0f )
+		throw lang::BadArgumentException( L"Maximum angle value cannot be less than zero.", L"maxValue" );
+
+	_angle->SetMaxValue( maxValue );
+	AdjustValue( 0.0f );
+}
+
 SYNKRO_INLINE void Angle::SetValue( Float value )
 {
-	_angle->SetValue( Clamp(value, 0.0f, 360.0f) );
+	if ( value < 0.0f )
+	{
+		value = 0.0f;
+	}
+	else if ( value > _angle->GetMaxValue() )
+	{
+		value = _angle->GetMaxValue();
+	}
+	_angle->SetValue( value );
+}
+
+SYNKRO_INLINE Float Angle::GetMaxValue() const
+{
+	return _angle->GetMaxValue();
 }
 
 SYNKRO_INLINE Float Angle::GetValue() const

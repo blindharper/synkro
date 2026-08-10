@@ -40,10 +40,21 @@ public:
 	virtual void											Highlight( Bool highlight ) = 0;
 
 	/**
+	 * Sets maximum angle value. Valid range is (0.0, 360.0]. Default is 360.0.
+	 * @param maxValue The maximum allowed angle value.
+	 */
+	virtual void											SetMaxValue( Float maxValue ) = 0;
+
+	/**
 	 * Sets angle value. Valid range is [0.0, 360.0].
 	 * @param value New angle value.
 	 */
 	virtual void											SetValue( Float value ) = 0;
+
+	/**
+	 * Retrieves maximum angle value.
+	 */
+	virtual Float											GetMaxValue() const = 0;
 
 	/**
 	 * Retrieves angle value.
