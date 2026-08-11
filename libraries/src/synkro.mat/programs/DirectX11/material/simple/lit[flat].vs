@@ -22,6 +22,7 @@ struct Geometry
 	float4 pos	: SV_POSITION;		// Transformed position
 	float4 diffuse	: COLOR0;		// Diffuse color
 	float4 specular	: COLOR1;		// Specular color
+	float dist	: DISTANCE;		// Distance to camera
 };
 
 //------------------------------------------------------------------------------
@@ -53,6 +54,7 @@ Geometry main( Vertex vertex )
 	float4 worldPos = localPos;
 	float4 cameraPos = mul( worldPos, sp_view );
 	geometry.pos = mul( localPos, sp_worldViewProj );
+	geometry.dist = cameraPos.z;
 
 	// Calculate lighting.
 	Material mat = { sp_diffuse, sp_ambient, sp_specular, sp_emissive, sp_power };

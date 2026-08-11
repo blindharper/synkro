@@ -17,16 +17,14 @@ public:
 
 	void InitScene() override
 	{
-		// Create material.
-		_material = _synkro->GetMaterialManager()->CreateOpaqueMaterial( LightingModel::Gouraud );
-		_material->SetDiffuseColor( Color::Red );
-		_material->SetSpecularColor( Color::White );
-		_material->SetSpecularPower( 50 );
+		// Create materials.
+		_material = CreateMaterial( LightingModel::Flat, Color::Red, Color::White, 50 );
+		_material2 = CreateMaterial( LightingModel::Gouraud, Color::Red, Color::White, 50 );
 
 		// Create ball and torus.
 		constexpr Float BALL_RADIUS = 20.0f; constexpr Float TORUS_RADIUS = 7.0f;
 		_ball = CreateSphere( nullptr, _material, BALL_RADIUS, 40, 40, Matrix4x4::Identity, Vector3(-25.0f, 0.0f, 0.0f) );
-		_torus = CreateTorus( nullptr, _material, TORUS_RADIUS, 2.0f*TORUS_RADIUS, 40, 40, Matrix4x4::Identity.RotateX(Math::HalfPi), Vector3(20.0f, 0.0f, 0.0f) );
+		_torus = CreateTorus( nullptr, _material2, TORUS_RADIUS, 2.0f*TORUS_RADIUS, 40, 40, Matrix4x4::Identity.RotateX(Math::HalfPi), Vector3(20.0f, 0.0f, 0.0f) );
 
 		// Create light source.
 		_light = _scene->CreateDirectLight( nullptr, L"Light" );
@@ -157,10 +155,22 @@ public:
 			{
 				switch ( _listColor->GetSelectedItem() )
 				{
-					case 0: _material->SetAmbientColor( color ); break;
-					case 1: _material->SetDiffuseColor( color ); break;
-					case 2: _material->SetSpecularColor( color ); break;
-					case 3: _material->SetEmissiveColor( color ); break;
+					case 0:
+						_material->SetAmbientColor( color ); 
+						_material2->SetAmbientColor( color ); 
+						break;
+					case 1:
+						_material->SetDiffuseColor( color );
+						_material2->SetDiffuseColor( color );
+						break;
+					case 2: 
+						_material->SetSpecularColor( color );
+						_material2->SetSpecularColor( color );
+						break;
+					case 3:
+						_material->SetEmissiveColor( color );
+						_material2->SetEmissiveColor( color );
+						break;
 				}
 			}
 			else if ( _listMode->GetSelectedItem() == 1 )
@@ -183,7 +193,9 @@ public:
 		}
 		else if ( sender == _sliderSpecularPower )
 		{
-			_material->SetSpecularPower( CastFloat(_sliderSpecularPower->GetPosition()) );
+			Float power = CastFloat(_sliderSpecularPower->GetPosition());
+			_material->SetSpecularPower( power );
+			_material2->SetSpecularPower( power );
 			_labelSpecularPower->SetText( String::Format(L"Specular power: {0}", CastUInt(_material->GetSpecularPower())) );
 			return true;
 		}
@@ -201,6 +213,16 @@ public:
 		}
 
 		return false;
+	}
+
+	IOpaqueMaterial* CreateMaterial( const LightingModel& model, const img::Color& diffuseColor, const img::Color& specularColor, Float specularPower )
+	{
+		IOpaqueMaterial* material = _synkro->GetMaterialManager()->CreateOpaqueMaterial( model );
+		material->SetDiffuseColor( diffuseColor );
+		material->SetAmbientColor( diffuseColor );
+		material->SetSpecularColor( specularColor );
+		material->SetSpecularPower( specularPower );
+		return material;
 	}
 
 	void GetColor( Color& color )
@@ -248,6 +270,7 @@ private:
 
 	PtrDirectLight											_light;
 	PtrOpaqueMaterial										_material;
+	PtrOpaqueMaterial										_material2;
 	PtrTriangleMesh											_ball;
 	PtrTriangleMesh											_torus;
 
