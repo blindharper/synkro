@@ -154,10 +154,10 @@ Bool UiReader::GetBool( const String& name ) const
 	return !value.IsNull() && value.EqualsTo(L"true", true);
 }
 
-UInt UiReader::GetUInt( const String& name ) const
+UInt UiReader::GetUInt( const String& name, UInt defaultValue ) const
 {
 	String value = _rd.GetAttributeValue( name );
-	return value.IsInteger() ? CastUInt(value.ToInteger()) : 0;
+	return value.IsInteger() ? CastUInt(value.ToInteger()) : defaultValue;
 }
 
 Anchor UiReader::GetAnchor() const

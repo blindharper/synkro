@@ -36,7 +36,7 @@ class DefaultAngle :
 {
 public:
 	// Constructor.
-	DefaultAngle( BaseUi* ui, IFrame* parent, const lang::Point& location, const lang::Size& size, const img::Color& color );
+	DefaultAngle( BaseUi* ui, IFrame* parent, const lang::Point& location, const lang::Size& size, Float maxValue, const img::Color& color );
 
 	// IWidget methods.
 	void													Activate( Bool activate );

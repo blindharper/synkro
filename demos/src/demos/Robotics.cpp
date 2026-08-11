@@ -85,8 +85,7 @@ public:
 	void InitUi() override
 	{
 		_angleJoint1 = CreateAngle( none, Point(_widgetLeft, 100), Color::DarkRed );
-		_angleJoint2 = CreateAngle( none, Point(_widgetLeft+80, 100), Color::DarkGreen );
-		_angleJoint2->SetMaxValue( 90.0f );
+		_angleJoint2 = CreateAngle( none, Point(_widgetLeft+80, 100), 90.0f, Color::DarkGreen );
 		_btnHold = CreateButton( Point(_widgetLeft, 210), L"[H]old", Anchor::TopRight, HotKey(Key::H, true) );
 	}
 

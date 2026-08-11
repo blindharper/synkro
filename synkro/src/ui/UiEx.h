@@ -63,7 +63,7 @@ public:
 	// IUi methods.
 	IFrame*													CreateFrame( IFrame* parent, UInt id, const lang::Point& location, const lang::Size& size, Bool showBorder );
 	IAccordion*												CreateAccordion( IFrame* parent, UInt id, const lang::Point& location, const lang::Size& size );
-	IAngle*													CreateAngle( IFrame* parent, UInt id, const lang::Point& location, const img::Color& color );
+	IAngle*													CreateAngle( IFrame* parent, UInt id, const lang::Point& location, Float maxValue, const img::Color& color );
 	IButton*												CreateButton( IFrame* parent, UInt id, const lang::Point& location, const lang::Size& size, const lang::String& text, const img::Color& color );
 	IDropList*												CreateDropList( IFrame* parent, UInt id, const lang::Point& location, const lang::Size& size, UInt capacity );
 	IEdit*													CreateEdit( IFrame* parent, UInt id, const lang::Point& location, const lang::Size& size, const lang::String& text, const EditStyle& style );
