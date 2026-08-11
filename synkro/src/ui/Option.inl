@@ -74,6 +74,10 @@ SYNKRO_INLINE UiEvent Option::OnKeyUp( const input::Key& key, Bool alt, Bool shi
 {
 	if ( key == input::Key::Space )
 	{
+		// Prevent repetitive "ValueChanged" event generation.
+		if ( _option->IsSelected() )
+			return UI_EVENT_NONE;
+
 		Select( true );
 		return UI_EVENT_VALUE_CHANGED;
 	}
