@@ -331,11 +331,16 @@ ITriangleMesh* Demo::CreatePlane( INode* parent, IVisualMaterial* material, Floa
 	return plane;
 }
 
-IAngle* Demo::CreateAngle( UInt id, const Point& location, const Color& color )
+IAngle* Demo::CreateAngle( UInt id, const Point& location, Float maxValue, const Color& color )
 {
-	IAngle* angle = _synkro->GetUi()->CreateAngle( nullptr, id, location, color );
+	IAngle* angle = _synkro->GetUi()->CreateAngle( nullptr, id, location, maxValue, color );
 	angle->SetAnchor( Anchor::TopRight );
 	return angle;
+}
+
+IAngle* Demo::CreateAngle( UInt id, const Point& location, const Color& color )
+{
+	return CreateAngle( id, location, 360.0f, color );
 }
 
 IAngle* Demo::CreateAngle( UInt id, const Point& location )

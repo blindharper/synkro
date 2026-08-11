@@ -141,6 +141,7 @@ protected:
 	ITriangleMesh*											CreateBox( INode* parent, IVisualMaterial* material, Float width, Float height, Float depth, const Matrix4x4& transform, const Vector3& position, const String& name = String::Empty );
 	ITriangleMesh*											CreateCube( INode* parent, IVisualMaterial* material, Float side, const Matrix4x4& transform, const Vector3& position, const String& name = String::Empty );
 	ITriangleMesh*											CreatePlane( INode* parent, IVisualMaterial* material, Float width, Float depth, UInt segmentCount, const Matrix4x4& transform, const Vector3& position, const String& name = String::Empty );
+	IAngle*													CreateAngle( UInt id, const Point& location, Float maxValue, const Color& color );
 	IAngle*													CreateAngle( UInt id, const Point& location, const Color& color );
 	IAngle*													CreateAngle( UInt id, const Point& location );
 	IButton*												CreateButton( UInt id, const Point& location, const String& text, const Anchor& anchor, const HotKey& hotkey, const Color& color );

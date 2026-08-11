@@ -65,10 +65,11 @@ public:
 	 * @param parent Parent widget.
 	 * @param id Widget identifier.
 	 * @param location Widget location.
+	 * @param maxValue The minimum allowed angle value. Valid range is (0.0-360.0].
 	 * @param color Custom widget color. Set to Transparent to use theme color.
 	 * @return Created angle picker widget.
 	 */
-	virtual IAngle*											CreateAngle( IFrame* parent, UInt id, const lang::Point& location, const img::Color& color ) = 0;
+	virtual IAngle*											CreateAngle( IFrame* parent, UInt id, const lang::Point& location, Float maxValue, const img::Color& color ) = 0;
 
 	/**
 	 * Creates push button widget.

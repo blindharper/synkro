@@ -34,11 +34,11 @@ namespace ui
 {
 
 
-DefaultAngle::DefaultAngle( BaseUi* ui, IFrame* parent, const Point& location, const Size& size, const Color& color ) :
+DefaultAngle::DefaultAngle( BaseUi* ui, IFrame* parent, const Point& location, const Size& size, Float maxValue, const Color& color ) :
 	WidgetImpl<IAngle>( ui, parent, location, size ),
 	BaseThemeWidgetImpl<BaseThemeWidget>( color ),
 	_value( 0.0f ),
-	_maxValue( 360.0f )
+	_maxValue( maxValue )
 {
 	// Create circle.
 	_object = _ui->CreateObject( PrimitiveType::TriangleStrip, IndexType::None, 4, 0, _zOrder );

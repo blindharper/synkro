@@ -136,10 +136,15 @@ IAccordion* UiEx::CreateAccordion( IFrame* parent, UInt id, const Point& locatio
 	return new Accordion( this, id, frameParent, _ui->CreateAccordion(frameParent->GetInnerFrame(), none, location, size) );
 }
 
-IAngle* UiEx::CreateAngle( IFrame* parent, UInt id, const Point& location, const Color& color )
+IAngle* UiEx::CreateAngle( IFrame* parent, UInt id, const Point& location, Float maxValue, const Color& color )
 {
+	assert( maxValue <= 360.0f );
+
+	if ( maxValue > 360.0f )
+		throw BadArgumentException( L"Maximum value cannot be greater than 360.0", L"maxValue" );
+
 	Frame* frameParent = GetParentFrame( parent );
-	return new Angle( this, id, frameParent, _ui->CreateAngle(frameParent->GetInnerFrame(), none, location, color) );
+	return new Angle( this, id, frameParent, _ui->CreateAngle(frameParent->GetInnerFrame(), none, location, maxValue, color) );
 }
 
 IButton* UiEx::CreateButton( IFrame* parent, UInt id, const Point& location, const Size& size, const String& text, const Color& color )
@@ -912,7 +917,7 @@ void UiEx::CreateWidget( IFrame* parent, UiReader& rd )
 
 	switch ( type )
 	{
-		case WIDGET_ANGLE:		widget = CreateAngle( parent, id, location, color ); break;
+		case WIDGET_ANGLE:		widget = CreateAngle( parent, id, location, CastFloat(rd.GetUInt(L"max", 360)), color ); break;
 		case WIDGET_BUTTON:		widget = CreateButton( parent, id, location, size, text, color ); break;
 		case WIDGET_DROPLIST:	widget = CreateDropList( parent, id, location, size, rd.GetUInt(L"capacity") ); break;
 		case WIDGET_EDIT:		widget = CreateEdit( parent, id, location, size, text, rd.GetEditStyle() ); break;

@@ -74,7 +74,7 @@ public:
 	Pointer													GetData() const;
 	lang::String											GetString( const lang::String& name ) const;
 	Bool													GetBool( const lang::String& name ) const;
-	UInt													GetUInt( const lang::String& name ) const;
+	UInt													GetUInt( const lang::String& name, UInt defaultValue = 0 ) const;
 	Anchor													GetAnchor() const;
 	HotKey													GetHotKey() const;
 	EditStyle												GetEditStyle() const;

@@ -88,11 +88,11 @@ IAccordion* DefaultUi::CreateAccordion( IFrame* parent, UInt id, const Point& lo
 	return new DefaultAccordion( this, parent, location, size );
 }
 
-IAngle* DefaultUi::CreateAngle( IFrame* parent, UInt id, const Point& location, const Color& color )
+IAngle* DefaultUi::CreateAngle( IFrame* parent, UInt id, const Point& location, Float maxValue, const Color& color )
 {
 	Rect rect;
 	GetTheme()->GetAngleRect( rect );
-	return new DefaultAngle( this, parent, location, Size(rect.Width(), rect.Height()), color );
+	return new DefaultAngle( this, parent, location, Size(rect.Width(), rect.Height()), maxValue, color );
 }
 
 IButton* DefaultUi::CreateButton( IFrame* parent, UInt id, const Point& location, const Size& size, const String& text, const Color& color )
