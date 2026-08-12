@@ -40,6 +40,7 @@
 
 
 #define PtrFrameRenderWindowEx P(synkro::gfx::IFrameRenderWindowEx)
+#define PtrVirtualRenderWindow P(synkro::gfx::IVirtualRenderWindow)
 #define PtrPlainRenderTexture P(synkro::gfx::IPlainRenderTexture)
 
 
