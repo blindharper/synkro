@@ -73,6 +73,7 @@ void Demo::OnSynkroInitialize()
 	_synkro->GetWindowSystem()->GetFrameWindow()->Listen( this );
 	_scene = _synkro->GetSceneManager()->CreateScene( L"Default", GetDebugMode(), IsLit() );
 	CreateShotTexture();
+	CreateLogo();
 	InitInputInternal();
 	InitScene();
 	InitViewInternal();
@@ -598,6 +599,7 @@ void Demo::ToggleFullscreen()
 	_window->SetDisplayMode( displayMode );
 	CreateShotTexture();
 	OnDisplayModeChanged( displayMode );
+	_logo->SetLocation( Point(displayMode.Width-LOGO_SIZE, displayMode.Height-LOGO_SIZE+100) );
 }
 
 void Demo::CreateCredits()
@@ -702,6 +704,7 @@ void Demo::ShowCredits( Bool show )
 	_txtDevice->Show( !show );
 	_txtDisplayMode->Show( !show );
 	_txtStats->Show( !show );
+	_logo->Show( !show );
 
 	_poolCredits->Enable( show );
 	_poolCreditsCtrl->Reset();
@@ -717,6 +720,61 @@ void Demo::ShowCredits( Bool show )
 
 	if ( !show )
 		OnCredits( false );
+}
+
+void Demo::CreateLogo()
+{
+	// Create logo texture.
+	Random rnd;
+	_textureWindow = _synkro->GetGraphicsSystem()->CreateRenderWindow( 800, 600, _window->GetPixelFormat(), _window->GetSampleCount(), 0 );
+	_textureWindow->GetView()->SetBackColor( Vector4(0.0f, 0.0f, 0.0f, 0.0f) );
+	_synkro->GetOverlayManager()->CreateFont( L"logo", _synkro->GetLanguage(), L"Arial", FontStyle::Bold, 44 );
+	_textureOverlay = _synkro->GetOverlayManager()->CreateOverlay( _textureWindow );
+	PtrFont font = _textureOverlay->GetFont( L"logo" );
+	_textureText = font->CreateText( Color::White, Point(10, 240), L"SYNKRO SYNKRO" );
+	PtrTextAnimationController textCtrl = _textureText->CreateAnimationController( nullptr, nullptr );
+	PtrNoiseColorTrack trackColor = textCtrl->CreateColorTrack( AnimationTrack::ColorNoise )->AsNoise();
+	trackColor->SetSeed( rnd.GetUInt() );
+	textCtrl->SetMode( AnimationMode::Loop );
+	textCtrl->Start( true );
+	_textureImage = _synkro->GetImageManager()->CreateImage( _textureWindow->GetTarget() );
+
+	// Create logo scene.
+	_logoScene = _synkro->GetSceneManager()->CreateScene( L"Logo", DebugMode::None, false );
+	_logoCamera = _logoScene->CreateCamera( nullptr, String::Empty );
+	_logoCamera->SetHorizontalFieldOfView( Math::ToRadians(_orgFov) );
+	_logoCamera->SetAspect( 1.0f );
+	_logoCamera->SetFront( 0.1f );
+	_logoCamera->SetBack( 10000.0f );
+
+	_logoMaterial = _synkro->GetMaterialManager()->CreateOpaqueMaterial( LightingModel::Gouraud );
+	_logoMaterial->GetDiffuseMap()->SetImage( _textureImage );
+	_logoMaterial->SetDiffuseColor( Color::White );
+
+	Vector3 posLogo(0.0f, 0.0f, 90.0f);
+	_logoMesh = _logoScene->CreateTriangleMesh( nullptr, L"LogoSynkro", _logoMaterial, nullptr );
+	_synkro->GetSceneManager()->BuildMesh( _logoMesh, MeshBuilder::Ellipsoid, Vector4(30.0f, 30.0f, 30.0f, 0.0f), Size(40, 40), Matrix4x4::Identity );
+	_logoMesh->SetPosition( posLogo );
+	_logoCamera->LookAt( posLogo );
+
+	PtrNodeAnimationController ctrlMesh = _logoMesh->CreateAnimationController( nullptr, nullptr );
+	PtrWaveFloatTrack trackMesh = ctrlMesh->CreateOrientationYawTrack( AnimationTrack::FloatWave )->AsWave();
+	trackMesh->SetType( WaveType::SawtoothDown );
+	trackMesh->SetAmplitude( Math::TwoPi );
+	trackMesh->SetFrequency( Math::OneOverPi );
+	ctrlMesh->SetMode( AnimationMode::Loop );
+	ctrlMesh->Start( true );
+	
+	_logoWindow = _synkro->GetGraphicsSystem()->CreateRenderWindow( LOGO_SIZE, LOGO_SIZE, _window->GetPixelFormat(), _window->GetSampleCount(), 0 );
+	_logoWindow->GetView()->SetBackColor( Vector4(0.0f, 0.0f, 0.0f, 0.0f) );
+	_logoViewport = _synkro->GetViewportManager()->CreateViewport( _logoWindow->GetView(), _logoCamera );
+
+	// Setup logo sprite.
+	DisplayMode displayMode;
+	_window->GetDisplayMode( displayMode );
+	_logoImage = _synkro->GetImageManager()->CreateImage( _logoWindow->GetTarget() );
+	_logo = _synkro->GetOverlayManager()->GetOverlay( _window )->CreateSprite( _logoImage, Point(displayMode.Width-LOGO_SIZE, displayMode.Height-LOGO_SIZE+100) );
+	_logo->SetOpacity( 0.5f );
 }
 
 void Demo::CreateShotTexture()

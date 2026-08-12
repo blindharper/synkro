@@ -83,7 +83,7 @@ public:
 		_camera2->LookAt( Vector3::Origin );
 
 		PtrWindow window = _synkro->GetWindowSystem()->GetFrameWindow();
-		_picture = _synkro->GetViewportManager()->CreateViewport( _window, Rect(Point(window->GetWidth()-330, window->GetHeight()-250), Size(320, 240)), _camera2, Color::LightGray );
+		_picture = _synkro->GetViewportManager()->CreateViewport( _window, Rect(Point(window->GetWidth()-330, window->GetHeight()-500), Size(320, 240)), _camera2, Color::LightGray );
 		_picture->SetBorderColor( Color::Red );
 		_picture->SetLabelColor( Color::DarkOrange );
 		_picture->ShowBorder( true );
@@ -112,7 +112,7 @@ public:
 
 	void OnDisplayModeChanged( const DisplayMode& displayMode ) override
 	{
-		_picture->SetLocation( Point(displayMode.Width-330, displayMode.Height-250) );
+		_picture->SetLocation( Point(displayMode.Width-330, displayMode.Height-500) );
 	}
 
 	// UiListener methods.

@@ -198,8 +198,27 @@ protected:
 	PtrTextPool												_poolCredits;
 	PtrTextPoolAnimationController							_poolCreditsCtrl;
 
+	PtrVirtualRenderWindow									_textureWindow;
+	PtrOverlay												_textureOverlay;
+	PtrText													_textureText;
+	PtrImage												_textureImage;
+
+	PtrVirtualRenderWindow									_logoWindow;
+	PtrSceneEx												_logoScene;
+	PtrCamera												_logoCamera;
+	PtrViewport												_logoViewport;
+	PtrOpaqueMaterial										_logoMaterial;
+	PtrTriangleMesh											_logoMesh;
+	PtrImage												_logoImage;
+
+	PtrSprite												_logo;
+
 private:
 	static Bool												s_editConfig;
+	enum
+	{
+		LOGO_SIZE = 250,
+	};
 
 	void													ConfigureInternal();
 	void													InitViewInternal();
@@ -208,6 +227,7 @@ private:
 	void													ToggleFullscreen();
 	void													CreateCredits();
 	void													ShowCredits( Bool show );
+	void													CreateLogo();
 	void													CreateShotTexture();
 	String													GetShotName();
 };
