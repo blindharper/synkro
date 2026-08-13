@@ -51,6 +51,8 @@ private:
 	lang::Vector<ID3D11ShaderResourceView*>					_nulls;
 	UINT													_startSlot;
 	Dx11Context												_context;
+
+	void													DoBind( ID3D11ShaderResourceView** views );
 };
 
 
