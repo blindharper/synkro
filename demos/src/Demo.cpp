@@ -446,11 +446,16 @@ ISwitch* Demo::CreateSwitch( const Point& location, UInt width, const String& te
 	return CreateSwitch( none, location, width, text, on );
 }
 
-IDropList* Demo::CreateDropList( const Point& location, const Size& size )
+IDropList* Demo::CreateDropList( UInt id, const Point& location, const Size& size )
 {
-	IDropList* list = _synkro->GetUi()->CreateDropList( nullptr, none, location, size, 0 );
+	IDropList* list = _synkro->GetUi()->CreateDropList( nullptr, id, location, size, 0 );
 	list->SetAnchor( Anchor::TopRight );
 	return list;
+}
+
+IDropList* Demo::CreateDropList( const Point& location, const Size& size )
+{
+	return CreateDropList( none, location, size );
 }
 
 IImage* Demo::GetImage( const String& name, const PixelFormat& format )

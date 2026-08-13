@@ -160,6 +160,7 @@ protected:
 	ISwitch*												CreateSwitch( UInt id, const Point& location, UInt width, const String& text, Bool on );
 	ISwitch*												CreateSwitch( const Point& location, UInt width, const String& text, const HotKey& hotkey, Bool on );
 	ISwitch*												CreateSwitch( const Point& location, UInt width, const String& text, Bool on );
+	IDropList*												CreateDropList( UInt id, const Point& location, const Size& size );
 	IDropList*												CreateDropList( const Point& location, const Size& size );
 	IImage*													GetImage( const String& name, const PixelFormat& format );
 	IImage*													GetImage( const String& name );
