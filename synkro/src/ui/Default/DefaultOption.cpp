@@ -39,7 +39,7 @@ DefaultOption::DefaultOption( BaseUi* ui, IFrame* parent, const Point& location,
 {
 	_object = _ui->CreateObject( PrimitiveType::TriangleList, IndexType::Short, 16, 54, _zOrder );
 	_paramColor = _object->GetFragmentParameters()->GetParam( L"p_color" );
-	_text = _ui->GetFont()->CreateText( _textColors[WidgetState::Normal], Point(), text, Order::High, Order::Highest );
+	_text = _ui->GetFont()->CreateText( _textColors[WidgetState::Normal], Point(), text, Order::Normal, Order::Normal );
 	_text->EnableRect( true );
 	_effect = _ui->CreateEffect( _object, nullptr, _text );
 	_object->SetScissorRect( _scissorRect );

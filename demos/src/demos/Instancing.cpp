@@ -8,7 +8,7 @@ public:
 	Instancing() :
 		Demo( L"Instancing" ),
 		_rotationMode( CUBE ),
-		_colorMode( RANDOM )
+		_colorMode( WHITE )
 	{
 	}
 
@@ -49,8 +49,16 @@ public:
 		CreateSlider( ID_SLIDER_COUNT, Point(_widgetLeft, 120), 1, CAPACITY, count );
 		SetCount( count );
 
-		_btnRotationMode = CreateButton( Point(_widgetLeft, 150), L"Rotate instances" );
-		_btnColorize = CreateButton( Point(_widgetLeft, 180), L"Gradient color" );
+		_switchRotateInstances = CreateSwitch( ID_SWITCH_ROTATE, Point(_widgetLeft, 150), 150, L"Rotate [i]nstances", HotKey(Key::I, true), false );
+
+		_labelColor = CreateLabel( Point(_widgetLeft-96, 180), L"Color:" );
+		_listColor = CreateDropList( ID_LIST_COLOR, Point(_widgetLeft, 180), Size(150, 25) );
+		_listColor->AddItem( L"White" );
+		_listColor->AddItem( L"Random" );
+		_listColor->AddItem( L"Gradient" );
+		_listColor->SetListHeight( _listColor->GetItemCount() );
+		_listColor->SelectItem( 0 );
+
 		_switchTexture = CreateSwitch( ID_SWITCH_TEXTURE, Point(_widgetLeft, 210), 150, L"Show [t]exture", HotKey(Key::T, true), true );
 		CreateOption( ID_OPTION_ARRAY, Point(_widgetLeft, 240), L"Array", (Pointer)_camera.AsPtr(), true );
 		CreateOption( ID_OPTION_INSTANCING, Point(_widgetLeft, 270), L"Instancing", (Pointer)_camera2.AsPtr(), false );
@@ -71,6 +79,7 @@ public:
 	{
 		Demo::OnArcballOriented( orientation );
 
+		_rotationMode = _switchRotateInstances->IsOn() ? INSTANCES : CUBE;
 		switch ( _rotationMode )
 		{
 			case CUBE:
@@ -98,28 +107,6 @@ public:
 	}
 
 	// UiListener methods.
-	Bool OnUiClick( IWidget* sender ) override
-	{
-		if ( Demo::OnUiClick(sender) )
-			return true;
-
-		if ( sender == _btnRotationMode )
-		{
-			_rotationMode = (_rotationMode == CUBE) ? INSTANCES : CUBE;
-			_btnRotationMode->SetText( (_rotationMode == CUBE) ? L"Rotate instances" : L"Rotate cube" );
-			return true;
-		}
-		else if ( sender == _btnColorize )
-		{
-			_colorMode = (_colorMode == RANDOM) ? GRADIENT : RANDOM;
-			_btnColorize->SetText( (_colorMode==RANDOM) ? L"Gradient color" : L"Random color" );
-			Colorize();
-			return true;
-		}
-
-		return false;
-	}
-
 	Bool OnUiValueChanged( IWidget* sender ) override
 	{
 		if ( Demo::OnUiValueChanged(sender) )
@@ -129,6 +116,11 @@ public:
 		{
 			case ID_SLIDER_COUNT:
 				SetCount( sender->AsSlider()->GetPosition() );
+				return true;
+
+			case ID_LIST_COLOR:
+				_colorMode = (ColorMode)_listColor->GetSelectedItem();
+				Colorize();
 				return true;
 
 			case ID_SWITCH_TEXTURE:
@@ -247,6 +239,10 @@ public:
 				{
 					switch ( _colorMode )
 					{
+						case WHITE:
+							color = Color::White;
+							break;
+
 						case RANDOM:
 							color = Color::Random();
 							break;
@@ -274,8 +270,9 @@ private:
 
 	enum ColorMode
 	{
-		RANDOM,
-		GRADIENT,
+		WHITE		= 0,
+		RANDOM		= 1,
+		GRADIENT	= 2,
 	};
 
 	enum
@@ -287,9 +284,11 @@ private:
 	enum
 	{
 		ID_SLIDER_COUNT			= 100,
-		ID_SWITCH_TEXTURE		= 101,
-		ID_OPTION_ARRAY			= 102,
-		ID_OPTION_INSTANCING	= 103,
+		ID_SWITCH_ROTATE		= 101,
+		ID_LIST_COLOR			= 102,
+		ID_SWITCH_TEXTURE		= 103,
+		ID_OPTION_ARRAY			= 104,
+		ID_OPTION_INSTANCING	= 105,
 	};
 
 	PtrSceneEx												_scene2;
@@ -302,8 +301,9 @@ private:
 	PtrTriangleMeshList										_cubesInstanced;
 
 	PtrLabel												_labelCount;
-	PtrButton												_btnRotationMode;
-	PtrButton												_btnColorize;
+	PtrSwitch												_switchRotateInstances;
+	PtrLabel												_labelColor;
+	PtrDropList												_listColor;
 	PtrSwitch												_switchTexture;
 
 	RotationMode											_rotationMode;
