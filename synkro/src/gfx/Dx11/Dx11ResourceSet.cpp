@@ -91,67 +91,47 @@ void Dx11ResourceSet::Set( UInt index, IResource* resource )
 
 void Dx11ResourceSet::Bind()
 {
-	if ( _views.Size() > 0 )
-	{
-		Dx11Lock( _context );
-		switch ( _type )
-		{
-			case PROGRAM_STAGE_TYPE_VERTEX:
-				_context->VSSetShaderResources( _startSlot, _views.Size(), _views.Begin() );
-				break;
-
-			case PROGRAM_STAGE_TYPE_HULL:
-				_context->HSSetShaderResources( _startSlot, _views.Size(), _views.Begin() );
-				break;
-
-			case PROGRAM_STAGE_TYPE_DOMAIN:
-				_context->DSSetShaderResources( _startSlot, _views.Size(), _views.Begin() );
-				break;
-
-			case PROGRAM_STAGE_TYPE_GEOMETRY:
-				_context->GSSetShaderResources( _startSlot, _views.Size(), _views.Begin() );
-				break;
-
-			case PROGRAM_STAGE_TYPE_FRAGMENT:
-				_context->PSSetShaderResources( _startSlot, _views.Size(), _views.Begin() );
-				break;
-		}
-	}
+	DoBind( _views.Begin() );
 }
 
 void Dx11ResourceSet::Unbind()
 {
-	if ( _views.Size() > 0 )
-	{
-		Dx11Lock( _context );
-		switch ( _type )
-		{
-			case PROGRAM_STAGE_TYPE_VERTEX:
-				_context->VSSetShaderResources( _startSlot, _views.Size(), _nulls.Begin() );
-				break;
-
-			case PROGRAM_STAGE_TYPE_HULL:
-				_context->HSSetShaderResources( _startSlot, _views.Size(), _nulls.Begin() );
-				break;
-
-			case PROGRAM_STAGE_TYPE_DOMAIN:
-				_context->DSSetShaderResources( _startSlot, _views.Size(), _nulls.Begin() );
-				break;
-
-			case PROGRAM_STAGE_TYPE_GEOMETRY:
-				_context->GSSetShaderResources( _startSlot, _views.Size(), _nulls.Begin() );
-				break;
-
-			case PROGRAM_STAGE_TYPE_FRAGMENT:
-				_context->PSSetShaderResources( _startSlot, _views.Size(), _nulls.Begin() );
-				break;
-		}
-	}
+	DoBind( _nulls.Begin() );
 }
 
 IResourceSet* Dx11ResourceSet::Clone( UInt ownerID ) const
 {
 	return new Dx11ResourceSet( *this );
+}
+
+void Dx11ResourceSet::DoBind( ID3D11ShaderResourceView** views )
+{
+	if ( _views.Size() > 0 )
+	{
+		Dx11Lock( _context );
+		switch ( _type )
+		{
+			case PROGRAM_STAGE_TYPE_VERTEX:
+				_context->VSSetShaderResources( _startSlot, _views.Size(), views );
+				break;
+
+			case PROGRAM_STAGE_TYPE_HULL:
+				_context->HSSetShaderResources( _startSlot, _views.Size(), views );
+				break;
+
+			case PROGRAM_STAGE_TYPE_DOMAIN:
+				_context->DSSetShaderResources( _startSlot, _views.Size(), views );
+				break;
+
+			case PROGRAM_STAGE_TYPE_GEOMETRY:
+				_context->GSSetShaderResources( _startSlot, _views.Size(), views );
+				break;
+
+			case PROGRAM_STAGE_TYPE_FRAGMENT:
+				_context->PSSetShaderResources( _startSlot, _views.Size(), views );
+				break;
+		}
+	}
 }
 
 
