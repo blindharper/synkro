@@ -73,11 +73,11 @@ void Demo::OnSynkroInitialize()
 	_synkro->GetWindowSystem()->GetFrameWindow()->Listen( this );
 	_scene = _synkro->GetSceneManager()->CreateScene( L"Default", GetDebugMode(), IsLit() );
 	CreateShotTexture();
-	CreateLogo();
 	InitInputInternal();
 	InitScene();
 	InitViewInternal();
 	InitUiInternal();
+	CreateLogo();
 }
 
 void Demo::OnSynkroUpdate( Double delta )
