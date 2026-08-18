@@ -117,7 +117,7 @@
       <Build Solution="profile_static|*" Project="false" />
       <Build Solution="release_static|*" Project="false" />
     </Project>
-    <Project Path="../demos/build/Lighting/Lighting_msvs2026.vcxproj" Id="ce040889-3ca0-45c8-b0c5-7c29152612a6">
+    <Project Path="../demos/build/MaterialsAndLighting/MaterialsAndLighting_msvs2026.vcxproj" Id="ce040889-3ca0-45c8-b0c5-7c29152612a6">
       <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="debug" />
       <BuildType Solution="profile_static|*" Project="profile" />

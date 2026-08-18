@@ -16,15 +16,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Demo.cpp" />
-    <ClCompile Include="..\..\src\demos\Lighting.cpp" />
+    <ClCompile Include="..\..\src\demos\MaterialsAndLighting.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Demo.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>Lighting</ProjectName>
+    <ProjectName>MaterialsAndLighting</ProjectName>
     <ProjectGuid>{CE040889-3CA0-45C8-B0C5-7C29152612A6}</ProjectGuid>
-    <RootNamespace>Lighting</RootNamespace>
+    <RootNamespace>MaterialsAndLighting</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
