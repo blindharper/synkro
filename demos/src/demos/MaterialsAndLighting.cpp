@@ -1,12 +1,12 @@
 #include "../Demo.h"
 
 
-class Lighting :
+class MaterialsAndLighting :
 	public Demo
 {
 public:
-	Lighting() :
-		Demo( L"Lighting" )
+	MaterialsAndLighting() :
+		Demo( L"Materials And Lighting" )
 	{
 	}
 
@@ -43,7 +43,7 @@ public:
 
 	void InitUi() override
 	{
-		PtrStream stream = GetStream( L"Lighting.ui" );
+		PtrStream stream = GetStream( L"MaterialsAndLighting.ui" );
 		_synkro->GetUi()->Load( stream );
 
 		_listMode = _synkro->GetUi()->GetWidget( ID_LIST_MODE )->AsDropList();
@@ -290,6 +290,6 @@ private:
 };
 
 SYNKRO_DEMO_BEGIN
-	Lighting demo;
+	MaterialsAndLighting demo;
 	demo.Run();
 SYNKRO_DEMO_END

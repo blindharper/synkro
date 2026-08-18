@@ -17,7 +17,7 @@
   <Project Path="FourthDimension/FourthDimension_msvs2026.vcxproj" Id="5f34ae4b-fe5d-45d6-8256-c598d9391a16" />
   <Project Path="GameOver/GameOver_msvs2026.vcxproj" Id="ba9f0c8e-d7fb-4a0f-aaa5-82d0fe368db0" />
   <Project Path="Instancing/Instancing_msvs2026.vcxproj" Id="999a9ce6-3f91-4ebb-b936-c5760ec95ce9" />
-  <Project Path="Lighting/Lighting_msvs2026.vcxproj" Id="ce040889-3ca0-45c8-b0c5-7c29152612a6" />
+  <Project Path="MaterialsAndLighting/MaterialsAndLighting_msvs2026.vcxproj" Id="ce040889-3ca0-45c8-b0c5-7c29152612a6" />
   <Project Path="LookAtMe/LookAtMe_msvs2026.vcxproj" Id="0d482fd8-f796-49a7-bb86-0b64c98bb331" />
   <Project Path="MakeSomeNoise/MakeSomeNoise_msvs2026.vcxproj" Id="212aa438-55dd-4b52-9740-9e330a9581ac" />
   <Project Path="MayTheForce/MayTheForce_msvs2026.vcxproj" Id="cda157d3-f696-4664-9558-bc322702fbfc" />
