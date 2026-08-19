@@ -425,6 +425,12 @@ void Viewport::Update()
 	UInt width = right - left; UInt height = bottom - top;
 	const Bool resized = (width != _size.Width) || (height != _size.Height);
 
+	// Force re-creating depth target.
+	if ( resized )
+	{
+		_depthTarget = nullptr;
+	}
+
 	// Reposition view, if needed.
 	if ( _boundsDirty || resized )
 	{
