@@ -163,8 +163,8 @@ private:
 	lang::Vector<IViewportFilter*>							_filters;
 	P(gfx::IProgram)										_program;
 	P(gfx::IRenderView)										_view;
-	IViewportFilter*										_alphaFilter;
-	IDepthFilter*											_depthFilter;	
+	P(IViewportFilter)										_alphaFilter;
+	P(IDepthFilter)											_depthFilter;	
 	P(DepthMap)												_depthTarget;
 	P(scene::ICamera)										_camera;
 	P(over::IText)											_label;
