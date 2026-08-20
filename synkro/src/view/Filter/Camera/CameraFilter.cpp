@@ -8,10 +8,10 @@
 // is allowed without any permission from the Synkro Project.
 // Website: https://synkro.pro Email: mailto:blindharper70@gmail.com
 //
-// Purpose: Depth viewport filter implementation.
+// Purpose: Camera viewport filter implementation.
 //==============================================================================
 #include "config.h"
-#include "DepthFilter.h"
+#include "CameraFilter.h"
 
 
 //------------------------------------------------------------------------------
@@ -29,16 +29,12 @@ namespace view
 {
 
 
-DepthFilter::DepthFilter( IViewport* viewport, IProgram* program ) :
-	DepthFilterImpl<IDepthFilter>( viewport, nullptr, program )
+CameraFilter::CameraFilter( IViewport* viewport, IProgram* program ) :
+	ViewportFilterImpl<ICameraFilter>( viewport, nullptr, program )
 {
 	// Extract filter parameters.
 	_paramFront	= _params->GetParam( L"p_front" );
 	_paramBack	= _params->GetParam( L"p_back" );
-
-	// Set default values.
-	_params->Set( _paramFront, 0.001f );
-	_params->Set( _paramBack, 1000.0f );
 }
 
 

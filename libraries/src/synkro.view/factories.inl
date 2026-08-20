@@ -6,7 +6,7 @@ using namespace synkro::view;
 #include <view/Filter/Simple/BrightnessFilterFactory.h>
 #include <view/Filter/Color/ColorFilterFactory.h>
 #include <view/Filter/Simple/ContrastFilterFactory.h>
-#include <view/Filter/Depth/DepthFilterFactory.h>
+#include <view/Filter/Camera/DepthFilterFactory.h>
 #include <view/Filter/Depth/DepthOfFieldFilterFactory.h>
 #include <view/Filter/Kernel3x3/DilationFilterFactory.h>
 #include <view/Filter/Kernel3x3/Emboss/EmbossFilterFactory.h>

@@ -18,7 +18,7 @@
 #include <core/FactoryImpl.h>
 #include <view/IViewportFilterFactory.h>
 #include <view/ViewportFilter.h>
-#include "DepthFilter.h"
+#include "CameraFilter.h"
 
 
 namespace synkro
@@ -31,7 +31,7 @@ namespace view
 
 // Depth buffer viewport filter factory.
 SYNKRO_FACTORY_BEGIN( DepthFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Depth )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new DepthFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Depth.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new CameraFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Depth.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

@@ -23,7 +23,6 @@
 #include <scene/ITriangleMesh.h>
 #include <scene/ITriangleSet.h>
 #include <view/ViewportFilter.h>
-#include <view/IDepthFilter.h>
 #include <gfx/IProgramStage.h>
 #include <gfx/IPlainRenderTexture.h>
 #include <gfx/IPostProcessRenderQueue.h>
@@ -95,10 +94,10 @@ IViewportFilter* Viewport::CreateFilter( const ViewportFilter& type )
 {
 	return _viewportManager->CreateFilter( this, type );
 }
-
+// TODO: Remove!!!
 IDepthMap* Viewport::CreateDepthTarget()
 {
-	if ( _depthTarget == nullptr )
+	/*if ( _depthTarget==nullptr )
 	{
 		IPlainDepthTexture* depthTexture = _view->GetDepthTarget();
 		if ( (depthTexture == nullptr) || (depthTexture->GetFormat() != DepthFormat::D32F) )
@@ -110,8 +109,10 @@ IDepthMap* Viewport::CreateDepthTarget()
 		_depthTarget = new DepthMap( depthTexture );
 		_view->SetDepthTarget( _depthTarget->GetTexture() );
 	}
-	return _depthTarget;
+	return _depthTarget;*/
+	return nullptr;
 }
+// TODO: Remove!!!
 
 void Viewport::Activate()
 {
@@ -215,13 +216,10 @@ void Viewport::SetViewMode( const ViewMode& viewMode )
 				break;
 
 			case VIEW_MODE_DEPTH:
-				// Create custom depth target, if needed.
-				CreateDepthTarget();
-
 				// Create depth filter, if needed.
 				if ( _depthFilter == nullptr )
 				{
-					_depthFilter = CreateFilter( ViewportFilter::Depth )->AsDepth();
+					_depthFilter = CreateFilter( ViewportFilter::Depth )->AsCamera();
 				}
 
 				// Activate depth filter.
@@ -230,9 +228,7 @@ void Viewport::SetViewMode( const ViewMode& viewMode )
 					_depthFilter->Enable( true );
 					_depthFilter->SetOrder( 0 );
 					_depthFilter->SetCamera( _camera );
-					_depthFilter->SetDepthMap( _depthTarget );
-					_view->SetDepthTarget( _depthTarget->GetTexture() );
-					_view->GetPostProcessQueue()->SetInput( _depthTarget->GetResource() );
+					_view->GetPostProcessQueue()->SetInput( _view->GetDepthTarget() );
 				}
 
 				// Deactivate irrelevant filters.
@@ -424,12 +420,6 @@ void Viewport::Update()
 	_view->GetBounds( left, top, right, bottom );
 	UInt width = right - left; UInt height = bottom - top;
 	const Bool resized = (width != _size.Width) || (height != _size.Height);
-
-	// Force re-creating depth target.
-	if ( resized )
-	{
-		_depthTarget = nullptr;
-	}
 
 	// Reposition view, if needed.
 	if ( _boundsDirty || resized )

@@ -8,15 +8,16 @@
 // is allowed without any permission from the Synkro Project.
 // Website: https://synkro.pro Email: mailto:blindharper70@gmail.com
 //
-// Purpose: Depth viewport filter implementation.
+// Purpose: Camera viewport filter implementation.
 //==============================================================================
-#ifndef _SYNKRO_VIEW_DEPTHFILTER_
-#define _SYNKRO_VIEW_DEPTHFILTER_
+#ifndef _SYNKRO_VIEW_CAMERAFILTER_
+#define _SYNKRO_VIEW_CAMERAFILTER_
 
 
 #include "config.h"
-#include "DepthFilterImpl.h"
-#include <view/IDepthFilter.h>
+#include <view/Filter/ViewportFilterImpl.h>
+#include <view/ICameraFilter.h>
+#include <scene/ICamera.h>
 
 
 namespace synkro
@@ -27,24 +28,30 @@ namespace view
 {
 
 
-// Depth viewport filter implementation.
-class DepthFilter :
-	public DepthFilterImpl<IDepthFilter>
+// Camera viewport filter implementation.
+class CameraFilter :
+	public ViewportFilterImpl<ICameraFilter>
 {
 public:
 	// Constructor.
-	DepthFilter( IViewport* viewport, gfx::IProgram* program );
+	CameraFilter( IViewport* viewport, gfx::IProgram* program );
 
-	// IDepthFilter methods.
+	// IViewportFilter methods.
+	void													Update();
+	ICameraFilter*											AsCamera() const;
+
+	// ICameraFilter methods.
 	void													SetCamera( scene::ICamera* camera );
+	scene::ICamera*											GetCamera() const;
 
 private:
+	P(scene::ICamera)										_camera;
 	gfx::ProgramParam*										_paramFront;
 	gfx::ProgramParam*										_paramBack;
 };
 
 
-#include "DepthFilter.inl"
+#include "CameraFilter.inl"
 
 
 } // view
@@ -53,4 +60,4 @@ private:
 } // synkro
 
 
-#endif // _SYNKRO_VIEW_DEPTHFILTER_
+#endif // _SYNKRO_VIEW_CAMERAFILTER_

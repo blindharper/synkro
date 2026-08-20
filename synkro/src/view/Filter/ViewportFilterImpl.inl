@@ -111,6 +111,12 @@ SYNKRO_INLINE IColorFilter* ViewportFilterImpl<T>::AsColor() const
 }
 
 template <class T>
+SYNKRO_INLINE ICameraFilter* ViewportFilterImpl<T>::AsCamera() const
+{
+	return nullptr;
+}
+
+template <class T>
 SYNKRO_INLINE IDepthFilter* ViewportFilterImpl<T>::AsDepth() const
 {
 	return nullptr;

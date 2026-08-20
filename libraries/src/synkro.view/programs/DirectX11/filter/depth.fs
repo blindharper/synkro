@@ -3,41 +3,14 @@
 //
 // Purpose: "Depth" post-processing filter
 //------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------
-// Structures
-//------------------------------------------------------------------------------
-struct Fragment
-{
-	float4 pos	: SV_POSITION;		// Vertex position in fragment space
-	float2 tex	: TEXCOORD0;		// Vertex texture coordinates
-};
-
-//------------------------------------------------------------------------------
-// Parameters
-//------------------------------------------------------------------------------
-cbuffer cb0 : register( b0 )
-{
-	float     	p_front;		// Near clipping plane
-	float     	p_back;			// Far clipping plane
-};
-
-//------------------------------------------------------------------------------
-// Resources
-//------------------------------------------------------------------------------
-Texture2D 	texDepth;			// "Depth" texture
-
-//------------------------------------------------------------------------------
-// Samplers
-//------------------------------------------------------------------------------
-SamplerState	samDepth;			// Sampler state
+#include "camera.fsh"
 
 //------------------------------------------------------------------------------
 // Entry point
 //------------------------------------------------------------------------------
 float4 main( Fragment fragment ) : SV_TARGET
 {
-	float depth = texDepth.Sample( samDepth, fragment.tex ).r;
+	float depth = texImage.Sample( samImage, fragment.tex ).r;
 	
 	// Linearize depth.
 	float d = 2.0f*depth - 1.0f;

@@ -422,11 +422,11 @@ del "$(OutDir)$(TargetName).lib"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Camera\CameraFilter.h" />
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Camera\DepthFilterFactory.h" />
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Color\ColorFilter.h" />
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Color\ColorFilterAnimationController.h" />
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Color\ColorFilterFactory.h" />
-    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilter.h" />
-    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilterFactory.h" />
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilterImpl.h" />
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthOfFieldFilter.h" />
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthOfFieldFilterFactory.h" />
@@ -463,11 +463,11 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Simple\SimpleFilterAnimationController.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Camera\CameraFilter.cpp" />
     <ClCompile Include="..\..\src\synkro.view\programs.cpp" />
     <ClCompile Include="..\..\src\synkro.view\synkro.view.cpp" />
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Color\ColorFilter.cpp" />
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Color\ColorFilterAnimationController.cpp" />
-    <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilter.cpp" />
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\DepthOfFieldFilter.cpp" />
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\FogFilter.cpp" />
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\FogFilterAnimationController.cpp" />
@@ -487,10 +487,10 @@ del "$(OutDir)$(TargetName).lib"</Command>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\synkro\src\view\Filter\Camera\CameraFilter.inl" />
     <None Include="..\..\src\synkro.view\factories.inl" />
     <None Include="..\..\src\synkro.view\resources.inl" />
     <None Include="..\..\..\synkro\src\view\Filter\Color\ColorFilter.inl" />
-    <None Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilter.inl" />
     <None Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilterImpl.inl" />
     <None Include="..\..\..\synkro\src\view\Filter\Depth\DepthOfFieldFilter.inl" />
     <None Include="..\..\..\synkro\src\view\Filter\Depth\FogFilter.inl" />
