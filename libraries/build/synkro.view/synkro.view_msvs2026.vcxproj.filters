@@ -100,6 +100,9 @@
     <Filter Include="ViewportFilter\Depth\DepthOfField">
       <UniqueIdentifier>{fd8ac5a5-41dc-4560-bab7-fac46695bde9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ViewportFilter\Camera">
+      <UniqueIdentifier>{9a5f6260-77c8-4c4a-b803-a9c4ea08c9fb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Kernel3x3FilterImpl.h">
@@ -180,12 +183,6 @@
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Color\ColorFilterFactory.h">
       <Filter>ViewportFilter\Color</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilter.h">
-      <Filter>ViewportFilter\Depth</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilterFactory.h">
-      <Filter>ViewportFilter\Depth</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilterImpl.h">
       <Filter>ViewportFilter\Depth</Filter>
     </ClInclude>
@@ -219,6 +216,12 @@
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Emboss\EmbossFilterAnimationController.h">
       <Filter>ViewportFilter\Kernel3x3\Emboss\Controller</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Camera\DepthFilterFactory.h">
+      <Filter>ViewportFilter\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\view\Filter\Camera\CameraFilter.h">
+      <Filter>ViewportFilter\Camera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\synkro.view\synkro.view.cpp" />
@@ -243,9 +246,6 @@
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Color\ColorFilter.cpp">
       <Filter>ViewportFilter\Color</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilter.cpp">
-      <Filter>ViewportFilter\Depth</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\DepthOfFieldFilter.cpp">
       <Filter>ViewportFilter\Depth\DepthOfField</Filter>
     </ClCompile>
@@ -267,6 +267,9 @@
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Emboss\EmbossFilterAnimationController.cpp">
       <Filter>ViewportFilter\Kernel3x3\Emboss\Controller</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\view\Filter\Camera\CameraFilter.cpp">
+      <Filter>ViewportFilter\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\synkro.view\factories.inl" />
@@ -283,9 +286,6 @@
     <None Include="..\..\..\synkro\src\view\Filter\Color\ColorFilter.inl">
       <Filter>ViewportFilter\Color</Filter>
     </None>
-    <None Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilter.inl">
-      <Filter>ViewportFilter\Depth</Filter>
-    </None>
     <None Include="..\..\..\synkro\src\view\Filter\Depth\DepthFilterImpl.inl">
       <Filter>ViewportFilter\Depth</Filter>
     </None>
@@ -297,6 +297,9 @@
     </None>
     <None Include="..\..\..\synkro\src\view\Filter\Depth\FogFilter.inl">
       <Filter>ViewportFilter\Depth\Fog</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\view\Filter\Camera\CameraFilter.inl">
+      <Filter>ViewportFilter\Camera</Filter>
     </None>
   </ItemGroup>
 </Project>

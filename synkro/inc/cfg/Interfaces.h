@@ -481,6 +481,7 @@ iface UiListener;
 namespace view
 {
 
+iface ICameraFilter;
 iface IColorFilter;
 iface IColorFilterAnimationController;
 iface IDepthFilter;

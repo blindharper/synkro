@@ -104,6 +104,12 @@ public:
 	virtual IColorFilter*									AsColor() const = 0;
 
 	/**
+	 * Casts filter to camera filter.
+	 * @return Non-null for camera filter, nullptr otherwise.
+	 */
+	virtual ICameraFilter*									AsCamera() const = 0;
+
+	/**
 	 * Casts filter to depth filter.
 	 * @return Non-null for depth filter, nullptr otherwise.
 	 */

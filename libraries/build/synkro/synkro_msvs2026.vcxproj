@@ -753,6 +753,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\inc\scene\MeshBuilder.h" />
     <ClInclude Include="..\..\..\synkro\inc\sound\ISound3D.h" />
     <ClInclude Include="..\..\..\synkro\inc\sound\SoundChannel.h" />
+    <ClInclude Include="..\..\..\synkro\inc\view\ICameraFilter.h" />
     <ClInclude Include="..\..\..\synkro\inc\view\IColorFilter.h" />
     <ClInclude Include="..\..\..\synkro\inc\view\IColorFilterAnimationController.h" />
     <ClInclude Include="..\..\..\synkro\inc\view\IDepthFilter.h" />

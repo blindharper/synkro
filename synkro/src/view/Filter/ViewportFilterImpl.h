@@ -63,6 +63,7 @@ public:
 	virtual UInt											GetOrder() const;
 	virtual ISimpleFilter*									AsSimple() const;
 	virtual IColorFilter*									AsColor() const;
+	virtual ICameraFilter*									AsCamera() const;
 	virtual IDepthFilter*									AsDepth() const;
 	virtual IKernel3x3Filter*								AsKernel3x3() const;
 

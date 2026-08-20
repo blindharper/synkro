@@ -1,7 +1,7 @@
 //------------------------------------------------------------------------------
 // File: depth.fsh
 //
-// Purpose: Common stuff for depth filters
+// Purpose: Common stuff for depth-based filters
 //------------------------------------------------------------------------------
 #ifndef _DEPTH_FSH_
 #define _DEPTH_FSH_

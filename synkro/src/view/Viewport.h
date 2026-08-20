@@ -19,7 +19,7 @@
 #include <core/IContext.h>
 #include <view/IViewport.h>
 #include <view/IViewportAnimationController.h>
-#include <view/IViewportFilter.h>
+#include <view/ICameraFilter.h>
 #include <lang/Vector.h>
 #include <gfx/IRect.h>
 #include <gfx/IRenderView.h>
@@ -59,7 +59,7 @@ public:
 	// IViewport methods.
 	IViewportAnimationController*							CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	IViewportFilter*										CreateFilter( const ViewportFilter& type );
-	IDepthMap*												CreateDepthTarget();
+	IDepthMap*												CreateDepthTarget();// TODO: Remove!!!
 	void													Activate();
 	void													EnableRect( Bool enable );
 	void													SetCamera( scene::ICamera* camera );
@@ -164,8 +164,7 @@ private:
 	P(gfx::IProgram)										_program;
 	P(gfx::IRenderView)										_view;
 	P(IViewportFilter)										_alphaFilter;
-	P(IDepthFilter)											_depthFilter;	
-	P(DepthMap)												_depthTarget;
+	P(ICameraFilter)										_depthFilter;
 	P(scene::ICamera)										_camera;
 	P(over::IText)											_label;
 	img::Color												_labelColor;

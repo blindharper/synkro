@@ -8,14 +8,28 @@
 // is allowed without any permission from the Synkro Project.
 // Website: https://synkro.pro Email: mailto:blindharper70@gmail.com
 //
-// Purpose: Depth viewport filter implementation.
+// Purpose: Camera viewport filter implementation.
 //==============================================================================
-SYNKRO_INLINE void DepthFilter::SetCamera( scene::ICamera* camera )
+SYNKRO_INLINE void CameraFilter::Update()
 {
-	// Call base implementation.
-	DepthFilterImpl<IDepthFilter>::SetCamera( camera );
-
 	// Set camera-specific parameters.
 	_params->Set( _paramFront, _camera->GetFront() );
 	_params->Set( _paramBack, _camera->GetBack() );
+}
+
+SYNKRO_INLINE ICameraFilter* CameraFilter::AsCamera() const
+{
+	return (ICameraFilter*)this;
+}
+
+SYNKRO_INLINE void CameraFilter::SetCamera( scene::ICamera* camera )
+{
+	assert( camera != nullptr );
+
+	_camera = camera;
+}
+
+SYNKRO_INLINE scene::ICamera* CameraFilter::GetCamera() const
+{
+	return _camera;
 }

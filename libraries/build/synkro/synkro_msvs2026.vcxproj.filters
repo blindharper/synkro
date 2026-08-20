@@ -5400,6 +5400,9 @@
     <ClInclude Include="..\..\..\synkro\src\phys\StaticActor.h">
       <Filter>phys\Implementation\Actor\Static</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\view\ICameraFilter.h">
+      <Filter>view\Interface\Filter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\synkro\src\lang\Stack.inl">

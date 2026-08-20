@@ -14,6 +14,7 @@
 #define _SYNKRO_VIEW_
 
 
+#include <view/ICameraFilter.h>
 #include <view/IColorFilter.h>
 #include <view/IColorFilterAnimationController.h>
 #include <view/IKernel3x3Filter.h>
@@ -36,6 +37,8 @@
 #include <view/ViewportListener.h>
 
 
+#define PtrCameraFilter P(synkro::view::ICameraFilter)
+#define PtrColorFilter P(synkro::view::IColorFilter)
 #define PtrEmbossFilter P(synkro::view::IEmbossFilter)
 #define PtrFogFilter P(synkro::view::IFogFilter)
 #define PtrFogFilterAnimationController P(synkro::view::IFogFilterAnimationController)
