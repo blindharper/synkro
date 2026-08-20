@@ -71,7 +71,6 @@ public:
 		// Setup fragment fog.
 		_fragmentFog = _viewport->CreateFilter( ViewportFilter::Fog )->AsDepth()->AsFog();
 		_fragmentFog->SetCamera( _camera );
-		_fragmentFog->SetDepthMap( _viewport->CreateDepthTarget() );
 		_fragmentFogCtrl = _fragmentFog->CreateAnimationController( nullptr, nullptr )->AsFog();
 		_fragmentFogColorTrack = _fragmentFogCtrl->CreateColorTrack();
 		_fragmentFogCtrl->SetMode( AnimationMode::Single );

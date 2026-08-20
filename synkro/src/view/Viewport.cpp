@@ -23,6 +23,7 @@
 #include <scene/ITriangleMesh.h>
 #include <scene/ITriangleSet.h>
 #include <view/ViewportFilter.h>
+#include <gfx/IPlainDepthTexture.h>
 #include <gfx/IProgramStage.h>
 #include <gfx/IPlainRenderTexture.h>
 #include <gfx/IPostProcessRenderQueue.h>
@@ -94,25 +95,6 @@ IViewportFilter* Viewport::CreateFilter( const ViewportFilter& type )
 {
 	return _viewportManager->CreateFilter( this, type );
 }
-// TODO: Remove!!!
-IDepthMap* Viewport::CreateDepthTarget()
-{
-	/*if ( _depthTarget==nullptr )
-	{
-		IPlainDepthTexture* depthTexture = _view->GetDepthTarget();
-		if ( (depthTexture == nullptr) || (depthTexture->GetFormat() != DepthFormat::D32F) )
-		{
-			Int left; Int top; Int right; Int bottom;
-			_view->GetBounds( left, top, right, bottom );
-			depthTexture = _context->GetGraphicsSystem()->GetDevice()->CreateDepthTexture( (right-left), (bottom-top), _view->GetWindow()->GetPixelFormat(), DepthFormat::D32F, false, 1, 0 );
-		}
-		_depthTarget = new DepthMap( depthTexture );
-		_view->SetDepthTarget( _depthTarget->GetTexture() );
-	}
-	return _depthTarget;*/
-	return nullptr;
-}
-// TODO: Remove!!!
 
 void Viewport::Activate()
 {

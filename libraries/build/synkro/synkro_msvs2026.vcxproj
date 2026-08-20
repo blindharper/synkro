@@ -757,7 +757,6 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\inc\view\IColorFilter.h" />
     <ClInclude Include="..\..\..\synkro\inc\view\IColorFilterAnimationController.h" />
     <ClInclude Include="..\..\..\synkro\inc\view\IDepthFilter.h" />
-    <ClInclude Include="..\..\..\synkro\inc\view\IDepthMap.h" />
     <ClInclude Include="..\..\..\synkro\inc\view\IDepthOfFieldFilter.h" />
     <ClInclude Include="..\..\..\synkro\inc\view\IEmbossFilter.h" />
     <ClInclude Include="..\..\..\synkro\inc\view\IEmbossFilterAnimationController.h" />
@@ -1318,7 +1317,6 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\src\view\BaseViewportManager.h" />
     <ClInclude Include="..\..\..\synkro\src\view\BaseViewportTransitionController.h" />
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Color\ColorFilterProperty.h" />
-    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthMap.h" />
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\FogFilterProperty.h" />
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Emboss\EmbossFilterProperty.h" />
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Kernel3x3FilterProperty.h" />
@@ -1850,7 +1848,6 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <None Include="..\..\..\synkro\src\scene\SceneManager.inl" />
     <None Include="..\..\..\synkro\src\scene\Skeleton.inl" />
     <None Include="..\..\..\synkro\src\sound\Sound3D.inl" />
-    <None Include="..\..\..\synkro\src\view\Filter\Depth\DepthMap.inl" />
     <None Include="..\..\..\synkro\src\view\Filter\ViewportFilterAnimationControllerImpl.inl" />
     <None Include="..\..\..\synkro\src\view\Filter\ViewportFilterImpl.inl" />
     <None Include="..\..\..\synkro\src\view\Viewport.inl" />
@@ -2324,7 +2321,6 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClCompile Include="..\..\..\synkro\src\sound\Sound3D.cpp" />
     <ClCompile Include="..\..\..\synkro\src\sound\SoundChannel.cpp" />
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Color\ColorFilterProperty.cpp" />
-    <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\DepthMap.cpp" />
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\FogFilterProperty.cpp" />
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Emboss\EmbossFilterProperty.cpp" />
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Kernel3x3\Kernel3x3FilterProperty.cpp" />

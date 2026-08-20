@@ -5,40 +5,7 @@
 //
 // Description: Modulates input texture with a fog color based on distance
 //------------------------------------------------------------------------------
-struct Fragment
-{
-	float4 pos	: SV_POSITION;		// Vertex position in fragment space
-	float2 tex	: TEXCOORD0;		// Vertex texture coordinates
-};
-
-//------------------------------------------------------------------------------
-// Resources
-//------------------------------------------------------------------------------
-Texture2D 	texImage;			// Input texture
-
-//------------------------------------------------------------------------------
-// Samplers
-//------------------------------------------------------------------------------
-SamplerState	samImage;			// Sampler state
-
-//------------------------------------------------------------------------------
-// Parameters
-//------------------------------------------------------------------------------
-cbuffer cb0 : register( b0 )
-{
-	float4x4 	p_invViewProj;		// Inverse (View * Projection) matrix
-};
-
-//------------------------------------------------------------------------------
-// Resources
-//------------------------------------------------------------------------------
-//Texture2D 	texDepth;			// "Depth" texture
-Texture2DMS<float> texDepth;			// "Depth" texture
-
-//------------------------------------------------------------------------------
-// Samplers
-//------------------------------------------------------------------------------
-SamplerState	samDepth;			// Sampler state
+#include "depth.fsh"
 
 //------------------------------------------------------------------------------
 // Constants
@@ -94,7 +61,7 @@ float CalcFogFactor( float d )
 float4 main( Fragment fragment ) : SV_TARGET
 {
 	float4 color = texImage.Sample( samImage, fragment.tex );
-	float depth = texDepth.Load( fragment.tex, 0 );
+	float depth = texDepth.Sample( samDepth, fragment.tex ).r;
 
 	// Convert fragment position to normalized device coordinates.
 	float4 screenPos = float4( 2.0f*fragment.tex.x - 1.0f, 1.0f - 2.0f*fragment.tex.y, depth, 1.0f );
@@ -103,7 +70,7 @@ float4 main( Fragment fragment ) : SV_TARGET
 	float4 worldPos = mul( screenPos, p_invViewProj );
 
 	// Divide z by w to get the world position.  
-	float d = 1.0f/worldPos.w;
+	float d = worldPos.z/worldPos.w;
 	float fog = CalcFogFactor( d );
 
 	// Blend scene and fog.

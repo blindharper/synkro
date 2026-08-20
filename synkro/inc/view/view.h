@@ -23,7 +23,6 @@
 #include <view/IEmbossFilterAnimationController.h>
 #include <view/IFogFilter.h>
 #include <view/IFogFilterAnimationController.h>
-#include <view/IDepthMap.h>
 #include <view/IMotionBlurFilter.h>
 #include <view/ISimpleFilter.h>
 #include <view/ISimpleFilterAnimationController.h>

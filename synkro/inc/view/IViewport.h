@@ -56,12 +56,6 @@ public:
 	virtual IViewportFilter*								CreateFilter( const ViewportFilter& type ) = 0;
 
 	/**
-	 * Creates custom depth target, if needed, and activates it.
-	 * @return Created depth target.
-	 */
-	virtual IDepthMap*										CreateDepthTarget() = 0;
-
-	/**
 	 * Activates viewport.
 	 */
 	virtual void											Activate() = 0;
@@ -276,11 +270,6 @@ public:
 	 * @param mesh Mesh to test.
 	 */
 	virtual Bool											IsOverlay( scene::ITriangleMesh* mesh ) const = 0;
-
-	/**
-	 * Retrieves viewport's depth target.
-	 */
-	virtual IDepthMap*										GetDepthTarget() const = 0;
 
 	/**
 	 * Retrieves the number of viewport filters.
