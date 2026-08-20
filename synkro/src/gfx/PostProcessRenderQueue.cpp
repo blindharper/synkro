@@ -227,7 +227,7 @@ UInt PostProcessRenderQueue::Process( RenderChain* chain, IPlainRenderTexture* c
 			}
 		}
 		// Unbind resource from input as it will be used as rendering target.
-		if ( inputDepthTexture == nullptr )
+		if ( inputDepthTexture != nullptr )
 		{
 			_items[i].FragmentResources->Unbind();
 		}
