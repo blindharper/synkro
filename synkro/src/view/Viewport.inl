@@ -193,12 +193,6 @@ SYNKRO_INLINE Bool Viewport::IsVisible() const
 {
 	return _view->IsVisible();
 }
-// TODO: Remove!!!
-SYNKRO_INLINE IDepthMap* Viewport::GetDepthTarget() const
-{
-	return nullptr/*_depthTarget*/;
-}
-// TODO: Remove!!!
 
 SYNKRO_INLINE UInt Viewport::GetFilterCount() const
 {

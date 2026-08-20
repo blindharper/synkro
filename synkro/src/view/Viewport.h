@@ -34,7 +34,6 @@
 #include <over/IText.h>
 #include <over/IPolyLine.h>
 #include <scene/BaseScene.h>
-#include <view/Filter/Depth/DepthMap.h>
 #include "BaseViewportManager.h"
 
 
@@ -59,7 +58,6 @@ public:
 	// IViewport methods.
 	IViewportAnimationController*							CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	IViewportFilter*										CreateFilter( const ViewportFilter& type );
-	IDepthMap*												CreateDepthTarget();// TODO: Remove!!!
 	void													Activate();
 	void													EnableRect( Bool enable );
 	void													SetCamera( scene::ICamera* camera );
@@ -97,7 +95,6 @@ public:
 	Bool													IsLabelVisible() const;
 	Bool													IsVisible() const;
 	Bool													IsOverlay( scene::ITriangleMesh* mesh ) const;
-	IDepthMap*												GetDepthTarget() const;
 	UInt													GetFilterCount() const;
 	IViewportFilter*										GetFilter( UInt index ) const;
 	gfx::IRenderView*										GetView() const;

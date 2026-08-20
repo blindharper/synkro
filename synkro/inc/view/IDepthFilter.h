@@ -34,23 +34,11 @@ iface IDepthFilter :
 {
 public:
 	/**
-	 * Sets depth map.
-	 * @param depth Depth map.
-	 * @exception BadArgumentException depth is null.
-	 */
-	virtual void											SetDepthMap( IDepthMap* depth ) = 0;
-
-	/**
 	 * Sets camera to be used with the filter.
 	 * @param camera Camera used to get pixel depth.
 	 * @exception BadArgumentException camera is null.
 	 */
 	virtual void											SetCamera( scene::ICamera* camera ) = 0;
-
-	/**
-	 * Retrieves depth map.
-	 */
-	virtual IDepthMap*										GetDepthMap() const = 0;
 
 	/**
 	 * Retrieves camera used with the filter.

@@ -129,86 +129,99 @@ UInt PostProcessRenderQueue::Process( RenderChain* chain, IPlainRenderTexture* c
 
 	for ( UInt i = 0; i < _items.Size(); ++i )
 	{
+		PostProcessRenderItem& item = _items[i];
+
 		// Skip disabled items.
-		if ( !_items[i].Object->IsEnabled() )
+		if ( !item.Object->IsEnabled() )
 			continue;
 
 		// Validate item if needed.
-		if ( _items[i].Object->IsDirty() )
+		if ( item.Object->IsDirty() )
 		{
-			ValidateItem( _items[i] );
-			_items[i].Object->ResetDirty();
+			ValidateItem( item );
+			item.Object->ResetDirty();
 		}
 
 		// Bind constant stuff.
-		_items[i].FragmentSamplers->Bind();
-		if ( stencilState != _items[i].StencilState )
+		item.FragmentSamplers->Bind();
+		if ( stencilState != item.StencilState )
 		{
-			stencilState = _items[i].StencilState;
+			stencilState = item.StencilState;
 			stencilState->Bind();
 		}
 
 		// Determine input for the effect.
-		IResource* input = (i == 0) ? _input : _items[i].Object->GetInput();
+		IResource* input = (i == 0) ? _input : nullptr;
 		IDepthTexture* inputDepthTexture = nullptr;
+		IResource* inputDepthTexture2 = nullptr;
 
 		// Draw passes.
-		for ( UInt p = 0; p < _items[i].Object->GetPassCount(); ++p )
+		for ( UInt p = 0; p < item.Object->GetPassCount(); ++p )
 		{
 			Bool bound = false;
-			Bool lastPass = (p == _items[i].Object->GetPassCount() - 1);
+			Bool lastPass = (p == item.Object->GetPassCount() - 1);
 
 			// Handle filter with scissor rectangle enabled.
-			if ( lastPass && (_items[i].Object->GetScissorRect() != nullptr) )
+			if ( lastPass && (item.Object->GetScissorRect() != nullptr) )
 			{
 				_programPass->Bind();
 				_rasterizerState->Bind();
 				rasterizerState = _rasterizerState;
 				if ( bound = chain->Begin(nullptr) )
 				{
-					IResource* inputPass = (i == 0) ? _input : _items[i].Object->GetInput();
+					IResource* inputPass = (i == 0) ? _input : nullptr;
 					IResource* inputRes = (inputPass != nullptr) ? inputPass : chain->GetBackBuffer();
 					inputDepthTexture = inputRes->AsDepthTexture();
-					if ( inputDepthTexture != nullptr )
+					inputDepthTexture2 = item.Object->GetInput();
+					if ( (inputDepthTexture != nullptr) || (inputDepthTexture2 != nullptr) )
 					{
 						colorTarget->UnbindDepthTexture();
 					}
-					_items[i].FragmentResources->Set( 0, inputRes );
-					_items[i].FragmentResources->SetDirty();
-					_items[i].FragmentResources->Bind();
-					primitiveCount += _view->GetQuadData()->Draw( 0, 4, 0, 0 );
-					if ( inputDepthTexture != nullptr )
+					item.FragmentResources->Set( 0, inputRes );
+					if ( inputDepthTexture2 != nullptr )
 					{
-						_items[i].FragmentResources->Unbind();
+						item.FragmentResources->Set( 1, inputDepthTexture2 );
+					}
+					item.FragmentResources->SetDirty();
+					item.FragmentResources->Bind();
+					primitiveCount += _view->GetQuadData()->Draw( 0, 4, 0, 0 );
+					if ( (inputDepthTexture != nullptr) || (inputDepthTexture2 != nullptr) )
+					{
+						item.FragmentResources->Unbind();
 					}
 					chain->Present();
 				}
-				_items[i].Object->GetScissorRect()->Bind();
+				item.Object->GetScissorRect()->Bind();
 			}
-			_items[i].Program->Bind();
-			_items[i].FragmentParams->Bind();
+			item.Program->Bind();
+			item.FragmentParams->Bind();
 
 			// Bind states.
-			if ( rasterizerState != _items[i].RasterizerState )
+			if ( rasterizerState != item.RasterizerState )
 			{
-				rasterizerState = _items[i].RasterizerState;
+				rasterizerState = item.RasterizerState;
 				rasterizerState->Bind();
 			}
 
-			if ( bound || chain->Begin(lastPass ? _items[i].Object->GetTarget() : nullptr) )
+			if ( bound || chain->Begin(lastPass ? item.Object->GetTarget() : nullptr) )
 			{
 				// Bind fragment stage stuff.
 				if ( !bound )
 				{
 					IResource* inputRes = (input != nullptr) ? input : chain->GetBackBuffer();
 					inputDepthTexture = inputRes->AsDepthTexture();
-					if ( inputDepthTexture != nullptr )
+					inputDepthTexture2 = item.Object->GetInput();
+					if ( (inputDepthTexture != nullptr) || (inputDepthTexture2 != nullptr) )
 					{
 						colorTarget->UnbindDepthTexture();
 					}
-					_items[i].FragmentResources->Set( 0, inputRes );
-					_items[i].FragmentResources->SetDirty();
-					_items[i].FragmentResources->Bind();
+					item.FragmentResources->Set( 0, inputRes );
+					if ( inputDepthTexture2 != nullptr )
+					{
+						item.FragmentResources->Set( 1, inputDepthTexture2 );
+					}
+					item.FragmentResources->SetDirty();
+					item.FragmentResources->Bind();
 				}
 				input = nullptr;
 
@@ -216,9 +229,9 @@ UInt PostProcessRenderQueue::Process( RenderChain* chain, IPlainRenderTexture* c
 				primitiveCount += _view->GetQuadData()->Draw( 0, 4, 0, 0 );
 
 				// Unbind resource from input as it will be used as rendering target.
-				if ( inputDepthTexture != nullptr )
+				if ( (inputDepthTexture != nullptr) || (inputDepthTexture2 != nullptr) )
 				{
-					_items[i].FragmentResources->Unbind();
+					item.FragmentResources->Unbind();
 				}
 
 				// Present rendering results to the current target.
@@ -227,9 +240,9 @@ UInt PostProcessRenderQueue::Process( RenderChain* chain, IPlainRenderTexture* c
 			}
 		}
 		// Unbind resource from input as it will be used as rendering target.
-		if ( inputDepthTexture != nullptr )
+		if ( (inputDepthTexture != nullptr) || (inputDepthTexture2 != nullptr) )
 		{
-			_items[i].FragmentResources->Unbind();
+			item.FragmentResources->Unbind();
 		}
 	}
 
@@ -240,8 +253,12 @@ void PostProcessRenderQueue::Resize()
 {
 	for ( UInt i = 0; i < _items.Size(); ++i )
 	{
-		_items[i].FragmentResources->Set( 0, nullptr );
-		_items[i].FragmentResources->SetDirty();
+		ResourceSet* resources = _items[i].FragmentResources;
+		for ( UInt r = 0; r < resources->GetSize(); ++r )
+		{
+			resources->Set( r, nullptr );
+		}
+		resources->SetDirty();
 	}
 }
 

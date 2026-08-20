@@ -1132,9 +1132,6 @@
     <Filter Include="view\Implementation\Filter\Controller">
       <UniqueIdentifier>{8b235d9f-62b1-4478-9071-6a861bb84612}</UniqueIdentifier>
     </Filter>
-    <Filter Include="view\Implementation\Filter\DepthMap">
-      <UniqueIdentifier>{818ae3c8-f109-4106-bf92-8f4e6ff06712}</UniqueIdentifier>
-    </Filter>
     <Filter Include="view\Implementation\Viewport\Type">
       <UniqueIdentifier>{aa60578d-0b94-4134-8233-9adf89c02aff}</UniqueIdentifier>
     </Filter>
@@ -3349,9 +3346,6 @@
     <ClInclude Include="..\..\..\synkro\inc\view\IDepthFilter.h">
       <Filter>view\Interface\Filter\Depth</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\synkro\inc\view\IDepthMap.h">
-      <Filter>view\Interface\Filter\Depth</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\synkro\inc\view\IDepthOfFieldFilter.h">
       <Filter>view\Interface\Filter\Depth</Filter>
     </ClInclude>
@@ -4739,9 +4733,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Color\ColorFilterProperty.h">
       <Filter>view\Implementation\Filter\Color</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\DepthMap.h">
-      <Filter>view\Implementation\Filter\DepthMap</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\view\Filter\Depth\FogFilterProperty.h">
       <Filter>view\Implementation\Filter\Fog</Filter>
@@ -6185,9 +6176,6 @@
     </None>
     <None Include="..\..\..\synkro\src\view\Filter\ViewportFilterImpl.inl">
       <Filter>view\Implementation\Filter</Filter>
-    </None>
-    <None Include="..\..\..\synkro\src\view\Filter\Depth\DepthMap.inl">
-      <Filter>view\Implementation\Filter\DepthMap</Filter>
     </None>
     <None Include="..\..\..\synkro\src\mat\TransparentMaterial.inl">
       <Filter>mat\Implementation\Material\Transparent</Filter>
@@ -7653,9 +7641,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Color\ColorFilterProperty.cpp">
       <Filter>view\Implementation\Filter\Color</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\DepthMap.cpp">
-      <Filter>view\Implementation\Filter\DepthMap</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\view\Filter\Depth\FogFilterProperty.cpp">
       <Filter>view\Implementation\Filter\Fog</Filter>

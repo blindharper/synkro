@@ -18,7 +18,7 @@
 #include <view/Filter/ViewportFilterImpl.h>
 #include <scene/ICamera.h>
 #include <gfx/IResourceSet.h>
-#include <view/IDepthMap.h>
+#include <gfx/IPlainDepthTexture.h>
 
 
 namespace synkro
@@ -44,9 +44,7 @@ public:
 	virtual IDepthFilter*									AsDepth() const;
 
 	// IDepthFilter methods.
-	virtual void											SetDepthMap( IDepthMap* depth );
 	virtual void											SetCamera( scene::ICamera* camera );
-	virtual IDepthMap*										GetDepthMap() const;
 	virtual scene::ICamera*									GetCamera() const;
 	virtual IDepthOfFieldFilter*							AsDepthOfField() const;
 	virtual IFogFilter*										AsFog() const;
@@ -54,7 +52,6 @@ public:
 
 protected:
 	P(gfx::IResourceSet)									_resources;
-	IDepthMap*												_depth;
 	scene::ICamera*											_camera;
 	gfx::ProgramParam*										_paramInvViewProj;
 };

@@ -485,7 +485,6 @@ iface ICameraFilter;
 iface IColorFilter;
 iface IColorFilterAnimationController;
 iface IDepthFilter;
-iface IDepthMap;
 iface IDepthOfFieldFilter;
 iface IEmbossFilter;
 iface IEmbossFilterAnimationController;
