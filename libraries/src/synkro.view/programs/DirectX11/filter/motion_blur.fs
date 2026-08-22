@@ -26,11 +26,11 @@ cbuffer cb2 : register( b2 )
 float4 main( Fragment fragment ) : SV_TARGET
 {
 	// Get the depth buffer value at this fragment.
-	float depth = (float)texDepth.Sample( samDepth, fragment.tex );
+	float depth = texDepth.Sample( samDepth, fragment.tex ).r;
 	float2 texCoord = fragment.tex;
 
 	// Convert fragment position to normalized device coordinates.
-	float4 screenPos = float4( 2.0f*fragment.tex.x - 1.0f, 1.0f - 2.0f*fragment.tex.y, depth, 1.0f );
+	float4 currentPos = float4( 2.0f*fragment.tex.x - 1.0f, 1.0f - 2.0f*fragment.tex.y, depth, 1.0f );
 
 	// Transform by inverse view-projection.
 	float4 worldPos = mul( currentPos, p_invViewProj );
