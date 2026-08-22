@@ -12,9 +12,17 @@
 //==============================================================================
 SYNKRO_INLINE void MotionBlurFilter::Update()
 {
-	_params->Set( _paramPrevViewProj, _transViewProj );
-	_camera->GetInverseViewProjectionTransform( _transViewProj );
-	_params->Set( _paramInvViewProj, _transViewProj );
+	_params->Set( _paramPrevViewProj, _transPrevViewProj );
+
+	math::Matrix4x4 transInverseViewProjection;
+	_camera->GetInverseViewProjectionTransform( transInverseViewProjection );
+	_params->Set( _paramInvViewProj, transInverseViewProjection );
+
+	math::Matrix4x4 transView;
+	_camera->GetViewTransform( transView );
+	math::Matrix4x4 transProjection;
+	_camera->GetProjectionTransform( transProjection );
+	_transPrevViewProj = transProjection*transView;
 }
 
 SYNKRO_INLINE IMotionBlurFilter* MotionBlurFilter::AsMotionBlur() const
@@ -24,7 +32,7 @@ SYNKRO_INLINE IMotionBlurFilter* MotionBlurFilter::AsMotionBlur() const
 
 SYNKRO_INLINE void MotionBlurFilter::SetSampleCount( UInt count )
 {
-	_params->Set( _paramSampleCount, (Int)count );
+	_params->Set( _paramSampleCount, CastInt(count) );
 }
 
 SYNKRO_INLINE UInt MotionBlurFilter::GetSampleCount() const

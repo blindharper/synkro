@@ -48,7 +48,7 @@ public:
 private:
 	gfx::ProgramParam*										_paramPrevViewProj;
 	gfx::ProgramParam*										_paramSampleCount;
-	math::Matrix4x4											_transViewProj;
+	math::Matrix4x4											_transPrevViewProj;
 };
 
 
