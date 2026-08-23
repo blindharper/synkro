@@ -254,6 +254,9 @@ void PostProcessRenderQueue::Resize()
 	for ( UInt i = 0; i < _items.Size(); ++i )
 	{
 		ResourceSet* resources = _items[i].FragmentResources;
+		if ( resources == nullptr )
+			continue;
+
 		for ( UInt r = 0; r < resources->GetSize(); ++r )
 		{
 			resources->Set( r, nullptr );
