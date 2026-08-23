@@ -236,8 +236,7 @@ void CapsuleMeshBuilder::Build( ITriangleMesh* mesh, const Vector4& param1, cons
 	const Float drho = Math::Pi/CastFloat(stackCount);
 	const Float dtheta = Math::TwoPi/CastFloat(sliceCount);
 	const Float ds = 1.0f/CastFloat(sliceCount);
-	const Float dt = 1.0f/(height+2.0f*radius);
-	const Float totalHeight = (height+2.0f*radius);
+	const Float dt = 1.0f/CastFloat(2*stackCount);
 	Float s = 0.0f;
 	Float t = 0.0f;
 	Vector<Vector3> positions( A(Vector3), 2*(stackCount+1)*(sliceCount+1) );
