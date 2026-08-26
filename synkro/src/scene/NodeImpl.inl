@@ -138,10 +138,9 @@ template <class T>
 SYNKRO_INLINE void NodeImpl<T>::LookAt( const math::Vector3& target )
 {
 	_orientation = math::Quaternion::Identity;
-	_transformDirty = true;
 
 	math::Matrix4x4 transform;
-	GetWorldTransform( transform );
+	GetWorldTransform( transform, true ); // NB: Ignore orientation!
 	math::Vector3 eye = transform.Translation();
 	
 	math::Vector3 dir = (eye - target).Normalize();
@@ -157,17 +156,18 @@ SYNKRO_INLINE void NodeImpl<T>::LookAt( const math::Vector3& target )
 			axis = math::Vector3::X ^ forward;
 		}
 		axis.Normalize();
-		math::Quaternion orientation( axis, math::Math::Pi );
-		SetOrientation( orientation );
+		_orientation = math::Quaternion( axis, math::Math::Pi );
+		_orientation.GetAngles( _yaw, _pitch, _roll );
 	}
 	else
 	{
 		math::Vector3 axis = forward ^ dir;
 		Float s = math::Math::Sqrt( (1.0f+angle)*2.0f );
 		Float invs = 1.0f / s;
-		math::Quaternion orientation( axis.x*invs, axis.y*invs, axis.z*invs, s*0.5f );
-		SetOrientation( orientation );
+		_orientation = math::Quaternion( axis.x*invs, axis.y*invs, axis.z*invs, s*0.5f );
+		_orientation.GetAngles( _yaw, _pitch, _roll );
 	}
+	_transformDirty = true;
 }
 
 template <class T>
@@ -293,6 +293,21 @@ SYNKRO_INLINE ILookAtConstraint* NodeImpl<T>::GetLookAtConstraint() const
 }
 
 template <class T>
+SYNKRO_INLINE void NodeImpl<T>::GetWorldTransform( math::Matrix4x4& transform, Bool ignoreOrientation ) const
+{
+	math::Matrix4x4 parentTransform;
+	if ( _parent != nullptr )
+	{
+		_parent->GetWorldTransform( parentTransform, ignoreOrientation );
+	}
+
+	math::Matrix4x4 nodeTransform;
+	GetTransform( nodeTransform, ignoreOrientation );
+
+	transform = parentTransform * nodeTransform;
+}
+
+template <class T>
 SYNKRO_INLINE void NodeImpl<T>::GetWorldTransform( math::Matrix4x4& transform ) const
 {
 	math::Matrix4x4 parentTransform;
@@ -305,6 +320,26 @@ SYNKRO_INLINE void NodeImpl<T>::GetWorldTransform( math::Matrix4x4& transform ) 
 	GetTransform( nodeTransform );
 
 	transform = parentTransform * nodeTransform;
+}
+
+template <class T>
+SYNKRO_INLINE void NodeImpl<T>::GetTransform( math::Matrix4x4& transform, Bool ignoreOrientation ) const
+{
+	math::Matrix4x4 transPosition;
+	transPosition.SetTranslation( _translation );
+	math::Matrix4x4 transScale;
+	transScale.SetScale( _scale );
+	if ( ignoreOrientation )
+	{
+		transform = transPosition;
+	}
+	else
+	{
+		math::Matrix4x4 transOrientation;
+		transOrientation.SetOrientation( _orientation );
+		transform = transPosition * transOrientation;
+	}
+	transform = transform * transScale;
 }
 
 template <class T>
@@ -452,6 +487,12 @@ template <class T>
 SYNKRO_INLINE lang::String NodeImpl<T>::GetName() const
 {
 	return _name;
+}
+
+template <class T>
+SYNKRO_INLINE IBillboard* NodeImpl<T>::AsBillboard() const
+{
+	return nullptr;
 }
 
 template <class T>

@@ -12,7 +12,12 @@
 //==============================================================================
 SYNKRO_INLINE void SceneRenderObject::SetRenderable( IRenderView* view, Bool render )
 {
-	_views[view->ID()] = render;
+	if ( !_views.ContainsKey(view->ID()) )
+	{
+		_views[view->ID()] = ViewData( render );
+	}
+	_views[view->ID()].Renderable = render;
+	_dirty = true;
 }
 
 SYNKRO_INLINE void SceneRenderObject::SetBlendStates( IBlendStateSet* states )
@@ -40,6 +45,16 @@ SYNKRO_INLINE void SceneRenderObject::SetRasterizerState( IRasterizerState* stat
 		_rasterizerState = state;
 		_dirty = true;
 	}
+}
+
+SYNKRO_INLINE void SceneRenderObject::SetVertexParameters( IRenderView* view, IParameterSet* params )
+{
+	if ( !_views.ContainsKey(view->ID()) )
+	{
+		_views[view->ID()] = ViewData();
+	}
+	_views[view->ID()].VertexParams = params;
+	_dirty = true;
 }
 
 SYNKRO_INLINE void SceneRenderObject::SetVertexParameters( IParameterSet* params )
@@ -191,7 +206,7 @@ SYNKRO_INLINE void SceneRenderObject::SetOcclusionPassValue( UInt value )
 
 SYNKRO_INLINE Bool SceneRenderObject::IsRenderable( IRenderView* view ) const
 {
-	return _views.ContainsKey(view->ID()) ? _views[view->ID()] : true;
+	return _views.ContainsKey(view->ID()) ? _views[view->ID()].Renderable : true;
 }
 
 SYNKRO_INLINE IBlendStateSet* SceneRenderObject::GetBlendStates() const
@@ -207,6 +222,12 @@ SYNKRO_INLINE IDepthStencilState* SceneRenderObject::GetDepthStencilState() cons
 SYNKRO_INLINE IRasterizerState* SceneRenderObject::GetRasterizerState() const
 {
 	return _rasterizerState;
+}
+
+SYNKRO_INLINE IParameterSet* SceneRenderObject::GetVertexParameters( IRenderView* view ) const
+{
+	IParameterSet* vertexParams = _views.ContainsKey(view->ID()) ? _views[view->ID()].VertexParams : nullptr;
+	return (vertexParams != nullptr) ? vertexParams : _vertexParams;
 }
 
 SYNKRO_INLINE IParameterSet* SceneRenderObject::GetVertexParameters() const

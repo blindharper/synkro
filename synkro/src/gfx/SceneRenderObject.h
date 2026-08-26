@@ -17,15 +17,12 @@
 #include "config.h"
 #include "RenderObjectImpl.h"
 #include <gfx/ISceneRenderObject.h>
-#include <gfx/IProgram.h>
-#include <gfx/IProgramStage.h>
 #include <gfx/IParameterSet.h>
 #include <gfx/IResourceSet.h>
 #include <gfx/ISamplerStateSet.h>
 #include <gfx/IBlendStateSet.h>
 #include <gfx/IDepthStencilState.h>
 #include <gfx/IRasterizerState.h>
-#include <gfx/IPrimitiveEx.h>
 #include <gfx/IRenderView.h>
 #include <gfx/CompareFunction.h>
 #include "SceneRenderQueue.h"
@@ -53,6 +50,7 @@ public:
 	void													SetBlendStates( IBlendStateSet* states );
 	void													SetDepthStencilState( IDepthStencilState* state );
 	void													SetRasterizerState( IRasterizerState* state );
+	void													SetVertexParameters( IRenderView* view, IParameterSet* params );
 	void													SetVertexParameters( IParameterSet* params );
 	void													SetVertexResources( IResourceSet* resources );
 	void													SetVertexSamplers( ISamplerStateSet* samplers );
@@ -77,6 +75,7 @@ public:
 	IBlendStateSet*											GetBlendStates() const;
 	IDepthStencilState*										GetDepthStencilState() const;
 	IRasterizerState*										GetRasterizerState() const;
+	IParameterSet*											GetVertexParameters( IRenderView* view ) const;
 	IParameterSet*											GetVertexParameters() const;
 	IResourceSet*											GetVertexResources() const;
 	ISamplerStateSet*										GetVertexSamplers() const;
@@ -106,9 +105,24 @@ public:
 	lang::String											InstanceKey;
 
 private:
-	typedef lang::MapPair<UInt, Bool>						ViewEntry;
+	struct ViewData
+	{
+		ViewData( Bool renderable ) :
+			Renderable( renderable )
+		{
+		}
 
-	lang::Map<UInt, Bool>									_views;
+		ViewData() :
+			Renderable( true )
+		{
+		}
+
+		P(IParameterSet)	VertexParams;
+		Bool				Renderable;
+	};
+	typedef lang::MapPair<UInt, ViewData>					ViewEntry;
+
+	lang::Map<UInt, ViewData>								_views;
 	SceneRenderQueue*										_queue;
 	P(IBlendStateSet)										_blendStates;
 	P(IDepthStencilState)									_depthStencilState;

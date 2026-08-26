@@ -18,6 +18,8 @@
 #include <over/IOverlay.h>
 #include <scene/BaseScene.h>
 #include <scene/NodeImpl.h>
+#include <scene/BaseBillboard.h>
+#include <scene/IBillboard.h>
 #include <scene/ITriangleMesh.h>
 #include <scene/ITriangleSet.h>
 #include <core/IContext.h>
@@ -91,6 +93,14 @@ Bool ViewportManager::Update( Double delta )
 		INode* root = camera->GetSceneEx()->GetRoot();
 		for ( INode* node = root; node != nullptr; node = ((NodeImpl<INode>*)node)->GetNextNode() )
 		{
+			// Handle billboards.
+			IBillboard* billboard = node->AsBillboard();
+			if ( billboard != nullptr )
+			{
+				AsBaseBillboard( billboard )->Update( viewport );
+				continue;
+			}
+
 			// See if we found a mesh.
 			IMesh* mesh = node->AsMesh();
 			if ( mesh == nullptr )

@@ -7,6 +7,10 @@
 		<vertex name="position" type="vector3"/>
 		<vertex name="texcoord" type="vector2"/>
 	</format>
+	<format name="billboard">
+		<vertex name="position" type="vector3"/>
+		<vertex name="texcoord" type="vector2"/>
+	</format>
 	<format name="screen">
 		<vertex name="position2d" type="vector4"/>
 		<vertex name="texcoord" type="vector2"/>
@@ -70,5 +74,6 @@
 	<program name="line.colored" parent="viewport" input="scene.colored" vertex="scene\line_colored.vs" fragment="scene\line.fs"/>
 	<program name="line4d.colored" parent="viewport" input="scene4d.colored" vertex="scene\line4d_colored.vs" fragment="scene\line.fs"/>
 	<program name="line.instanced" parent="viewport" input="scene.instanced" vertex="scene\line_instanced.vs" fragment="scene\line.fs"/>
+	<program name="billboard" parent="viewport" input="billboard" vertex="scene\billboard.vs" fragment="scene\billboard.fs"/>
 </programs>
 </resource>

@@ -369,6 +369,7 @@ iface PhysicsListener;
 namespace scene
 {
 
+iface IBillboard;
 iface IBone;
 iface ICamera;
 iface ICameraAnimationController;

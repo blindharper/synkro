@@ -13,6 +13,7 @@
 #include "config.h"
 #include "Scene.h"
 #include "Dummy.h"
+#include "Billboard.h"
 #include "Camera.h"
 #include "Curve.h"
 #include "OmniLight.h"
@@ -83,6 +84,7 @@ Scene::Scene( IScene* scene, BaseSceneManager* sceneManager, IContext* context, 
 	_debugMode( debugMode ),
 	_cameraCount( 0 ),
 	_indexDummy( 1 ),
+	_indexBillboard( 1 ),
 	_indexCamera( 1 ),
 	_indexCurve( 1 ),
 	_indexLight( 1 ),
@@ -193,12 +195,20 @@ INode* Scene::CreateDummy( INode* parent, const String& name )
 	return dummy;
 }
 
-ICurve* Scene::CreateCurve( INode* parent, const lang::String& name )
+ICurve* Scene::CreateCurve( INode* parent, const String& name )
 {
 	ICurve* curve = new Curve( this, _context, name );
 	curve->SetParent( (parent != nullptr) ? parent : _root );
 	RegisterNode( curve );
 	return curve;
+}
+
+IBillboard* Scene::CreateBillboard( INode* parent, const String& name, IImage* image, Float width, Float height )
+{
+	IBillboard* billboard = new Billboard( this, _context, name, image, width, height );
+	billboard->SetParent( (parent != nullptr) ? parent : _root );
+	RegisterNode( billboard );
+	return billboard;
 }
 
 ICamera* Scene::CreateCamera( INode* parent, const String& name )
