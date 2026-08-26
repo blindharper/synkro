@@ -8,19 +8,39 @@
 // is allowed without any permission from the Synkro Project.
 // Website: https://synkro.pro Email: mailto:blindharper70@gmail.com
 //
-// Purpose: Defines Synkro version.
+// Purpose: Defines base billboard.
 //==============================================================================
-#ifndef _SYNKRO_CFG_SYNKROVERSION_
-#define _SYNKRO_CFG_SYNKROVERSION_
+#ifndef _SYNKRO_SCENE_BASEBILLBOARD_
+#define _SYNKRO_SCENE_BASEBILLBOARD_
 
 
-#include "ConfigSynkro.h"
+#include "config.h"
 
 
-constexpr synkro::Byte 		SYNKRO_VERSION_MAJOR = 1;
-constexpr synkro::Byte 		SYNKRO_VERSION_MINOR = 12;
-constexpr synkro::Byte 		SYNKRO_VERSION_PATCH = 0;
-constexpr synkro::UInt		SYNKRO_VERSION = (SYNKRO_VERSION_MAJOR << 16) | (SYNKRO_VERSION_MINOR << 8) | SYNKRO_VERSION_PATCH;
+namespace synkro
+{
 
 
-#endif // _SYNKRO_CFG_SYNKROVERSION_
+namespace scene
+{
+
+
+// Base billboard.
+class BaseBillboard
+{
+public:
+	virtual void											Update( view::IViewport* viewport ) = 0;
+};
+
+
+// Casts object to BaseBillboard.
+#define AsBaseBillboard( OBJ ) dynamic_cast<BaseBillboard*>( OBJ )
+
+
+} // scene
+
+
+} // synkro
+
+
+#endif // _SYNKRO_SCENE_BASEBILLBOARD_

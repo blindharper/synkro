@@ -14,6 +14,7 @@
 #define _SYNKRO_SCENE_
 
 
+#include <scene/IBillboard.h>
 #include <scene/ICamera.h>
 #include <scene/ICurve.h>
 #include <scene/IFog.h>
@@ -52,6 +53,7 @@
 #include <scene/MeshBuilder.h>
 
 
+#define PtrBillboard P(synkro::scene::IBillboard)
 #define PtrCamera P(synkro::scene::ICamera)
 #define PtrCameraRecordController P(synkro::scene::ICameraRecordController)
 #define PtrCurve P(synkro::scene::ICurve)

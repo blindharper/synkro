@@ -1822,6 +1822,9 @@
     <Filter Include="phys\Implementation\Actor\Static">
       <UniqueIdentifier>{b681885a-69ff-4406-a662-36a1651e2fb9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="scene\Implementation\Node\Billboard">
+      <UniqueIdentifier>{78bddc33-db32-47bd-b113-a7ae386bd508}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\lang\Encoding.h">
@@ -5394,6 +5397,15 @@
     <ClInclude Include="..\..\..\synkro\inc\view\ICameraFilter.h">
       <Filter>view\Interface\Filter</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\scene\IBillboard.h">
+      <Filter>scene\Interface\Node</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\BaseBillboard.h">
+      <Filter>scene\Implementation\Node\Billboard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\Billboard.h">
+      <Filter>scene\Implementation\Node\Billboard</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\synkro\src\lang\Stack.inl">
@@ -7887,6 +7899,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\phys\StaticActor.cpp">
       <Filter>phys\Implementation\Actor\Static</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\Billboard.cpp">
+      <Filter>scene\Implementation\Node\Billboard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

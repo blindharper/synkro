@@ -644,6 +644,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\inc\scene\ColorMode.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\DebugMode.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\FogType.h" />
+    <ClInclude Include="..\..\..\synkro\inc\scene\IBillboard.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\IConeLight.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\IConeLightAnimationController.h" />
     <ClInclude Include="..\..\..\synkro\inc\scene\IConeSound.h" />
@@ -1036,10 +1037,12 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\src\phys\PhysicsSystemEx.h" />
     <ClInclude Include="..\..\..\synkro\src\phys\Shape.h" />
     <ClInclude Include="..\..\..\synkro\src\phys\StaticActor.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\BaseBillboard.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\BaseFog.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\BaseLight.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\BaseMeshBatch.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\BaseSceneManager.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\Billboard.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\BoneProperty.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\CameraAnimationController.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\CameraProperty.h" />
@@ -1952,6 +1955,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClCompile Include="..\..\..\synkro\src\phys\PhysicsSystemEx.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\Shape.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\StaticActor.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\Billboard.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\PrimitiveMorphController.cpp" />
     <ClCompile Include="..\..\..\synkro\src\win\HostWindow.cpp" />
     <ClCompile Include="..\..\src\synkro\synkro.core.cpp" />

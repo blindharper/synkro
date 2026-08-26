@@ -57,6 +57,12 @@ public:
 	virtual void											SetRasterizerState( IRasterizerState* state ) = 0;
 
 	/**
+	 * Sets render view-specific parameters for program's vertex stage.
+	 * @param view Render view for which to set parameters.
+	 */
+	virtual void											SetVertexParameters( IRenderView* view, IParameterSet* params ) = 0;
+
+	/**
 	 * Sets parameters for program's vertex stage.
 	 */
 	virtual void											SetVertexParameters( IParameterSet* params ) = 0;
@@ -180,6 +186,12 @@ public:
 	 * Retrieves rasterizer state used to render the object.
 	 */
 	virtual IRasterizerState*								GetRasterizerState() const = 0;
+
+	/**
+	 * Retrieves render view-specific parameters for program's vertex stage.
+	 * @param view Render view for which to retrieve parameters.
+	 */
+	virtual IParameterSet*									GetVertexParameters( IRenderView* view ) const = 0;
 
 	/**
 	 * Retrieves parameters for program's vertex stage.

@@ -17,7 +17,6 @@
 #include "config.h"
 #include <scene/IScene.h>
 #include <img/Color.h>
-#include <math/Matrix4x4.h>
 #include <scene/DebugMode.h>
 #include <scene/MeshCodec.h>
 #include <sound/SoundCodec.h>
@@ -61,6 +60,17 @@ public:
 	 * @return Created node.
 	 */
 	virtual ICurve*											CreateCurve( INode* parent, const lang::String& name ) = 0;
+
+	/** 
+	 * Creates billboard node with the given name.
+	 * @param parent Parent node.
+	 * @param name Node name.
+	 * @param image Billboard image.
+	 * @param width Billboard width.
+	 * @param height Billboard height.
+	 * @return Created node.
+	 */
+	virtual IBillboard*										CreateBillboard( INode* parent, const lang::String& name, img::IImage* image, Float width, Float height ) = 0;
 
 	/** 
 	 * Creates camera node with the given name.

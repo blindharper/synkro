@@ -70,7 +70,9 @@ public:
 	virtual void											SetGizmoSize( Float size );
 	virtual IParentConstraint*								GetParentConstraint() const;
 	virtual ILookAtConstraint*								GetLookAtConstraint() const;
+	virtual void											GetWorldTransform( math::Matrix4x4& transform, Bool ignoreOrientation ) const;
 	virtual void											GetWorldTransform( math::Matrix4x4& transform ) const;
+	virtual void											GetTransform( math::Matrix4x4& transform, Bool ignoreOrientation ) const;
 	virtual void											GetTransform( math::Matrix4x4& transform ) const;
 	virtual void											GetPosition( math::Vector3& position ) const;
 	virtual Float											GetPositionX() const;
@@ -90,6 +92,7 @@ public:
 	virtual INode*											GetNode( const lang::String& name ) const;
 	virtual ISceneEx*										GetSceneEx() const;
 	virtual lang::String									GetName() const;
+	virtual IBillboard*										AsBillboard() const;
 	virtual ICamera*										AsCamera() const;
 	virtual ILight*											AsLight() const;
 	virtual IMesh*											AsMesh() const;

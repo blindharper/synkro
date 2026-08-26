@@ -162,6 +162,20 @@ SYNKRO_INLINE ILookAtConstraint* DefaultTriangleMesh::GetLookAtConstraint() cons
 	return nullptr;
 }
 
+SYNKRO_INLINE void DefaultTriangleMesh::GetWorldTransform( math::Matrix4x4& transform, Bool ignoreOrientation ) const
+{
+	math::Matrix4x4 parentTransform;
+	if ( _parent != nullptr )
+	{
+		_parent->GetWorldTransform( parentTransform, ignoreOrientation );
+	}
+
+	math::Matrix4x4 nodeTransform;
+	GetTransform( nodeTransform, ignoreOrientation );
+
+	transform = parentTransform * nodeTransform;
+}
+
 SYNKRO_INLINE void DefaultTriangleMesh::GetWorldTransform( math::Matrix4x4& transform ) const
 {
 	math::Matrix4x4 parentTransform;
@@ -174,6 +188,25 @@ SYNKRO_INLINE void DefaultTriangleMesh::GetWorldTransform( math::Matrix4x4& tran
 	GetTransform( nodeTransform );
 
 	transform = parentTransform * nodeTransform;
+}
+
+SYNKRO_INLINE void DefaultTriangleMesh::GetTransform( math::Matrix4x4& transform, Bool ignoreOrientation ) const
+{
+	math::Matrix4x4 transPosition;
+	transPosition.SetTranslation( _translation );
+	math::Matrix4x4 transScale;
+	transScale.SetScale( _scale );
+	if ( ignoreOrientation )
+	{
+		transform = transPosition;
+	}
+	else
+	{
+		math::Matrix4x4 transOrientation;
+		transOrientation.SetOrientation( _orientation );
+		transform = transPosition * transOrientation;
+	}
+	transform = transform * transScale;
 }
 
 SYNKRO_INLINE void DefaultTriangleMesh::GetTransform( math::Matrix4x4& transform ) const
@@ -282,6 +315,11 @@ SYNKRO_INLINE ISceneEx* DefaultTriangleMesh::GetSceneEx() const
 SYNKRO_INLINE lang::String DefaultTriangleMesh::GetName() const
 {
 	return lang::String::Empty;
+}
+
+SYNKRO_INLINE IBillboard* DefaultTriangleMesh::AsBillboard() const
+{
+	return nullptr;
 }
 
 SYNKRO_INLINE ICamera* DefaultTriangleMesh::AsCamera() const

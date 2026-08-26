@@ -33,25 +33,25 @@ public:
 		constexpr Float TARGET_HEIGHT = 0.25f;
 		
 		_targetRed = _scene->CreateTriangleMesh( _floor, L"TargetRed", _materialRed, nullptr );
-		_dummyRed = _scene->CreateDummy( _targetRed, L"DummyRed" );
+		_dummyRed = _scene->CreateDummy( _targetRed, L"Red" );
 		_synkro->GetSceneManager()->BuildMesh( _targetRed, MeshBuilder::Cylinder, Vector4(TARGET_RADIUS, TARGET_HEIGHT, 0.0f, 0.0f), Size(1, 40), Matrix4x4::Identity );
 		_targetRed->SetPosition( Vector3(-75.0f, 0.0f, 75.0f) );
 		_dummyRed->SetPositionY( 31.0f );
 
 		_targetGreen = _scene->CreateTriangleMesh( _floor, L"TargetGreen", _materialGreen, nullptr );
-		_dummyGreen = _scene->CreateDummy( _targetGreen, L"DummyGreen" );
+		_dummyGreen = _scene->CreateDummy( _targetGreen, L"Green" );
 		_synkro->GetSceneManager()->BuildMesh( _targetGreen, MeshBuilder::Cylinder, Vector4(TARGET_RADIUS, TARGET_HEIGHT, 0.0f, 0.0f), Size(1, 40), Matrix4x4::Identity );
 		_targetGreen->SetPosition( Vector3(75.0f, 0.0f, 75.0f) );
 		_dummyGreen->SetPositionY( 31.0f );
 
 		_targetBlue = _scene->CreateTriangleMesh( _floor, L"TargetBlue", _materialBlue, nullptr );
-		_dummyBlue = _scene->CreateDummy( _targetBlue, L"DummyBlue" );
+		_dummyBlue = _scene->CreateDummy( _targetBlue, L"Blue" );
 		_synkro->GetSceneManager()->BuildMesh( _targetBlue, MeshBuilder::Cylinder, Vector4(TARGET_RADIUS, TARGET_HEIGHT, 0.0f, 0.0f), Size(1, 40), Matrix4x4::Identity );
 		_targetBlue->SetPosition( Vector3(75.0f, 0.0f, -75.0f) );
 		_dummyBlue->SetPositionY( 31.0f );
 
 		_targetYellow = _scene->CreateTriangleMesh( _floor, L"TargetYellow", _materialYellow, nullptr );
-		_dummyYellow = _scene->CreateDummy( _targetYellow, L"DummyYellow" );
+		_dummyYellow = _scene->CreateDummy( _targetYellow, L"Yellow" );
 		_synkro->GetSceneManager()->BuildMesh( _targetYellow, MeshBuilder::Cylinder, Vector4(TARGET_RADIUS, TARGET_HEIGHT, 0.0f, 0.0f), Size(1, 40), Matrix4x4::Identity );
 		_targetYellow->SetPosition( Vector3(-75.0f, 0.0f, -75.0f) );
 		_dummyYellow->SetPositionY( 31.0f );
@@ -76,6 +76,17 @@ public:
 		_moveTo = _model->CreateAnimationController( nullptr, this );
 		_moveTo->SetMode( AnimationMode::Single );
 		_trackPosition = _moveTo->CreatePositionTrack();
+
+		// Create billboard.
+		_billboardWindow = _synkro->GetGraphicsSystem()->CreateRenderWindow( 1200, 150, _window->GetPixelFormat(), _window->GetSampleCount(), 0 );
+		_billboardWindow->GetView()->SetBackColor( Vector4(0.0f, 0.0f, 0.0f, 0.0f) );
+		_synkro->GetOverlayManager()->CreateFont( L"hint", _synkro->GetLanguage(), L"Arial", FontStyle::Bold, 64 );
+		_billboardOverlay = _synkro->GetOverlayManager()->CreateOverlay( _billboardWindow );
+		PtrFont font = _billboardOverlay->GetFont( L"hint" );
+		_billboardText = font->CreateText( Color::DimGray, Point(10, 10), L"                 Idle" );
+		_billboardImage = _synkro->GetImageManager()->CreateImage( _billboardWindow->GetTarget() );
+		_billboard = _scene->CreateBillboard( _model, L"Model Name", _billboardImage, 240.0f, 30.0f );
+		_billboard->SetPositionY( 280.0f );
 	}
 
 	void InitView() override
@@ -101,6 +112,8 @@ public:
 
 		if ( (sender == _moveTo) && (_moveTo->GetState() == ControllerState::Inactive) )
 		{
+			_billboardText->SetText( L"                 Idle" );
+			_billboardText->SetColor( Color::DimGray );
 			_skeletonCtrl->Start( false );
 		}
 	}
@@ -139,6 +152,10 @@ public:
 
 	void MoveTo( INode* target )
 	{
+		String colorName = target->GetName();
+		_billboardText->SetText( String::Format(L"Moving to {0}...", colorName));
+		_billboardText->SetColor( Color(colorName) );
+
 		_lookAt->SetTarget( target );
 
 		Matrix4x4 transModel;
@@ -182,10 +199,16 @@ private:
 
 	PtrTriangleMesh											_model;
 	PtrSkeletonAnimationController							_skeletonCtrl;
-
 	PtrLookAtConstraint										_lookAt;
 	PtrNodeAnimationController								_moveTo;
 	PtrKeyframedVector3Track								_trackPosition;
+
+	PtrVirtualRenderWindow									_billboardWindow;
+	PtrOverlay												_billboardOverlay;
+	PtrText													_billboardText;
+	PtrImage												_billboardImage;
+	PtrBillboard											_billboard;
+
 	PtrButton												_btnMoveToRed;
 	PtrButton												_btnMoveToGreen;
 	PtrButton												_btnMoveToBlue;

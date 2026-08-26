@@ -193,8 +193,22 @@ public:
 	/**
 	 * Retrieves node's world transform.
 	 * @param [out] transform Variable where to store transform.
+	 * @param ignoreOrientation Indicates whether or not to include transform's orientation.
+	 */
+	virtual void											GetWorldTransform( math::Matrix4x4& transform, Bool ignoreOrientation ) const = 0;
+
+	/**
+	 * Retrieves node's world transform.
+	 * @param [out] transform Variable where to store transform.
 	 */
 	virtual void											GetWorldTransform( math::Matrix4x4& transform ) const = 0;
+
+	/**
+	 * Retrieves node transform.
+	 * @param [out] transform Variable where to store transform.
+	 * @param ignoreOrientation Indicates whether or not to include transform's orientation.
+	 */
+	virtual void											GetTransform( math::Matrix4x4& transform, Bool ignoreOrientation ) const = 0;
 
 	/**
 	 * Retrieves node transform.
@@ -310,6 +324,12 @@ public:
 	 * @return Node name.
 	 */
 	virtual lang::String									GetName() const = 0;
+
+	/**
+	 * Casts node to billboard.
+	 * @return Non-null forbillboard, nullptr otherwise.
+	 */
+	virtual IBillboard*										AsBillboard() const = 0;
 
 	/**
 	 * Casts node to camera.

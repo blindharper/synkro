@@ -120,7 +120,17 @@ SYNKRO_INLINE ILookAtConstraint* DefaultTriangleMeshInstance::GetLookAtConstrain
 	return nullptr;
 }
 
+SYNKRO_INLINE void DefaultTriangleMeshInstance::GetWorldTransform( math::Matrix4x4& transform, Bool ignoreOrientation ) const
+{
+	// TODO:
+}
+
 SYNKRO_INLINE void DefaultTriangleMeshInstance::GetWorldTransform( math::Matrix4x4& transform ) const
+{
+	// TODO:
+}
+
+SYNKRO_INLINE void DefaultTriangleMeshInstance::GetTransform( math::Matrix4x4& transform, Bool ignoreOrientation ) const
 {
 	// TODO:
 }
@@ -218,6 +228,11 @@ SYNKRO_INLINE ISceneEx* DefaultTriangleMeshInstance::GetSceneEx() const
 SYNKRO_INLINE lang::String DefaultTriangleMeshInstance::GetName() const
 {
 	return lang::String::Empty;
+}
+
+SYNKRO_INLINE IBillboard* DefaultTriangleMeshInstance::AsBillboard() const
+{
+	return nullptr;
 }
 
 SYNKRO_INLINE ICamera* DefaultTriangleMeshInstance::AsCamera() const

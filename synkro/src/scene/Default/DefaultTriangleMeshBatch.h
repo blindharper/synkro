@@ -67,7 +67,9 @@ public:
 	void													SetGizmoSize( Float size );
 	IParentConstraint*										GetParentConstraint() const;
 	ILookAtConstraint*										GetLookAtConstraint() const;
+	void													GetWorldTransform( math::Matrix4x4& transform, Bool ignoreOrientation ) const;
 	void													GetWorldTransform( math::Matrix4x4& transform ) const;
+	void													GetTransform( math::Matrix4x4& transform, Bool ignoreOrientation ) const;
 	void													GetTransform( math::Matrix4x4& transform ) const;
 	void													GetPosition( math::Vector3& position ) const;
 	Float													GetPositionX() const;
@@ -87,6 +89,7 @@ public:
 	INode*													GetNode( const lang::String& name ) const;
 	ISceneEx*												GetSceneEx() const;
 	lang::String											GetName() const;
+	IBillboard*												AsBillboard() const;
 	ICamera*												AsCamera() const;
 	ILight*													AsLight() const;
 	IMesh*													AsMesh() const;

@@ -266,8 +266,9 @@ void SceneRenderQueue::Process( IRenderView* view, Bool overlay, const FillMode&
 		// Assemble instance item.
 		InstanceItem inst( obj );
 
-		if ( obj->GetVertexParameters() != nullptr )
-			inst.VertexParams = (ParameterSet*)obj->GetVertexParameters();
+		IParameterSet* vertexParams = obj->GetVertexParameters( view );
+		if ( vertexParams != nullptr )
+			inst.VertexParams = (ParameterSet*)vertexParams;
 		else if ( obj->GetProgram() != nullptr )
 			inst.VertexParams = (ParameterSet*)obj->GetProgram()->GetVertexStage()->GetParameters();
 		else

@@ -65,6 +65,7 @@ public:
 	ISceneAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
 	INode*													CreateDummy( INode* parent, const lang::String& name );
 	ICurve*													CreateCurve( INode* parent, const lang::String& name );
+	IBillboard*												CreateBillboard( INode* parent, const lang::String& name, img::IImage* image, Float width, Float height );
 	ICamera*												CreateCamera( INode* parent, const lang::String& name );
 	IOmniLight*												CreateOmniLight( INode* parent, const lang::String& name );
 	IConeLight*												CreateConeLight( INode* parent, const lang::String& name );
@@ -103,6 +104,7 @@ public:
 	void													AddMeshBatch( BaseMeshBatch* batch );
 	void													RemoveMeshBatch( BaseMeshBatch* batch );
 	lang::String											GetDummyName( const lang::String& name );
+	lang::String											GetBillboardName( const lang::String& name );
 	lang::String											GetCameraName( const lang::String& name );
 	lang::String											GetCurveName( const lang::String& name );
 	lang::String											GetLightName( const lang::String& name );
@@ -146,6 +148,7 @@ private:
 	DebugMode												_debugMode;
 	UInt													_cameraCount;
 	UInt													_indexDummy;
+	UInt													_indexBillboard;
 	UInt													_indexCamera;
 	UInt													_indexCurve;
 	UInt													_indexLight;

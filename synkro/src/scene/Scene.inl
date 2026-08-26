@@ -70,6 +70,11 @@ SYNKRO_INLINE lang::String Scene::GetDummyName( const lang::String& name )
 	return GetNodeName( name, L"Dummy {0}", _indexDummy );
 }
 
+SYNKRO_INLINE lang::String Scene::GetBillboardName( const lang::String& name )
+{
+	return GetNodeName( name, L"Billboard {0}", _indexBillboard );
+}
+
 SYNKRO_INLINE lang::String Scene::GetCameraName( const lang::String& name )
 {
 	return GetNodeName( name, L"Camera {0}", _indexCamera );
