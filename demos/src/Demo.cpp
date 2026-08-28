@@ -731,12 +731,12 @@ void Demo::CreateLogo()
 {
 	// Create logo texture.
 	Random rnd;
-	_textureWindow = _synkro->GetGraphicsSystem()->CreateRenderWindow( 800, 600, _window->GetPixelFormat(), _window->GetSampleCount(), 0 );
+	_textureWindow = _synkro->GetGraphicsSystem()->CreateRenderWindow( 400, 400, _window->GetPixelFormat(), _window->GetSampleCount(), 0 );
 	_textureWindow->GetView()->SetBackColor( Vector4(0.0f, 0.0f, 0.0f, 0.0f) );
 	_synkro->GetOverlayManager()->CreateFont( L"logo", _synkro->GetLanguage(), L"Arial", FontStyle::Bold, 44 );
 	_textureOverlay = _synkro->GetOverlayManager()->CreateOverlay( _textureWindow );
 	PtrFont font = _textureOverlay->GetFont( L"logo" );
-	_textureText = font->CreateText( Color::White, Point(10, 240), L"SYNKRO SYNKRO" );
+	_textureText = font->CreateText( Color::White, Point(10, 136), L"SYNKRO" );
 	PtrTextAnimationController textCtrl = _textureText->CreateAnimationController( nullptr, nullptr );
 	PtrNoiseColorTrack trackColor = textCtrl->CreateColorTrack( AnimationTrack::ColorNoise )->AsNoise();
 	trackColor->SetSeed( rnd.GetUInt() );
@@ -755,6 +755,7 @@ void Demo::CreateLogo()
 	_logoMaterial = _synkro->GetMaterialManager()->CreateOpaqueMaterial( LightingModel::Gouraud );
 	_logoMaterial->GetDiffuseMap()->SetImage( _textureImage );
 	_logoMaterial->SetDiffuseColor( Color::White );
+	_logoMaterial->SetTilingHorizontal( 2 );
 
 	Vector3 posLogo(0.0f, 0.0f, 90.0f);
 	_logoMesh = _logoScene->CreateTriangleMesh( nullptr, L"LogoSynkro", _logoMaterial, nullptr );
