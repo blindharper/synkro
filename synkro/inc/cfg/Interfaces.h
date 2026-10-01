@@ -236,6 +236,7 @@ iface IResourceSet;
 iface ISamplerState;
 iface ISamplerStateSet;
 iface ISceneRenderObject;
+iface ISceneRenderObjectEx;
 iface ISceneRenderQueue;
 iface IShortStream;
 iface ISkyRenderObject;

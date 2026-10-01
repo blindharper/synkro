@@ -220,6 +220,13 @@ public:
 	virtual ITriangleMesh*									LoadMesh( io::IStream* stream ) = 0;
 
 	/**
+	 * Loads mesh set from a stream set. Opens streams for reading and closes it after mesh set is loaded.
+	 * @param streams Stream set from which to load mesh set.
+	 * @return Loaded mesh set if succeeded, or null otherwise.
+	 */
+	virtual ITriangleMeshSet*								LoadMesh( io::IStreamSet* streams ) = 0;
+
+	/**
 	 * Sets scene ambient light color.
 	 * @param color Ambient light color.
 	 */

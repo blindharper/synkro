@@ -58,9 +58,14 @@ Bool MaterialManager::Update( Double delta )
 	return true;
 }
 
+IOpaqueMaterial* MaterialManager::CreateOpaqueMaterial( const LightingModel& model, Bool detailed )
+{
+	return new OpaqueMaterial( _context, model, detailed );
+}
+
 IOpaqueMaterial* MaterialManager::CreateOpaqueMaterial( const LightingModel& model )
 {
-	return new OpaqueMaterial( _context, model );
+	return CreateOpaqueMaterial( model, false );
 }
 
 ITransparentMaterial* MaterialManager::CreateTransparentMaterial( const LightingModel& model )

@@ -30,6 +30,12 @@ SYNKRO_INLINE void RenderObjectImpl<T>::Enable( Bool enable )
 }
 
 template <class T>
+SYNKRO_INLINE void RenderObjectImpl<T>::ResetDirty()
+{
+	_dirty = false;
+}
+
+template <class T>
 SYNKRO_INLINE Bool RenderObjectImpl<T>::IsEnabled() const
 {
 	return _enabled;
@@ -42,15 +48,15 @@ SYNKRO_INLINE IProgram* RenderObjectImpl<T>::GetProgram() const
 }
 
 template <class T>
-SYNKRO_INLINE IPrimitiveEx* RenderObjectImpl<T>::GetData() const
+SYNKRO_INLINE IPrimitiveEx* RenderObjectImpl<T>::GetData( IRenderView* view ) const
 {
 	return _data;
 }
 
 template <class T>
-SYNKRO_INLINE void RenderObjectImpl<T>::ResetDirty()
+SYNKRO_INLINE IPrimitiveEx* RenderObjectImpl<T>::GetData() const
 {
-	_dirty = false;
+	return _data;
 }
 
 template <class T>

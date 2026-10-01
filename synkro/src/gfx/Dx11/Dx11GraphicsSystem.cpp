@@ -96,7 +96,7 @@ Dx11GraphicsSystem::Dx11GraphicsSystem( ILog* log ) :
 	{
 		DXGI_ADAPTER_DESC ad;
 		adapter->GetDesc( &ad );
-		GraphicsDeviceDesc desc( ad.Description, GraphicsDeviceType::Hardware );
+		GraphicsDeviceDesc desc( ad.Description, ad.DedicatedVideoMemory, GraphicsDeviceType::Hardware );
 		if ( GetCaps(adapter, desc) )
 		{
 			_devices.Add( desc );
@@ -105,7 +105,7 @@ Dx11GraphicsSystem::Dx11GraphicsSystem( ILog* log ) :
 	}
 	
 	// Add software rasterizer.
-	GraphicsDeviceDesc desc( L"Software Rasterizer", GraphicsDeviceType::Software );
+	GraphicsDeviceDesc desc( L"Software Rasterizer", 0, GraphicsDeviceType::Software );
 	if ( GetCaps(nullptr, desc) )
 	{
 		_devices.Add( desc );
@@ -113,7 +113,7 @@ Dx11GraphicsSystem::Dx11GraphicsSystem( ILog* log ) :
 	}
 	
 	// Add reference device.
-	GraphicsDeviceDesc desc2( L"Reference Device", GraphicsDeviceType::Reference );
+	GraphicsDeviceDesc desc2( L"Reference Device", 0, GraphicsDeviceType::Reference );
 	if ( GetCaps(nullptr, desc2) )
 	{
 		_devices.Add( desc2 );

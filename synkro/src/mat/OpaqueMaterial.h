@@ -36,7 +36,7 @@ class OpaqueMaterial :
 {
 public:
 	// Constructors.
-	OpaqueMaterial( core::IContext* context, const LightingModel& model );
+	OpaqueMaterial( core::IContext* context, const LightingModel& model, Bool detailed );
 	OpaqueMaterial( const OpaqueMaterial& other );
 
 	// IVisualMaterial methods.
@@ -81,6 +81,7 @@ private:
 	P(gfx::IResourceSet)									_fragmentResources;
 	P(gfx::ISamplerStateSet)								_fragmentSamplers;
 	gfx::ProgramParam*										_paramAmountDiffuse;
+	Bool													_detailed;
 
 	void													CreateStates();
 	void													UpdateVertexParameters();

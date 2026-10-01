@@ -31,7 +31,7 @@
 #include <gfx/IGraphicsDeviceEx.h>
 #include <gfx/IGraphicsSystemEx.h>
 #include <gfx/ISceneRenderQueue.h>
-#include <gfx/ISceneRenderObject.h>
+#include <gfx/ISceneRenderObjectEx.h>
 #include <gfx/ISkyRenderObject.h>
 #include <gfx/IPointRenderQueue.h>
 #include <gfx/ILineRenderQueue.h>

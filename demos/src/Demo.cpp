@@ -567,7 +567,7 @@ void Demo::InitUiInternal()
 	_window->GetDisplayMode( displayMode );
 	Enum graphicsSystem; _config->Get( Param::GraphicsSystem, &graphicsSystem );
 	PtrFont font = _synkro->GetOverlayManager()->GetOverlay( _window )->GetFont( L"stats" );
-	_txtDevice = font->CreateText( Color::Orange, Point(5, 5), desc.Name.Append(L" (").Append(((GraphicsSystem)graphicsSystem).ToString()).Append(L")"), Order::Highest, Order::Highest );
+	_txtDevice = font->CreateText( Color::Orange, Point(5, 5), String::Format(L"{0} ({1}) ({2} GB)", desc.Name, ((GraphicsSystem)graphicsSystem).ToString(), desc.MemorySize/(1000*1000*1000)), Order::Highest, Order::Highest );
 	_txtDisplayMode = font->CreateText( Color::Orange, Point(5, 22), displayMode.ToString(DisplayModeFormat::Aspect), Order::Highest, Order::Highest );
 	_txtStats = font->CreateText( Color::Yellow, Point(5, 42), L"Triangles: 0", Order::Highest, Order::Highest );
 

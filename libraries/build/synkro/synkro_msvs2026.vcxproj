@@ -587,6 +587,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\inc\gfx\IRenderState.h" />
     <ClInclude Include="..\..\..\synkro\inc\gfx\IRenderView.h" />
     <ClInclude Include="..\..\..\synkro\inc\gfx\ISceneRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ISceneRenderObjectEx.h" />
     <ClInclude Include="..\..\..\synkro\inc\gfx\ISceneRenderQueue.h" />
     <ClInclude Include="..\..\..\synkro\inc\gfx\ISkyRenderObject.h" />
     <ClInclude Include="..\..\..\synkro\inc\gfx\IStructuredBuffer.h" />
@@ -932,6 +933,8 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\external\src\stream.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\AspectConst.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\BaseRenderMap.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\BaseSceneRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\BaseSceneRenderObjectImpl.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\BlendStateEx.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\BlendStateSet.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\BlendStateSetImpl.h" />
@@ -973,6 +976,8 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\src\gfx\RenderView.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\ResourceImpl.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\SceneRenderObject.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\SceneRenderObjectEx.h" />
+    <ClInclude Include="..\..\..\synkro\src\gfx\SceneRenderObjectImpl.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\SceneRenderQueue.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\SkyboxRenderObject.h" />
     <ClInclude Include="..\..\..\synkro\src\gfx\SkyRenderObjectImpl.h" />
@@ -1092,6 +1097,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\src\scene\SoundProperty.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\TriangleMesh.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\TriangleMeshBatch.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\TriangleMeshSet.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\TriangleSetImpl.h" />
     <ClInclude Include="..\..\..\synkro\src\script\ScriptMachine.h" />
     <ClInclude Include="..\..\..\synkro\src\script\ScriptMachineImpl.h" />
@@ -1622,10 +1628,13 @@ del "$(OutDir)$(TargetName).ilk"</Command>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\synkro\inc\lang\Formattable.inl" />
+    <None Include="..\..\..\synkro\src\gfx\BaseSceneRenderObjectImpl.inl" />
     <None Include="..\..\..\synkro\src\gfx\PointRenderObject.inl" />
+    <None Include="..\..\..\synkro\src\gfx\SceneRenderObjectImpl.inl" />
     <None Include="..\..\..\synkro\src\phys\PhysicsEnvironmentImpl.inl" />
     <None Include="..\..\..\synkro\src\phys\PhysicsMaterialImpl.inl" />
     <None Include="..\..\..\synkro\src\phys\PhysicsSystemEx.inl" />
+    <None Include="..\..\..\synkro\src\scene\TriangleMeshSet.inl" />
     <None Include="..\..\..\synkro\src\win\HostWindow.inl" />
     <None Include="..\..\src\synkro\strings.inl" />
     <None Include="..\..\..\synkro\src\anim\Animation.inl" />
@@ -1712,7 +1721,6 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <None Include="..\..\..\synkro\src\gfx\RenderStateImpl.inl" />
     <None Include="..\..\..\synkro\src\gfx\RenderView.inl" />
     <None Include="..\..\..\synkro\src\gfx\ResourceImpl.inl" />
-    <None Include="..\..\..\synkro\src\gfx\SceneRenderObject.inl" />
     <None Include="..\..\..\synkro\src\gfx\SceneRenderQueue.inl" />
     <None Include="..\..\..\synkro\src\gfx\SkyRenderObjectImpl.inl" />
     <None Include="..\..\..\synkro\src\gfx\StructuredBuffer.inl" />
@@ -1948,6 +1956,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\TeapotConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderObject.cpp" />
     <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderObjectEx.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\DynamicActor.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\PhysicsEnvironment.cpp" />
     <ClCompile Include="..\..\..\synkro\src\phys\PhysicsMaterial.cpp" />
@@ -1957,6 +1966,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClCompile Include="..\..\..\synkro\src\phys\StaticActor.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\Billboard.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\PrimitiveMorphController.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\TriangleMeshSet.cpp" />
     <ClCompile Include="..\..\..\synkro\src\win\HostWindow.cpp" />
     <ClCompile Include="..\..\src\synkro\synkro.core.cpp" />
     <ClCompile Include="..\..\..\synkro\src\anim\AnimationCodec\AnimationCodec.cpp" />

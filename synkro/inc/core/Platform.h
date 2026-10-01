@@ -47,9 +47,19 @@ public:
 	static const Char*										DynamicLibraryExtension;
 
 	/**
+	 * Operating system version.
+	 */
+	static const Char*										Version;
+
+	/**
 	 * The total number of processors in the system.
 	 */
 	static const UInt										ProcessorCount;
+
+	/**
+	 * The total size of the system memory.
+	 */
+	static const ULong										TotalMemorySize;
 
 	/**
 	 * Displays an error message.

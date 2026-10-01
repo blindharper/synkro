@@ -25,6 +25,12 @@ SYNKRO_INLINE MeshCodecImpl<T>::~MeshCodecImpl()
 }
 
 template <class T>
+SYNKRO_INLINE ITriangleMeshSet* MeshCodecImpl<T>::Load( IScene* scene, io::IStreamSet* streams, const img::PixelFormat& format )
+{
+	return nullptr;
+}
+
+template <class T>
 SYNKRO_INLINE ITriangleMesh* MeshCodecImpl<T>::Load( IScene* scene, io::IStream* stream, const img::PixelFormat& format, mat::IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity )
 {
 	assert( stream != nullptr );

@@ -51,6 +51,14 @@ ObjMeshCodec::ObjMeshCodec( ISceneManager* sceneManager, IMaterialManager* mater
 {
 }
 
+ITriangleMeshSet* ObjMeshCodec::Load( IScene* scene, IStreamSet* streams, const PixelFormat& format )
+{
+	SynkroCall( "ObjMeshCodec::Load", String::Empty );
+
+	// TODO:
+	return nullptr;
+}
+
 ITriangleMesh* ObjMeshCodec::Load( IScene* scene, IStream* stream, const PixelFormat& format, IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity )
 {
 	SynkroCall( "ObjMeshCodec::Load", stream->GetName() );
@@ -71,6 +79,8 @@ ITriangleMesh* ObjMeshCodec::Load( IScene* scene, IStream* stream, const PixelFo
 		{
 			String matLib = GetString( stream );
 			IStream* streamMatLib = stream->GetDirectory()->GetStream( matLib );
+			if ( streamMatLib == nullptr )
+				throw Exception( String::Format(L"Failed to load mesh. Material library {0,q} not found.", matLib) );
 			ReadMaterials( streamMatLib, format );
 		}
 		else if ( !_strcmpi(_lexem.Begin(), "usemtl") )

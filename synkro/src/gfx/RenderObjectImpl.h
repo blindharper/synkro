@@ -40,13 +40,12 @@ public:
 
 	// IRenderObject methods.
 	virtual void											Enable( Bool enable );
+	virtual void											ResetDirty();
 	virtual Bool											IsEnabled() const;
 	virtual IProgram*										GetProgram() const;
+	virtual IPrimitiveEx*									GetData( IRenderView* view ) const;
 	virtual IPrimitiveEx*									GetData() const;
-
-	// Other methods.
-	void													ResetDirty();
-	Bool													IsDirty() const;
+	virtual Bool											IsDirty() const;
 
 protected:
 	P(IPrimitiveEx)											_data;

@@ -79,6 +79,7 @@ public:
 	phys::IActor*											GetActor() const;
 	IScene*													GetScene() const;
 	ITriangleMeshBatch*										AsBatch() const;
+	ITriangleMeshSet*										AsSet() const;
 
 	// BaseNode methods.
 	void													Update() override;

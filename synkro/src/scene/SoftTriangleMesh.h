@@ -57,6 +57,7 @@ public:
 	phys::IActor*											GetActor() const;
 	IScene*													GetScene() const;
 	ITriangleMeshBatch*										AsBatch() const;
+	ITriangleMeshSet*										AsSet() const;
 
 	// Other methods.
 	ITriangleSet*											CreateTriangleSet( const lang::String& name, UInt vertexCount, UInt indexCount, Bool adjacency, const math::Matrix4x4& transform );

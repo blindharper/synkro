@@ -34,15 +34,23 @@ iface ITriangleMeshSet :
 {
 public:
 	/**
-	 * Adds new level of detail to the set.
-	 * @param material Material associated with the level.
+	 * Sets minimum mesh screen size, in pixels, at which the level should be activated.
+	 * @param index Level index.
+	 * @param minSize Screen size.
 	 */
-	virtual void											AddLevel( mat::IVisualMaterial* material ) = 0;
+	virtual void											SetMinimumLevelSize( UInt index, Float size ) = 0;
 
 	/**
 	 * Retrieves the number of levels in the set.
 	 */
 	virtual UInt											GetLevelCount() const = 0;
+
+	/**
+	 * Retrieves minimum mesh screen size, in pixels, at which the level should be activated.
+	 * @param index Level index.
+	 * @exception OutOfRangeException Index is out of range.
+	 */
+	virtual Float											GetMinimumLevelSize( UInt index ) const = 0;
 };
 
 

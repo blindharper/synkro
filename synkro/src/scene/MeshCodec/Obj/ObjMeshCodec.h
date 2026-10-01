@@ -18,7 +18,6 @@
 #include "../MeshCodecImpl.h"
 #include <lang/Map.h>
 #include <lang/Vector.h>
-#include <lang/Formatter.h>
 #include <math/Vector2.h>
 #include <math/Vector3.h>
 #include <scene/IMeshCodec.h>
@@ -44,6 +43,7 @@ public:
 	ObjMeshCodec( ISceneManager* sceneManager, mat::IMaterialManager* materialManager, img::IImageManager* imageManager, anim::IAnimationSystem* animationSystem );
 
 	// IMeshCodec methods.
+	ITriangleMeshSet*										Load( IScene* scene, io::IStreamSet* streams, const img::PixelFormat& format );
 	ITriangleMesh*											Load( IScene* scene, io::IStream* stream, const img::PixelFormat& format, mat::IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity );
 	void													Save( const ITriangleMesh* mesh, io::IStream* stream );
 

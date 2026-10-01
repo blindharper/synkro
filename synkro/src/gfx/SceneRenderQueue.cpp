@@ -13,6 +13,7 @@
 #include "config.h"
 #include "SceneRenderQueue.h"
 #include "SceneRenderObject.h"
+#include "SceneRenderObjectEx.h"
 #include "SkyboxRenderObject.h"
 #include "SkysphereRenderObject.h"
 #include "LineRenderQueue.h"
@@ -49,7 +50,7 @@ namespace gfx
 {
 
 
-InstanceItem::InstanceItem( SceneRenderObject* object ) :
+InstanceItem::InstanceItem( ISceneRenderObject* object, IRenderView* view ) :
 	Object( object ),
 	StartElement( object->GetStartElement() ),
 	ElementCount( object->GetElementCount() ),
@@ -62,6 +63,8 @@ InstanceItem::InstanceItem( SceneRenderObject* object ) :
 	GeometrySamplers( nullptr ),
 	FragmentSamplers( nullptr )
 {
+	IPrimitiveEx* data = object->GetData( view );
+	ElementCount = (data->GetIndexCount() > 0) ? data->GetIndexCount() : data->GetVertexCount();
 }
 
 InstanceItem::InstanceItem() :
@@ -136,7 +139,7 @@ String ResourceItem::Key() const
 
 SceneRenderQueue::SceneRenderQueue( IGraphicsSystemEx* graphicsSystem ) :
 	_resources( A(ResourceEntry) ),
-	_dirty( A(SceneRenderObject*) ),
+	_dirty( A(ISceneRenderObject*) ),
 	_lineQueue( nullptr ),
 	_pointQueue( nullptr ),
 	_graphicsSystem( graphicsSystem ),
@@ -154,7 +157,14 @@ SceneRenderQueue::~SceneRenderQueue()
 
 ISceneRenderObject* SceneRenderQueue::CreateObject( IPrimitive* data, Bool occluder )
 {
-	SceneRenderObject* obj = new SceneRenderObject( this, data );
+	ISceneRenderObject* obj = new SceneRenderObject( this, data );
+	_dirty.Add( obj );
+	return obj;
+}
+
+ISceneRenderObjectEx* SceneRenderQueue::CreateObjectEx()
+{
+	ISceneRenderObjectEx* obj = new SceneRenderObjectEx( this );
 	_dirty.Add( obj );
 	return obj;
 }
@@ -187,24 +197,24 @@ IPointRenderQueue* SceneRenderQueue::GetPointQueue() const
 	return _pointQueue;
 }
 
-void SceneRenderQueue::RemoveObject( SceneRenderObject* object )
+void SceneRenderQueue::RemoveObject( BaseSceneRenderObject* object )
 {
-	if ( _resources.ContainsKey(object->ResourceKey) )
+	if ( _resources.ContainsKey(object->GetResourceKey()) )
 	{
-		ResourceItem& res0 = _resources[object->ResourceKey];
-		if ( res0.Buffers.ContainsKey(object->DataKey) )
+		ResourceItem& res0 = _resources[object->GetResourceKey()];
+		if ( res0.Buffers.ContainsKey(object->GetDataKey()) )
 		{
-			DataItem& data0 = res0.Buffers[object->DataKey];
-			if ( data0.Instances.ContainsKey(object->InstanceKey) )
+			DataItem& data0 = res0.Buffers[object->GetDataKey()];
+			if ( data0.Instances.ContainsKey(object->GetInstanceKey()) )
 			{
-				data0.Instances.Remove( object->InstanceKey );
-				if ( data0.Instances.Size() == 0 )
+				data0.Instances.Remove( object->GetInstanceKey() );
+				if ( data0.Instances.IsEmpty() )
 				{
-					res0.Buffers.Remove( object->DataKey );
+					res0.Buffers.Remove( object->GetDataKey() );
 				}
-				if ( res0.Buffers.Size() == 0 )
+				if ( res0.Buffers.IsEmpty() )
 				{
-					_resources.Remove( object->ResourceKey );
+					_resources.Remove( object->GetResourceKey() );
 				}
 			}
 		}
@@ -226,10 +236,11 @@ void SceneRenderQueue::Process( IRenderView* view, Bool overlay, const FillMode&
 
 	for ( UInt i = 0; i < _dirty.Size(); ++i )
 	{
-		SceneRenderObject* obj = _dirty[i];
+		ISceneRenderObject* obj = _dirty[i];
+		BaseSceneRenderObject* baseobj = AsBaseSceneRenderObject( obj );
 
 		// Remove object from hierarchy.
-		RemoveObject( obj );
+		RemoveObject( baseobj );
 
 		// Add object to hierarchy.
 		ResourceItem res;
@@ -238,33 +249,31 @@ void SceneRenderQueue::Process( IRenderView* view, Bool overlay, const FillMode&
 		else if ( obj->GetProgram() != nullptr )
 			res.VertexResources = (ResourceSet*)obj->GetProgram()->GetVertexStage()->GetResources();
 		else
-			res.VertexResources = (ResourceSet*)obj->GetData()->GetProgram()->GetVertexStage()->GetResources();
+			res.VertexResources = (ResourceSet*)obj->GetData(view)->GetProgram()->GetVertexStage()->GetResources();
 
 		if ( obj->GetFragmentResources() != nullptr )
 			res.FragmentResources = (ResourceSet*)obj->GetFragmentResources();
 		else if ( obj->GetProgram() != nullptr )
 			res.FragmentResources = (ResourceSet*)obj->GetProgram()->GetFragmentStage()->GetResources();
 		else
-			res.FragmentResources = (ResourceSet*)obj->GetData()->GetProgram()->GetFragmentStage()->GetResources();
+			res.FragmentResources = (ResourceSet*)obj->GetData(view)->GetProgram()->GetFragmentStage()->GetResources();
 
-		obj->ResourceKey = res.Key();
-		if ( !_resources.ContainsKey(obj->ResourceKey) )
-			_resources[obj->ResourceKey] = res;
+		if ( !_resources.ContainsKey(res.Key()) )
+			_resources[res.Key()] = res;
 
 		// Assemble data item.
-		DataItem data( obj->GetData() );
-		data.Program = (obj->GetProgram() != nullptr) ? (Program*)obj->GetProgram() : (Program*)obj->GetData()->GetProgram();
+		DataItem data( obj->GetData(view) );
+		data.Program = (obj->GetProgram() != nullptr) ? (Program*)obj->GetProgram() : (Program*)obj->GetData(view)->GetProgram();
 		data.BlendStates = (obj->GetBlendStates() != nullptr) ? (BlendStateSet*)obj->GetBlendStates() : _blendStates;
 		data.DepthStencilState = (obj->GetDepthStencilState() != nullptr) ? (DepthStencilState*)obj->GetDepthStencilState() : _depthStencilState;
 		data.RasterizerState = (obj->GetRasterizerState() != nullptr) ? (RasterizerState*)obj->GetRasterizerState() : _rasterizerState;
 		data.OrgFillMode = data.RasterizerState->GetFillMode();
 
-		obj->DataKey = data.Key();
-		if ( !_resources[obj->ResourceKey].Buffers.ContainsKey(obj->DataKey) )
-			_resources[obj->ResourceKey].Buffers[obj->DataKey] = data;
+		if ( !_resources[res.Key()].Buffers.ContainsKey(data.Key()) )
+			_resources[res.Key()].Buffers[data.Key()] = data;
 
 		// Assemble instance item.
-		InstanceItem inst( obj );
+		InstanceItem inst( obj, view );
 
 		IParameterSet* vertexParams = obj->GetVertexParameters( view );
 		if ( vertexParams != nullptr )
@@ -272,32 +281,32 @@ void SceneRenderQueue::Process( IRenderView* view, Bool overlay, const FillMode&
 		else if ( obj->GetProgram() != nullptr )
 			inst.VertexParams = (ParameterSet*)obj->GetProgram()->GetVertexStage()->GetParameters();
 		else
-			inst.VertexParams = (ParameterSet*)obj->GetData()->GetProgram()->GetVertexStage()->GetParameters();
+			inst.VertexParams = (ParameterSet*)obj->GetData(view)->GetProgram()->GetVertexStage()->GetParameters();
 
 		if ( obj->GetFragmentParameters() != nullptr )
 			inst.FragmentParams = (ParameterSet*)obj->GetFragmentParameters();
 		else if ( obj->GetProgram() != nullptr )
 			inst.FragmentParams = (ParameterSet*)obj->GetProgram()->GetFragmentStage()->GetParameters();
 		else
-			inst.FragmentParams = (ParameterSet*)obj->GetData()->GetProgram()->GetFragmentStage()->GetParameters();
+			inst.FragmentParams = (ParameterSet*)obj->GetData(view)->GetProgram()->GetFragmentStage()->GetParameters();
 
 		if ( obj->GetVertexSamplers() != nullptr )
 			inst.VertexSamplers = (SamplerStateSet*)obj->GetVertexSamplers();
 		else if ( obj->GetProgram() != nullptr )
 			inst.VertexSamplers = (SamplerStateSet*)obj->GetProgram()->GetVertexStage()->GetSamplers();
 		else
-			inst.VertexSamplers = (SamplerStateSet*)obj->GetData()->GetProgram()->GetVertexStage()->GetSamplers();
+			inst.VertexSamplers = (SamplerStateSet*)obj->GetData(view)->GetProgram()->GetVertexStage()->GetSamplers();
 
 		if ( obj->GetFragmentSamplers() != nullptr )
 			inst.FragmentSamplers = (SamplerStateSet*)obj->GetFragmentSamplers();
 		else if ( obj->GetProgram() != nullptr )
 			inst.FragmentSamplers = (SamplerStateSet*)obj->GetProgram()->GetFragmentStage()->GetSamplers();
 		else
-			inst.FragmentSamplers = (SamplerStateSet*)obj->GetData()->GetProgram()->GetFragmentStage()->GetSamplers();
+			inst.FragmentSamplers = (SamplerStateSet*)obj->GetData(view)->GetProgram()->GetFragmentStage()->GetSamplers();
 
-		obj->InstanceKey = inst.Key();
-		if ( !_resources[obj->ResourceKey].Buffers[obj->DataKey].Instances.ContainsKey(obj->InstanceKey) )
-			_resources[obj->ResourceKey].Buffers[obj->DataKey].Instances[obj->InstanceKey] = inst;
+		baseobj->SetKeys( res.Key(), data.Key(), inst.Key() );
+		if ( !_resources[res.Key()].Buffers[data.Key()].Instances.ContainsKey(inst.Key()) )
+			_resources[res.Key()].Buffers[data.Key()].Instances[inst.Key()] = inst;
 
 		// Reset "dirty" flag.
 		obj->ResetDirty();
@@ -418,9 +427,8 @@ void SceneRenderQueue::Process( IRenderView* view, Bool overlay, const FillMode&
 				// Check if the instance data is dirty.
 				if ( itInstance.Value().Object->IsDirty() )
 				{
-					itInstance.Value().Object->ResourceKey = itRes.Key();
-					itInstance.Value().Object->DataKey = itData.Key();
-					itInstance.Value().Object->InstanceKey = itInstance.Key();
+					BaseSceneRenderObject* baseobj = AsBaseSceneRenderObject( itInstance.Value().Object );
+					baseobj->SetKeys( itRes.Key(), itData.Key(), itInstance.Key() );
 					_dirty.Add( itInstance.Value().Object );
 				}
 				const InstanceItem& item = itInstance.Value();
@@ -454,7 +462,7 @@ void SceneRenderQueue::Process( IRenderView* view, Bool overlay, const FillMode&
 				}
 
 				// Draw primitive.
-				stats.PrimitiveCount += _data->Draw( item.StartElement, item.ElementCount, item.StartInstance, item.InstanceCount );
+				stats.PrimitiveCount += _data->Draw( 0, item.ElementCount, item.StartInstance, item.InstanceCount );
 				stats.ObjectCount += (item.InstanceCount != 0) ? item.InstanceCount : 1;
 			}
 		}

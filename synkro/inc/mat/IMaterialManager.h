@@ -40,6 +40,14 @@ public:
 	/**
 	 * Creates opaque material.
 	 * @param model Lighting model.
+	 * @param detailed Indicates whether to create detailed mesh subsets.
+	 * @return Created material.
+	 */
+	virtual IOpaqueMaterial*								CreateOpaqueMaterial( const LightingModel& model, Bool detailed ) = 0;
+
+	/**
+	 * Creates opaque material.
+	 * @param model Lighting model.
 	 * @return Created material.
 	 */
 	virtual IOpaqueMaterial*								CreateOpaqueMaterial( const LightingModel& model ) = 0;

@@ -141,6 +141,11 @@ ITriangleMeshBatch* SoftTriangleMesh::AsBatch() const
 	return nullptr;
 }
 
+ITriangleMeshSet* SoftTriangleMesh::AsSet() const
+{
+	return nullptr;
+}
+
 ITriangleSet* SoftTriangleMesh::CreateTriangleSet( const String& name, UInt vertexCount, UInt indexCount, Bool adjacency, const Matrix4x4& transform )
 {
 	P(ITriangleSet) subset = new SoftTriangleSet( (SoftTriangleSet*)_base.Primitive.AsPtr(), vertexCount, indexCount, Range(0, 0) );

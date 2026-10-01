@@ -59,6 +59,7 @@ GraphicsDevice::GraphicsDevice( GraphicsSystemEx* graphicsSystem, IWindowSystemE
 	DumpCapability( L"Tesselation", desc.Tesselation );
 	DumpCapability( L"Output Buffers", desc.OutputBuffer );
 	DumpCapability( L"Render Target Count", desc.RenderTargetCount );
+	DumpCapability( L"Memory Size, GB", CastUInt(desc.MemorySize/(1000*1000*1000)) );
 }
 
 IFrameRenderWindow* GraphicsDevice::CreateRenderWindow( IFrameWindow* window, const DisplayMode& displayMode, Bool vsync, UInt sampleCount, UInt sampleQuality )

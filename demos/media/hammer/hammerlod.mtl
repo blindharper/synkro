@@ -1,0 +1,15 @@
+# Created with Anim8or 0.98
+# Object "object01":
+
+newmtl material01
+Ka 0.475 0.424 0.435
+Kd 0.475 0.424 0.435
+Ks 1 1 1
+Ns 349.5
+
+newmtl material02
+Ka 0.902 0.827 0.431
+Kd 0.902 0.827 0.431
+Ks 1 1 1
+Ns 738.6
+

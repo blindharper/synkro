@@ -56,9 +56,12 @@ public:
 
 	/**
 	 * Creates a set of triangle meshes.
+	 * @param parent Parent node.
+	 * @param name Node name.
+	 * @param material Mesh set material.
 	 * @return Created mesh set.
 	 */
-	// TODO: virtual ITriangleMeshSet*								CreateTriangleMeshSet() = 0;
+	virtual ITriangleMeshSet*								CreateTriangleMeshSet( INode* parent, const lang::String& name, mat::IVisualMaterial* material ) = 0;
 
 	/**
 	 * Picks a mesh that is hit by the given ray.

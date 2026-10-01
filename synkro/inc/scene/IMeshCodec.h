@@ -42,7 +42,7 @@ public:
 	 * @param format Format to convert image data to.
 	 * @return Loaded mesh set.
 	 */
-	// TODO: virtual ITriangleMeshSet*								Load( IScene* scene, io::IStreamSet* streams, const img::PixelFormat& format ) = 0;
+	virtual ITriangleMeshSet*								Load( IScene* scene, io::IStreamSet* streams, const img::PixelFormat& format ) = 0;
 
 	/**
 	 * Loads mesh from stream.
