@@ -67,6 +67,7 @@ public:
 	ISceneEx*												GetScene( const lang::String& name ) const;
 
 	// BaseSceneManager methods.
+	ITriangleMeshSet*										LoadMesh( IScene* scene, io::IStreamSet* streams, const MeshCodec& type );
 	ITriangleMesh*											LoadMesh( IScene* scene, io::IStream* stream, mat::IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity, const MeshCodec& type );
 	void													SaveMesh( const ITriangleMesh* mesh, io::IStream* stream, const core::DataMode& mode, const MeshCodec& type );
 

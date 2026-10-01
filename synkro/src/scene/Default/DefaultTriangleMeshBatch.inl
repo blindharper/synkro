@@ -335,6 +335,11 @@ SYNKRO_INLINE ITriangleMeshBatch* DefaultTriangleMeshBatch::AsBatch() const
 	return (ITriangleMeshBatch*)this;
 }
 
+SYNKRO_INLINE ITriangleMeshSet* DefaultTriangleMeshBatch::AsSet() const
+{
+	return nullptr;
+}
+
 SYNKRO_INLINE void DefaultTriangleMeshBatch::SetRange( const lang::Range& range )
 {
 	if ( range != _range )

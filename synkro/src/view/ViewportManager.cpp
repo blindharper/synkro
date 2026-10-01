@@ -21,11 +21,12 @@
 #include <scene/BaseBillboard.h>
 #include <scene/IBillboard.h>
 #include <scene/ITriangleMesh.h>
+#include <scene/ITriangleMeshSet.h>
 #include <scene/ITriangleSet.h>
 #include <core/IContext.h>
 #include <gfx/IFrameRenderWindowEx.h>
 #include <gfx/IViewRenderWindowEx.h>
-#include <gfx/ISceneRenderObject.h>
+#include <gfx/ISceneRenderObjectEx.h>
 #include <win/IWindowSystemEx.h>
 #include <win/IFrameWindowEx.h>
 
@@ -90,6 +91,12 @@ Bool ViewportManager::Update( Double delta )
 		if ( camera == nullptr )
 			continue;
 
+		// Get camera transform.
+		Matrix4x4 cameraWorldTransform;
+		camera->GetWorldTransform( cameraWorldTransform );
+		const Matrix4x4 worldToCamera = cameraWorldTransform.Inverse();
+
+		// Iterate through scene nodes.
 		INode* root = camera->GetSceneEx()->GetRoot();
 		for ( INode* node = root; node != nullptr; node = ((NodeImpl<INode>*)node)->GetNextNode() )
 		{
@@ -119,23 +126,43 @@ Bool ViewportManager::Update( Double delta )
 			if ( triangleMesh->AsBatch() != nullptr )
 				continue;
 
-			// See if we have mesh set or a plain mesh.
-			/*ITriangleMeshSet* triangleMeshSet = triangleMesh->AsSet();
-			if ( triangleMeshSet != nullptr )
+			// Perform frustum culling test.
+			Matrix4x4 meshWorldTransform;
+			triangleMesh->GetWorldTransform( meshWorldTransform );
+			const Vector3 position = meshWorldTransform.Translation();
+			const Float radius = triangleMesh->GetBoundSphere();
+			Vector3 center; triangleMesh->GetCenter( center );
+			const Bool renderable = camera->IsInView( position+center, radius );
+			for ( UInt k = 0; k < triangleMesh->GetSubsetCount(); ++k )
 			{
-				// TODO:
+				ITriangleSet* subset = triangleMesh->GetSubset( k )->AsTriangleSet();
+				subset->GetRenderObject()->SetRenderable( viewport->GetView(), renderable );
 			}
-			else*/
+
+			// Deal with visible mesh sets.
+			if ( renderable )
 			{
-				Matrix4x4 trans; triangleMesh->GetWorldTransform( trans );
-				const Vector3 position = trans.Translation();
-				Vector3 center; triangleMesh->GetCenter( center );
-				const Float radius = triangleMesh->GetBoundSphere();
-				const Bool renderable = camera->IsInView( position+center, radius );
+				// See if we have mesh set or a plain mesh.
+				ITriangleMeshSet* triangleMeshSet = triangleMesh->AsSet();
+				if ( triangleMeshSet == nullptr )
+					continue;
+
+				UInt level = triangleMeshSet->GetLevelCount()-1;
+				const Vector3 positionInCamera = worldToCamera * position;
+				const Float sizePix = viewport->GetProjectedSize( positionInCamera.z, 2.0f*radius );
+				for ( UInt l = 0; l < triangleMeshSet->GetLevelCount(); ++l )
+				{
+					if ( sizePix >= triangleMeshSet->GetMinimumLevelSize(l) )
+					{
+						level = l;
+						break;
+					}
+				}
+
 				for ( UInt k = 0; k < triangleMesh->GetSubsetCount(); ++k )
 				{
 					ITriangleSet* subset = triangleMesh->GetSubset( k )->AsTriangleSet();
-					subset->GetRenderObject()->SetRenderable( viewport->GetView(), renderable );
+					subset->GetRenderObject()->AsEx()->SetLevel( viewport->GetView(), level );
 				}
 			}
 		}

@@ -16,14 +16,10 @@
 #include "SoftTriangleMesh.h"
 #include <gfx/IGraphicsSystemEx.h>
 #include <io/Path.h>
-#include <io/IStreamDirectory.h>
-#include <over/IOverlayManager.h>
-#include <over/IOverlay.h>
+#include <io/IStreamSet.h>
 #include <scene/IMeshBuilderFactory.h>
 #include <scene/IMeshCodecFactory.h>
 #include <scene/ITriangleSet.h>
-#include <mat/ISimpleMaterial.h>
-#include <mat/IMaterialMap.h>
 
 
 //------------------------------------------------------------------------------
@@ -146,6 +142,26 @@ void SceneManager::BuildMesh( ITriangleMesh* mesh, const MeshBuilder& type, cons
 {
 	IMeshBuilder* builder = GetMeshBuilder( (IMesh*)mesh, type );
 	builder->Build( mesh, param1, param2, transform );
+}
+
+ITriangleMeshSet* SceneManager::LoadMesh( IScene* scene, IStreamSet* streams, const MeshCodec& type )
+{
+	assert( streams != nullptr );
+	assert( streams->GetSize() != 0 );
+
+	if ( streams == nullptr )
+		throw lang::BadArgumentException( L"Failed to load mesh set. Bad stream set.", L"streams" );
+
+	if ( streams->GetSize() == 0 )
+		throw lang::BadArgumentException( L"Failed to load mesh set. Empty stream set.", L"streams" );
+
+	IMeshCodec* codec = _meshCodecs[type];
+	if ( codec == nullptr )
+		throw BadArgumentException( String::Format(L"Failed to load mesh set. Unknown mesh type '{0}'.", type.ToString()), L"type", type.ToString() );
+
+	IGraphicsSystemEx* graphicsSystem =_context->GetGraphicsSystem();
+	PixelFormat clientFormat = (graphicsSystem->GetFrameWindow() != nullptr) ? graphicsSystem->GetFrameWindow()->GetClientPixelFormat() : graphicsSystem->GetViewWindow(0)->GetClientPixelFormat();
+	return codec->Load( scene, streams, clientFormat );
 }
 
 ITriangleMesh* SceneManager::LoadMesh( IScene* scene, IStream* stream, IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity, const MeshCodec& type )

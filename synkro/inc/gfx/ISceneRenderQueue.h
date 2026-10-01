@@ -43,6 +43,12 @@ public:
 	virtual ISceneRenderObject*								CreateObject( IPrimitive* data, Bool occluder ) = 0;
 
 	/**
+	 * Creates extended rendering object and adds it to the queue.
+	 * @return Created rendering object.
+	 */
+	virtual ISceneRenderObjectEx*							CreateObjectEx() = 0;
+
+	/**
 	 * Creates sky sphere rendering object and adds it to the queue.
 	 * @param radius Sphere radius.
 	 * @return Created sky sphere object.

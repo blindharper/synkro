@@ -67,6 +67,15 @@
     <Filter Include="MeshBuilder\Capsule">
       <UniqueIdentifier>{30c6dabc-57f1-4b88-a270-c4a204d4867d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Default\Mesh">
+      <UniqueIdentifier>{32591e69-9227-4493-aade-1434fbaacef1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Default\Batch">
+      <UniqueIdentifier>{83f084a0-926e-480c-be3e-42e086fb9eab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Default\Set">
+      <UniqueIdentifier>{3d4427fe-1810-4417-aa57-d2507e47cfc3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\BoxMeshBuilder.h">
@@ -117,18 +126,6 @@
     <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultSceneFactory.h">
       <Filter>Scene\Default</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMesh.h">
-      <Filter>Scene\Default</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshBatch.h">
-      <Filter>Scene\Default</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshInstance.h">
-      <Filter>Scene\Default</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleSet.h">
-      <Filter>Scene\Default</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshCodec.h">
       <Filter>MeshCodec\X</Filter>
     </ClInclude>
@@ -177,6 +174,21 @@
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\CapsuleMeshBuilderFactory.h">
       <Filter>MeshBuilder\Capsule</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleSet.h">
+      <Filter>Scene\Default</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMesh.h">
+      <Filter>Scene\Default\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshBatch.h">
+      <Filter>Scene\Default\Batch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshInstance.h">
+      <Filter>Scene\Default\Batch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshSet.h">
+      <Filter>Scene\Default\Set</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\synkro.scene\synkro.scene.cpp" />
@@ -202,18 +214,6 @@
       <Filter>MeshBuilder\Torus</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultScene.cpp">
-      <Filter>Scene\Default</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMesh.cpp">
-      <Filter>Scene\Default</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshBatch.cpp">
-      <Filter>Scene\Default</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshInstance.cpp">
-      <Filter>Scene\Default</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleSet.cpp">
       <Filter>Scene\Default</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\synkro.scene\resources.cpp">
@@ -243,24 +243,42 @@
     <ClCompile Include="..\..\..\synkro\src\scene\MeshBuilder\CapsuleMeshBuilder.cpp">
       <Filter>MeshBuilder\Capsule</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleSet.cpp">
+      <Filter>Scene\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMesh.cpp">
+      <Filter>Scene\Default\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshBatch.cpp">
+      <Filter>Scene\Default\Batch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshInstance.cpp">
+      <Filter>Scene\Default\Batch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshSet.cpp">
+      <Filter>Scene\Default\Set</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\synkro.scene\factories.inl" />
-    <None Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMesh.inl">
-      <Filter>Scene\Default</Filter>
-    </None>
-    <None Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshBatch.inl">
-      <Filter>Scene\Default</Filter>
-    </None>
-    <None Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshInstance.inl">
-      <Filter>Scene\Default</Filter>
-    </None>
     <None Include="..\..\src\synkro.scene\resources.inl" />
     <None Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshWriterImpl.inl">
       <Filter>MeshCodec\X\Writer</Filter>
     </None>
     <None Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshReaderImpl.inl">
       <Filter>MeshCodec\X\Reader</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMesh.inl">
+      <Filter>Scene\Default\Mesh</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshBatch.inl">
+      <Filter>Scene\Default\Batch</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshInstance.inl">
+      <Filter>Scene\Default\Batch</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshSet.inl">
+      <Filter>Scene\Default\Set</Filter>
     </None>
   </ItemGroup>
 </Project>

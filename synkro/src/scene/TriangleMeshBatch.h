@@ -60,6 +60,7 @@ public:
 	phys::IActor*											GetActor() const;
 	IScene*													GetScene() const;
 	ITriangleMeshBatch*										AsBatch() const;
+	ITriangleMeshSet*										AsSet() const;
 
 	// ITriangleMeshBatch methods.
 	ITriangleMesh*											CreateInstance( INode* parent, const math::Matrix4x4& transform, const img::Color& color );

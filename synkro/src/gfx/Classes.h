@@ -12,6 +12,7 @@ class LineRenderQueue;
 class PointRenderObject;
 class PointRenderQueue;
 class SceneRenderObject;
+class SceneRenderObjectEx;
 class SceneRenderQueue;
 class PostProcessRenderObject;
 class PostProcessRenderQueue;

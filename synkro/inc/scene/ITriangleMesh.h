@@ -122,7 +122,7 @@ public:
 	 * Casts mesh to triangle mesh set.
 	 * @return Non-null for triangle mesh set, nullptr otherwise.
 	 */
-	// TODO: virtual ITriangleMeshSet*								AsSet() const = 0;
+	virtual ITriangleMeshSet*								AsSet() const = 0;
 };
 
 

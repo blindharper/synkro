@@ -23,6 +23,7 @@
 #include <anim/IKeyframedMatrix4x4Track.h>
 #include <anim/IKeyframedQuaternionTrack.h>
 #include <img/IImageManager.h>
+#include <io/IStreamSet.h>
 #include <mat/IMaterialManager.h>
 #include <scene/ISceneManager.h>
 #include <scene/ISceneEx.h>
@@ -51,6 +52,7 @@ public:
 	virtual ~MeshCodecImpl();
 
 	// IMeshCodec methods.
+	ITriangleMeshSet*										Load( IScene* scene, io::IStreamSet* streams, const img::PixelFormat& format );
 	virtual ITriangleMesh*									Load( IScene* scene, io::IStream* stream, const img::PixelFormat& format, mat::IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity );
 	virtual void											Save( const ITriangleMesh* mesh, io::IStream* stream, const core::DataMode& mode );
 

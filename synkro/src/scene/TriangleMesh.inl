@@ -167,3 +167,8 @@ SYNKRO_INLINE ITriangleMeshBatch* TriangleMesh::AsBatch() const
 {
 	return nullptr;
 }
+
+SYNKRO_INLINE ITriangleMeshSet* TriangleMesh::AsSet() const
+{
+	return nullptr;
+}

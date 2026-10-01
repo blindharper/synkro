@@ -121,6 +121,7 @@ public:
 	phys::IActor*											GetActor() const;
 	IScene*													GetScene() const;
 	ITriangleMeshBatch*										AsBatch() const;
+	ITriangleMeshSet*										AsSet() const;
 
 private:
 	DefaultScene*											_scene;

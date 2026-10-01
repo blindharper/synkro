@@ -13,6 +13,7 @@
 #include "config.h"
 #include "DefaultScene.h"
 #include "DefaultTriangleMesh.h"
+#include "DefaultTriangleMeshSet.h"
 #include "DefaultTriangleMeshBatch.h"
 #include <math/Intersection.h>
 
@@ -54,6 +55,12 @@ ITriangleMeshBatch* DefaultScene::CreateTriangleMeshBatch( IVisualMaterial* mate
 	DefaultTriangleMeshBatch* batch = new DefaultTriangleMeshBatch( this, material, skeleton, capacity );
 	// NB: _batches.Add( batch );
 	return batch;
+}
+
+ITriangleMeshSet* DefaultScene::CreateTriangleMeshSet( INode* parent, const String& name, IVisualMaterial* material )
+{
+	DefaultTriangleMeshSet* meshSet = new DefaultTriangleMeshSet( this, material );
+	return meshSet;
 }
 
 ITriangleMesh* DefaultScene::PickMesh( const Vector3& origin, const Vector3& direction, Float* distance ) const

@@ -23,6 +23,7 @@
 #include <gfx/IFrameRenderWindowEx.h>
 #include <gfx/IViewRenderWindowEx.h>
 #include <gfx/ISceneRenderQueue.h>
+#include <gfx/ISceneRenderObjectEx.h>
 #include <gfx/ITypedBuffer.h>
 
 
@@ -46,11 +47,12 @@ namespace mat
 {
 
 
-OpaqueMaterial::OpaqueMaterial( IContext* context, const LightingModel& model ) :
+OpaqueMaterial::OpaqueMaterial( IContext* context, const LightingModel& model, Bool detailed ) :
 	SimpleMaterialImpl<IOpaqueMaterial>( context ),
 	_twoSided( false ),
 	_wireframe( false ),
-	_paramAmountDiffuse( nullptr )
+	_paramAmountDiffuse( nullptr ),
+	_detailed( detailed )
 {
 	_diffuseMap = new DiffuseMap( this, nullptr );
 
@@ -68,7 +70,8 @@ OpaqueMaterial::OpaqueMaterial( const OpaqueMaterial& other ) :
 	SimpleMaterialImpl<IOpaqueMaterial>( other._context ),
 	_twoSided( other._twoSided ),
 	_wireframe( other._wireframe ),
-	_paramAmountDiffuse( nullptr )
+	_paramAmountDiffuse( nullptr ),
+	_detailed( other._detailed )
 {
 	_diffuseMap = new DiffuseMap( this, other.GetDiffuseMap()->GetImage() );
 
@@ -236,7 +239,17 @@ ITriangleSet* OpaqueMaterial::CreateTriangleSet( const PrimitiveType& type, ITri
 	const UInt instanceCount = (batch != nullptr) ? batch->GetCapacity() : 0;
 	gfx::IPrimitive* data = _context->GetGraphicsSystem()->GetDevice()->CreatePrimitive( mat->Program, usage, access, type, IndexType::Get(vertexCount), vertexCount, indexCount, instanceCount, 0, true, adjacency );
 	ISceneRenderQueue* queue = mesh->GetScene()->GetRenderQueue();
-	ISceneRenderObject* object = queue->CreateObject( data, false );
+	ISceneRenderObject* object = nullptr;
+	if ( _detailed )
+	{
+		ISceneRenderObjectEx* objectEx = queue->CreateObjectEx();
+		objectEx->CreateLevel( data );
+		object = objectEx;
+	}
+	else
+	{
+		object = queue->CreateObject( data, false );
+	}
 	Assign( object, mat );
 	return new MaterialTriangleSet( object, 0, 0 );
 }

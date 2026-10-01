@@ -79,11 +79,6 @@ Bool GraphicsSystemEx::Update( Double delta )
 {
 	SynkroProfile( "GraphicsSystemEx.Update" );
 
-	// Reset rendering statistics.
-	_stats.ObjectCount = 0;
-	_stats.PrimitiveCount = 0;
-	_stats.StateChangeCount = 0;
-
 	// Draw maps.
 	for ( UInt i = 0; i < _maps.Size(); ++i )
 	{
@@ -96,6 +91,11 @@ Bool GraphicsSystemEx::Update( Double delta )
 		VirtualRenderWindow* window = _virtualWindows[i];
 		Draw( window, window, nullptr, delta, _stats );
 	}
+
+	// Reset rendering statistics. Do not count virtual windows.
+	_stats.ObjectCount = 0;
+	_stats.PrimitiveCount = 0;
+	_stats.StateChangeCount = 0;
 
 	// Draw view windows.
 	for ( UInt i = 0; i < _device->_viewWindows.Size(); ++i )

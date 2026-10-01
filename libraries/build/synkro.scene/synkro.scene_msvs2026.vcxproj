@@ -433,6 +433,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMesh.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshBatch.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshInstance.h" />
+    <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshSet.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleSet.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\BoxMeshBuilder.h" />
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\BoxMeshBuilderFactory.h" />
@@ -466,6 +467,8 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshWriterImpl.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleSet.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshBuilder\CapsuleMeshBuilder.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjMeshCodec.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\X\MsZipStream.cpp" />
@@ -480,7 +483,6 @@ del "$(OutDir)$(TargetName).lib"</Command>
     <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMesh.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshBatch.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshInstance.cpp" />
-    <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleSet.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshBuilder\BoxMeshBuilder.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshBuilder\ConeMeshBuilder.cpp" />
     <ClCompile Include="..\..\..\synkro\src\scene\MeshBuilder\CylinderMeshBuilder.cpp" />
@@ -496,6 +498,7 @@ del "$(OutDir)$(TargetName).lib"</Command>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshSet.inl" />
     <None Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshReaderImpl.inl" />
     <None Include="..\..\..\synkro\src\scene\MeshCodec\X\XMeshWriterImpl.inl" />
     <None Include="..\..\src\synkro.scene\factories.inl" />

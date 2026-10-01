@@ -455,6 +455,11 @@ SYNKRO_INLINE ITriangleMeshBatch* DefaultTriangleMesh::AsBatch() const
 	return nullptr;
 }
 
+SYNKRO_INLINE ITriangleMeshSet* DefaultTriangleMesh::AsSet() const
+{
+	return nullptr;
+}
+
 SYNKRO_INLINE void DefaultTriangleMesh::AdjustAngle( Float& angle )
 {
 	Float delta = math::Math::Abs( angle ) - math::Math::TwoPi;

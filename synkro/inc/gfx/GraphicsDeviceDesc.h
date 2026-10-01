@@ -36,13 +36,16 @@ public:
 	GraphicsDeviceDesc();
 
 	/** Creates device description with the given properties. */
-	GraphicsDeviceDesc( const lang::String& name, const GraphicsDeviceType& type );
+	GraphicsDeviceDesc( const lang::String& name, ULong memorySize, const GraphicsDeviceType& type );
 
 	/** User-friendly device name. */
 	lang::String											Name;
 
 	/** Device type. */
 	GraphicsDeviceType										Type;
+
+	/** Video memory size, in bytes. */
+	ULong													MemorySize;
 
 	/** Major feature level. */
 	UInt													LevelMajor;

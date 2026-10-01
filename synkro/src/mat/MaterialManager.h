@@ -49,6 +49,7 @@ public:
 	Bool													Update( Double delta );
 
 	// IMaterialManager methods.
+	IOpaqueMaterial*										CreateOpaqueMaterial( const LightingModel& model, Bool detailed );
 	IOpaqueMaterial*										CreateOpaqueMaterial( const LightingModel& model );
 	ITransparentMaterial*									CreateTransparentMaterial( const LightingModel& model );
 	IMultiMaterial*											CreateMultiMaterial( UInt size );

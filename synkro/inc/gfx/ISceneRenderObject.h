@@ -307,6 +307,12 @@ public:
 	 * Retrieves the owner queue.
 	 */
 	virtual ISceneRenderQueue*								GetQueue() const = 0;
+
+	/**
+	 * Casts object to extended object.
+	 * @return Non-null for extended object, nullptr otherwise.
+	 */
+	virtual ISceneRenderObjectEx*							AsEx() const = 0;
 };
 
 

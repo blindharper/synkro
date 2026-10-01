@@ -1825,6 +1825,12 @@
     <Filter Include="scene\Implementation\Node\Billboard">
       <UniqueIdentifier>{78bddc33-db32-47bd-b113-a7ae386bd508}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gfx\Implementation\RenderQueue\Scene\Object">
+      <UniqueIdentifier>{d649a799-204a-4ed8-bd8a-ec1edb67e7a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene\Implementation\Node\Mesh\Triangle\Set">
+      <UniqueIdentifier>{df8c1f81-1594-4fae-bb3c-9d342adccdb9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\lang\Encoding.h">
@@ -4561,9 +4567,6 @@
     <ClInclude Include="..\..\..\synkro\inc\gfx\ISceneRenderQueue.h">
       <Filter>gfx\Interface\RenderQueue\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\synkro\src\gfx\SceneRenderObject.h">
-      <Filter>gfx\Implementation\RenderQueue\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\gfx\SceneRenderQueue.h">
       <Filter>gfx\Implementation\RenderQueue\Scene</Filter>
     </ClInclude>
@@ -5406,6 +5409,27 @@
     <ClInclude Include="..\..\..\synkro\src\scene\Billboard.h">
       <Filter>scene\Implementation\Node\Billboard</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\gfx\ISceneRenderObjectEx.h">
+      <Filter>gfx\Interface\RenderQueue\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\gfx\SceneRenderObject.h">
+      <Filter>gfx\Implementation\RenderQueue\Scene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\gfx\SceneRenderObjectEx.h">
+      <Filter>gfx\Implementation\RenderQueue\Scene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\gfx\SceneRenderObjectImpl.h">
+      <Filter>gfx\Implementation\RenderQueue\Scene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\gfx\BaseSceneRenderObject.h">
+      <Filter>gfx\Implementation\RenderQueue\Scene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\gfx\BaseSceneRenderObjectImpl.h">
+      <Filter>gfx\Implementation\RenderQueue\Scene\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\TriangleMeshSet.h">
+      <Filter>scene\Implementation\Node\Mesh\Triangle\Set</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\synkro\src\lang\Stack.inl">
@@ -6135,9 +6159,6 @@
     <None Include="..\..\..\synkro\src\img\Image.inl">
       <Filter>img\Implementation\Image</Filter>
     </None>
-    <None Include="..\..\..\synkro\src\gfx\SceneRenderObject.inl">
-      <Filter>gfx\Implementation\RenderQueue\Scene</Filter>
-    </None>
     <None Include="..\..\..\synkro\src\gfx\SceneRenderQueue.inl">
       <Filter>gfx\Implementation\RenderQueue\Scene</Filter>
     </None>
@@ -6365,6 +6386,15 @@
     </None>
     <None Include="..\..\..\synkro\src\scene\PrimitiveAnimationControllerImpl.inl">
       <Filter>scene\Implementation\Primitive\Controller\Animation</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\gfx\SceneRenderObjectImpl.inl">
+      <Filter>gfx\Implementation\RenderQueue\Scene\Object</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\gfx\BaseSceneRenderObjectImpl.inl">
+      <Filter>gfx\Implementation\RenderQueue\Scene\Object</Filter>
+    </None>
+    <None Include="..\..\..\synkro\src\scene\TriangleMeshSet.inl">
+      <Filter>scene\Implementation\Node\Mesh\Triangle\Set</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -7522,9 +7552,6 @@
     <ClCompile Include="..\..\..\synkro\src\scene\BoneProperty.cpp">
       <Filter>scene\Implementation\Node\Mesh\Triangle\Skeleton\Bone</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderObject.cpp">
-      <Filter>gfx\Implementation\RenderQueue\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderQueue.cpp">
       <Filter>gfx\Implementation\RenderQueue\Scene</Filter>
     </ClCompile>
@@ -7902,6 +7929,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\scene\Billboard.cpp">
       <Filter>scene\Implementation\Node\Billboard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderObject.cpp">
+      <Filter>gfx\Implementation\RenderQueue\Scene\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderObjectEx.cpp">
+      <Filter>gfx\Implementation\RenderQueue\Scene\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\TriangleMeshSet.cpp">
+      <Filter>scene\Implementation\Node\Mesh\Triangle\Set</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

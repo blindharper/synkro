@@ -40,6 +40,7 @@ public:
 	// IScene methods.
 	ITriangleMesh*											CreateTriangleMesh( INode* parent, const lang::String& name, mat::IVisualMaterial* material, ISkeleton* skeleton );
 	ITriangleMeshBatch*										CreateTriangleMeshBatch( mat::IVisualMaterial* material, ISkeleton* skeleton, UInt capacity );
+	ITriangleMeshSet*										CreateTriangleMeshSet( INode* parent, const lang::String& name, mat::IVisualMaterial* material );
 	ITriangleMesh*											PickMesh( const math::Vector3& origin, const math::Vector3& direction, Float* distance ) const;
 	gfx::ISceneRenderQueue*									GetRenderQueue() const;
 	Bool													IsLit() const;

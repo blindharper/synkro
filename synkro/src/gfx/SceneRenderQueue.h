@@ -21,8 +21,10 @@
 #include "RenderQueueImpl.h"
 #include "LineRenderQueue.h"
 #include "PointRenderQueue.h"
+#include "BaseSceneRenderObject.h"
 #include <gfx/GraphicsStats.h>
 #include <gfx/ISceneRenderQueue.h>
+#include <gfx/ISceneRenderObject.h>
 #include <gfx/IPrimitive.h>
 
 
@@ -39,12 +41,12 @@ class InstanceItem
 {
 public:
 	// Constructors.
-	InstanceItem( SceneRenderObject* object );
+	InstanceItem( ISceneRenderObject* object, IRenderView* view );
 	InstanceItem();
 
 	lang::String						Key() const;
 
-	SceneRenderObject*					Object;
+	ISceneRenderObject*					Object;
 	UInt								StartElement;
 	UInt								ElementCount;
 	UInt								StartInstance;
@@ -110,13 +112,14 @@ public:
 
 	// ISceneRenderQueue methods.
 	ISceneRenderObject*										CreateObject( IPrimitive* data, Bool occluder );
+	ISceneRenderObjectEx*									CreateObjectEx();
 	ISkyRenderObject*										CreateSkysphereObject( Float radius );
 	ISkyRenderObject*										CreateSkyboxObject();
 	ILineRenderQueue*										GetLineQueue() const;
 	IPointRenderQueue*										GetPointQueue() const;
 
 	// Other methods.
-	void													RemoveObject( SceneRenderObject* object );
+	void													RemoveObject( BaseSceneRenderObject* object );
 	void													Process( IRenderView* view, Bool overlay, const FillMode& fill, const img::PixelChannel& mask, IParameterSet* vertexParams, GraphicsStats& stats );
 	void													ProcessLinesAndPoints( GraphicsStats& stats );
 
@@ -124,7 +127,7 @@ private:
 	typedef lang::MapPair<lang::String, ResourceItem>		ResourceEntry;
 
 	lang::Map<lang::String, ResourceItem>					_resources;
-	lang::Vector<SceneRenderObject*>						_dirty;
+	lang::Vector<ISceneRenderObject*>						_dirty;
 	mutable P(LineRenderQueue)								_lineQueue;
 	mutable P(PointRenderQueue)								_pointQueue;
 	IGraphicsSystemEx*										_graphicsSystem;

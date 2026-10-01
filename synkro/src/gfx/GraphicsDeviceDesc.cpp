@@ -24,6 +24,7 @@ namespace gfx
 
 GraphicsDeviceDesc::GraphicsDeviceDesc() :
 	Type( GraphicsDeviceType::Unknown ),
+	MemorySize( 0 ),
 	LevelMajor( 0 ),
 	LevelMinor( 0 ),
 	TopDown( false ),
@@ -34,9 +35,10 @@ GraphicsDeviceDesc::GraphicsDeviceDesc() :
 {
 }
 
-GraphicsDeviceDesc::GraphicsDeviceDesc( const lang::String& name, const GraphicsDeviceType& type ) :
+GraphicsDeviceDesc::GraphicsDeviceDesc( const lang::String& name, ULong memorySize, const GraphicsDeviceType& type ) :
 	Name( name ),
 	Type( type ),
+	MemorySize( memorySize ),
 	LevelMajor( 0 ),
 	LevelMinor( 0 ),
 	TopDown( false ),

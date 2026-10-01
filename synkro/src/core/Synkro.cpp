@@ -136,6 +136,12 @@ Synkro::Synkro( Pointer module, UInt version, SynkroListener* listener ) :
 		// Register standard configuration parameters.
 		RegisterParams();
 
+		// Report OS version.
+		LogInfo( MessagePriority::Normal, Formatter::Format(L"Operating system: {0}.", Platform::Version) );
+
+		// Report total physical memory size.
+		LogInfo( MessagePriority::Normal, Formatter::Format(L"Total physical memory: {0} GB.", Platform::TotalMemorySize/(1024*1024*1024)) );
+
 		// Load libraries.
 		LoadLibraries();
 

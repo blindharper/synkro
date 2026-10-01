@@ -39,6 +39,11 @@ public:
 	virtual void											Enable( Bool enable ) = 0;
 
 	/**
+	 * Clears object's "dirty" flag.
+	 */
+	virtual void											ResetDirty() = 0;
+
+	/**
 	 * Checks whether object rendering is enabled.
 	 */
 	virtual Bool											IsEnabled() const = 0;
@@ -47,11 +52,23 @@ public:
 	 * Retrieves program used to render the object.
 	 */
 	virtual IProgram*										GetProgram() const = 0;
-	
+
+	/**
+	 * Retrieves object geometry for the given view.
+	 * @param view Render view.
+	 * @return Object geometry.
+	 */
+	virtual IPrimitiveEx*									GetData( IRenderView* view ) const = 0;
+
 	/**
 	 * Retrieves object geometry.
 	 */
 	virtual IPrimitiveEx*									GetData() const = 0;
+
+	/**
+	 * Retrieves object's "dirty" flag.
+	 */
+	virtual Bool											IsDirty() const = 0;
 };
 
 

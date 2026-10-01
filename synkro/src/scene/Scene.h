@@ -57,6 +57,7 @@ public:
 	// IScene methods.
 	ITriangleMesh*											CreateTriangleMesh( INode* parent, const lang::String& name, mat::IVisualMaterial* material, ISkeleton* skeleton );
 	ITriangleMeshBatch*										CreateTriangleMeshBatch( mat::IVisualMaterial* material, ISkeleton* skeleton, UInt capacity );
+	ITriangleMeshSet*										CreateTriangleMeshSet( INode* parent, const lang::String& name, mat::IVisualMaterial* material );
 	ITriangleMesh*											PickMesh( const math::Vector3& origin, const math::Vector3& direction, Float* distance ) const;
 	gfx::ISceneRenderQueue*									GetRenderQueue() const;
 	Bool													IsLit() const;
@@ -83,6 +84,7 @@ public:
 	ITriangleMesh*											LoadMesh( io::IStream* stream, mat::IVisualMaterial* material );
 	ITriangleMesh*											LoadMesh( io::IStream* stream, ISkeleton* skeleton );
 	ITriangleMesh*											LoadMesh( io::IStream* stream );
+	ITriangleMeshSet*										LoadMesh( io::IStreamSet* streams );
 	void													SetAmbientLightColor( const img::Color& color );
 	void													SetAmbientLightIntensity( Float intensity );
 	void													SetSky( img::IImage* map, Float size );

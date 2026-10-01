@@ -12,6 +12,7 @@
 //==============================================================================
 #include "config.h"
 #include <core/Platform.h>
+#include <winternl.h>
 
 
 // Defines string constant.
@@ -41,7 +42,77 @@ namespace core
 	SYNKRO_PLATFORM_STRING( DynamicLibraryExtension, ".so" )
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
 
+	typedef NTSTATUS(WINAPI *LPRTLGETVERSION)( PRTL_OSVERSIONINFOW );
+
+	static Char* GetVersion()
+	{
+		Char* version = L"Unknown OS";
+#if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
+
+		Char* WINDOWS_VISTA = L"Windows Vista";
+		Char* WINDOWS_7 = L"Windows 7";
+		Char* WINDOWS_8 = L"Windows 8";
+		Char* WINDOWS_8_1 = L"Windows 8.1";
+		Char* WINDOWS_10 = L"Windows 10";
+		Char* WINDOWS_11 = L"Windows 11";
+
+		HMODULE module = ::GetModuleHandleA( "ntdll.dll" );
+		if ( module )
+		{
+			LPRTLGETVERSION func = (LPRTLGETVERSION)::GetProcAddress( module, "RtlGetVersion" );
+			if ( func )
+			{
+				RTL_OSVERSIONINFOW rovi = {};
+				rovi.dwOSVersionInfoSize = sizeof(rovi);
+				if ( func(&rovi) == 0 ) // SUCCESS
+				{
+					const DWORD major = rovi.dwMajorVersion;
+					const DWORD minor = rovi.dwMinorVersion;
+					const DWORD build = rovi.dwBuildNumber;
+					switch ( major )
+					{
+						case 6:
+							if ( minor == 3 )
+								version = WINDOWS_8_1;
+							else if ( minor == 2 )
+								version = WINDOWS_8;
+							else if ( minor == 1 )
+								version = WINDOWS_7;
+							else if ( minor == 0 )
+								version = WINDOWS_VISTA;
+							break;
+
+						case 10:
+							version = ((minor==0) && (build>=22000)) ? WINDOWS_11 : WINDOWS_10;
+							break;
+
+						default:
+							break;
+					}
+				}
+			}
+		}
+#endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
+		return version;
+	}
+
+	static ULong GetTotalMemorySize()
+	{
+		ULong totalMemorySize = 0;
+#if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
+		MEMORYSTATUSEX msex;
+		msex.dwLength = sizeof(msex);
+		if ( ::GlobalMemoryStatusEx(&msex) )
+		{
+			totalMemorySize = CastULong( msex.ullTotalPhys );
+		}
+#endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
+		return totalMemorySize;
+	}
+
+	const Char* Platform::Version = GetVersion();
 	const UInt Platform::ProcessorCount = 0;
+	const ULong Platform::TotalMemorySize = GetTotalMemorySize();
 	static UInt _id = 0;
 
 void Platform::Error( const Char* message ) SYNKRO_NOEXCEPT

@@ -26,6 +26,7 @@
 #include "PointMesh.h"
 #include "PointMeshBatch.h"
 #include "TriangleMesh.h"
+#include "TriangleMeshSet.h"
 #include "TriangleMeshBatch.h"
 #include "BaseNode.h"
 #include "Fog.h"
@@ -36,6 +37,7 @@
 #include <scene/SceneManager.h>
 #include <sound/ISoundManager.h>
 #include <io/IStream.h>
+#include <io/IStreamSet.h>
 #include <io/Path.h>
 #include <phys/IPhysicsSystemEx.h>
 #include <img/BaseImage.h>
@@ -140,8 +142,17 @@ ITriangleMesh* Scene::CreateTriangleMesh( INode* parent, const String& name, IVi
 
 ITriangleMeshBatch* Scene::CreateTriangleMeshBatch( IVisualMaterial* material, ISkeleton* skeleton, UInt capacity )
 {
-	ITriangleMeshBatch* b = _scene->CreateTriangleMeshBatch( material, skeleton, capacity );
-	return new TriangleMeshBatch( b, this, _context, String::Empty, skeleton, capacity );
+	ITriangleMeshBatch* batch = _scene->CreateTriangleMeshBatch( material, skeleton, capacity );
+	return new TriangleMeshBatch( batch, this, _context, String::Empty, skeleton, capacity );
+}
+
+ITriangleMeshSet* Scene::CreateTriangleMeshSet( INode* parent, const String& name, IVisualMaterial* material )
+{
+	ITriangleMeshSet* s = _scene->CreateTriangleMeshSet( parent, name, material );
+	ITriangleMeshSet* set = new TriangleMeshSet( s, this, _context, name );
+	set->SetParent( (parent != nullptr) ? parent : _root );
+	RegisterNode( set );
+	return set;
 }
 
 ITriangleMesh* Scene::PickMesh( const Vector3& origin, const Vector3& direction, Float* distance ) const
@@ -347,6 +358,24 @@ ITriangleMesh* Scene::LoadMesh( IStream* stream, ISkeleton* skeleton )
 ITriangleMesh* Scene::LoadMesh( IStream* stream )
 {
 	return LoadMesh( stream, nullptr, nullptr, 0 );
+}
+
+ITriangleMeshSet* Scene::LoadMesh( IStreamSet* streams )
+{
+	assert( streams != nullptr );
+	assert( streams->GetSize() != 0 );
+
+	SynkroCall( "Scene.LoadMesh", String::Empty );
+
+	if ( streams->GetSize() > 0 )
+	{
+		String type = Path( streams->Get(0)->GetName() ).GetExtensionWoDot();
+		if ( !type.IsEmpty() )
+		{
+			return _sceneManager->LoadMesh( this, streams, type );
+		}
+	}
+	return nullptr;
 }
 
 void Scene::SetSky( IImage* map, Float size )

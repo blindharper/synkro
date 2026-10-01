@@ -359,6 +359,7 @@ ITriangleMesh* Viewport::PickMesh( const Point& location, Float* distance ) cons
 Float Viewport::GetProjectedSize( Float distance, Float size ) const
 {
 	const Float front = _camera->GetFront();
+	distance = Math::Abs( distance );
 	if ( distance < front )
 		distance = front;
 	const Float widthProjectionScalar = (CastFloat(_size.Width)*0.5f) / Math::Tan( _camera->GetHorizontalFieldOfView()*0.5f );
