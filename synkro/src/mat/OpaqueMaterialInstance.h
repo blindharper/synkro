@@ -59,6 +59,7 @@ public:
 	void													SetTiling( UInt tiling );
 	void													SetTilingHorizontal( UInt tiling );
 	void													SetTilingVertical( UInt tiling );
+	void													SetName( const lang::String& name );
 	LightingModel											GetLightingModel() const;
 	void													GetDiffuseColor( img::Color& color ) const;
 	void													GetAmbientColor( img::Color& color ) const;
@@ -67,6 +68,7 @@ public:
 	Float													GetSpecularPower() const;
 	UInt													GetTilingHorizontal() const;
 	UInt													GetTilingVertical() const;
+	lang::String											GetName() const;
 	IMaterialMap*											GetDiffuseMap() const;
 	IOpaqueMaterial*										AsOpaque() const;
 	ITransparentMaterial*									AsTransparent() const;

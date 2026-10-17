@@ -20,6 +20,7 @@
 
 using namespace synkro::anim;
 using namespace synkro::core;
+using namespace synkro::gfx;
 using namespace synkro::img;
 using namespace synkro::lang;
 using namespace synkro::scene;
@@ -98,6 +99,11 @@ void OpaqueMaterialInstance::SetTilingVertical( UInt tiling )
 	_material->SetTilingVertical( tiling );
 }
 
+void OpaqueMaterialInstance::SetName( const String& name )
+{
+	_material->SetName( name );
+}
+
 LightingModel OpaqueMaterialInstance::GetLightingModel() const
 {
 	return _material->GetLightingModel();
@@ -138,6 +144,11 @@ UInt OpaqueMaterialInstance::GetTilingVertical() const
 	return _material->GetTilingVertical();
 }
 
+String OpaqueMaterialInstance::GetName() const
+{
+	return _material->GetName();
+}
+
 IMaterialMap* OpaqueMaterialInstance::GetDiffuseMap() const
 {
 	return _material->GetDiffuseMap();
@@ -148,7 +159,7 @@ IVisualMaterial* OpaqueMaterialInstance::CreateInstance( ITriangleMeshBatch* bat
 	return dynamic_cast<OpaqueMaterial*>( _material )->CreateInstance( batch, index );
 }
 
-void OpaqueMaterialInstance::Assign( scene::ITriangleMesh* mesh, gfx::ISceneRenderObject* object, UInt index )
+void OpaqueMaterialInstance::Assign( ITriangleMesh* mesh, ISceneRenderObject* object, UInt index )
 {
 	return dynamic_cast<OpaqueMaterial*>( _material )->Assign( mesh, object, index );
 }

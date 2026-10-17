@@ -99,6 +99,12 @@ SYNKRO_INLINE void SimpleMaterialImpl<T>::SetTilingVertical( UInt tiling )
 }
 
 template <class T>
+SYNKRO_INLINE void SimpleMaterialImpl<T>::SetName( const lang::String& name )
+{
+	_name = name;
+}
+
+template <class T>
 SYNKRO_INLINE LightingModel SimpleMaterialImpl<T>::GetLightingModel() const
 {
 	return _lightingModel;
@@ -144,6 +150,12 @@ template <class T>
 SYNKRO_INLINE UInt SimpleMaterialImpl<T>::GetTilingVertical() const
 {
 	return _tilingVertical;
+}
+
+template <class T>
+SYNKRO_INLINE lang::String SimpleMaterialImpl<T>::GetName() const
+{
+	return _name;
 }
 
 template <class T>

@@ -32,7 +32,7 @@ namespace scene
 
 // Wavefront Advanced Visualizer mesh codec factory.
 SYNKRO_FACTORY_BEGIN( ObjMeshCodecFactory, IMeshCodecFactory, MeshCodec, MeshCodec::Obj )
-	IMeshCodec*		Create( core::IContext* context ) { return new ObjMeshCodec( context->GetSceneManager(), context->GetMaterialManager(), context->GetImageManager(), context->GetAnimationSystem() ); }
+	IMeshCodec*		Create( core::IContext* context ) { return new ObjMeshCodec( context->GetSceneManager(), context->GetMaterialManager(), context->GetImageManager() ); }
 SYNKRO_FACTORY_END()
 
 

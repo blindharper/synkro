@@ -209,6 +209,7 @@ struct MaterialDesc
 		Colors( A(Float) )
 	{
 		img::Color color;
+		Name = material->GetName();
 		material->GetDiffuseColor( color );
 		Colors.Add( &color.R, 3 );
 		Colors.Add( 1.0f );
@@ -244,6 +245,7 @@ struct MaterialDesc
 
 	lang::Vector<Float>		Colors;
 	lang::String			Texture;
+	lang::String			Name;
 };
 
 struct BoneDesc
@@ -370,15 +372,15 @@ struct ModelDesc
 	{
 		if ( material->GetSubsetCount() > 1 )
 		{
-			mat::IMultiMaterial* multiMaterial = (mat::IMultiMaterial*)material;
+			mat::IMultiMaterial* multiMaterial = material->AsMulti();
 			for ( UInt i = 0; i < multiMaterial->GetSubsetCount(); ++i )
 			{
-				Materials.Add( MaterialDesc((mat::IOpaqueMaterial*)multiMaterial->GetSubset(i)) );
+				Materials.Add( MaterialDesc(multiMaterial->GetSubset(i)->AsOpaque()) );
 			}
 		}
 		else
 		{
-			Materials.Add( MaterialDesc((mat::IOpaqueMaterial*)material) );
+			Materials.Add( MaterialDesc(material->AsSimple()->AsOpaque()) );
 		}
 	}
 
