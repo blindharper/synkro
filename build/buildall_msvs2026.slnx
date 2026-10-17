@@ -126,6 +126,14 @@
       <Build Solution="profile_static|*" Project="false" />
       <Build Solution="release_static|*" Project="false" />
     </Project>
+    <Project Path="../demos/build/LevelsOfDetail/LevelsOfDetail_msvs2026.vcxproj" Id="4d51cbfb-42e1-49ac-ad2c-e8afef2e2dd7">
+      <BuildType Solution="debug_static|*" Project="profile" />
+      <BuildType Solution="profile_static|*" Project="profile" />
+      <BuildType Solution="release_static|*" Project="release" />
+      <Build Solution="debug_static|*" Project="false" />
+      <Build Solution="profile_static|*" Project="false" />
+      <Build Solution="release_static|*" Project="false" />
+    </Project>
     <Project Path="../demos/build/LookAtMe/LookAtMe_msvs2026.vcxproj" Id="0d482fd8-f796-49a7-bb86-0b64c98bb331">
       <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="debug" />

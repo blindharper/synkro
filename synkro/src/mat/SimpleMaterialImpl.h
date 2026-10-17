@@ -51,6 +51,7 @@ public:
 	virtual void											SetTiling( UInt tiling );
 	virtual void											SetTilingHorizontal( UInt tiling );
 	virtual void											SetTilingVertical( UInt tiling );
+	virtual void											SetName( const lang::String& name );
 	virtual LightingModel									GetLightingModel() const;
 	virtual void											GetDiffuseColor( img::Color& color ) const;
 	virtual void											GetAmbientColor( img::Color& color ) const;
@@ -59,6 +60,7 @@ public:
 	virtual Float											GetSpecularPower() const;
 	virtual UInt											GetTilingHorizontal() const;
 	virtual UInt											GetTilingVertical() const;
+	virtual lang::String									GetName() const;
 	virtual IMaterialMap*									GetDiffuseMap() const;
 	virtual IOpaqueMaterial*								AsOpaque() const;
 	virtual ITransparentMaterial*							AsTransparent() const;
@@ -78,6 +80,7 @@ protected:
 	gfx::ProgramParam*										_paramTilingHorizontal;
 	gfx::ProgramParam*										_paramTilingVertical;
 	P(IMaterialMap)											_diffuseMap;
+	lang::String											_name;
 
 	void													VerifyTiling( UInt tiling );
 };

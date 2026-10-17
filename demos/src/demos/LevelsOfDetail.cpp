@@ -12,13 +12,6 @@ public:
 
 	void InitScene() override
 	{
-		// TODO:
-		/*// Create mesh.
-		PtrStream streamModel = GetStream( L"hammerlod3.obj" );
-		_mesh = _scene->LoadMesh( streamModel );
-		_mesh->SetPosition( Vector3(0.0f, 200.0f, 700.0f) );
-		_mesh->SetOrientationYaw( Math::HalfPi );*/
-
 		// Create material.
 		IImage* diffuseMap = GetImage( L"checkers.jpg" );
 		_material = CreateMaterial( diffuseMap, Color::Yellow );
@@ -34,6 +27,19 @@ public:
 		_meshSet->SetMinimumLevelSize( 1, 400.0f );
 		_meshSet->SetMinimumLevelSize( 2, 300.0f );
 		_meshSet->SetMinimumLevelSize( 3, 200.0f );
+
+		// Create mesh set.
+		_meshSet2 = _scene->LoadMesh( GetStreams(L"hammer", L"hammerlod*.obj") );
+		_meshSet2->SetPosition( Vector3(250.0f, 180.0f, -400.0f) );
+		_meshSet2->SetOrientationYaw( Math::HalfPi );
+		_meshSet2->SetMinimumLevelSize( 0, 1250.0f );
+		_meshSet2->SetMinimumLevelSize( 1, 1050.0f );
+		_meshSet2->SetMinimumLevelSize( 2, 750.0f );
+
+		// Create the most detailed mesh.
+		_mesh = _scene->LoadMesh( GetStream(L"hammerlod1.obj") );
+		_mesh->SetPosition( Vector3(-250.0f, 180.0f, -400.0f) );
+		_mesh->SetOrientationYaw( Math::HalfPi );
 	}
 
 	void InitView() override
@@ -41,13 +47,14 @@ public:
 		// Setup camera.
 		_camera->SetPosition( Vector3(0.0f, 0.0f, 100.0f) );
 		_camera->LookAt( Vector3::Origin );
+		_viewport->SetWireframe( true );
 	}
 
 	void InitUi() override
 	{
 		_labelDistance = CreateLabel( Point(_widgetLeft, 120), L"Distance:" );
 		_sliderDistance = CreateSlider( none, Point(_widgetLeft, 140), 100, 1600, 600 );
-		_switchWireframe = CreateSwitch( Point(_widgetLeft, 170), 160, L"[W]ireframe", HotKey(Key::W, true), false );
+		_switchWireframe = CreateSwitch( Point(_widgetLeft, 170), 160, L"[W]ireframe", HotKey(Key::W, true), true );
 		SetDistance( 600.0f );
 	}
 
@@ -89,6 +96,9 @@ public:
 private:
 	PtrOpaqueMaterial										_material;
 	PtrTriangleMeshSet										_meshSet;
+
+	PtrTriangleMeshSet										_meshSet2;
+	PtrTriangleMesh											_mesh;
 
 	PtrLabel												_labelDistance;
 	PtrSlider												_sliderDistance;

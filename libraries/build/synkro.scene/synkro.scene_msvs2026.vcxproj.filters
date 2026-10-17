@@ -76,6 +76,30 @@
     <Filter Include="Scene\Default\Set">
       <UniqueIdentifier>{3d4427fe-1810-4417-aa57-d2507e47cfc3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MeshCodec\Obj\Material">
+      <UniqueIdentifier>{953e0c89-043e-4cbf-94db-982e3115fbc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\Obj\Material\Reader">
+      <UniqueIdentifier>{eb81efc7-1183-4b61-a6e4-c625b5626310}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\Obj\Material\Writer">
+      <UniqueIdentifier>{4cacf37a-f9af-46ee-a21d-1cccbe5c457b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\Obj\Mesh">
+      <UniqueIdentifier>{ecf343d0-700a-4c8b-a12d-d71401074aa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\Obj\Mesh\Writer">
+      <UniqueIdentifier>{67af930c-248e-4c09-a991-1fc1cb21077a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\Obj\Mesh\Reader">
+      <UniqueIdentifier>{24b0c2b5-b474-4c41-b8e2-ada03ce427c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\Obj\Reader">
+      <UniqueIdentifier>{d4372f2d-164d-4f26-a6f4-7440fe4c4704}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MeshCodec\Obj\Writer">
+      <UniqueIdentifier>{c628597e-ee21-439b-af18-93af74b78555}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\synkro\src\scene\MeshBuilder\BoxMeshBuilder.h">
@@ -189,6 +213,30 @@
     <ClInclude Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshSet.h">
       <Filter>Scene\Default\Set</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjMaterial.h">
+      <Filter>MeshCodec\Obj\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\Obj\MtlReader.h">
+      <Filter>MeshCodec\Obj\Material\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\Obj\MtlWriter.h">
+      <Filter>MeshCodec\Obj\Material\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjStreamWriter.h">
+      <Filter>MeshCodec\Obj\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjStreamReader.h">
+      <Filter>MeshCodec\Obj\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjMesh.h">
+      <Filter>MeshCodec\Obj\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjWriter.h">
+      <Filter>MeshCodec\Obj\Mesh\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjReader.h">
+      <Filter>MeshCodec\Obj\Mesh\Reader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\synkro.scene\synkro.scene.cpp" />
@@ -257,6 +305,24 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\scene\Default\DefaultTriangleMeshSet.cpp">
       <Filter>Scene\Default\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\Obj\MtlReader.cpp">
+      <Filter>MeshCodec\Obj\Material\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\Obj\MtlWriter.cpp">
+      <Filter>MeshCodec\Obj\Material\Writer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjStreamWriter.cpp">
+      <Filter>MeshCodec\Obj\Writer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjStreamReader.cpp">
+      <Filter>MeshCodec\Obj\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjWriter.cpp">
+      <Filter>MeshCodec\Obj\Mesh\Writer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\scene\MeshCodec\Obj\ObjReader.cpp">
+      <Filter>MeshCodec\Obj\Mesh\Reader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

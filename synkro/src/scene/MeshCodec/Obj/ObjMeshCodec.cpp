@@ -12,9 +12,15 @@
 //==============================================================================
 #include "config.h"
 #include "ObjMeshCodec.h"
+#include "ObjReader.h"
+#include "ObjWriter.h"
+#include "MtlReader.h"
+#include "MtlWriter.h"
 #include <io/IStreamDirectory.h>
 #include <io/IStream.h>
+#include <io/Path.h>
 #include <core/CallStack.h>
+#include <scene/ITriangleMeshSet.h>
 #include <scene/ITriangleSet.h>
 #include <mat/IMaterialMap.h>
 #include <mat/IMultiMaterial.h>
@@ -41,122 +47,165 @@ namespace scene
 {
 
 
-ObjMeshCodec::ObjMeshCodec( ISceneManager* sceneManager, IMaterialManager* materialManager, IImageManager* imageManager, IAnimationSystem* animationSystem ) :
-	MeshCodecImpl<IMeshCodec>( sceneManager, materialManager, imageManager, animationSystem ),
-	_materials( A(MaterialDesc) ),
-	_models( A(ModelDesc) ),
-	_materialCache( A(MaterialCacheEntry) ),
-	_lexem( A(char) ),
-	_lexemCache( A(char) )
+ObjMeshCodec::ObjMeshCodec( ISceneManager* sceneManager, IMaterialManager* materialManager, IImageManager* imageManager ) :
+	MeshCodecImpl<IMeshCodec>( sceneManager, materialManager, imageManager, nullptr ),
+	_materials( A(ObjMaterial) ),
+	_models( A(ObjModelDesc) ),
+	_materialCache( A(MaterialCacheEntry) )
 {
 }
 
 ITriangleMeshSet* ObjMeshCodec::Load( IScene* scene, IStreamSet* streams, const PixelFormat& format )
 {
-	SynkroCall( "ObjMeshCodec::Load", String::Empty );
+	SynkroCall( "ObjMeshCodec::Load", streams->Get(0)->GetName() );
 
-	// TODO:
-	return nullptr;
+	_models.Clear();
+	_materials.Clear();
+
+	for ( UInt i = 0; i < streams->GetSize(); ++i )
+	{
+		// Read model.
+		IStream* stream = streams->Get( i );
+		ObjReader objReader( stream );
+		for ( UInt i = 0; i < objReader.GetModelCount(); ++i )
+		{
+			ObjModelDesc model;
+			objReader.GetModel( i, model );
+			_models.Add( model );
+			break; // Only get the very first model from each stream.
+		}
+
+		// Read material from first model.
+		if ( i == 0 )
+		{
+			String matLib = objReader.GetMaterialLibrary();
+			IStream* streamMatLib = stream->GetDirectory()->GetStream( matLib );
+			if ( streamMatLib == nullptr )
+				throw Exception( String::Format(L"Failed to load mesh. Material library {0,q} not found.", matLib) );
+
+			ObjMaterial descMaterial;
+			MtlReader reader( streamMatLib );
+			for ( UInt m = 0; m < reader.GetMaterialCount(); ++m )
+			{
+				reader.GetMaterial( m, descMaterial );
+				_materials.Add( descMaterial );
+			}
+		}
+	}
+
+	// Assign material indices to models.
+	for ( UInt i = 0; i < _models.Size(); ++i )
+	{
+		UInt idxMaterial = GetMaterialIndex( _models[i].MaterialName );
+		if ( idxMaterial == none )
+			throw Exception( String::Format(L"Failed to load mesh. Unknown material {0,q}.", _models[i].MaterialName) );
+
+		_models[i].Material = idxMaterial;
+	}
+
+	// Prepare material.
+	IOpaqueMaterial* material = _materialManager->CreateOpaqueMaterial( LightingModel::Gouraud, true );
+
+	// Set colors.
+	ObjMaterial& desc = _materials[0];
+	material->SetAmbientColor( (desc.Ambient == Color::Black) ? desc.Diffuse : desc.Ambient );
+	material->SetDiffuseColor( desc.Diffuse );
+	material->SetEmissiveColor( desc.Emissive );
+	material->SetSpecularColor( desc.Specular );
+	material->SetSpecularPower( desc.SpecularPower );
+
+	// Set texture, if any.
+	if ( !desc.DiffuseTexture.IsEmpty() )
+	{
+		IImage* image = nullptr;
+		IStream* streamTexture = streams->Get(0)->GetDirectory()->GetStream( desc.DiffuseTexture );
+		if ( streamTexture == nullptr )
+			throw Exception( String::Format(L"Failed to load mesh. File {0} not found.", desc.DiffuseTexture) );
+
+		PixelFormat fmt = format;
+		image = _imageManager->LoadImageAsync( streamTexture, fmt, nullptr );
+		material->GetDiffuseMap()->SetImage( image );
+		material->GetDiffuseMap()->SetName( desc.DiffuseTexture );
+		material->GetDiffuseMap()->SetAmount( 1.0f );
+	}
+
+	// Prepare geometry.
+	ITriangleMeshSet* meshSet = scene->CreateTriangleMeshSet( nullptr, streams->Get(0)->GetName(), material );
+
+	for ( UInt i = 0; i < _models.Size(); ++i )
+	{
+		const ObjModelDesc& desc = _models[i];
+		const UInt vertexCount = desc.Positions.Size();
+		const UInt indexCount = desc.Indices.Size();
+		ITriangleSet* subset = meshSet->CreateTriangleList( desc.Name, vertexCount, indexCount, false, Matrix4x4::Identity );
+		subset->SetPositions (desc.Positions.Begin(), 0, vertexCount );
+		subset->SetIndices( desc.Indices.Begin(), 0, indexCount );
+		
+		// Set normals.
+		const IScene* scene = meshSet->GetScene();
+		if ( (scene != nullptr) && scene->IsLit() )
+		{
+			if ( !desc.Normals.IsEmpty() )
+			{
+				subset->SetNormals( desc.Normals.Begin(), 0, desc.Normals.Size() );
+			}
+			else
+			{
+				Vector<Vector3> normals( A(Vector3) );
+				normals.SetSize( desc.Positions.Size() );
+				GenerateNormals( desc.Indices.Begin(), desc.Indices.Size(), desc.Positions.Begin(), normals.Begin(), false );
+				subset->SetNormals( normals.Begin(), 0, normals.Size() );
+			}
+		}
+
+		// Set texture coordinates.
+		if ( !desc.TexCoords.IsEmpty() )
+		{
+			subset->SetTextureCoordinates( desc.TexCoords.Begin(), 0, desc.TexCoords.Size() );
+		}
+	}
+
+	return meshSet;
 }
 
 ITriangleMesh* ObjMeshCodec::Load( IScene* scene, IStream* stream, const PixelFormat& format, IVisualMaterial* material, ISkeleton* skeleton, UInt instanceCapacity )
 {
 	SynkroCall( "ObjMeshCodec::Load", stream->GetName() );
 
-	_char = 0;
 	_models.Clear();
 	_materials.Clear();
 
-	Vector<Vector3> positions( A(Vector3) );
-	Vector<Vector2> texCoords( A(Vector2) );
-	Vector<Vector3> normals( A(Vector3) );
-	Vector<Face> faces( A(Face) );
-	UInt idxMaterial = none;
-	
-	while ( GetLexem(stream) )
+	// Read models.
+	ObjReader objReader( stream );
+	for ( UInt i = 0; i < objReader.GetModelCount(); ++i )
 	{
-		if ( !_strcmpi(_lexem.Begin(), "mtllib") )
-		{
-			String matLib = GetString( stream );
-			IStream* streamMatLib = stream->GetDirectory()->GetStream( matLib );
-			if ( streamMatLib == nullptr )
-				throw Exception( String::Format(L"Failed to load mesh. Material library {0,q} not found.", matLib) );
-			ReadMaterials( streamMatLib, format );
-		}
-		else if ( !_strcmpi(_lexem.Begin(), "usemtl") )
-		{
-			String name = GetString( stream );
-			idxMaterial = GetMaterialIndex( name );
-			if ( idxMaterial == none )
-				throw Exception( String::Format(L"Failed to load mesh. Unknown material name {0,q}.", name) );
-		}
-		else if ( !_strcmpi(_lexem.Begin(), "g") || !_strcmpi(_lexem.Begin(), "o") )
-		{
-			String name = GetString( stream );
-			ModelDesc desc( name );
-			_models.Add( desc );
-		}
-		else if ( !_strcmpi(_lexem.Begin(), "v") )
-		{
-			const Float x = GetFloat( stream );
-			const Float y = GetFloat( stream );
-			const Float z = GetFloat( stream );
-			positions.Add( Vector3(x, y, z) );
-		}
-		else if ( !_strcmpi(_lexem.Begin(), "vt") )
-		{
-			const Float x = GetFloat( stream );
-			const Float y = GetFloat( stream );
-			texCoords.Add( Vector2(x, 1.0f-y) );
-		}
-		else if ( !_strcmpi(_lexem.Begin(), "vn") )
-		{
-			const Float x = GetFloat( stream );
-			const Float y = GetFloat( stream );
-			const Float z = GetFloat( stream );
-			normals.Add( Vector3(x, y, -z) );
-		}
-		else if ( !_strcmpi(_lexem.Begin(), "f") )
-		{
-			if ( _models.Size() == 0 )
-			{
-				_models.Add( ModelDesc(L"Default") );
-			}
+		ObjModelDesc model;
+		objReader.GetModel( i, model );
+		_models.Add( model );
+	}
 
-			ModelDesc& desc = _models.LastValue();
-			desc.Material = idxMaterial;
-			faces.Clear();
+	// Read materials.
+	String matLib = objReader.GetMaterialLibrary();
+	IStream* streamMatLib = stream->GetDirectory()->GetStream( matLib );
+	if ( streamMatLib == nullptr )
+		throw Exception( String::Format(L"Failed to load mesh. Material library {0,q} not found.", matLib) );
 
-			Face f;
-			while ( GetFace(stream, f) )
-			{
-				faces.Add( f );
-			}
+	ObjMaterial descMaterial;
+	MtlReader reader( streamMatLib );
+	for ( UInt m = 0; m < reader.GetMaterialCount(); ++m )
+	{
+		reader.GetMaterial( m, descMaterial );
+		_materials.Add( descMaterial );
+	}
 
-			// Split faces to triangles, if needed.
-			UInt face[3] = {};
-			const UInt idx = desc.Positions.Size();
-			for ( UInt i = 0; i < faces.Size()-2; ++i )
-			{
-				face[0] = idx;
-				face[1] = idx+i+1;
-				face[2] = idx+i+2;
-				desc.Indices.Add( face, 3 );
-			}
+	// Assign material indices to models.
+	for ( UInt i = 0; i < _models.Size(); ++i )
+	{
+		UInt idxMaterial = GetMaterialIndex( _models[i].MaterialName );
+		if ( idxMaterial == none )
+			throw Exception( String::Format(L"Failed to load mesh. Unknown material {0,q}.", _models[i].MaterialName) );
 
-			for ( UInt i = 0; i < faces.Size(); ++i )
-			{
-				desc.Positions.Add( positions[faces[i].IdxPos-1] );
-				if ( faces[i].IdxNorm != none )
-				{
-					desc.Normals.Add( normals[faces[i].IdxNorm-1] );
-				}
-				if ( faces[i].IdxTex != none )
-				{
-					desc.TexCoords.Add( texCoords[faces[i].IdxTex-1] );
-				}
-			}
-		}
+		_models[i].Material = idxMaterial;
 	}
 
 	// Create right type of mesh.
@@ -200,7 +249,7 @@ ITriangleMesh* ObjMeshCodec::Load( IScene* scene, IStream* stream, const PixelFo
 	// Prepare mesh.
 	for ( UInt i = 0; i < _models.Size(); ++i )
 	{
-		ModelDesc& desc = _models[i];
+		const ObjModelDesc& desc = _models[i];
 		const UInt vertexCount = desc.Positions.Size();
 		const UInt indexCount = desc.Indices.Size();
 		ITriangleSet* subset = mesh->CreateTriangleList( desc.Name, vertexCount, indexCount, false, Matrix4x4::Identity );
@@ -208,7 +257,7 @@ ITriangleMesh* ObjMeshCodec::Load( IScene* scene, IStream* stream, const PixelFo
 		subset->SetIndices( desc.Indices.Begin(), 0, indexCount );
 		
 		// Set normals.
-		IScene* scene = mesh->GetScene();
+		const IScene* scene = mesh->GetScene();
 		if ( (scene != nullptr) && scene->IsLit() )
 		{
 			if ( !desc.Normals.IsEmpty() )
@@ -236,61 +285,54 @@ ITriangleMesh* ObjMeshCodec::Load( IScene* scene, IStream* stream, const PixelFo
 
 void ObjMeshCodec::Save( const ITriangleMesh* mesh, IStream* stream )
 {
-}
+	// Write materials.
+	Path path( stream->GetName() );
+	String mtlName = path.GetNameWoExtension().Append( L".mtl" );
+	P(IStream) streamMtl = stream->GetDirectory()->CreateStream( mtlName );
+	MtlWriter mtlWriter( streamMtl );
+	IVisualMaterial* material = mesh->GetMaterial();
+	mtlWriter.WriteComment( L"Written by Synkro" );
+	mtlWriter.WriteComment( L"https://github.com/blindharper/synkro" );
+	mtlWriter.WriteComment( String::Format(L"Material Count: {0}", material->GetSubsetCount()) );
+	mtlWriter.WriteCRLF();
 
-
-void ObjMeshCodec::ReadMaterials( IStream* stream, const PixelFormat& format )
-{
-	_char = 0;
-
-	stream->Open( OpenMode::Read );
-	while ( GetLexem(stream) )
+	Vector<IOpaqueMaterial*> materials( A(IOpaqueMaterial*) );
+	if ( material->GetSubsetCount() > 1 )
 	{
-		if ( !_strcmpi(_lexem.Begin(), "newmtl") )
+		IMultiMaterial* multiMaterial = material->AsMulti();
+		for ( UInt i = 0; i < multiMaterial->GetSubsetCount(); ++i )
 		{
-			String name = GetString( stream );
-			_materials.Add( MaterialDesc(name) );
-		}
-		else if ( !_strcmpi(_lexem.Begin(), "Ka") )
-		{
-			const Float r = GetFloat( stream );
-			const Float g = GetFloat( stream );
-			const Float b = GetFloat( stream );
-			_materials.Last()->Ambient = Color(r, g, b);
-		}
-		else if ( !_strcmpi(_lexem.Begin(), "Kd") )
-		{
-			const Float r = GetFloat( stream );
-			const Float g = GetFloat( stream );
-			const Float b = GetFloat( stream );
-			_materials.Last()->Diffuse = Color(r, g, b);
-		}
-		else if ( !_strcmpi(_lexem.Begin(), "Ke") )
-		{
-			const Float r = GetFloat( stream );
-			const Float g = GetFloat( stream );
-			const Float b = GetFloat( stream );
-			_materials.Last()->Emissive = Color(r, g, b);
-		}
-		else if ( !_strcmpi(_lexem.Begin(), "Ks") )
-		{
-			const Float r = GetFloat( stream );
-			const Float g = GetFloat( stream );
-			const Float b = GetFloat( stream );
-			_materials.Last()->Specular = Color(r, g, b);
-		}
-		else if ( !_strcmpi(_lexem.Begin(), "Ns") )
-		{
-			const Float power = GetFloat( stream );
-			_materials.Last()->SpecularPower = power;
-		}
-		else if ( !_strcmpi(_lexem.Begin(), "map_Kd") )
-		{
-			String mapDiffuse = GetString( stream );
-			_materials.Last()->DiffuseTexture = mapDiffuse.StartsWith(L"map_") ? String::Empty : mapDiffuse;
+			materials.Add( multiMaterial->GetSubset( i )->AsSimple()->AsOpaque() );
 		}
 	}
-	stream->Close();
+	else
+	{
+		materials.Add( material->AsSimple()->AsOpaque() );
+	}
+	for ( UInt i = 0; i < materials.Size(); ++i )
+	{
+		ObjMaterial desc( materials[i] );
+		mtlWriter.Write( desc );
+	}
+
+	// Write mesh.
+	ObjWriter objWriter( stream );
+	objWriter.WriteComment( L"Written by Synkro" );
+	objWriter.WriteComment( L"https://github.com/blindharper/synkro" );
+	objWriter.WriteCRLF();
+	objWriter.WriteMaterialLibrary( mtlName );
+
+	for ( UInt i = 0; i < mesh->GetSubsetCount(); ++i )
+	{
+		ITriangleSet* subset = mesh->GetSubset( i )->AsTriangleSet();
+		ObjModelDesc desc( subset, mesh->GetSubsetName(i) );
+		objWriter.WriteSubset( desc.Name );
+		objWriter.WritePositions( desc.Positions );
+		objWriter.WriteTexCoords( desc.TexCoords );
+		objWriter.WriteNormals( desc.Normals );
+		objWriter.WriteMaterial( materials[i]->GetName() );
+		// TODO: Faces.
+	}
 }
 
 UInt ObjMeshCodec::GetMaterialIndex( const String& name )
@@ -331,7 +373,7 @@ IVisualMaterial* ObjMeshCodec::ChooseMaterial( IStream* stream, IVisualMaterial*
 		{
 			material = _materials[0].Material;
 		}
-		else if (loadMaps)
+		else if ( loadMaps )
 		{
 			material = (IVisualMaterial*)_materialManager->CreateOpaqueMaterial( LightingModel::Gouraud );
 		}
@@ -347,7 +389,7 @@ void ObjMeshCodec::PrepareMaterials( IStream* stream, const PixelFormat& format,
 
 	for ( UInt i = 0; i < _materials.Size(); ++i )
 	{
-		MaterialDesc& desc = _materials[i];
+		ObjMaterial& desc = _materials[i];
 
 		if (_materials[i].Material == nullptr)
 		{
@@ -380,170 +422,6 @@ void ObjMeshCodec::PrepareMaterials( IStream* stream, const PixelFormat& format,
 			material->GetDiffuseMap()->SetAmount( 1.0f );
 		}
 	}
-}
-
-Bool ObjMeshCodec::GetFace( IStream* stream, Face& face )
-{
-	int ret = 0;
-	
-	if ( PeekLexem(stream) )
-	{
-		ret = sscanf( _lexemCache.Begin(), "%d/%d/%d", &face.IdxPos, &face.IdxTex, &face.IdxNorm );
-		if ( ret == 3 )
-		{
-			GetLexem( stream );
-			return true;
-		}
-
-		ret = sscanf( _lexemCache.Begin(), "%d//%d", &face.IdxPos, &face.IdxNorm );
-		if ( ret == 2 )
-		{
-			face.IdxTex = none;
-			GetLexem( stream );
-			return true;
-		}
-
-		ret = sscanf( _lexemCache.Begin(), "%d/%d", &face.IdxPos, &face.IdxTex );
-		if ( ret == 2 )
-		{
-			face.IdxNorm = none;
-			GetLexem( stream );
-			return true;
-		}
-
-		ret = sscanf( _lexemCache.Begin(), "%d", &face.IdxPos );
-		if ( ret == 1 )
-		{
-			face.IdxTex = none;
-			face.IdxNorm = none;
-			GetLexem( stream );
-			return true;
-		}
-	}
-
-	return false;
-}
-
-String ObjMeshCodec::GetString( IStream* stream )
-{
-	GetLexem( stream );
-	return String( _lexem.Begin() );
-}
-
-Float ObjMeshCodec::GetFloat( IStream* stream )
-{
-	Float f;
-	GetLexem( stream );
-	sscanf( _lexem.Begin(), "%f", &f );
-	return f;
-}
-
-Bool ObjMeshCodec::GetLexem( IStream* stream )
-{
-	if ( !_lexemCache.IsEmpty() )
-	{
-		_lexem.SetSize( _lexemCache.Size() );
-		for ( UInt i = 0; i < _lexem.Size(); ++i )
-		{
-			_lexem[i] = _lexemCache[i];
-		}
-		_lexemCache.Clear();
-		return true;
-	}
-
-	char ch = 0;
-	_lexem.Clear();
-
-	while ( (ch = ReadChar(stream)) != 0 )
-	{
-		if ( ch == '#' )
-		{
-			SkipComment( stream );
-			continue;
-		}
-
-		switch ( ch )
-		{
-			case ' ': case '\t': case '\r': case '\n':
-				if ( _lexem.IsEmpty() )
-					continue;
-
-				_lexem.Add( 0 );
-				return true;
-
-			default:
-				_lexem.Add( ch );
-				break;
-		}
-	}
-
-	return false;
-}
-
-Bool ObjMeshCodec::PeekLexem( IStream* stream )
-{
-	if ( !_lexemCache.IsEmpty() )
-		return true;
-
-	char ch = 0;
-	while ( (ch = ReadChar(stream)) != 0 )
-	{
-		if ( ch == '#' )
-		{
-			SkipComment( stream );
-			continue;
-		}
-
-		switch ( ch )
-		{
-			case ' ': case '\t': case '\r': case '\n':
-				if (_lexemCache.IsEmpty() )
-					continue;
-
-				_lexemCache.Add( 0 );
-				return true;
-
-			default:
-				_lexemCache.Add( ch );
-				break;
-		}
-	}
-
-	return false;
-}
-
-void ObjMeshCodec::SkipComment( IStream* stream )
-{
-	char ch = 0;
-
-	while ( (ch = ReadChar(stream)) != 0 )
-	{
-		if ( ch == '\r' )
-		{
-			ReadChar( stream );
-			break;
-		}
-		else if ( ch == '\n')
-		{
-			break;
-		}
-	}
-}
-
-char ObjMeshCodec::ReadChar( IStream* stream )
-{
-	char ch = 0;
-	if ( _char != 0 )
-	{
-		ch = _char;
-		_char = 0;
-		return ch;
-	}
-
-	if ( stream->Read(&ch, 1) == 1 )
-		return ch;
-	else
-		return 0;
 }
 
 

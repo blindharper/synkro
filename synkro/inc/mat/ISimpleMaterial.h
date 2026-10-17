@@ -90,6 +90,12 @@ public:
 	virtual void											SetTilingVertical( UInt tiling ) = 0;
 
 	/**
+	 * Sets optional material name.
+	 * @param name Material name.
+	 */
+	virtual void											SetName( const lang::String& name ) = 0;
+
+	/**
 	 * Retrieves material's lighing model.
 	 */
 	virtual LightingModel									GetLightingModel() const = 0;
@@ -132,6 +138,11 @@ public:
 	 * Retrieves vertical map tiling.
 	 */
 	virtual UInt											GetTilingVertical() const = 0;
+
+	/**
+	 * Retrieves material name.
+	 */
+	virtual lang::String									GetName() const = 0;
 
 	/**
 	 * Retrieves diffuse map.

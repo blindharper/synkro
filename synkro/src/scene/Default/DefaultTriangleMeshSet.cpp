@@ -71,29 +71,6 @@ ITriangleSet* DefaultTriangleMeshSet::CreateTriangleStrip( const String& name, U
 ITriangleSet* DefaultTriangleMeshSet::CreateTriangleSet( const String& name, const Range& range )
 {
 	throw InvalidOperationException();
-
-	// TODO: Remove!!!
-	/*if ( _base==nullptr )
-		throw InvalidOperationException( L"Base primitive does not exist." );
-
-	P(ITriangleSet) subset;
-	if ( _subsets.IsEmpty() )
-	{
-		subset = _base;
-		subset->SetElementRange( range );
-	}
-	else
-	{
-		ISceneRenderObject* object = _base->GetRenderObject()->GetQueue()->CreateObject( _base->GetRenderObject()->GetData(), false );
-		const UInt index = (_subsets.Size() < _material->GetSubsetCount()) ? _subsets.Size() : _material->GetSubsetCount()-1;
-		AsBaseMaterial( _material.AsPtr() )->Assign( this, object, index );
-		subset = new DefaultTriangleSet( object, range.Start, range.Length );
-	}
-	Matrix4x4 transform;
-	_base->GetTransform( transform );
-	subset->SetTransform( transform );
-	_subsets.Add( subset );
-	return subset;*/
 }
 
 void DefaultTriangleMeshSet::Save( IStream* stream, const DataMode& mode, const MeshCodec& type )
@@ -150,8 +127,6 @@ ITriangleSet* DefaultTriangleMeshSet::CreateTriangleSet( const PrimitiveType& ty
 			subset->AddRef();
 			IPrimitiveEx* data = subset->GetRenderObject()->GetData();
 			_subsets[0]->GetRenderObject()->AsEx()->CreateLevel( data );
-			//subset->GetRenderObject()->Release(); //TODO: Remove???
-			/*subset = nullptr;*/ //TODO: Remove???
 			return _subsets[0];
 		}
 	}
