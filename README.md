@@ -16,7 +16,7 @@ the libs are placed into synkro/lib/win64
 
 To link with static libraries you need to call functions
 like SynkroGfxDx11Init() declared in synkrostatic.h
-prior to calling SynkroCreate declated in synkro.h
+prior to calling SynkroCreate declared in synkro.h
 
 # Notes for screens with DPI higher than 96
 By default, the demos or tools run in windowed mode.
