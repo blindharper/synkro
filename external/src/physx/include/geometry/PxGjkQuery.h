@@ -29,8 +29,8 @@
 #ifndef PX_GJK_QUERY_H
 #define PX_GJK_QUERY_H
 
-#include "common/PxPhysXCommonConfig.h"
-#include "foundation/PxTransform.h"
+#include "../common/PxPhysXCommonConfig.h"
+#include "../foundation/PxTransform.h"
 
 #if !PX_DOXYGEN
 namespace physx

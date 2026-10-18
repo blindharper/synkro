@@ -29,6 +29,12 @@
     <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxCapsuleShape.cpp">
       <Filter>PhysicsSystem\PhysX\Shape\Capsule</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxCylinderShape.cpp">
+      <Filter>PhysicsSystem\PhysX\Shape\Cylinder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\phys\Physx\PhysxConeShape.cpp">
+      <Filter>PhysicsSystem\PhysX\Shape\Cone</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\synkro.phys.physx\factories.inl" />
@@ -66,6 +72,12 @@
     </Filter>
     <Filter Include="PhysicsSystem\PhysX\Shape\Capsule">
       <UniqueIdentifier>{768ebdf8-9dff-4403-bd4b-c4529bb4c45b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsSystem\PhysX\Shape\Cylinder">
+      <UniqueIdentifier>{787997fe-3bab-4617-b2cc-628ff5e03547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PhysicsSystem\PhysX\Shape\Cone">
+      <UniqueIdentifier>{849d332c-9945-43f6-9222-ca1c152ccff0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +119,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxCapsuleShape.h">
       <Filter>PhysicsSystem\PhysX\Shape\Capsule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxCylinderShape.h">
+      <Filter>PhysicsSystem\PhysX\Shape\Cylinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\phys\Physx\PhysxConeShape.h">
+      <Filter>PhysicsSystem\PhysX\Shape\Cone</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

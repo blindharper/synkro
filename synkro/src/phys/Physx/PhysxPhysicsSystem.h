@@ -46,6 +46,8 @@ public:
 	IShape*													CreatePlaneShape( IPhysicsMaterial* material, const math::Vector3& normal, Float distance );
 	IShape*													CreateBoxShape( IPhysicsMaterial* material, Float width, Float depth, Float height );
 	IShape*													CreateCapsuleShape( IPhysicsMaterial* material, Float radius, Float height );
+	IShape*													CreateCylinderShape( IPhysicsMaterial* material, Float radius, Float height );
+	IShape*													CreateConeShape( IPhysicsMaterial* material, Float radius, Float height );
 
 private:
 	physx::PxFoundation*									_foundation;

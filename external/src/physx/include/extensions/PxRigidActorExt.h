@@ -29,9 +29,9 @@
 #ifndef PX_RIGID_ACTOR_EXT_H
 #define PX_RIGID_ACTOR_EXT_H
 
-#include "PxPhysXConfig.h"
-#include "PxPhysics.h"
-#include "PxRigidActor.h"
+#include "../PxPhysXConfig.h"
+#include "../PxPhysics.h"
+#include "../PxRigidActor.h"
 
 #if !PX_DOXYGEN
 namespace physx

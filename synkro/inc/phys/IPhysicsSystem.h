@@ -78,6 +78,24 @@ public:
 	 * @return Created shape.
 	 */
 	virtual IShape*											CreateCapsuleShape( IPhysicsMaterial* material, Float radius, Float height ) = 0;
+
+	/**
+	 * Creates cylinder shape.
+	 * @param material Shape's material.
+	 * @param radius Cylinder radius.
+	 * @param height Cylinder height.
+	 * @return Created shape.
+	 */
+	virtual IShape*											CreateCylinderShape( IPhysicsMaterial* material, Float radius, Float height ) = 0;
+
+	/**
+	 * Creates cone shape.
+	 * @param material Shape's material.
+	 * @param radius Cone radius.
+	 * @param height Cone height.
+	 * @return Created shape.
+	 */
+	virtual IShape*											CreateConeShape( IPhysicsMaterial* material, Float radius, Float height ) = 0;
 };
 
 
