@@ -29,9 +29,11 @@ public:
 		_materialCrate = CreateTexturedMaterial( imageCrate, Color::Lime, 1 );
 		_materialCrate2 = CreateTexturedMaterial( imageCrate, Color::Orange, 1 );
 		_materialCapsule = CreateTexturedMaterial( imageCheckers, Color::Yellow, 4 );
+		_materialCylinder = CreateTexturedMaterial( imageCheckers, Color::RoyalBlue, 6 );
+		_materialCone = CreateTexturedMaterial( imageCheckers, Color::Red, 5 );
 
 		IPhysicsSystemEx* physicsSystem = _synkro->GetPhysicsSystem();
-		_physicsMaterial = physicsSystem->CreateMaterial( 0.5f, 0.5f, 0.6f );
+		_physicsMaterial = physicsSystem->CreateMaterial( 10.0f, 10.0f, 0.6f );
 
 		// Listen to environment events.
 		IPhysicsEnvironmentEx* physicsEnvironment = _scene->GetPhysicsEnvironment();
@@ -47,11 +49,19 @@ public:
 		// Create crate actors.
 		constexpr Float CRATE_SIDE = 40.0f;
 		_crate = CreateCrateActor( _materialCrate, CRATE_SIDE, 15.0f );
-		_crate2 = CreateCrateActor( _materialCrate2, CRATE_SIDE, 10.0f );
-		_capsule = CreateCapsuleActor( _materialCapsule, 10.0f, 30.0f, 10.0f );
 		_actor = _crate->GetActor()->AsRigid()->AsBody()->AsDynamic();
+
+		_crate2 = CreateCrateActor( _materialCrate2, CRATE_SIDE, 10.0f );
 		_actor2 = _crate2->GetActor()->AsRigid()->AsBody()->AsDynamic();
+
+		_capsule = CreateCapsuleActor( _materialCapsule, 10.0f, 30.0f, 12.0f );
 		_actor3 = _capsule->GetActor()->AsRigid()->AsBody()->AsDynamic();
+
+		_cylinder = CreateCylinderActor( _materialCylinder, 15.0f, 40.0f, 8.0f );
+		_actor4 = _cylinder->GetActor()->AsRigid()->AsBody()->AsDynamic();
+
+		_cone = CreateConeActor( _materialCone, 20.0f, 50.0f, 2.0f );
+		_actor5 = _cone->GetActor()->AsRigid()->AsBody()->AsDynamic();
 
 		// Set initial conditions.
 		RunSimulation();
@@ -101,6 +111,14 @@ public:
 		{
 			_materialCapsule->SetDiffuseColor( Color::Yellow );
 		}
+		else if ( actor == _actor4 )
+		{
+			_materialCylinder->SetDiffuseColor( Color::RoyalBlue );
+		}
+		else if ( actor == _actor5 )
+		{
+			_materialCone->SetDiffuseColor( Color::Red );
+		}
 
 		++_activeActorCount;
 	}
@@ -118,6 +136,14 @@ public:
 		else if ( actor == _actor3 )
 		{
 			_materialCapsule->SetDiffuseColor( Color::DimGray );
+		}
+		else if ( actor == _actor4 )
+		{
+			_materialCylinder->SetDiffuseColor( Color::DimGray );
+		}
+		else if ( actor == _actor5 )
+		{
+			_materialCone->SetDiffuseColor( Color::DimGray );
 		}
 
 		if ( --_activeActorCount == 0 )
@@ -140,6 +166,14 @@ public:
 		transform.SetTranslation( Vector3(30.0f, 100.0f, 60.0f) );
 		_actor3->SetWorldTransform( transform );
 		_actor3->SetLinearVelocity( Vector3(-35.0f, 15.0f, 0.0f) );
+
+		transform.SetTranslation( Vector3(0.0f, 50.0f, 0.0f) );
+		_actor4->SetWorldTransform( transform );
+		_actor4->SetLinearVelocity( Vector3(0.0f, 15.0f, 35.0f) );
+
+		transform.SetTranslation( Vector3(0.0f, 150.0f, 150.0f) );
+		_actor5->SetWorldTransform( transform );
+		_actor5->SetLinearVelocity( Vector3(0.0f, 10.0f, 55.0f) );
 	}
 
 	ITriangleMesh* CreateCrateActor( IVisualMaterial* material, Float size, Float density )
@@ -152,7 +186,7 @@ public:
 		return crate;
 	}
 
-	ITriangleMesh* CreateCapsuleActor( IVisualMaterial* material, Float radius, Float height, Float density )
+	ITriangleMesh* CreateCapsuleActor(IVisualMaterial* material, Float radius, Float height, Float density)
 	{
 		Matrix4x4 transform;
 		ITriangleMesh* capsule = CreateCapsule( nullptr, material, radius, height, 40, 40, Matrix4x4::Identity, Vector3::Origin );
@@ -160,6 +194,26 @@ public:
 		IDynamicActor* actor = _scene->GetPhysicsEnvironment()->CreateDynamicActor( transform, shape, density );
 		capsule->SetActor( actor );
 		return capsule;
+	}
+
+	ITriangleMesh* CreateCylinderActor( IVisualMaterial* material, Float radius, Float height, Float density )
+	{
+		Matrix4x4 transform;
+		ITriangleMesh* cylinder = CreateCylinder( nullptr, material, radius, height, 40, 40, Matrix4x4::Identity, Vector3::Origin );
+		IShape* shape = _synkro->GetPhysicsSystem()->CreateCylinderShape( _physicsMaterial, radius, height );
+		IDynamicActor* actor = _scene->GetPhysicsEnvironment()->CreateDynamicActor( transform, shape, density );
+		cylinder->SetActor( actor );
+		return cylinder;
+	}
+
+	ITriangleMesh* CreateConeActor( IVisualMaterial* material, Float radius, Float height, Float density )
+	{
+		Matrix4x4 transform;
+		ITriangleMesh* cone = CreateCone( nullptr, material, radius, height, 40, 40, Matrix4x4::Identity, Vector3::Origin );
+		IShape* shape = _synkro->GetPhysicsSystem()->CreateCylinderShape( _physicsMaterial, radius, height );
+		IDynamicActor* actor = _scene->GetPhysicsEnvironment()->CreateDynamicActor( transform, shape, density );
+		cone->SetActor( actor );
+		return cone;
 	}
 
 	IOpaqueMaterial* CreateTexturedMaterial( IImage* diffuse, const Color& color, UInt tiling )
@@ -173,21 +227,30 @@ public:
 
 private:
 	PtrPhysicsMaterial										_physicsMaterial;
+	
 	PtrOpaqueMaterial										_materialFloor;
-	PtrOpaqueMaterial										_materialCrate;
-	PtrOpaqueMaterial										_materialCrate2;
-	PtrOpaqueMaterial										_materialCapsule;
-
 	PtrTriangleMesh											_floor;
 	PtrStaticActor											_actorFloor;
 
+	PtrOpaqueMaterial										_materialCrate;
 	PtrTriangleMesh											_crate;
 	PtrDynamicActor											_actor;
+
+	PtrOpaqueMaterial										_materialCrate2;
 	PtrTriangleMesh											_crate2;
 	PtrDynamicActor											_actor2;
 
+	PtrOpaqueMaterial										_materialCapsule;
 	PtrTriangleMesh											_capsule;
 	PtrDynamicActor											_actor3;
+
+	PtrOpaqueMaterial										_materialCylinder;
+	PtrTriangleMesh											_cylinder;
+	PtrDynamicActor											_actor4;
+
+	PtrOpaqueMaterial										_materialCone;
+	PtrTriangleMesh											_cone;
+	PtrDynamicActor											_actor5;
 
 	PtrButton												_btnReplay;
 	UInt													_activeActorCount;
