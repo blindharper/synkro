@@ -99,7 +99,6 @@ const D3D11_FILL_MODE Dx11::Convert( const FillMode& fill )
 {
 	static D3D11_FILL_MODE consts[] =
 	{
-		D3D11_FILL_SOLID,
 		D3D11_FILL_WIREFRAME,
 		D3D11_FILL_SOLID,
 	};
