@@ -23,8 +23,8 @@ namespace gfx
 {
 
 
-SYNKRO_DEFINE_CONST( FillMode, Wireframe,	1 )
-SYNKRO_DEFINE_CONST( FillMode, Solid,		2 )
+SYNKRO_DEFINE_CONST( FillMode, Wireframe,	0 )
+SYNKRO_DEFINE_CONST( FillMode, Solid,		1 )
 
 
 struct TypeDesc

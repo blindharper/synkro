@@ -30,9 +30,6 @@ namespace gfx
  * Face filling mode.
  */
 SYNKRO_ENUM_BEGIN( FillMode )
-	/** Draws face vertices. */
-	SYNKRO_ENUM_CONST( FillMode, Point )
-
 	/** Draws face edges. */
 	SYNKRO_ENUM_CONST( FillMode, Wireframe )
 
