@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="res">
+      <UniqueIdentifier>{cfce6f20-b09e-4043-b6a3-3fd182692c6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem">
+      <UniqueIdentifier>{28950dc7-1784-4356-b169-35b2c34f9996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem">
+      <UniqueIdentifier>{4ba87e61-d98f-433a-8e69-f1b61cad5df0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX12">
+      <UniqueIdentifier>{a9e1fbb5-395c-4a06-95e5-c7204d0270af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX12\System">
+      <UniqueIdentifier>{e89e8bef-4243-4148-98b1-61acaddebf1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX12\Device">
+      <UniqueIdentifier>{8bf5d132-0c9f-449b-822e-6b15a951d25d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX12\DataBuffer">
+      <UniqueIdentifier>{36f84ce2-c6a1-4d65-98e9-b0003928f6fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsSystem\DirectX12\DataBuffer\Index">
+      <UniqueIdentifier>{5dd1a292-1b28-49f2-92c5-b5404b97ab73}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\synkro.gfx.dx12\synkro.gfx.dx12.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx\DxGi.cpp">
+      <Filter>GraphicsSystem\DirectX12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx12\Dx12.cpp">
+      <Filter>GraphicsSystem\DirectX12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx12\Dx12GraphicsSystem.cpp">
+      <Filter>GraphicsSystem\DirectX12\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx12\Dx12GraphicsDevice.cpp">
+      <Filter>GraphicsSystem\DirectX12\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx12\Dx12IndexBuffer.cpp">
+      <Filter>GraphicsSystem\DirectX12\DataBuffer\Index</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\synkro\src\gfx\Dx\DxGi.h">
+      <Filter>GraphicsSystem\DirectX12</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\gfx\Dx12\Dx12.h">
+      <Filter>GraphicsSystem\DirectX12</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\gfx\Dx12\Dx12Classes.h">
+      <Filter>GraphicsSystem\DirectX12</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\gfx\Dx12\Dx12GraphicsSystem.h">
+      <Filter>GraphicsSystem\DirectX12\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\gfx\Dx12\Dx12GraphicsSystemFactory.h">
+      <Filter>GraphicsSystem\DirectX12\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\gfx\Dx12\Dx12GraphicsDevice.h">
+      <Filter>GraphicsSystem\DirectX12\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\gfx\Dx12\Dx12IndexBuffer.h">
+      <Filter>GraphicsSystem\DirectX12\DataBuffer\Index</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\synkro.gfx.dx12\factories.inl" />
+    <None Include="..\..\src\synkro.gfx.dx12\resources.inl" />
+    <None Include="..\..\..\synkro\src\gfx\Dx12\Dx12IndexBuffer.inl">
+      <Filter>GraphicsSystem\DirectX12\DataBuffer\Index</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -32,12 +32,12 @@ namespace gfx
 {
 
 
-CubeRenderMap::CubeRenderMap( ISceneRenderQueue* queue, ICubeRenderTexture* colorTarget, ICubeDepthTexture* depthTarget, Bool singlePass ) :
+CubeRenderMap::CubeRenderMap( ISceneRenderQueue* queue, ICubeRenderTexture* colorTarget, ICubeDepthTexture* depthTarget ) :
 	RenderMapImpl<ICubeRenderMap>( queue ),
 	_sceneQueue( (SceneRenderQueue*)queue ),
 	_colorTarget( colorTarget ),
 	_depthTarget( depthTarget ),
-	_singlePass( singlePass )
+	_singlePass( true )
 {
 }
 

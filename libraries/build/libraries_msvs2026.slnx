@@ -13,6 +13,7 @@
   <Project Path="synkro.cons/synkro.cons_msvs2026.vcxproj" Id="98fbdffc-1997-4713-824a-4b45ee2140e9" />
   <Project Path="synkro.db.sqlite/synkro.db.sqlite_msvs2026.vcxproj" Id="c4b22084-f6f7-4bfc-b961-6765c2b2f46c" />
   <Project Path="synkro.gfx.dx11/synkro.gfx.dx11_msvs2026.vcxproj" Id="8382a661-157d-4fe4-8e89-37016a48b509" />
+  <Project Path="synkro.gfx.dx12/synkro.gfx.dx12_msvs2026.vcxproj" Id="851f9c78-48ed-4e02-b65b-4cec6138794e" />
   <Project Path="synkro.img/synkro.img_msvs2026.vcxproj" Id="e09e52cd-784e-4678-b8eb-79a8049523bf" />
   <Project Path="synkro.input.di8/synkro.input.di8_msvs2026.vcxproj" Id="a00fba59-511b-498f-9de2-5b94fcccb33b" />
   <Project Path="synkro.io.win32/synkro.io.win32_msvs2026.vcxproj" Id="35f7ddd0-388e-41f8-b659-875c02475e55" />

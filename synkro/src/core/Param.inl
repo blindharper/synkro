@@ -33,7 +33,7 @@ P4( DatabaseSystem,			Enumeration,			_init.DefaultDatabaseSystem,		"Custom|Sqlit
 ////-----------------------	----------- -----------	-----------------------------------	----------------------------------------------------------	-------------------------------------------------------------------------------------------
 //	Graphics
 ////-----------------------	----------- -----------	-----------------------------------	----------------------------------------------------------	-------------------------------------------------------------------------------------------
-P4( GraphicsSystem,			Enumeration,			_init.DefaultGraphicsSystem,		"Custom|DirectX11",											"Graphics system implementation." )
+P4( GraphicsSystem,			Enumeration,			_init.DefaultGraphicsSystem,		"Custom|DirectX11|DirectX12",								"Graphics system implementation." )
 P4( GraphicsDevice,			Enumeration,			"1",								"Unknown|Hardware|Software|Reference",						"Type of the graphics device." )
 P4( GraphicsDepthFormat,	Enumeration,			"D32F",								"Unknown|D32F|D24|D16",										"Depth buffer format." )
 P4( GraphicsDisplayMode,	Enumeration,			"0",								_init.DisplayModes,											"Screen dimensions and color depth." )

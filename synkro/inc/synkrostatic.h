@@ -50,6 +50,11 @@ SYNKRO_API void												SynkroDbSqliteInit();
 SYNKRO_API void												SynkroGfxDx11Init();
 
 /**
+ * Performs DirectX 12 graphics library initialization.
+ */
+SYNKRO_API void												SynkroGfxDx12Init();
+
+/**
  * Performs imaging library initialization.
  */
 SYNKRO_API void												SynkroImgInit();

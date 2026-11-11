@@ -36,6 +36,9 @@ SYNKRO_ENUM_BEGIN( GraphicsSystem )
 	/** DirectX 11 based graphics system. */
 	SYNKRO_ENUM_CONST( GraphicsSystem, DirectX11 )
 
+	/** DirectX 12 based graphics system. */
+	SYNKRO_ENUM_CONST( GraphicsSystem, DirectX12 )
+
 	/** Converts graphics system type to string. */
 	lang::String											ToString() const;
 SYNKRO_ENUM_END()

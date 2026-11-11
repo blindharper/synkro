@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\src\gfx\Test_Dx12GraphicsSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Arcball.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\BlendState.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\BlendStateSet.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\CubeDepthTexture.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\CubeRenderMap.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\CubeRenderTexture.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\CubeTexture.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\DataFormat.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\DepthStencilState.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\FrameRenderWindow.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\FrameWindow.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\GraphicsDevice.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\GraphicsSystemEx.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\input\InputSystemEx.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\input\Joystick.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\input\Keyboard.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\LinearRenderTexture.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\LinearTexture.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\LineRenderObject.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\LineRenderQueue.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\Matrix4x4Stream.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\input\Mouse.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\Ndc.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\NdcVector4Stream.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\OverlayRenderMap.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\OverlayRenderObject.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\OverlayRenderQueue.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\ParameterSet.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\PlainDepthTexture.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\PlainRenderMap.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\PlainRenderTexture.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\PlainTexture.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\PostProcessRenderObject.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\PostProcessRenderQueue.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\Primitive.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\Program.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\ProgramReader.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\ProgramStage.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\RasterizerState.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\RectEx.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\RenderView.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\ResourceSet.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\SamplerState.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\SamplerStateSet.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderObject.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderQueue.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\io\StreamDirectoryEx.cpp">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\io\StreamEx.cpp">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\io\StreamSystemEx.cpp">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\ViewRenderWindow.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\ViewWindow.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\VolumeRenderTexture.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\VolumeTexture.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\WindowSystemEx.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\HostWindow.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32FrameWindow.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32HostWindow.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32IconWindow.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32ViewWindow.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32WindowSystem.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\io\Win32\Win32Directory.cpp">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\io\Win32\Win32Stream.cpp">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\io\Win32\Win32StreamSystem.cpp">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\input\Di8\Di8.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\input\Di8\Di8InputSystem.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\input\Di8\Di8Joystick.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\input\Di8\Di8Keyboard.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\input\Di8\Di8Mouse.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\BmpImageCodec.cpp">
+      <Filter>img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\JpgImageCodec.cpp">
+      <Filter>img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\TgaImageCodec.cpp">
+      <Filter>img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\external\src\stream.cpp">
+      <Filter>io</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx\DxGi.cpp">
+      <Filter>gfx\Dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\TypedBuffer.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\StructuredBuffer.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\VirtualRenderWindow.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderQueue.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderObject.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\SkyboxRenderObject.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\SkysphereRenderObject.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderObjectEx.cpp">
+      <Filter>gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\ImageManager.cpp">
+      <Filter>img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\Image.cpp">
+      <Filter>img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\Task\SaveImageTask.cpp">
+      <Filter>img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\Task\LoadImageTask.cpp">
+      <Filter>img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\RenderImage\PlainRenderImage.cpp">
+      <Filter>img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\Task\PrepareImageTask.cpp">
+      <Filter>img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\img\RenderImage\CubeRenderImage.cpp">
+      <Filter>img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\external\src\imageread.cpp">
+      <Filter>img</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx12\Dx12.cpp">
+      <Filter>gfx\Dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx12\Dx12GraphicsDevice.cpp">
+      <Filter>gfx\Dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx12\Dx12GraphicsSystem.cpp">
+      <Filter>gfx\Dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx12\Dx12IndexBuffer.cpp">
+      <Filter>gfx\Dx12</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="win">
+      <UniqueIdentifier>{08469151-39a9-460f-acc3-ac7cdfcff42e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gfx">
+      <UniqueIdentifier>{4660729e-ec55-4233-8940-911a268969a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="input">
+      <UniqueIdentifier>{af0ffc1f-2ffc-4515-99ef-c5bfe6d04f2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="img">
+      <UniqueIdentifier>{f892920b-2517-432d-9735-92d3a6f12b86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="io">
+      <UniqueIdentifier>{38f8c1c5-db89-4e8d-9acc-15f405ddab2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gfx\Dx12">
+      <UniqueIdentifier>{449a1ff9-d93f-466f-aa40-bc41c1b0238b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\gfx\GraphicsSystemTest.h" />
+  </ItemGroup>
+</Project>
