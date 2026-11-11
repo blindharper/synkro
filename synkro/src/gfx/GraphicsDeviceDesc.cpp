@@ -28,9 +28,6 @@ GraphicsDeviceDesc::GraphicsDeviceDesc() :
 	LevelMajor( 0 ),
 	LevelMinor( 0 ),
 	TopDown( false ),
-	Tesselation( false ),
-	GeometryStage( false ),
-	OutputBuffer( false ),
 	RenderTargetCount( 0 )
 {
 }
@@ -42,9 +39,6 @@ GraphicsDeviceDesc::GraphicsDeviceDesc( const lang::String& name, ULong memorySi
 	LevelMajor( 0 ),
 	LevelMinor( 0 ),
 	TopDown( false ),
-	Tesselation( false ),
-	GeometryStage( false ),
-	OutputBuffer( false ),
 	RenderTargetCount( 0 )
 {
 }

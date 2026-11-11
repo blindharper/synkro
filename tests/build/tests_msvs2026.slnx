@@ -7,6 +7,8 @@
   <Project Path="tests/tests_msvs2026.vcxproj" Id="fe5fb091-2d1a-4e37-ac8e-08c2ce1c81a0" />
   <Project Path="Test_AlAudioSystem/Test_AlAudioSystem_msvs2026.vcxproj" Id="0bddbdda-7427-4e73-8e68-b4b67ed2e909" />
   <Project Path="Test_Di8InputSystem/Test_Di8InputSystem_msvs2026.vcxproj" Id="60e64da5-724a-461a-b7c4-d95e954d09f6" />
+  <Project Path="Test_Dx11GraphicsSystem/Test_Dx11GraphicsSystem_msvs2026.vcxproj" Id="7a7b6bc7-01bf-49fe-b9a1-b682ab61aca3" />
+  <Project Path="Test_Dx12GraphicsSystem/Test_Dx12GraphicsSystem_msvs2026.vcxproj" Id="b8d97f75-5e40-4a8f-a17c-120a8e8f6bad" />
   <Project Path="Test_LuaScriptSystem/Test_LuaScriptSystem_msvs2026.vcxproj" Id="c43927b6-e874-4032-9d4e-dea4db4d4f94" />
   <Project Path="Test_PhysxPhysicsSystem/Test_PhysxPhysicsSystem_msvs2026.vcxproj" Id="a38d9fc8-d8f3-4d3c-b32d-1cfafe5a1c9a" />
   <Project Path="Test_SqliteDatabaseSystem/Test_SqliteDatabaseSystem_msvs2026.vcxproj" Id="2c66dbe5-dda4-4f44-9966-c06c3de6803c" />

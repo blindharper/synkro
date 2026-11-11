@@ -38,7 +38,7 @@ class CubeRenderMap :
 {
 public:
 	// Constructor.
-	CubeRenderMap( ISceneRenderQueue* queue, ICubeRenderTexture* colorTarget, ICubeDepthTexture* depthTarget, Bool singlePass );
+	CubeRenderMap( ISceneRenderQueue* queue, ICubeRenderTexture* colorTarget, ICubeDepthTexture* depthTarget );
 
 	// ICubeRenderMap methods.
 	ICubeRenderTexture*										GetColorTarget() const;

@@ -56,15 +56,6 @@ public:
 	/** Indicates whether the screen should be reversed. */
 	Bool													TopDown;
 
-	/** Indicates whether tesselation is supported. */
-	Bool													Tesselation;
-
-	/** Indicates whether geometry stage is enabled. */
-	Bool													GeometryStage;
-
-	/** Indicates whether output buffers are enabled. */
-	Bool													OutputBuffer;
-
 	/** Number of simultaneously active rendering targets supported by the device. */
 	UInt													RenderTargetCount;
 };

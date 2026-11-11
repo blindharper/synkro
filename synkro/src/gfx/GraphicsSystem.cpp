@@ -24,6 +24,7 @@ namespace gfx
 
 SYNKRO_DEFINE_CONST( GraphicsSystem, Custom,	0 )
 SYNKRO_DEFINE_CONST( GraphicsSystem, DirectX11,	1 )
+SYNKRO_DEFINE_CONST( GraphicsSystem, DirectX12,	2 )
 
 
 struct TypeDesc
@@ -36,6 +37,7 @@ static TypeDesc _desc[] =
 {
 	{ GraphicsSystem::Custom,		L"Custom" },
 	{ GraphicsSystem::DirectX11,	L"DirectX11" },
+	{ GraphicsSystem::DirectX12,	L"DirectX12" },
 };
 static UInt _count = SizeOf( _desc );
 

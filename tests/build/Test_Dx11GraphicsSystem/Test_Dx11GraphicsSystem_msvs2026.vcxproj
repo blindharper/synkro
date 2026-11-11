@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\external\src\imageread.cpp" />
+    <ClCompile Include="..\..\..\external\src\stream.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\BlendStateSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\CubeDepthTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\CubeRenderMap.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11BlendStateSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11Context.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11CubeDepthTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11CubeRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11CubeTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11DepthStencilState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11FrameRenderWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11GraphicsDevice.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11GraphicsSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11Include.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11IndexBuffer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11LinearRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11LinearTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11OutputBuffer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11OutputBufferSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11ParameterSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11PlainDepthTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11PlainRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11PlainTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11Primitive.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11Program.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11ProgramParam.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11ProgramStage.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11RasterizerState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11RenderTextureSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11ResourceSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11SamplerState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11SamplerStateSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11ScissorRect.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11StructuredBuffer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11TypedBuffer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11VertexBuffer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11VertexBufferSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11ViewRenderWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11VolumeRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx11\Dx11VolumeTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Dx\DxGi.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\LineRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\LineRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Matrix4x4Stream.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Ndc.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\NdcVector4Stream.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\OverlayRenderMap.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\OverlayRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\OverlayRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PlainDepthTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PlainRenderMap.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PostProcessRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PostProcessRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ProgramReader.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\RectEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\RenderView.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderObjectEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderQueue.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SkyboxRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SkysphereRenderObject.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\StructuredBuffer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\TypedBuffer.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\VirtualRenderWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\Image.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\BmpImageCodec.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\JpgImageCodec.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\ImageCodec\TgaImageCodec.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\ImageManager.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\RenderImage\CubeRenderImage.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\RenderImage\PlainRenderImage.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\Task\LoadImageTask.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\Task\PrepareImageTask.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\img\Task\SaveImageTask.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Arcball.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\BlendState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\CubeRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\CubeTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\DataFormat.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\DepthStencilState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\FrameRenderWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\GraphicsDevice.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\GraphicsSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Di8\Di8.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Di8\Di8InputSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Di8\Di8Joystick.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Di8\Di8Keyboard.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Di8\Di8Mouse.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\InputSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Joystick.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Keyboard.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\LinearRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\LinearTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\input\Mouse.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ParameterSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PlainRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\PlainTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Primitive.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\Program.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ProgramStage.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\RasterizerState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ResourceSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SamplerState.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\SamplerStateSet.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\StreamDirectoryEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\StreamEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\StreamSystemEx.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\ViewRenderWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\VolumeRenderTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\gfx\VolumeTexture.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\Win32\Win32Directory.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\Win32\Win32Stream.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\io\Win32\Win32StreamSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\FrameWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\HostWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\ViewWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32FrameWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32HostWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32IconWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32ViewWindow.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\Win32\Win32WindowSystem.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\win\WindowSystemEx.cpp" />
+    <ClCompile Include="..\..\src\gfx\Test_Dx11GraphicsSystem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\gfx\GraphicsSystemTest.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>Test_Dx11GraphicsSystem</ProjectName>
+    <ProjectGuid>{7A7B6BC7-01BF-49FE-B9A1-B682AB61ACA3}</ProjectGuid>
+    <RootNamespace>Test_Dx11GraphicsSystem</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='debug|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='debug|x64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='release|x64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='release|x64'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">$(ProjectName)_debug</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <IncludePath>../../src;$(IncludePath)</IncludePath>
+    <OutDir>../../bin/win64\</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <IncludePath>../../src;$(IncludePath)</IncludePath>
+    <OutDir>../../bin/win64\</OutDir>
+    <IntDir>../../obj/win64/$(Configuration)/$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/inc/;../../../synkro/src/;../../../external/src/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;_DEBUG;_CONSOLE;SYNKROLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>synkro_debug.lib;dxguid.lib;dinput8.lib;libjpegd.lib;libpngd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)_debug.exe</OutputFile>
+      <AdditionalLibraryDirectories>../../../synkro/bin/win64;../../../external/lib/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(IntDir)$(ProjectName).pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>del "$(OutDir)$(TargetName).exp"
+del "$(OutDir)$(TargetName).lib"
+del "$(OutDir)$(TargetName).ilk"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>../../../synkro/inc/;../../../synkro/src/;../../../external/src/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;UNICODE;NDEBUG;_CONSOLE;SYNKROLIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <BrowseInformationFile>$(IntDir)</BrowseInformationFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>synkro.lib;dxguid.lib;dinput8.lib;libjpeg.lib;libpng.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>../../../synkro/bin/win64;../../../external/lib/win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>
+      </ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>del ..\..\bin\win64\Test_Dx11GraphicsSystem.exp
+del ..\..\bin\win64\Test_Dx11GraphicsSystem.lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

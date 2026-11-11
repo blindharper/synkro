@@ -189,9 +189,6 @@ Bool Dx11GraphicsSystem::GetCaps( IDXGIAdapter1* adapter, GraphicsDeviceDesc& de
 	desc.LevelMajor			= (level & 0xf000) >> 12;
 	desc.LevelMinor			= (level & 0x0f00) >> 8;
 	desc.TopDown			= false;
-	desc.Tesselation		= true;
-	desc.GeometryStage		= true;
-	desc.OutputBuffer		= true;
 	desc.RenderTargetCount	= D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT;
 
 	device->Release();

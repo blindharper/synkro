@@ -205,7 +205,7 @@ ICubeRenderMap* GraphicsSystemEx::CreateRenderMap( ISceneRenderQueue* queue, ICu
 
 	GraphicsDeviceDesc desc;
 	_device->GetDesc( desc );
-	CubeRenderMap* map = new CubeRenderMap( queue, colorTarget, depthTarget, desc.GeometryStage );
+	CubeRenderMap* map = new CubeRenderMap( queue, colorTarget, depthTarget );
 	_maps.Add( map );
 	return map;
 }
@@ -342,10 +342,7 @@ IProgram* GraphicsSystemEx::LoadProgram( GraphicsDevice* device, const String& n
 	{
 		UInt value = 0;
 		DeviceCapability& cap = desc.Caps[i];
-			 if ( cap.Name.EqualsTo(L"Tesselation") ) { value = CastUInt(caps.Tesselation); }
-		else if ( cap.Name.EqualsTo(L"GeometryStage") ) { value = CastUInt(caps.GeometryStage); }
-		else if ( cap.Name.EqualsTo(L"OutputBuffer") ) { value = CastUInt(caps.OutputBuffer); }
-		else if ( cap.Name.EqualsTo(L"RenderTargetCount") ) { value = caps.RenderTargetCount; }
+		if ( cap.Name.EqualsTo(L"RenderTargetCount") ) { value = caps.RenderTargetCount; }
 		else continue;
 	
 		// Make sure capability value is big enough.

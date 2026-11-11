@@ -55,9 +55,6 @@ GraphicsDevice::GraphicsDevice( GraphicsSystemEx* graphicsSystem, IWindowSystemE
 	// Dump device capabilities.
 	LogInfo( MessagePriority::Lowest, Formatter::Format(L"Dumping graphics device capabilities...") );
 	GraphicsDeviceDesc desc; _device->GetDesc( desc );
-	DumpCapability( L"Geometry Stage", desc.GeometryStage );
-	DumpCapability( L"Tesselation", desc.Tesselation );
-	DumpCapability( L"Output Buffers", desc.OutputBuffer );
 	DumpCapability( L"Render Target Count", desc.RenderTargetCount );
 	DumpCapability( L"Memory Size, GB", CastUInt(desc.MemorySize/(1000*1000*1000)) );
 }
@@ -178,7 +175,7 @@ IPrimitive* GraphicsDevice::CreatePrimitive( IProgram* program, const DataUsage&
 	// If there's no hardware tesselation, treat patches as triangle lists.
 	PrimitiveType primType = type;
 	GraphicsDeviceDesc desc; _device->GetDesc( desc );
-	if ( (primType == PrimitiveType::PatchList) && (pointCount == 3) && !desc.Tesselation )
+	if ( (primType == PrimitiveType::PatchList) && (pointCount == 3) )
 	{
 		primType = PrimitiveType::TriangleList;
 		pointCount = 0;
