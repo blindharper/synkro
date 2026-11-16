@@ -915,8 +915,9 @@ void Synkro::InitUi( IConfiguration* config )
 	if ( factUi == nullptr )
 		throw Exception( L"Failed to instantiate user interface. UI factory is missing." );
 
+	Int opacity; config->Get( Param::UiOpacity, &opacity );
 	Int fontSize; config->Get( Param::UiFontSize, &fontSize );
-	_ui->Initialize( factUi, this, _language, fontSize );
+	_ui->Initialize( factUi, this, _language, CastFloat(Clamp(opacity, 1, 100))/100.0f, fontSize );
 
 	// Add theme libraries.
 	const UInt resCount = GetResourceCount( ResourceType::UiTheme );

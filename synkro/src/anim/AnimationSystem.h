@@ -48,7 +48,7 @@ class AnimationSystem :
 {
 public:
 	// Constructor & destructor.
-	AnimationSystem( core::IContext* context, diag::ILog* log );
+	AnimationSystem( core::ISynkroContext* context, diag::ILog* log );
 	~AnimationSystem();
 
 	// ISystem methods.
@@ -141,7 +141,7 @@ private:
 	lang::List<IPlaybackAnimationController*>				_playbackControllers;
 	lang::Vector<RecordControllerDesc>						_recordControllers;
 	core::ThreadPool*										_threadPool;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	ExpressionCompiler*										_compiler;
 	Double													_time;
 	Bool													_enabled;

@@ -46,7 +46,7 @@ namespace over
 {
 
 
-Sprite::Sprite( IContext* context, IOverlayRenderQueue* queue, IBlendStateSet* blendStates, IImage* image, const Order& groupOrder, const Order& order, const Point& location, const Size& size, Bool stretched ) :
+Sprite::Sprite( ISynkroContext* context, IOverlayRenderQueue* queue, IBlendStateSet* blendStates, IImage* image, const Order& groupOrder, const Order& order, const Point& location, const Size& size, Bool stretched ) :
 	_context( context ),
 	_blendStates( blendStates ),
 	_paramColor( nullptr ),

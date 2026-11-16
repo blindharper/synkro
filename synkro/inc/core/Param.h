@@ -215,6 +215,9 @@ public:
 	/** Current theme name. */
 	static const Char* UiThemeName;
 
+	/** User interface widgets opacity [1-100]. */
+	static const Char* UiOpacity;
+
 	/** User interface font size. */
 	static const Char* UiFontSize;
 

@@ -38,7 +38,7 @@ namespace scene
 {
 
 
-PointMeshInstance::PointMeshInstance( IContext* context, IPointMeshBatch* batch, const String& name, UInt index, const Matrix4x4& transform ) :
+PointMeshInstance::PointMeshInstance( ISynkroContext* context, IPointMeshBatch* batch, const String& name, UInt index, const Matrix4x4& transform ) :
 	NodeImpl<IPointMesh>( batch->GetSceneEx(), context, AsBaseScene(batch->GetSceneEx())->GetPointMeshName(name) ),
 	_batch( batch ),
 	_index( index ),

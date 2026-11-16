@@ -39,7 +39,7 @@ class LineMesh :
 {
 public:
 	// Constructor.
-	LineMesh( ISceneEx* scene, core::IContext* context, const lang::String& name );
+	LineMesh( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name );
 
 	// INode methods.
 	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );

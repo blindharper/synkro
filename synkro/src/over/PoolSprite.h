@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <core/ObjectImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <over/ISprite.h>
 #include <over/ISpriteAnimationController.h>
 #include "BaseSpritePool.h"
@@ -36,7 +36,7 @@ class PoolSprite :
 {
 public:
 	// Constructor & destructor.
-	PoolSprite( BaseSpritePool* pool, core::IContext* context, const lang::Point& location, const lang::Size& size, const lang::RectF& frame, Bool stretched );
+	PoolSprite( BaseSpritePool* pool, core::ISynkroContext* context, const lang::Point& location, const lang::Size& size, const lang::RectF& frame, Bool stretched );
 	~PoolSprite();
 
 	// ISprite methods.
@@ -75,7 +75,7 @@ private:
 	friend class SpritePool;
 
 	BaseSpritePool*											_pool;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	P(ISpriteAnimationController)							_ctrlAnimation;
 	lang::Point												_location;
 	lang::Point												_center;

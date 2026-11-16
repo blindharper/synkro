@@ -124,8 +124,6 @@ namespace core
 
 iface IConfiguration;
 iface IConstraint;
-iface IContext;
-iface IContextEx;
 iface IController;
 iface IFactory;
 iface ILibrary;
@@ -134,6 +132,8 @@ iface IObject;
 iface IResource;
 iface IStringList;
 iface ISynkro;
+iface ISynkroContext;
+iface ISynkroContextEx;
 iface ISystem;
 iface ITriangleMeshList;
 iface Param;

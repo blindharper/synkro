@@ -31,7 +31,7 @@ namespace view
 
 // Alpha channel viewport filter factory.
 SYNKRO_FACTORY_BEGIN( AlphaFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Alpha )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new PassFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Alpha.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new PassFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Alpha.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

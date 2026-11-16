@@ -39,7 +39,7 @@ class PointMeshBatch :
 {
 public:
 	// Constructor & destructor.
-	PointMeshBatch( ISceneEx* scene, core::IContext* context, const lang::String& name, UInt capacity );
+	PointMeshBatch( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, UInt capacity );
 	~PointMeshBatch();
 
 	// INode methods.

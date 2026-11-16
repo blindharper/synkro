@@ -11,7 +11,7 @@
 // Purpose: Generic mesh batch implementation.
 //==============================================================================
 template <class T, class I>
-SYNKRO_INLINE MeshBatchImpl<T,I>::MeshBatchImpl( ISceneEx* scene, core::IContext* context, const lang::String& name, UInt capacity ) :
+SYNKRO_INLINE MeshBatchImpl<T,I>::MeshBatchImpl( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, UInt capacity ) :
 	MeshImpl<T>( scene, context, name ),
 	_instances( A(InstanceDesc), capacity ),
 	_range( 0 )

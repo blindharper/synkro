@@ -15,7 +15,7 @@
 
 
 #include "config.h"
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <core/ObjectImpl.h>
 #include <scene/INode.h>
 #include <scene/ISceneEx.h>
@@ -42,7 +42,7 @@ class NodeImpl :
 {
 public:
 	// Constructors & destructor.
-	NodeImpl( ISceneEx* scene, core::IContext* context, const lang::String& name, Bool visualize = false );
+	NodeImpl( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, Bool visualize = false );
 	virtual ~NodeImpl();
 
 	// INode methods.
@@ -102,7 +102,7 @@ public:
 	INode*													GetNextNode() const;
 
 protected:
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	lang::String											_name;
 	mutable Bool											_transformDirty;
 	mutable math::Matrix4x4									_transform;

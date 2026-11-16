@@ -28,7 +28,7 @@
 #include <gfx/ISkyRenderObject.h>
 #include <gfx/IStructuredBuffer.h>
 #include <phys/IPhysicsEnvironmentEx.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include "DebugHelper.h"
 #include "BaseSceneManager.h"
 #include "BaseScene.h"
@@ -52,7 +52,7 @@ class Scene :
 {
 public:
 	// Constructor.
-	Scene( IScene* scene, BaseSceneManager* sceneManager, core::IContext* context, const lang::String& name, const DebugMode& debugMode, diag::ILog* log );
+	Scene( IScene* scene, BaseSceneManager* sceneManager, core::ISynkroContext* context, const lang::String& name, const DebugMode& debugMode, diag::ILog* log );
 
 	// IScene methods.
 	ITriangleMesh*											CreateTriangleMesh( INode* parent, const lang::String& name, mat::IVisualMaterial* material, ISkeleton* skeleton );
@@ -134,7 +134,7 @@ private:
 	lang::Map<UInt, ITriangleMesh*>							_triangleMeshes;
 	lang::Vector<LightState>								_lights;
 	lang::Vector<BaseMeshBatch*>							_batches;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	BaseSceneManager*										_sceneManager;
 	P(ISceneAnimationController)							_ctrlAnimation;
 	P(audio::IAudioEnvironment)								_audioEnvironment;

@@ -37,7 +37,7 @@ using namespace synkro::math;
 //------------------------------------------------------------------------------
 
 
-ConeLight::ConeLight( ISceneEx* scene, IContext* context, const String& name ) :
+ConeLight::ConeLight( ISceneEx* scene, ISynkroContext* context, const String& name ) :
 	LightImpl<IConeLight>( scene, context, AsBaseScene(scene)->GetLightName(name), true ),
 	_innerAngle( Math::Pi ),
 	_outerAngle( Math::Pi ),

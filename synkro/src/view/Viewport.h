@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <core/ObjectImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <view/IViewport.h>
 #include <view/IViewportAnimationController.h>
 #include <view/ICameraFilter.h>
@@ -52,7 +52,7 @@ class Viewport :
 {
 public:
 	// Constructor & destructor.
-	Viewport( BaseViewportManager* viewportManager, core::IContext* context, gfx::IRenderView* view, scene::ICamera* camera );
+	Viewport( BaseViewportManager* viewportManager, core::ISynkroContext* context, gfx::IRenderView* view, scene::ICamera* camera );
 	~Viewport();
 
 	// IViewport methods.
@@ -155,7 +155,7 @@ private:
 	};
 
 	BaseViewportManager*									_viewportManager;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	P(IViewportAnimationController)							_ctrlAnimation;
 	lang::Vector<IViewportFilter*>							_filters;
 	P(gfx::IProgram)										_program;

@@ -31,7 +31,7 @@ namespace view
 
 // Blur viewport filter factory.
 SYNKRO_FACTORY_BEGIN( BlurFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Blur )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Blur.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Blur.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

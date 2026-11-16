@@ -99,6 +99,7 @@ P2( UiEnable,				Boolean,				"false",																						"Indicates whether to
 P4( UiType,					Enumeration,			"1",								"Custom|Default",											"Type of the UI." )
 P1( UiTheme,				List,																													"UI theme name." )
 P4( UiThemeName,			Enumeration,			"1",								"Custom|Glass|Flat",										"Current theme name." )
+P3( UiOpacity,				Integer,	Positive,	"100",																							"User interface widgets opacity [1-100]." )
 P3( UiFontSize,				Integer,	Positive,	"8",																							"User interface font size." )
 P2( UiColorWidgetNormal,	Color,					"White",																						"UI widget color in normal state." )
 P2( UiColorTextNormal,		Color,					"White",																						"UI widget text color in normal state." )

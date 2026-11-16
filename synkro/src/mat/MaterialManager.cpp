@@ -40,7 +40,7 @@ namespace mat
 {
 
 
-MaterialManager::MaterialManager( IContext* context, ILog* log ) :
+MaterialManager::MaterialManager( ISynkroContext* context, ILog* log ) :
 	_context( context ),
 	Logger( log, LogFacility::MaterialManager )
 {

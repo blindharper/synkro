@@ -23,7 +23,6 @@
 #include <scene/ITriangleMesh.h>
 #include <scene/ITriangleMeshSet.h>
 #include <scene/ITriangleSet.h>
-#include <core/IContext.h>
 #include <gfx/IFrameRenderWindowEx.h>
 #include <gfx/IViewRenderWindowEx.h>
 #include <gfx/ISceneRenderObjectEx.h>
@@ -56,7 +55,7 @@ namespace view
 {
 
 
-ViewportManager::ViewportManager( IContext* context, ILog* log ) :
+ViewportManager::ViewportManager( ISynkroContext* context, ILog* log ) :
 	_transitionEvents( A(TransitionEvent) ),
 	_viewports( A(BaseViewport*) ),
 	_transitionControllers( A(BaseViewportTransitionController*) ),

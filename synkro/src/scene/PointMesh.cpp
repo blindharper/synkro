@@ -50,7 +50,7 @@ namespace scene
 {
 
 
-PointMesh::PointMesh( ISceneEx* scene, IContext* context, const String& name ) :
+PointMesh::PointMesh( ISceneEx* scene, ISynkroContext* context, const String& name ) :
 	MeshImpl<IPointMesh>( scene, context, AsBaseScene(scene)->GetPointMeshName(name) )
 {
 }

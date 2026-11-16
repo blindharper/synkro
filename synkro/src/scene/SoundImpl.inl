@@ -11,7 +11,7 @@
 // Purpose: Generic sound implementation.
 //==============================================================================
 template <class T>
-SYNKRO_INLINE SoundImpl<T>::SoundImpl( ISceneEx* scene, core::IContext* context, const lang::String& name, sound::ISound3D* sound ) :
+SYNKRO_INLINE SoundImpl<T>::SoundImpl( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, sound::ISound3D* sound ) :
 	NodeImpl<T>( scene, context, AsBaseScene(scene)->GetSoundName(name) ),
 	_sound( sound ),
 	_emitter( AsBaseSound3D(sound)->GetEmitter() ),

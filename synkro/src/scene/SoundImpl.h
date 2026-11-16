@@ -36,7 +36,7 @@ class SoundImpl :
 {
 public:
 	// Constructor & destructor.
-	SoundImpl( ISceneEx* scene, core::IContext* context, const lang::String& name, sound::ISound3D* sound );
+	SoundImpl( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, sound::ISound3D* sound );
 	virtual ~SoundImpl();
 
 	// INode methods.

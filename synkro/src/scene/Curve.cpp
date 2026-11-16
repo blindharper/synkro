@@ -37,7 +37,7 @@ namespace scene
 {
 
 
-Curve::Curve( ISceneEx* scene, IContext* context, const String& name ) :
+Curve::Curve( ISceneEx* scene, ISynkroContext* context, const String& name ) :
 	NodeImpl<ICurve>( scene, context, AsBaseScene(scene)->GetCurveName(name), false ),
 	_points( A(ControlPoint) ),
 	_vertices( A(Vector3) ),

@@ -19,7 +19,6 @@
 #include <gfx/IOverlayRenderObject.h>
 #include <gfx/IParameterSet.h>
 #include <gfx/ProgramParam.h>
-#include <lang/Vector.h>
 #include <ui/BaseWidget.h>
 #include <ui/BaseFrame.h>
 #include <ui/BaseUi.h>

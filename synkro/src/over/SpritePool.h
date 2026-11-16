@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <core/ObjectImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <over/ISpritePool.h>
 #include <gfx/IGraphicsSystemEx.h>
 #include <gfx/IGraphicsDeviceEx.h>
@@ -46,7 +46,7 @@ class SpritePool :
 {
 public:
 	// Constructor.
-	SpritePool( gfx::IOverlayRenderQueue* queue, core::IContext* context, gfx::IBlendStateSet* blendStates, img::IImage* image, const Order& groupOrder, const Order& order, UInt capacity );
+	SpritePool( gfx::IOverlayRenderQueue* queue, core::ISynkroContext* context, gfx::IBlendStateSet* blendStates, img::IImage* image, const Order& groupOrder, const Order& order, UInt capacity );
 
 	// ISpritePool methods.
 	void													Enable( Bool enable );
@@ -72,7 +72,7 @@ public:
 
 private:
 	lang::Vector<P(PoolSprite)>								_sprites;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	P(gfx::IOverlayRenderObject)							_pool;
 	P(gfx::IRect)											_scissor;
 	gfx::IBlendStateSet*									_blendStates;

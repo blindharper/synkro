@@ -31,7 +31,7 @@ namespace view
 
 // Contrast viewport filter factory.
 SYNKRO_FACTORY_BEGIN( ContrastFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Contrast )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new SimpleFilter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Contrast.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new SimpleFilter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Contrast.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

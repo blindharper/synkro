@@ -37,7 +37,7 @@ public:
 	 * Creates animation codec.
 	 * @param context Framework context.
 	 */
-	virtual IAnimationCodec*								Create( core::IContext* context ) = 0;
+	virtual IAnimationCodec*								Create( core::ISynkroContext* context ) = 0;
 };
 
 

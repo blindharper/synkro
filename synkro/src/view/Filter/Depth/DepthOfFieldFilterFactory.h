@@ -31,7 +31,7 @@ namespace view
 
 // Depth-of-field viewport filter factory.
 SYNKRO_FACTORY_BEGIN( DepthOfFieldFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::DepthOfField )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new DepthOfFieldFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::DepthOfField.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new DepthOfFieldFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::DepthOfField.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

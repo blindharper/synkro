@@ -43,7 +43,7 @@ namespace over
 {
 
 
-SpritePool::SpritePool( IOverlayRenderQueue* queue, IContext* context, IBlendStateSet* blendStates, IImage* image, const Order& groupOrder, const Order& order, UInt capacity ) :
+SpritePool::SpritePool( IOverlayRenderQueue* queue, ISynkroContext* context, IBlendStateSet* blendStates, IImage* image, const Order& groupOrder, const Order& order, UInt capacity ) :
 	_sprites( A(P(PoolSprite)), capacity ),
 	_context( context ),
 	_blendStates( blendStates ),

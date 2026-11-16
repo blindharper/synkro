@@ -42,6 +42,7 @@ public:
 	// IFrame methods.
 	virtual void											Show( Bool show );
 	virtual void											ShowBorder( Bool show );
+	virtual void											SetOpacity( Float opacity );
 	virtual void											SetLocation( const lang::Point& location );
 	virtual void											SetSize( const lang::Size& size );
 	virtual void											SetAnchor( const Anchor& anchor );
@@ -49,6 +50,7 @@ public:
 	virtual IWidget*										GetWidget( UInt index ) const;
 	virtual UInt											GetFrameCount() const;
 	virtual IFrame*											GetFrame( UInt index ) const;
+	virtual Float											GetOpacity() const;
 	virtual void											GetLocation( lang::Point& location ) const;
 	virtual void											GetSize( lang::Size& size ) const;
 	virtual void											GetRect( lang::Rect& rect ) const;
@@ -63,6 +65,7 @@ protected:
 	lang::Vector<P(IWidget)>								_widgets;
 	lang::Vector<P(IFrame)>									_frames;
 	IFrame*													_parent;
+	Float													_opacity;
 	lang::Point												_location;
 	lang::Size												_size;
 	lang::Rect												_rect;

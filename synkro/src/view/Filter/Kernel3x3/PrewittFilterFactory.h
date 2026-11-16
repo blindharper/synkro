@@ -31,7 +31,7 @@ namespace view
 
 // Prewitt viewport filter factory.
 SYNKRO_FACTORY_BEGIN( PrewittFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Prewitt )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Prewitt.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Prewitt.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

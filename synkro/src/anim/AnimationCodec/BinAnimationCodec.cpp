@@ -34,7 +34,7 @@ namespace anim
 {
 
 
-BinAnimationCodec::BinAnimationCodec( IContext* context ) :
+BinAnimationCodec::BinAnimationCodec( ISynkroContext* context ) :
 	AnimationCodecImpl<IAnimationCodec>( context )
 {
 }

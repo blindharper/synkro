@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <core/ObjectImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <over/IText.h>
 #include <over/ITextAnimationController.h>
 #include <over/IFont.h>
@@ -46,7 +46,7 @@ class Text :
 {
 public:
 	// Constructor.
-	Text( BaseTextPool* pool, BaseFont* font, core::IContext* context, gfx::IOverlayRenderQueue* queue, const Order& groupOrder, const Order& order, const lang::Point& location, const lang::String& text, const img::ColorGradient& gradient );
+	Text( BaseTextPool* pool, BaseFont* font, core::ISynkroContext* context, gfx::IOverlayRenderQueue* queue, const Order& groupOrder, const Order& order, const lang::Point& location, const lang::String& text, const img::ColorGradient& gradient );
 
 	// IText methods.
 	ITextAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
@@ -86,7 +86,7 @@ public:
 	IFont*													GetFont() const;
 
 private:
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	P(gfx::IOverlayRenderObject)							_text;
 	P(ITextAnimationController)								_ctrlAnimation;
 	P(gfx::IRect)											_scissor;

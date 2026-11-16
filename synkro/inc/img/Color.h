@@ -1002,7 +1002,7 @@ public:
 	static const Color DimGray;
 
 	/** Well-known color. <span class='color' style='background-color:#2d32aa;'>&nbsp;&nbsp;&nbsp;&nbsp;</span> */
-	static const Color DirectXDemo;
+	static const Color DirectX11Demo;
 
 	/** Well-known color. <span class='color' style='background-color:#9a7552;'>&nbsp;&nbsp;&nbsp;&nbsp;</span> */
 	static const Color Dirt;

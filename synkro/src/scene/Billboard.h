@@ -39,7 +39,7 @@ class Billboard :
 {
 public:
 	// Constructors.
-	Billboard( ISceneEx* scene, core::IContext* context, const lang::String& name, img::IImage* image, Float width, Float height );
+	Billboard( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, img::IImage* image, Float width, Float height );
 	Billboard( const Billboard& other );
 
 	// INode methods.

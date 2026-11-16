@@ -37,7 +37,7 @@ class Dummy :
 {
 public:
 	// Constructors.
-	Dummy( ISceneEx* scene, core::IContext* context, const lang::String& name, Bool visualize );
+	Dummy( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, Bool visualize );
 	Dummy( const Dummy& other );
 
 	// INode methods.

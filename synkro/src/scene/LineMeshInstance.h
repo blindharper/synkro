@@ -36,7 +36,7 @@ class LineMeshInstance :
 {
 public:
 	// Constructor & destructor.
-	LineMeshInstance( core::IContext* context, ILineMeshBatch* batch, const lang::String& name, UInt index, const math::Matrix4x4& transform );
+	LineMeshInstance( core::ISynkroContext* context, ILineMeshBatch* batch, const lang::String& name, UInt index, const math::Matrix4x4& transform );
 	~LineMeshInstance();
 
 	// INode methods.

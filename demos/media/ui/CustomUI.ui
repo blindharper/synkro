@@ -32,7 +32,7 @@
 	</frame>
 	<frame location="220,690" size="200,110" border="true">
 		<angle id="602" location="4,4"/>
-		<slider id="603" location="4,70" size="150,25" orientation="horizontal" min="0" max="1000" color="Red"/>
+		<slider id="603" location="4,70" size="150,25" orientation="horizontal" min="10" max="100" color="Red"/>
 		<slider id="604" location="164,4" size="25,100" orientation="vertical" min="0" max="1000" color="Green"/>
 	</frame>
 </ui>

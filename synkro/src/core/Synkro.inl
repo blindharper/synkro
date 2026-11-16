@@ -10,41 +10,64 @@
 //
 // Purpose: Synkro object implementation.
 //==============================================================================
-SYNKRO_INLINE anim::IAnimationSystem* Synkro::GetAnimationSystem() const
+SYNKRO_INLINE anim::IAnimationSystem* Synkro::GetAnimationSystem( Bool silent ) const
 {
 	SynkroCall( "Synkro.GetAnimationSystem", lang::String::Empty );
 
-	if ( _animationSystem == nullptr )
+	if ( (_animationSystem == nullptr) && !silent )
 		throw lang::InvalidOperationException( lang::String::Format(Str::SubsystemDisabled, L"Animation system", Param::AnimationEnable) );
 
 	return _animationSystem;
 }
 
-SYNKRO_INLINE audio::IAudioSystemEx* Synkro::GetAudioSystem() const
+SYNKRO_INLINE anim::IAnimationSystem* Synkro::GetAnimationSystem() const
+{
+	return GetAnimationSystem( false );
+}
+
+SYNKRO_INLINE audio::IAudioSystemEx* Synkro::GetAudioSystem( Bool silent ) const
 {
 	SynkroCall( "Synkro.GetAudioSystem", lang::String::Empty );
+
+	if ( (_audioSystem == nullptr) && !silent )
+		throw lang::InvalidOperationException( lang::String::Format(Str::SubsystemDisabled, L"Audio system", Param::AudioEnable) );
 
 	return _audioSystem;
 }
 
-SYNKRO_INLINE cons::IConsole* Synkro::GetConsole() const
+SYNKRO_INLINE audio::IAudioSystemEx* Synkro::GetAudioSystem() const
+{
+	return GetAudioSystem( false );
+}
+
+SYNKRO_INLINE cons::IConsole* Synkro::GetConsole( Bool silent ) const
 {
 	SynkroCall( "Synkro.GetConsole", lang::String::Empty );
 
-	if ( _console == nullptr )
+	if ( (_console == nullptr) && !silent )
 		throw lang::InvalidOperationException( lang::String::Format(Str::SubsystemDisabled, L"Console", Param::ConsoleEnable) );
 
 	return _console;
 }
 
-SYNKRO_INLINE db::IDatabaseSystemEx* Synkro::GetDatabaseSystem() const
+SYNKRO_INLINE cons::IConsole* Synkro::GetConsole() const
+{
+	return GetConsole( false );
+}
+
+SYNKRO_INLINE db::IDatabaseSystemEx* Synkro::GetDatabaseSystem( Bool silent ) const
 {
 	SynkroCall( "Synkro.GetDatabaseSystem", lang::String::Empty );
 
-	if ( _databaseSystem == nullptr )
+	if ( (_databaseSystem == nullptr) && !silent )
 		throw lang::InvalidOperationException( lang::String::Format(Str::SubsystemDisabled, L"Database system", Param::DatabaseEnable) );
 
 	return _databaseSystem;
+}
+
+SYNKRO_INLINE db::IDatabaseSystemEx* Synkro::GetDatabaseSystem() const
+{
+	return GetDatabaseSystem( false );
 }
 
 SYNKRO_INLINE diag::IDiag* Synkro::GetDiag() const
@@ -57,24 +80,34 @@ SYNKRO_INLINE gfx::IGraphicsSystemEx* Synkro::GetGraphicsSystem() const
 	return _graphicsSystem;
 }
 
-SYNKRO_INLINE img::IImageManager* Synkro::GetImageManager() const
+SYNKRO_INLINE img::IImageManager* Synkro::GetImageManager( Bool silent ) const
 {
 	SynkroCall( "Synkro.GetImageManager", lang::String::Empty );
 
-	if ( _imageManager == nullptr )
+	if ( (_imageManager == nullptr) && !silent )
 		throw lang::InvalidOperationException( lang::String::Format(Str::SubsystemDisabled, L"Image manager", Param::ImagingEnable) );
 
 	return _imageManager;
 }
 
-SYNKRO_INLINE input::IInputSystemEx* Synkro::GetInputSystem() const
+SYNKRO_INLINE img::IImageManager* Synkro::GetImageManager() const
+{
+	return GetImageManager( false );
+}
+
+SYNKRO_INLINE input::IInputSystemEx* Synkro::GetInputSystem( Bool silent ) const
 {
 	SynkroCall( "Synkro.GetInputSystem", lang::String::Empty );
 
-	if ( _inputSystem == nullptr )
+	if ( (_inputSystem == nullptr) && !silent )
 		throw lang::InvalidOperationException( lang::String::Format(Str::SubsystemDisabled, L"Input system", Param::InputEnable) );
 
 	return _inputSystem;
+}
+
+SYNKRO_INLINE input::IInputSystemEx* Synkro::GetInputSystem() const
+{
+	return GetInputSystem( false );
 }
 
 SYNKRO_INLINE mat::IMaterialManager* Synkro::GetMaterialManager() const
@@ -82,14 +115,19 @@ SYNKRO_INLINE mat::IMaterialManager* Synkro::GetMaterialManager() const
 	return _materialManager;
 }
 
-SYNKRO_INLINE net::INetworkSystemEx* Synkro::GetNetworkSystem() const
+SYNKRO_INLINE net::INetworkSystemEx* Synkro::GetNetworkSystem( Bool silent ) const
 {
 	SynkroCall( "Synkro.GetNetworkSystem", lang::String::Empty );
 
-	if ( _networkSystem == nullptr )
+	if ( (_networkSystem == nullptr) && !silent )
 		throw lang::InvalidOperationException( lang::String::Format(Str::SubsystemDisabled, L"Network system", Param::NetworkEnable) );
 
 	return _networkSystem;
+}
+
+SYNKRO_INLINE net::INetworkSystemEx* Synkro::GetNetworkSystem() const
+{
+	return GetNetworkSystem( false );
 }
 
 SYNKRO_INLINE over::IOverlayManager* Synkro::GetOverlayManager() const
@@ -97,11 +135,19 @@ SYNKRO_INLINE over::IOverlayManager* Synkro::GetOverlayManager() const
 	return _overlayManager;
 }
 
-SYNKRO_INLINE phys::IPhysicsSystemEx* Synkro::GetPhysicsSystem() const
+SYNKRO_INLINE phys::IPhysicsSystemEx* Synkro::GetPhysicsSystem( Bool silent ) const
 {
 	SynkroCall( "Synkro.GetPhysicsSystem", lang::String::Empty );
 
+	if ( (_physicsSystem == nullptr) && !silent )
+		throw lang::InvalidOperationException( lang::String::Format(Str::SubsystemDisabled, L"Physics system", Param::PhysicsEnable) );
+
 	return _physicsSystem;
+}
+
+SYNKRO_INLINE phys::IPhysicsSystemEx* Synkro::GetPhysicsSystem() const
+{
+	return GetPhysicsSystem( false );
 }
 
 SYNKRO_INLINE scene::ISceneManager* Synkro::GetSceneManager() const
@@ -109,23 +155,23 @@ SYNKRO_INLINE scene::ISceneManager* Synkro::GetSceneManager() const
 	return _sceneManager;
 }
 
-SYNKRO_INLINE script::IScriptSystemEx* Synkro::GetScriptSystem() const
+SYNKRO_INLINE script::IScriptSystemEx* Synkro::GetScriptSystem( Bool silent ) const
 {
 	SynkroCall( "Synkro.GetScriptSystem", lang::String::Empty );
 
-	if ( _scriptSystem == nullptr )
+	if ( (_scriptSystem == nullptr) && !silent )
 		throw lang::InvalidOperationException( lang::String::Format(Str::SubsystemDisabled, L"Script system", Param::ScriptEnable) );
 
 	return _scriptSystem;
 }
 
+SYNKRO_INLINE script::IScriptSystemEx* Synkro::GetScriptSystem() const
+{
+	return GetScriptSystem( false );
+}
+
 SYNKRO_INLINE sound::ISoundManager* Synkro::GetSoundManager() const
 {
-	SynkroCall( "Synkro.GetSoundManager", lang::String::Empty );
-
-	if ( _soundManager == nullptr )
-		throw lang::InvalidOperationException( lang::String::Format(Str::SubsystemDisabled, L"Sound manager", Param::AudioEnable) );
-
 	return _soundManager;
 }
 
@@ -134,14 +180,19 @@ SYNKRO_INLINE io::IStreamSystemEx* Synkro::GetStreamSystem() const
 	return _streamSystem;
 }
 
-SYNKRO_INLINE ui::IUiEx* Synkro::GetUi() const
+SYNKRO_INLINE ui::IUiEx* Synkro::GetUi( Bool silent ) const
 {
 	SynkroCall( "Synkro.GetUi", lang::String::Empty );
 
-	if ( _ui == nullptr )
+	if ( (_ui == nullptr) && !silent )
 		throw lang::InvalidOperationException( lang::String::Format(Str::SubsystemDisabled, L"User interface", Param::UiEnable) );
 
 	return _ui;
+}
+
+SYNKRO_INLINE ui::IUiEx* Synkro::GetUi() const
+{
+	return GetUi( false );
 }
 
 SYNKRO_INLINE view::IViewportManager* Synkro::GetViewportManager() const

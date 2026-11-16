@@ -18,7 +18,7 @@
 #include <core/ObjectImpl.h>
 #include <scene/IFog.h>
 #include <scene/IFogAnimationController.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include "BaseFog.h"
 
 
@@ -37,7 +37,7 @@ class Fog :
 {
 public:
 	// Constructor.
-	Fog( core::IContext* context );
+	Fog( core::ISynkroContext* context );
 
 	// IFog methods.
 	IFogAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
@@ -56,7 +56,7 @@ public:
 	void													GetState( FogState& state ) const;
 
 private:
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	P(IFogAnimationController)								_ctrlAnimation;
 	FogType													_type;
 	FogState												_state;

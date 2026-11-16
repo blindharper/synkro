@@ -51,6 +51,11 @@ SYNKRO_INLINE Bool UiEx::IsEnabled() const
 	return _enabled;
 }
 
+SYNKRO_INLINE Float UiEx::GetOpacity() const
+{
+	return _opacity;
+}
+
 SYNKRO_INLINE over::IFont* UiEx::GetFont() const
 {
 	return _font;

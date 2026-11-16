@@ -15,6 +15,7 @@ SYNKRO_INLINE FrameImpl<T>::FrameImpl( IFrame* parent, const lang::Point& locati
 	_widgets( A(P(IWidget)) ),
 	_frames( A(P(IFrame)) ),
 	_parent( parent ),
+	_opacity( 1.0f ),
 	_location( location ),
 	_size( size ),
 	_anchor( Anchor::None ),
@@ -55,6 +56,25 @@ SYNKRO_INLINE void FrameImpl<T>::SetLocation( const lang::Point& location )
 {
 	_location = location;
 	CalcRect();
+}
+
+template <class T>
+SYNKRO_INLINE void FrameImpl<T>::SetOpacity( Float opacity )
+{
+	opacity = Clamp( opacity, 0.0f, 1.0f );
+	if ( opacity != _opacity )
+	{
+		_opacity = opacity;
+		for ( UInt i = 0; i < _widgets.Size(); ++i )
+		{
+			_widgets[i]->SetOpacity( _opacity );
+		}
+
+		for ( UInt i = 0; i < _frames.Size(); ++i )
+		{
+			_frames[i]->SetOpacity( _opacity );
+		}
+	}
 }
 
 template <class T>
@@ -102,6 +122,12 @@ SYNKRO_INLINE IFrame* FrameImpl<T>::GetFrame( UInt index ) const
 		throw lang::OutOfRangeException( index, _frames.Size() );
 
 	return _frames[index];
+}
+
+template <class T>
+SYNKRO_INLINE Float FrameImpl<T>::GetOpacity() const
+{
+	return _opacity;
 }
 
 template <class T>

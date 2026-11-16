@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <core/ObjectImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <lang/Rect.h>
 #include <view/IViewport.h>
 #include <gfx/IRect.h>

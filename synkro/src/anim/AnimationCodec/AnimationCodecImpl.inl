@@ -11,7 +11,7 @@
 // Purpose: Implements generic animation codec.
 //==============================================================================
 template <class T>
-SYNKRO_INLINE AnimationCodecImpl<T>::AnimationCodecImpl( core::IContext* context ) :
+SYNKRO_INLINE AnimationCodecImpl<T>::AnimationCodecImpl( core::ISynkroContext* context ) :
 	_context( context )
 {
 }

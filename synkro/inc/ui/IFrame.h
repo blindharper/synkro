@@ -49,6 +49,12 @@ public:
 	 */
 	virtual void											ShowBorder( Bool show ) = 0;
 
+	/** 
+	 * Sets degree of frame opacity. Valid range is [0.0-1.0]. Default is 1.0.
+	 * @param opacity Frame opacity.
+	 */
+	virtual void											SetOpacity( Float opacity ) = 0;
+
 	/**
 	 * Sets frame location.
 	 * @param location Frame location.
@@ -90,6 +96,11 @@ public:
 	 * @exception OutOfRangeException Index is out of range.
 	 */
 	virtual IFrame*											GetFrame( UInt index ) const = 0;
+
+	/**
+	 * Retrieves degree of frame opacity.
+	 */
+	virtual Float											GetOpacity() const = 0;
 
 	/**
 	 * Retrieves frame location.

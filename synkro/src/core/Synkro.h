@@ -68,28 +68,38 @@ public:
 	Synkro( Pointer module, UInt version, SynkroListener* listener );
 	~Synkro();
 
-	// IContext methods.
+	// ISynkroContext methods.
+	anim::IAnimationSystem*									GetAnimationSystem( Bool silent ) const;
 	anim::IAnimationSystem*									GetAnimationSystem() const;
+	audio::IAudioSystemEx*									GetAudioSystem( Bool silent ) const;
 	audio::IAudioSystemEx*									GetAudioSystem() const;
+	cons::IConsole*											GetConsole( Bool silent ) const;
 	cons::IConsole*											GetConsole() const;
+	db::IDatabaseSystemEx*									GetDatabaseSystem( Bool silent ) const;
 	db::IDatabaseSystemEx*									GetDatabaseSystem() const;
 	diag::IDiag*											GetDiag() const;
 	gfx::IGraphicsSystemEx*									GetGraphicsSystem() const;
+	img::IImageManager*										GetImageManager( Bool silent ) const;
 	img::IImageManager*										GetImageManager() const;
+	input::IInputSystemEx*									GetInputSystem( Bool silent ) const;
 	input::IInputSystemEx*									GetInputSystem() const;
 	mat::IMaterialManager*									GetMaterialManager() const;
+	net::INetworkSystemEx*									GetNetworkSystem( Bool silent ) const;
 	net::INetworkSystemEx*									GetNetworkSystem() const;
 	over::IOverlayManager*									GetOverlayManager() const;
+	phys::IPhysicsSystemEx*									GetPhysicsSystem( Bool silent ) const;
 	phys::IPhysicsSystemEx*									GetPhysicsSystem() const;
 	scene::ISceneManager*									GetSceneManager() const;
+	script::IScriptSystemEx*								GetScriptSystem( Bool silent ) const;
 	script::IScriptSystemEx*								GetScriptSystem() const;
 	sound::ISoundManager*									GetSoundManager() const;
 	io::IStreamSystemEx*									GetStreamSystem() const;
+	ui::IUiEx*												GetUi( Bool silent ) const;
 	ui::IUiEx*												GetUi() const;
 	view::IViewportManager*									GetViewportManager() const;
 	win::IWindowSystemEx*									GetWindowSystem() const;
 
-	// IContextEx methods.
+	// ISynkroContextEx methods.
 	INodeList*												CreateNodeList();
 	ITriangleMeshList*										CreateTriangleMeshList();
 	lang::String											ReadString( io::IStream* stream );

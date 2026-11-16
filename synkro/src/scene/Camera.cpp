@@ -38,7 +38,7 @@ namespace scene
 {
 
 
-Camera::Camera( ISceneEx* scene, IContext* context, const String& name, IAudioEnvironment* audioEnvironment, ISoundListener* listener ) :
+Camera::Camera( ISceneEx* scene, ISynkroContext* context, const String& name, IAudioEnvironment* audioEnvironment, ISoundListener* listener ) :
 	NodeImpl<ICamera>( scene, context, AsBaseScene(scene)->GetCameraName(name) ),
 	_audioEnvironment( audioEnvironment ),
 	_listener( listener ),

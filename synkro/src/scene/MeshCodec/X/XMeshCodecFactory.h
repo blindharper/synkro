@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <core/FactoryImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <scene/IMeshCodecFactory.h>
 #include <scene/MeshCodec.h>
 #include "XMeshCodec.h"
@@ -32,7 +32,7 @@ namespace scene
 
 // DirectX mesh codec factory.
 SYNKRO_FACTORY_BEGIN( XMeshCodecFactory, IMeshCodecFactory, MeshCodec, MeshCodec::X )
-	IMeshCodec*		Create( core::IContext* context ) { return new XMeshCodec( context->GetSceneManager(), context->GetMaterialManager(), context->GetImageManager(), context->GetAnimationSystem() ); }
+	IMeshCodec*		Create( core::ISynkroContext* context ) { return new XMeshCodec( context->GetSceneManager(), context->GetMaterialManager(), context->GetImageManager(), context->GetAnimationSystem() ); }
 SYNKRO_FACTORY_END()
 
 

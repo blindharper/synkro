@@ -31,7 +31,7 @@ namespace view
 
 // Dilation viewport filter factory.
 SYNKRO_FACTORY_BEGIN( DilationFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Dilation )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Dilation.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Dilation.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

@@ -520,12 +520,12 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\inc\core\ControllerState.h" />
     <ClInclude Include="..\..\..\synkro\inc\core\DataMode.h" />
     <ClInclude Include="..\..\..\synkro\inc\core\IConstraint.h" />
-    <ClInclude Include="..\..\..\synkro\inc\core\IContext.h" />
-    <ClInclude Include="..\..\..\synkro\inc\core\IContextEx.h" />
     <ClInclude Include="..\..\..\synkro\inc\core\Iface.h" />
     <ClInclude Include="..\..\..\synkro\inc\core\ILibrary.h" />
     <ClInclude Include="..\..\..\synkro\inc\core\INodeList.h" />
     <ClInclude Include="..\..\..\synkro\inc\core\IStringList.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\ISynkroContext.h" />
+    <ClInclude Include="..\..\..\synkro\inc\core\ISynkroContextEx.h" />
     <ClInclude Include="..\..\..\synkro\inc\core\ITriangleMeshList.h" />
     <ClInclude Include="..\..\..\synkro\inc\core\Language.h" />
     <ClInclude Include="..\..\..\synkro\inc\core\ProgressListener.h" />
@@ -837,6 +837,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\SierpinskiConfigurationScene.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\TeapotConfigurationScene.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\TesseractConfigurationScene.h" />
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\VirusConfigurationScene.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ConstraintImpl.h" />
     <ClInclude Include="..\..\..\synkro\src\core\ControllerStateConst.h" />
     <ClInclude Include="..\..\..\synkro\src\core\FactoryList.h" />
@@ -1954,6 +1955,7 @@ del "$(OutDir)$(TargetName).ilk"</Command>
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\MorphingConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\NoiseConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\TeapotConfigurationScene.cpp" />
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\VirusConfigurationScene.cpp" />
     <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderObject.cpp" />
     <ClCompile Include="..\..\..\synkro\src\gfx\PointRenderQueue.cpp" />
     <ClCompile Include="..\..\..\synkro\src\gfx\SceneRenderObjectEx.cpp" />

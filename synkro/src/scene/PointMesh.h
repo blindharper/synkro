@@ -38,7 +38,7 @@ class PointMesh :
 {
 public:
 	// Constructor.
-	PointMesh( ISceneEx* scene, core::IContext* context, const lang::String& name );
+	PointMesh( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name );
 
 	// INode methods.
 	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );

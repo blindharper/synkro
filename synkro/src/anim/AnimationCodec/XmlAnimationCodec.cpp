@@ -35,7 +35,7 @@ namespace anim
 {
 
 
-XmlAnimationCodec::XmlAnimationCodec( IContext* context ) :
+XmlAnimationCodec::XmlAnimationCodec( ISynkroContext* context ) :
 	AnimationCodecImpl<IAnimationCodec>( context )
 {
 }

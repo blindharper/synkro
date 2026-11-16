@@ -36,7 +36,7 @@ class PointMeshInstance :
 {
 public:
 	// Constructor & destructor.
-	PointMeshInstance( core::IContext* context, IPointMeshBatch* batch, const lang::String& name, UInt index, const math::Matrix4x4& transform );
+	PointMeshInstance( core::ISynkroContext* context, IPointMeshBatch* batch, const lang::String& name, UInt index, const math::Matrix4x4& transform );
 	~PointMeshInstance();
 
 	// INode methods.

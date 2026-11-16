@@ -46,7 +46,7 @@ namespace scene
 {
 
 
-LineSet::LineSet( IContext* context, ILineRenderObject* object, UInt start, UInt count ) :
+LineSet::LineSet( ISynkroContext* context, ILineRenderObject* object, UInt start, UInt count ) :
 	_positions( A(Vector3) ),
 	_context( context ),
 	_object( object ),

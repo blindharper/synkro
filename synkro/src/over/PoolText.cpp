@@ -36,7 +36,7 @@ namespace over
 {
 
 
-PoolText::PoolText( BaseTextPool* pool, IContext* context, const ColorGradient& gradient, const Point& location, const String& text ) :
+PoolText::PoolText( BaseTextPool* pool, ISynkroContext* context, const ColorGradient& gradient, const Point& location, const String& text ) :
 	BaseTextImpl<BaseText>( pool ),
 	_context( context ),
 	_desc( text, location, gradient ),

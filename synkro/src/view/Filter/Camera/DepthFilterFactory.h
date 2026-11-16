@@ -31,7 +31,7 @@ namespace view
 
 // Depth buffer viewport filter factory.
 SYNKRO_FACTORY_BEGIN( DepthFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Depth )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new CameraFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Depth.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new CameraFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Depth.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

@@ -31,7 +31,7 @@ namespace anim
 
 // Sql animation codec factory.
 SYNKRO_FACTORY_BEGIN( SqlAnimationCodecFactory, IAnimationCodecFactory, AnimationCodec, AnimationCodec::Sql )
-	IAnimationCodec*	Create( core::IContext* context ) { return new SqlAnimationCodec(context); }
+	IAnimationCodec*	Create( core::ISynkroContext* context ) { return new SqlAnimationCodec(context); }
 SYNKRO_FACTORY_END()
 
 

@@ -36,6 +36,11 @@ SYNKRO_INLINE Kernel3x3FilterImpl<T>::Kernel3x3FilterImpl( IViewport* viewport, 
 }
 
 template <class T>
+SYNKRO_INLINE Kernel3x3FilterImpl<T>::~Kernel3x3FilterImpl()
+{
+}
+
+template <class T>
 SYNKRO_INLINE void Kernel3x3FilterImpl<T>::SetPassCount( UInt count )
 {
 	_filter->SetPassCount( count );

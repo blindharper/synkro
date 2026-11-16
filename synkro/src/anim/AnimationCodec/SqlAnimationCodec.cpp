@@ -44,7 +44,7 @@ namespace anim
 {
 
 
-SqlAnimationCodec::SqlAnimationCodec( IContext* context ) :
+SqlAnimationCodec::SqlAnimationCodec( ISynkroContext* context ) :
 	AnimationCodecImpl<IAnimationCodec>( context ),
 	_trackDescs( A(TrackDesc) )
 {

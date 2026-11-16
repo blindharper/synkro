@@ -31,7 +31,7 @@ namespace view
 
 // Brightness viewport filter factory.
 SYNKRO_FACTORY_BEGIN( BrightnessFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Brightness )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new SimpleFilter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Brightness.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new SimpleFilter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Brightness.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

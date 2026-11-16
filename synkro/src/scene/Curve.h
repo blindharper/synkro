@@ -39,7 +39,7 @@ class Curve :
 {
 public:
 	// Constructors.
-	Curve( ISceneEx* scene, core::IContext* context, const lang::String& name );
+	Curve( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name );
 	Curve( const Curve& other );
 
 	// INode methods.

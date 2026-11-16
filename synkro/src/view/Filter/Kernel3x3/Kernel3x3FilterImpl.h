@@ -34,8 +34,9 @@ class Kernel3x3FilterImpl :
 	public ViewportFilterImpl<T>
 {
 public:
-	// Constructor.
+	// Constructor & destructor.
 	Kernel3x3FilterImpl( IViewport* viewport, anim::IAnimationSystem* animationSystem, gfx::IProgram* program );
+	virtual ~Kernel3x3FilterImpl();
 
 	// IKernel3x3Filter methods.
 	virtual void											SetPassCount( UInt count );

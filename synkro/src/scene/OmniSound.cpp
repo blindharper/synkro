@@ -35,7 +35,7 @@ using namespace synkro::sound;
 //------------------------------------------------------------------------------
 
 
-OmniSound::OmniSound( ISceneEx* scene, IContext* context, const String& name, ISound3D* sound ) :
+OmniSound::OmniSound( ISceneEx* scene, ISynkroContext* context, const String& name, ISound3D* sound ) :
 	SoundImpl<IOmniSound>( scene, context, name, sound )
 {
 	_sound->SetInnerAngle( Math::TwoPi );

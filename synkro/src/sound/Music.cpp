@@ -37,7 +37,7 @@ namespace sound
 {
 
 
-Music::Music( BaseSoundManager* soundManager, IContext* context, ISoundCodec* codec, IStream* stream ) :
+Music::Music( BaseSoundManager* soundManager, ISynkroContext* context, ISoundCodec* codec, IStream* stream ) :
 	_data( A(Byte) ),
 	_soundManager( soundManager ),
 	_context( context ),
