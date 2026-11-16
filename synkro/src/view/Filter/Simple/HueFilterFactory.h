@@ -31,7 +31,7 @@ namespace view
 
 // Hue viewport filter factory.
 SYNKRO_FACTORY_BEGIN( HueFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Hue )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new SimpleFilter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Hue.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new SimpleFilter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Hue.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

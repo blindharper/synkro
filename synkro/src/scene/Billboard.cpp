@@ -55,7 +55,7 @@ namespace scene
 {
 
 
-Billboard::Billboard( ISceneEx* scene, IContext* context, const String& name, IImage* image, Float width, Float height ) :
+Billboard::Billboard( ISceneEx* scene, ISynkroContext* context, const String& name, IImage* image, Float width, Float height ) :
 	NodeImpl<IBillboard>( scene, context, AsBaseScene(scene)->GetBillboardName(name), false ),
 	_paramName( L"p_transform" )
 {

@@ -15,7 +15,7 @@
 
 
 #include "config.h"
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <core/ObjectImpl.h>
 #include <sound/IMusic.h>
 #include <sound/IMusicAnimationController.h>
@@ -43,7 +43,7 @@ class Music :
 {
 public:
 	// Constructor & destructor.
-	Music( BaseSoundManager* soundManager, core::IContext* context, ISoundCodec* codec, io::IStream* stream );
+	Music( BaseSoundManager* soundManager, core::ISynkroContext* context, ISoundCodec* codec, io::IStream* stream );
 	~Music();
 
 	// IMusic methods.
@@ -69,7 +69,7 @@ public:
 private:
 	lang::Vector<Byte>										_data;
 	BaseSoundManager*										_soundManager;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	SoundCodecContext*										_soundContext;
 	P(IMusicAnimationController)							_ctrlAnimation;
 	audio::IAudioPlayer*									_player;

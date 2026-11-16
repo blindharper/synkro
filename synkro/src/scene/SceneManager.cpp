@@ -47,7 +47,7 @@ namespace scene
 {
 
 
-SceneManager::SceneManager( IContext* context, ILog* log ) :
+SceneManager::SceneManager( ISynkroContext* context, ILog* log ) :
 	_scenes( A(P(Scene)) ),
 	_sceneFactories( A(FactoryEntry) ),
 	_meshBuilders( A(BuilderEntry) ),

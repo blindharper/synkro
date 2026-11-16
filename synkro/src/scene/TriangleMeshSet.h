@@ -39,7 +39,7 @@ class TriangleMeshSet :
 {
 public:
 	// Constructor.
-	TriangleMeshSet( ITriangleMeshSet* meshSet, ISceneEx* scene, core::IContext* context, const lang::String& name );
+	TriangleMeshSet( ITriangleMeshSet* meshSet, ISceneEx* scene, core::ISynkroContext* context, const lang::String& name );
 
 	// INode methods.
 	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );

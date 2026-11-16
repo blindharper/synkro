@@ -361,7 +361,7 @@ SYNKRO_COLOR( DesertSand,					0.929412f,	0.788235f,	0.686275f )
 SYNKRO_COLOR( Desire,						0.917647f,	0.235294f,	0.325490f )
 SYNKRO_COLOR( Diamond,						0.725490f,	0.949020f,	1.000000f )
 SYNKRO_COLOR( DimGray,						0.411765f,	0.411765f,	0.411765f )
-SYNKRO_COLOR( DirectXDemo,					0.176471f,	0.196078f,	0.666667f )
+SYNKRO_COLOR( DirectX11Demo,				0.176471f,	0.196078f,	0.666667f )
 SYNKRO_COLOR( Dirt,							0.607843f,	0.462745f,	0.325490f )
 SYNKRO_COLOR( DodgerBlue,					0.117647f,	0.564706f,	1.000000f )
 SYNKRO_COLOR( DogwoodRose,					0.843137f,	0.094118f,	0.407843f )
@@ -1433,7 +1433,7 @@ static ColorString _colorString[] =
 	{ Color::Desire,							L"Desire" },
 	{ Color::Diamond,							L"Diamond" },
 	{ Color::DimGray,							L"DimGray" },
-	{ Color::DirectXDemo,						L"DirectXDemo" },
+	{ Color::DirectX11Demo,						L"DirectX11Demo" },
 	{ Color::Dirt,								L"Dirt" },
 	{ Color::DodgerBlue,						L"DodgerBlue" },
 	{ Color::DogwoodRose,						L"DogwoodRose" },

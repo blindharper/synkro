@@ -36,7 +36,7 @@ namespace mat
 {
 
 
-TransparentMaterialInstance::TransparentMaterialInstance( IContext* context, ITriangleMeshBatch* batch, ITransparentMaterial* material, UInt index ) :
+TransparentMaterialInstance::TransparentMaterialInstance( ISynkroContext* context, ITriangleMeshBatch* batch, ITransparentMaterial* material, UInt index ) :
 	_context( context ),
 	_batch( batch ),
 	_material( material ),

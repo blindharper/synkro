@@ -12,7 +12,6 @@
 //==============================================================================
 #include "config.h"
 #include "TesseractConfigurationScene.h"
-#include <scene/ISceneManager.h>
 #include <scene/IScene.h>
 #include <scene/ILineSet.h>
 #include <scene/INodeAnimationController.h>

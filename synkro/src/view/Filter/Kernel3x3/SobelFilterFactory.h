@@ -31,7 +31,7 @@ namespace view
 
 // Sobel viewport filter factory.
 SYNKRO_FACTORY_BEGIN( SobelFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Sobel )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Sobel.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Sobel.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

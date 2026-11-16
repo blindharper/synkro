@@ -40,7 +40,7 @@ class LineMeshBatch :
 {
 public:
 	// Constructor & destructor.
-	LineMeshBatch( ISceneEx* scene, core::IContext* context, const lang::String& name, UInt capacity );
+	LineMeshBatch( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, UInt capacity );
 	~LineMeshBatch();
 
 	// INode methods.

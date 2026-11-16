@@ -42,7 +42,7 @@ namespace scene
 {
 
 
-TriangleMeshSet::TriangleMeshSet( ITriangleMeshSet* meshSet, ISceneEx* scene, IContext* context, const String& name ) :
+TriangleMeshSet::TriangleMeshSet( ITriangleMeshSet* meshSet, ISceneEx* scene, ISynkroContext* context, const String& name ) :
 	MeshImpl<ITriangleMeshSet>( scene, context, AsBaseScene(scene)->GetTriangleMeshName(name), true ),
 	_meshSet( meshSet ),
 	_levels( A(Float) )

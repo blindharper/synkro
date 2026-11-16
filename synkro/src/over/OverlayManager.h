@@ -38,7 +38,7 @@ class OverlayManager :
 {
 public:
 	// Constructor & destructor.
-	OverlayManager( core::IContext* context, diag::ILog* log );
+	OverlayManager( core::ISynkroContext* context, diag::ILog* log );
 	~OverlayManager();
 
 	// ISystem methods.
@@ -66,7 +66,7 @@ private:
 
 	lang::Map<UInt, P(Overlay)>								_overlays;
 	lang::MapCI<lang::String, FontTemplate>					_fonts;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	gfx::IProgram*											_fontProgram;
 	P(gfx::IBlendStateSet)									_blendStates;
 };

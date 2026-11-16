@@ -38,7 +38,7 @@ public:
 	 * @param viewport Owner viewport.
 	 * @param context Framework context.
 	 */
-	virtual IViewportFilter*								Create( IViewport* viewport, core::IContext* context ) = 0;
+	virtual IViewportFilter*								Create( IViewport* viewport, core::ISynkroContext* context ) = 0;
 };
 
 

@@ -50,7 +50,7 @@ namespace scene
 {
 
 
-LineMeshBatch::LineMeshBatch( ISceneEx* scene, IContext* context, const String& name, UInt capacity ) :
+LineMeshBatch::LineMeshBatch( ISceneEx* scene, ISynkroContext* context, const String& name, UInt capacity ) :
 	MeshBatchImpl<ILineMeshBatch, ILineMesh>( scene, context, AsBaseScene(scene)->GetLineMeshName(name), capacity )
 {
 	AsBaseScene( _scene )->AddMeshBatch( this );

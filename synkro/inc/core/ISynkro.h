@@ -15,7 +15,7 @@
 
 
 #include "config.h"
-#include <core/IContextEx.h>
+#include <core/ISynkroContextEx.h>
 #include <core/Iface.h>
 #include <core/Language.h>
 #include <core/ResourceType.h>
@@ -34,7 +34,7 @@ namespace core
  * Used to configure application and create virtual environments.
  */
 iface ISynkro :
-	public IContextEx
+	public ISynkroContextEx
 {
 public:
 	/**

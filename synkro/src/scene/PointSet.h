@@ -15,7 +15,7 @@
 
 
 #include "config.h"
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <core/ObjectImpl.h>
 #include <lang/Vector.h>
 #include <scene/IPointSet.h>
@@ -40,7 +40,7 @@ class PointSet :
 {
 public:
 	// Constructor.
-	PointSet( core::IContext* context, gfx::IPointRenderObject* object, UInt start, UInt count, Float size );
+	PointSet( core::ISynkroContext* context, gfx::IPointRenderObject* object, UInt start, UInt count, Float size );
 
 	// IPrimitive methods.
 	IPrimitiveAnimationController*							CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
@@ -78,7 +78,7 @@ public:
 
 private:
 	lang::Vector<math::Vector3>								_positions;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	P(IPointSetAnimationController)							_ctrlAnimation;
 	P(IPrimitiveMorphController)							_ctrlMorph;
 	P(gfx::IPointRenderObject)								_object;

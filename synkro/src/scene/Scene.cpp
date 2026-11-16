@@ -70,7 +70,7 @@ namespace scene
 {
 
 
-Scene::Scene( IScene* scene, BaseSceneManager* sceneManager, IContext* context, const String& name, const DebugMode& debugMode, ILog* log ) :
+Scene::Scene( IScene* scene, BaseSceneManager* sceneManager, ISynkroContext* context, const String& name, const DebugMode& debugMode, ILog* log ) :
 	_scene( scene ),
 	_nodeIds( A(NodeIdEntry) ),
 	_nodeNames( A(NodeNameEntry) ),
@@ -115,14 +115,14 @@ Scene::Scene( IScene* scene, BaseSceneManager* sceneManager, IContext* context, 
 	_root = new Dummy( this, _context, L"World", false );
 
 	// Create audio environment.
-	IAudioSystemEx* audioSystem = _context->GetAudioSystem();
+	IAudioSystemEx* audioSystem = _context->GetAudioSystem( true );
 	if ( audioSystem != nullptr )
 	{
 		_audioEnvironment = audioSystem->CreateEnvironment();
 	}
 
 	// Create physics environment.
-	IPhysicsSystemEx* physicsSystem = _context->GetPhysicsSystem();
+	IPhysicsSystemEx* physicsSystem = _context->GetPhysicsSystem( true );
 	if ( physicsSystem != nullptr )
 	{
 		physicsSystem->CreateEnvironment( _name );
@@ -224,7 +224,8 @@ IBillboard* Scene::CreateBillboard( INode* parent, const String& name, IImage* i
 
 ICamera* Scene::CreateCamera( INode* parent, const String& name )
 {
-	IAudioPlayer* player = (_context->GetAudioSystem() != nullptr) ? _context->GetAudioSystem()->CreatePlayer( 0 ) : nullptr;
+	IAudioSystemEx* audioSystem = _context->GetAudioSystem( true );
+	IAudioPlayer* player = (audioSystem != nullptr) ? audioSystem->CreatePlayer( 0 ) : nullptr;
 	ISoundListener* listener = (player != nullptr) ? player->GetListener()->Clone() : nullptr;
 	ICamera* camera = new Camera( this, _context, name, _audioEnvironment, listener );
 	camera->SetParent( (parent != nullptr) ? parent : _root );

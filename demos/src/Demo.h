@@ -154,6 +154,8 @@ protected:
 	ILabel*													CreateLabel( const Point& location, const String& text );
 	ISlider*												CreateSlider( UInt id, const Point& location, UInt minPosition, UInt maxPosition, UInt position, const Color& color );
 	ISlider*												CreateSlider( UInt id, const Point& location, UInt minPosition, UInt maxPosition, UInt position );
+	IOption*												CreateOption( UInt id, const Point& location, const String& text, Pointer data, const HotKey& hotkey, Bool selected, const Color& color );
+	IOption*												CreateOption( UInt id, const Point& location, const String& text, Pointer data, const HotKey& hotkey, Bool selected );
 	IOption*												CreateOption( UInt id, const Point& location, const String& text, Pointer data, Bool selected, const Color& color );
 	IOption*												CreateOption( UInt id, const Point& location, const String& text, Pointer data, Bool selected );
 	ISwitch*												CreateSwitch( UInt id, const Point& location, UInt width, const String& text, const HotKey& hotkey, Bool on );

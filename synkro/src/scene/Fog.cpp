@@ -32,7 +32,7 @@ namespace scene
 {
 
 
-Fog::Fog( IContext* context ) :
+Fog::Fog( ISynkroContext* context ) :
 	_context( context )
 {
 	_state.FogColor.w = 1.0f;

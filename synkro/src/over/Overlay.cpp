@@ -46,7 +46,7 @@ namespace over
 {
 
 
-Overlay::Overlay( BaseOverlayManager* overlayManager, IRenderWindow* window, IOverlayRenderQueue* queue, IContext* context ) :
+Overlay::Overlay( BaseOverlayManager* overlayManager, IRenderWindow* window, IOverlayRenderQueue* queue, ISynkroContext* context ) :
 	_overlayManager( overlayManager ),
 	_fonts( A(FontEntry) ),
 	_spritePools( A(BaseSpritePool*) ),
@@ -62,7 +62,7 @@ Overlay::Overlay( BaseOverlayManager* overlayManager, IRenderWindow* window, IOv
 	assert( _queue != nullptr );
 }
 
-Overlay::Overlay( BaseOverlayManager* overlayManager, IImage* image, IContext* context ) :
+Overlay::Overlay( BaseOverlayManager* overlayManager, IImage* image, ISynkroContext* context ) :
 	_overlayManager( overlayManager ),
 	_fonts( A(FontEntry) ),
 	_spritePools( A(BaseSpritePool*) ),

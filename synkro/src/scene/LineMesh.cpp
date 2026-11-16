@@ -51,7 +51,7 @@ namespace scene
 {
 
 
-LineMesh::LineMesh( ISceneEx* scene, IContext* context, const String& name ) :
+LineMesh::LineMesh( ISceneEx* scene, ISynkroContext* context, const String& name ) :
 	MeshImpl<ILineMesh>( scene, context, AsBaseScene(scene)->GetLineMeshName(name) )
 {
 }

@@ -11,7 +11,7 @@
 // Purpose: Generic light implementation.
 //==============================================================================
 template <class T>
-SYNKRO_INLINE LightImpl<T>::LightImpl( ISceneEx* scene, core::IContext* context, const lang::String& name, Bool visualize ) :
+SYNKRO_INLINE LightImpl<T>::LightImpl( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, Bool visualize ) :
 	NodeImpl<T>( scene, context, name, visualize ),
 	_enabled( true ),
 	_diffuseColor( img::Color::White ),

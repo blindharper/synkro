@@ -30,7 +30,7 @@ namespace view
 
 // Sepia viewport filter factory.
 SYNKRO_FACTORY_BEGIN( SepiaFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Sepia )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new PassFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Sepia.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new PassFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Sepia.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

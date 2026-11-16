@@ -40,7 +40,7 @@ namespace over
 {
 
 
-TextPool::TextPool( IContext* context, IOverlayRenderQueue* queue, IFont* font, const Order& groupOrder, const Order& order, UInt capacity, Ndc* ndc ) :
+TextPool::TextPool( ISynkroContext* context, IOverlayRenderQueue* queue, IFont* font, const Order& groupOrder, const Order& order, UInt capacity, Ndc* ndc ) :
 	_texts( A(PoolText*), capacity ),
 	_texts2( A(P(PoolText)), capacity ),
 	_dirtyTexts( A(UInt) ),

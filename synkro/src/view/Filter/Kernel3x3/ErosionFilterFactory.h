@@ -31,7 +31,7 @@ namespace view
 
 // Erosion viewport filter factory.
 SYNKRO_FACTORY_BEGIN( ErosionFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Erosion )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Erosion.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Erosion.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

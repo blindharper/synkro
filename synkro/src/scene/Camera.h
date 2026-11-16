@@ -42,7 +42,7 @@ class Camera :
 {
 public:
 	// Constructors.
-	Camera( ISceneEx* scene, core::IContext* context, const lang::String& name, audio::IAudioEnvironment* audioEnvironment, audio::ISoundListener* listener );
+	Camera( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, audio::IAudioEnvironment* audioEnvironment, audio::ISoundListener* listener );
 	Camera( const Camera& other );
 
 	// INode methods.

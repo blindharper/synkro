@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <core/ObjectImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <anim/IAnimation.h>
 #include <anim/IAnimationSet.h>
 #include <anim/IAnimationSystem.h>
@@ -50,7 +50,7 @@ class AnimationCodecImpl :
 {
 public:
 	// Constructor & destructor.
-	AnimationCodecImpl( core::IContext* context );
+	AnimationCodecImpl( core::ISynkroContext* context );
 	virtual ~AnimationCodecImpl();
 
 	// IAnimationCodec methods.
@@ -58,7 +58,7 @@ public:
 	virtual void											Save( const IAnimationSet* animation, io::IStream* stream );
 
 protected:
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 };
 
 

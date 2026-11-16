@@ -30,7 +30,7 @@ namespace view
 
 // Blue channel viewport filter factory.
 SYNKRO_FACTORY_BEGIN( BlueFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Blue )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new PassFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Blue.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new PassFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Blue.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

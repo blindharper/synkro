@@ -30,7 +30,7 @@ namespace view
 
 // Grayscale viewport filter factory.
 SYNKRO_FACTORY_BEGIN( GrayscaleFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Grayscale )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new PassFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Grayscale.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new PassFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Grayscale.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

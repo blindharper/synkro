@@ -41,7 +41,7 @@ namespace scene
 {
 
 
-TriangleMesh::TriangleMesh( ITriangleMesh* mesh, ISceneEx* scene, IContext* context, const String& name, ISkeleton* skeleton ) :
+TriangleMesh::TriangleMesh( ITriangleMesh* mesh, ISceneEx* scene, ISynkroContext* context, const String& name, ISkeleton* skeleton ) :
 	MeshImpl<ITriangleMesh>( scene, context, AsBaseScene(scene)->GetTriangleMeshName(name), true ),
 	_mesh( mesh ),
 	_skeleton( skeleton ),

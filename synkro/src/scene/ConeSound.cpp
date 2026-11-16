@@ -37,7 +37,7 @@ using namespace synkro::sound;
 //------------------------------------------------------------------------------
 
 
-ConeSound::ConeSound( ISceneEx* scene, IContext* context, const String& name, ISound3D* sound ) :
+ConeSound::ConeSound( ISceneEx* scene, ISynkroContext* context, const String& name, ISound3D* sound ) :
 	SoundImpl<IConeSound>( scene, context, name, sound )
 {
 }

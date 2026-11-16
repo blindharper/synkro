@@ -36,7 +36,7 @@ namespace scene
 {
 
 
-Dummy::Dummy( ISceneEx* scene, IContext* context, const String& name, Bool visualize ) :
+Dummy::Dummy( ISceneEx* scene, ISynkroContext* context, const String& name, Bool visualize ) :
 	NodeImpl<INode>( scene, context, AsBaseScene(scene)->GetDummyName(name), visualize )
 {
 	// Create debug geometry.

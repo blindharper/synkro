@@ -34,7 +34,7 @@ class LightImpl :
 {
 public:
 	// Constructor & destructor.
-	LightImpl( ISceneEx* scene, core::IContext* context, const lang::String& name, Bool visualize = false );
+	LightImpl( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, Bool visualize = false );
 	virtual ~LightImpl();
 
 	// INode methods.

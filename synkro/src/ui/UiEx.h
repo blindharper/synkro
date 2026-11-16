@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <core/ObjectImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <ui/IUiFactory.h>
 #include <ui/IUiEx.h>
 #include <ui/UiListener.h>
@@ -80,6 +80,7 @@ public:
 	// IUiEx methods.
 	void													Show( Bool show );
 	void													Enable( Bool enable );
+	void													SetOpacity( Float opacity );
 	void													SetThemeName( const ThemeName& theme );
 	void													Listen( UiListener* listener );
 	void													Load( io::IStream* stream );
@@ -91,6 +92,7 @@ public:
 	ThemeName												GetThemeName() const;
 	Bool													IsVisible() const;
 	Bool													IsEnabled() const;
+	Float													GetOpacity() const;
 
 	// KeyboardListener methods.
 	Bool													ListenKeyboardInput() const;
@@ -132,7 +134,7 @@ public:
 
 	// Other methods.
 	void													Activate( BaseWidget* widget );
-	void													Initialize( IUiFactory* factory, core::IContext* context, const core::Language& language, UInt fontSize );
+	void													Initialize( IUiFactory* factory, core::ISynkroContext* context, const core::Language& language, Float opacity, UInt fontSize );
 	void													Finalize();
 	void													InitInput();
 	void													Create( const ThemeName& themeName, const img::Color* widgetColors, const img::Color* textColors, UInt count );
@@ -152,7 +154,7 @@ private:
 	P(Theme)												_theme;
 	mutable img::PixelFormat								_pixelFormat;
 	win::IFrameWindowEx*									_window;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	gfx::IGraphicsSystemEx*									_graphicsSystem;
 	input::IInputSystemEx*									_inputSystem;
 	anim::IAnimationSystem*									_animationSystem;
@@ -171,6 +173,7 @@ private:
 	BaseWidget*												_downWidget;
 	Bool													_visible;
 	Bool													_enabled;
+	Float													_opacity;
 	Double													_deltaTime;
 	Double													_idlePeriod;
 

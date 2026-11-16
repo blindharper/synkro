@@ -31,7 +31,7 @@ namespace view
 
 // Laplacian viewport filter factory.
 SYNKRO_FACTORY_BEGIN( LaplacianFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Laplacian )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Laplacian.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Laplacian.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

@@ -92,6 +92,7 @@ UiEx::UiEx( ILog* log ) :
 	_downWidget( nullptr ),
 	_visible( true ),
 	_enabled( true ),
+	_opacity( 1.0f ),
 	_deltaTime( 0.0 ),
 	_idlePeriod( 0.0 ),
 	Logger( log, LogFacility::UserInterface )
@@ -133,7 +134,9 @@ IFrame* UiEx::CreateFrame( IFrame* parent, UInt id, const Point& location, const
 IAccordion* UiEx::CreateAccordion( IFrame* parent, UInt id, const Point& location, const Size& size )
 {
 	Frame* frameParent = GetParentFrame( parent );
-	return new Accordion( this, id, frameParent, _ui->CreateAccordion(frameParent->GetInnerFrame(), none, location, size) );
+	IAccordion* accordion = new Accordion( this, id, frameParent, _ui->CreateAccordion(frameParent->GetInnerFrame(), none, location, size) );
+	accordion->SetOpacity( _opacity );
+	return accordion;
 }
 
 IAngle* UiEx::CreateAngle( IFrame* parent, UInt id, const Point& location, Float maxValue, const Color& color )
@@ -144,43 +147,57 @@ IAngle* UiEx::CreateAngle( IFrame* parent, UInt id, const Point& location, Float
 		throw BadArgumentException( L"Maximum value cannot be greater than 360.0", L"maxValue" );
 
 	Frame* frameParent = GetParentFrame( parent );
-	return new Angle( this, id, frameParent, _ui->CreateAngle(frameParent->GetInnerFrame(), none, location, maxValue, color) );
+	IAngle* angle = new Angle( this, id, frameParent, _ui->CreateAngle(frameParent->GetInnerFrame(), none, location, maxValue, color) );
+	angle->SetOpacity( _opacity );
+	return angle;
 }
 
 IButton* UiEx::CreateButton( IFrame* parent, UInt id, const Point& location, const Size& size, const String& text, const Color& color )
 {
 	Frame* frameParent = GetParentFrame( parent );
-	return new Button( this, id, frameParent, _ui->CreateButton(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(150, 25)), text, color) );
+	IButton* button = new Button( this, id, frameParent, _ui->CreateButton(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(150, 25)), text, color) );
+	button->SetOpacity( _opacity );
+	return button;
 }
 
 IDropList* UiEx::CreateDropList( IFrame* parent, UInt id, const Point& location, const Size& size, UInt capacity )
 {
 	Frame* frameParent = GetParentFrame( parent );
-	return new DropList( this, id, frameParent, _ui->CreateDropList(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(200, 25)), capacity) );
+	IDropList* list = new DropList( this, id, frameParent, _ui->CreateDropList(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(200, 25)), capacity) );
+	list->SetOpacity( _opacity );
+	return list;
 }
 
 IEdit* UiEx::CreateEdit( IFrame* parent, UInt id, const Point& location, const Size& size, const String& text, const EditStyle& style )
 {
 	Frame* frameParent = GetParentFrame( parent );
-	return new Edit( this, id, frameParent, _ui->CreateEdit(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(200, 25)), text, style), style );
+	IEdit* edit = new Edit( this, id, frameParent, _ui->CreateEdit(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(200, 25)), text, style), style );
+	edit->SetOpacity( _opacity );
+	return edit;
 }
 
 IList* UiEx::CreateList( IFrame* parent, UInt id, const Point& location, const Size& size, UInt capacity )
 {
 	Frame* frameParent = GetParentFrame( parent );
-	return new List( this, id, frameParent, _ui->CreateList(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(100, 200)), capacity) );
+	IList* list = new List( this, id, frameParent, _ui->CreateList(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(100, 200)), capacity) );
+	list->SetOpacity( _opacity );
+	return list;
 }
 
 IOption* UiEx::CreateOption( IFrame* parent, UInt id, const Point& location, const Size& size, const String& text, Bool selected, const Color& color )
 {
 	Frame* frameParent = GetParentFrame( parent );
-	return new Option( this, id, frameParent, _ui->CreateOption(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(150, 25)), text, selected, color), selected );
+	IOption* option = new Option( this, id, frameParent, _ui->CreateOption(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(150, 25)), text, selected, color), selected );
+	option->SetOpacity( _opacity );
+	return option;
 }
 
 IProgress* UiEx::CreateProgress( IFrame* parent, UInt id, const Point& location, const Size& size, const ProgressType& type, const Color& color )
 {
 	Frame* frameParent = GetParentFrame( parent );
-	return new Progress( this, id, frameParent, _ui->CreateProgress(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(100, 20)), type, color) );
+	IProgress* progress = new Progress( this, id, frameParent, _ui->CreateProgress(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(100, 20)), type, color) );
+	progress->SetOpacity( _opacity );
+	return progress;
 }
 
 ISlider* UiEx::CreateSlider( IFrame* parent, UInt id, const Point& location, const Size& size, const Orientation& orientation, UInt minPosition, UInt maxPosition, const Color& color )
@@ -191,13 +208,17 @@ ISlider* UiEx::CreateSlider( IFrame* parent, UInt id, const Point& location, con
 		throw BadArgumentException( L"Minimum position cannot be greater than the maximum one.", L"minPosition" );
 
 	Frame* frameParent = GetParentFrame( parent );
-	return new Slider( this, id, frameParent, _ui->CreateSlider(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(150, 25)), orientation, minPosition, maxPosition, color) );
+	ISlider* slider = new Slider( this, id, frameParent, _ui->CreateSlider(frameParent->GetInnerFrame(), none, location, GetSize(size, Size(150, 25)), orientation, minPosition, maxPosition, color) );
+	slider->SetOpacity( _opacity );
+	return slider;
 }
 
 ISwitch* UiEx::CreateSwitch( IFrame* parent, UInt id, const Point& location, UInt width, const String& text, Bool on, const Color& color )
 {
 	Frame* frameParent = GetParentFrame( parent );
-	return new Switch( this, id, frameParent, _ui->CreateSwitch(frameParent->GetInnerFrame(), none, location, width, text, on, color), on );
+	ISwitch* sw = new Switch( this, id, frameParent, _ui->CreateSwitch(frameParent->GetInnerFrame(), none, location, width, text, on, color), on );
+	sw->SetOpacity( _opacity );
+	return sw;
 }
 
 void UiEx::Show( Bool show )
@@ -220,6 +241,11 @@ void UiEx::Enable( Bool enable )
 		AsWidget(_activeWidget)->Activate( enable );
 	}
 	_cursor->Show( enable );
+}
+
+void UiEx::SetOpacity( Float opacity )
+{
+	_root->SetOpacity( opacity );
 }
 
 void UiEx::SetThemeName( const ThemeName& theme )
@@ -634,7 +660,7 @@ void UiEx::Activate( BaseWidget* widget )
 	AsWidget(widget)->Activate( true );
 }
 
-void UiEx::Initialize( IUiFactory* factory, IContext* context, const Language& language, UInt fontSize )
+void UiEx::Initialize( IUiFactory* factory, ISynkroContext* context, const Language& language, Float opacity, UInt fontSize )
 {
 	_context = context;
 	_graphicsSystem = context->GetGraphicsSystem();
@@ -643,6 +669,7 @@ void UiEx::Initialize( IUiFactory* factory, IContext* context, const Language& l
 	_streamSystem = context->GetStreamSystem();
 	_imageManager = context->GetImageManager();
 	_overlayManager = context->GetOverlayManager();
+	_opacity = opacity;
 
 	// Create UI font.
 	const String FONT_NAME( L"ui" );

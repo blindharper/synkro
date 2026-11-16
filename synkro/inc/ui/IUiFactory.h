@@ -40,7 +40,7 @@ public:
 	 * @param log Log to write debug messages to.
 	 * @return Created user interface.
 	 */
-	virtual IUi*											Create( core::IContext* context, ITheme* theme, diag::ILog* log ) = 0;
+	virtual IUi*											Create( core::ISynkroContext* context, ITheme* theme, diag::ILog* log ) = 0;
 };
 
 

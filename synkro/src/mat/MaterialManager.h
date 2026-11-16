@@ -19,7 +19,7 @@
 #include <mat/IMaterialManager.h>
 #include <mat/IVisualMaterial.h>
 #include <lang/Map.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 
 
 namespace synkro
@@ -42,7 +42,7 @@ public:
 	};
 
 	// Constructor & destructor.
-	MaterialManager( core::IContext* context, diag::ILog* log );
+	MaterialManager( core::ISynkroContext* context, diag::ILog* log );
 	~MaterialManager();
 
 	// ISystem methods.
@@ -55,7 +55,7 @@ public:
 	IMultiMaterial*											CreateMultiMaterial( UInt size );
 
 private:
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 };
 
 

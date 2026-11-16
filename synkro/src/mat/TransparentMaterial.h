@@ -36,7 +36,7 @@ class TransparentMaterial :
 {
 public:
 	// Constructors.
-	TransparentMaterial( core::IContext* context, const LightingModel& model );
+	TransparentMaterial( core::ISynkroContext* context, const LightingModel& model );
 	TransparentMaterial( const TransparentMaterial& other );
 
 	// IVisualMaterial methods.

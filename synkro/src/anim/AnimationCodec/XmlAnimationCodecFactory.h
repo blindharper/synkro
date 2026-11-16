@@ -31,7 +31,7 @@ namespace anim
 
 // Xml animation codec factory.
 SYNKRO_FACTORY_BEGIN( XmlAnimationCodecFactory, IAnimationCodecFactory, AnimationCodec, AnimationCodec::Xml )
-	IAnimationCodec*	Create( core::IContext* context ) { return new XmlAnimationCodec(context); }
+	IAnimationCodec*	Create( core::ISynkroContext* context ) { return new XmlAnimationCodec(context); }
 SYNKRO_FACTORY_END()
 
 

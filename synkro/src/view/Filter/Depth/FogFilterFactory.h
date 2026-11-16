@@ -31,7 +31,7 @@ namespace view
 
 // Fog viewport filter factory.
 SYNKRO_FACTORY_BEGIN( FogFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Fog )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new FogFilter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Fog.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new FogFilter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Fog.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

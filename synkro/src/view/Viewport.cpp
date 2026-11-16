@@ -51,7 +51,7 @@ namespace view
 {
 
 
-Viewport::Viewport( BaseViewportManager* viewportManager, IContext* context, IRenderView* view, ICamera* camera ) :
+Viewport::Viewport( BaseViewportManager* viewportManager, ISynkroContext* context, IRenderView* view, ICamera* camera ) :
 	_filters( A(IViewportFilter*) ),
 	_viewportManager( viewportManager ),
 	_context( context ),

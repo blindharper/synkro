@@ -17,7 +17,7 @@
 #include "config.h"
 #include <lang/Map.h>
 #include <lang/Vector.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <core/ObjectImpl.h>
 #include <io/IStreamSystem.h>
 #include <audio/IAudioSystemEx.h>
@@ -46,7 +46,7 @@ class SoundManager :
 {
 public:
 	// Constructor & destructor.
-	SoundManager( core::IContext* context, diag::ILog* log );
+	SoundManager( core::ISynkroContext* context, diag::ILog* log );
 	~SoundManager();
 
 	// ISystem methods.
@@ -79,7 +79,7 @@ private:
 	lang::Map<UInt, P(ISoundCodec)>							_codecs;
 	lang::Vector<BaseMusic*>								_musics;
 	lang::Vector<BaseVoice*>								_voices;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 };
 
 

@@ -31,7 +31,7 @@ namespace anim
 
 // Binary animation codec factory.
 SYNKRO_FACTORY_BEGIN( BinAnimationCodecFactory, IAnimationCodecFactory, AnimationCodec, AnimationCodec::Bin )
-	IAnimationCodec*	Create( core::IContext* context ) { return new BinAnimationCodec(context); }
+	IAnimationCodec*	Create( core::ISynkroContext* context ) { return new BinAnimationCodec(context); }
 SYNKRO_FACTORY_END()
 
 

@@ -49,7 +49,7 @@ namespace scene
 {
 
 
-TriangleSet::TriangleSet( ITriangleSet* set, IContext* context, const DebugMode& debugMode, UInt start, UInt count ) :
+TriangleSet::TriangleSet( ITriangleSet* set, ISynkroContext* context, const DebugMode& debugMode, UInt start, UInt count ) :
 	_context( context ),
 	_set( set ),
 	_normals( A(Vector3) ),

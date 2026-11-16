@@ -36,7 +36,7 @@ class OpaqueMaterial :
 {
 public:
 	// Constructors.
-	OpaqueMaterial( core::IContext* context, const LightingModel& model, Bool detailed );
+	OpaqueMaterial( core::ISynkroContext* context, const LightingModel& model, Bool detailed );
 	OpaqueMaterial( const OpaqueMaterial& other );
 
 	// IVisualMaterial methods.

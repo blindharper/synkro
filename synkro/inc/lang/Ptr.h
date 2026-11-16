@@ -104,11 +104,13 @@ public:
 
 	/**
 	 * Provides access to the object.
+	 * @exception NullReferenceException Object is nullptr.
 	 */
 	T&														operator*() const;
 
 	/**
 	 * Provides access to the object.
+	 * @exception NullReferenceException Object is nullptr.
 	 */
 	T*														operator->() const;
 

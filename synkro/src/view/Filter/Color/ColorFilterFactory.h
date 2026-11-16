@@ -31,7 +31,7 @@ namespace view
 
 // Color viewport filter factory.
 SYNKRO_FACTORY_BEGIN( ColorFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Color )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new ColorFilter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Color.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new ColorFilter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Color.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

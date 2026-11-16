@@ -36,7 +36,7 @@ namespace over
 {
 
 
-Text::Text( BaseTextPool* pool, BaseFont* font, IContext* context, IOverlayRenderQueue* queue, const Order& groupOrder, const Order& order, const Point& location, const String& text, const ColorGradient& gradient ) :	
+Text::Text( BaseTextPool* pool, BaseFont* font, ISynkroContext* context, IOverlayRenderQueue* queue, const Order& groupOrder, const Order& order, const Point& location, const String& text, const ColorGradient& gradient ) :	
 	BaseTextImpl<BaseText>( pool ),
 	_context( context ),
 	_font( font ),

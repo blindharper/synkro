@@ -30,7 +30,7 @@ namespace view
 
 // Motion blur viewport filter factory.
 SYNKRO_FACTORY_BEGIN( MotionBlurFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::MotionBlur )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new MotionBlurFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::MotionBlur.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new MotionBlurFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::MotionBlur.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

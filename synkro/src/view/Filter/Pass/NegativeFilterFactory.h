@@ -30,7 +30,7 @@ namespace view
 
 // Negative viewport filter factory.
 SYNKRO_FACTORY_BEGIN( NegativeFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Negative )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new PassFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Negative.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new PassFilter( viewport, context->GetGraphicsSystem()->GetProgram(ViewportFilter::Negative.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

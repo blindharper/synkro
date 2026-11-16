@@ -47,7 +47,7 @@ namespace mat
 {
 
 
-OpaqueMaterial::OpaqueMaterial( IContext* context, const LightingModel& model, Bool detailed ) :
+OpaqueMaterial::OpaqueMaterial( ISynkroContext* context, const LightingModel& model, Bool detailed ) :
 	SimpleMaterialImpl<IOpaqueMaterial>( context ),
 	_twoSided( false ),
 	_wireframe( false ),

@@ -18,7 +18,7 @@
 #include <lang/Map.h>
 #include <lang/Vector.h>
 #include <core/ObjectImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <over/IOverlay.h>
 #include <over/IFont.h>
 #include <over/IText.h>
@@ -49,8 +49,8 @@ class Overlay :
 {
 public:
 	// Constructors.
-	Overlay( BaseOverlayManager* overlayManager, gfx::IRenderWindow* window, gfx::IOverlayRenderQueue* queue, core::IContext* context );
-	Overlay( BaseOverlayManager* overlayManager, img::IImage* image, core::IContext* context );
+	Overlay( BaseOverlayManager* overlayManager, gfx::IRenderWindow* window, gfx::IOverlayRenderQueue* queue, core::ISynkroContext* context );
+	Overlay( BaseOverlayManager* overlayManager, img::IImage* image, core::ISynkroContext* context );
 
 	// IOverlay methods.
 	IPolyLine*												CreatePolyLine( UInt pointCount, UInt width, const img::Color& color );
@@ -85,7 +85,7 @@ private:
 	P(img::IImage)											_image;
 	P(gfx::IOverlayRenderQueue)								_queue;
 	P(gfx::IPlainRenderMap)									_renderMap;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	gfx::IProgram*											_fontProgram;
 	P(gfx::IBlendStateSet)									_blendStates;
 	gfx::Ndc												_ndc;

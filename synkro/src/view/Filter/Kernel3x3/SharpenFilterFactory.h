@@ -31,7 +31,7 @@ namespace view
 
 // Sharpen viewport filter factory.
 SYNKRO_FACTORY_BEGIN( SharpenFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Sharpen )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Sharpen.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new Kernel3x3Filter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Sharpen.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

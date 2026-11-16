@@ -36,7 +36,7 @@ using namespace synkro::math;
 //------------------------------------------------------------------------------
 
 
-DirectLight::DirectLight( ISceneEx* scene, IContext* context, const String& name ) :
+DirectLight::DirectLight( ISceneEx* scene, ISynkroContext* context, const String& name ) :
 	LightImpl<IDirectLight>( scene, context, AsBaseScene(scene)->GetLightName(name) )
 {
 }

@@ -410,12 +410,23 @@ ISlider* Demo::CreateSlider( UInt id, const Point& location, UInt minPosition, U
 	return CreateSlider( id, location, minPosition, maxPosition, position, Color::Transparent );
 }
 
-IOption* Demo::CreateOption( UInt id, const Point& location, const String& text, Pointer data, Bool selected, const Color& color )
+IOption* Demo::CreateOption( UInt id, const Point& location, const String& text, Pointer data, const HotKey& hotkey, Bool selected, const Color& color )
 {
 	IOption* option = _synkro->GetUi()->CreateOption( nullptr, id, location, Size(150, 20), text, selected, color );
 	option->SetData( data );
 	option->SetAnchor( Anchor::TopRight );
+	option->SetHotKey( hotkey );
 	return option;
+}
+
+IOption* Demo::CreateOption( UInt id, const Point& location, const String& text, Pointer data, const HotKey& hotkey, Bool selected )
+{
+	return CreateOption( id, location, text, data, hotkey, selected, Color::Transparent );
+}
+
+IOption* Demo::CreateOption( UInt id, const Point& location, const String& text, Pointer data, Bool selected, const Color& color )
+{
+	return CreateOption( id, location, text, data, HotKey::None, selected, color );
 }
 
 IOption* Demo::CreateOption( UInt id, const Point& location, const String& text, Pointer data, Bool selected )
@@ -550,7 +561,7 @@ void Demo::InitViewInternal()
 	_camera->SetBack( 10000.0f );
 
 	_viewport = _synkro->GetViewportManager()->GetViewport( _window->GetView(0) );
-	_viewport->SetColor( Color::DirectXDemo );
+	_viewport->SetColor( Color::DirectX11Demo );
 	InitView();
 	if ( _viewport->GetCamera() == nullptr )
 	{
@@ -612,6 +623,7 @@ void Demo::CreateCredits()
 	// Create credits texts.
 	String texts[] =
 	{
+		L"Demo Name", String::Null,
 		L"Idea & Programming", L"Eugene O. aka Blindharper", String::Null,
 		L"3D Models", L"Microsoft Corporation", String::Null,
 		L"Textures", L"Eugene O.", L"Lino Schmid", L"James Hastings-Trew", String::Null,
@@ -620,12 +632,15 @@ void Demo::CreateCredits()
 	const UInt cnt = sizeof(texts)/sizeof(texts[0]);
 
 	const String fontName( L"Credits" );
-	const Bool firstTime = (_soundCredits == nullptr);
+	const Bool firstTime = (_poolCredits == nullptr);
 	if ( firstTime )
 	{
 		// Load credits sound.
-		PtrStream streamSound = GetStream( L"credits.wav" );
-		_soundCredits = _synkro->GetSoundManager()->LoadSound2D( streamSound );
+		if ( _synkro->GetAudioSystem(true) != nullptr )
+		{
+			PtrStream streamSound = GetStream( L"credits.wav" );
+			_soundCredits = _synkro->GetSoundManager()->LoadSound2D( streamSound );
+		}
 		_synkro->GetOverlayManager()->CreateFont( fontName, Language::English, L"Tahoma", FontStyle::Bold, 18 );
 	}
 
@@ -647,7 +662,7 @@ void Demo::CreateCredits()
 	UInt maxWidth = 0; Size sz;
 	for ( UInt i = 0; i < cnt; ++i )
 	{
-		String text = texts[i];
+		String text = (i == 0) ? _title : texts[i];
 		if ( text == String::Null )
 			continue;
 
@@ -661,7 +676,7 @@ void Demo::CreateCredits()
 	Int space = 0; UInt s = 0;
 	for ( UInt i = 0; i < cnt; ++i )
 	{
-		String text = texts[i];
+		String text = (i == 0) ? _title : texts[i];
 		if ( text == String::Null )
 		{
 			heading = true;
@@ -672,8 +687,13 @@ void Demo::CreateCredits()
 		
 		_fontCredits->GetTextSize( text, sz );
 		top += sz.Height + space;
+		Color color = Color::Orange;
+		if ( i > 0 )
+		{
+			color = heading ? Color::White : Color::Gray;
+		}
 		if ( firstTime )
-			_poolCredits->CreateText( heading ? Color::White : Color::Gray, Point( (maxWidth-sz.Width)/2, top ), text );
+			_poolCredits->CreateText( color, Point( (maxWidth-sz.Width)/2, top ), text );
 		else
 			_poolCredits->GetText( i-s )->SetLocation( Point((maxWidth-sz.Width)/2, top) );
 		
@@ -691,7 +711,7 @@ void Demo::CreateCredits()
 	PtrKeyframedPointTrack track = firstTime ? _poolCreditsCtrl->CreateOffsetTrack() : _poolCreditsCtrl->GetAnimations()->GetAnimation(0)->GetTrack(0)->AsPoint()->AsKeyframed();
 	track->Clear();
 	track->SetKey( 0.0, Point((szViewport.Width-maxWidth)/2, szViewport.Height) );
-	track->SetKey( _soundCredits->GetLength(), Point((szViewport.Width-maxWidth)/2, -top) );
+	track->SetKey( (_soundCredits != nullptr) ? _soundCredits->GetLength() : 10.0, Point((szViewport.Width-maxWidth)/2, -top) );
 }
 
 void Demo::ShowCredits( Bool show )
@@ -714,7 +734,10 @@ void Demo::ShowCredits( Bool show )
 	_poolCredits->Enable( show );
 	_poolCreditsCtrl->Reset();
 	_poolCreditsCtrl->Start( show );
-	_soundCredits->Play( show );
+	if ( _soundCredits != nullptr )
+	{
+		_soundCredits->Play( show );
+	}
 	if ( show )
 	{
 		Size sz; _viewport->GetSize( sz );

@@ -11,7 +11,7 @@
 // Purpose: Generic visual material implementation.
 //==============================================================================
 template <class T>
-SYNKRO_INLINE VisualMaterialImpl<T>::VisualMaterialImpl( core::IContext* context ) :
+SYNKRO_INLINE VisualMaterialImpl<T>::VisualMaterialImpl( core::ISynkroContext* context ) :
 	_context( context ),
 	_colored( false )
 {

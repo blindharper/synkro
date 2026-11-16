@@ -11,7 +11,7 @@
 // Purpose: Generic mesh implementation.
 //==============================================================================
 template <class T>
-SYNKRO_INLINE MeshImpl<T>::MeshImpl( ISceneEx* scene, core::IContext* context, const lang::String& name, Bool visualize ) :
+SYNKRO_INLINE MeshImpl<T>::MeshImpl( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, Bool visualize ) :
 	NodeImpl<T>( scene, context, name, visualize ),
 	_subsets( A(SubsetDesc) ),
 	_visible( true )

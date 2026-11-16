@@ -35,7 +35,7 @@ class SqlAnimationCodec :
 {
 public:
 	// Constructor.
-	SqlAnimationCodec( core::IContext* context );
+	SqlAnimationCodec( core::ISynkroContext* context );
 
 	// IAnimationCodec methods.
 	IAnimationSet*											Load( io::IStream* stream );

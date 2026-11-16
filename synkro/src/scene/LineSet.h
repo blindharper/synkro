@@ -15,7 +15,7 @@
 
 
 #include "config.h"
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <core/ObjectImpl.h>
 #include <lang/Vector.h>
 #include <scene/ILineSet.h>
@@ -40,7 +40,7 @@ class LineSet :
 {
 public:
 	// Constructor.
-	LineSet( core::IContext* context, gfx::ILineRenderObject* object, UInt start, UInt count );
+	LineSet( core::ISynkroContext* context, gfx::ILineRenderObject* object, UInt start, UInt count );
 
 	// IPrimitive methods.
 	IPrimitiveAnimationController*							CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
@@ -79,7 +79,7 @@ public:
 
 private:
 	lang::Vector<math::Vector3>								_positions;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	P(ILineSetAnimationController)							_ctrlAnimation;
 	P(IPrimitiveMorphController)							_ctrlMorph;
 	P(gfx::ILineRenderObject)								_object;

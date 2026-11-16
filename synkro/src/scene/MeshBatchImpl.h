@@ -34,7 +34,7 @@ class MeshBatchImpl :
 {
 public:
 	// Constructor & destructor.
-	MeshBatchImpl( ISceneEx* scene, core::IContext* context, const lang::String& name, UInt capacity );
+	MeshBatchImpl( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, UInt capacity );
 	virtual ~MeshBatchImpl();
 
 	// INode methods.

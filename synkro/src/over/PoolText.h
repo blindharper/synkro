@@ -15,7 +15,7 @@
 
 
 #include "config.h"
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <core/ObjectImpl.h>
 #include <over/ITextAnimationController.h>
 #include <over/IText.h>
@@ -40,7 +40,7 @@ class PoolText :
 {
 public:
 	// Constructor.
-	PoolText( BaseTextPool* pool, core::IContext* context, const img::ColorGradient& gradient, const lang::Point& location, const lang::String& text );
+	PoolText( BaseTextPool* pool, core::ISynkroContext* context, const img::ColorGradient& gradient, const lang::Point& location, const lang::String& text );
 
 	// IText methods.
 	ITextAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
@@ -82,7 +82,7 @@ public:
 private:
 	friend class TextPool;
 
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	P(ITextAnimationController)								_ctrlAnimation;
 	TextDesc												_desc;
 	Bool													_visible;

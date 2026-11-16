@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <lang/Map.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <view/IViewportManager.h>
 #include <view/IViewportFilterFactory.h>
 #include <view/ViewportFilter.h>
@@ -41,7 +41,7 @@ class ViewportManager :
 {
 public:
 	// Constructor & destructor.
-	ViewportManager( core::IContext* context, diag::ILog* log );
+	ViewportManager( core::ISynkroContext* context, diag::ILog* log );
 	~ViewportManager();
 
 	// ISystem methods.
@@ -110,7 +110,7 @@ private:
 	lang::Vector<BaseViewportTransitionController*>			_transitionControllers;
 	lang::Map<UInt, IViewportFilterFactory*>				_filterFactories;
 	lang::Map<UInt, BaseViewport*>							_views;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	BaseViewport*											_activeViewport;
 	P(over::IFont)											_fontLabel;
 };

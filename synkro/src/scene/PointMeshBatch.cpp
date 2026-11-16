@@ -49,7 +49,7 @@ namespace scene
 {
 
 
-PointMeshBatch::PointMeshBatch( ISceneEx* scene, IContext* context, const String& name, UInt capacity ) :
+PointMeshBatch::PointMeshBatch( ISceneEx* scene, ISynkroContext* context, const String& name, UInt capacity ) :
 	MeshBatchImpl<IPointMeshBatch, IPointMesh>( scene, context, AsBaseScene(scene)->GetPointMeshName(name), capacity )
 {
 	AsBaseScene( _scene )->AddMeshBatch( this );

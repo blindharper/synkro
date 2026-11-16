@@ -142,7 +142,7 @@ void App::InitView()
 	// Setup viewport.
 	_viewport = _synkro->GetViewportManager()->GetViewport( _synkro->GetGraphicsSystem()->GetFrameWindow()->GetView(0) );
 	_viewport->SetCamera( _camera );
-	_viewport->SetColor( Color::DirectXDemo );
+	_viewport->SetColor( Color::DirectX11Demo );
 }
 
 void App::InitNetwork()

@@ -45,7 +45,7 @@ namespace mat
 {
 
 
-TransparentMaterial::TransparentMaterial( IContext* context, const LightingModel& model ) :
+TransparentMaterial::TransparentMaterial( ISynkroContext* context, const LightingModel& model ) :
 	SimpleMaterialImpl<ITransparentMaterial>( context ),
 	_opacityMap( new OpacityMap(this) ),
 	_paramAmountDiffuse( nullptr ),

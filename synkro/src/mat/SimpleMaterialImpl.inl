@@ -11,7 +11,7 @@
 // Purpose: Simple material implementation.
 //==============================================================================
 template <class T>
-SYNKRO_INLINE SimpleMaterialImpl<T>::SimpleMaterialImpl( core::IContext* context ) :
+SYNKRO_INLINE SimpleMaterialImpl<T>::SimpleMaterialImpl( core::ISynkroContext* context ) :
 	VisualMaterialImpl<T>( context ),
 	_materials( A(MaterialEntry) ),
 	_lightingModel( LightingModel::Gouraud ),

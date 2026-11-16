@@ -1690,9 +1690,6 @@
     <Filter Include="gfx\Implementation\Resource\Texture\Texture\Volume">
       <UniqueIdentifier>{833e6805-6628-4c8e-9dc8-5576bafaa602}</UniqueIdentifier>
     </Filter>
-    <Filter Include="core\Interface\Context">
-      <UniqueIdentifier>{12edf6a9-4c62-4ba7-8cf2-33cd29261567}</UniqueIdentifier>
-    </Filter>
     <Filter Include="core\Implementation\List">
       <UniqueIdentifier>{183ea2fe-b00c-44de-83f9-0b059c9beedc}</UniqueIdentifier>
     </Filter>
@@ -1830,6 +1827,12 @@
     </Filter>
     <Filter Include="scene\Implementation\Node\Mesh\Triangle\Set">
       <UniqueIdentifier>{df8c1f81-1594-4fae-bb3c-9d342adccdb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\Interface\Synkro\Context">
+      <UniqueIdentifier>{12edf6a9-4c62-4ba7-8cf2-33cd29261567}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\Implementation\Configuration\Editor\Scene\Virus">
+      <UniqueIdentifier>{906527da-d07a-46b0-a65b-29389b378fdd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -5169,26 +5172,20 @@
     <ClInclude Include="..\..\..\synkro\src\anim\AnimationDataTypeConst.h">
       <Filter>anim\Implementation\Track</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\synkro\inc\core\IContext.h">
-      <Filter>core\Interface\Context</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\synkro\inc\core\IStringList.h">
-      <Filter>core\Interface\Context</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\synkro\inc\core\IContextEx.h">
-      <Filter>core\Interface\Context</Filter>
+      <Filter>core\Interface\Synkro\Context</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\core\List\StringList.h">
       <Filter>core\Implementation\List\StringList</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\synkro\inc\core\ITriangleMeshList.h">
-      <Filter>core\Interface\Context</Filter>
+      <Filter>core\Interface\Synkro\Context</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\core\List\TriangleMeshList.h">
       <Filter>core\Implementation\List\TriangleMeshList</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\synkro\inc\core\INodeList.h">
-      <Filter>core\Interface\Context</Filter>
+      <Filter>core\Interface\Synkro\Context</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\core\List\NodeList.h">
       <Filter>core\Implementation\List\NodeList</Filter>
@@ -5429,6 +5426,15 @@
     </ClInclude>
     <ClInclude Include="..\..\..\synkro\src\scene\TriangleMeshSet.h">
       <Filter>scene\Implementation\Node\Mesh\Triangle\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\core\ISynkroContext.h">
+      <Filter>core\Interface\Synkro\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\inc\core\ISynkroContextEx.h">
+      <Filter>core\Interface\Synkro\Context</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\synkro\src\core\ConfigurationScene\VirusConfigurationScene.h">
+      <Filter>core\Implementation\Configuration\Editor\Scene\Virus</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -7938,6 +7944,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\synkro\src\scene\TriangleMeshSet.cpp">
       <Filter>scene\Implementation\Node\Mesh\Triangle\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\synkro\src\core\ConfigurationScene\VirusConfigurationScene.cpp">
+      <Filter>core\Implementation\Configuration\Editor\Scene\Virus</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

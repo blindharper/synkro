@@ -39,7 +39,7 @@ class TriangleMeshBatch :
 {
 public:
 	// Constructor & destructor.
-	TriangleMeshBatch( ITriangleMeshBatch* batch, ISceneEx* scene, core::IContext* context, const lang::String& name, ISkeleton* skeleton, UInt capacity );
+	TriangleMeshBatch( ITriangleMeshBatch* batch, ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, ISkeleton* skeleton, UInt capacity );
 	~TriangleMeshBatch();
 
 	// INode methods.

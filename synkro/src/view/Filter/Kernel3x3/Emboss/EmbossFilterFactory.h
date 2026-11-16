@@ -31,7 +31,7 @@ namespace view
 
 // Emboss viewport filter factory.
 SYNKRO_FACTORY_BEGIN( EmbossFilterFactory, IViewportFilterFactory, ViewportFilter, ViewportFilter::Emboss )
-	IViewportFilter*	Create( IViewport* viewport, core::IContext* context ) { return new EmbossFilter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Emboss.ToString()) ); }
+	IViewportFilter*	Create( IViewport* viewport, core::ISynkroContext* context ) { return new EmbossFilter( viewport, context->GetAnimationSystem(), context->GetGraphicsSystem()->GetProgram(ViewportFilter::Emboss.ToString()) ); }
 SYNKRO_FACTORY_END()
 
 

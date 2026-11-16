@@ -36,7 +36,7 @@ class XmlAnimationCodec :
 {
 public:
 	// Constructor.
-	XmlAnimationCodec( core::IContext* context );
+	XmlAnimationCodec( core::ISynkroContext* context );
 
 	// IAnimationCodec methods.
 	IAnimationSet*											Load( io::IStream* stream );

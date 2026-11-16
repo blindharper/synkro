@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <core/FactoryImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <ui/IUiFactory.h>
 #include <ui/UiType.h>
 #include "DefaultUi.h"
@@ -32,7 +32,7 @@ namespace ui
 
 // Default user interface factory.
 SYNKRO_FACTORY_BEGIN( DefaultUiFactory, IUiFactory, Ui, UiType::Default )
-	IUi*	Create( core::IContext* context, ITheme* theme, diag::ILog* log ) { return new DefaultUi(context->GetGraphicsSystem(), context->GetAnimationSystem(), context->GetOverlayManager(), theme, log); }
+	IUi*	Create( core::ISynkroContext* context, ITheme* theme, diag::ILog* log ) { return new DefaultUi(context->GetGraphicsSystem(), context->GetAnimationSystem(), context->GetOverlayManager(), theme, log); }
 SYNKRO_FACTORY_END()
 
 

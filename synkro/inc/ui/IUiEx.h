@@ -46,6 +46,12 @@ public:
 	 */
 	virtual void											Enable( Bool enable ) = 0;
 
+	/** 
+	 * Sets degree of widgets opacity. Valid range is [0.0-1.0]. Default is 1.0.
+	 * @param opacity Widgets opacity.
+	 */
+	virtual void											SetOpacity( Float opacity ) = 0;
+
 	/**
 	 * Registers user interface event listener.
 	 * @param listener Event listener.
@@ -121,6 +127,11 @@ public:
 	 * @return True if user interface is enabled, false otherwise.
 	 */
 	virtual Bool											IsEnabled() const = 0;
+
+	/**
+	 * Retrieves degree of widgets opacity.
+	 */
+	virtual Float											GetOpacity() const = 0;
 };
 
 

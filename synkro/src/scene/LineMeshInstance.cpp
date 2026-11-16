@@ -37,7 +37,7 @@ namespace scene
 {
 
 
-LineMeshInstance::LineMeshInstance( IContext* context, ILineMeshBatch* batch, const String& name, UInt index, const Matrix4x4& transform ) :
+LineMeshInstance::LineMeshInstance( ISynkroContext* context, ILineMeshBatch* batch, const String& name, UInt index, const Matrix4x4& transform ) :
 	NodeImpl<ILineMesh>( batch->GetSceneEx(), context, AsBaseScene(batch->GetSceneEx())->GetLineMeshName(name) ),
 	_batch( batch ),
 	_index( index ),

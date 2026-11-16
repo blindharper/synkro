@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <core/ObjectImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <over/ISprite.h>
 #include <over/ISpriteAnimationController.h>
 #include <gfx/IGraphicsSystemEx.h>
@@ -43,7 +43,7 @@ class Sprite :
 {
 public:
 	// Constructor.
-	Sprite( core::IContext* context, gfx::IOverlayRenderQueue* queue, gfx::IBlendStateSet* blendStates, img::IImage* image, const Order& groupOrder, const Order& order, const lang::Point& location, const lang::Size& size, Bool stretched );
+	Sprite( core::ISynkroContext* context, gfx::IOverlayRenderQueue* queue, gfx::IBlendStateSet* blendStates, img::IImage* image, const Order& groupOrder, const Order& order, const lang::Point& location, const lang::Size& size, Bool stretched );
 
 	// ISprite methods.
 	ISpriteAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
@@ -78,7 +78,7 @@ public:
 	img::IImage*											GetImage() const;
 
 private:
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	P(gfx::IOverlayRenderObject)							_sprite;
 	P(ISpriteAnimationController)							_ctrlAnimation;
 	P(gfx::IBlendStateSet)									_blendStates;

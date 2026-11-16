@@ -1,3 +1,4 @@
 <resource>
 	<entry name="model.teapot" path="models\teapot.x"/>
+	<entry name="model.cytovirus" path="models\cytovirus.x"/>
 </resource>

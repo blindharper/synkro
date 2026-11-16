@@ -40,7 +40,7 @@ namespace anim
 {
 
 
-AnimationSystem::AnimationSystem( IContext* context, ILog* log ) :
+AnimationSystem::AnimationSystem( ISynkroContext* context, ILog* log ) :
 	_codecs( A(CodecEntry) ),
 	_animationCache( A(SetEntry) ),
 	_trackFactories( A(FactoryEntry) ),

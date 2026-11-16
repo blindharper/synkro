@@ -38,7 +38,7 @@ class ConeLight :
 {
 public:
 	// Constructor.
-	ConeLight( ISceneEx* scene, core::IContext* context, const lang::String& name );
+	ConeLight( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name );
 
 	// INode methods.
 	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );

@@ -44,7 +44,7 @@ namespace scene
 {
 
 
-PointSet::PointSet( IContext* context, IPointRenderObject* object, UInt start, UInt count, Float size ) :
+PointSet::PointSet( ISynkroContext* context, IPointRenderObject* object, UInt start, UInt count, Float size ) :
 	_positions( A(Vector3) ),
 	_context( context ),
 	_object( object ),

@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <core/ObjectImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <over/ITextPool.h>
 #include <over/ITextPoolAnimationController.h>
 #include <over/IText.h>
@@ -48,7 +48,7 @@ class TextPool :
 {
 public:
 	// Constructor.
-	TextPool( core::IContext* context, gfx::IOverlayRenderQueue* queue, IFont* font, const Order& groupOrder, const Order& order, UInt capacity, gfx::Ndc* ndc );
+	TextPool( core::ISynkroContext* context, gfx::IOverlayRenderQueue* queue, IFont* font, const Order& groupOrder, const Order& order, UInt capacity, gfx::Ndc* ndc );
 
 	// ITextPool methods.
 	ITextPoolAnimationController*							CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
@@ -84,7 +84,7 @@ private:
 	lang::Vector<P(PoolText)>								_texts2;
 	lang::Vector<UInt>										_dirtyTexts;
 	lang::Vector<UInt>										_cleanTexts;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	P(gfx::IOverlayRenderObject)							_pool;
 	P(gfx::IRect)											_scissor;
 	P(ITextPoolAnimationController)							_ctrlAnimation;

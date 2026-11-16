@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <core/ObjectImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <scene/ITriangleSet.h>
 #include <scene/IPrimitiveAnimationController.h>
 #include <scene/IPrimitiveMorphController.h>
@@ -41,7 +41,7 @@ class TriangleSet :
 {
 public:
 	// Constructor.
-	TriangleSet( ITriangleSet* set, core::IContext* context, const DebugMode& debugMode, UInt start, UInt count );
+	TriangleSet( ITriangleSet* set, core::ISynkroContext* context, const DebugMode& debugMode, UInt start, UInt count );
 
 	// IPrimitive methods.
 	IPrimitiveAnimationController*							CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
@@ -85,7 +85,7 @@ public:
 	gfx::ISceneRenderObject*								GetRenderObject() const;
 
 private:
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	P(ITriangleSet)											_set;
 	P(IPrimitiveAnimationController)						_ctrlAnimation;
 	P(IPrimitiveMorphController)							_ctrlMorph;

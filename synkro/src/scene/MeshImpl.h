@@ -34,7 +34,7 @@ class MeshImpl :
 {
 public:
 	// Constructor & destructor.
-	MeshImpl( ISceneEx* scene, core::IContext* context, const lang::String& name, Bool visualize = false );
+	MeshImpl( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, Bool visualize = false );
 	virtual ~MeshImpl();
 
 	// INode methods.

@@ -11,7 +11,7 @@
 // Purpose: Generic INode interface implementation.
 //==============================================================================
 template <class T> 
-SYNKRO_INLINE NodeImpl<T>::NodeImpl( ISceneEx* scene, core::IContext* context, const lang::String& name, Bool visualize ) :
+SYNKRO_INLINE NodeImpl<T>::NodeImpl( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name, Bool visualize ) :
 	_context( context ),
 	_scene( scene ),
 	_name( name ),

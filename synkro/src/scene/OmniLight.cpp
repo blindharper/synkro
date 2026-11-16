@@ -35,7 +35,7 @@ using namespace synkro::math;
 //------------------------------------------------------------------------------
 
 
-OmniLight::OmniLight( ISceneEx* scene, IContext* context, const String& name ) :
+OmniLight::OmniLight( ISceneEx* scene, ISynkroContext* context, const String& name ) :
 	LightImpl<IOmniLight>( scene, context, AsBaseScene(scene)->GetLightName(name), true ),
 	_range( 1e9f )
 {

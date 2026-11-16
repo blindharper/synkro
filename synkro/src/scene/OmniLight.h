@@ -38,7 +38,7 @@ class OmniLight :
 {
 public:
 	// Constructor.
-	OmniLight( ISceneEx* scene, core::IContext* context, const lang::String& name );
+	OmniLight( ISceneEx* scene, core::ISynkroContext* context, const lang::String& name );
 
 	// INode methods.
 	INodeAnimationController*								CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );

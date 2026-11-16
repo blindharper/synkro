@@ -16,7 +16,7 @@
 
 #include "config.h"
 #include <core/ObjectImpl.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <mat/IOpaqueMaterial.h>
 #include <mat/ISimpleMaterialAnimationController.h>
 #include "BaseMaterial.h"
@@ -37,7 +37,7 @@ class OpaqueMaterialInstance :
 {
 public:
 	// Constructor.
-	OpaqueMaterialInstance( core::IContext* context, scene::ITriangleMeshBatch* batch, IOpaqueMaterial* material, UInt index );
+	OpaqueMaterialInstance( core::ISynkroContext* context, scene::ITriangleMeshBatch* batch, IOpaqueMaterial* material, UInt index );
 
 	// IVisualMaterial methods.
 	IVisualMaterialAnimationController*						CreateAnimationController( anim::IAnimationSet* animations, anim::AnimationListener* listener );
@@ -89,7 +89,7 @@ public:
 	void													OnOpacityMapSet();
 
 private:
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	P(ISimpleMaterialAnimationController)					_ctrlAnimation;
 	scene::ITriangleMeshBatch*								_batch;
 	IOpaqueMaterial* 										_material;

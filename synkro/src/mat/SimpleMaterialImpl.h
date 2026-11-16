@@ -35,7 +35,7 @@ class SimpleMaterialImpl :
 {
 public:
 	// Constructor & destructor.
-	SimpleMaterialImpl( core::IContext* context );
+	SimpleMaterialImpl( core::ISynkroContext* context );
 	virtual ~SimpleMaterialImpl();
 
 	// IVisualMaterial methods.

@@ -21,6 +21,7 @@
 #include "ConfigurationScene/SierpinskiConfigurationScene.h"
 #include "ConfigurationScene/TeapotConfigurationScene.h"
 #include "ConfigurationScene/TesseractConfigurationScene.h"
+#include "ConfigurationScene/VirusConfigurationScene.h"
 #if ( SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS )
 	#include "Win32/Win32ConfigurationEditor.h"
 #endif // SYNKRO_PLATFORM == SYNKRO_PLATFORM_WINDOWS
@@ -82,7 +83,7 @@ void ConfigurationEditor::Show( IConfiguration* config )
 
 	ConfigurationBanner banner( _synkro );
 	Random rnd;
-	switch ( rnd.GetInt(8) )
+	switch ( rnd.GetInt(9) )
 	{
 		case 0: RunScene<MorphingConfigurationScene>(); break;
 		case 1: RunScene<NoiseConfigurationScene>(); break;
@@ -92,6 +93,7 @@ void ConfigurationEditor::Show( IConfiguration* config )
 		case 5: RunScene<SierpinskiConfigurationScene>(); break;
 		case 6: RunScene<TeapotConfigurationScene>(); break;
 		case 7: RunScene<TesseractConfigurationScene>(); break;
+		case 8: RunScene<VirusConfigurationScene>(); break;
 		default: RunScene<ConfigurationScene>(); break;
 	}
 }

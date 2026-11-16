@@ -46,7 +46,7 @@ public:
 	};
 
 	// Constructor & destructor.
-	SceneManager( core::IContext* context, diag::ILog* log );
+	SceneManager( core::ISynkroContext* context, diag::ILog* log );
 	~SceneManager();
 
 	// ISystem methods.
@@ -86,7 +86,7 @@ private:
 	lang::Map<UInt, ISceneFactory*>							_sceneFactories;
 	lang::Map<UInt, P(IMeshBuilder)>						_meshBuilders;
 	lang::Map<UInt, P(IMeshCodec)>							_meshCodecs;
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 
 	IMeshBuilder*											GetMeshBuilder( IMesh* mesh, const MeshBuilder& type );
 };

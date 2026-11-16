@@ -37,7 +37,7 @@ public:
 	 * Creates mesh codec.
 	 * @param context Framework context.
 	 */
-	virtual IMeshCodec*										Create( core::IContext* context ) = 0;
+	virtual IMeshCodec*										Create( core::ISynkroContext* context ) = 0;
 };
 
 

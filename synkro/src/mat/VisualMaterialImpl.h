@@ -29,7 +29,7 @@
 #include <gfx/IRasterizerState.h>
 #include <gfx/IGraphicsSystemEx.h>
 #include <gfx/IGraphicsDeviceEx.h>
-#include <core/IContext.h>
+#include <core/ISynkroContext.h>
 #include <scene/ISceneEx.h>
 #include <scene/ITriangleMesh.h>
 #include <lang/Convert.h>
@@ -51,7 +51,7 @@ class VisualMaterialImpl :
 {
 public:
 	// Constructor & destructor.
-	VisualMaterialImpl( core::IContext* context );
+	VisualMaterialImpl( core::ISynkroContext* context );
 	virtual ~VisualMaterialImpl();
 
 	// IVisualMaterial methods.
@@ -68,7 +68,7 @@ public:
 	virtual scene::ITriangleSet*							CreateTriangleSet( const gfx::PrimitiveType& type, scene::ITriangleMesh* mesh, UInt index, UInt vertexCount, UInt indexCount, Bool adjacency ) = 0;
 
 protected:
-	core::IContext*											_context;
+	core::ISynkroContext*									_context;
 	P(gfx::IBlendStateSet)									_blendStates;
 	P(gfx::IDepthStencilState)								_depthStencilState;
 	P(gfx::IRasterizerState)								_rasterizerState;

@@ -36,7 +36,7 @@ namespace over
 {
 
 
-PoolSprite::PoolSprite( BaseSpritePool* pool, IContext* context, const Point& location, const Size& size, const RectF& frame, Bool stretched ) :
+PoolSprite::PoolSprite( BaseSpritePool* pool, ISynkroContext* context, const Point& location, const Size& size, const RectF& frame, Bool stretched ) :
 	_pool( pool ),
 	_context( context ),
 	_location( location ),

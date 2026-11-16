@@ -46,7 +46,7 @@ namespace over
 {
 
 
-OverlayManager::OverlayManager( IContext* context, ILog* log ) :
+OverlayManager::OverlayManager( ISynkroContext* context, ILog* log ) :
 	_overlays( A(OverlayEntry) ),
 	_fonts( A(TemplateEntry) ),
 	_context( context ),

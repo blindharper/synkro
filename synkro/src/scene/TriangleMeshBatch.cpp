@@ -45,7 +45,7 @@ namespace scene
 {
 
 
-TriangleMeshBatch::TriangleMeshBatch( ITriangleMeshBatch* batch, ISceneEx* scene, IContext* context, const String& name, ISkeleton* skeleton, UInt capacity ) :
+TriangleMeshBatch::TriangleMeshBatch( ITriangleMeshBatch* batch, ISceneEx* scene, ISynkroContext* context, const String& name, ISkeleton* skeleton, UInt capacity ) :
 	MeshBatchImpl<ITriangleMeshBatch, ITriangleMesh>( scene, context, AsBaseScene(scene)->GetTriangleMeshName(name), capacity ),
 	_batch( batch ),
 	_skeleton( skeleton ),

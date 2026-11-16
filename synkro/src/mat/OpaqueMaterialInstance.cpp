@@ -36,7 +36,7 @@ namespace mat
 {
 
 
-OpaqueMaterialInstance::OpaqueMaterialInstance( IContext* context, ITriangleMeshBatch* batch, IOpaqueMaterial* material, UInt index ) :
+OpaqueMaterialInstance::OpaqueMaterialInstance( ISynkroContext* context, ITriangleMeshBatch* batch, IOpaqueMaterial* material, UInt index ) :
 	_context( context ),
 	_batch( batch ),
 	_material( material ),

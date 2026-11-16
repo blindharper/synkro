@@ -67,7 +67,12 @@ SYNKRO_INLINE lang::String Option::GetText() const
 
 SYNKRO_INLINE UiEvent Option::OnHotKey( const HotKey& hotkey )
 {
-	return IsHot(hotkey) ? UI_EVENT_VALUE_CHANGED : UI_EVENT_NONE;
+	if ( IsHot(hotkey) )
+	{
+		Select( true );
+		return UI_EVENT_VALUE_CHANGED;
+	}
+	return UI_EVENT_NONE;
 }
 
 SYNKRO_INLINE UiEvent Option::OnKeyUp( const input::Key& key, Bool alt, Bool shift, Bool control )

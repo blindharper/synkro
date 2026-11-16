@@ -36,7 +36,7 @@ class BinAnimationCodec :
 {
 public:
 	// Constructor.
-	BinAnimationCodec( core::IContext* context );
+	BinAnimationCodec( core::ISynkroContext* context );
 
 	// IAnimationCodec methods.
 	IAnimationSet*											Load( io::IStream* stream );

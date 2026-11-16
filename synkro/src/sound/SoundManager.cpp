@@ -46,7 +46,7 @@ namespace sound
 {
 
 
-SoundManager::SoundManager( IContext* context, ILog* log ) :
+SoundManager::SoundManager( ISynkroContext* context, ILog* log ) :
 	_codecs( A(CodecEntry) ),
 	_musics( A(BaseMusic*) ),
 	_voices( A(BaseVoice*) ),
