@@ -65,9 +65,14 @@ SYNKRO_INLINE Float PoolText::GetOrientation() const
 	return _desc.Orientation;
 }
 
-SYNKRO_INLINE Float PoolText::GetScale() const
+SYNKRO_INLINE Float PoolText::GetScaleX() const
 {
-	return _desc.Scale;
+	return _desc.ScaleX;
+}
+
+SYNKRO_INLINE Float PoolText::GetScaleY() const
+{
+	return _desc.ScaleY;
 }
 
 SYNKRO_INLINE void PoolText::GetGradient( img::ColorGradient& gradient ) const

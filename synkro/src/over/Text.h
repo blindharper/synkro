@@ -62,6 +62,8 @@ public:
 	void													SetLocationY( Int y );
 	void													SetOrientation( Float orientation );
 	void													SetScale( Float scale );
+	void													SetScaleX( Float scale );
+	void													SetScaleY( Float scale );
 	void													SetGradient( const img::ColorGradient& gradient );
 	void													SetColor( const img::Color& color );
 	void													SetOpacity( Float opacity );
@@ -76,7 +78,8 @@ public:
 	void													GetCenter( lang::Point& center ) const;
 	void													GetLocation( lang::Point& location ) const;	
 	Float													GetOrientation() const;
-	Float													GetScale() const;
+	Float													GetScaleX() const;
+	Float													GetScaleY() const;
 	void													GetGradient( img::ColorGradient& gradient ) const;
 	void													GetColor( img::Color& color ) const;
 	Float													GetOpacity() const;

@@ -120,9 +120,27 @@ void Text::SetOrientation( Float orientation )
 
 void Text::SetScale( Float scale )
 {
-	if ( scale != _desc.Scale )
+	if ( (scale != _desc.ScaleX) || (scale != _desc.ScaleY) )
 	{
-		_desc.Scale = scale;
+		_desc.ScaleX = _desc.ScaleY = scale;
+		Update();
+	}
+}
+
+void Text::SetScaleX( Float scale )
+{
+	if ( scale != _desc.ScaleX )
+	{
+		_desc.ScaleX = scale;
+		Update();
+	}
+}
+
+void Text::SetScaleY( Float scale )
+{
+	if ( scale != _desc.ScaleY )
+	{
+		_desc.ScaleY = scale;
 		Update();
 	}
 }

@@ -110,10 +110,22 @@ public:
 	virtual void											SetOrientation( Float orientation ) = 0;
 
 	/**
-	 * Sets text scale. Default is 1.0.
+	 * Sets uniform text scale. Default is 1.0.
 	 * @param scale Text scale.
 	 */
 	virtual void											SetScale( Float scale ) = 0;
+
+	/**
+	 * Sets horizontal text scale. Default is 1.0.
+	 * @param scale Horizontal text scale.
+	 */
+	virtual void											SetScaleX( Float scale ) = 0;
+
+	/**
+	 * Sets vertical text scale. Default is 1.0.
+	 * @param scale Vertical text scale.
+	 */
+	virtual void											SetScaleY( Float scale ) = 0;
 
 	/**
 	 * Sets text gradient.
@@ -196,9 +208,14 @@ public:
 	virtual Float											GetOrientation() const = 0;
 
 	/**
-	 * Retrieves text scale.
+	 * Retrieves horizontal text scale.
 	 */
-	virtual Float											GetScale() const = 0;
+	virtual Float											GetScaleX() const = 0;
+
+	/**
+	 * Retrieves vertical text scale.
+	 */
+	virtual Float											GetScaleY() const = 0;
 
 	/**
 	 * Retrieves text gradient.

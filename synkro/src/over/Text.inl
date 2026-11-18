@@ -100,9 +100,14 @@ SYNKRO_INLINE Float Text::GetOrientation() const
 	return _desc.Orientation;
 }
 
-SYNKRO_INLINE Float Text::GetScale() const
+SYNKRO_INLINE Float Text::GetScaleX() const
 {
-	return _desc.Scale;
+	return _desc.ScaleX;
+}
+
+SYNKRO_INLINE Float Text::GetScaleY() const
+{
+	return _desc.ScaleY;
 }
 
 SYNKRO_INLINE void Text::GetGradient( img::ColorGradient& gradient ) const

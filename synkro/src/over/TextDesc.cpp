@@ -36,7 +36,8 @@ TextDesc::TextDesc( const String& text, const Point& location, const ColorGradie
 	Gradient( gradient ),
 	Color( gradient.Start ),
 	Orientation( 0.0f ),
-	Scale( 1.0f ),
+	ScaleX( 1.0f ),
+	ScaleY( 1.0f ),
 	CenterEnabled( false ),
 	Opacity( 1.0f ),
 	Wrapped( false )
@@ -45,7 +46,8 @@ TextDesc::TextDesc( const String& text, const Point& location, const ColorGradie
 
 TextDesc::TextDesc() :
 	Orientation( 0.0f ),
-	Scale( 1.0f ),
+	ScaleX( 1.0f ),
+	ScaleY( 1.0f ),
 	CenterEnabled( false ),
 	Opacity( 1.0f ),
 	Wrapped( false )

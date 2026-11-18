@@ -150,9 +150,29 @@ void PoolText::SetOrientation( Float orientation )
 
 void PoolText::SetScale( Float scale )
 {
-	if ( scale != _desc.Scale )
+	if ( (scale != _desc.ScaleX) || (scale != _desc.ScaleY) )
 	{
-		_desc.Scale = scale;
+		_desc.ScaleX = _desc.ScaleY = scale;
+		_dirty = true;
+		_pool->InvalidateTexts();
+	}
+}
+
+void PoolText::SetScaleX( Float scale )
+{
+	if ( scale != _desc.ScaleX )
+	{
+		_desc.ScaleX = scale;
+		_dirty = true;
+		_pool->InvalidateTexts();
+	}
+}
+
+void PoolText::SetScaleY( Float scale )
+{
+	if ( scale != _desc.ScaleY )
+	{
+		_desc.ScaleY = scale;
 		_dirty = true;
 		_pool->InvalidateTexts();
 	}
