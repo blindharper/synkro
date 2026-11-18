@@ -42,6 +42,8 @@ TextAnimationController::TextAnimationController( IText* text, IAnimationSystem*
 	_trackRect( nullptr ),
 	_trackOrientation( nullptr ),
 	_trackScale( nullptr ),
+	_trackScaleX( nullptr ),
+	_trackScaleY( nullptr ),
 	_trackColorGradient( nullptr ),
 	_trackColor( nullptr ),
 	_trackOpacity( nullptr ),
@@ -97,6 +99,22 @@ void TextAnimationController::Update( Double delta )
 		Float scale;
 		_trackScale->GetValue( CurrentTime(), scale );
 		_text->SetScale( scale );
+	}
+	else
+	{
+		if ( _trackScaleX != nullptr )
+		{
+			Float scale;
+			_trackScaleX->GetValue( CurrentTime(), scale );
+			_text->SetScaleX( scale );
+		}
+
+		if ( _trackScaleY != nullptr )
+		{
+			Float scale;
+			_trackScaleY->GetValue( CurrentTime(), scale );
+			_text->SetScaleY( scale );
+		}
 	}
 
 	if ( _trackColorGradient != nullptr )
@@ -180,6 +198,26 @@ IProceduralFloatTrack* TextAnimationController::CreateScaleTrack( const Animatio
 	return (_trackScale = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::Scale.ToString(), type) )->AsProcedural();
 }
 
+IKeyframedFloatTrack* TextAnimationController::CreateScaleXTrack()
+{
+	return (_trackScaleX = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::ScaleX.ToString()) )->AsKeyframed();
+}
+
+IProceduralFloatTrack* TextAnimationController::CreateScaleXTrack( const AnimationTrack& type )
+{
+	return (_trackScaleX = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::ScaleX.ToString(), type) )->AsProcedural();
+}
+
+IKeyframedFloatTrack* TextAnimationController::CreateScaleYTrack()
+{
+	return (_trackScaleY = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::ScaleY.ToString()) )->AsKeyframed();
+}
+
+IProceduralFloatTrack* TextAnimationController::CreateScaleYTrack( const AnimationTrack& type )
+{
+	return (_trackScaleY = _animations->GetActiveAnimation()->CreateFloatTrack( TextProperty::ScaleY.ToString(), type) )->AsProcedural();
+}
+
 IKeyframedColorGradientTrack* TextAnimationController::CreateColorGradientTrack()
 {
 	return (_trackColorGradient = _animations->GetActiveAnimation()->CreateColorGradientTrack( TextProperty::ColorGradient.ToString()) )->AsKeyframed();
@@ -228,6 +266,8 @@ void TextAnimationController::UpdateTracks()
 	_trackRect			= GetTrack( _trackRect, TextProperty::Rect );
 	_trackOrientation	= GetTrack( _trackOrientation, TextProperty::Orientation );
 	_trackScale			= GetTrack( _trackScale, TextProperty::Scale );
+	_trackScaleX		= GetTrack( _trackScaleX, TextProperty::ScaleX );
+	_trackScaleY		= GetTrack( _trackScaleY, TextProperty::ScaleY );
 	_trackColorGradient	= GetTrack( _trackColorGradient, TextProperty::ColorGradient );
 	_trackColor			= GetTrack( _trackColor, TextProperty::Color );
 	_trackOpacity		= GetTrack( _trackOpacity, TextProperty::Opacity );

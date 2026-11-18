@@ -49,6 +49,10 @@ public:
 	anim::IProceduralFloatTrack*							CreateOrientationTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedFloatTrack*								CreateScaleTrack();
 	anim::IProceduralFloatTrack*							CreateScaleTrack( const anim::AnimationTrack& type );
+	anim::IKeyframedFloatTrack*								CreateScaleXTrack();
+	anim::IProceduralFloatTrack*							CreateScaleXTrack( const anim::AnimationTrack& type );
+	anim::IKeyframedFloatTrack*								CreateScaleYTrack();
+	anim::IProceduralFloatTrack*							CreateScaleYTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedColorGradientTrack*						CreateColorGradientTrack();
 	anim::IProceduralColorGradientTrack*					CreateColorGradientTrack( const anim::AnimationTrack& type );
 	anim::IKeyframedColorTrack*								CreateColorTrack();
@@ -69,6 +73,8 @@ private:
 	anim::IAnimationRectTrack*								_trackRect;
 	anim::IAnimationFloatTrack*								_trackOrientation;
 	anim::IAnimationFloatTrack*								_trackScale;
+	anim::IAnimationFloatTrack*								_trackScaleX;
+	anim::IAnimationFloatTrack*								_trackScaleY;
 	anim::IAnimationColorGradientTrack*						_trackColorGradient;
 	anim::IAnimationColorTrack*								_trackColor;
 	anim::IAnimationFloatTrack*								_trackOpacity;

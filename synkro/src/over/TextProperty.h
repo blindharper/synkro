@@ -46,6 +46,12 @@ SYNKRO_ENUM_BEGIN( TextProperty )
 	// Text scale.
 	SYNKRO_ENUM_CONST( TextProperty, Scale )
 
+	// Text horizontal scale.
+	SYNKRO_ENUM_CONST( TextProperty, ScaleX )
+
+	// Text vertical scale.
+	SYNKRO_ENUM_CONST( TextProperty, ScaleY )
+
 	// Text color gradient.
 	SYNKRO_ENUM_CONST( TextProperty, ColorGradient )
 

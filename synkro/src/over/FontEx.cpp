@@ -162,8 +162,8 @@ UInt FontEx::DrawText( const TextBuffer& buffer, const TextDesc& desc, UInt star
 	Vector4 colors[6];
 
 	const UInt length = desc.Text.Length();
-	const Float x0 = desc.CenterEnabled ? desc.Center.X : x + 0.5f*desc.Scale*size.Width;
-	const Float y0 = desc.CenterEnabled ? desc.Center.Y : y + 0.5f*desc.Scale*size.Height;
+	const Float x0 = desc.CenterEnabled ? desc.Center.X : x + 0.5f*desc.ScaleX*size.Width;
+	const Float y0 = desc.CenterEnabled ? desc.Center.Y : y + 0.5f*desc.ScaleY*size.Height;
 	const Float x00 = desc.CenterEnabled ? desc.Center.X : x;
 	const Float y00 = desc.CenterEnabled ? desc.Center.Y : y;
 	const Float s = Math::Sin( desc.Orientation );
@@ -194,12 +194,16 @@ UInt FontEx::DrawText( const TextBuffer& buffer, const TextDesc& desc, UInt star
 				Vector4( x+dx,	y+dy,	0.0f, 1.0f ),
 				Vector4( x,		y+dy,	0.0f, 1.0f ),
 			};
-			if ( desc.Scale != 1.0f )
+			if ( desc.ScaleX != 1.0f )
 			{
-				pos[5].x = pos[3].x = pos[0].x = x00 + desc.Scale*(pos[0].x-x00);
-				pos[3].y = pos[1].y = pos[0].y = y00 + desc.Scale*(pos[0].y-y00);
-				pos[4].x = pos[2].x = pos[1].x = x00 + desc.Scale*(pos[1].x-x00);
-				pos[5].y = pos[4].y = pos[2].y = y00 + desc.Scale*(pos[2].y-y00);
+				pos[5].x = pos[3].x = pos[0].x = x00 + desc.ScaleX*(pos[0].x-x00);
+				pos[4].x = pos[2].x = pos[1].x = x00 + desc.ScaleX*(pos[1].x-x00);
+				
+			}
+			if ( desc.ScaleY != 1.0f )
+			{
+				pos[3].y = pos[1].y = pos[0].y = y00 + desc.ScaleY*(pos[0].y-y00);
+				pos[5].y = pos[4].y = pos[2].y = y00 + desc.ScaleY*(pos[2].y-y00);
 			}
 			if ( desc.Orientation != 0.0f )
 			{

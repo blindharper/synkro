@@ -41,7 +41,8 @@ public:
 	lang::String											Text;
 	lang::Point												Location;
 	Float													Orientation;	// In radians
-	Float													Scale;
+	Float													ScaleX;
+	Float													ScaleY;
 	lang::Rect												Rect;
 	lang::Point												Center;
 	Bool													CenterEnabled;

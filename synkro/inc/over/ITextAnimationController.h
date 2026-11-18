@@ -55,7 +55,7 @@ public:
 	virtual anim::IKeyframedFloatTrack*						CreateLocationYTrack() = 0;
 
 	/**
-	 * Creates procedural track controlling text location's X coordinate.
+	 * Creates procedural track controlling text location's Y coordinate.
 	 * @param type Track type.
 	 */
 	virtual anim::IProceduralFloatTrack*					CreateLocationYTrack( const anim::AnimationTrack& type ) = 0;
@@ -77,7 +77,7 @@ public:
 	virtual anim::IProceduralFloatTrack*					CreateOrientationTrack( const anim::AnimationTrack& type ) = 0;
 
 	/**
-	 * Creates keyframed track controlling text scale.
+	 * Creates keyframed track controlling uniform text scale.
 	 */
 	virtual anim::IKeyframedFloatTrack*						CreateScaleTrack() = 0;
 
@@ -86,6 +86,28 @@ public:
 	 * @param type Track type.
 	 */
 	virtual anim::IProceduralFloatTrack*					CreateScaleTrack( const anim::AnimationTrack& type ) = 0;
+
+	/**
+	 * Creates keyframed track controlling horizontal text scale.
+	 */
+	virtual anim::IKeyframedFloatTrack*						CreateScaleXTrack() = 0;
+
+	/**
+	 * Creates procedural track controlling horizontal text scale.
+	 * @param type Track type.
+	 */
+	virtual anim::IProceduralFloatTrack*					CreateScaleXTrack( const anim::AnimationTrack& type ) = 0;
+
+	/**
+	 * Creates keyframed track controlling vaertical text scale.
+	 */
+	virtual anim::IKeyframedFloatTrack*						CreateScaleYTrack() = 0;
+
+	/**
+	 * Creates procedural track controlling vaertical text scale.
+	 * @param type Track type.
+	 */
+	virtual anim::IProceduralFloatTrack*					CreateScaleYTrack( const anim::AnimationTrack& type ) = 0;
 
 	/**
 	 * Creates keyframed track controlling text's color gradient.

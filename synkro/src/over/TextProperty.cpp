@@ -29,10 +29,12 @@ SYNKRO_DEFINE_CONST( TextProperty, LocationY,		2 )
 SYNKRO_DEFINE_CONST( TextProperty, Rect,			3 )
 SYNKRO_DEFINE_CONST( TextProperty, Orientation,		4 )
 SYNKRO_DEFINE_CONST( TextProperty, Scale,			5 )
-SYNKRO_DEFINE_CONST( TextProperty, ColorGradient,	6 )
-SYNKRO_DEFINE_CONST( TextProperty, Color,			7 )
-SYNKRO_DEFINE_CONST( TextProperty, Opacity,			8 )
-SYNKRO_DEFINE_CONST( TextProperty, Visibility,		9 )
+SYNKRO_DEFINE_CONST( TextProperty, ScaleX,			6 )
+SYNKRO_DEFINE_CONST( TextProperty, ScaleY,			7 )
+SYNKRO_DEFINE_CONST( TextProperty, ColorGradient,	8 )
+SYNKRO_DEFINE_CONST( TextProperty, Color,			9 )
+SYNKRO_DEFINE_CONST( TextProperty, Opacity,		   10 )
+SYNKRO_DEFINE_CONST( TextProperty, Visibility,	   11 )
 
 
 struct TypeDesc
@@ -49,6 +51,8 @@ static TypeDesc _desc[] =
 	{ TextProperty::Rect,			L"Rect" },
 	{ TextProperty::Orientation,	L"Orientation" },
 	{ TextProperty::Scale,			L"Scale" },
+	{ TextProperty::ScaleX,			L"Scale.X" },
+	{ TextProperty::ScaleY,			L"Scale.Y" },
 	{ TextProperty::ColorGradient,	L"ColorGradient" },
 	{ TextProperty::Color,			L"Color" },
 	{ TextProperty::Opacity,		L"Opacity" },
