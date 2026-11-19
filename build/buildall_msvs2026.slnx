@@ -169,6 +169,14 @@
       <Build Solution="profile_static|*" Project="false" />
       <Build Solution="release_static|*" Project="false" />
     </Project>
+    <Project Path="../demos/build/PostProcess_Blur/PostProcess_Blur_msvs2026.vcxproj" Id="90062284-12aa-4a78-9e7b-84682ceab9ad">
+      <BuildType Solution="debug_static|*" Project="profile" />
+      <BuildType Solution="profile_static|*" Project="profile" />
+      <BuildType Solution="release_static|*" Project="release" />
+      <Build Solution="debug_static|*" Project="false" />
+      <Build Solution="profile_static|*" Project="false" />
+      <Build Solution="release_static|*" Project="false" />
+    </Project>
     <Project Path="../demos/build/PostProcess_ColorShift/PostProcess_ColorShift_msvs2026.vcxproj" Id="1a16009c-e5c8-4dd9-97cc-7619c0d5d268">
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
