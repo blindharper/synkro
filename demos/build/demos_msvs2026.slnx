@@ -44,6 +44,7 @@
     <Project Path="Physics_WakeAndSleep/Physics_WakeAndSleep_msvs2026.vcxproj" Id="cda157d3-f696-4664-9558-bc322702fbfc" />
   </Folder>
   <Folder Name="/PostProcess/">
+    <Project Path="PostProcess_Blur/PostProcess_Blur_msvs2026.vcxproj" Id="90062284-12aa-4a78-9e7b-84682ceab9ad" />
     <Project Path="PostProcess_ColorShift/PostProcess_ColorShift_msvs2026.vcxproj" Id="1a16009c-e5c8-4dd9-97cc-7619c0d5d268" />
     <Project Path="PostProcess_ColorTouch/PostProcess_ColorTouch_msvs2026.vcxproj" Id="ae734c9b-9fee-4022-81b7-0ae2970f8b1a" />
     <Project Path="PostProcess_EdgeDetection/PostProcess_EdgeDetection_msvs2026.vcxproj" Id="1f7b92ef-9449-41f1-b89c-4de90fe5d108" />
