@@ -10,6 +10,7 @@
   </Configurations>
   <Folder Name="/demos/">
     <Project Path="../demos/build/Animation_ExpressYourself/Animation_ExpressYourself_msvs2026.vcxproj" Id="12089693-5318-4a2e-be46-59fde353f26d">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -18,6 +19,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Animation_FollowThePath/Animation_FollowThePath_msvs2026.vcxproj" Id="e9c08fd6-019a-42a4-981b-dc43e6b9d4ec">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -26,6 +28,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Animation_FourthDimension/Animation_FourthDimension_msvs2026.vcxproj" Id="8b765d29-0308-41fe-b476-d37615bb28ef">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -34,6 +37,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Animation_MakeSomeNoise/Animation_MakeSomeNoise_msvs2026.vcxproj" Id="212aa438-55dd-4b52-9740-9e330a9581ac">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -42,6 +46,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Animation_Morphing/Animation_Morphing_msvs2026.vcxproj" Id="b8ed81ec-ced9-4bc1-9d34-aa4f2f605ebe">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -50,6 +55,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Animation_Skinning/Animation_Skinning_msvs2026.vcxproj" Id="fab79e77-a47f-4707-9a1b-4e0e38a757b1">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -58,6 +64,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Constraint_LookAtMe/Constraint_LookAtMe_msvs2026.vcxproj" Id="0d482fd8-f796-49a7-bb86-0b64c98bb331">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -66,6 +73,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Constraint_Robotics/Constraint_Robotics_msvs2026.vcxproj" Id="df41306b-72d3-49f1-a422-8d2557c1f5dd">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -74,6 +82,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Fog_PurpleHaze/Fog_PurpleHaze_msvs2026.vcxproj" Id="c90ecdd7-cf7b-49de-8317-723c4dd92523">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -82,6 +91,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Generic_EmptyApplication/Generic_EmptyApplication_msvs2026.vcxproj" Id="9065049c-ea62-48c6-bea3-090b334caff6">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -90,6 +100,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Generic_EulerAngles/Generic_EulerAngles_msvs2026.vcxproj" Id="ada3eb28-f5bb-452a-9b29-2f2e86a637be">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -98,6 +109,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Generic_TheRambler/Generic_TheRambler_msvs2026.vcxproj" Id="62a7ab4b-16cb-4ad2-8926-23c2b031b128">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -106,6 +118,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Instancing_Crates/Instancing_Crates_msvs2026.vcxproj" Id="999a9ce6-3f91-4ebb-b936-c5760ec95ce9">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -114,6 +127,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Instancing_ThreeIsACrowd/Instancing_ThreeIsACrowd_msvs2026.vcxproj" Id="c0fe9d93-8b94-421e-a50e-cff6231b1a8b">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -122,6 +136,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Material_Lighting/Material_Lighting_msvs2026.vcxproj" Id="c04177d0-e237-44e2-a656-9e5ebd244e44">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -130,6 +145,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Material_Transparency/Material_Transparency_msvs2026.vcxproj" Id="d8e0ccbf-eaa6-45f7-a2a8-1e9f826f634f">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -138,6 +154,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Mesh_LevelsOfDetail/Mesh_LevelsOfDetail_msvs2026.vcxproj" Id="4d51cbfb-42e1-49ac-ad2c-e8afef2e2dd7">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -146,6 +163,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Overlay_Sprites/Overlay_Sprites_msvs2026.vcxproj" Id="ba9f0c8e-d7fb-4a0f-aaa5-82d0fe368db0">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -154,6 +172,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Overlay_Texts/Overlay_Texts_msvs2026.vcxproj" Id="05a3cd30-2175-4079-8ca8-cd02f1e5ce47">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -162,6 +181,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Physics_WakeAndSleep/Physics_WakeAndSleep_msvs2026.vcxproj" Id="cda157d3-f696-4664-9558-bc322702fbfc">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -170,6 +190,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/PostProcess_Blur/PostProcess_Blur_msvs2026.vcxproj" Id="90062284-12aa-4a78-9e7b-84682ceab9ad">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -178,6 +199,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/PostProcess_ColorShift/PostProcess_ColorShift_msvs2026.vcxproj" Id="1a16009c-e5c8-4dd9-97cc-7619c0d5d268">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -186,6 +208,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/PostProcess_ColorTouch/PostProcess_ColorTouch_msvs2026.vcxproj" Id="ae734c9b-9fee-4022-81b7-0ae2970f8b1a">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -194,6 +217,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/PostProcess_EdgeDetection/PostProcess_EdgeDetection_msvs2026.vcxproj" Id="1f7b92ef-9449-41f1-b89c-4de90fe5d108">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -202,6 +226,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/PostProcess_Emboss/PostProcess_Emboss_msvs2026.vcxproj" Id="b740394f-40f4-4815-9541-2d026797a9b5">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -210,6 +235,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Sky_SkyIsBlue/Sky_SkyIsBlue_msvs2026.vcxproj" Id="eef9f80a-0d60-4e13-a18a-f630e5131efd">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -218,6 +244,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/UI_CustomUI/UI_CustomUI_msvs2026.vcxproj" Id="4212458e-06bc-47f2-8e18-20fdf1935a2e">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -226,6 +253,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Viewport_Anaglyphs/Viewport_Anaglyphs_msvs2026.vcxproj" Id="183c1f45-f279-41a7-83ad-14a7e6cac182">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -234,6 +262,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Viewport_Picking/Viewport_Picking_msvs2026.vcxproj" Id="e5542b0a-c9be-4210-ac71-3441e78a8548">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -242,6 +271,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Viewport_PictureInPicture/Viewport_PictureInPicture_msvs2026.vcxproj" Id="71bcd45c-fec8-49d1-af16-aae38158f2c3">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -250,6 +280,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Viewport_Solarium/Viewport_Solarium_msvs2026.vcxproj" Id="e2e609e5-69b3-446d-b6e8-f3db0a8bcc17">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
@@ -258,6 +289,7 @@
       <Build Solution="release_static|*" Project="false" />
     </Project>
     <Project Path="../demos/build/Viewport_ViewTransition/Viewport_ViewTransition_msvs2026.vcxproj" Id="a16491d5-aa5d-4b10-8785-e495708dedc6">
+      <BuildDependency Project="../libraries/build/synkro/synkro_msvs2026.vcxproj" />
       <BuildType Solution="debug_static|*" Project="profile" />
       <BuildType Solution="profile_static|*" Project="profile" />
       <BuildType Solution="release_static|*" Project="release" />
